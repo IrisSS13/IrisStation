@@ -240,18 +240,6 @@ const ViewCharacter = (props) => {
                     <LabeledList.Item label="Gender">
                       {overlay.gender}
                     </LabeledList.Item>
-                    <LabeledList.Item label="ERP">
-                      {overlay.erp}
-                    </LabeledList.Item>
-                    <LabeledList.Item label="Vore">
-                      {overlay.vore}
-                    </LabeledList.Item>
-                    <LabeledList.Item label="Hypnosis">
-                      {overlay.hypno}
-                    </LabeledList.Item>
-                    <LabeledList.Item label="Noncon">
-                      {overlay.noncon}
-                    </LabeledList.Item>
                   </LabeledList>
                   &nbsp; {formatURLs(overlay.ooc_notes)}
                 </Section>
@@ -405,87 +393,40 @@ const CharacterDirectoryList = (props) => {
           >
             Gender
           </SortButton>
-          <SortButton
-            id="erp"
-            sortId={sortId}
-            sortOrder={sortOrder}
-            onClick={handleSort}
-          >
-            ERP
-          </SortButton>
-          <SortButton
-            id="vore"
-            sortId={sortId}
-            sortOrder={sortOrder}
-            onClick={handleSort}
-          >
-            Vore
-          </SortButton>
-          <SortButton
-            id="hypno"
-            sortId={sortId}
-            sortOrder={sortOrder}
-            onClick={handleSort}
-          >
-            Hypno
-          </SortButton>
-          <SortButton
-            id="noncon"
-            sortId={sortId}
-            sortOrder={sortOrder}
-            onClick={handleSort}
-          >
-            Noncon
-          </SortButton>
+          <Table.Cell p={1}>
+            {canOrbit ? (
+              <Button
+                color={erpTagColor[character.erp]}
+                icon="ghost"
+                tooltip="Orbit"
+                onClick={() => act('orbit', { ref: character.ref })}
+              >
+                {character.name}
+              </Button>
+            ) : (
+              character.name
+            )}
+          </Table.Cell>
+          <Table.Cell>{character.species}</Table.Cell>
+          <Table.Cell>{character.attraction}</Table.Cell>
+          <Table.Cell>{character.gender}</Table.Cell>
           <Table.Cell collapsing textAlign="right">
-            Advert
+            <Button
+              onClick={() => {
+                updateOverlay(character);
+                act('view_character', {
+                  assigned_view: assignedView,
+                  name: character.appearance_name,
+                });
+              }}
+              color="transparent"
+              icon="sticky-note"
+              mr={1}
+            >
+              View
+            </Button>
           </Table.Cell>
         </Table.Row>
-        {sortedDirectory.map((character, i) => (
-          <Table.Row
-            key={i}
-            backgroundColor={
-              colorCodeEnabled ? erpTagColor[character.erp] : 'transparent'
-            }
-          >
-            <Table.Cell p={1}>
-              {canOrbit ? (
-                <Button
-                  color={erpTagColor[character.erp]}
-                  icon="ghost"
-                  tooltip="Orbit"
-                  onClick={() => act('orbit', { ref: character.ref })}
-                >
-                  {character.name}
-                </Button>
-              ) : (
-                character.name
-              )}
-            </Table.Cell>
-            <Table.Cell>{character.species}</Table.Cell>
-            <Table.Cell>{character.attraction}</Table.Cell>
-            <Table.Cell>{character.gender}</Table.Cell>
-            <Table.Cell>{character.erp}</Table.Cell>
-            <Table.Cell>{character.vore}</Table.Cell>
-            <Table.Cell>{character.hypno}</Table.Cell>
-            <Table.Cell>{character.noncon}</Table.Cell>
-            <Table.Cell collapsing textAlign="right">
-              <Button
-                onClick={() => {
-                  updateOverlay(character);
-                  act('view_character', {
-                    assigned_view: assignedView,
-                    name: character.appearance_name,
-                  });
-                }}
-                color="transparent"
-                icon="sticky-note"
-                mr={1}
-              >
-                View
-              </Button>
-            </Table.Cell>
-          </Table.Row>
         ))}
       </Table>
     </Section>

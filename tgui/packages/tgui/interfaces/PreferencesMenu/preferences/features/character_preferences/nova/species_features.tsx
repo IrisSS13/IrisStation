@@ -51,13 +51,6 @@ export const ooc_notes: Feature<string> = {
   component: FeatureTextInput,
 };
 
-export const character_ad: Feature<string> = {
-  name: 'Character Advert',
-  description:
-    'An advertisement for your character. Give information on how to approach for those interested, for either regular and erotic roleplay.',
-  component: FeatureTextInput,
-};
-
 export const attraction: FeatureChoiced = {
   name: 'Character Attraction',
   description:
