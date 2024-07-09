@@ -53,15 +53,13 @@ export const ooc_notes: Feature<string> = {
 
 export const attraction: FeatureChoiced = {
   name: 'Character Attraction',
-  description:
-    'What your character is attracted to. This is displayed in the Directory.',
+  description: 'What your character is attracted to.',
   component: FeatureDropdownInput,
 };
 
 export const display_gender: FeatureChoiced = {
   name: 'Character Gender',
-  description:
-    'What classifies as the gender for your character. This is displayed in the Directory.',
+  description: 'What classifies as the gender for your character.',
   component: FeatureDropdownInput,
 };
 

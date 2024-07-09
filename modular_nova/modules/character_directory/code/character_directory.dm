@@ -30,7 +30,7 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 	savefile_identifier = PREFERENCE_CHARACTER
 
 /datum/preference/choiced/attraction/init_possible_values()
-	return list("Gay", "Lesbian", "Straight", "Skolio", "Bi", "Pan", "Poly", "Omni", "Ace", "Aro", "Aro/Ace", "Unset", "Check OOC")
+	return list("Gay", "Lesbian", "Straight", "Cetero", "Bi", "Pan", "Poly", "Omni", "Ace", "Aro", "Aro/Ace", "Unset", "Check OOC")
 
 /datum/preference/choiced/attraction/create_default_value()
 	return "Unset"
