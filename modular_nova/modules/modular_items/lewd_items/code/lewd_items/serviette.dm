@@ -73,7 +73,7 @@
 
 /obj/item/serviette_pack
 	name = "pack of serviettes"
-	desc = "I wonder why LustWish makes them..."
+	desc = "Keep yourself squeaky clean!"
 	icon_state = "serviettepack_4"
 	base_icon_state = "serviettepack"
 	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_items/lewd_items.dmi'
