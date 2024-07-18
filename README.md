@@ -20,7 +20,7 @@
 
 This is Iris' downstream fork of Nova Sector, which in turn is a downstream fork of /tg/station created in BYOND.
 
-Future plans will be to gut the NSFW aspect of the server entirely and balance things to our liking, but for now it's disabled in config. 
+Future plans will be to gut the NSFW aspect of the server entirely and balance things to our liking, but for now it's disabled in config. Be aware when you download, the NSFW features will be turned on. You can disable them in config.
 
 Space Station 13 is a paranoia-laden round-based roleplaying game set against the backdrop of a nonsensical, metal death trap masquerading as a space station, with charming spritework designed to represent the sci-fi setting and its dangerous undertones. Have fun, and survive!
 
