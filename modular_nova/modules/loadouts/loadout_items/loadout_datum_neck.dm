@@ -128,39 +128,6 @@
 	name = "Thin Choker"
 	item_path = /obj/item/clothing/neck/human_petcollar/thinchoker
 
-/datum/loadout_item/neck/collar
-	name = "Collar"
-	item_path = /obj/item/clothing/neck/human_petcollar
-
-/datum/loadout_item/neck/leathercollar
-	name = "Leather Collar"
-	item_path = /obj/item/clothing/neck/human_petcollar/leather
-
-/datum/loadout_item/neck/cbellcollar
-	name = "Cowbell Collar"
-	item_path = /obj/item/clothing/neck/human_petcollar/locked/cow
-
-/datum/loadout_item/neck/bellcollar
-	name = "Bell Collar"
-	item_path = /obj/item/clothing/neck/human_petcollar/locked/bell
-
-/datum/loadout_item/neck/spikecollar
-	name = "Spike Collar"
-	item_path = /obj/item/clothing/neck/human_petcollar/locked/spike
-
-/datum/loadout_item/neck/hcollar
-	name = "Holocollar"
-	item_path = /obj/item/clothing/neck/human_petcollar/locked/holo
-
-/datum/loadout_item/neck/crosscollar
-	name = "Cross Collar"
-	item_path = /obj/item/clothing/neck/human_petcollar/locked/cross
-
-/datum/loadout_item/neck/kinkycollar
-	name = "Kinky Collar"
-	item_path = /obj/item/clothing/neck/kink_collar
-	erp_item = TRUE
-
 /*
 *	PONCHOS
 */
