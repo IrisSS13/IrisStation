@@ -23,7 +23,7 @@
 // The three primary paths that eventually diverge
 #define BORER_EVOLUTION_SYMBIOTE "Symbiote"
 #define BORER_EVOLUTION_HIVELORD "Hivelord"
-#define BORER_EVOLUTION_DIVEWORM "Diveworm"
+ //#define BORER_EVOLUTION_DIVEWORM "Diveworm"
 // Just general upgrades that don't take you in a specific direction
 #define BORER_EVOLUTION_GENERAL "General"
 #define BORER_EVOLUTION_START "Start"
