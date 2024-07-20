@@ -1,3 +1,4 @@
+//this tree is being disabled for now
 /datum/borer_evolution/diveworm
 	evo_type = BORER_EVOLUTION_DIVEWORM
 

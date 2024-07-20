@@ -1,8 +1,34 @@
+/datum/borer_evolution/health_per_level
+	name = "Health Increase"
+	desc = "Increase the amount of health per level-up you gain."
+	gain_text = "Over time, some worms have become harder to dissect post-mortem. Their skin membrane has become up to thrice as thick."
+	tier = 2
+	unlocked_evolutions = list()
+	evo_cost = 1
+
+/datum/borer_evolution/health_per_level/on_evolve(mob/living/basic/cortical_borer/cortical_owner)
+	. = ..()
+	cortical_owner.health_per_level += 2.5
+	cortical_owner.recalculate_stats()
+
+/datum/borer_evolution/host_speed
+	name = "Boring Speed"
+	desc = "Decrease the time it takes to enter a host when you are not hiding."
+	gain_text = "Once or twice, I would blink, and see the non-host monkeys be grappling with a worm that was cross the room just moments before."
+	tier = 3
+	unlocked_evolutions = list()
+
+/datum/borer_evolution/host_speed/on_evolve(mob/living/basic/cortical_borer/cortical_owner)
+	. = ..()
+	cortical_owner.upgrade_flags |= BORER_FAST_BORING
+
 /datum/borer_evolution/upgrade_injection
 	name = "Upgrade Injection"
 	desc = "Upgrade your possible injection amount to 10 units."
 	gain_text = "Their growth is astounding, their organs and glands can expand several times their size in mere days."
-	unlocked_evolutions = list(/datum/borer_evolution/upgrade_injection/t2)
+	unlocked_evolutions = list(/datum/borer_evolution/upgrade_injection/t2,
+	/datum/borer_evolution/health_per_level,
+	)
 	tier = 1
 
 /datum/borer_evolution/upgrade_injection/on_evolve(mob/living/basic/cortical_borer/cortical_owner)
@@ -12,7 +38,9 @@
 /datum/borer_evolution/upgrade_injection/t2
 	name = "Upgrade Injection II"
 	desc = "Upgrade your possible injection amount to 25 units."
-	unlocked_evolutions = list(/datum/borer_evolution/upgrade_injection/t3)
+	unlocked_evolutions = list(/datum/borer_evolution/upgrade_injection/t3,
+	/datum/borer_evolution/host_speed,
+	)
 	tier = 2
 
 /datum/borer_evolution/upgrade_injection/t3
