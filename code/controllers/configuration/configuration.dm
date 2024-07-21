@@ -106,7 +106,6 @@
 
 	// NOVA EDIT ADDITION START
 	populate_interaction_instances()
-	remove_erp_things()
 	// NOVA EDIT ADDITION END
 
 	loaded = TRUE

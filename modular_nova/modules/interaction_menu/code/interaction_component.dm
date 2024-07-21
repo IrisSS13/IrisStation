@@ -23,11 +23,6 @@
 	interactions = list()
 	for(var/iterating_interaction_id in GLOB.interaction_instances)
 		var/datum/interaction/interaction = GLOB.interaction_instances[iterating_interaction_id]
-		if(interaction.lewd)
-			if(!self.client?.prefs?.read_preference(/datum/preference/toggle/erp))
-				continue
-			if(interaction.sexuality != "" && interaction.sexuality != self.client?.prefs?.read_preference(/datum/preference/choiced/erp_sexuality))
-				continue
 		interactions.Add(interaction)
 
 /datum/component/interactable/RegisterWithParent()
@@ -52,8 +47,6 @@
 
 /datum/component/interactable/proc/can_interact(datum/interaction/interaction, mob/living/carbon/human/target)
 	if(!interaction.allow_act(target, self))
-		return FALSE
-	if(interaction.lewd && !target.client?.prefs?.read_preference(/datum/preference/toggle/erp))
 		return FALSE
 	if(!interaction.distance_allowed && !target.Adjacent(self))
 		return FALSE
@@ -104,23 +97,14 @@
 	data["block_interact"] = interact_next >= world.time
 	data["interactions"] = categories
 
+//disabling instead of removing just in case it breaks some interaction with ui or otherwise
+/*
 	var/list/parts = list()
 
-	if(ishuman(user) && can_lewd_strip(user, self))
-		if(self.client?.prefs?.read_preference(/datum/preference/toggle/erp/sex_toy))
-			if(self.has_vagina())
-				parts += list(generate_strip_entry(ORGAN_SLOT_VAGINA, self, user, self.vagina))
-			if(self.has_penis())
-				parts += list(generate_strip_entry(ORGAN_SLOT_PENIS, self, user, self.penis))
-			if(self.has_anus())
-				parts += list(generate_strip_entry(ORGAN_SLOT_ANUS, self, user, self.anus))
-			parts += list(generate_strip_entry(ORGAN_SLOT_NIPPLES, self, user, self.nipples))
 
-	data["lewd_slots"] = parts
+	return data7
 
-	return data
-
-/**
+*
  *  Takes the organ slot name, along with a target and source, along with the item on the target that the source can potentially interact with.
  *  If the source can't interact with said slot, or there is no item in the first place, it'll set the icon to null to indicate that TGUI should put a placeholder sprite.
  *
@@ -130,13 +114,8 @@
  * * source - The mob that's interacting.
  * * item - The item that's currently inside said slot. Can be null.
  */
-/datum/component/interactable/proc/generate_strip_entry(name, mob/living/carbon/human/target, mob/living/carbon/human/source, obj/item/clothing/sextoy/item)
-	return list(
-		"name" = name,
-		"img" = (item && can_lewd_strip(source, target, name)) ? icon2base64(icon(item.icon, item.icon_state, SOUTH, 1)) : null
-		)
 
-/datum/component/interactable/ui_act(action, list/params)
+/*/datum/component/interactable/ui_act(action, list/params)
 	. = ..()
 	if(.)
 		return
@@ -162,8 +141,6 @@
 		var/item_index = params["item_slot"]
 		var/mob/living/carbon/human/source = locate(params["userref"])
 		var/mob/living/carbon/human/target = locate(params["selfref"])
-		var/obj/item/clothing/sextoy/new_item = source.get_active_held_item()
-		var/obj/item/clothing/sextoy/existing_item = target.vars[item_index]
 
 		if(!existing_item && !new_item)
 			source.show_message(span_warning("No item to insert or remove!"))
@@ -172,11 +149,6 @@
 		if(!existing_item && !istype(new_item))
 			source.show_message(span_warning("The item you're holding is not a toy!"))
 			return
-
-		if(can_lewd_strip(source, target, item_index) && is_toy_compatible(new_item, item_index))
-			var/internal = (item_index in list(ORGAN_SLOT_VAGINA, ORGAN_SLOT_ANUS))
-			var/insert_or_attach = internal ? "insert" : "attach"
-			var/into_or_onto = internal ? "into" : "onto"
 
 			if(existing_item)
 				source.visible_message(span_purple("[source.name] starts trying to remove something from [target.name]'s [item_index]."), span_purple("You start to remove [existing_item.name] from [target.name]'s [item_index]."), span_purple("You hear someone trying to remove something from someone nearby."), vision_distance = 1, ignored_mobs = list(target))
@@ -251,3 +223,4 @@
 			return item.lewd_slot_flags & LEWD_SLOT_NIPPLES
 		else
 			return FALSE
+*/

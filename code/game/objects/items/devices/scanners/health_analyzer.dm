@@ -187,7 +187,8 @@
 		if(LAZYLEN(carbontarget.get_traumas()))
 			var/list/trauma_text = list()
 			for(var/datum/brain_trauma/trauma in carbontarget.get_traumas())
-				//NOVA EDIT: Scary Traits (Bimbo)
+				//NOVA EDIT: Scary Traits (Bimbo) -- disabled
+				/*
 				if(!trauma.display_scanner)
 					continue
 				//NOVA EDIT: Scary Traits (Bimbo)
@@ -203,6 +204,7 @@
 						trauma_desc += "permanent "
 				trauma_desc += trauma.scan_desc
 				trauma_text += trauma_desc
+				*/
 				// NOVA EDIT ADDITION START: Death Consequences Quirk
 				if (istype(trauma, /datum/brain_trauma/severe/death_consequences))
 					var/datum/brain_trauma/severe/death_consequences/consequences_trauma = trauma

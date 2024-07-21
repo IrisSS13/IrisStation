@@ -12,8 +12,6 @@
 		return FALSE
 	if(!(attacker.zone_selected == BODY_ZONE_PRECISE_GROIN))
 		return FALSE
-	if(!has_balls(REQUIRE_GENITAL_EXPOSED))
-		return FALSE
 	if(HAS_TRAIT(src, TRAIT_BRAWLING_KNOCKDOWN_BLOCKED))
 		return FALSE
 	//If we don't roll a punch high enough to hit our stun threshold, or if we are not staggered and have at least 40 damage+stamina

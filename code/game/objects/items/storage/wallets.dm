@@ -20,7 +20,6 @@
 		/obj/item/card,
 		/obj/item/cigarette,
 		// NOVA EDIT BEGIN
-		/obj/item/condom_pack,
 		/obj/item/gbp_punchcard,
 		// NOVA EDIT END
 		/obj/item/clothing/accessory/dogtag,

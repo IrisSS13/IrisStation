@@ -479,14 +479,6 @@
 		for(var/datum/gunpoint/GP in gunpointed)
 			. += "<span class='warning'><b>[GP.source.name] [GP.source.p_are()] holding [t_him] at gunpoint with [GP.aimed_gun.name]!</b></span>\n"
 
-	for(var/genital in GLOB.possible_genitals)
-		if(dna.species.mutant_bodyparts[genital])
-			var/datum/sprite_accessory/genital/G = SSaccessories.sprite_accessories[genital][dna.species.mutant_bodyparts[genital][MUTANT_INDEX_NAME]]
-			if(G)
-				if(!(G.is_hidden(src)))
-					. += "<span class='notice'>[t_He] [t_has] exposed genitals... <a href='?src=[REF(src)];lookup_info=genitals'>\[Look closer...\]</a></span>"
-					break
-
 	var/flavor_text_link
 	/// The first 1-FLAVOR_PREVIEW_LIMIT characters in the mob's "flavor_text" DNA feature. FLAVOR_PREVIEW_LIMIT is defined in flavor_defines.dm.
 	var/preview_text = copytext_char((dna.features["flavor_text"]), 1, FLAVOR_PREVIEW_LIMIT)
@@ -508,11 +500,6 @@
 			. += span_revennotice("<br>They look different than usual: [copytext_char(temporary_flavor_text, 1, TEMPORARY_FLAVOR_PREVIEW_LIMIT)]... <a href='?src=[REF(src)];temporary_flavor=1'>More...</a>")
 
 	. += EXAMINE_SECTION_BREAK
-
-	if(client)
-		var/erp_status_pref = client.prefs.read_preference(/datum/preference/choiced/erp_status)
-		if(erp_status_pref && !CONFIG_GET(flag/disable_erp_preferences))
-			. += span_info("ERP Status: [span_revenboldnotice(erp_status_pref)]")
 
 	if (!CONFIG_GET(flag/disable_antag_opt_in_preferences))
 		var/opt_in_status = mind?.get_effective_opt_in_level()

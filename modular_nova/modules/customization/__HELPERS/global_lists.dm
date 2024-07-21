@@ -114,9 +114,7 @@
 			GLOB.augment_slot_to_items[L.slot] += L.path
 
 /// If the "Remove ERP Interaction" config is disabled, remove ERP things from various lists
-/proc/remove_erp_things()
-	if(!CONFIG_GET(flag/disable_erp_preferences))
-		return
+/// ERP GUTTED. leaving comments in case something breaks
 	// Chemical reactions aren't handled here because they're loaded in the reagents SS
 	// See Initialize() on SSReagents
 

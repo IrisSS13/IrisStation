@@ -408,11 +408,6 @@
 	name = "Natural Wig"
 	item_path = /obj/item/clothing/head/wig/natural
 
-/datum/loadout_item/head/domina_cap
-	name = "Dominant Cap"
-	item_path = /obj/item/clothing/head/domina_cap
-	erp_item = TRUE
-
 /datum/loadout_item/head/fashionable_cap
 	name = "Fashionable Baseball Cap"
 	item_path = /obj/item/clothing/head/soft/yankee
