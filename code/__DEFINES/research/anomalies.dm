@@ -43,7 +43,7 @@ GLOBAL_LIST_INIT(bioscrambler_organs_blacklist, typecacheof(list (
 	/obj/item/organ/internal/tongue/dullahan,
 	/obj/item/organ/internal/vocal_cords/colossus,
 	/obj/item/organ/internal/zombie_infection,
-	/obj/item/organ/internal/empowered_borer_egg, // NOVA EDIT ADDITION
+//	/obj/item/organ/internal/empowered_borer_egg, // NOVA EDIT ADDITION
 	/obj/item/organ/internal/eyes/robotic, // NOVA EDIT ADDITION
 	/obj/item/organ/internal/eyes/night_vision/cyber, // NOVA EDIT ADDITION
 )))
