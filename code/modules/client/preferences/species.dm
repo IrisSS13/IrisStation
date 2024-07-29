@@ -36,6 +36,7 @@
 
 	//NOVA EDIT ADDITION
 	target.dna.update_body_size()
+
 	//NOVA EDIT END
 
 /datum/preference/choiced/species/compile_constant_data()

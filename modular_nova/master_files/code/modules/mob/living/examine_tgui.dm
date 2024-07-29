@@ -69,13 +69,14 @@
 	var/current_antag_optin_status
 	var/headshot = ""
 
-	if(!CONFIG_GET(flag/disable_antag_opt_in_preferences))
-		var/antag_prefs = holder.mind?.ideal_opt_in_level
-		var/effective_opt_in_level = holder.mind?.get_effective_opt_in_level()
-		if(isnull(antag_prefs))
-			antag_prefs = preferences.read_preference(/datum/preference/choiced/antag_opt_in_status)
-		current_antag_optin_status = GLOB.antag_opt_in_strings[num2text(effective_opt_in_level)]
-		ideal_antag_optin_status = GLOB.antag_opt_in_strings[num2text(antag_prefs)]
+	if(preferences)
+		if(!CONFIG_GET(flag/disable_antag_opt_in_preferences))
+			var/antag_prefs = holder.mind?.ideal_opt_in_level
+			var/effective_opt_in_level = holder.mind?.get_effective_opt_in_level()
+			if(isnull(antag_prefs))
+				antag_prefs = preferences.read_preference(/datum/preference/choiced/antag_opt_in_status)
+			current_antag_optin_status = GLOB.antag_opt_in_strings[num2text(effective_opt_in_level)]
+			ideal_antag_optin_status = GLOB.antag_opt_in_strings[num2text(antag_prefs)]
 
 	// Now we handle silicon and/or human, order doesn't really matter
 	// If other variants of mob/living need to be handled at some point, put them here
