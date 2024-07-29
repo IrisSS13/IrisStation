@@ -20,6 +20,9 @@
 		#include "map_files\Ouroboros\Ouroboros.dmm"
 		#include "map_files\SerenityStation\SerenityStation.dmm"
 		// NOVA EDIT END
+		// IRIS EDIT START
+		#include "map_files\biodome\biodome.dmm"
+		// IRIS EDIT END
 		#ifdef CIBUILDING
 			#include "templates.dm"
 		#endif
