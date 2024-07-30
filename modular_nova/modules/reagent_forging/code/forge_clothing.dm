@@ -122,10 +122,6 @@
 	. = ..()
 	AddComponent(/datum/component/reagent_clothing, ITEM_SLOT_GLOVES)
 
-/obj/item/clothing/neck/collar/reagent_clothing/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/reagent_clothing, ITEM_SLOT_NECK)
-
 /obj/item/restraints/handcuffs/reagent_clothing
 	name = "reagent handcuffs"
 	desc = "A pair of handcuffs that are ready to keep someone captive."

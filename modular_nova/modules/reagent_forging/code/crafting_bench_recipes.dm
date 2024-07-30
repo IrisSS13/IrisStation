@@ -60,14 +60,6 @@
 	resulting_item = /obj/item/clothing/gloves/ring/reagent_clothing
 	required_good_hits = 4
 
-/datum/crafting_bench_recipe/collar
-	recipe_name = "collar"
-	recipe_requirements = list(
-		/obj/item/forging/complete/chain = 3,
-	)
-	resulting_item = /obj/item/clothing/neck/collar/reagent_clothing
-	required_good_hits = 6
-
 /datum/crafting_bench_recipe/handcuffs
 	recipe_name = "handcuffs"
 	recipe_requirements = list(
