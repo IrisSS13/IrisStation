@@ -1,6 +1,6 @@
 // Max amounts of cores you can make
 #define MAX_CORES_BLUESPACE 16 // NOVA EDIT CHANGE - ORIGINAL: #define MAX_CORES_BLUESPACE 3 - Higher pop + longer rounds means we probably could use a lot more of these as they are used for a lot of things.
-#define MAX_CORES_GRAVITATIONAL 8
+#define MAX_CORES_GRAVITATIONAL 6
 #define MAX_CORES_FLUX 8
 #define MAX_CORES_VORTEX 1
 #define MAX_CORES_PYRO 8
@@ -43,7 +43,7 @@ GLOBAL_LIST_INIT(bioscrambler_organs_blacklist, typecacheof(list (
 	/obj/item/organ/internal/tongue/dullahan,
 	/obj/item/organ/internal/vocal_cords/colossus,
 	/obj/item/organ/internal/zombie_infection,
-	/obj/item/organ/internal/empowered_borer_egg, // NOVA EDIT ADDITION
+//	/obj/item/organ/internal/empowered_borer_egg, // NOVA EDIT ADDITION
 	/obj/item/organ/internal/eyes/robotic, // NOVA EDIT ADDITION
 	/obj/item/organ/internal/eyes/night_vision/cyber, // NOVA EDIT ADDITION
 )))

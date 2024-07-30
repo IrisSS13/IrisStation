@@ -15,4 +15,3 @@
 	return ..()
 
 #undef PERSONAL_SPACE_DAMAGE
-#undef ASS_SLAP_EXTRA_RANGE

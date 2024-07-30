@@ -1076,3 +1076,195 @@
   - bugfix: Context maptext now properly dynamically adjusts itself instead of using
       hardcoded pixel values
   - bugfix: Fixed null description in cerulean regenerative extract
+2024-07-22:
+  FlufflesTheDog:
+  - rscdel: removed "Die a glorious death" as a possible traitor objective, for real
+      this time
+  Jolly:
+  - rscadd: '[WawaStation] The barbershop and cryo rooms were moved.'
+  - bugfix: '[WawaStation] Fixed the egregious 2x2 walls in the bathroom.'
+  - rscdel: '[WawaStation] The tram, elevator and kiosk have been removed.'
+  NovaBot13:
+  - qol: Moving the light bulb removal function from the left mouse button to the
+      right one.
+  - qol: Added & improved tips related to the light fixture
+  - spellcheck: Fixed a typo in the description for the Syndicate Rebar Crossbow in
+      the Uplink.
+  - qol: Self-respiration no longer sends misleading messages and instead tells about
+      lack of need to breathe once it actually gives you the effect
+  - rscadd: Having a robotic voicebox installed now lets you use silicon emotes.
+  - balance: MMI'd brains/posibrains can now use silicon emotes.
+  - balance: Simple and basic bots can actually beep.
+  - bugfix: MMI'd brains/posibrains are no longer both allowed AND blocked from beeping,
+      now just being allowed to beep.
+  - qol: Mod UI is narrow again
+  - bugfix: HONK mech now waddles
+  - rscadd: Adds Untie Shoes, a 1-point wizard spell. It can be upgraded to untie
+      jackboots, summon shoes to untie, and become completely silent!
+  - qol: There is a larger stock of roundstart clothing availalbe in the clothing
+      vendors. Now you can get your entire gang in matching outfits!
+  RatFromTheJungle:
+  - rscadd: Added the ability to craft armbands, with cloth and a spraycan.
+2024-07-23:
+  00-Steven:
+  - bugfix: Fixes silicon/synth emotes not showing up in the emote panels for synths,
+      bots, or robotic voicebox users.
+  - bugfix: Fixes silicon/synth emotes showing up in the emote panels for every human
+      that CAN'T use them.
+  DrDiasyl aka DrTuxedo:
+  - rscadd: Scanner gates now blare into the chat the reason why it got triggered
+  - rscadd: Scanner gates now can have false positives/negatives, and the chance of
+      them being reduced when they are upgraded
+  - rscadd: Brig entrances now have scanner gates preset to detect GUNS
+  - rscadd: You can now scan people with N-Spector for contraband
+  - image: Scanner gates now have a better sprite with dirs
+  - qol: Scanner gates description now tells to what mode they are set
+  - bugfix: You no longer can remove N-Spector from scanner gates without unlocking
+      them first
+  Melbert:
+  - refactor: Refactored how vending machine icons are displayed, please report if
+      you see any broken icons. Also if all the icons look like missing file icons
+      for you, you gotta update byond man, you're like a year out of date.
+  NovaBot13:
+  - bugfix: Fixes fishing rods not working on adjacent targets.
+  - bugfix: Surgical tape and edagger's embedding values have been fixed
+  - bugfix: Fixed beyblade *flipping.
+  - bugfix: Shuttle events meteors now dont sometimes kill everyone
+  - refactor: refactored global set_basalt_light proc into object proc
+  - refactor: mulebot UI has been refactored
+  - rscadd: 'Charlie: Replaced external cycling airlocks with airlock pumps'
+  - rscadd: You can now fish with explosives.
+  - bugfix: Fixed an inconsistency with examining fishing spots with sufficiently
+      high fishing skill (or skillchip).
+  - rscadd: Added the civilian modsuit module as a standalone model. It offers no
+      slowdown while activated but does NOT protect you from the void of space. You
+      can print the plating from an exosuit fabricator and build it like a normal
+      modsuit.
+  - rscdel: Removed the civilian skin from the standard modsuit, as it is now a standalone
+      model.
+  - image: Tweaked the sprites for the civilian modsuit head, both in-hand and on
+      the mob. Also added a civilian mod plating sprite.
+  - qol: Updated smart fridge UI
+  - qol: Chat notifications are now at the top
+  - bugfix: Holopads no longer suck in unsuspecting people when crowbared
+  - rscadd: Adds the Herculean Gravitronic Spinal Implant; an implant that makes you
+      better at athletics. You can upgrade it into an Atlas implant using a gravity
+      anomaly core.
+  - balance: Gravity anomaly cores have had their max number of cores reduces from
+      8 to 6.
+  - balance: Your athletic ability allows you to climb faster.
+  - rscadd: Gives voidwalker telepathy
+  - bugfix: Fixes the Unsettle ability ignoring line of sight (which was it's sole
+      gimmick, im just dumb)
+  - balance: Voidwalkers cannot break windows anymore or throw objects
+  - balance: Voidwalkers can no longer harm people in crit
+  - balance: Voidwalkers can only pull mobs
+  - balance: Voidwalkers' space dive enter has been increased by 1 seconds, but dive
+      exit decreased by 1 second
+  - balance: Void eater becomes blunt during use. Kidnap people to refresh it
+  - balance: Removes voidwalker glasses slot
+  - balance: Gives voidwalkers chunky fingers
+  - balance: Voidwalker applies NODEATH on hit
+  - balance: Voided victims get dumped in safer places
+  - code_imp: Removed 8 cases of double indentation
+  - bugfix: general bitrunning fixes and 102% faster loading times
+  - bugfix: bitrunning domains are no longer affected by nebulas in the real world
+2024-07-24:
+  Dragonfruits:
+  - image: Added Black-backed Jackal tail & matching markings
+  - image: Added Canine (Alt) snout
+  - image: Added "Belly Slim (Alt) + Body Tonage" marking
+  FlufflesTheDog:
+  - bugfix: the space-ban on station-side screaming has been lifted, We hope you enjoyed
+      the peace and quiet.
+  NovaBot13:
+  - bugfix: Animal/people skin is no longer metallic sounding
+  - bugfix: Alexander no longer causes harddels
+  - bugfix: Removed a theoretical infinite block exploit from alexander
+  - spellcheck: Renamed the Crimson Focus to the Crimson Medallion
+  - bugfix: Fixed harvesters not being properly bound to their master, nor dying when
+      they do
+  - bugfix: Fixed heads totally overriding cultist sacrifice rewards
+  - rscadd: Heretic blade now converts to a nullblade
+  - rscadd: Added wooshing, shaking, and glowing to flinging around with the heretic
+      blade
+  - balance: Removed the probability to not gain a reward when sacrificing a cultist
+  - bugfix: You can now put dead mice into mortars/grinders properly
+2024-07-25:
+  Jacquerel, Kok0nut, Imaginos:
+  - image: Wall-mounted and Table-mounted ID card authorisation machines now use different
+      sprites
+  - bugfix: Wall-mounted ID card authorisation devices will now be destroyed if their
+      wall is destroyed
+  NovaBot13:
+  - balance: Mechs now take armor into consideration when calculating punch damage
+  - bugfix: Mechs no longer deal direct limb damage
+  - bugfix: Drills automatically pick up ore on non-ripley mechs now without having
+      to move
+  - bugfix: Drills no longer dismember people immune to melee damage
+  - bugfix: Drills now take armor from correct bodyparts when attacking
+  - code_imp: Cleaned up one-letter variables in mech drill code
+  - balance: reduced the prices of some blackmarket items across the board.
+  - balance: the thermite bottle (from the contraband spawner and the blackmarket),
+      now spawns with 50u of thermite vs 30, enough to melt one reinforced wall.
+  - rscadd: Replaced the science googles from the blackmarket with a security + health
+      scanner HUD.
+  - rscadd: Replaced the single shotgun dart from the blackmarket with a box of XL
+      shotgun darts.
+  - rscadd: The donk pocket box from the blackmarket now comes in different flavors.
+  - bugfix: fixed ghost huds
+  - bugfix: Borgs and AI can now use research queue
+  - balance: Strong-arm implants go on cooldown when activated, but deal more overall
+      lethal damage on a single blow.
+  - balance: The strong-arm implant does additional damage to fauna and some other
+      dangerous mobs.
+  - qol: You can pair toolset arm implants with the strong-arm implants.
+  - bugfix: Fixed fishing.
+  - qol: fish analyzers now have a UI
+  - refactor: HUD traits now apply their corresponding hud automatically
+  - rscadd: Dehydrator, a machine version of drying rack, with a circuit board and
+      available on some kitchens roundstart.
+  - image: Updated the color palette of Smart Fridge
+  - refactor: Pod code now uses datums instead of being a huge nested list
+  - bugfix: You can no longer microwave kisses, slappers, and other abstract items
+  - qol: Now IDs and PDAs have money-reader module for picking some cash into your
+      bank by swiping on money.
+  - qol: Photocopier updated their UI
+  - bugfix: You can no longer dupe metal by breaking walls under small light fixtures
+  - bugfix: Stacking machine consoles link to machinery now
+  - bugfix: Restores some of the items accidentally lost in the autodrobe.
+  - code_imp: Cleaned up clamp code.
+  - bugfix: Clamp no longer anchors down some objects upon failing to pick them up
+  - bugfix: Deathsquad KILL CLAMP finally works once more
+  - bugfix: Having your liver fail no longer keeps drug traits active without metabolizing
+      them
+  - bugfix: Fixes Hereditary Manifold Sickness's 4th stage not updating health when
+      it should
+  - admin: 'Nanotrasen has brought Central Command kicking and screaming into the
+      20th Century by providing them with a real fax machine.
+
+      :cl:'
+  - bugfix: fixes bitrunning breaking upon repeatedly climbing in and out the pod
+  - refactor: Refactored parrying to be projectile-side and not user-side.
+  - rscadd: You can now parry crusher projectiles to give them some more range, add
+      damage and make the mark always count as a backstab.
+  - rscadd: Projectile parrying has been significantly improved, making parrying and
+      boosting projectiles actually possible. Includes a small grace period as lag
+      compensation for players with higher pings.
+  - balance: Crusher marks can now be detonated by any crusher, not only the one that
+      applied it, as to incentivise coop mining for crusher users.
+  - balance: Projectile boosting now gives a significantly bigger damage and speed
+      increase
+  Thedragmeme:
+  - image: Adds a series of traditional yukata's and kimono's
+  - image: Adds in black sandals and a traditional hairpin for the back of the hair
+  Vekter:
+  - spellcheck: Reworded Voidwalker's objectives to be more descriptive of their actual
+      goals as opposed to just fluff.
+  grungussuss:
+  - bugfix: Serenity station kitchen now has all fire safety-equipment
+  - bugfix: Serenity station robotics stray decals have been removed
+  - bugfix: Serenity station Arrivals Transport Airlocks now have correct unrestricted
+      access
+  - bugfix: Serenity station bridge maintenance has more redundancy
+  - bugfix: Serenity station extra lightbulb in a bathroom stall has been removed
