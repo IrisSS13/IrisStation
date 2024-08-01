@@ -1596,14 +1596,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	icon_state = "tactichill"
 
-// Donation reward for thedragmeme and snailom
-/obj/item/clothing/shoes/fancy_heels/drag
-	desc = "A fancy pair of high heels. Clack clack clack... definitely turning a lot of heads."
-
-/obj/item/clothing/shoes/fancy_heels/drag/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/squeak, list('modular_nova/modules/modular_items/lewd_items/sounds/highheel1.ogg' = 1, 'modular_nova/modules/modular_items/lewd_items/sounds/highheel2.ogg' = 1), 70)
-
 // Donation reward for Razurath
 
 /obj/item/clothing/under/bimpcap
