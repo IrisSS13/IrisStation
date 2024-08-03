@@ -1,8 +1,8 @@
 /datum/round_event_control/cortical_borer
 	name = "Cortical Borer Infestation"
 	typepath = /datum/round_event/ghost_role/cortical_borer
-	weight = 7
-	min_players = 1 //set to 1 for testing purposes
+	weight = 3
+	min_players = 10
 	max_occurrences = 1 //should only ever happen once
 	dynamic_should_hijack = FALSE
 	category = EVENT_CATEGORY_ENTITIES
