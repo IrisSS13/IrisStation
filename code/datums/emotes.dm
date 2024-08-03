@@ -100,13 +100,6 @@
 	var/tmp_sound = get_sound(user)
 	if(tmp_sound && should_play_sound(user, intentional) && TIMER_COOLDOWN_FINISHED(user, type))
 		TIMER_COOLDOWN_START(user, type, audio_cooldown)
-		//NOVA EDIT CHANGE BEGIN
-		//playsound(user, tmp_sound, 50, vary) - NOVA EDIT - ORIGINAL
-		if(istype(src, /datum/emote/living/lewd))
-			play_lewd_sound(user, tmp_sound, sound_volume, vary, pref_to_check = /datum/preference/toggle/erp/sounds)
-		else
-			playsound(user, tmp_sound, sound_volume, vary)
-		//NOVA EDIT CHANGE END
 
 	var/is_important = emote_type & EMOTE_IMPORTANT
 	var/is_visual = emote_type & EMOTE_VISIBLE
@@ -123,10 +116,7 @@
 					continue
 				if(is_visual && viewer.is_blind())
 					continue
-				// NOVA EDIT ADDITION START - Pref checked emotes
-				if(!pref_check_emote(viewer))
-					continue
-				// NOVA EDIT ADDITION END
+
 			if(user.runechat_prefs_check(viewer, EMOTE_MESSAGE))
 				viewer.create_chat_message(
 					speaker = user,
@@ -164,8 +154,6 @@
 			deaf_message = "<span class='emote'>You see how <b>[user]</b> [msg]</span>",
 			self_message = msg,
 			audible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE,
-			separation = space, // NOVA EDIT ADDITION
-			pref_to_check = pref_to_check, // NOVA EDIT ADDITION
 		)
 	// Emote is entirely audible, no visible component
 	else if(is_audible)
@@ -173,8 +161,6 @@
 			message = msg,
 			self_message = msg,
 			audible_message_flags = EMOTE_MESSAGE,
-			separation = space, // NOVA EDIT ADDITION
-			pref_to_check = pref_to_check, // NOVA EDIT ADDITION
 		)
 	// Emote is entirely visible, no audible component
 	else if(is_visual)
@@ -182,8 +168,6 @@
 			message = msg,
 			self_message = msg,
 			visible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE,
-			separation = space, // NOVA EDIT ADDITION
-			pref_to_check = pref_to_check, // NOVA EDIT ADDITION
 		)
 	else
 		CRASH("Emote [type] has no valid emote type set!")
@@ -193,8 +177,6 @@
 	if(hologram)
 		if(is_important)
 			for(var/mob/living/viewer in viewers(world.view, hologram))
-				if(!pref_check_emote(viewer))
-					continue
 				to_chat(viewer, msg)
 		else if(is_visual && is_audible)
 			hologram.audible_message(
@@ -203,7 +185,6 @@
 				self_message = msg,
 				audible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE,
 				separation = space,
-				pref_to_check = pref_to_check,
 			)
 		else if(is_audible)
 			hologram.audible_message(
@@ -211,7 +192,6 @@
 				self_message = msg,
 				audible_message_flags = EMOTE_MESSAGE,
 				separation = space,
-				pref_to_check = pref_to_check,
 			)
 		else if(is_visual)
 			hologram.visible_message(
@@ -219,7 +199,6 @@
 				self_message = msg,
 				visible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE,
 				separation = space,
-				pref_to_check = pref_to_check,
 			)
 	// NOVA EDIT ADDITION END
 	if(!isnull(user.client))
@@ -229,10 +208,6 @@
 				continue
 			if(!(get_chat_toggles(ghost.client) & CHAT_GHOSTSIGHT))
 				continue
-			// NOVA EDIT ADDITION START - Pref checked emotes
-			if(!pref_check_emote(ghost))
-				continue
-			// NOVA EDIT ADDITION END
 			to_chat(ghost, "<span class='emote'>[FOLLOW_LINK(ghost, user)] [dchatmsg]</span>")
 
 	return

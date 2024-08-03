@@ -529,35 +529,6 @@
 	supports_variations_flags = NONE
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 
-/obj/item/clothing/gloves/ring/hypno
-	var/list/spans = list()
-	actions_types = list(/datum/action/item_action/hypno_whisper)
-
-// Donation reward for CoffeePot
-/obj/item/clothing/gloves/ring/hypno/coffeepot
-	name = "hypnodemon's ring"
-	desc = "A pallid, softly desaturated-looking gold ring that doesn't look like it belongs. It's hard to put one's finger on why it feels at odds with the world around it - the shine coming off it looks like it could be a mismatch with the lighting in the room, or it could be that it seems to glint and twinkle occasionally when there's no obvious reason for it to - though only when you're not really looking."
-	spans = list("velvet")
-
-// Donation reward for Bippys
-/obj/item/clothing/gloves/ring/hypno/bippys
-	name = "hypnobot hexnut"
-	desc = "A silver bolt component that once belonged to a very peculiar IPC. It's large enough to be worn as a ring on nearly any finger, and is said to amplify the voice of one's mind to another's in the softness of a Whisper..."
-	icon_state = "ringsilver"
-	worn_icon_state = "sring"
-	spans = list("hexnut")
-
-/datum/action/item_action/hypno_whisper
-	name = "Hypnotic Whisper"
-
-/obj/item/clothing/gloves/ring/hypno/ui_action_click(mob/living/user, action)
-	if(!isliving(user) || !can_use(user))
-		return
-	var/message = input(user, "Speak with a hypnotic whisper", "Whisper")
-	if(QDELETED(src) || QDELETED(user) || !message || !user.can_speak())
-		return
-	user.whisper(message, spans = spans)
-
 // Donation reward for SlippyJoe
 /obj/item/clothing/head/avipilot
 	name = "smuggler's flying cap"
@@ -1426,20 +1397,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	if(!isinhands)
 		. += emissive_appearance(icon_file, "[icon_state]-emissive", src, alpha = src.alpha)
 
-//Donation reward for RealWinterFrost
-/obj/item/clothing/neck/cloak/fluffycloak
-	name = "Cloak of the Fluffy One"
-	desc = "Hugs and kisses is only what this one knows, may their hugs be for all and not for their own \"For Fuffy Use Only\"."
-	icon_state = "fluffycloak"
-	icon = 'modular_nova/master_files/icons/donator/obj/clothing/cloaks.dmi'
-	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/neck.dmi'
-
-/obj/item/clothing/neck/cloak/fluffycloak/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
-	. = ..()
-	if(!isinhands)
-		. += emissive_appearance(icon_file, "[icon_state]-emissive", src, alpha = src.alpha)
-
-
 /obj/item/clothing/mask/gas/larpswat
 	name = "Foam Force SWAT Mask"
 	desc = "What seems to be a SWAT mask at first, is actually a gasmask that has replica parts of a SWAT mask made from cheap plastic. Hey at least it looks good if you enjoy looking like a security larper."
@@ -1538,33 +1495,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	body_parts_covered = CHEST|GROIN|ARMS
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-// Donation reward for SlippyJoe
-/obj/item/clothing/accessory/hypno_watch
-	name = "cracked pocket watch"
-	desc = "A shining pocket watch, cast in gold and embossed with metallic swirls that almost seem  amethyst under the right light... There's a button on the top to unlatch the front panel, although all that's inside is a layer of cracked glass, the argent hands stuck pointing to 7:07 PM. The brushed silver of these arrows almost seems to swirl if one's gaze lingers for too long. Despite its inert appearance, the eerie mechanical sound of gears turning and clicking in place seems to quietly ring out from the artifact. In the right hands..."
-	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
-	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/custom_w.dmi'
-	lefthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_left.dmi'
-	righthand_file = 'modular_nova/master_files/icons/donator/mob/inhands/donator_right.dmi'
-	worn_icon_state = "pocketwatch"
-	icon_state = "pocketwatch"
-	inhand_icon_state = "pocketwatch"
-	var/list/spans = list("velvet")
-	actions_types = list(/datum/action/item_action/hypno_whisper)
-
-//TODO: make a component for all that various hypno stuff instead of adding it to items individually
-/obj/item/clothing/accessory/hypno_watch/ui_action_click(mob/living/user, action)
-	if(!isliving(user) || !can_use(user))
-		return
-	var/message = input(user, "Speak with a hypnotic whisper", "Whisper")
-	if(QDELETED(src) || QDELETED(user) || !message || !user.can_speak())
-		return
-	user.whisper(message, spans = spans)
-
-/obj/item/clothing/accessory/hypno_watch/examine()
-	. = ..()
-	. += span_boldwarning("Who knows what it could be used for?")
-
 // Donation reward for BoisterousBeebz
 
 /obj/item/clothing/under/bubbly_clown/skirt
@@ -1595,14 +1525,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	icon_state = "tactichill"
-
-// Donation reward for thedragmeme and snailom
-/obj/item/clothing/shoes/fancy_heels/drag
-	desc = "A fancy pair of high heels. Clack clack clack... definitely turning a lot of heads."
-
-/obj/item/clothing/shoes/fancy_heels/drag/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/squeak, list('modular_nova/modules/modular_items/lewd_items/sounds/highheel1.ogg' = 1, 'modular_nova/modules/modular_items/lewd_items/sounds/highheel2.ogg' = 1), 70)
 
 // Donation reward for Razurath
 
@@ -1648,15 +1570,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	icon_state = "long-coat"
 	hoodtype = /obj/item/clothing/head/hooded/sigmarcoat
 	supports_variations_flags = NONE
-
-// Donation reward for Sonicgotnuked
-
-/obj/item/clothing/gloves/ring/hypno/nuke
-	name = "suspiciously glossy ring"
-	desc = "This ring oozes with an assertive edge as sharp light bends along the smooth, black bronze. Like the finger that wears it, an exceptional amount of polish repels nearly all the light that glances along its surface. If you look closer, a slight golden hue indicates the precious metals inside the alloy."
-	icon = 'modular_nova/master_files/icons/obj/ring.dmi'
-	icon_state = "ringblack"
-	spans = list("glossy")
 
 //reward for SomeRandomOwl
 /obj/item/clothing/head/costume/owlhat
@@ -2053,17 +1966,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	icon_state = "ignari_rem"
 	can_adjust = FALSE
-
-/obj/item/clothing/shoes/rem_shoes
-	name = "\improper M.I.A. heels"
-	desc = "A pair of form fitting heels. They appear to bear no distinguishing identifiers."
-	icon = 'modular_nova/master_files/icons/donator/obj/clothing/shoes.dmi'
-	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/feet.dmi'
-	icon_state = "rem_shoes"
-
-/obj/item/clothing/shoes/rem_shoes/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/squeak, list('modular_nova/modules/modular_items/lewd_items/sounds/highheel1.ogg' = 1, 'modular_nova/modules/modular_items/lewd_items/sounds/highheel2.ogg' = 1), 70)
 
 /obj/item/clothing/under/bwake
 	name = "\improper Compression bodysuit"

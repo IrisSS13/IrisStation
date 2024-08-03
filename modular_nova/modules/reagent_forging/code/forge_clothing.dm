@@ -122,23 +122,6 @@
 	. = ..()
 	AddComponent(/datum/component/reagent_clothing, ITEM_SLOT_GLOVES)
 
-/obj/item/clothing/neck/collar/reagent_clothing
-	name = "reagent collar"
-	desc = "A collar that is ready to be worn for certain individuals."
-	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_neck.dmi'
-	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_neck.dmi'
-	icon_state = "collar_cyan"
-	inhand_icon_state = null
-	body_parts_covered = NECK
-	slot_flags = ITEM_SLOT_NECK
-	w_class = WEIGHT_CLASS_SMALL
-	material_flags = MATERIAL_EFFECTS | MATERIAL_ADD_PREFIX | MATERIAL_GREYSCALE | MATERIAL_COLOR
-	obj_flags_nova = ANVIL_REPAIR
-
-/obj/item/clothing/neck/collar/reagent_clothing/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/reagent_clothing, ITEM_SLOT_NECK)
-
 /obj/item/restraints/handcuffs/reagent_clothing
 	name = "reagent handcuffs"
 	desc = "A pair of handcuffs that are ready to keep someone captive."

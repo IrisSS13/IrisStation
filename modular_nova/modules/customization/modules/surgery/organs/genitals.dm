@@ -43,17 +43,8 @@
 	genital_size = size
 	update_sprite_suffix()
 
-/obj/item/organ/external/genital/Initialize(mapload)
-	. = ..()
-	update_sprite_suffix()
-	if(CONFIG_GET(flag/disable_lewd_items))
-		return INITIALIZE_HINT_QDEL
 
 //Removes ERP organs depending on config
-/obj/item/organ/external/genital/Insert(mob/living/carbon/M, special, movement_flags)
-	if(CONFIG_GET(flag/disable_erp_preferences))
-		return
-	. = ..()
 
 /obj/item/organ/external/genital/Remove(mob/living/carbon/M, special = FALSE, moving)
 	. = ..()

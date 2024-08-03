@@ -60,6 +60,8 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 	if(target != user && usage == INTERACTION_SELF)
 		return FALSE
 
+// disabled instead of removed incase it breaks something
+/*
 	if(user_required_parts.len)
 		for(var/thing in user_required_parts)
 			var/obj/item/organ/external/genital/required_part = user.get_organ_slot(thing)
@@ -75,6 +77,7 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 				return FALSE
 			if(!required_part.is_exposed())
 				return FALSE
+*/
 
 	for(var/requirement in interaction_requires)
 		switch(requirement)
@@ -139,6 +142,8 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 		sound_cache = pick(sound_possible)
 		playsound(target.loc, sound_cache, 50, sound_vary, max(0, -SOUND_RANGE + sound_range))
 
+// disabled instead of removed incase it breaks something
+/*
 	INVOKE_ASYNC(src, PROC_REF(apply_effects), user, target)
 
 /// Applies side effects to the user and/or target of the interaction.
@@ -157,6 +162,7 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 		target.adjust_pleasure(target_pleasure)
 	if(target_arousal)
 		target.adjust_arousal(target_arousal)
+*/
 
 /datum/interaction/proc/load_from_json(path)
 	var/fpath = path

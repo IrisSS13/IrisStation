@@ -91,42 +91,14 @@
 
 	food_preferences = SANITIZE_LIST(save_data["food_preferences"])
 
+
+
 	var/needs_nova_update = savefile_needs_update_nova(save_data)
 	if(needs_nova_update >= 0)
 		update_character_nova(needs_nova_update, save_data) // needs_nova_update == savefile_version if we need an update (positive integer)
 
-
 /// Brings a savefile up to date with modular preferences. Called if savefile_needs_update_nova() returned a value higher than 0
 /datum/preferences/proc/update_character_nova(current_version, list/save_data)
-	if(current_version < VERSION_GENITAL_TOGGLES)
-		// removed genital toggles, with the new choiced prefs paths as assoc
-		var/static/list/old_toggles
-		if(!old_toggles)
-			old_toggles = list(
-				"penis_toggle" = /datum/preference/choiced/genital/penis,
-				"testicles_toggle" = /datum/preference/choiced/genital/testicles,
-				"vagina_toggle" = /datum/preference/choiced/genital/vagina,
-				"womb_toggle" = /datum/preference/choiced/genital/womb,
-				"breasts_toggle" = /datum/preference/choiced/genital/breasts,
-				"anus_toggle" = /datum/preference/choiced/genital/anus,
-			)
-
-		for(var/toggle in old_toggles)
-			var/has_genital = save_data[toggle]
-			if(!has_genital) // The toggle was off, so we make sure they have it set to the default "None" in the dropdown pref.
-				var/datum/preference/genital = GLOB.preference_entries[old_toggles[toggle]]
-				write_preference(genital, genital.create_default_value())
-
-		if(save_data["skin_tone_toggle"])
-			for(var/pref_type in subtypesof(/datum/preference/toggle/genital_skin_tone))
-				write_preference(GLOB.preference_entries[pref_type], TRUE)
-
-	if(current_version < VERSION_BREAST_SIZE_CHANGE)
-		var/list/old_breast_prefs
-		old_breast_prefs = save_data["breasts_size"]
-		if(isnum(old_breast_prefs)) // Can't be too careful
-			// You weren't meant to be able to pick sizes over this anyways.
-			write_preference(GLOB.preference_entries[/datum/preference/choiced/breasts_size], GLOB.breast_size_translation["[min(old_breast_prefs, 10)]"])
 
 	if(current_version < VERSION_SYNTH_REFACTOR)
 		var/old_species = save_data["species"]

@@ -31,20 +31,6 @@
 		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_MEDICAL,
 	)
 
-/datum/design/affection_module
-	name = "Affection Module"
-	id = "affection_module"
-	build_type = MECHFAB
-	build_path = /obj/item/borg/upgrade/affectionmodule
-	materials = list(
-		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
-	)
-	construction_time = 4 SECONDS
-	category = list(
-		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_ALL,
-	)
-
 /datum/design/advanced_materials
 	name = "Advanced Materials Module"
 	id = "advanced_materials"
