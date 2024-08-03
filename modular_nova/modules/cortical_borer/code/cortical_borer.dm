@@ -75,7 +75,7 @@ GLOBAL_LIST_EMPTY(cortical_borers)
 	volume = 100
 
 /mob/living/basic/cortical_borer
-	name = "cortical borer"
+	name = "Cortical Borer"
 	desc = "A slimy creature that is known to go into the ear canal of unsuspecting victims."
 	icon = 'modular_nova/modules/cortical_borer/icons/animal.dmi'
 	icon_state = "brainslug"

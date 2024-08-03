@@ -42,7 +42,7 @@
 #define ROLE_SPIDER "Spider"
 #define ROLE_WIZARD_MIDROUND "Wizard (Midround)"
 //NOVA EDIT ADDITION START
-#define ROLE_BORER "Borer"
+#define ROLE_BORER "Cortical Borer"
 #define ROLE_DRIFTING_CONTRACTOR "Drifting Contractor"
 #define ROLE_LONE_INFILTRATOR "Lone Infiltrator"
 #define ROLE_MUTANT "Mutated Abomination"

@@ -134,6 +134,8 @@ If anyone can figure out how to get Obsessed to work I would be very appreciativ
 			return TRUE
 		if(ROLE_ALIEN)
 			return TRUE
+		if(ROLE_BORER)
+			return TRUE
 	return FALSE
 
 /datum/admins/proc/make_antag(antagtype, opt)
@@ -188,6 +190,9 @@ If anyone can figure out how to get Obsessed to work I would be very appreciativ
 			return TRUE
 		if(ROLE_SPACE_DRAGON)
 			new /datum/round_event/ghost_role/space_dragon()
+			return TRUE
+		if(ROLE_BORER)
+			new /datum/round_event/ghost_role/cortical_borer()
 			return TRUE
 	return FALSE
 
