@@ -117,10 +117,10 @@
 *	DONATOR
 */
 
-/datum/loadout_item/gloves/donator
-	abstract_type = /datum/loadout_item/gloves/donator
+/datum/loadout_item/donator/gloves/donator
+	abstract_type = /datum/loadout_item/donator/gloves/donator
 	donator_only = TRUE
 
-/datum/loadout_item/gloves/donator/military
+/datum/loadout_item/donator/gloves/donator/military
 	name = "Military Gloves"
 	item_path = /obj/item/clothing/gloves/military

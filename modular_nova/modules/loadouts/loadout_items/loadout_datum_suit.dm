@@ -730,51 +730,51 @@
 *	DONATOR
 */
 
-/datum/loadout_item/suit/donator
-	abstract_type = /datum/loadout_item/suit/donator
+/datum/loadout_item/donator/suit/donator
+	abstract_type = /datum/loadout_item/donator/suit/donator
 	donator_only = TRUE
 
-/datum/loadout_item/suit/donator/furredjacket
+/datum/loadout_item/donator/suit/donator/furredjacket
 	name = "Furred Jacket"
 	item_path = /obj/item/clothing/suit/brownfurrich/public
 
-/datum/loadout_item/suit/donator/whitefurredjacket
+/datum/loadout_item/donator/suit/donator/whitefurredjacket
 	name = "White Furred Jacket"
 	item_path = /obj/item/clothing/suit/brownfurrich/white
 
-/datum/loadout_item/suit/donator/creamfurredjacket
+/datum/loadout_item/donator/suit/donator/creamfurredjacket
 	name = "Cream Furred Jacket"
 	item_path = /obj/item/clothing/suit/brownfurrich/cream
 
-/datum/loadout_item/suit/donator/modern_winter
+/datum/loadout_item/donator/suit/donator/modern_winter
 	name = "Modern Winter Coat"
 	item_path = /obj/item/clothing/suit/modern_winter
 
-/datum/loadout_item/suit/donator/blondie
+/datum/loadout_item/donator/suit/donator/blondie
 	name = "Cowboy Vest"
 	item_path = /obj/item/clothing/suit/cowboyvest
 
-/datum/loadout_item/suit/donator/digicoat
-	abstract_type = /datum/loadout_item/suit/donator/digicoat
+/datum/loadout_item/donator/suit/donator/digicoat
+	abstract_type = /datum/loadout_item/donator/suit/donator/digicoat
 
-/datum/loadout_item/suit/donator/digicoat/nanotrasen
+/datum/loadout_item/donator/suit/donator/digicoat/nanotrasen
 	name = "nanotrasen digicoat"
 	item_path = /obj/item/clothing/suit/toggle/digicoat/nanotrasen
 
-/datum/loadout_item/suit/donator/digicoat/interdyne
+/datum/loadout_item/donator/suit/donator/digicoat/interdyne
 	name = "Interdyne Digicoat"
 	item_path = /obj/item/clothing/suit/toggle/digicoat/interdyne
 
-/datum/loadout_item/suit/donator/replica_parade_jacket
+/datum/loadout_item/donator/suit/donator/replica_parade_jacket
 	name = "Replica Parade Jacket"
 	item_path = /obj/item/clothing/suit/replica_parade_jacket
 
 // All-donators donator item for BlindPoet
-/datum/loadout_item/suit/donator/chokha
+/datum/loadout_item/donator/suit/donator/chokha
 	name = "Iseurian Chokha"
 	item_path = /obj/item/clothing/suit/chokha
 
-/datum/loadout_item/suit/digicoat_glitched //Public donator reward for Razurath.
+/datum/loadout_item/donator/suit/digicoat_glitched //Public donator reward for Razurath.
 	name = "Glitched Digicoat"
 	item_path = /obj/item/clothing/suit/toggle/digicoat/glitched
 

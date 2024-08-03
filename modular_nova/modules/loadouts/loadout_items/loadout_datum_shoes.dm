@@ -274,14 +274,14 @@
 *	DONATOR
 */
 
-/datum/loadout_item/shoes/donator
-	abstract_type = /datum/loadout_item/shoes/donator
+/datum/loadout_item/donator/shoes/donator
+	abstract_type = /datum/loadout_item/donator/shoes/donator
 	donator_only = TRUE
 
-/datum/loadout_item/shoes/donator/blackjackboots
+/datum/loadout_item/donator/shoes/donator/blackjackboots
 	name = "Black Jackboots"
 	item_path = /obj/item/clothing/shoes/jackboots/black
 
-/datum/loadout_item/shoes/donator/rainbow
+/datum/loadout_item/donator/shoes/donator/rainbow
 	name = "Rainbow Converse"
 	item_path = /obj/item/clothing/shoes/sneakers/rainbow
