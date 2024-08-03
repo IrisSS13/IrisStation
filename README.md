@@ -10,17 +10,17 @@
 | Website                   | Link                                           |
 |---------------------------|------------------------------------------------|
 | Git / GitHub cheatsheet   | [https://www.notion.so/Git-GitHub-61bc81766b2e4c7d9a346db3078ce833](https://www.notion.so/Git-GitHub-61bc81766b2e4c7d9a346db3078ce833) |
-| Guide to Modularization   | [./modular_skyrat/readme.md](./modular_skyrat/readme.md)            |
-| Website                   | [https://iris-station.neocities.org](https://iris-station.neocities.org/))          |
-| Code                      | [https://github.com/IrisSS13/IrisStation](https://github.com/IrisSS13/IrisStation)    |
-| Wiki                      | [https://wiki.skyrat13.space/index.php/Main_Page](https://wiki.skyrat13.space/index.php/Main_Page)   |
-| Codedocs                  | [https://skyrat-ss13.github.io/Skyrat-tg/](https://skyrat-ss13.github.io/Skyrat-tg/)       |
-| Iris Discord              | [https://discord.gg/azps5ydx2F](https://discord.gg/azps5ydx2F) |
+| Guide to Modularization   | [./modular_nova/readme.md](./modular_nova/readme.md)            |
+| Website                   | [https://www.tgstation13.org](https://www.tgstation13.org)          |
+| Code                      | [https://github.com/NovaSector/NovaSector](https://github.com/NovaSector/NovaSector)    |
+| Wiki                      | [https://wiki.novasector13.com](https://wiki.novasector13.com)   |
+| Codedocs                  | [https://NovaSector.github.io/NovaSector/](https://NovaSector.github.io/NovaSector/)      |
+| Nova Sector's Discord     | [https://discord.gg/novasector](https://discord.gg/novasector) |
 | Coderbus Discord          | [https://discord.gg/Vh8TJp9](https://discord.gg/Vh8TJp9)               |
 
 This is Iris' downstream fork of Nova Sector, which in turn is a downstream fork of /tg/station created in BYOND.
 
-Future plans will be to gut the NSFW aspect of the server entirely and balance things to our liking, but for now it's disabled in config. 
+Future plans will be to gut the NSFW aspect of the server entirely and balance things to our liking, but for now it's disabled in config.
 
 Space Station 13 is a paranoia-laden round-based roleplaying game set against the backdrop of a nonsensical, metal death trap masquerading as a space station, with charming spritework designed to represent the sci-fi setting and its dangerous undertones. Have fun, and survive!
 
