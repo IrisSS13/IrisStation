@@ -2,7 +2,7 @@
 /datum/loadout_category/head
 	category_name = "Head"
 	category_ui_icon = FA_ICON_HAT_COWBOY
-	type_to_generate = /datum/loadout_item/head
+	type_to_generate = newlist(/datum/loadout_item/head, /datum/loadout_item/donator/head)
 	tab_order = 1
 
 /datum/loadout_item/head

@@ -1,7 +1,7 @@
 /datum/loadout_category/suit
 	category_name = "Suit"
 	category_ui_icon = FA_ICON_VEST
-	type_to_generate = /datum/loadout_item/suit
+	type_to_generate = newlist(/datum/loadout_item/suit, /datum/loadout_item/donator/suit)
 	tab_order = /datum/loadout_category/neck::tab_order + 1
 
 /*
@@ -774,7 +774,7 @@
 	name = "Iseurian Chokha"
 	item_path = /obj/item/clothing/suit/chokha
 
-/datum/loadout_item/donator/suit/digicoat_glitched //Public donator reward for Razurath.
+/datum/loadout_item/suit/digicoat_glitched //Public donator reward for Razurath.
 	name = "Glitched Digicoat"
 	item_path = /obj/item/clothing/suit/toggle/digicoat/glitched
 

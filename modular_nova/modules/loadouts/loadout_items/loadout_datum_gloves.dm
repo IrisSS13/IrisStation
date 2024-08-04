@@ -5,7 +5,7 @@
 /datum/loadout_category/hands
 	category_name = "Hands"
 	category_ui_icon = FA_ICON_HAND
-	type_to_generate = /datum/loadout_item/gloves
+	type_to_generate = newlist(/datum/loadout_item/gloves, /datum/loadout_item/donator/gloves)
 	tab_order = /datum/loadout_category/belt::tab_order + 1
 
 /datum/loadout_item/gloves
