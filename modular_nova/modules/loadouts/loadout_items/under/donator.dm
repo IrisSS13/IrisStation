@@ -1,6 +1,6 @@
 /datum/loadout_category/donator
 	category_name = "Donator"
-	category_ui_icon = FA_ICON_QUESTION
+	category_ui_icon = FA_ICON_USD
 	type_to_generate = /datum/loadout_item/donator/
 	tab_order = /datum/loadout_category/feet::tab_order + 2
 
