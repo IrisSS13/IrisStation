@@ -15,7 +15,7 @@
 | Code                      | [https://github.com/NovaSector/NovaSector](https://github.com/NovaSector/NovaSector)    |
 | Wiki                      | [https://wiki.novasector13.com](https://wiki.novasector13.com)   |
 | Codedocs                  | [https://NovaSector.github.io/NovaSector/](https://NovaSector.github.io/NovaSector/)      |
-| Nova Sector's Discord     | [https://discord.gg/novasector](https://discord.gg/novasector) |
+| Iris Station Discord    | [https://discord.gg/azps5ydx2F](https://discord.gg/azps5ydx2F) |
 | Coderbus Discord          | [https://discord.gg/Vh8TJp9](https://discord.gg/Vh8TJp9)               |
 
 This is Iris' downstream fork of Nova Sector, which in turn is a downstream fork of /tg/station created in BYOND.
