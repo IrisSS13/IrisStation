@@ -1,4 +1,5 @@
 import { filter, map, sortBy } from 'common/collections';
+import { exhaustiveCheck } from 'common/exhaustive';
 import { classes } from 'common/react';
 import { createSearch } from 'common/string';
 import { ReactNode, useState } from 'react';
@@ -24,6 +25,7 @@ import {
 } from './data';
 import { DeleteCharacterPopup } from './DeleteCharacterPopup';
 import { MultiNameInput, NameInput } from './names';
+import { PageButton } from './PageButton';
 import features from './preferences/features';
 import {
   FeatureChoicedServerData,
@@ -500,6 +502,15 @@ export const MainPage = (props: { openSpecies: () => void }) => {
   const [multiNameInputOpen, setMultiNameInputOpen] = useState(false);
   const [randomToggleEnabled] = useRandomToggleState();
 
+  // SKYRAT EDIT BEGIN: SWAPPABLE PREF MENUS
+  enum PrefPage {
+    Visual, // The visual parts
+    Lore, // Lore, Flavor Text, Age, Records
+  }
+
+  const [currentPrefPage, setCurrentPrefPage] = useState(PrefPage.Visual);
+  // SKYRAT EDIT END
+
   return (
     <ServerPreferencesFetcher
       render={(serverData) => {
@@ -547,6 +558,42 @@ export const MainPage = (props: { openSpecies: () => void }) => {
           // server doesn't know whether the random toggle is on.
           delete nonContextualPreferences['random_name'];
         }
+
+        // SKYRAT EDIT BEGIN: SWAPPABLE PREF MENUS
+        let prefPageContents;
+        switch (currentPrefPage) {
+          case PrefPage.Visual:
+            prefPageContents = (
+              <PreferenceList
+                act={act}
+                randomizations={getRandomization(
+                  contextualPreferences,
+                  serverData,
+                  randomBodyEnabled,
+                )}
+                preferences={contextualPreferences}
+                maxHeight="auto"
+              />
+            );
+            break;
+          case PrefPage.Lore:
+            prefPageContents = (
+              <PreferenceList
+                act={act}
+                randomizations={getRandomization(
+                  nonContextualPreferences,
+                  serverData,
+                  randomBodyEnabled,
+                )}
+                preferences={nonContextualPreferences}
+                maxHeight="auto"
+              />
+            );
+            break;
+          default:
+            exhaustiveCheck(currentPrefPage);
+        }
+        // SKYRAT EDIT END
 
         return (
           <>
@@ -673,43 +720,32 @@ export const MainPage = (props: { openSpecies: () => void }) => {
               </Stack.Item>
 
               <Stack.Item grow basis={0}>
-                <Stack vertical fill>
-                  <PreferenceList
-                    act={act}
-                    randomizations={getRandomization(
-                      contextualPreferences,
-                      serverData,
-                      randomBodyEnabled,
-                    )}
-                    preferences={contextualPreferences}
-                    maxHeight="auto"
-                  />
-
-                  <PreferenceList
-                    act={act}
-                    randomizations={getRandomization(
-                      nonContextualPreferences,
-                      serverData,
-                      randomBodyEnabled,
-                    )}
-                    preferences={nonContextualPreferences}
-                    maxHeight="auto"
-                  >
-                    <Box my={0.5}>
-                      <Button
-                        color="red"
-                        disabled={
-                          Object.values(data.character_profiles).filter(
-                            (name) => name,
-                          ).length < 2
-                        } // check if existing chars more than one
-                        onClick={() => setDeleteCharacterPopupOpen(true)}
-                      >
-                        Delete Character
-                      </Button>
-                    </Box>
-                  </PreferenceList>
+                {/* SKYRAT EDIT BEGIN: Swappable pref menus */}
+                <Stack>
+                  <Stack.Item grow>
+                    <PageButton
+                      currentPage={currentPrefPage}
+                      page={PrefPage.Visual}
+                      setPage={setCurrentPrefPage}
+                    >
+                      Character Visuals
+                    </PageButton>
+                  </Stack.Item>
+                  <Stack.Item grow>
+                    <PageButton
+                      currentPage={currentPrefPage}
+                      page={PrefPage.Lore}
+                      setPage={setCurrentPrefPage}
+                    >
+                      Character Lore
+                    </PageButton>
+                  </Stack.Item>
                 </Stack>
+                <Stack fill vertical>
+                  <Stack.Divider />
+                  {prefPageContents}
+                </Stack>
+                {/* SKYRAT EDIT END: Swappable pref menus */}
               </Stack.Item>
             </Stack>
           </>
