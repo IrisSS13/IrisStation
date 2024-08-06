@@ -32,7 +32,7 @@ You are responsible for the testing of your content and providing proof of such 
 
 ![image](https://i.imgur.com/aJnE4WT.png)
 
-[Modularisation Guide](./modular_skyrat/readme.md)
+[Modularisation Guide](./modular_nova/readme.md)
 
 ## DOWNLOADING
 
