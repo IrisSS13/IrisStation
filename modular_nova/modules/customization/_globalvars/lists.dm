@@ -1,55 +1,8 @@
 //DO NOT CHANGE THOSE LISTS UNLESS YOU KNOW WHAT YOURE DOING (will mess savefiles)
 
 
-GLOBAL_LIST_INIT(breast_size_translation, list(
-	"0" = BREAST_SIZE_FLATCHESTED,
-	"1" = BREAST_SIZE_A,
-	"2" = BREAST_SIZE_B,
-	"3" = BREAST_SIZE_C,
-	"4" = BREAST_SIZE_D,
-	"5" = BREAST_SIZE_E,
-	"6" = BREAST_SIZE_F,
-	"7" = BREAST_SIZE_G,
-	"8" = BREAST_SIZE_H,
-	"9" = BREAST_SIZE_I,
-	"10" = BREAST_SIZE_J,
-	"11" = BREAST_SIZE_K,
-	"12" = BREAST_SIZE_L,
-	"13" = BREAST_SIZE_M,
-	"14" = BREAST_SIZE_N,
-	"15" = BREAST_SIZE_O,
-	"16" = BREAST_SIZE_P,
-	))
 
-GLOBAL_LIST_INIT(breast_size_to_number, list(
-	BREAST_SIZE_FLATCHESTED = 0,
-	BREAST_SIZE_A = 1,
-	BREAST_SIZE_B = 2,
-	BREAST_SIZE_C = 3,
-	BREAST_SIZE_D = 4,
-	BREAST_SIZE_E = 5,
-	BREAST_SIZE_F = 6,
-	BREAST_SIZE_G = 7,
-	BREAST_SIZE_H = 8,
-	BREAST_SIZE_I = 9,
-	BREAST_SIZE_J = 10,
-	BREAST_SIZE_K = 11,
-	BREAST_SIZE_L = 12,
-	BREAST_SIZE_M = 13,
-	BREAST_SIZE_N = 14,
-	BREAST_SIZE_O = 15,
-	BREAST_SIZE_P = 16,
-	))
 
-GLOBAL_LIST_INIT(balls_size_translation, list(
-	"0" = "Small",
-	"1" = "Average",
-	"2" = "Big",
-	"3" = "Very Big",
-	"4" = "Enormous",
-	"5" = "Immense",
-	"6" = "Gargantuan"
-	))
 
 GLOBAL_LIST_INIT(marking_zone_to_bitflag, list(
 	BODY_ZONE_HEAD = HEAD,
@@ -73,15 +26,6 @@ GLOBAL_LIST_INIT(marking_zones, list(
 	BODY_ZONE_PRECISE_R_HAND,
 	))
 
-GLOBAL_LIST_INIT(preference_balls_sizes, list(
-	"Small",
-	"Average",
-	"Big",
-	"Very Big",
-	"Enormous",
-	"Immense",
-	"Gargantuan"
-	))
 
 GLOBAL_LIST_INIT(robotic_styles_list, list(
 	"None" = "None",
