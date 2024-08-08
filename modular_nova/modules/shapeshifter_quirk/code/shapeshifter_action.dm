@@ -1,3 +1,4 @@
+/*
 #define SHAPESHIFTER_ACTIONS_ICON_FILE 'modular_nova/modules/shapeshifter_quirk/icons/actions_shapeshift.dmi'
 
 /datum/action/innate/alter_form/quirk
@@ -16,3 +17,4 @@
 	allcolours_icon = image(icon = SHAPESHIFTER_ACTIONS_ICON_FILE, icon_state = "transform_all")
 
 #undef SHAPESHIFTER_ACTIONS_ICON_FILE
+*/

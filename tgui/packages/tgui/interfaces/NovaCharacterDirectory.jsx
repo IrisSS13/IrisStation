@@ -427,7 +427,6 @@ const CharacterDirectoryList = (props) => {
             </Button>
           </Table.Cell>
         </Table.Row>
-        ))}
       </Table>
     </Section>
   );
