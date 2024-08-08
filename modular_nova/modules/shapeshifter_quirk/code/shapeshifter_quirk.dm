@@ -1,3 +1,4 @@
+/*
 /datum/quirk/shapeshifter
 	name = "Shapeshifter"
 	desc = "You are able to shapeshift your body at-will."
@@ -17,3 +18,4 @@
 	var/datum/action/action_to_remove = locate(/datum/action/innate/alter_form/quirk) in quirk_holder.actions
 	if(action_to_remove)
 		qdel(action_to_remove)
+*/

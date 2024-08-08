@@ -1,4 +1,5 @@
 //this tree is being disabled for now
+/*
 /datum/borer_evolution/diveworm
 	evo_type = BORER_EVOLUTION_DIVEWORM
 
@@ -110,3 +111,4 @@
 	. = ..()
 	var/datum/action/cooldown/borer/empowered_offspring/attack_action = new(cortical_owner)
 	attack_action.Grant(cortical_owner)
+*/

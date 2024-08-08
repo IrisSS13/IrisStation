@@ -1,3 +1,4 @@
+/*
 /obj/item/organ/internal/empowered_borer_egg
 	name = "strange egg"
 	desc = "All slimy and yuck."
@@ -60,3 +61,4 @@
 	spawned_cb.generation = generation
 	spawned_cb.ckey = new_borer.ckey
 	spawned_cb.mind.add_antag_datum(/datum/antagonist/cortical_borer)
+*/
