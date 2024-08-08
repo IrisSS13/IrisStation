@@ -1550,7 +1550,6 @@
 #define FA_ICON_PERSON_ARROW_UP_FROM_LINE "fa-person-arrow-up-from-line"
 #define FA_ICON_PERSON_BIKING "fa-person-biking"
 #define FA_ICON_PERSON_BOOTH "fa-person-booth"
-#define FA_ICON_PERSON_BREASTFEEDING "fa-person-breastfeeding"
 #define FA_ICON_PERSON_BURST "fa-person-burst"
 #define FA_ICON_PERSON_CANE "fa-person-cane"
 #define FA_ICON_PERSON_CHALKBOARD "fa-person-chalkboard"

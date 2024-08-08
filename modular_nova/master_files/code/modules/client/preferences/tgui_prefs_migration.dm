@@ -20,11 +20,7 @@ MUTANT_SYNTH_CHASSIS, \
 "taur", \
 "xenodorsal", \
 "xenohead", \
-"penis", \
-"testicles", \
-"womb", \
-"vagina", \
-"breasts",))
+))
 
 /datum/preferences/proc/migrate_nova(list/nova_data)
 	if(features["flavor_text"])

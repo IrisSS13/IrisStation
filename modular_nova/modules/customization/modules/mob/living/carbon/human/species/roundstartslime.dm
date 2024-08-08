@@ -987,32 +987,6 @@
 	alterer.dna.species.body_markings = assemble_body_markings_from_set(marking_set, alterer.dna.features, alterer.dna.species)
 	alterer.update_body(is_creating = TRUE)
 
-// disabling instead of removing in case something breaks
-/*
-/**
- * Alter genitals lets you adjust the size or functionality of genitalia
- * If you don't own the genital you try to adjust, it'll ask you if you want to add it first
- */
-/datum/action/innate/alter_form/proc/alter_genitals(mob/living/carbon/human/alterer)
-	var/list/genital_list
-	if(alterer.get_organ_slot(ORGAN_SLOT_BREASTS))
-		genital_list += list("Breasts Lactation", "Breasts Size")
-	if(alterer.get_organ_slot(ORGAN_SLOT_PENIS))
-		genital_list += list("Penis Girth", "Penis Length", "Penis Sheath", "Penis Taur Mode")
-	if(alterer.get_organ_slot(ORGAN_SLOT_TESTICLES))
-		genital_list += list("Testicles Size")
-	if(!length(genital_list))
-		alterer.balloon_alert(alterer, "no genitals!")
-
-	var/dna_alteration = tgui_input_list(
-		alterer,
-		"Select what bodypart you'd like to alter",
-		"Genital Alteration",
-			if(new_size)
-				alterer.dna.features["balls_size"] = avocados.balls_description_to_size(new_size)
-				avocados.set_size(alterer.dna.features["balls_size"])
-*/
-
 /**
  * Toggle Death Signal simply adds and removes the trait required for slimepeople to transmit a GPS signal upon core ejection.
  */

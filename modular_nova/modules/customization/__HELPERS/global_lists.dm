@@ -28,9 +28,6 @@
 		var/datum/species/species_instance = new species_type
 		if(!isnull(species_instance.name))
 			GLOB.default_mutant_bodyparts[species_instance.name] = species_instance.get_default_mutant_bodyparts()
-			if(species_instance.can_have_genitals)
-				for(var/genital in GLOB.possible_genitals)
-					GLOB.default_mutant_bodyparts[species_instance.name] += list((genital) = list("None", FALSE))
 		qdel(species_instance)
 
 /proc/make_body_marking_references()
