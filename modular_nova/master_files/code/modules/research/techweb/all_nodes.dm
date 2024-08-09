@@ -76,12 +76,6 @@
 	)
 	return ..()
 
-/datum/techweb_node/augmentation/New()
-	design_ids += list(
-		"affection_module",
-	)
-	return ..()
-
 /datum/techweb_node/cafeteria_equip/New()
 	design_ids += list(
 		"bowl",

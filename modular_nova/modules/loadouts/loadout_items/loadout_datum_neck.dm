@@ -120,6 +120,7 @@
 *	COLLARS
 */
 
+/*
 /datum/loadout_item/neck/choker
 	name = "Choker"
 	item_path = /obj/item/clothing/neck/human_petcollar/choker
@@ -127,7 +128,7 @@
 /datum/loadout_item/neck/thinchoker
 	name = "Thin Choker"
 	item_path = /obj/item/clothing/neck/human_petcollar/thinchoker
-
+*/
 /*
 *	PONCHOS
 */
