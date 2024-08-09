@@ -72,9 +72,3 @@ export const sound_blooper_volume: Feature<number> = {
   description: 'The volume that the Vocal Barks sounds will play at.',
   component: FeatureSliderInput,
 };
-
-export const send_sound_blooper: FeatureToggle = {
-  name: 'Enable Character Voice sending',
-  category: 'SOUND',
-  component: CheckboxInput,
-};
