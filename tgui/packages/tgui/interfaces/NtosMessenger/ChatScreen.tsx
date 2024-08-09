@@ -173,8 +173,7 @@ export class ChatScreen extends Component<ChatScreenProps, ChatScreenState> {
       sendingVirus,
       unreads,
     } = this.props;
-    const { message, canSend, previewingImage, selectingPhoto } =
-      this.state;
+    const { message, canSend, previewingImage, selectingPhoto } = this.state;
 
     let filteredMessages: JSX.Element[] = [];
 
@@ -399,27 +398,15 @@ type ChatMessageProps = {
 };
 
 const ChatMessage = (props: ChatMessageProps) => {
-  const {
-    message,
-    everyone,
-    outgoing,
-    photoPath,
-    timestamp,
-    onPreviewImage,
-  } = props;
+  const { message, everyone, outgoing, photoPath, timestamp, onPreviewImage } =
+    props;
 
   const messageHTML = {
     __html: `${message}`,
   };
 
   return (
-    <Box
-      className={`NtosChatMessage${
-        outgoing
-            ? '_outgoing'
-            : ''
-      }`}
-    >
+    <Box className={`NtosChatMessage${outgoing ? '_outgoing' : ''}`}>
       <Box className="NtosChatMessage__content">
         <Box as="span" dangerouslySetInnerHTML={messageHTML} />
         <Tooltip content={timestamp} position={outgoing ? 'left' : 'right'}>
