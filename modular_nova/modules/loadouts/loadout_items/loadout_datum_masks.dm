@@ -1,7 +1,7 @@
 /datum/loadout_category/face
 	category_name = "Face"
 	category_ui_icon = FA_ICON_MASK
-	type_to_generate = /datum/loadout_item/mask
+	type_to_generate = newlist(/datum/loadout_item/mask, /datum/loadout_item/donator/mask)
 	tab_order = /datum/loadout_category/glasses::tab_order + 1
 
 /*
@@ -188,13 +188,13 @@
 *	DONATOR
 */
 
-/datum/loadout_item/mask/donator
-	abstract_type = /datum/loadout_item/mask/donator
+/datum/loadout_item/donator/mask/donator
+	abstract_type = /datum/loadout_item/donator/mask/donator
 	donator_only = TRUE
 
-/datum/loadout_item/mask/donator/nightlight_mask
-	abstract_type = /datum/loadout_item/mask/donator/nightlight_mask
+/datum/loadout_item/donator/mask/donator/nightlight_mask
+	abstract_type = /datum/loadout_item/donator/mask/donator/nightlight_mask
 
-/datum/loadout_item/mask/donator/nightlight_mask/alldono
+/datum/loadout_item/donator/mask/donator/nightlight_mask/alldono
 	name = "Commercial FIR-36 Rebreather"
 	item_path = /obj/item/clothing/mask/gas/nightlight/alldono

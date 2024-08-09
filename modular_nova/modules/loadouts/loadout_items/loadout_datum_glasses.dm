@@ -282,10 +282,10 @@
  *	DONATOR
  */
 
-/datum/loadout_item/glasses/donator
-	abstract_type = /datum/loadout_item/glasses/donator
+/datum/loadout_item/donator/glasses/donator
+	abstract_type = /datum/loadout_item/donator/glasses/donator
 	donator_only = TRUE
 
-/datum/loadout_item/glasses/donator/fake_sunglasses
+/datum/loadout_item/donator/glasses/donator/fake_sunglasses
 	name = "Fake Sunglasses"
 	item_path = /obj/item/clothing/glasses/fake_sunglasses

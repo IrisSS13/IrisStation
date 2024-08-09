@@ -36,22 +36,40 @@
 /// Return a list of all /datum/loadout_items in this category.
 /datum/loadout_category/proc/get_items() as /list
 	var/list/all_items = list()
-	for(var/datum/loadout_item/found_type as anything in typesof(type_to_generate))
-		if(found_type == initial(found_type.abstract_type))
-			continue
+	var/datum/loadout_item/spawned_type
 
-		if(!ispath(initial(found_type.item_path), /obj/item))
-			stack_trace("Loadout get_items(): Attempted to instantiate a loadout item ([found_type]) with an invalid or null typepath! (got path: [initial(found_type.item_path)])")
-			continue
+	if(islist(type_to_generate))
+		for(var/i = length(type_to_generate), i > 0, i--)
+			var/type = type_to_generate[i]
+			for(var/datum/loadout_item/found_type as anything in typesof(type))
+				if(found_type == initial(found_type.abstract_type))
+					continue
 
-		var/datum/loadout_item/spawned_type = new found_type(src)
+				if(!ispath(initial(found_type.item_path), /obj/item))
+					stack_trace("Loadout get_items(): Attempted to instantiate a loadout item ([found_type]) with an invalid or null typepath! (got path: [initial(found_type.item_path)])")
+					continue
+
+				spawned_type = new found_type(src)
+				all_items += spawned_type
+
+	else
+		for(var/datum/loadout_item/found_type as anything in typesof(type_to_generate))
+			if(found_type == initial(found_type.abstract_type))
+				continue
+
+			if(!ispath(initial(found_type.item_path), /obj/item))
+				stack_trace("Loadout get_items(): Attempted to instantiate a loadout item ([found_type]) with an invalid or null typepath! (got path: [initial(found_type.item_path)])")
+				continue
+
+			spawned_type = new found_type(src)
+			all_items += spawned_type
 
 		// Let's sanitize in case somebody inserted the player's byond name instead of ckey in canonical form
-		if(spawned_type.ckeywhitelist)
-			for (var/i = 1, i <= length(spawned_type.ckeywhitelist), i++)
-				spawned_type.ckeywhitelist[i] = ckey(spawned_type.ckeywhitelist[i])
+	if(spawned_type.ckeywhitelist)
+		for (var/i = 1, i <= length(spawned_type.ckeywhitelist), i++)
+			spawned_type.ckeywhitelist[i] = ckey(spawned_type.ckeywhitelist[i])
 
-		all_items += spawned_type
+	all_items += spawned_type
 
 	return all_items
 
