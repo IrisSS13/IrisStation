@@ -31,6 +31,8 @@
 	if(tagname)
 		name = "[initial(name)] - [tagname]"
 
+//Someone yeeted their sprites, so I'm commenting these out until we add them back or fully remove these, idk which one -knight
+/*
 /obj/item/clothing/neck/human_petcollar/choker
 	name = "spiked collar"
 	desc = "Quite fashionable... if you're an edgy teen."
@@ -46,4 +48,4 @@
 	greyscale_config = /datum/greyscale_config/collar/thinchoker
 	greyscale_config_worn = /datum/greyscale_config/collar/thinchoker/worn
 	greyscale_colors = "#222222"
-
+*/
