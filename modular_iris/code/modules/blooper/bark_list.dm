@@ -41,12 +41,6 @@
 	maxpitch = 1 //Bringing the pitch higher just hurts your ears :<
 	maxspeed = 4 //This soundbyte's too short for larger speeds to not sound awkward
 
-/datum/blooper/chitter
-	name = "Chittery"
-	id = "chitter"
-	minspeed = 4 //Even with the sound being replaced with a unique, shorter sound, this is still a little too long for higher speeds
-	soundpath = 'modular_iris/code/modules/blooper/voice/bloopers/chitter.ogg'
-
 /datum/blooper/synthetic_grunt
 	name = "Synthetic (Grunt)"
 	id = "synthgrunt"
@@ -193,6 +187,6 @@
 	soundpath = 'modular_iris/code/modules/blooper/voice/bloopers/caw.ogg'
 
 /datum/blooper/chitter/alt
-	name = "Chittery Alt"
+	name = "Chittery"
 	id = "chitter2"
 	soundpath = 'modular_iris/code/modules/blooper/voice/bloopers/moth/mothchitter2.ogg'
