@@ -72,9 +72,6 @@ It has also been further modified by Rashcat & other Fluffyfrontier contributors
 
 /mob/living/send_speech(message_raw, message_range = 6, obj/source = src, bubble_type = bubble_icon, list/spans, datum/language/message_language = null, list/message_mods = list(), forced = null, tts_message, list/tts_filter)
 	. = ..()
-	if(client)
-		if(!(client.prefs.read_preference(/datum/preference/toggle/send_sound_blooper)))
-			return
 	blooper_volume = client?.prefs.read_preference(/datum/preference/numeric/sound_blooper_volume) //volume scales with your volume slider in game preferences.
 	if(HAS_TRAIT(src, TRAIT_SIGN_LANG) && !HAS_TRAIT(src, TRAIT_MUTE)) //if you can speak and you sign, your hands don't make a bark. Unless you are completely mute, you can have some hand bark.
 		return
