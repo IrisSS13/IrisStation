@@ -176,7 +176,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		tainted_character_profiles = FALSE
 	//NOVA EDIT ADDITION BEGIN
 	data["preview_selection"] = preview_pref
-	data["erp_pref"] = read_preference(/datum/preference/toggle/master_erp_preferences)
 	data["quirk_points_enabled"] = !CONFIG_GET(flag/disable_quirk_points)
 	data["quirks_balance"] = GetQuirkBalance()
 	data["positive_quirk_count"] = GetPositiveQuirkCount()
