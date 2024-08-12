@@ -38,7 +38,6 @@ export type LoadoutItem = {
   restricted_species: string[] | null;
   donator_only: BooleanLike;
   veteran_only: BooleanLike;
-  erp_item: BooleanLike;
   // NOVA EDIT END
 };
 

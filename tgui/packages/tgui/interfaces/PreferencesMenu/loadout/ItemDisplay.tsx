@@ -138,9 +138,6 @@ const FilterItemList = (items: LoadoutItem[]) => {
     if (item.veteran_only && !is_veteran) {
       return false;
     }
-    if (item.erp_item && !erp_pref) {
-      return false;
-    }
 
     return true;
   });
