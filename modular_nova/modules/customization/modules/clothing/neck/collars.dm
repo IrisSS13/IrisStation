@@ -14,7 +14,7 @@
 	return is_type_in_typecache(inserted, storage.can_hold)
 
 /obj/item/clothing/neck/human_petcollar/choker
-	name = "collar"
+	name = "choker"
 	desc = "Quite fashionable... if you're an edgy teen."
 	icon_state = "choker"
 	greyscale_config = /datum/greyscale_config/collar/choker
@@ -22,7 +22,7 @@
 	greyscale_colors = "#222222"
 
 /obj/item/clothing/neck/human_petcollar/thinchoker
-	name = "thin collar"
+	name = "thin choker"
 	desc = "Like the normal one, but thinner!"
 	icon_state = "thinchoker"
 	greyscale_config = /datum/greyscale_config/collar/thinchoker
@@ -30,7 +30,7 @@
 	greyscale_colors = "#222222"
 
 /obj/item/clothing/neck/human_petcollar/spike
-	name = "spiked collar"
+	name = "spiked choker"
 	desc = "For when you really want to be the master of edge."
 	icon_state = "spike"
 	greyscale_config = /datum/greyscale_config/collar/spike
