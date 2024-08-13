@@ -8,14 +8,6 @@
 	abstract_type = /datum/loadout_item/donator/under/jumpsuit/
 	donator_only = TRUE
 
-/datum/loadout_item/donator/under/jumpsuit/enclavesergeant
-	name = "Enclave - Sergeant"
-	item_path = /obj/item/clothing/under/syndicate/nova/enclave
-
-/datum/loadout_item/donator/under/jumpsuit/enclaveofficer
-	name = "Enclave - Officer"
-	item_path = /obj/item/clothing/under/syndicate/nova/enclave/officer
-
 /datum/loadout_item/donator/under/jumpsuit/blondie
 	name = "Blonde Cowboy Uniform"
 	item_path = /obj/item/clothing/under/rank/security/detective/cowboy/armorless
