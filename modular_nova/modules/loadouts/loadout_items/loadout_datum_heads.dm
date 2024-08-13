@@ -685,53 +685,53 @@
 	item_path = /obj/item/clothing/head/costume/fancy
 
 /*
+*	FLOWERS
+*/
+
+/datum/loadout_item/head/poppy
+	name = "Poppy Flower"
+	item_path = /obj/item/food/grown/poppy
+
+/datum/loadout_item/head/lily
+	name = "Lily Flower"
+	item_path = /obj/item/food/grown/poppy/lily
+
+/datum/loadout_item/head/geranium
+	name = "Geranium Flower"
+	item_path = /obj/item/food/grown/poppy/geranium
+
+/datum/loadout_item/head/fraxinella
+	name = "Fraxinella Flower"
+	item_path = /obj/item/food/grown/poppy/geranium/fraxinella
+
+/datum/loadout_item/head/harebell
+	name = "Harebell Flower"
+	item_path = /obj/item/food/grown/harebell
+
+/datum/loadout_item/head/rose
+	name = "Rose Flower"
+	item_path = /obj/item/food/grown/rose
+
+/datum/loadout_item/head/carbon_rose
+	name = "Carbon Rose Flower"
+	item_path = /obj/item/grown/carbon_rose
+
+/datum/loadout_item/head/sunflower
+	name = "Sunflower"
+	item_path = /obj/item/food/grown/sunflower
+
+/datum/loadout_item/head/rainbow_bunch
+	name = "Rainbow Bunch"
+	item_path = /obj/item/food/grown/rainbow_flower
+	additional_displayed_text = list(TOOLTIP_RANDOM_COLOR)
+
+/*
 *	DONATOR
 */
 
 /datum/loadout_item/donator/head/donator
 	abstract_type = /datum/loadout_item/donator/head/donator
 	donator_only = TRUE
-
-/*
-*	FLOWERS
-*/
-
-/datum/loadout_item/donator/head/donator/poppy
-	name = "Poppy Flower"
-	item_path = /obj/item/food/grown/poppy
-
-/datum/loadout_item/donator/head/donator/lily
-	name = "Lily Flower"
-	item_path = /obj/item/food/grown/poppy/lily
-
-/datum/loadout_item/donator/head/donator/geranium
-	name = "Geranium Flower"
-	item_path = /obj/item/food/grown/poppy/geranium
-
-/datum/loadout_item/donator/head/donator/fraxinella
-	name = "Fraxinella Flower"
-	item_path = /obj/item/food/grown/poppy/geranium/fraxinella
-
-/datum/loadout_item/donator/head/donator/harebell
-	name = "Harebell Flower"
-	item_path = /obj/item/food/grown/harebell
-
-/datum/loadout_item/donator/head/donator/rose
-	name = "Rose Flower"
-	item_path = /obj/item/food/grown/rose
-
-/datum/loadout_item/donator/head/donator/carbon_rose
-	name = "Carbon Rose Flower"
-	item_path = /obj/item/grown/carbon_rose
-
-/datum/loadout_item/donator/head/donator/sunflower
-	name = "Sunflower"
-	item_path = /obj/item/food/grown/sunflower
-
-/datum/loadout_item/donator/head/donator/rainbow_bunch
-	name = "Rainbow Bunch"
-	item_path = /obj/item/food/grown/rainbow_flower
-	additional_displayed_text = list(TOOLTIP_RANDOM_COLOR)
 
 // Legacy unpaintable cowboy hat because it fits a character better
 /datum/loadout_item/donator/head/cowboyhat_legacy
