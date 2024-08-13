@@ -4,7 +4,7 @@
 /datum/loadout_category/undersuit
 	category_name = "Undersuit"
 	category_ui_icon = FA_ICON_SHIRT
-	type_to_generate = /datum/loadout_item/under
+	type_to_generate = newlist(/datum/loadout_item/under, /datum/loadout_item/donator/under)
 	tab_order = /datum/loadout_category/suit::tab_order + 1
 
 
@@ -1104,11 +1104,11 @@
 	restricted_species = list(SPECIES_AKULA)
 
 /// DONATOR
-/datum/loadout_item/under/donator
-	abstract_type = /datum/loadout_item/under/donator
+/datum/loadout_item/donator/under/donator
+	abstract_type = /datum/loadout_item/donator/under/donator
 	donator_only = TRUE
 
-/datum/loadout_item/under/donator/captain_black
+/datum/loadout_item/donator/under/donator/captain_black
 	name  = "Captains Black Uniform"
 	item_path = /obj/item/clothing/under/rank/captain/nova/black
 	restricted_roles = list(JOB_CAPTAIN)
