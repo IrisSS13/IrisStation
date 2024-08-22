@@ -57,7 +57,12 @@ export const ItemDisplay = (props: {
       height={boxSize}
       width={boxSize}
       color={active ? 'green' : 'default'}
-      style={{ textTransform: 'capitalize', zIndex: '1' }}
+      style={{
+        textTransform: 'capitalize',
+        zIndex: '1',
+        border: item.donator_only ? '5px solid goldenrod' : 'none',
+        borderRadius: '0.5em',
+      }}
       tooltip={item.name}
       tooltipPosition={'bottom'}
       onClick={() =>
@@ -187,7 +192,10 @@ const ItemRestriction = (item: LoadoutItem) => {
       color="blue"
       tooltip={tooltip}
       tooltipPosition={'bottom-start'}
-      style={{ zIndex: '2' }}
+      style={{
+        zIndex: '2',
+        border: item.donator_only ? '4px solid goldenrod' : 'none',
+      }}
     />
   );
 };
