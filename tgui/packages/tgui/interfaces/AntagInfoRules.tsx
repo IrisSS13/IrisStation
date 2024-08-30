@@ -18,7 +18,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="https://irisstation.miraheze.org/wiki/Antagonist_Policy">
+              <a href="https://wiki.irisstation.lol/wiki/Antagonist_Policy">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -32,7 +32,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="https://irisstation.miraheze.org/wiki/Antagonist_Policy">
+              <a href="https://wiki.irisstation.lol/wiki/Antagonist_Policy">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -46,7 +46,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="https://irisstation.miraheze.org/wiki/Antagonist_Policy">
+              <a href="https://wiki.irisstation.lol/wiki/Antagonist_Policy">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -60,7 +60,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="https://irisstation.miraheze.org/wiki/Antagonist_Policy">
+              <a href="https://wiki.irisstation.lol/wiki/Antagonist_Policy">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -74,7 +74,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="https://irisstation.miraheze.org/wiki/Antagonist_Policy">
+              <a href="https://wiki.irisstation.lol/wiki/Antagonist_Policy">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -88,7 +88,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="https://irisstation.miraheze.org/wiki/Antagonist_Policy">
+              <a href="https://wiki.irisstation.lol/wiki/Antagonist_Policy">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -102,7 +102,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="https://irisstation.miraheze.org/wiki/Antagonist_Policy">
+              <a href="https://wiki.irisstation.lol/wiki/Antagonist_Policy">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -116,7 +116,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="https://irisstation.miraheze.org/wiki/Antagonist_Policy">
+              <a href="https://wiki.irisstation.lol/wiki/Antagonist_Policy">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -130,7 +130,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="https://irisstation.miraheze.org/wiki/Antagonist_Policy">
+              <a href="https://wiki.irisstation.lol/wiki/Antagonist_Policy">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -144,7 +144,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="https://irisstation.miraheze.org/wiki/Antagonist_Policy">
+              <a href="https://wiki.irisstation.lol/wiki/Antagonist_Policy">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -157,7 +157,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="https://irisstation.miraheze.org/wiki/Antagonist_Policy">
+              <a href="https://wiki.irisstation.lol/wiki/Antagonist_Policy">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -170,7 +170,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="https://irisstation.miraheze.org/wiki/Antagonist_Policy">
+              <a href="https://wiki.irisstation.lol/wiki/Antagonist_Policy">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -183,7 +183,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="https://irisstation.miraheze.org/wiki/Antagonist_Policy">
+              <a href="https://wiki.irisstation.lol/wiki/Antagonist_Policy">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -196,7 +196,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="https://irisstation.miraheze.org/wiki/Antagonist_Policy">
+              <a href="https://wiki.irisstation.lol/wiki/Antagonist_Policy">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -209,7 +209,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="https://irisstation.miraheze.org/wiki/Antagonist_Policy">
+              <a href="https://wiki.irisstation.lol/wiki/Antagonist_Policy">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -222,7 +222,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="https://irisstation.miraheze.org/wiki/Antagonist_Policy">
+              <a href="https://wiki.irisstation.lol/wiki/Antagonist_Policy">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -235,7 +235,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="https://irisstation.miraheze.org/wiki/Antagonist_Policy">
+              <a href="https://wiki.irisstation.lol/wiki/Antagonist_Policy">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -248,7 +248,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="https://irisstation.miraheze.org/wiki/Antagonist_Policy">
+              <a href="https://wiki.irisstation.lol/wiki/Antagonist_Policy">
                 Special Rules and Metaprotections!
               </a>
             }
@@ -261,7 +261,7 @@ export const Rules = (props) => {
           <Stack.Item bold>Special Rules:</Stack.Item>
           <Stack.Item>
             {
-              <a href="https://irisstation.miraheze.org/wiki/Antagonist_Policy">
+              <a href="https://wiki.irisstation.lol/wiki/Antagonist_Policy">
                 Special Rules and Metaprotections!
               </a>
             }
