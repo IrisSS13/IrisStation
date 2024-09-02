@@ -26,6 +26,7 @@
 				/obj/item/toy/captainsaid = 1,
 				/obj/item/toy/intento = 3,
 				/obj/item/storage/box/tail_pin = 1,
+				/obj/item/toy/groan_tube = 2,
 			),
 		),
 		list(
