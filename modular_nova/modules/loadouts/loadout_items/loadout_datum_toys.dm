@@ -124,6 +124,11 @@
 	name = "White Cat Plushie"
 	item_path = /obj/item/toy/plush/nova/cat/white
 
+//iris addition
+/datum/loadout_item/toys/harbinger
+	name = "Harbinger Plushie"
+	item_path = /obj/item/toy/plush/iris/harbinger
+
 /*
 *	CARDS
 */
