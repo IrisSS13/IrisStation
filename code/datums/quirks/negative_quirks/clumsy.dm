@@ -1,6 +1,6 @@
 /datum/quirk/clumsy
 	name = "Clumsy"
-	desc = "You're clumsy, a goofball, a silly dude. You big loveable himbo/bimbo you! Hope you weren't planning on using your hands for anything that takes even a LICK of dexterity."
+	desc = "You're clumsy, a goofball, a silly dude. You big loveable dope you! Hope you weren't planning on using your hands for anything that takes even a LICK of dexterity."
 	icon = FA_ICON_FACE_DIZZY
 	value = -8
 	mob_trait = TRAIT_CLUMSY
