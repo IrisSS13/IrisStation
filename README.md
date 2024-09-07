@@ -13,9 +13,9 @@
 | Guide to Modularization   | [./modular_nova/readme.md](./modular_nova/readme.md)            |
 | Guide to Mirroring        | [./modular_nova/mirroring_guide.md](./modular_nova/mirroring_guide.md)
 | Code                      | [https://github.com/NovaSector/NovaSector](https://github.com/NovaSector/NovaSector)    |
-| Wiki                      | [https://wiki.novasector13.com](https://wiki.novasector13.com)   |
+| Wiki                      | [https://wiki.irisstation.lol/](https://wiki.irisstation.lol/) |
 | Codedocs                  | [https://NovaSector.github.io/NovaSector/](https://NovaSector.github.io/NovaSector/)      |
-| Iris Station Discord    | [https://discord.gg/azps5ydx2F](https://discord.gg/azps5ydx2F) |
+| Iris Station Discord      | [https://discord.gg/azps5ydx2F](https://discord.gg/azps5ydx2F) |
 | Coderbus Discord          | [https://discord.gg/Vh8TJp9](https://discord.gg/Vh8TJp9)               |
 
 This is Iris' downstream fork of Nova Sector, which in turn is a downstream fork of /tg/station created in BYOND.
