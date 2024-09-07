@@ -3,7 +3,7 @@
 
 /datum/quirk/equipping/entombed
 	name = "Entombed"
-	desc = "You are permanently fused to (or otherwise reliant on) a single MOD unit that can never be removed from your person. If it runs out of charge or is turned off, you'll start to die!"
+	desc = "You are permanently fused to (or otherwise reliant on) a single MOD unit that can never be removed from your person. If it runs out of charge or is turned off, you'll start to die! Not recommended for new players."
 	gain_text = span_warning("Your exosuit is both prison and home.")
 	lose_text = span_notice("At last, you're finally free from that horrible exosuit.")
 	medical_record_text = "Patient is physiologically reliant on a MOD unit for homeostasis. Do not attempt removal."
