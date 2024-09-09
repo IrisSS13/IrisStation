@@ -193,21 +193,3 @@
 /datum/sprite_accessory/underwear/fishnet_lower/alt
 	name = "Panties - Fishnet (Greyscale)"
 	icon_state = "fishnet_lower_alt"
-
-//ERP Accessories
-/datum/sprite_accessory/underwear/latex
-	name = "Panties - Latex"
-	icon_state = "panties_latex"
-	use_static = TRUE
-	erp_accessory = TRUE
-
-/datum/sprite_accessory/underwear/chastbelt
-	name = "Chastity Belt"
-	icon_state = "chastbelt"
-	use_static = TRUE
-	erp_accessory = TRUE
-
-/datum/sprite_accessory/underwear/chastcage
-	name = "Chastity Cage"
-	icon_state = "chastcage"
-	erp_accessory = TRUE
