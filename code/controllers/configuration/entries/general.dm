@@ -315,7 +315,7 @@
 /datum/config_entry/string/banappeals
 
 /datum/config_entry/string/wikiurl
-	default = "https://wiki.irisstation.lol/wiki" //IRIS EDIT - Original: "http://www.tgstation13.org/wiki"
+	default = "http://www.tgstation13.org/wiki" //IRIS EDIT - Original: "http://www.tgstation13.org/wiki"
 
 /datum/config_entry/string/forumurl
 	default = "http://tgstation13.org/phpBB/index.php"
