@@ -21,8 +21,6 @@
 	. = ..()
 	associated_items = get_items()
 	for(var/datum/loadout_item/item as anything in associated_items)
-		if(GLOB.all_loadout_datums[item.item_path])
-			stack_trace("Loadout datum collision - [item.item_path] is shared between multiple loadout datums.")
 		GLOB.all_loadout_datums[item.item_path] = item
 
 /datum/loadout_category/Destroy(force, ...)
