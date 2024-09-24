@@ -21,8 +21,6 @@
 	. = ..()
 	associated_items = get_items()
 	for(var/datum/loadout_item/item as anything in associated_items)
-		if(GLOB.all_loadout_datums[item.item_path])
-			stack_trace("Loadout datum collision - [item.item_path] is shared between multiple loadout datums.")
 		GLOB.all_loadout_datums[item.item_path] = item
 
 /datum/loadout_category/Destroy(force, ...)
@@ -45,10 +43,6 @@
 				if(found_type == initial(found_type.abstract_type))
 					continue
 
-				if(!ispath(initial(found_type.item_path), /obj/item))
-					stack_trace("Loadout get_items(): Attempted to instantiate a loadout item ([found_type]) with an invalid or null typepath! (got path: [initial(found_type.item_path)])")
-					continue
-
 				spawned_type = new found_type(src)
 				all_items += spawned_type
 
@@ -57,7 +51,7 @@
 			if(found_type == initial(found_type.abstract_type))
 				continue
 
-			if(!ispath(initial(found_type.item_path), /obj/item))
+			if(!ispath(initial(found_type.item_path), /obj/item) && found_type.item_path != (initial(found_type.item_path)))
 				stack_trace("Loadout get_items(): Attempted to instantiate a loadout item ([found_type]) with an invalid or null typepath! (got path: [initial(found_type.item_path)])")
 				continue
 
