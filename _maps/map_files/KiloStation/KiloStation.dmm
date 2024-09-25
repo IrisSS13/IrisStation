@@ -598,10 +598,7 @@
 /area/station/science/research)
 "ags" = (
 /obj/effect/turf_decal/siding/green,
-/obj/machinery/door/window/left/directional/west{
-	base_state = "right";
-	dir = 2;
-	icon_state = "right";
+/obj/machinery/door/window/left/directional/south{
 	name = "Garden Pen"
 	},
 /turf/open/floor/sandy_dirt,
@@ -1641,7 +1638,7 @@
 "ayk" = (
 /obj/structure/sign/warning/docking/directional/north,
 /turf/open/floor/plating/airless,
-/area/space)
+/area/space/nearstation)
 "ayo" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/space_heater,
@@ -4386,10 +4383,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/showroomfloor,
 /area/station/science/xenobiology)
-"bwr" = (
-/obj/structure/flora/rock/pile/style_random,
-/turf/open/misc/asteroid/airless,
-/area/space)
 "bwA" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -5099,16 +5092,15 @@
 	},
 /obj/effect/turf_decal/tile/yellow,
 /obj/structure/window/reinforced/spawner/directional/south,
-/obj/machinery/door/window/right/directional/south{
-	dir = 4;
-	name = "Mail Chute";
-	req_access = list("cargo")
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/door/window/right/directional/east{
+	req_access = list("cargo");
+	name = "Mail Chute"
 	},
 /turf/open/floor/iron,
 /area/station/cargo/sorting)
@@ -5841,15 +5833,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
-"bUN" = (
-/turf/open/floor/plating/airless,
-/area/space)
 "bUO" = (
 /obj/effect/turf_decal/box/corners{
 	dir = 8
 	},
 /turf/open/floor/plating/airless,
-/area/space)
+/area/space/nearstation)
 "bVh" = (
 /obj/structure/urinal/directional/west,
 /obj/effect/decal/remains/human,
@@ -6706,25 +6695,15 @@
 	id = "hop";
 	name = "Privacy Shutters"
 	},
-/obj/machinery/door/window/brigdoor{
-	base_state = "rightsecure";
-	dir = 1;
-	icon_state = "rightsecure";
-	name = "Head of Personnel's Desk";
-	req_access = list("hop")
-	},
 /obj/machinery/door/window/right/directional/south{
 	name = "Reception Desk"
 	},
+/obj/machinery/door/window/brigdoor/right/directional/north{
+	name = "Head of Personnel's Desk";
+	req_access = list("hop")
+	},
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/hop)
-"cfV" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/smart/simple/orange/visible{
-	dir = 4
-	},
-/turf/open/space/basic,
-/area/template_noop)
 "cgj" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/duct,
@@ -6914,12 +6893,6 @@
 /obj/structure/cable/layer3,
 /turf/closed/wall/rust,
 /area/station/ai_monitored/turret_protected/aisat_interior)
-"cic" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/turf/open/floor/plating/airless,
-/area/space)
 "cij" = (
 /obj/effect/turf_decal/loading_area{
 	dir = 8
@@ -7434,7 +7407,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating/airless,
-/area/space)
+/area/space/nearstation)
 "cov" = (
 /obj/structure/disposaloutlet{
 	dir = 8
@@ -7624,7 +7597,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating/airless,
-/area/space)
+/area/space/nearstation)
 "crR" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/decal/cleanable/dirt,
@@ -11402,11 +11375,6 @@
 	location = "Engineering";
 	name = "navigation beacon (Engineering Delivery)"
 	},
-/obj/machinery/door/window/right/directional/north{
-	dir = 4;
-	name = "Engineering Delivery Access";
-	req_access = list("engineering")
-	},
 /obj/machinery/door/poddoor/preopen{
 	id = "Engineering";
 	name = "Engineering Blast Doors"
@@ -11416,7 +11384,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/airlock/access/any/engineering/construction,
+/obj/machinery/door/window/right/directional/east{
+	name = "Engineering Delivery Access";
+	req_access = list("engineering")
+	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/lobby)
 "dEl" = (
@@ -14791,7 +14762,7 @@
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/smart/simple/orange/visible,
 /turf/open/space/basic,
-/area/template_noop)
+/area/space/nearstation)
 "eHp" = (
 /obj/effect/turf_decal/delivery,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -17237,7 +17208,7 @@
 	width = 5
 	},
 /turf/open/floor/plating/airless,
-/area/space)
+/area/space/nearstation)
 "fsj" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -19951,7 +19922,8 @@
 	dir = 8
 	},
 /obj/machinery/door/window/left/directional/south{
-	name = "Trash Chute"
+	name = "Trash Chute";
+	req_access = list("janitor")
 	},
 /obj/machinery/conveyor_switch/oneway{
 	dir = 4;
@@ -19966,7 +19938,6 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
-/obj/effect/mapping_helpers/airlock/access/all/service/janitor,
 /turf/open/floor/iron,
 /area/station/service/janitor)
 "gin" = (
@@ -23331,20 +23302,15 @@
 	pixel_x = 3;
 	pixel_y = 28
 	},
-/obj/machinery/door/window{
-	atom_integrity = 300;
-	base_state = "leftsecure";
-	dir = 8;
-	icon_state = "leftsecure";
-	name = "Primary AI Core Access";
-	req_access = list("ai_upload")
-	},
 /obj/machinery/door/poddoor/shutters/preopen{
 	dir = 8;
 	id = "AI Core shutters";
 	name = "AI Core Shutter"
 	},
 /obj/effect/turf_decal/delivery,
+/obj/machinery/door/window/brigdoor/right/directional/west{
+	name = "Primary AI Core Access"
+	},
 /turf/open/floor/engine,
 /area/station/ai_monitored/turret_protected/ai)
 "hlJ" = (
@@ -25976,6 +25942,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/drone_dispenser,
 /turf/open/floor/iron/dark,
 /area/station/engineering/gravity_generator)
 "hVT" = (
@@ -26690,7 +26657,8 @@
 /obj/effect/turf_decal/stripes/corner,
 /obj/effect/turf_decal/loading_area,
 /obj/machinery/door/window/right/directional/south{
-	name = "Trash Chute"
+	name = "Trash Chute";
+	req_access = list("janitor")
 	},
 /obj/item/reagent_containers/cup/bucket,
 /obj/item/mop,
@@ -26699,7 +26667,6 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/blue,
-/obj/effect/mapping_helpers/airlock/access/all/service/janitor,
 /turf/open/floor/iron,
 /area/station/service/janitor)
 "igI" = (
@@ -29100,12 +29067,10 @@
 	id = "packagereturn";
 	name = "crate return belt"
 	},
-/obj/machinery/door/window/left/directional/west{
-	dir = 1;
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/window/right/directional/north{
 	name = "Crate Return Door"
 	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/mapping_helpers/airlock/access/all/supply/shipping,
 /turf/open/floor/plating,
 /area/station/cargo/storage)
 "iNO" = (
@@ -29561,11 +29526,6 @@
 	dir = 8
 	},
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/right/directional/south{
-	name = "First Aid Supplies";
-	req_access = list("medical");
-	dir = 1
-	},
 /obj/item/defibrillator/loaded{
 	pixel_y = 6
 	},
@@ -29573,6 +29533,10 @@
 	pixel_y = 3
 	},
 /obj/item/defibrillator/loaded,
+/obj/machinery/door/window/right/directional/north{
+	req_access = list("medical");
+	name = "First Aid Supplies"
+	},
 /turf/open/floor/iron/showroomfloor,
 /area/station/medical/storage)
 "iUF" = (
@@ -34839,9 +34803,6 @@
 /turf/open/misc/asteroid/airless,
 /area/space/nearstation)
 "kHl" = (
-/obj/machinery/door/window{
-	dir = 4
-	},
 /obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
 	dir = 8
 	},
@@ -34852,6 +34813,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
+/obj/machinery/door/window/brigdoor/right/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/medical/morgue)
 "kHr" = (
@@ -36169,14 +36131,6 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
 "lcK" = (
-/obj/machinery/door/window{
-	atom_integrity = 300;
-	base_state = "rightsecure";
-	dir = 4;
-	icon_state = "rightsecure";
-	name = "Primary AI Core Access";
-	req_access = list("ai_upload")
-	},
 /obj/machinery/door/poddoor/shutters/preopen{
 	dir = 4;
 	id = "AI Core shutters";
@@ -36185,6 +36139,9 @@
 /obj/effect/turf_decal/delivery,
 /obj/machinery/light_switch/directional/north{
 	pixel_x = 8
+	},
+/obj/machinery/door/window/brigdoor/right/directional/east{
+	name = "Primary AI Core Access"
 	},
 /turf/open/floor/engine,
 /area/station/ai_monitored/turret_protected/ai)
@@ -42627,13 +42584,12 @@
 	codes_txt = "delivery;dir=2";
 	location = "Research Division"
 	},
-/obj/machinery/door/window/left/directional/west{
-	dir = 2;
+/obj/effect/turf_decal/delivery,
+/obj/structure/cable,
+/obj/machinery/door/window/left/directional/south{
 	name = "Research Division Delivery Access";
 	req_access = list("research")
 	},
-/obj/effect/turf_decal/delivery,
-/obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/maintenance/starboard)
 "nfR" = (
@@ -44325,12 +44281,11 @@
 "nIJ" = (
 /obj/effect/turf_decal/delivery,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/window/right/directional/west{
-	dir = 4;
-	name = "Cargo Desk";
-	req_access = list("cargo")
-	},
 /obj/machinery/autolathe,
+/obj/machinery/door/window/right/directional/east{
+	req_access = list("cargo");
+	name = "Cargo Desk"
+	},
 /turf/open/floor/plating,
 /area/station/cargo/office)
 "nIM" = (
@@ -44838,11 +44793,6 @@
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/delivery,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/window/left/directional/west{
-	dir = 4;
-	name = "Cargo Desk";
-	req_access = list("cargo")
-	},
 /obj/item/clipboard{
 	pixel_x = 3;
 	pixel_y = -2
@@ -44854,6 +44804,10 @@
 /obj/structure/desk_bell{
 	pixel_x = -8;
 	pixel_y = 10
+	},
+/obj/machinery/door/window/left/directional/east{
+	req_access = list("cargo");
+	name = "Cargo Desk"
 	},
 /turf/open/floor/plating,
 /area/station/cargo/office)
@@ -46671,7 +46625,7 @@
 	dir = 9
 	},
 /turf/open/space/basic,
-/area/template_noop)
+/area/space/nearstation)
 "ozw" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/item/tank/internals/oxygen/empty,
@@ -47888,13 +47842,13 @@
 	dir = 8
 	},
 /obj/machinery/door/window/right/directional/west{
-	name = "Library Desk"
+	name = "Library Desk";
+	req_access = list("library")
 	},
 /obj/item/clipboard,
 /obj/item/toy/figure/curator,
 /obj/item/pen/fountain,
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
-/obj/effect/mapping_helpers/airlock/access/all/service/library,
 /turf/open/floor/iron/dark,
 /area/station/service/library)
 "oTU" = (
@@ -49662,9 +49616,9 @@
 /obj/item/folder/red,
 /obj/item/pen,
 /obj/machinery/door/window/brigdoor/right/directional/west{
-	name = "Armoury Desk"
+	name = "Armoury Desk";
+	req_access = list("armory")
 	},
-/obj/effect/mapping_helpers/airlock/access/all/security/armory,
 /turf/open/floor/plating,
 /area/station/ai_monitored/security/armory)
 "psn" = (
@@ -51506,12 +51460,11 @@
 	codes_txt = "delivery;dir=1";
 	location = "Research and Development"
 	},
-/obj/machinery/door/window/left/directional/east{
-	dir = 1;
-	name = "Research and Development Delivery Access"
-	},
 /obj/effect/turf_decal/delivery,
-/obj/effect/mapping_helpers/airlock/access/all/science/general,
+/obj/machinery/door/window/left/directional/north{
+	name = "Research and Development Delivery Access";
+	req_access = list("science")
+	},
 /turf/open/floor/iron/dark,
 /area/station/maintenance/starboard)
 "pWR" = (
@@ -53731,13 +53684,11 @@
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/effect/spawner/random/aimodule/neutral,
-/obj/machinery/door/window{
-	base_state = "right";
-	icon_state = "right";
+/obj/item/ai_module/core/freeformcore,
+/obj/machinery/door/window/brigdoor/left/directional/south{
 	name = "Core Modules";
 	req_access = list("captain")
 	},
-/obj/item/ai_module/core/freeformcore,
 /turf/open/floor/circuit,
 /area/station/ai_monitored/turret_protected/ai_upload)
 "qHV" = (
@@ -55423,7 +55374,6 @@
 	pixel_x = -7;
 	pixel_y = 8
 	},
-/obj/effect/mapping_helpers/airlock/access/all/science/robotics,
 /turf/open/floor/plating,
 /area/station/science/robotics/lab)
 "rhz" = (
@@ -56471,7 +56421,6 @@
 /obj/item/folder/yellow{
 	pixel_x = 3
 	},
-/obj/effect/mapping_helpers/airlock/access/any/engineering/construction,
 /turf/open/floor/plating,
 /area/station/engineering/lobby)
 "rwR" = (
@@ -57371,6 +57320,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/north,
+/obj/item/piggy_bank/vault,
 /turf/open/floor/circuit/green{
 	luminosity = 2
 	},
@@ -60236,9 +60186,6 @@
 	},
 /turf/open/floor/grass,
 /area/station/security/prison/garden)
-"sFf" = (
-/turf/open/misc/asteroid/airless,
-/area/space)
 "sFg" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -68348,15 +68295,14 @@
 /obj/item/folder/yellow{
 	pixel_x = 3
 	},
-/obj/machinery/door/window/left/directional/west{
-	dir = 4;
-	name = "Mailroom Desk";
-	req_access = list("cargo")
-	},
 /obj/effect/landmark/start/hangover,
 /obj/structure/desk_bell{
 	pixel_x = -8;
 	pixel_y = 10
+	},
+/obj/machinery/door/window/left/directional/east{
+	req_access = list("cargo");
+	name = "Mailroom Desk"
 	},
 /turf/open/floor/iron,
 /area/station/cargo/sorting)
@@ -70677,14 +70623,14 @@
 /turf/closed/wall/r_wall,
 /area/station/maintenance/port/lesser)
 "vPx" = (
-/obj/machinery/door/window/left/directional/north{
-	dir = 2;
-	name = "Cargo Delivery Access"
-	},
 /obj/structure/plasticflaps/opaque,
 /obj/effect/turf_decal/delivery,
 /obj/structure/disposalpipe/segment,
 /obj/effect/mapping_helpers/airlock/access/all/supply/shipping,
+/obj/machinery/door/window/left/directional/south{
+	req_access = list("cargo");
+	name = "Cargo Delivery Access"
+	},
 /turf/open/floor/iron/dark,
 /area/station/maintenance/starboard)
 "vPz" = (
@@ -85869,7 +85815,7 @@ aaa
 aaa
 aaB
 aaa
-sFf
+aeU
 aeu
 aeu
 dWG
@@ -86125,8 +86071,8 @@ aaa
 aaa
 aaa
 aaa
-sFf
-sFf
+aeU
+aeU
 aeu
 aeu
 aeu
@@ -86382,11 +86328,11 @@ aaa
 aaa
 aaa
 aaa
-bwr
-sFf
-sFf
-sFf
-sFf
+aUz
+aeU
+aeU
+aeU
+aeU
 aaa
 aaa
 acm
@@ -86639,10 +86585,10 @@ aaa
 aaa
 aaa
 aaa
-sFf
-sFf
-sFf
-sFf
+aeU
+aeU
+aeU
+aeU
 aaa
 aaa
 aaa
@@ -86896,10 +86842,10 @@ aeU
 aeu
 aeu
 aeU
-sFf
-sFf
-bwr
-sFf
+aeU
+aeU
+aUz
+aeU
 aaa
 aaa
 aaa
@@ -87156,7 +87102,7 @@ aeU
 aeU
 aeU
 aeU
-sFf
+aeU
 aaa
 aaa
 aaa
@@ -111358,7 +111304,7 @@ hEY
 gXh
 uSB
 pLs
-cfV
+vfO
 aDT
 qHJ
 qdS
@@ -111615,7 +111561,7 @@ pLs
 pal
 pLs
 pLs
-cfV
+vfO
 aDU
 xXI
 peo
@@ -117512,13 +117458,13 @@ hGX
 mkk
 aeu
 bPP
-bUN
+cko
 fsi
-bUN
-bUN
-bUN
-bUN
-bUN
+cko
+cko
+cko
+cko
+cko
 bUd
 aeu
 aeu
@@ -117770,12 +117716,12 @@ rCi
 rCi
 rCi
 ayk
-bUN
-bUN
-bUN
-bUN
-bUN
-bUN
+cko
+cko
+cko
+cko
+cko
+cko
 bUe
 aeu
 aeu
@@ -118026,13 +117972,13 @@ hzv
 tbE
 nnw
 gJj
-bUN
-bUN
-bUN
-bUN
-bUN
-bUN
-bUN
+cko
+cko
+cko
+cko
+cko
+cko
+cko
 bUk
 bUE
 aeu
@@ -118283,13 +118229,13 @@ wSM
 mzv
 lAB
 mzv
-bUN
-bUN
-bUN
-bUN
-bUN
-bUN
-bUN
+cko
+cko
+cko
+cko
+cko
+cko
+cko
 bUp
 aUz
 aeu
@@ -118540,13 +118486,13 @@ owX
 iwf
 lAB
 uPp
-bUN
-bUN
-bUN
-bUN
-bUN
-bUN
-bUN
+cko
+cko
+cko
+cko
+cko
+cko
+cko
 cHu
 eob
 rCi
@@ -118797,13 +118743,13 @@ lMo
 rrm
 lAB
 bPR
-bUN
-bUN
-bUN
-bUN
-bUN
-bUN
-bUN
+cko
+cko
+cko
+cko
+cko
+cko
+cko
 bUk
 aeu
 aeu
@@ -119054,13 +119000,13 @@ wGe
 srf
 lAB
 fIn
-bUN
-bUN
-bUN
-bUN
-bUN
-bUN
-bUN
+cko
+cko
+cko
+cko
+cko
+cko
+cko
 lWC
 rCi
 rCi
@@ -119311,13 +119257,13 @@ pZj
 nuh
 lAB
 bPX
-bUN
-bUN
-bUN
-bUN
-bUN
-bUN
-bUN
+cko
+cko
+cko
+cko
+cko
+cko
+cko
 bUd
 aeu
 aeu
@@ -119568,13 +119514,13 @@ tla
 qVI
 lAB
 uPp
-bUN
-bUN
-bUN
-bUN
-bUN
-bUN
-bUN
+cko
+cko
+cko
+cko
+cko
+cko
+cko
 cHu
 eob
 rCi
@@ -119825,13 +119771,13 @@ xbx
 mzv
 lAB
 mzv
-bUN
-bUN
-bUN
-bUN
-bUN
-bUN
-bUN
+cko
+cko
+cko
+cko
+cko
+cko
+cko
 bUy
 aeu
 aeu
@@ -120082,13 +120028,13 @@ lRQ
 cOT
 fTX
 gJj
-bUN
-bUN
-bUN
-bUN
-bUN
-bUN
-bUN
+cko
+cko
+cko
+cko
+cko
+cko
+cko
 bUe
 bUF
 aeu
@@ -120340,12 +120286,12 @@ rCi
 rCi
 rCi
 ayk
-bUN
-bUN
-bUN
-bUN
-bUN
-bUN
+cko
+cko
+cko
+cko
+cko
+cko
 bUk
 ctu
 aeu
@@ -120596,13 +120542,13 @@ vOW
 aeu
 bPK
 bPZ
-bUN
-bUN
-bUN
-bUN
-bUN
-bUN
-bUN
+cko
+cko
+cko
+cko
+cko
+cko
+cko
 bUC
 aeU
 aeu
@@ -120854,11 +120800,11 @@ aeu
 aeu
 bTT
 bUO
-bUN
-bUN
-bUN
-bUN
-bUN
+cko
+cko
+cko
+cko
+cko
 crK
 bUD
 aeu
@@ -121110,13 +121056,13 @@ vOW
 aeu
 aeu
 vJm
-cic
-cic
-cic
+aeZ
+aeZ
+aeZ
 cos
-cic
-cic
-cic
+aeZ
+aeZ
+aeZ
 nZG
 aeu
 aeu
