@@ -7754,7 +7754,6 @@
 /obj/item/hatchet,
 /obj/item/cultivator,
 /obj/item/shovel/spade,
-/obj/machinery/light_switch/directional/east,
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 8
 	},
@@ -8672,15 +8671,15 @@
 /obj/machinery/door_buttons/access_button{
 	idDoor = "pathology_airlock_exterior";
 	idSelf = "pathology_airlock_control";
-	name = "Pathology Access Button";
+	name = "Virology Access Button";
 	pixel_y = -24;
-	req_access = list("pathology")
+	req_access = list("virology")
 	},
 /obj/machinery/door/airlock/virology{
 	autoclose = 0;
 	frequency = 1449;
 	id_tag = "pathology_airlock_exterior";
-	name = "Pathology Exterior Airlock"
+	name = "Virology Exterior Airlock"
 	},
 /turf/open/floor/iron/dark,
 /area/station/medical/virology)
@@ -18904,7 +18903,7 @@
 /area/station/medical/pharmacy)
 "fPg" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Pathology Maintenance"
+	name = "Virology Maintenance"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/medical/virology,
 /obj/structure/cable,
@@ -19499,6 +19498,11 @@
 /area/station/medical/surgery/fore)
 "gbf" = (
 /obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "oprooma";
+	name = "Operating Room A Privacy Shutters";
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/station/medical/surgery/fore)
 "gbh" = (
@@ -29238,6 +29242,7 @@
 /obj/effect/turf_decal/tile/green/anticorner/contrasted{
 	dir = 1
 	},
+/obj/machinery/light_switch/directional/north,
 /turf/open/floor/iron/showroomfloor,
 /area/station/medical/virology)
 "iQK" = (
@@ -44096,10 +44101,10 @@
 	idExterior = "pathology_airlock_exterior";
 	idInterior = "pathology_airlock_interior";
 	idSelf = "pathology_airlock_control";
-	name = "Pathology Access Console";
+	name = "Virology Access Console";
 	pixel_x = 8;
 	pixel_y = 25;
-	req_access = list("pathology")
+	req_access = list("virology")
 	},
 /turf/open/floor/iron/dark,
 /area/station/medical/virology)
@@ -52302,12 +52307,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron/showroomfloor,
 /area/station/security/execution/transfer)
-"qhU" = (
-/obj/effect/turf_decal/tile/neutral/half/contrasted{
-	dir = 1
-	},
-/turf/closed/wall,
-/area/station/medical/storage)
 "qhZ" = (
 /obj/machinery/light/directional/north,
 /obj/item/kirbyplants/random,
@@ -55315,16 +55314,16 @@
 /obj/machinery/door_buttons/access_button{
 	idDoor = "pathology_airlock_interior";
 	idSelf = "pathology_airlock_control";
-	name = "Pathology Access Button";
+	name = "Virology Access Button";
 	pixel_x = -24;
 	pixel_y = 5;
-	req_access = list("pathology")
+	req_access = list("virology")
 	},
 /obj/machinery/door/airlock/virology{
 	autoclose = 0;
 	frequency = 1449;
 	id_tag = "pathology_airlock_interior";
-	name = "Pathology Interior Airlock"
+	name = "Virology Interior Airlock"
 	},
 /turf/open/floor/iron/dark,
 /area/station/medical/virology)
@@ -64009,8 +64008,8 @@
 /area/station/science/ordnance)
 "tNL" = (
 /obj/machinery/button/door/directional/north{
-	id = "emmd";
-	name = "Medical Lockdown Toggle"
+	id = "oprooma";
+	name = "Operating Theater Privacy Toggle"
 	},
 /obj/effect/turf_decal/tile/blue/anticorner/contrasted{
 	dir = 4
@@ -64220,7 +64219,6 @@
 /obj/machinery/vending/wardrobe/viro_wardrobe,
 /obj/effect/turf_decal/delivery,
 /obj/effect/turf_decal/tile/neutral/half/contrasted,
-/obj/machinery/light_switch/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/medical/virology)
 "tQo" = (
@@ -77062,6 +77060,14 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/maintenance/department/crew_quarters/bar)
+"xIX" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "oprooma";
+	name = "Operating Room A Privacy Shutters"
+	},
+/turf/open/floor/plating,
+/area/station/medical/surgery/fore)
 "xJb" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/effect/turf_decal/stripes/line,
@@ -97571,7 +97577,7 @@ jvL
 iJh
 oXN
 qvj
-gbf
+xIX
 nBZ
 gbd
 woB
@@ -98085,7 +98091,7 @@ aJO
 vuE
 eno
 rcQ
-gbf
+xIX
 wVD
 wGE
 ouD
@@ -100133,7 +100139,7 @@ qGK
 qGK
 dqn
 hJY
-qhU
+qGK
 qGK
 lHd
 xXr
