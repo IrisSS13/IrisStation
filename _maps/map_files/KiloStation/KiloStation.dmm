@@ -8914,8 +8914,7 @@
 /obj/machinery/door/firedoor,
 /obj/item/folder/yellow,
 /obj/item/pen,
-/obj/machinery/door/window/left/directional/west{
-	dir = 2;
+/obj/machinery/door/window/left/directional/south{
 	name = "Cargo Desk";
 	req_access = list("shipping")
 	},
@@ -10166,16 +10165,15 @@
 /obj/item/folder/red{
 	pixel_x = -5
 	},
-/obj/machinery/door/window/brigdoor/left/directional/south{
-	dir = 8;
-	name = "Security Customs Desk";
-	req_access = list("security")
-	},
 /obj/item/radio{
 	pixel_x = 7;
 	pixel_y = 4
 	},
 /obj/effect/landmark/start/hangover,
+/obj/machinery/door/window/brigdoor/left/directional/west{
+	req_access = list("security");
+	name = "Security Customs Desk"
+	},
 /turf/open/floor/iron,
 /area/station/security/checkpoint/customs)
 "dkM" = (
@@ -21496,13 +21494,12 @@
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/delivery,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/window/left/directional/south{
-	dir = 1;
+/obj/item/crowbar/red,
+/obj/item/storage/fancy/donut_box,
+/obj/machinery/door/window/left/directional/north{
 	name = "Security Desk";
 	req_access = list("security")
 	},
-/obj/item/crowbar/red,
-/obj/item/storage/fancy/donut_box,
 /turf/open/floor/plating,
 /area/station/hallway/secondary/exit/departure_lounge)
 "gHC" = (
@@ -23334,8 +23331,7 @@
 /area/station/maintenance/solars/port/fore)
 "hkW" = (
 /obj/structure/plasticflaps/opaque,
-/obj/machinery/door/window/left/directional/north{
-	dir = 2;
+/obj/machinery/door/window/left/directional/south{
 	name = "Cargo Delivery Access";
 	req_access = list("shipping")
 	},
@@ -66947,10 +66943,9 @@
 /turf/open/floor/iron/showroomfloor,
 /area/station/science/research)
 "uJP" = (
-/obj/machinery/door/window/left/directional/north{
-	dir = 4;
-	name = "Monkey Pen";
-	req_access = list("genetics")
+/obj/machinery/door/window/left/directional/east{
+	req_access = list("genetics");
+	name = "Monkey Pen"
 	},
 /turf/open/floor/grass,
 /area/station/science/genetics)
@@ -77640,16 +77635,15 @@
 /area/station/science/robotics/lab)
 "xTj" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
-/obj/machinery/door/window/left/directional/south{
-	dir = 1;
-	name = "Maximum Security Test Chamber";
-	req_access = list("xenobiology")
-	},
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/purple/full,
+/obj/machinery/door/window/left/directional/north{
+	name = "Maximum Security Test Chamber";
+	req_access = list("xenobiology")
+	},
 /turf/open/floor/iron/showroomfloor,
 /area/station/science/xenobiology)
 "xTw" = (
@@ -78194,14 +78188,13 @@
 	name = "Chemistry Hall Shutters"
 	},
 /obj/machinery/door/firedoor/heavy,
-/obj/machinery/door/window/left/directional/north{
-	dir = 8;
-	name = "Chemistry Desk";
-	req_access = list("pharmacy")
-	},
 /obj/structure/desk_bell{
 	pixel_x = 7;
 	pixel_y = 6
+	},
+/obj/machinery/door/window/left/directional/west{
+	name = "Chemistry Desk";
+	req_access = list("pharmacy")
 	},
 /turf/open/floor/plating,
 /area/station/medical/pharmacy)
