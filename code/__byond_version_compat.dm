@@ -10,7 +10,7 @@
 #endif
 
 // Unable to compile this version thanks to mutable appearance changes
-#if (DM_VERSION == 515 && DM_BUILD == 1643)
+#if (DM_VERSION == 515 && DM_BUILD == 1644)
 #error This version of BYOND cannot compile this project. Visit www.byond.com/download/build to download an older version or update (if possible).
 #endif
 

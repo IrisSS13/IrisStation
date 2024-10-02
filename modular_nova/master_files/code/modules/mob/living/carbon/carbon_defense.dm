@@ -6,7 +6,7 @@
 		var/target_on_help_and_unarmed = !target.combat_mode && !target.get_active_held_item()
 		if(target_on_help_and_unarmed || HAS_TRAIT(target, TRAIT_RESTRAINED))
 			do_slap_animation(target)
-			playsound(target.loc, 'sound/weapons/slap.ogg', 50, TRUE, -1)
+			playsound(target.loc, 'sound/items/weapons/slap.ogg', 50, TRUE, -1)
 			visible_message("<span class='danger'>[src] slaps [target] in the face!</span>",
 				"<span class='notice'>You slap [target] in the face! </span>",\
 			"You hear a slap.")
