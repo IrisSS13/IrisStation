@@ -73,12 +73,7 @@
 	return "Podpeople are largely peaceful plant based lifeforms, resembling a humanoid figure made of leaves, flowers, and vines."
 
 /datum/species/pod/get_species_lore()
-	return list(
-		"Not much is known about the origins of the Podpeople. \
-		Many assume them to be the result of a long forgotten botanical experiment, slowly mutating for years on years until they became the beings they are today. \
-		Ever since they were uncovered long ago, their kind have been found on board stations and planets across the galaxy, \
-		often working in hydroponics bays, kitchens, or science departments, working with plants and other botanical lifeforms.",
-	)
+	return list(placeholder_lore)
 
 /datum/species/pod/create_pref_unique_perks()
 	var/list/to_add = list()

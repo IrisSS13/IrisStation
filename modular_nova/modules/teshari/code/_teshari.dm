@@ -76,3 +76,9 @@
 	. = ..()
 	passtable_off(C, SPECIES_TRAIT)
 
+/datum/species/teshari/get_species_lore()
+	return list(placeholder_lore)
+
+/datum/species/teshari/get_species_description()
+	return placeholder_description
+
