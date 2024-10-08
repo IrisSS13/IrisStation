@@ -120,7 +120,6 @@
 *	COLLARS
 */
 
-/*
 /datum/loadout_item/neck/choker
 	name = "Choker"
 	item_path = /obj/item/clothing/neck/human_petcollar/choker
@@ -128,7 +127,11 @@
 /datum/loadout_item/neck/thinchoker
 	name = "Thin Choker"
 	item_path = /obj/item/clothing/neck/human_petcollar/thinchoker
-*/
+
+/datum/loadout_item/neck/spike
+	name = "Spiked Choker"
+	item_path = /obj/item/clothing/neck/human_petcollar/spike
+
 /*
 *	PONCHOS
 */
@@ -255,6 +258,10 @@
 	name = "Maid Neck Cover"
 	item_path = /obj/item/clothing/neck/maid
 
+/datum/loadout_item/neck/colonial_cloak
+	name = "Colonial Cloak"
+	item_path = /obj/item/clothing/neck/cloak/colonial
+
 /datum/loadout_item/neck/imperial_police_cloak
 	name = "Imperial Police Cloak"
 	item_path = /obj/item/clothing/neck/cloak/colonial/nri_police
@@ -268,13 +275,13 @@
 *	DONATOR
 */
 
-/datum/loadout_item/neck/donator
-	abstract_type = /datum/loadout_item/neck/donator
+/datum/loadout_item/donator/neck/donator
+	abstract_type = /datum/loadout_item/donator/neck/donator
 	donator_only = TRUE
 
-/datum/loadout_item/neck/donator/mantle
-	abstract_type = /datum/loadout_item/neck/donator/mantle
+/datum/loadout_item/donator/neck/donator/mantle
+	abstract_type = /datum/loadout_item/donator/neck/donator/mantle
 
-/datum/loadout_item/neck/donator/mantle/regal
+/datum/loadout_item/donator/neck/donator/mantle/regal
 	name = "Regal Mantle"
 	item_path = /obj/item/clothing/neck/mantle/regal

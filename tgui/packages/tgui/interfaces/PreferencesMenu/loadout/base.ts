@@ -38,7 +38,6 @@ export type LoadoutItem = {
   restricted_species: string[] | null;
   donator_only: BooleanLike;
   veteran_only: BooleanLike;
-  erp_item: BooleanLike;
   // NOVA EDIT END
 };
 
@@ -48,6 +47,9 @@ export type LoadoutCategory = {
   category_icon: FAIcon | null;
   category_info: string | null;
   contents: LoadoutItem[];
+  // NOVA EDIT ADDITION START
+  erp_category: BooleanLike;
+  // NOVA EDIT END
 };
 
 export type LoadoutManagerData = PreferencesMenuData & {

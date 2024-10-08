@@ -121,6 +121,10 @@
 	name = "Mothic Softcap"
 	item_path = /obj/item/clothing/head/mothcap
 
+/datum/loadout_item/head/colonialcap
+	name = "Colonial Cap"
+	item_path = /obj/item/clothing/head/hats/colonial
+
 /datum/loadout_item/head/frontiercap
 	name = "Frontier Cap"
 	item_path = /obj/item/clothing/head/soft/frontier_colonist
@@ -685,55 +689,55 @@
 	item_path = /obj/item/clothing/head/costume/fancy
 
 /*
-*	DONATOR
-*/
-
-/datum/loadout_item/head/donator
-	abstract_type = /datum/loadout_item/head/donator
-	donator_only = TRUE
-
-/*
 *	FLOWERS
 */
 
-/datum/loadout_item/head/donator/poppy
+/datum/loadout_item/head/poppy
 	name = "Poppy Flower"
 	item_path = /obj/item/food/grown/poppy
 
-/datum/loadout_item/head/donator/lily
+/datum/loadout_item/head/lily
 	name = "Lily Flower"
 	item_path = /obj/item/food/grown/poppy/lily
 
-/datum/loadout_item/head/donator/geranium
+/datum/loadout_item/head/geranium
 	name = "Geranium Flower"
 	item_path = /obj/item/food/grown/poppy/geranium
 
-/datum/loadout_item/head/donator/fraxinella
+/datum/loadout_item/head/fraxinella
 	name = "Fraxinella Flower"
 	item_path = /obj/item/food/grown/poppy/geranium/fraxinella
 
-/datum/loadout_item/head/donator/harebell
+/datum/loadout_item/head/harebell
 	name = "Harebell Flower"
 	item_path = /obj/item/food/grown/harebell
 
-/datum/loadout_item/head/donator/rose
+/datum/loadout_item/head/rose
 	name = "Rose Flower"
 	item_path = /obj/item/food/grown/rose
 
-/datum/loadout_item/head/donator/carbon_rose
+/datum/loadout_item/head/carbon_rose
 	name = "Carbon Rose Flower"
 	item_path = /obj/item/grown/carbon_rose
 
-/datum/loadout_item/head/donator/sunflower
+/datum/loadout_item/head/sunflower
 	name = "Sunflower"
 	item_path = /obj/item/food/grown/sunflower
 
-/datum/loadout_item/head/donator/rainbow_bunch
+/datum/loadout_item/head/rainbow_bunch
 	name = "Rainbow Bunch"
 	item_path = /obj/item/food/grown/rainbow_flower
 	additional_displayed_text = list(TOOLTIP_RANDOM_COLOR)
 
+/*
+*	DONATOR
+*/
+
+/datum/loadout_item/donator/head/donator
+	abstract_type = /datum/loadout_item/donator/head/donator
+	donator_only = TRUE
+
 // Legacy unpaintable cowboy hat because it fits a character better
-/datum/loadout_item/head/cowboyhat_legacy
+/datum/loadout_item/donator/head/cowboyhat_legacy
 	name = "Cowboy Hat (Legacy)"
 	item_path = /obj/item/clothing/head/costume/cowboyhat_old

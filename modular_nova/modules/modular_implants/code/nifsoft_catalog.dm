@@ -92,7 +92,7 @@ GLOBAL_LIST_INIT(purchasable_nifsofts, list(
 
 	return data
 
-/datum/computer_file/program/nifsoft_downloader/ui_act(action, list/params)
+/datum/computer_file/program/nifsoft_downloader/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return

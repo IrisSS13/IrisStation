@@ -1,7 +1,7 @@
 /datum/loadout_category/feet
 	category_name = "Feet"
 	category_ui_icon = FA_ICON_SHOE_PRINTS
-	type_to_generate = /datum/loadout_item/shoes
+	type_to_generate = newlist(/datum/loadout_item/shoes, /datum/loadout_item/donator/shoes)
 	tab_order = /datum/loadout_category/hands::tab_order + 1
 
 /*
@@ -43,6 +43,10 @@
 /datum/loadout_item/shoes/recolorable_jackboots
 	name = "Recolorable Jackboots"
 	item_path = /obj/item/clothing/shoes/jackboots/recolorable
+
+/datum/loadout_item/shoes/colonial_boots
+	name = "Colonial Half-Boots"
+	item_path = /obj/item/clothing/shoes/jackboots/colonial
 
 /datum/loadout_item/shoes/jackboots/frontier
 	name = "Heavy Frontier Boots"
@@ -269,14 +273,14 @@
 *	DONATOR
 */
 
-/datum/loadout_item/shoes/donator
-	abstract_type = /datum/loadout_item/shoes/donator
+/datum/loadout_item/donator/shoes/donator
+	abstract_type = /datum/loadout_item/donator/shoes/donator
 	donator_only = TRUE
 
-/datum/loadout_item/shoes/donator/blackjackboots
+/datum/loadout_item/donator/shoes/donator/blackjackboots
 	name = "Black Jackboots"
 	item_path = /obj/item/clothing/shoes/jackboots/black
 
-/datum/loadout_item/shoes/donator/rainbow
+/datum/loadout_item/donator/shoes/donator/rainbow
 	name = "Rainbow Converse"
 	item_path = /obj/item/clothing/shoes/sneakers/rainbow

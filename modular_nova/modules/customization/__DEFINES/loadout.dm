@@ -3,9 +3,11 @@
 
 #define LOADOUT_CATEGORY_NONE				"ERROR"
 //Those three subcategories are good to apply to any category
-#define LOADOUT_SUBCATEGORY_DONATOR			"Donator"
 #define LOADOUT_SUBCATEGORY_MISC			"Miscellaneous"
 #define LOADOUT_SUBCATEGORY_JOB 			"Job-related"
+
+//donator is it's own category now
+#define LOADOUT_CATEGORY_DONATOR			"Donator"
 
 //In backpack
 #define LOADOUT_CATEGORY_BACKPACK 				"In backpack"

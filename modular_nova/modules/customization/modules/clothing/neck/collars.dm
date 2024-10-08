@@ -1,44 +1,24 @@
-/datum/storage/pockets/small/collar
-	max_slots = 1
-
-/datum/storage/pockets/small/collar/New()
-	. = ..()
-	can_hold = typecacheof(list(
-	/obj/item/food/cookie))
-
 /obj/item/clothing/neck/human_petcollar
 	name = "pet collar"
-	desc = "It's for pets. Though you probably could wear it yourself, you'd doubtless be the subject of ridicule."
+	desc = "It's for pets. Though you probably could wear it yourself, you'd doubtless be the subject of ridicule. You're not supposed to have this item, yell at admins or coders."
 	icon_state = "pet"
 	greyscale_config = /datum/greyscale_config/collar/pet
 	greyscale_config_worn = /datum/greyscale_config/collar/pet/worn
 	greyscale_colors = "#44BBEE#FFCC00"
+	obj_flags = parent_type::obj_flags | UNIQUE_RENAME
 	flags_1 = IS_PLAYER_COLORABLE_1
 	alternate_worn_layer = UNDER_SUIT_LAYER
-	/// What's the name on the tag, if any?
-	var/tagname = null
-	/// What treat item spawns inside the collar?
-	var/treat_path = /obj/item/food/cookie
 
-/obj/item/clothing/neck/human_petcollar/Initialize(mapload)
-	. = ..()
-	create_storage(storage_type = /datum/storage/pockets/small/collar)
-	if(treat_path)
-		new treat_path(src)
+// incompatible storage by default stops attack chain, but this does not, allows pen renaming
+/obj/item/clothing/neck/human_petcollar/storage_insert_on_interacted_with(datum/storage/storage, obj/item/inserted, mob/living/user)
+	return is_type_in_typecache(inserted, storage.can_hold)
 
-/obj/item/clothing/neck/human_petcollar/attack_self(mob/user)
-	tagname = stripped_input(user, "Would you like to change the name on the tag?", "Name your new pet", "Spot", MAX_NAME_LEN)
-	if(tagname)
-		name = "[initial(name)] - [tagname]"
-
-//Someone yeeted their sprites, so I'm commenting these out until we add them back or fully remove these, idk which one -knight
-/*
 /obj/item/clothing/neck/human_petcollar/choker
-	name = "spiked collar"
+	name = "choker"
 	desc = "Quite fashionable... if you're an edgy teen."
 	icon_state = "choker"
-	greyscale_config = /datum/greyscale_config/collar/spike
-	greyscale_config_worn = /datum/greyscale_config/collar/spike/worn
+	greyscale_config = /datum/greyscale_config/collar/choker
+	greyscale_config_worn = /datum/greyscale_config/collar/choker/worn
 	greyscale_colors = "#222222"
 
 /obj/item/clothing/neck/human_petcollar/thinchoker
@@ -48,4 +28,11 @@
 	greyscale_config = /datum/greyscale_config/collar/thinchoker
 	greyscale_config_worn = /datum/greyscale_config/collar/thinchoker/worn
 	greyscale_colors = "#222222"
-*/
+
+/obj/item/clothing/neck/human_petcollar/spike
+	name = "spiked choker"
+	desc = "For when you really want to be the master of edge."
+	icon_state = "spike"
+	greyscale_config = /datum/greyscale_config/collar/spike
+	greyscale_config_worn = /datum/greyscale_config/collar/spike/worn
+	greyscale_colors = "#292929#C0C0C0"

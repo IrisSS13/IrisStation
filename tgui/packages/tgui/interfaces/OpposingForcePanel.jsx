@@ -214,7 +214,7 @@ export const OpposingForceTab = (props) => {
               </a>
             </Stack.Item>
             <Stack.Item>
-              <a href="https://irisstation.miraheze.org/wiki/Antagonist_Policy">
+              <a href="https://wiki.irisstation.lol/wiki/Antagonist_Policy">
                 <Button
                   icon="wrench"
                   color="red"
@@ -224,7 +224,7 @@ export const OpposingForceTab = (props) => {
               </a>
             </Stack.Item>
             <Stack.Item>
-              <a href="https://irisstation.miraheze.org/wiki/Rules#Rule_6_-_No_Self-Antagging">
+              <a href="https://wiki.irisstation.lol/wiki/Rules#Rule_6_-_No_Self-Antagging">
                 <Button
                   icon="question"
                   color="yellow"

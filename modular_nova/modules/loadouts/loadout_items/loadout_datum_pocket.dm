@@ -1,5 +1,6 @@
 /datum/loadout_category/pocket
 	tab_order = /datum/loadout_category/toys::tab_order + 1
+	type_to_generate = newlist(/datum/loadout_item/pocket_items, /datum/loadout_item/donator/pocket_items)
 
 /datum/loadout_item/pocket_items/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE) // these go in the backpack
 	return FALSE
@@ -211,6 +212,10 @@
 	name = "Mothic Rations Pack"
 	item_path = /obj/item/storage/box/mothic_rations
 
+/datum/loadout_item/pocket_items/colonial_mre
+	name = "Foreign Colonization Ration"
+	item_path = /obj/item/storage/box/colonial_rations
+
 /datum/loadout_item/pocket_items/cloth_ten
 	name = "Ten Cloth Sheets"
 	item_path = /obj/item/stack/sheet/cloth/ten
@@ -222,6 +227,14 @@
 /datum/loadout_item/pocket_items/medkit
 	name = "First-Aid Kit"
 	item_path = /obj/item/storage/medkit/regular
+
+/datum/loadout_item/pocket_items/medipen_pouch
+	name = "Empty Colonial Medipen Pouch"
+	item_path = /obj/item/storage/pouch/cin_medipens
+
+/datum/loadout_item/pocket_items/medkit_pouch
+	name = "Empty Colonial First Aid Pouch"
+	item_path = /obj/item/storage/pouch/cin_medkit
 
 /datum/loadout_item/pocket_items/deforest_cheesekit
 	name = "Civil Defense Medical Kit"
@@ -332,18 +345,18 @@
 *	DONATOR
 */
 
-/datum/loadout_item/pocket_items/donator
-	abstract_type = /datum/loadout_item/pocket_items/donator
+/datum/loadout_item/donator/pocket_items/donator
+	abstract_type = /datum/loadout_item/donator/pocket_items/donator
 	donator_only = TRUE
 
-/datum/loadout_item/pocket_items/donator/coin
+/datum/loadout_item/donator/pocket_items/donator/coin
 	name = "Iron Coin"
 	item_path = /obj/item/coin/iron
 
-/datum/loadout_item/pocket_items/donator/havana_cigar_case
+/datum/loadout_item/donator/pocket_items/donator/havana_cigar_case
 	name = "Havanian Cigars"
 	item_path = /obj/item/storage/fancy/cigarettes/cigars/havana
 
-/datum/loadout_item/pocket_items/donator/vape
+/datum/loadout_item/donator/pocket_items/donator/vape
 	name = "E-Cigarette"
 	item_path = /obj/item/vape

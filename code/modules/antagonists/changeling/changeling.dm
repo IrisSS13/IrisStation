@@ -553,6 +553,13 @@
 	new_profile.laugh_type = target.selected_laugh?.type || /datum/laugh_type/none
 	//NOVA EDIT ADDITION END
 
+	//IRIS EDIT - Voice Bark
+	new_profile.blooper_id = target.blooper_id
+	new_profile.blooper_pitch = target.blooper_pitch
+	new_profile.blooper_speed = target.blooper_speed
+	new_profile.blooper_pitch_range = target.blooper_pitch_range
+	//IRIS EDIT END
+
 	// Grab skillchips they have
 	new_profile.skillchips = target.clone_skillchip_list(TRUE)
 

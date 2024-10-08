@@ -45,8 +45,6 @@
 	var/veteran_only
 	/// Whether the item requires a specific season in order to be available
 	var/required_season = null
-	/// If the item won't appear when the ERP config is disabled
-	var/erp_item = FALSE
 
 /*
  * Place our [var/item_path] into [outfit].

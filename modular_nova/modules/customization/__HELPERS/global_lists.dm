@@ -20,6 +20,13 @@
 		var/datum/laugh_type/L = new spath()
 		GLOB.laugh_types[L.name] = spath
 	sort_list(GLOB.laugh_types, GLOBAL_PROC_REF(cmp_typepaths_asc))
+			//IRIS EDIT ADDITION
+	for(var/sound_blooper_path in subtypesof(/datum/blooper))
+		var/datum/blooper/B = new sound_blooper_path()
+		GLOB.blooper_list[B.id] = sound_blooper_path
+		if(B.allow_random)
+			GLOB.blooper_random_list[B.id] = sound_blooper_path
+	//IRIS EDIT END
 
 /proc/make_default_mutant_bodypart_references()
 	// Build the global list for default species' mutant_bodyparts
@@ -69,6 +76,7 @@
 		/obj/item/stack/sheet/iron = list(GLOB.nova_metal_recipes, GLOB.nova_metal_airlock_recipes),
 		/obj/item/stack/sheet/plasteel = list(GLOB.nova_plasteel_recipes),
 		/obj/item/stack/sheet/mineral/wood = list(GLOB.nova_wood_recipes),
+		/obj/item/stack/sheet/cardboard = list(GLOB.nova_cardboard_recipes),
 		/obj/item/stack/sheet/cloth = list(GLOB.nova_cloth_recipes),
 		/obj/item/stack/ore/glass = list(GLOB.nova_sand_recipes),
 		/obj/item/stack/rods = list(GLOB.nova_rod_recipes),
@@ -114,80 +122,3 @@
 /// ERP GUTTED. leaving comments in case something breaks
 	// Chemical reactions aren't handled here because they're loaded in the reagents SS
 	// See Initialize() on SSReagents
-
-	// Loadouts
-	for(var/datum/loadout_category/category in GLOB.all_loadout_categories)
-		for(var/datum/loadout_item/loadout_item in category.associated_items)
-			if(!loadout_item.erp_item)
-				continue
-
-			category.associated_items -= loadout_item
-
-	for(var/loadout_path in GLOB.all_loadout_datums)
-		var/datum/loadout_item/loadout_datum = GLOB.all_loadout_datums[loadout_path]
-		if(!loadout_datum.erp_item)
-			continue
-		qdel(loadout_datum) // This actually handles removing it from the list.
-		// Ensure this FULLY works later
-
-
-	// Underwear
-	for(var/sprite_name in SSaccessories.underwear_list)
-		var/datum/sprite_accessory/sprite_datum = SSaccessories.underwear_list[sprite_name]
-		if(!sprite_datum?.erp_accessory)
-			continue
-		SSaccessories.underwear_list -= sprite_name
-
-	for(var/sprite_name in SSaccessories.underwear_f)
-		var/datum/sprite_accessory/sprite_datum = SSaccessories.underwear_f[sprite_name]
-		if(!sprite_datum?.erp_accessory)
-			continue
-		SSaccessories.underwear_f -= sprite_name
-
-	for(var/sprite_name in SSaccessories.underwear_m)
-		var/datum/sprite_accessory/sprite_datum = SSaccessories.underwear_m[sprite_name]
-		if(!sprite_datum?.erp_accessory)
-			continue
-		SSaccessories.underwear_m -= sprite_name
-
-	// Undershirts
-	for(var/sprite_name in SSaccessories.undershirt_list)
-		var/datum/sprite_accessory/sprite_datum = SSaccessories.undershirt_list[sprite_name]
-		if(!sprite_datum?.erp_accessory)
-			continue
-		SSaccessories.undershirt_list -= sprite_name
-
-	for(var/sprite_name in SSaccessories.undershirt_f)
-		var/datum/sprite_accessory/sprite_datum = SSaccessories.undershirt_f[sprite_name]
-		if(!sprite_datum?.erp_accessory)
-			continue
-		SSaccessories.undershirt_f -= sprite_name
-
-	for(var/sprite_name in SSaccessories.undershirt_m)
-		var/datum/sprite_accessory/sprite_datum = SSaccessories.undershirt_m[sprite_name]
-		if(!sprite_datum?.erp_accessory)
-			continue
-		SSaccessories.undershirt_m -= sprite_name
-
-
-	// Bras
-	for(var/sprite_name in SSaccessories.bra_list)
-		var/datum/sprite_accessory/sprite_datum = SSaccessories.bra_list[sprite_name]
-		if(!sprite_datum?.erp_accessory)
-			continue
-
-		SSaccessories.bra_list -= sprite_name
-
-	for(var/sprite_name in SSaccessories.bra_f)
-		var/datum/sprite_accessory/sprite_datum = SSaccessories.bra_f[sprite_name]
-		if(!sprite_datum?.erp_accessory)
-			continue
-
-		SSaccessories.bra_f -= sprite_name
-
-	for(var/sprite_name in SSaccessories.bra_m)
-		var/datum/sprite_accessory/sprite_datum = SSaccessories.bra_m[sprite_name]
-		if(!sprite_datum?.erp_accessory)
-			continue
-
-		SSaccessories.bra_m -= sprite_name
