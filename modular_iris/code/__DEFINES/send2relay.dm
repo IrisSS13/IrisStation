@@ -1,19 +1,24 @@
 #define US_EAST_RELAY_ADDR "byond://useast.irisstation.lol:4200"
+#define SINGAPORE_RELAY_ADDR "byond://singapore.irisstation.lol:4200"
 #define NO_RELAY_ADDR "byond://play.irisstation.lol:4200"
 
 #define US_EAST_RELAY "Connect to US-East (Virginia)"
+#define SINGAPORE_RELAY "Connect to Singapore (Asia)"
 #define NO_RELAY "No Relay (Direct Connect)"
 
 /client/verb/go2relay()
 	var/list/static/relays = list(
 		US_EAST_RELAY,
+		SINGAPORE_RELAY,
 		NO_RELAY,
 	)
-	var/choice = tgui_input_list(usr, "Which relay do you wish to use?", "Relay Select", relays)
+	var/choice = tgui_input_list(usr, "Which relay do you wish to use? Relays help with improving ping and keeping it stable.", "Relay Select", relays)
 	var/destination
 	switch(choice)
 		if(US_EAST_RELAY)
 			destination = US_EAST_RELAY_ADDR
+		if(SINGAPORE_RELAY)
+			destination = SINGAPORE_RELAY_ADDR
 		if(NO_RELAY)
 			destination = NO_RELAY_ADDR
 	if(destination)
@@ -24,7 +29,9 @@
 		usr << "You didn't select a relay."
 
 #undef US_EAST_RELAY_ADDR
+#undef SINGAPORE_RELAY_ADDR
 #undef NO_RELAY_ADDR
 
 #undef US_EAST_RELAY
+#undef SINGAPORE_RELAY
 #undef NO_RELAY
