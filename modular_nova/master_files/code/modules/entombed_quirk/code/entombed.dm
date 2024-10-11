@@ -7,7 +7,7 @@
 	gain_text = span_warning("Your exosuit is both prison and home.")
 	lose_text = span_notice("At last, you're finally free from that horrible exosuit.")
 	medical_record_text = "Patient is physiologically reliant on a MOD unit for homeostasis. Do not attempt removal."
-	value = 0
+	value = -4 //IRIS EDIT: 0 to -4, basically makes you impossible to fix in case of death unless science researched threadripper module
 	icon = FA_ICON_ARROW_CIRCLE_DOWN
 	forced_items = list(/obj/item/mod/control/pre_equipped/entombed = list(ITEM_SLOT_BACK))
 	quirk_flags = QUIRK_HUMAN_ONLY | QUIRK_PROCESSES

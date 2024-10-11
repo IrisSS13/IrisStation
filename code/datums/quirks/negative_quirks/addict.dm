@@ -173,7 +173,7 @@
 	name = "Alcoholic"
 	desc = "You just can't live without alcohol. Your liver is a machine that turns ethanol into acetaldehyde."
 	icon = FA_ICON_WINE_GLASS
-	value = -6 //IRIS EDIT: while alcohol is everywhere it isn't really fun to have to look for it every 3 minutes unless you want to risk having brain damage
+	value = -6 //IRIS EDIT: -4 to -6, while alcohol is everywhere it isn't really fun to have to look for it every 3 minutes unless you want to risk having brain damage
 	gain_text = span_danger("You really need a drink.")
 	lose_text = span_notice("Alcohol doesn't seem nearly as enticing anymore.")
 	medical_record_text = "Patient is an alcoholic."
