@@ -2,7 +2,7 @@
 	name = "Poster Boy"
 	desc = "You have some great posters! Hang them up and make everyone have a great time."
 	icon = FA_ICON_TAPE
-	value = 4
+	value = 0 //IRIS EDIT: 4 to 0, these posters give a minor mood buff, not really worth 4 points lol
 	mob_trait = TRAIT_POSTERBOY
 	medical_record_text = "Patient reports a desire to cover walls with homemade objects."
 	mail_goodies = list(/obj/item/poster/random_official)
