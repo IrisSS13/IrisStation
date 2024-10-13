@@ -766,11 +766,14 @@
 		hunger_mult = 1 - (hunger - FISH_GROWTH_PEAK) * 4
 		if(hunger_mult <= 0)
 			return
+	var/base_mult = FISH_GROWTH_MULT
+	if(HAS_TRAIT(src, TRAIT_FISH_QUICK_GROWTH))
+		base_mult *= 2.5
 	if(size < maximum_size)
-		new_size += CEILING((maximum_size - size) * FISH_GROWTH_MULT / (w_class * FISH_SIZE_WEIGHT_GROWTH_MALUS) * hunger_mult, 1)
+		new_size += CEILING((maximum_size - size) * base_mult / (w_class * FISH_SIZE_WEIGHT_GROWTH_MALUS) * hunger_mult, 1)
 		new_size = min(new_size, maximum_size)
 	if(weight < maximum_weight)
-		new_weight += CEILING((maximum_weight - weight) * FISH_GROWTH_MULT / (get_weight_rank() * FISH_SIZE_WEIGHT_GROWTH_MALUS) * hunger_mult, 1)
+		new_weight += CEILING((maximum_weight - weight) * base_mult / (get_weight_rank() * FISH_SIZE_WEIGHT_GROWTH_MALUS) * hunger_mult, 1)
 		new_weight = min(new_weight, maximum_weight)
 	if(new_size != size || new_weight != weight)
 		update_size_and_weight(new_size, new_weight)
