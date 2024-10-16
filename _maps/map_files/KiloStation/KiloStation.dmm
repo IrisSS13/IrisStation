@@ -1994,7 +1994,6 @@
 /area/station/science/explab)
 "aFt" = (
 /obj/structure/flora/bush/jungle/b/style_random,
-/obj/machinery/airalarm/directional/east,
 /mob/living/carbon/human/species/monkey,
 /turf/open/floor/grass,
 /area/station/medical/virology)
@@ -28932,7 +28931,8 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/window/right/directional/north{
-	name = "Crate Return Door"
+	name = "Crate Return Door";
+	req_access = list("cargo")
 	},
 /turf/open/floor/plating,
 /area/station/cargo/storage)
@@ -37903,6 +37903,7 @@
 /obj/effect/turf_decal/tile/green/half/contrasted{
 	dir = 1
 	},
+/obj/machinery/airalarm/directional/north,
 /turf/open/floor/iron/showroomfloor,
 /area/station/medical/virology)
 "lJw" = (
@@ -41934,10 +41935,6 @@
 "mXM" = (
 /obj/structure/closet/secure_closet/freezer/meat,
 /obj/effect/turf_decal/bot,
-/obj/machinery/firealarm/directional/south,
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
 /obj/structure/sign/poster/contraband/random/directional/south,
 /turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/service/kitchen/coldroom)
@@ -69992,7 +69989,6 @@
 /obj/machinery/door/airlock/freezer{
 	name = "Kitchen Coldroom"
 	},
-/obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/access/all/service/kitchen,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/fans/tiny,
@@ -109583,7 +109579,7 @@ fRw
 fRw
 jyF
 jNR
-fvU
+lRk
 kfh
 sZe
 ffu
@@ -110611,7 +110607,7 @@ wxI
 lRk
 wpf
 aVn
-fvU
+lRk
 vOM
 gxe
 sAZ
@@ -110870,7 +110866,7 @@ eLs
 nrN
 lRk
 lRk
-fvU
+lRk
 xsO
 eQO
 oLR
