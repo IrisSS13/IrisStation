@@ -2,7 +2,7 @@
 	category_name = "Face"
 	category_ui_icon = FA_ICON_MASK
 	type_to_generate = newlist(/datum/loadout_item/mask, /datum/loadout_item/donator/mask)
-	tab_order = /datum/loadout_category/glasses::tab_order + 1
+	tab_order = LOADOUT_FACE
 
 /*
 *	LOADOUT ITEM DATUMS FOR THE MASK SLOT

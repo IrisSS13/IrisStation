@@ -3,7 +3,7 @@
 	category_name = "Glasses"
 	category_ui_icon = FA_ICON_GLASSES
 	type_to_generate = newlist(/datum/loadout_item/glasses, /datum/loadout_item/donator/glasses)
-	tab_order = /datum/loadout_category/head::tab_order + 1
+	tab_order = LOADOUT_GLASSES
 
 /datum/loadout_item/glasses
 	abstract_type = /datum/loadout_item/glasses

@@ -3,7 +3,7 @@
 	category_name = "Head"
 	category_ui_icon = FA_ICON_HAT_COWBOY
 	type_to_generate = newlist(/datum/loadout_item/head, /datum/loadout_item/donator/head)
-	tab_order = 1
+	tab_order = LOADOUT_HEAD
 
 /datum/loadout_item/head
 	abstract_type = /datum/loadout_item/head
@@ -151,7 +151,7 @@
 /datum/loadout_item/head/geranium
 	name = "Geranium"
 	item_path = /obj/item/food/grown/poppy/geranium
-	
+
 /datum/loadout_item/head/harebell
 	name = "Harebell"
 	item_path = /obj/item/food/grown/harebell

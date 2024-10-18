@@ -3,7 +3,7 @@
 	category_name = "Neck"
 	category_ui_icon = FA_ICON_USER_TIE
 	type_to_generate = /datum/loadout_item/neck
-	tab_order = /datum/loadout_category/head::tab_order + 2
+	tab_order = LOADOUT_NECK
 
 /datum/loadout_item/neck
 	abstract_type = /datum/loadout_item/neck

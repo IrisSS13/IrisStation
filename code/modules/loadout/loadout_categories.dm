@@ -42,6 +42,8 @@
 			for(var/datum/loadout_item/found_type as anything in typesof(type))
 				if(found_type == initial(found_type.abstract_type))
 					continue
+				if(!found_type.item_path)
+					continue
 
 				spawned_type = new found_type(src)
 				all_items += spawned_type
@@ -50,7 +52,8 @@
 		for(var/datum/loadout_item/found_type as anything in typesof(type_to_generate))
 			if(found_type == initial(found_type.abstract_type))
 				continue
-
+			if(!found_type.item_path)
+				continue
 			if(!ispath(initial(found_type.item_path), /obj/item) && found_type.item_path != (initial(found_type.item_path)))
 				stack_trace("Loadout get_items(): Attempted to instantiate a loadout item ([found_type]) with an invalid or null typepath! (got path: [initial(found_type.item_path)])")
 				continue

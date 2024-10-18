@@ -2,7 +2,7 @@
 	category_name = "Suit"
 	category_ui_icon = FA_ICON_VEST
 	type_to_generate = newlist(/datum/loadout_item/suit, /datum/loadout_item/donator/suit)
-	tab_order = /datum/loadout_category/neck::tab_order + 1
+	tab_order = LOADOUT_SUIT
 
 /*
 *	LOADOUT ITEM DATUMS FOR THE (EXO/OUTER)SUIT SLOT

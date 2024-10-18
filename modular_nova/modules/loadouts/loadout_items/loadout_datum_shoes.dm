@@ -2,7 +2,7 @@
 	category_name = "Feet"
 	category_ui_icon = FA_ICON_SHOE_PRINTS
 	type_to_generate = newlist(/datum/loadout_item/shoes, /datum/loadout_item/donator/shoes)
-	tab_order = /datum/loadout_category/hands::tab_order + 1
+	tab_order = LOADOUT_SHOES
 
 /*
 *	LOADOUT ITEM DATUMS FOR THE SHOE SLOT
