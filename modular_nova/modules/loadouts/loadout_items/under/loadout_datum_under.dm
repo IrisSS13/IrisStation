@@ -5,7 +5,7 @@
 	category_name = "Undersuit"
 	category_ui_icon = FA_ICON_SHIRT
 	type_to_generate = newlist(/datum/loadout_item/under, /datum/loadout_item/donator/under)
-	tab_order = /datum/loadout_category/suit::tab_order + 1
+	tab_order = LOADOUT_UNDERSUIT
 
 
 /datum/loadout_item/under

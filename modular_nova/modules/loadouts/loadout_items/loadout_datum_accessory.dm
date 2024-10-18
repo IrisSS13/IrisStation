@@ -5,7 +5,7 @@
 /// Accessory Items (Moves overrided items to backpack)
 /datum/loadout_category/accessories
 	category_ui_icon = FA_ICON_ID_BADGE
-	tab_order = /datum/loadout_category/undersuit::tab_order + 1
+	tab_order = LOADOUT_ACCESSORIES_BACKPACK
 
 
 /datum/loadout_item/accessory/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, visuals_only = FALSE)

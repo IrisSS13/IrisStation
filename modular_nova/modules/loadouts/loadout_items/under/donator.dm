@@ -2,7 +2,7 @@
 	category_name = "Donator"
 	category_ui_icon = FA_ICON_USD
 	type_to_generate = /datum/loadout_item/donator/
-	tab_order = /datum/loadout_category/feet::tab_order + 2
+	tab_order = LOADOUT_DONATOR
 
 /datum/loadout_item/donator/under/jumpsuit/
 	abstract_type = /datum/loadout_item/donator/under/jumpsuit/
