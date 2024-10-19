@@ -30,3 +30,24 @@
 #define LOADOUT_OVERRIDE_JOB "Delete job items"
 #define LOADOUT_OVERRIDE_BACKPACK "Move job to backpack"
 #define LOADOUT_OVERRIDE_CASE "Place all in case"
+
+
+// tab orders for loadout - tabs will show in the order that they're done ascending here.
+#define LOADOUT_HEAD 1
+#define LOADOUT_FACE 3
+#define LOADOUT_GLASSES 2
+#define LOADOUT_NECK 3
+#define LOADOUT_EARS 4
+#define LOADOUT_SUIT 4
+#define LOADOUT_ACCESSORIES 4
+#define LOADOUT_BELT 4
+#define LOADOUT_UNDERSUIT 5
+#define LOADOUT_GLOVES 5
+#define LOADOUT_INHANDS 5
+#define LOADOUT_ACCESSORIES_BACKPACK 6
+#define LOADOUT_SHOES 6
+#define LOADOUT_POCKET_OTHER 6
+#define LOADOUT_TOYS 6
+#define LOADOUT_POCKET 7
+#define LOADOUT_DONATOR 8
+

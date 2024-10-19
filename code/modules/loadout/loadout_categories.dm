@@ -42,28 +42,33 @@
 			for(var/datum/loadout_item/found_type as anything in typesof(type))
 				if(found_type == initial(found_type.abstract_type))
 					continue
+				if(!found_type.item_path)
+					continue
 
 				spawned_type = new found_type(src)
-				all_items += spawned_type
+				if(!(spawned_type in all_items))
+					all_items += spawned_type
 
 	else
 		for(var/datum/loadout_item/found_type as anything in typesof(type_to_generate))
 			if(found_type == initial(found_type.abstract_type))
 				continue
-
+			if(!found_type.item_path)
+				continue
 			if(!ispath(initial(found_type.item_path), /obj/item) && found_type.item_path != (initial(found_type.item_path)))
 				stack_trace("Loadout get_items(): Attempted to instantiate a loadout item ([found_type]) with an invalid or null typepath! (got path: [initial(found_type.item_path)])")
 				continue
 
 			spawned_type = new found_type(src)
-			all_items += spawned_type
+			if(!(spawned_type in all_items))
+				all_items += spawned_type
 
 		// Let's sanitize in case somebody inserted the player's byond name instead of ckey in canonical form
 	if(spawned_type.ckeywhitelist)
 		for (var/i = 1, i <= length(spawned_type.ckeywhitelist), i++)
 			spawned_type.ckeywhitelist[i] = ckey(spawned_type.ckeywhitelist[i])
-
-	all_items += spawned_type
+	if(!(spawned_type in all_items))
+		all_items += spawned_type
 
 	return all_items
 
