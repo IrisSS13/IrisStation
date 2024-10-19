@@ -2,7 +2,7 @@
 	name = "Bilingual"
 	desc = "Over the years you've picked up an extra language!"
 	icon = FA_ICON_GLOBE
-	value = 4
+	value = 2 //IRIS EDIT: 4 to 2, Not worth 4 points total imo, it's just a language and you can have 3 by default already
 	gain_text = span_notice("Some of the words of the people around you certainly aren't common. Good thing you studied for this.")
 	lose_text = span_notice("You seem to have forgotten your second language.")
 	medical_record_text = "Patient speaks multiple languages."
