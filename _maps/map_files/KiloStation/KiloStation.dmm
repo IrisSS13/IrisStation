@@ -11466,6 +11466,10 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
+"dGR" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
+/turf/open/floor/circuit/telecomms,
+/area/station/science/xenobiology)
 "dGX" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/effect/turf_decal/tile/neutral/half/contrasted,
@@ -15052,6 +15056,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/bot,
+/obj/machinery/status_display/evac/directional/west,
 /turf/open/floor/iron/showroomfloor,
 /area/station/science/xenobiology)
 "eLG" = (
@@ -16991,8 +16996,9 @@
 /turf/open/floor/plating,
 /area/station/maintenance/fore)
 "fpU" = (
-/obj/structure/sign/xenobio_guide,
-/turf/closed/wall/r_wall,
+/obj/effect/spawner/structure/window/reinforced,
+/obj/structure/cable,
+/turf/open/floor/engine,
 /area/station/science/xenobiology)
 "fqb" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/junction/layer2{
@@ -20019,9 +20025,12 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/starboard)
 "glv" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/closed/mineral/random/labormineral,
-/area/space/nearstation)
+/obj/machinery/atmospherics/components/unary/passive_vent{
+	dir = 1;
+	name = "killroom vent"
+	},
+/turf/open/floor/circuit/telecomms,
+/area/station/science/xenobiology)
 "glG" = (
 /obj/structure/sign/warning/secure_area,
 /turf/closed/wall/r_wall,
@@ -22699,6 +22708,9 @@
 /obj/structure/sign/warning/secure_area,
 /turf/closed/wall/r_wall,
 /area/station/maintenance/port/greater)
+"hgZ" = (
+/turf/open/floor/circuit/telecomms,
+/area/station/science/xenobiology)
 "hhc" = (
 /obj/machinery/computer/aifixer{
 	dir = 1
@@ -24682,6 +24694,10 @@
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
 /turf/open/floor/iron/dark,
 /area/station/security/office)
+"hJu" = (
+/obj/structure/cable,
+/turf/open/floor/iron/showroomfloor,
+/area/station/science/xenobiology)
 "hJy" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/vault{
@@ -25420,6 +25436,7 @@
 	},
 /obj/machinery/processor/slime,
 /obj/effect/turf_decal/bot,
+/obj/structure/cable,
 /turf/open/floor/iron/showroomfloor,
 /area/station/science/xenobiology)
 "hRB" = (
@@ -30468,6 +30485,7 @@
 /obj/structure/chair/comfy/black{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/iron/showroomfloor,
 /area/station/science/xenobiology)
 "jnB" = (
@@ -39906,6 +39924,13 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/service/chapel/storage)
+"mtm" = (
+/obj/machinery/atmospherics/components/unary/passive_vent{
+	dir = 4;
+	name = "killroom vent"
+	},
+/turf/open/floor/circuit/telecomms,
+/area/station/science/xenobiology)
 "mtq" = (
 /obj/effect/turf_decal/tile/purple,
 /obj/structure/chair/office/light,
@@ -41414,6 +41439,14 @@
 	},
 /obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/floor/iron/dark/small,
+/area/station/science/xenobiology)
+"mSl" = (
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on{
+	dir = 8;
+	initialize_directions = 4;
+	name = "euthanization chamber freezer"
+	},
+/turf/open/floor/circuit/telecomms,
 /area/station/science/xenobiology)
 "mSm" = (
 /obj/structure/table,
@@ -46540,6 +46573,7 @@
 	},
 /obj/effect/turf_decal/bot,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/status_display/evac/directional/east,
 /turf/open/floor/iron/showroomfloor,
 /area/station/science/xenobiology)
 "oFl" = (
@@ -62195,6 +62229,7 @@
 /obj/structure/chair/comfy/black{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/iron/showroomfloor,
 /area/station/science/xenobiology)
 "tyI" = (
@@ -67930,6 +67965,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/bot,
+/obj/structure/sign/xenobio_guide/directional/west,
 /turf/open/floor/iron/showroomfloor,
 /area/station/science/xenobiology)
 "vqU" = (
@@ -112486,9 +112522,9 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
+aUz
+aeU
+aeU
 acm
 acm
 aeU
@@ -112741,12 +112777,12 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
 aeU
 aeU
+aeU
+aeu
+aeu
+aeu
 aeU
 aeU
 aeU
@@ -112998,14 +113034,14 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aeU
-aeU
-aeU
-aeU
-aeU
+aUz
+aeu
+aeu
+aeu
+aeu
+aeu
+aeu
+aeu
 aeU
 aeU
 aeU
@@ -113254,17 +113290,17 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
 aeU
 aeU
+aeu
 aeU
 aUz
 aeU
-aeu
-aeu
+aeU
+vJc
+vJc
+vJc
+vJc
 vJc
 vJc
 vJc
@@ -113511,17 +113547,17 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aeU
 aeU
 aeu
 aeu
 aeu
-aeu
-aeu
-aeu
+aeU
+cui
+aeU
+vJc
+mtm
+hgZ
+hgZ
 vJc
 uWP
 vqT
@@ -113768,17 +113804,17 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aeu
+aeU
+aeU
 aeu
 aeu
 aeu
 aeU
 aUz
-aeu
-aeu
+vJc
+dGR
+dGR
+hgZ
 fpU
 hRv
 tyx
@@ -114026,19 +114062,19 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aeu
-aeu
-aeu
-aeu
 aeU
-cui
 aeU
+aeu
+aeu
+aeu
+aeu
+vJc
+mSl
+dGR
 glv
 vJc
 yal
-xHA
+hJu
 bwn
 nTK
 rhE
@@ -114295,7 +114331,7 @@ vJc
 vJc
 vJc
 ixb
-xHA
+hJu
 bwn
 xTF
 rhE
