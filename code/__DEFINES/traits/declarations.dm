@@ -1346,4 +1346,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 ///A "fake" effect that should not be subject to normal effect removal methods (like the effect remover component)
 #define TRAIT_ILLUSORY_EFFECT "illusory_effect"
 
+// /obj/item
+/// Applied to a satchel that is being worn on the belt. Iris addition.
+#define TRAIT_BELT_SATCHEL 			"belt_satchel"
+
 // END TRAIT DEFINES
