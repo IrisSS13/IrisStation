@@ -28,8 +28,8 @@
 		"a \"great investment\" into \"non-fungible tokens\" by a \"moron\"",\
 		"a number of raids from Tiger Cooperative agents",\
 		"supply chain shortages",\
-		"the \"Irisgram\" social media network's untimely downfall",\ //Iris edit
-		"the \"Irisgram\" social media network's unfortunate success",\ //Iris edit
+		"the \"Irisgram\" social media network's untimely downfall",\
+		"the \"Irisgram\" social media network's unfortunate success",\ 
 		"uhh, bad luck, we guess"
 	)
 	var/reason = pick(poss_reasons)
