@@ -40,11 +40,6 @@ GLOBAL_LIST_EMPTY(laugh_types)
 	male_laughsounds = list('sound/mobs/humanoids/lizard/lizard_laugh1.ogg')
 	female_laughsounds = null
 
-/datum/laugh_type/kefka //so many souls to play with....... so little time..... wouldn't you agree?
-	name = "Kefka Laugh"
-	male_laughsounds = list('modular_nova/modules/emotes/sound/emotes/kefkalaugh.ogg')
-	female_laughsounds = null
-
 /datum/laugh_type/skrell
 	name = "Skrell Laugh"
 	male_laughsounds = list(
