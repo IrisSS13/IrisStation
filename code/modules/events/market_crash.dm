@@ -28,8 +28,8 @@
 		"a \"great investment\" into \"non-fungible tokens\" by a \"moron\"",\
 		"a number of raids from Tiger Cooperative agents",\
 		"supply chain shortages",\
-		"the \"Nanotrasen+\" social media network's untimely downfall",\
-		"the \"Nanotrasen+\" social media network's unfortunate success",\
+		"the \"Irisgram\" social media network's untimely downfall",\ /*IRIS EDIT CHANGE: original was "Nanotrashen+"*/\
+		"the \"Irisgram\" social media network's unfortunate success",\ /*IRIS EDIT CHANGE: ditto*/\
 		"uhh, bad luck, we guess"
 	)
 	var/reason = pick(poss_reasons)
