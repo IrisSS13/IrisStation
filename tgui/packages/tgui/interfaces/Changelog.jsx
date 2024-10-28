@@ -189,10 +189,10 @@ export class Changelog extends Component {
         <h1>Iris Station</h1>
         <p>
           <b>Thanks to: </b>
-          Nova Sector, /tg/station, Skyrat Station 13, Baystation 12, /vg/station,
-          NTstation, CDK Station devs, FacepunchStation, GoonStation devs, 
-          the original Space Station 13 developers, and the countless others 
-          who have contributed to the game.
+          Nova Sector, /tg/station, Skyrat Station 13, Baystation 12,
+          /vg/station, NTstation, CDK Station devs, FacepunchStation,
+          GoonStation devs, the original Space Station 13 developers, and the
+          countless others who have contributed to the game.
         </p>
         <p>
           {'Current project maintainers can be found '}
