@@ -1,3 +1,8 @@
+/datum/laugh_type/bone
+	name = "Bad Laugh"
+	male_laughsounds = list('modular_iris/modules/emotes/sound/laugh/bad_to_the_bone.ogg')
+	female_laughsounds = null
+
 /datum/laugh_type/kefka
 	name = "Kefka Laugh"
 	male_laughsounds = list('modular_iris/modules/emotes/sound/laugh/kefkalaugh.ogg')
