@@ -1,3 +1,4 @@
+//hair
 /datum/sprite_accessory/hair/hyenamane
 	name = "Hyena Mane"
 	icon_state = "hair_hyenamane"
@@ -160,3 +161,50 @@
 	name = "Deathhawk"
 	icon = 'modular_iris/icons/mob/species/human/humanface.dmi'
 	icon_state = "hair_deathhawk"
+
+//tails
+/datum/sprite_accessory/tails
+	key = "tail"
+	generic = "Tail"
+	organ_type = /obj/item/organ/external/tail
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/tails.dmi'
+	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
+	genetic = TRUE
+
+/datum/sprite_accessory/tails/is_hidden(mob/living/carbon/human/wearer)
+	var/list/used_in_turf = list("tail")
+	if(wearer.owned_turf?.name in used_in_turf)
+	// Emote exception
+		return TRUE
+
+	if(!wearer.w_uniform && !wearer.wear_suit)
+		return FALSE
+	if(key in wearer.try_hide_mutant_parts)
+		return TRUE
+
+	if(wearer.wear_suit)
+		// Exception for MODs
+		if(istype(wearer.wear_suit, /obj/item/clothing/suit/mod))
+			return FALSE
+		// Hide accessory if flagged to do so
+		else if(wearer.wear_suit.flags_inv & HIDETAIL)
+			return TRUE
+
+/datum/sprite_accessory/tails/mammal
+	icon_state = "none"
+	recommended_species = list(SPECIES_MAMMAL,SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_HUMANOID, SPECIES_GHOUL)
+	organ_type = /obj/item/organ/external/tail/fluffy/no_wag
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/tails/mammal/teshari
+	recommended_species = list(SPECIES_TESHARI)
+
+//teshari
+
+/datum/sprite_accessory/tails/mammal/teshari/damaged //Iris Addition
+	name = "Teshari (Damaged)"
+	icon_state = "teshari_damaged"
+
+/datum/sprite_accessory/tails/mammal/teshari/stubby //Iris Addition
+	name = "Teshari (Stubby)"
+	icon_state = "teshari_stubby"
