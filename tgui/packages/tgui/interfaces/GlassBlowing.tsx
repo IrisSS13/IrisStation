@@ -118,6 +118,13 @@ export const GlassBlowing = (props) => {
                   content="Bottle"
                   disabled={inUse}
                   onClick={() => act('Bottle')}
+
+                />
+                 <Button
+                  content="Small Bottle"
+                  disabled={inUse}
+                  onClick={() => act('Small Bottle')}
+
                 />
               </Stack.Item>
             </Stack>
