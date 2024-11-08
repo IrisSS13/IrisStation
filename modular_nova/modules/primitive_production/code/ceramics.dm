@@ -135,7 +135,7 @@
 	desc = "A few block of clay, ready to be fired into bricks!"
 	icon = 'modular_nova/modules/primitive_production/icons/prim_fun.dmi'
 	icon_state = "claybricks"
-	forge_item = /obj/item/stack/sheet/stone/five
+	forge_item = /obj/item/stack/sheet/mineral/stone/five
 
 /obj/structure/throwing_wheel
 	name = "throwing wheel"

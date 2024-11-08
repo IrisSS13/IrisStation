@@ -1,7 +1,7 @@
 /obj/machinery/hydroponics/soil/soilbin //Just a big ol' tub of dirt.
 	name = "soilbin"
 	desc = "I've got a box of dirt! and guess what's inside it!... Yes, dirt."
-	icon = 'modular_skyrat/modules/primitive_structures/icons/storage.dmi'
+	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi'
 	icon_state = "soilbin"
 	gender = PLURAL
 	circuit = null
@@ -33,7 +33,7 @@
 /obj/machinery/hydroponics/soil/soilbin/gaia //Just a big ol' tub of glowning dirt.
 	name = "gaian soilbin"
 	desc = "I've got a box of dirt! and guess what's inside it!... Yes, dirt AND Gaia."
-	icon = 'modular_skyrat/modules/primitive_structures/icons/storage.dmi'
+	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi'
 	icon_state = "soilbin"
 	gender = PLURAL
 	circuit = null
@@ -73,7 +73,7 @@
 /obj/machinery/compostbin
 	name = "compost bin"
 	desc = "A smelly structure made of wooden slats. Dump produce in, pull usable compost out."
-	icon = 'modular_skyrat/modules/primitive_structures/icons/storage.dmi'
+	icon = 'modular_nova/modules/primitive_structures/icons/storage.dmi'
 	icon_state = "compostbin"
 	base_icon_state = "compost"
 	anchored = TRUE
@@ -301,7 +301,7 @@
 /obj/item/secateurs/wooden
 	name = "primitive secateurs"
 	desc = "Some shoddy looking secateurs, they look sturdy enough to get a graft... or poke someone in both eyes at once!"
-	icon = 'modular_skyrat/modules/primitive_production/icons/prim_fun.dmi'
+	icon = 'modular_nova/modules/primitive_production/icons/prim_fun.dmi'
 	icon_state = "woodensecateurs"
 
 /datum/crafting_recipe/secateur
