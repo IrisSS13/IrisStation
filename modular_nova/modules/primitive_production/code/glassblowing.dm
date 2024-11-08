@@ -269,6 +269,9 @@
 				glass.chosen_item = /obj/item/glassblowing/glass_lens
 				glass.steps_remaining = list(blow=0,spin=0,paddle=3,shear=3,jacks=3) //paddling, shearing, jacking
 			if("Bottle")
+				glass.chosen_item = /obj/item/reagent_containers/cup/glass/bottle
+				glass.steps_remaining = list(blow=4,spin=3,paddle=3,shear=0,jacks=0) //blowing, spinning, paddling but slightly more
+			if("Small Bottle")
 				glass.chosen_item = /obj/item/reagent_containers/cup/glass/bottle/small
 				glass.steps_remaining = list(blow=3,spin=2,paddle=3,shear=0,jacks=0) //blowing, spinning, paddling
 	else
