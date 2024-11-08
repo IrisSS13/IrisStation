@@ -491,6 +491,7 @@ GLOBAL_LIST_INIT(paper_blanks, init_paper_blanks())
 		return null
 	var/icon/temp_img = ass.get_butt_sprite()
 	if(isnull(temp_img))
+		say ("Unable to photocopy item, please contact the nearest manager.") //IRIS ADDITION: Failsafe in case I missed something + you now know it bugged out instead of it just stealing your cash
 		return null
 	var/obj/item/photo/copied_ass = new /obj/item/photo(src)
 	var/datum/picture/toEmbed = new(name = "[ass]'s Ass", desc = "You see [ass]'s ass on the photo.", image = temp_img)
