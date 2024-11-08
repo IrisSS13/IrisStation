@@ -157,7 +157,7 @@
 
 	. += span_notice("<br>[src] is currently [forge_temperature] degrees hot, going towards [target_temperature] degrees.<br>")
 
-	if(reagent_forging && (is_species(user, /datum/species/lizard/ashwalker) || is_species(user, /datum/species/human/felinid/primitive)))
+	if(reagent_forging)
 		. += span_warning("[src] has a fine gold trim, it is ready to imbue chemicals into reagent objects.")
 
 	return .
@@ -409,11 +409,8 @@
 
 		if(SKILL_LEVEL_LEGENDARY)
 			if(!forced)
-				if(is_species(user, /datum/species/lizard/ashwalker) || is_species(user, /datum/species/human/felinid/primitive))
-					to_chat(user, span_notice("With just the right heat treating technique, metal could be made to accept reagents..."))
-					create_reagent_forge()
-				if(forge_level == FORGE_LEVEL_MASTER)
-					to_chat(user, span_warning("It is impossible to further improve the forge!"))
+				to_chat(user, span_notice("With just the right heat treating technique, metal could be made to accept reagents..."))
+			create_reagent_forge()
 			temperature_loss_reduction = MAX_TEMPERATURE_LOSS_DECREASE
 			minimum_target_temperature = 25 // This won't matter except in a few cases here, but we still need to cover those few cases
 			forge_level = FORGE_LEVEL_LEGENDARY
@@ -573,10 +570,6 @@
 		to_chat(user, span_danger("It is impossible for you to imbue!")) //maybe remove (ashwalkers & icecats only) after some time
 		return
 
-	var/mob/living/carbon/human/human_user = user
-	if(!is_species(human_user, /datum/species/lizard/ashwalker) && !is_species(human_user, /datum/species/human/felinid/primitive))
-		to_chat(user, span_danger("It is impossible for you to imbue!")) //maybe remove (ashwalkers & icecats only) after some time
-		return
 
 	in_use = TRUE
 	balloon_alert_to_viewers("imbuing...")
@@ -620,11 +613,6 @@
 /obj/structure/reagent_forge/proc/handle_clothing_imbue(obj/attacking_item, mob/living/user)
 	//This code will refuse all non-ashwalkers & non-icecats from imbuing
 	if(!ishuman(user))
-		to_chat(user, span_danger("It is impossible for you to imbue!")) //maybe remove (ashwalkers & icecats only) after some time
-		return
-
-	var/mob/living/carbon/human/human_user = user
-	if(!is_species(human_user, /datum/species/lizard/ashwalker) && !is_species(human_user, /datum/species/human/felinid/primitive))
 		to_chat(user, span_danger("It is impossible for you to imbue!")) //maybe remove (ashwalkers & icecats only) after some time
 		return
 
