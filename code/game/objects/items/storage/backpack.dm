@@ -29,9 +29,8 @@
 	AddElement(/datum/element/attack_equip)
 
 /obj/item/storage/backpack/equipped(mob/user, slot, initial)
-	if(slot == ITEM_SLOT_BACK)
-		if(HAS_TRAIT(user, TRAIT_BELT_SATCHEL))
-			slowdown++
+	if(slot == ITEM_SLOT_BACK && HAS_TRAIT(user, TRAIT_BELT_SATCHEL))
+		slowdown++
 	. = ..()
 
 /obj/item/storage/backpack/dropped(mob/user, silent)
@@ -323,8 +322,8 @@
 	. = ..()
 	if(HAS_TRAIT(user, TRAIT_BELT_SATCHEL))
 		REMOVE_TRAIT(user, TRAIT_BELT_SATCHEL, CLOTHING_TRAIT)
-		if(istype(user.get_item_by_slot(ITEM_SLOT_BACK), /obj/item/storage/backpack))
-			var/obj/item/storage/backpack/selected_bag = user.get_item_by_slot(ITEM_SLOT_BACK)
+		var/obj/item/storage/backpack/selected_bag = user.get_item_by_slot(ITEM_SLOT_BACK)
+		if(istype(selected_bag))		
 			selected_bag.slowdown = initial(selected_bag.slowdown)
 
 /obj/item/storage/backpack/satchel/leather
