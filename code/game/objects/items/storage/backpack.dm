@@ -34,6 +34,10 @@
 			slowdown++
 	. = ..()
 
+/obj/item/storage/backpack/dropped(mob/user, silent)
+	. = ..()
+	slowdown = initial(slowdown)
+
 /*
  * Backpack Types
  */
