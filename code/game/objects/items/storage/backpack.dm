@@ -29,14 +29,16 @@
 	AddElement(/datum/element/attack_equip)
 
 /obj/item/storage/backpack/equipped(mob/user, slot, initial)
-	if(slot == ITEM_SLOT_BACK && HAS_TRAIT(user, TRAIT_BELT_SATCHEL))
-		slowdown++
 	. = ..()
+	if(slot == ITEM_SLOT_BACK)
+		var/obj/item/storage/backpack/satchel/worn_satchel = user.get_item_by_slot(ITEM_SLOT_BELT)
+		if(istype(worn_satchel) && HAS_TRAIT(user, TRAIT_BELT_SATCHEL))
+			slowdown = 1.5
+			user.update_equipment_speed_mods()
 
 /obj/item/storage/backpack/dropped(mob/user, silent)
 	. = ..()
 	slowdown = initial(slowdown)
-
 /*
  * Backpack Types
  */
@@ -314,18 +316,17 @@
 	. = ..()
 	if(slot == ITEM_SLOT_BELT)
 		ADD_TRAIT(user, TRAIT_BELT_SATCHEL, CLOTHING_TRAIT)
-		if(istype(user.get_item_by_slot(ITEM_SLOT_BACK), /obj/item/storage/backpack))
-			var/obj/item/storage/backpack/selected_bag = user.get_item_by_slot(ITEM_SLOT_BACK)
-			selected_bag.slowdown++
+		var/obj/item/storage/backpack/worn_backpack = user.get_item_by_slot(ITEM_SLOT_BACK)
+		if(istype(worn_backpack))
+			worn_backpack.slowdown = 1.5
+			user.update_equipment_speed_mods()
 
 /obj/item/storage/backpack/satchel/dropped(mob/user, silent)
 	. = ..()
-	if(HAS_TRAIT(user, TRAIT_BELT_SATCHEL))
-		REMOVE_TRAIT(user, TRAIT_BELT_SATCHEL, CLOTHING_TRAIT)
-		var/obj/item/storage/backpack/selected_bag = user.get_item_by_slot(ITEM_SLOT_BACK)
-		if(istype(selected_bag))		
-			selected_bag.slowdown = initial(selected_bag.slowdown)
-
+	REMOVE_TRAIT(user, TRAIT_BELT_SATCHEL, CLOTHING_TRAIT)
+	var/obj/item/storage/backpack/worn_backpack = user.get_item_by_slot(ITEM_SLOT_BACK)
+	if(istype(worn_backpack))
+		worn_backpack.slowdown = initial(worn_backpack.slowdown)
 /obj/item/storage/backpack/satchel/leather
 	name = "leather satchel"
 	desc = "It's a very fancy satchel made with fine leather."
