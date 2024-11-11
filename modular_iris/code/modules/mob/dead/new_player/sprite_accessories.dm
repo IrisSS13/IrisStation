@@ -171,25 +171,6 @@
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	genetic = TRUE
 
-/datum/sprite_accessory/tails/is_hidden(mob/living/carbon/human/wearer)
-	var/list/used_in_turf = list("tail")
-	if(wearer.owned_turf?.name in used_in_turf)
-	// Emote exception
-		return TRUE
-
-	if(!wearer.w_uniform && !wearer.wear_suit)
-		return FALSE
-	if(key in wearer.try_hide_mutant_parts)
-		return TRUE
-
-	if(wearer.wear_suit)
-		// Exception for MODs
-		if(istype(wearer.wear_suit, /obj/item/clothing/suit/mod))
-			return FALSE
-		// Hide accessory if flagged to do so
-		else if(wearer.wear_suit.flags_inv & HIDETAIL)
-			return TRUE
-
 /datum/sprite_accessory/tails/mammal
 	icon_state = "none"
 	recommended_species = list(SPECIES_MAMMAL,SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_HUMANOID, SPECIES_GHOUL)
@@ -200,11 +181,10 @@
 	recommended_species = list(SPECIES_TESHARI)
 
 //teshari
-
-/datum/sprite_accessory/tails/mammal/teshari/damaged //Iris Addition
+/datum/sprite_accessory/tails/mammal/teshari/damaged
 	name = "Teshari (Damaged)"
 	icon_state = "teshari_damaged"
 
-/datum/sprite_accessory/tails/mammal/teshari/stubby //Iris Addition
+/datum/sprite_accessory/tails/mammal/teshari/stubby
 	name = "Teshari (Stubby)"
 	icon_state = "teshari_stubby"

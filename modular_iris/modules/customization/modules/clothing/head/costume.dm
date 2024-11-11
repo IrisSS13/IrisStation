@@ -1,5 +1,5 @@
 /obj/item/clothing/head/costume/iris
-	icon = 'modular_iris/icons/obj/clothing/head/costume.dmi'
+	icon = 'modular_iris/icons/mob/clothing/head/costume.dmi'
 	worn_icon = 'modular_iris/icons/mob/clothing/head/costume.dmi'
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
 	dog_fashion = null

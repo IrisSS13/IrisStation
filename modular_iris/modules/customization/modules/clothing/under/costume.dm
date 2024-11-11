@@ -2,7 +2,7 @@
 	worn_icon_digi = 'modular_iris/icons/mob/clothing/under/costume_digi.dmi'
 
 /obj/item/clothing/under/costume/iris
-	icon = 'modular_iris/icons/obj/clothing/under/costume.dmi'
+	icon = 'modular_iris/icons/mob/clothing/under/costume.dmi'
 	worn_icon = 'modular_iris/icons/mob/clothing/under/costume.dmi'
 	can_adjust = FALSE
 
