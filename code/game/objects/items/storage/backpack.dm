@@ -28,7 +28,7 @@
 	. = ..()
 	AddElement(/datum/element/attack_equip)
 
-/obj/item/storage/backpack/equipped(mob/user, slot, initial)
+/obj/item/storage/backpack/equipped(mob/user, slot, initial) //iris edit start
 	. = ..()
 	if(slot == ITEM_SLOT_BACK)
 		var/obj/item/storage/backpack/satchel/worn_satchel = user.get_item_by_slot(ITEM_SLOT_BELT)
@@ -38,7 +38,7 @@
 
 /obj/item/storage/backpack/dropped(mob/user, silent)
 	. = ..()
-	slowdown = initial(slowdown)
+	slowdown = initial(slowdown) //iris edit end
 /*
 
  * Backpack Types
@@ -307,13 +307,13 @@
 	desc = "A trendy looking satchel."
 	icon_state = "satchel-norm"
 	inhand_icon_state = "satchel-norm"
-	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT //iris addition
+	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT //iris edit
 
 /obj/item/storage/backpack/satchel/Initialize(mapload)
 	. = ..()
 	atom_storage.max_total_storage = 18
 
-/obj/item/storage/backpack/satchel/equipped(mob/user, slot, initial)
+/obj/item/storage/backpack/satchel/equipped(mob/user, slot, initial) //iris edit start
 	. = ..()
 	if(slot == ITEM_SLOT_BELT)
 		ADD_TRAIT(user, TRAIT_BELT_SATCHEL, CLOTHING_TRAIT)
@@ -327,7 +327,8 @@
 	REMOVE_TRAIT(user, TRAIT_BELT_SATCHEL, CLOTHING_TRAIT)
 	var/obj/item/storage/backpack/worn_backpack = user.get_item_by_slot(ITEM_SLOT_BACK)
 	if(istype(worn_backpack))
-		worn_backpack.slowdown = initial(worn_backpack.slowdown)
+		worn_backpack.slowdown = initial(worn_backpack.slowdown) //iris edit end
+
 /obj/item/storage/backpack/satchel/leather
 	name = "leather satchel"
 	desc = "It's a very fancy satchel made with fine leather."
