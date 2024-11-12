@@ -4,7 +4,7 @@
  * @license MIT
  */
 
-export const THEMES = ['light', 'dark'];
+export const THEMES = ['light', 'dark', 'iris'];
 
 const COLORS = {
   DARK: {
@@ -18,6 +18,12 @@ const COLORS = {
     BG_SECOND: '#FFFFFF',
     BUTTON: 'none',
     TEXT: '#000000',
+  },
+  IRIS: {
+    BG_BASE: '#422363',
+    BG_SECOND: '#291b45',
+    BUTTON: '#66319e',
+    TEXT: '#d6d5a4',
   },
 };
 

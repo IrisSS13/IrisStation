@@ -7,12 +7,9 @@
 @use 'sass:meta';
 
 @use '~tgui/styles/colors.scss' with (
-  $primary: #422c6e,
+  $primary: #422363,
   $bg-lightness: -25%,
   $fg-lightness: -10%,
-  $label: #3b3b3b,
-  // Makes button look actually grey due to weird maths.
-  $grey: #ffffff,
   // Commenting out color maps will adjust all colors based on the lightness
   // settings above, but will add extra 10KB to the theme.
   // $fg-map-keys: (),
@@ -20,8 +17,8 @@
 );
 @use '~tgui/styles/base.scss' with (
   $color-fg: #000000,
-  $color-bg: #422c6e,
-  $color-bg-section: #ffffff,
+  $color-bg: #422363,
+  $color-bg-section: #422363,
   $color-bg-grad-spread: 0%
 );
 
@@ -57,7 +54,7 @@
     '~tgui/styles/components/Input.scss',
     $with: (
       'border-color': colors.fg(colors.$label),
-      'background-color': #422c6e
+      'background-color': #422363
     )
   );
   @include meta.load-css('~tgui/styles/components/NumberInput.scss');
@@ -88,5 +85,5 @@
   );
 
   // tgchat styles
-  @include meta.load-css('../tgchat/chat-light.scss');
+  @include meta.load-css('../tgchat/chat-iris.scss');
 }
