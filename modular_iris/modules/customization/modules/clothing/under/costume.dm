@@ -4,6 +4,7 @@
 /obj/item/clothing/under/costume/iris
 	icon = 'modular_iris/icons/mob/clothing/under/costume.dmi'
 	worn_icon = 'modular_iris/icons/mob/clothing/under/costume.dmi'
+	worn_icon_teshari = 'modular_iris/icons/mob/species/teshari/under.dmi'
 	can_adjust = FALSE
 
 /obj/item/clothing/under/costume/iris/miku
