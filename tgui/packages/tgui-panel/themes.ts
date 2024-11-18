@@ -19,12 +19,6 @@ const COLORS = {
     BUTTON: 'none',
     TEXT: '#000000',
   },
-  IRIS: {
-    BG_BASE: '#422363',
-    BG_SECOND: '#291b45',
-    BUTTON: '#66319e',
-    TEXT: '#d6d5a4',
-  },
 };
 
 let setClientThemeTimer: NodeJS.Timeout;
