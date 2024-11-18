@@ -63,7 +63,7 @@ export const ChatPageSettings = (props) => {
         {!page.isMain && (
           <Stack.Item ml={0.5}>
             <Button
-              color="#6349a1"
+              color="blue"
               icon="angles-right"
               tooltip="Reorder tab to the right"
               onClick={() =>
