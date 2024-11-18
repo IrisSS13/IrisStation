@@ -30,7 +30,7 @@ export const ChatPageSettings = (props) => {
   return (
     <Section>
       <Stack align="center">
-        {!!!page.isMain && (
+        {!page.isMain && (
           <Stack.Item>
             <Button
               color="blue"
@@ -60,10 +60,10 @@ export const ChatPageSettings = (props) => {
             }
           />
         </Stack.Item>
-        {!!!page.isMain && (
+        {!page.isMain && (
           <Stack.Item ml={0.5}>
             <Button
-              color="blue"
+              color="#6349a1"
               icon="angles-right"
               tooltip="Reorder tab to the right"
               onClick={() =>
@@ -93,7 +93,7 @@ export const ChatPageSettings = (props) => {
             Mute
           </Button.Checkbox>
         </Stack.Item>
-        {!!!page.isMain && (
+        {!page.isMain && (
           <Stack.Item>
             <Button
               color="red"

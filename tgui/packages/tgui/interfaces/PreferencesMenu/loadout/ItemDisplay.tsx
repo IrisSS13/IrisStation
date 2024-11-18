@@ -189,7 +189,7 @@ const ItemRestriction = (item: LoadoutItem) => {
       icon="lock"
       height="22px"
       width="22px"
-      color="blue"
+      color="#6349a1"
       tooltip={tooltip}
       tooltipPosition={'bottom-start'}
       style={{
