@@ -6,7 +6,7 @@
 
 /obj/item/clothing/head/costume/iris/miku_hat
 	name = "mesmerizing waitress hat"
-	desc = "Maid in China."
+	desc = "A white frilly blue waitress hat with a big red bow. Reminds you that however you survive today, it's unrewarding every day. "
 	icon_state = "miku_hat"
 
 /obj/item/clothing/head/costume/iris/teto_hat
