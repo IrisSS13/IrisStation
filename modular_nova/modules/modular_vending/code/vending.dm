@@ -9,6 +9,10 @@
 	var/list/premium_nova
 	/// Additions to the `contraband` list  of the vending machine, modularly. Will become null after Initialize, to free up memory.
 	var/list/contraband_nova
+	var/list/products_iris
+	/// Additions to the `product_categories` list of the vending machine, modularly. Will become null after Initialize, to free up memory.
+	var/list/product_categories_iris
+	/// Additions to the `premium` list  of the vending machine, modularly. Will become null after Initialize, to free up memory.
 
 /obj/machinery/vending/Initialize(mapload)
 	if(products_nova)
@@ -18,6 +22,23 @@
 
 	if(product_categories_nova)
 		for(var/category in product_categories_nova)
+			var/already_exists = FALSE
+			for(var/existing_category in product_categories)
+				if(existing_category["name"] == category["name"])
+					existing_category["products"] += category["products"]
+					already_exists = TRUE
+					break
+
+			if(!already_exists)
+				product_categories += list(category)
+
+	if(products_iris)
+		// We need this, because duplicates screw up the spritesheet!
+		for(var/item_to_add in products_nova)
+			products[item_to_add] = products_nova[item_to_add]
+
+	if(product_categories_iris)
+		for(var/category in product_categories_iris)
 			var/already_exists = FALSE
 			for(var/existing_category in product_categories)
 				if(existing_category["name"] == category["name"])
@@ -54,6 +75,8 @@
 
 	QDEL_NULL(products_nova)
 	QDEL_NULL(product_categories_nova)
+	QDEL_NULL(products_iris)
+	QDEL_NULL(product_categories_iris)
 	QDEL_NULL(premium_nova)
 	QDEL_NULL(contraband_nova)
 	return ..()

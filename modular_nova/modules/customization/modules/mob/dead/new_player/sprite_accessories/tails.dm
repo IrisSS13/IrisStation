@@ -417,14 +417,6 @@
 	name = "Teshari (Thin)"
 	icon_state = "teshari_thin"
 
-/datum/sprite_accessory/tails/mammal/teshari/damaged //Iris Addition
-	name = "Teshari (Damaged)"
-	icon_state = "teshari_damaged"
-
-/datum/sprite_accessory/tails/mammal/teshari/stubby //Iris Addition
-	name = "Teshari (Stubby)"
-	icon_state = "teshari_stubby"
-
 /datum/sprite_accessory/tails/mammal/wagging/tiger
 	name = "Tiger"
 	icon_state = "tiger"

@@ -1,3 +1,4 @@
+//hair
 /datum/sprite_accessory/hair/hyenamane
 	name = "Hyena Mane"
 	icon_state = "hair_hyenamane"
@@ -160,3 +161,30 @@
 	name = "Deathhawk"
 	icon = 'modular_iris/icons/mob/species/human/humanface.dmi'
 	icon_state = "hair_deathhawk"
+
+//tails
+/datum/sprite_accessory/tails/iris
+	key = "tail"
+	generic = "Tail"
+	organ_type = /obj/item/organ/external/tail
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/tails.dmi'
+	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
+	genetic = TRUE
+
+/datum/sprite_accessory/tails/iris/mammal
+	icon_state = "none"
+	recommended_species = list(SPECIES_MAMMAL,SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_HUMANOID, SPECIES_GHOUL)
+	organ_type = /obj/item/organ/external/tail/fluffy/no_wag
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/tails/iris/mammal/teshari
+	recommended_species = list(SPECIES_TESHARI)
+
+//teshari
+/datum/sprite_accessory/tails/iris/mammal/teshari/damaged
+	name = "Teshari (Damaged)"
+	icon_state = "teshari_damaged"
+
+/datum/sprite_accessory/tails/iris/mammal/teshari/stubby
+	name = "Teshari (Stubby)"
+	icon_state = "teshari_stubby"
