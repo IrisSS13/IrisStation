@@ -52,6 +52,8 @@
 	var/sound
 	/// Does this emote vary in pitch?
 	var/vary = FALSE
+	/// If this emote's sound is affected by TTS pitch
+	var/affected_by_pitch = TRUE
 	/// Can only code call this event instead of the player.
 	var/only_forced_audio = FALSE
 	/// The cooldown between the uses of the emote.
