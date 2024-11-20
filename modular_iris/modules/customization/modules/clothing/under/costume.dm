@@ -1,6 +1,6 @@
 /obj/item/clothing/under/costume/iris
 	icon = 'modular_iris/icons/mob/clothing/under/costume.dmi'
-	worn_icon = 'modular_iris/icons/mob/clothing/under/costume.dmi'
+	worn_icon = 'modular_iris/icons/obj/clothing/under/costume.dmi'
 	worn_icon_teshari = 'modular_iris/icons/mob/species/teshari/under.dmi'
 	worn_icon_digi = 'modular_iris/icons/mob/clothing/under/costume_digi.dmi'
 
