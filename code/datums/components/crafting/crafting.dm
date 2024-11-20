@@ -190,7 +190,8 @@
 	return TRUE
 
 
-/datum/component/personal_crafting/proc/construct_item(atom/crafter, datum/crafting_recipe/recipe)
+/*/datum/component/personal_crafting/proc/construct_item(atom/crafter, datum/crafting_recipe/recipe)*/
+/datum/component/personal_crafting/proc/construct_item(atom/crafter, datum/crafting_recipe/recipe, time_override = null)
 	if(!crafter)
 		return ", unknown error!" // This should never happen, but in the event that it does...
 
@@ -250,8 +251,10 @@
 			return ", must be made on a tram!"
 
 	//If we're a mob we'll try a do_after; non mobs will instead instantly construct the item
-	if(ismob(crafter) && !do_after(crafter, recipe.time, target = crafter))
-		return "."
+	/*if(ismob(crafter) && !do_after(crafter, recipe.time, target = crafter))
+		return "."*/
+	if(ismob(crafter) && !do_after(crafter, time_override ? time_override : recipe.time, target = crafter))
+		return ", interrupted."
 	contents = get_surroundings(crafter, recipe.blacklist)
 	if(!check_contents(crafter, recipe, contents))
 		return ", missing component."
