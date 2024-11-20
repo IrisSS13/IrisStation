@@ -31,8 +31,7 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 	/turf/open/lava,
 	/turf/open/water,
 	/turf/open/openspace,
-	/turf/open/space/openspace,
-	/turf/open/space/basic
+	/turf/open/space/openspace
 	)))
 
 #define isgroundlessturf(A) (is_type_in_typecache(A, GLOB.turfs_without_ground))
