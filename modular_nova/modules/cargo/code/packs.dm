@@ -710,4 +710,5 @@
 	cost = CARGO_CRATE_VALUE * 5
 	contains = list(
 		/obj/item/seeds/starfruit = 2,
+		/obj/item/book/manual/starfruit = 1,
 	)
