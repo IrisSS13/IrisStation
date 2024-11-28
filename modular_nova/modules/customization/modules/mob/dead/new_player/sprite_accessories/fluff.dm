@@ -4,7 +4,7 @@
 	key = "fluff"
 	generic = "Fluff"
 	recommended_species = list(SPECIES_MOTH, SPECIES_MAMMAL, SPECIES_INSECT)
-	relevent_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
+	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	genetic = TRUE
 	organ_type = /obj/item/organ/external/fluff
 
@@ -94,6 +94,30 @@
 /datum/sprite_accessory/fluff/moth/witchwing
 	name = "Witch Wing"
 	icon_state = "witchwing"
+
+/datum/sprite_accessory/fluff/moth/rosy
+	name = "Rosy"
+	icon_state = "rosy"
+
+/datum/sprite_accessory/fluff/moth/featherful
+	name = "Featherful"
+	icon_state = "featherful"
+
+/datum/sprite_accessory/fluff/moth/brown
+	name = "Brown"
+	icon_state = "brown"
+
+/datum/sprite_accessory/fluff/moth/plasmafire
+	name = "Plasmafire"
+	icon_state = "plasmafire"
+
+/datum/sprite_accessory/fluff/moth/moffra
+	name = "Moffra"
+	icon_state = "moffra"
+
+/datum/sprite_accessory/fluff/moth/lightbearer
+	name = "Lightbearer"
+	icon_state = "lightbearer"
 
 /datum/sprite_accessory/fluff/moth/insectm
 	name = "Insect male (Tertiary)"
