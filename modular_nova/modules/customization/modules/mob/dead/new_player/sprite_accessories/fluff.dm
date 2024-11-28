@@ -4,7 +4,7 @@
 	key = "fluff"
 	generic = "Fluff"
 	recommended_species = list(SPECIES_MOTH, SPECIES_MAMMAL, SPECIES_INSECT)
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
+	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER) // iris edit
 	genetic = TRUE
 	organ_type = /obj/item/organ/external/fluff
 
@@ -95,27 +95,27 @@
 	name = "Witch Wing"
 	icon_state = "witchwing"
 
-/datum/sprite_accessory/fluff/moth/rosy
+/datum/sprite_accessory/fluff/moth/rosy //iris edit
 	name = "Rosy"
 	icon_state = "rosy"
 
-/datum/sprite_accessory/fluff/moth/featherful
+/datum/sprite_accessory/fluff/moth/featherful //iris edit
 	name = "Featherful"
 	icon_state = "featherful"
 
-/datum/sprite_accessory/fluff/moth/brown
+/datum/sprite_accessory/fluff/moth/brown //iris edit
 	name = "Brown"
 	icon_state = "brown"
 
-/datum/sprite_accessory/fluff/moth/plasmafire
+/datum/sprite_accessory/fluff/moth/plasmafire //iris edit
 	name = "Plasmafire"
 	icon_state = "plasmafire"
 
-/datum/sprite_accessory/fluff/moth/moffra
+/datum/sprite_accessory/fluff/moth/moffra //iris edit
 	name = "Moffra"
 	icon_state = "moffra"
 
-/datum/sprite_accessory/fluff/moth/lightbearer
+/datum/sprite_accessory/fluff/moth/lightbearer //iris edit
 	name = "Lightbearer"
 	icon_state = "lightbearer"
 
