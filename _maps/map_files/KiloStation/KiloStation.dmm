@@ -3109,6 +3109,9 @@
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 4
 	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
 /turf/open/floor/iron,
 /area/station/engineering/atmos/pumproom)
 "aYU" = (
@@ -5383,15 +5386,12 @@
 /turf/open/floor/plating,
 /area/station/maintenance/starboard)
 "bLf" = (
-/obj/effect/turf_decal/tile/purple/anticorner/contrasted{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/purple{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/purple,
 /obj/machinery/autolathe,
-/turf/open/floor/iron/showroomfloor,
+/obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
+	dir = 8
+	},
+/obj/effect/turf_decal/bot,
+/turf/open/floor/iron/dark,
 /area/station/science/robotics/lab)
 "bLw" = (
 /obj/effect/decal/cleanable/dirt,
@@ -7366,6 +7366,7 @@
 "clt" = (
 /obj/machinery/atmospherics/pipe/smart/manifold/purple/visible,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/engineering/atmos/pumproom)
 "clv" = (
@@ -12929,7 +12930,6 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/fore)
 "eaQ" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/visible{
 	dir = 1
@@ -13879,10 +13879,8 @@
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 8
 	},
-/obj/item/stack/sheet/glass/fifty{
-	pixel_x = -4;
-	pixel_y = 2
-	},
+/obj/item/stack/sheet/glass/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /turf/open/floor/iron/dark,
 /area/station/science/lab)
 "eoT" = (
@@ -14862,6 +14860,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/engineering/atmos/pumproom)
 "eFE" = (
@@ -18880,8 +18879,6 @@
 /turf/open/floor/engine/vacuum,
 /area/station/science/ordnance/burnchamber)
 "fLL" = (
-/obj/structure/table/reinforced/plasmarglass,
-/obj/item/book/manual/wiki/plumbing,
 /obj/machinery/light/small/directional/east,
 /obj/effect/turf_decal/tile/purple/half/contrasted{
 	dir = 4
@@ -18889,7 +18886,9 @@
 /obj/effect/turf_decal/tile/purple{
 	dir = 4
 	},
-/obj/item/toy/plush/lizard_plushie,
+/obj/structure/table/reinforced/plasmarglass,
+/obj/item/construction/plumbing,
+/obj/item/book/manual/wiki/plumbing,
 /turf/open/floor/iron/showroomfloor,
 /area/station/science/xenobiology)
 "fLU" = (
@@ -20676,7 +20675,7 @@
 /obj/machinery/rnd/production/circuit_imprinter/department/science,
 /obj/effect/turf_decal/bot,
 /obj/machinery/status_display/evac/directional/east,
-/obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 8
 	},
 /turf/open/floor/iron/dark,
@@ -23780,6 +23779,12 @@
 	pixel_y = 6
 	},
 /obj/item/hand_labeler,
+/obj/item/mod/module/thermal_regulator,
+/obj/item/mod/module/plasma_stabilizer,
+/obj/item/electronics/apc,
+/obj/item/electronics/apc,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
 /turf/open/floor/iron/dark,
 /area/station/engineering/lobby)
 "hnF" = (
@@ -24827,6 +24832,10 @@
 	pixel_y = -4;
 	pixel_x = 7
 	},
+/obj/item/toy/plush/lizard_plushie/greyscale{
+	pixel_x = -9;
+	pixel_y = -2
+	},
 /turf/open/floor/iron/showroomfloor,
 /area/station/science/xenobiology)
 "hEk" = (
@@ -25219,6 +25228,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/commons/storage/primary)
+"hJC" = (
+/obj/effect/turf_decal/tile/yellow/anticorner/contrasted,
+/obj/effect/turf_decal/tile/red,
+/obj/structure/flatpack_cart,
+/turf/open/floor/iron,
+/area/station/engineering/main)
 "hJD" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/techstorage/security_all,
@@ -38296,9 +38311,10 @@
 /turf/open/space/basic,
 /area/space/nearstation)
 "lGQ" = (
-/obj/effect/turf_decal/tile/purple{
+/obj/effect/turf_decal/tile/purple/half/contrasted{
 	dir = 4
 	},
+/obj/effect/turf_decal/tile/purple,
 /turf/open/floor/iron/showroomfloor,
 /area/station/science/robotics/lab)
 "lGS" = (
@@ -39962,9 +39978,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 6
 	},
-/obj/effect/turf_decal/tile/purple/half/contrasted{
+/obj/effect/turf_decal/tile/purple/anticorner/contrasted{
 	dir = 4
 	},
+/obj/effect/turf_decal/tile/purple/opposingcorners,
 /turf/open/floor/iron/showroomfloor,
 /area/station/science/robotics/lab)
 "mis" = (
@@ -45548,9 +45565,11 @@
 	dir = 8
 	},
 /obj/structure/table,
-/obj/item/stack/sheet/iron/fifty,
-/obj/item/stack/sheet/glass/fifty,
 /obj/machinery/digital_clock/directional/south,
+/obj/item/flatpack{
+	board = /obj/item/circuitboard/machine/flatpacker
+	},
+/obj/item/multitool,
 /turf/open/floor/iron/dark,
 /area/station/science/lab)
 "nWG" = (
@@ -46899,6 +46918,7 @@
 	dir = 10
 	},
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/engineering/atmos/pumproom)
 "owX" = (
@@ -47284,17 +47304,15 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/aft)
 "oCo" = (
-/obj/structure/rack,
 /obj/effect/turf_decal/bot,
-/obj/item/electronics/apc,
-/obj/item/electronics/apc,
-/obj/item/stack/cable_coil,
-/obj/item/stack/cable_coil,
-/obj/item/mod/module/plasma_stabilizer,
-/obj/item/mod/module/thermal_regulator,
 /obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
 	dir = 4
 	},
+/obj/structure/table,
+/obj/item/flatpack{
+	board = /obj/item/circuitboard/machine/flatpacker
+	},
+/obj/item/multitool,
 /turf/open/floor/iron/dark,
 /area/station/engineering/main)
 "oCp" = (
@@ -47432,10 +47450,6 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port/greater)
 "oFg" = (
-/obj/structure/closet/l3closet/scientist,
-/obj/item/tank/internals/emergency_oxygen,
-/obj/item/extinguisher,
-/obj/item/tank/internals/emergency_oxygen,
 /obj/effect/turf_decal/tile/purple/half/contrasted{
 	dir = 4
 	},
@@ -47445,6 +47459,7 @@
 /obj/effect/turf_decal/bot,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/status_display/evac/directional/east,
+/obj/machinery/vending/cytopro,
 /turf/open/floor/iron/showroomfloor,
 /area/station/science/xenobiology)
 "oFl" = (
@@ -52968,6 +52983,9 @@
 "qoF" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/tile/purple{
+	dir = 4
+	},
 /turf/open/floor/iron/showroomfloor,
 /area/station/science/robotics/lab)
 "qoT" = (
@@ -54005,7 +54023,6 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/purple/opposingcorners,
-/obj/item/construction/plumbing,
 /turf/open/floor/iron/showroomfloor,
 /area/station/science/xenobiology)
 "qGK" = (
@@ -65097,6 +65114,7 @@
 /obj/machinery/status_display/evac/directional/north,
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/neutral/half/contrasted,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/engineering/atmos/pumproom)
 "tZD" = (
@@ -67556,6 +67574,7 @@
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/smart/simple/green/visible,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/engineering/atmos/pumproom)
 "uQn" = (
@@ -79024,29 +79043,10 @@
 	dir = 8
 	},
 /obj/machinery/cell_charger,
-/obj/item/assembly/prox_sensor{
-	desc = "Used for scanning and alerting when someone enters a certain proximity. This one is slightly shifted to the left.";
-	pixel_x = -6;
-	pixel_y = 6
-	},
-/obj/item/assembly/prox_sensor{
-	desc = "Used for scanning and alerting when someone enters a certain proximity. This one is slightly shifted to the left.";
-	pixel_x = -6;
-	pixel_y = 6
-	},
-/obj/item/assembly/prox_sensor{
-	desc = "Used for scanning and alerting when someone enters a certain proximity. This one is slightly shifted to the left.";
-	pixel_x = -6;
-	pixel_y = 6
-	},
-/obj/item/assembly/prox_sensor{
-	desc = "Used for scanning and alerting when someone enters a certain proximity. This one is slightly shifted to the left.";
-	pixel_x = -6;
-	pixel_y = 6
-	},
 /obj/item/crowbar/red,
 /obj/item/toy/figure/roboticist{
-	pixel_x = 6
+	pixel_x = -12;
+	pixel_y = 4
 	},
 /obj/machinery/light/directional/north,
 /obj/machinery/light_switch/directional/north,
@@ -115979,7 +115979,7 @@ rja
 fvC
 xCr
 eto
-uMk
+hJC
 lIU
 bGY
 wTe
