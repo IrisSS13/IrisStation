@@ -23,54 +23,6 @@
 	attack_verb_simple = list("headbutt", "boop", "bap", "bump")
 	squeak_override = list('modular_nova/modules/customization/game/objects/items/sound/deerplush.ogg' = 1)
 
-/obj/item/toy/plush/nova/sechound
-	name = "sec-hound plushie"
-	desc = "An adorable stuffed toy of a SecHound, the trusty Nanotrasen sponsored security borg!"
-	icon_state = "plushie_securityk9"
-	attack_verb_continuous = list("beeps", "boops", "pings")
-	attack_verb_simple = list("beep", "boop", "ping")
-	squeak_override = list('sound/machines/beep/beep.ogg' = 1)
-
-/obj/item/toy/plush/nova/medihound
-	name = "medi-hound plushie"
-	desc = "An adorable stuffed toy of a medihound."
-	icon_state = "plushie_medihound"
-	attack_verb_continuous = list("beeps", "boops", "pings")
-	attack_verb_simple = list("beep", "boop", "ping")
-	squeak_override = list('sound/machines/beep/beep.ogg' = 1)
-
-/obj/item/toy/plush/nova/engihound
-	name = "engi-hound plushie"
-	desc = "An adorable stuffed toy of a engihound."
-	icon_state = "plushie_engihound"
-	attack_verb_continuous = list("beeps", "boops", "pings")
-	attack_verb_simple = list("beep", "boop", "ping")
-	squeak_override = list('sound/machines/beep/beep.ogg' = 1)
-
-/obj/item/toy/plush/nova/scrubpuppy
-	name = "scrub-puppy plushie"
-	desc = "An adorable stuffed toy of a Scrubpuppy, the hard-working pup who keeps the station clean!"
-	icon_state = "plushie_scrubpuppy"
-	attack_verb_continuous = list("beeps", "boops", "pings")
-	attack_verb_simple = list("beep", "boop", "ping")
-	squeak_override = list('sound/machines/beep/beep.ogg' = 1)
-
-/obj/item/toy/plush/nova/meddrake
-	name = "medi-drake plushie"
-	desc = "An adorable stuffed toy of a Medidrake."
-	icon_state = "plushie_meddrake"
-	attack_verb_continuous = list("beeps", "boops", "pings")
-	attack_verb_simple = list("beep", "boop", "ping")
-	squeak_override = list('sound/machines/beep/beep.ogg' = 1)
-
-/obj/item/toy/plush/nova/secdrake
-	name = "sec-drake plushie"
-	desc = "An adorable stuffed toy of a Secdrake."
-	icon_state = "plushie_secdrake"
-	attack_verb_continuous = list("beeps", "boops", "pings")
-	attack_verb_simple = list("beep", "boop", "ping")
-	squeak_override = list('sound/machines/beep/beep.ogg' = 1)
-
 /obj/item/toy/plush/nova/fox
 	name = "fox plushie"
 	desc = "An adorable stuffed toy of a Fox."
