@@ -250,8 +250,9 @@
 	is_digi_compatible = TRUE
 
 /datum/sprite_accessory/synth_chassis/mcgreyscale
-	name = "Morpheus Cyberkinetics"
+	name = "Morpheus Cyberkinetics (Greyscale)" // Iris change
 	icon_state = "mcgipc"
+	color_src = MUTANT_COLOR // Iris change (also it was labeled greyscale in the filepath how did no one notice what)
 
 /datum/sprite_accessory/synth_chassis/bishopcyberkinetics
 	name = "Bishop Cyberkinetics"
