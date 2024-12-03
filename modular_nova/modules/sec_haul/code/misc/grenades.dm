@@ -35,7 +35,7 @@
 		)
 		var/message = "<span class='doyourjobidiot'><b>\n\nWARNING: Breach of company policy detected!:</b></span>\n\n[user], \
 		<b>[user.mind?.assigned_role.title]</b> has armed a flashbang during security level green! \
-		This is a violation of corporate regulations, and should be investigated immediately."
+		This is a violation of space law, and should be investigated immediately."
 		silent_alert(user, src, crew_to_alert, message)
 		return ..()
 	else
