@@ -237,7 +237,8 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 	message_mods[SAY_MOD_VERB] = say_mod(message, message_mods)
 	// NOVA EDIT ADDITION START: autopunctuation
 	//ensure EOL punctuation exists and that word-bounded 'i' are capitalized before we do anything else
-	message = autopunct_bare(message)
+	if(client?.prefs?.read_preference(/datum/preference/toggle/autopunctuation)) //IRIS ADDITION: Can be turned off now
+		message = autopunct_bare(message)
 	// NOVA EDIT ADDITION END
 
 	//This is before anything that sends say a radio message, and after all important message type modifications, so you can scumb in alien chat or something
@@ -325,7 +326,8 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 		if(deaf_message)
 			deaf_type = MSG_VISUAL
 			message = deaf_message
-			return show_message(message, MSG_VISUAL, deaf_message, deaf_type, avoid_highlight)
+			show_message(message, MSG_VISUAL, deaf_message, deaf_type, avoid_highlight)
+			return FALSE
 
 
 	// we need to send this signal before compose_message() is used since other signals need to modify

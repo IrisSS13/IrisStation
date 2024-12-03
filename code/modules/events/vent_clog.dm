@@ -296,7 +296,7 @@
 		/mob/living/basic/lightgeist,
 		/mob/living/basic/mothroach,
 		/mob/living/basic/mushroom,
-		/mob/living/basic/viscerator,
+		/mob/living/basic/pet/dog/corgi/puppy/void,
 		/mob/living/simple_animal/hostile/retaliate/goose, //Janitors HATE geese.
 		/mob/living/basic/pet/gondola,
 	)

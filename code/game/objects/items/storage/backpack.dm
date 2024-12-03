@@ -23,12 +23,28 @@
 	resistance_flags = NONE
 	max_integrity = 300
 	storage_type = /datum/storage/backpack
+	pickup_sound = 'sound/items/handling/backpack/backpack_pickup1.ogg'
+	drop_sound = 'sound/items/handling/backpack/backpack_drop1.ogg'
+	equip_sound = 'sound/items/equip/backpack_equip.ogg'
+	sound_vary = TRUE
 
 /obj/item/storage/backpack/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/attack_equip)
 
+/obj/item/storage/backpack/equipped(mob/user, slot, initial) //iris edit start
+	. = ..()
+	if(slot == ITEM_SLOT_BACK)
+		var/obj/item/storage/backpack/satchel/worn_satchel = user.get_item_by_slot(ITEM_SLOT_BELT)
+		if(istype(worn_satchel) && HAS_TRAIT(user, TRAIT_BELT_SATCHEL))
+			slowdown = 1.5
+			user.update_equipment_speed_mods()
+
+/obj/item/storage/backpack/dropped(mob/user, silent)
+	. = ..()
+	slowdown = initial(slowdown) //iris edit end
 /*
+
  * Backpack Types
  */
 
@@ -59,6 +75,8 @@
 	item_flags = NO_MAT_REDEMPTION
 	armor_type = /datum/armor/backpack_holding
 	storage_type = /datum/storage/bag_of_holding
+	pickup_sound = null
+	drop_sound = null
 
 /datum/armor/backpack_holding
 	fire = 60
@@ -295,6 +313,27 @@
 	desc = "A trendy looking satchel."
 	icon_state = "satchel-norm"
 	inhand_icon_state = "satchel-norm"
+	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT //iris edit
+
+/obj/item/storage/backpack/satchel/Initialize(mapload)
+	. = ..()
+	atom_storage.max_total_storage = 18
+
+/obj/item/storage/backpack/satchel/equipped(mob/user, slot, initial) //iris edit start
+	. = ..()
+	if(slot == ITEM_SLOT_BELT)
+		ADD_TRAIT(user, TRAIT_BELT_SATCHEL, CLOTHING_TRAIT)
+		var/obj/item/storage/backpack/worn_backpack = user.get_item_by_slot(ITEM_SLOT_BACK)
+		if(istype(worn_backpack))
+			worn_backpack.slowdown = 1.5
+			user.update_equipment_speed_mods()
+
+/obj/item/storage/backpack/satchel/dropped(mob/user, silent)
+	. = ..()
+	REMOVE_TRAIT(user, TRAIT_BELT_SATCHEL, CLOTHING_TRAIT)
+	var/obj/item/storage/backpack/worn_backpack = user.get_item_by_slot(ITEM_SLOT_BACK)
+	if(istype(worn_backpack))
+		worn_backpack.slowdown = initial(worn_backpack.slowdown) //iris edit end
 
 /obj/item/storage/backpack/satchel/leather
 	name = "leather satchel"

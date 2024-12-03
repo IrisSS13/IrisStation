@@ -124,6 +124,10 @@ GLOBAL_LIST_INIT(animatable_blacklist, typecacheof(list(
 		overlay_googly_eyes = FALSE
 	CopyObject(copy, creator, destroy_original)
 
+/mob/living/simple_animal/hostile/mimic/copy/Destroy()
+	. = ..()
+	clear_owner_ref()
+
 /mob/living/simple_animal/hostile/mimic/copy/Life(seconds_per_tick = SSMOBS_DT, times_fired)
 	..()
 	if(idledamage && !target && !ckey) //Objects eventually revert to normal if no one is around to terrorize
@@ -135,6 +139,9 @@ GLOBAL_LIST_INIT(animatable_blacklist, typecacheof(list(
 	for(var/atom/movable/M in src)
 		M.forceMove(get_turf(src))
 	..()
+
+/mob/living/simple_animal/hostile/mimic/copy/proc/clear_owner_ref()
+	creator = null
 
 /mob/living/simple_animal/hostile/mimic/copy/ListTargets()
 	. = ..()
@@ -183,6 +190,7 @@ GLOBAL_LIST_INIT(animatable_blacklist, typecacheof(list(
 		maxHealth = health
 		if(user)
 			creator = user
+			RegisterSignal(user, COMSIG_QDELETING, PROC_REF(clear_owner_ref))
 			faction += "[REF(creator)]" // very unique
 		if(destroy_original)
 			qdel(O)
@@ -275,11 +283,11 @@ GLOBAL_LIST_INIT(animatable_blacklist, typecacheof(list(
 			Pewgun.chambered.forceMove(loc) //rip revolver immersions, blame shotgun snowflake procs
 			Pewgun.chambered = null
 			if(Pewgun.magazine && Pewgun.magazine.stored_ammo.len)
-				Pewgun.chambered = Pewgun.magazine.get_round(0)
+				Pewgun.chambered = Pewgun.magazine.get_round()
 				Pewgun.chambered.forceMove(Pewgun)
 			Pewgun.update_appearance()
 		else if(Pewgun.magazine && Pewgun.magazine.stored_ammo.len) //only true for pumpguns i think
-			Pewgun.chambered = Pewgun.magazine.get_round(0)
+			Pewgun.chambered = Pewgun.magazine.get_round()
 			Pewgun.chambered.forceMove(Pewgun)
 			visible_message(span_danger("The <b>[src]</b> cocks itself!"))
 	else
