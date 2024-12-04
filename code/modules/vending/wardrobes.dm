@@ -437,6 +437,8 @@ GLOBAL_VAR_INIT(roaches_deployed, FALSE)
 		/obj/item/clothing/under/rank/civilian/cookjorts = 2,
 		/obj/item/clothing/under/suit/waiter = 2,
 		/obj/item/clothing/suit/apron/chef = 2,
+		/obj/item/clothing/gloves/latex = 2,
+		/obj/item/clothing/mask/surgical = 2,
 		/obj/item/clothing/suit/toggle/chef = 2,
 		/obj/item/clothing/suit/hooded/wintercoat = 2,
 		/obj/item/clothing/shoes/cookflops = 2,
