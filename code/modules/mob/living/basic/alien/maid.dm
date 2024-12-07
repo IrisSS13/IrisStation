@@ -8,6 +8,7 @@
 	obj_damage = 0
 	environment_smash = ENVIRONMENT_SMASH_NONE
 	gold_core_spawnable = HOSTILE_SPAWN
+	icon = 'icons/mob/nonhuman-player/alien.dmi' //IRIS EDIT: nova made them use big xeno sprites but they didn't make sprites for them (lol), sprites are a little offset now but idk how to fix it
 	icon_state = "maid"
 	icon_living = "maid"
 	icon_dead = "maid_dead"

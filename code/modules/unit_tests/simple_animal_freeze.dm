@@ -93,8 +93,6 @@
 		/mob/living/simple_animal/hostile/engorge,
 		/mob/living/simple_animal/hostile/evilborg,
 		/mob/living/simple_animal/hostile/evilborg/bigguy,
-		/mob/living/simple_animal/hostile/evilborg/dog,
-		/mob/living/simple_animal/hostile/evilborg/dogstrong,
 		/mob/living/simple_animal/hostile/evilborg/engi,
 		/mob/living/simple_animal/hostile/evilborg/heavy,
 		/mob/living/simple_animal/hostile/evilborg/peace,
