@@ -8,10 +8,11 @@
 	obj_damage = 0
 	environment_smash = ENVIRONMENT_SMASH_NONE
 	gold_core_spawnable = HOSTILE_SPAWN
-	icon = 'icons/mob/nonhuman-player/alien.dmi' //IRIS EDIT: nova made them use big xeno sprites but they didn't make sprites for them (lol), sprites are a little offset now but idk how to fix it
+	icon = 'icons/mob/nonhuman-player/alien.dmi' //IRIS EDIT: nova made them use big xeno sprites but they didn't make sprites for them (lol)
 	icon_state = "maid"
 	icon_living = "maid"
 	icon_dead = "maid_dead"
+	body_position_pixel_x_offset = 16 //IRIS EDIT: fixes weird sprite offset on the sprite, does not seem to apply until you grab them, still better than nothing
 
 /mob/living/basic/alien/maid/Initialize(mapload)
 	. = ..()
