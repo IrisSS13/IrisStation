@@ -238,6 +238,7 @@
 	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
 	atom_storage.max_total_storage = 21
 	atom_storage.set_holdable(list(
+		/obj/item/autopsy_scanner //IRIS EDIT - this probably should have been here to begin with
 		/obj/item/bikehorn/rubberducky,
 		/obj/item/blood_filter,
 		/obj/item/bonesetter,
