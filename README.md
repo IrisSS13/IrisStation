@@ -20,7 +20,7 @@
 
 This is Iris' downstream fork of Nova Sector, which in turn is a downstream fork of /tg/station created in BYOND.
 
-There are NSFW sprites in the codebase, but all NSFW code has been removed. Sprites will be removed when possible. This is a SFW fork. 
+There are NSFW sprites in the codebase, but all NSFW code has been removed. Sprites will be removed when possible. This is a SFW fork.
 
 Space Station 13 is a paranoia-laden round-based roleplaying game set against the backdrop of a nonsensical, metal death trap masquerading as a space station, with charming spritework designed to represent the sci-fi setting and its dangerous undertones. Have fun, and survive!
 
@@ -52,13 +52,16 @@ Find `BUILD.bat` here in the root folder of tgstation, and double click it to in
 
 **[How to compile in VSCode and other build options](tools/build/README.md).**
 
-## Contributors
+## Getting started
 
-[Guides for Contributors](.github/CONTRIBUTING.md)
+For contribution guidelines refer to the
+[Guides for Contributors](.github/CONTRIBUTING.md).
 
-[/tg/station HACKMD account](https://hackmd.io/@tgstation) - Design documentation here
+For getting started (dev env, compilation) see the HackMD document [here](https://hackmd.io/@tgstation/HJ8OdjNBc#tgstation-Development-Guide).
 
-[Interested in some starting lore?](https://github.com/tgstation/common_core)
+For overall design documentation see [HackMD](https://hackmd.io/@tgstation).
+
+For TG lore, [see Common Core](https://github.com/tgstation/common_core). Iris doesn't have official lore at this time, and is subject to changes.
 
 ## LICENSE
 
