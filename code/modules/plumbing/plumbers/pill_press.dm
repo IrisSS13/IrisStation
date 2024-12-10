@@ -1,7 +1,5 @@
 ///the minimum size of a pill or patch
 #define MIN_VOLUME 5
-///the maximum size a pill or patch can be
-#define MAX_VOLUME 100 // NOVA EDIT CHANGE - 100u MAX - ORIGINAL: #define MAX_VOLUME 50
 ///max amount of pills allowed on our tile before we start storing them instead
 #define MAX_FLOOR_PRODUCTS 10
 
@@ -14,7 +12,7 @@
 	/// selected size of the product
 	var/current_volume = 10
 	/// maximum printable volume of the product
-	var/max_volume = 50
+	var/max_volume = 100 //IRIS EDIT
 	/// prefix for the product name
 	var/product_name = "factory"
 	/// All packaging types wrapped up in 1 big list
