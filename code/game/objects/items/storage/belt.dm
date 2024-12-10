@@ -293,6 +293,7 @@
 		/obj/item/surgical_drapes, //for true paramedics
 		/obj/item/surgicaldrill,
 		/obj/item/tank/internals/emergency_oxygen,
+		/obj/item/autopsy_scanner, //IRIS EDIT
 		/obj/item/weaponcell/medical, //NOVA EDIT MEDIGUNS
 		/obj/item/handheld_soulcatcher, // NOVA EDIT SOULCATCHERS
 		/obj/item/wrench/medical,
