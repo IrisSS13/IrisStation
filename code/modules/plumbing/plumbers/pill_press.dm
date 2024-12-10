@@ -25,7 +25,7 @@
 	var/list/stored_products = list()
 	// NOVA EDIT ADDITION START
 	/// Increases the standard plumbing machine buffer to account for the increased max volume
-	buffer = max_volume //IRIS EDIT
+	buffer = 100 //IRIS EDIT
 	// NOVA EDIT ADDITION END
 
 /obj/machinery/plumbing/pill_press/Initialize(mapload, bolt, layer)
