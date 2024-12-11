@@ -70,17 +70,6 @@
 	. = ..()
 	. += span_notice("The [name] currently has [stored_products.len] stored. There needs to be less than [MAX_FLOOR_PRODUCTS] on the floor to continue dispensing.")
 
-/// decode product category from its type path and returns the decoded typepath
-/obj/machinery/plumbing/pill_press/proc/decode_category()
-	var/obj/item/reagent_containers/container = locate(packaging_type)
-	if(ispath(container, /obj/item/reagent_containers/pill/patch))
-		packaging_category = CAT_PATCHES
-	else if(ispath(container, /obj/item/reagent_containers/pill))
-		packaging_category = CAT_PILLS
-	else
-		packaging_category = "Bottles"
-	return container
-
 /obj/machinery/plumbing/pill_press/process(seconds_per_tick)
 	if(!is_operational)
 		return
