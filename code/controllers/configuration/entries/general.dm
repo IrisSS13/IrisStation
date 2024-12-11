@@ -315,10 +315,10 @@
 /datum/config_entry/string/banappeals
 
 /datum/config_entry/string/wikiurl
-	default = "https://wiki.irisstation.lol/wiki/" //IRIS EDIT: - Original: default = "https://wiki.novasector13.com/index.php"
+	default = "https://wiki.irisstation.lol/wiki" //IRIS EDIT: - Original: default = "https://wiki.novasector13.com/index.php"
 
 /datum/config_entry/string/forumurl
-	default = "https://forum.irisstation.lol/" //IRIS EDIT
+	default = "https://forum.irisstation.lol" //IRIS EDIT
 
 /datum/config_entry/string/rulesurl
 	default = "https://wiki.irisstation.lol/wiki/Rules" //IRIS EDIT
