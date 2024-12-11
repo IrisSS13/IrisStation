@@ -315,16 +315,16 @@
 /datum/config_entry/string/banappeals
 
 /datum/config_entry/string/wikiurl
-	default = "https://wiki.novasector13.com/index.php" //NOVA EDIT CHANGE - Original: default = "http://tgstation13.org/wiki"
+	default = "https://wiki.irisstation.lol/wiki/" //IRIS EDIT: - Original: default = "https://wiki.novasector13.com/index.php"
 
 /datum/config_entry/string/forumurl
-	default = "http://tgstation13.org/phpBB/index.php"
+	default = "https://forum.irisstation.lol/" //IRIS EDIT
 
 /datum/config_entry/string/rulesurl
-	default = "http://tgstation13.org/wiki/Rules"
+	default = "https://wiki.irisstation.lol/wiki/Rules" //IRIS EDIT
 
 /datum/config_entry/string/githuburl
-	default = "https://www.github.com/tgstation/tgstation"
+	default = "https://github.com/IrisSS13/IrisStation" //IRIS EDIT
 
 /datum/config_entry/string/discordbotcommandprefix
 	default = "?"
