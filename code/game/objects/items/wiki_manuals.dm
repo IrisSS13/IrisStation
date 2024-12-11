@@ -61,8 +61,7 @@
 	icon_state = "book7"
 	starting_author = "University of Bluespace"
 	starting_title = "Teleportation Science - Bluespace for dummies!"
-	starting_content = "When you open up the book, all you can see are blank pages. Whoops." // IRIS EDIT: telescience was removed
-	page_link = ""
+	page_link = "" // IRIS EDIT: telescience was removed
 
 /obj/item/book/manual/wiki/engineering_hacking
 	name = "Hacking"
@@ -104,8 +103,7 @@
 	icon_state = "rdbook"
 	starting_author = "Dr. H.P. Kritz"
 	starting_title = "Mentoring your Experiments"
-	starting_content = "When you open up the book, the only one page in it is covered in crude drawings of the machine. The written notes suggest you figure it out yourself." // IRIS EDIT: no page yet (nova suggests you shouldn't use it)
-	page_link = ""
+	page_link = "Experimentor"
 
 /obj/item/book/manual/wiki/cooking_to_serve_man
 	name = "To Serve Man"
