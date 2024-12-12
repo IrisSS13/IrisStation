@@ -19,6 +19,7 @@
 	if(key in wearer.try_hide_mutant_parts)
 		return TRUE
 	// Exception for MODs
+	if(wearer.wear_suit)
 		if(istype(wearer.wear_suit, /obj/item/clothing/suit/mod))
 			return FALSE
 	// Hide accessory if flagged to do so, taking species exceptions in account
