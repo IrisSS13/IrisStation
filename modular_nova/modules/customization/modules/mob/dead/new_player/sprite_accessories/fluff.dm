@@ -12,9 +12,21 @@
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
 
-/datum/sprite_accessory/fluff/moth/is_hidden(mob/living/carbon/human/human)
-	if((human.head?.flags_inv & HIDEHAIR) || (human.wear_mask?.flags_inv & HIDEHAIR))
+/datum/sprite_accessory/fluff/moth/is_hidden(mob/living/carbon/human/wearer) // IRIS EDIT: I'm certain there's a better way to do this, but for now let's just mimic base wing behavior as before
+	if(!wearer.w_uniform && !wearer.wear_suit)
+		return FALSE
+	// Can hide if wearing uniform or outer wear
+	if(key in wearer.try_hide_mutant_parts)
 		return TRUE
+	// Exception for MODs
+		if(istype(wearer.wear_suit, /obj/item/clothing/suit/mod))
+			return FALSE
+	// Hide accessory if flagged to do so, taking species exceptions in account
+		else if((wearer.wear_suit.flags_inv & HIDEJUMPSUIT) \
+				&& (!wearer.wear_suit.species_exception \
+				|| !is_type_in_list(wearer.dna.species, wearer.wear_suit.species_exception)) \
+			)
+			return TRUE
 
 	return FALSE
 
