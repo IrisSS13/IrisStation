@@ -129,8 +129,6 @@
 		. += span_warning("[t_He] [t_is] severely malnourished.")
 	else if(nutrition >= NUTRITION_LEVEL_FAT)
 		if(user.nutrition < NUTRITION_LEVEL_STARVING - 50)
-			. += span_hypnophrase("[t_He] [t_is] plump and delicious looking - Like a fat little piggy. A tasty piggy.")
-		else
 			. += "<b>[t_He] [t_is] quite chubby.</b>"
 	switch(disgust)
 		if(DISGUST_LEVEL_GROSS to DISGUST_LEVEL_VERYGROSS)
