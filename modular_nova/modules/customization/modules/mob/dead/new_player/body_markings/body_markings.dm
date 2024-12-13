@@ -137,7 +137,13 @@
 	name = "Eyeliner"
 	icon_state = "eyeliner"
 	affected_bodyparts = HEAD
-
+// IRIS ADDITION START
+/datum/body_marking/other/bindi
+	name = "Bindi"
+	icon_state = "bindi"
+	default_color = "#FF0000"
+	affected_bodyparts = HEAD
+// IRIS ADDITION END
 /datum/body_marking/other/topscars
 	name = "Top Surgery Scars"
 	icon_state = "topscars"
@@ -166,7 +172,13 @@
 	icon_state = "pilot_jaw"
 	default_color = "#CCCCCC"
 	affected_bodyparts = HEAD
-
+// IRIS ADDITION START
+/datum/body_marking/other/sclera
+	name = "Sclera"
+	icon_state = "sclera"
+	default_color = "#FF0000"
+	affected_bodyparts = HEAD
+// IRIS ADDITION END
 /datum/body_marking/other/drake_eyes
 	name = "Drake Eyes"
 	icon_state = "drakeeyes"
