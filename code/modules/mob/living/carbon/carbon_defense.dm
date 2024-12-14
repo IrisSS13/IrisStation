@@ -44,6 +44,15 @@
 
 	return null
 
+// IRIS ADDITION START - MapleStation Port
+/mob/living/carbon/is_eyes_visible()
+	if(istype(glasses) && (glasses.flags_cover & GLASSESCOVERSEYES) && glasses.tint)
+		return FALSE
+	if(check_obscured_slots() & ITEM_SLOT_EYES)
+		return FALSE
+	return TRUE
+// IRIS ADDITION END
+
 /mob/living/carbon/is_pepper_proof(check_flags = ALL)
 	var/obj/item/organ/internal/eyes/eyes = get_organ_by_type(/obj/item/organ/internal/eyes)
 	if(eyes && eyes.pepperspray_protect)
@@ -372,6 +381,17 @@
 		dropItemToGround(faketail)
 		helper.put_in_hands(faketail)
 		helper.add_mood_event("rippedtail", /datum/mood_event/rippedtail)
+
+//IRIS ADDITION START: Ports handshakes from Beestation
+	else if ((helper.zone_selected == BODY_ZONE_L_ARM) || helper.zone_selected == BODY_ZONE_R_ARM)
+		if(!get_bodypart(check_zone(helper.zone_selected)))
+			to_chat(helper, span_warning("[src] does not have a [helper.zone_selected == BODY_ZONE_L_ARM ? "left" : "right"] arm!"))
+		else
+			helper.visible_message(span_notice("[helper] shakes [src]'s hand."), \
+					null, span_hear("You hear a soft patter."), DEFAULT_MESSAGE_RANGE, list(helper, src))
+			to_chat(helper, span_notice ("You shake [src]'s hand."))
+			to_chat(src, span_notice ("[helper] shakes your hand."))
+//IRIS ADDITION END
 
 	else
 		if (helper.grab_state >= GRAB_AGGRESSIVE)
