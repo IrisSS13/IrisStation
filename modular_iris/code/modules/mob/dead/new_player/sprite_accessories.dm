@@ -166,7 +166,7 @@
 /datum/sprite_accessory/tails/iris
 	key = "tail"
 	generic = "Tail"
-	organ_type = /obj/item/organ/external/tail
+	organ_type = /obj/item/organ/tail
 	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/tails.dmi'
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	genetic = TRUE
@@ -174,7 +174,7 @@
 /datum/sprite_accessory/tails/iris/mammal
 	icon_state = "none"
 	recommended_species = list(SPECIES_MAMMAL,SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_HUMANOID, SPECIES_GHOUL)
-	organ_type = /obj/item/organ/external/tail/fluffy/no_wag
+	organ_type = /obj/item/organ/tail/fluffy/no_wag
 	color_src = USE_MATRIXED_COLORS
 
 /datum/sprite_accessory/tails/iris/mammal/teshari
