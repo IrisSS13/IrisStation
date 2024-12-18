@@ -140,24 +140,6 @@
 /// Any model that has a custom front panel
 #define TRAIT_R_UNIQUEPANEL "unique_openpanel"
 
-// Lewd traits
-#define TRAIT_MASOCHISM "masochism"
-#define TRAIT_SADISM "sadism"
-#define TRAIT_NEVERBONER "neverboner"
-#define TRAIT_BIMBO "bimbo"
-#define TRAIT_RIGGER "rigger"
-#define TRAIT_ROPEBUNNY "rope bunny"
-///traits gained by brain traumas, can be removed if the brain trauma is gone
-#define TRAIT_APHRO "aphro"
-///traits gained by quirks, cannot be removed unless the quirk itself is gone
-#define TRAIT_LEWDQUIRK "lewdquirks"
-///traits gained by chemicals, you get the idea
-#define TRAIT_LEWDCHEM "lewdchem"
-
-#define TRAIT_STRAPON "strapon"
-
-#define TRAIT_CONDOM_BROKEN "broken"
-
 /// If clothing can also be damaged by piercing wound checks, instead of JUST slashes and burns
 #define TRAIT_CLOTHES_DAMAGED_BY_PIERCING "clothing_damaged_by_piercing"
 

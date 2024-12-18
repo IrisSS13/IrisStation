@@ -77,43 +77,6 @@
 	item_path = /obj/item/bitrunning_disk/item/tier0
 	desc = "This disk contains a program that lets you equip a pair of binoculars, thirty marker beacons, a snack rig, a D20, a stabilizer pouch, or an empty colonial first-aid pouch."
 
-/obj/item/bitrunning_disk/item/tierlewd
-	name = "bitrunning gear: relaxation"
-	selectable_items = list(
-		/obj/item/summon_beacon/lustwish,
-		/obj/item/storage/box/nif_ghost_box,
-	)
-
-/obj/item/summon_beacon/lustwish
-	name = "relaxation machine beacon"
-	icon_state = "sb_delivery"
-	desc = "Once a vending machine is selected, delivers it to the target location."
-
-	allowed_areas = list(
-		/area/virtual_domain,
-		/area/space/virtual_domain,
-		/area/ruin/space/virtual_domain,
-		/area/icemoon/underground/explored/virtual_domain,
-		/area/lavaland/surface/outdoors/virtual_domain,
-	)
-
-	selectable_atoms = list(
-		/obj/machinery/vending/dorms/bitrunning,
-	)
-
-	area_string = "virtual domains"
-	supply_pod_stay = FALSE
-
-/obj/machinery/vending/dorms/bitrunning/Initialize(mapload)
-	. = ..()
-	all_products_free = TRUE
-	onstation = FALSE
-
-/datum/orderable_item/bitrunning_tech/item_tierlewd
-	cost_per_order = 250
-	item_path = /obj/item/bitrunning_disk/item/tierlewd
-	desc = "This disk contains a program that lets you equip a LustWish vending machine delivery beacon or a quick-booting NIF package."
-
 /obj/item/bitrunning_disk/item/tier1/Initialize(mapload)
 	. = ..()
 	selectable_items += list(
