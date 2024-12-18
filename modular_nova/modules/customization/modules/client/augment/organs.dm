@@ -40,12 +40,6 @@
 	name = "Cybernetic lungs"
 	path = /obj/item/organ/lungs/cybernetic
 
-//IRIS ADDITION START
-/datum/augment_item/organ/lungs/fish/no_overlay
-	name = "Gills"
-	path = /obj/item/organ/lungs/fish/no_overlay
-	cost = -4
-//IRIS ADDITION END
 
 /datum/augment_item/organ/lungs/hot
 	name = "Lungs Adapted to Heat"
@@ -65,12 +59,6 @@
 	path = /obj/item/organ/lungs/oxy
 	cost = 1
 
-//IRIS ADDITION START
-/datum/augment_item/organ/lungs/fish/amphibious/no_overlay
-	name = "Semi-Aquatic Lungs"
-	path = /obj/item/organ/lungs/fish/amphibious/no_overlay
-	cost = 2
-//IRIS ADDITION END
 
 //LIVERS
 /datum/augment_item/organ/liver

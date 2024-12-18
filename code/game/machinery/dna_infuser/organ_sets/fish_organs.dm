@@ -323,17 +323,6 @@
 		layer = image_layer,
 	)
 
-/// IRIS ADDITION: Subtype of gills used for the augments tab. No overlay.
-/obj/item/organ/lungs/fish/no_overlay
-	name = "gills"
-	desc = "An aquatic-adapted respiratory organ that requires its host to breathe water vapor, or keep themselves covered in water."
-
-/obj/item/organ/lungs/fish/no_overlay/on_bodypart_insert(obj/item/bodypart/limb)
-	. = ..()
-	if(gills)
-		limb.remove_bodypart_overlay(gills)
-//IRIS ADDITION END
-
 /// Subtype of gills that allow the mob to optionally breathe water.
 /obj/item/organ/lungs/fish/amphibious
 	name = "mutated semi-aquatic lungs"
@@ -371,12 +360,6 @@
 			breather.clear_alert(ALERT_NOT_ENOUGH_OXYGEN)
 		return
 	return ..()
-
-// IRIS ADDITION: Subtype of semi-aquatic lungs used for the augments tab.
-/obj/item/organ/lungs/fish/amphibious/no_overlay
-	name = "semi-aquatic lungs"
-	desc = "A set of semi-aquatic lungs, formerly owned by some hapless amphibian. Enjoy breathing underwater without drowning outside water."
-//IRIS ADDITION END
 
 ///Fish infuser organ, allows mobs to safely eat raw fish.
 /obj/item/organ/stomach/fish
