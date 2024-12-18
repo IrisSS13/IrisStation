@@ -66,7 +66,7 @@
 	cost = 1
 
 //IRIS ADDITION START
- /datum/augment_item/organ/lungs/fish/amphibious/no_overlay
+/datum/augment_item/organ/lungs/fish/amphibious/no_overlay
 	name = "Semi-Aquatic Lungs"
 	path = /obj/item/organ/lungs/fish/amphibious/no_overlay
 	cost = 2
