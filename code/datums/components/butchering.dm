@@ -42,11 +42,15 @@
 	SIGNAL_HANDLER
 
 	if(!user.combat_mode)
-		return
+//IRIS EDIT START: MapleStation Port https://github.com/MrMelbert/MapleStationCode/pull/612
+		return NONE
 	if(M.stat == DEAD && (M.butcher_results || M.guaranteed_butcher_results)) //can we butcher it?
 		if(butchering_enabled && (can_be_blunt || source.get_sharpness()))
-			INVOKE_ASYNC(src, PROC_REF(startButcher), source, M, user)
-			return COMPONENT_CANCEL_ATTACK_CHAIN
+			if(!DOING_INTERACTION(user, "[REF(M)]_butchering"))
+				INVOKE_ASYNC(src, PROC_REF(startButcher), source, M, user)
+				return COMPONENT_CANCEL_ATTACK_CHAIN
+			return NONE
+//IRIS EDIT END
 
 	if(ishuman(M) && source.force && source.get_sharpness())
 		var/mob/living/carbon/human/H = M
@@ -56,16 +60,35 @@
 				return COMPONENT_CANCEL_ATTACK_CHAIN
 
 			if(H.has_status_effect(/datum/status_effect/neck_slice))
-				return
+				return NONE //IRIS EDIT: MapleStation Port https://github.com/MrMelbert/MapleStationCode/pull/612
 
 			INVOKE_ASYNC(src, PROC_REF(startNeckSlice), source, H, user)
 			return COMPONENT_CANCEL_ATTACK_CHAIN
 
+	return NONE //IRIS EDIT START: MapleStation Port https://github.com/MrMelbert/MapleStationCode/pull/612
+
 /datum/component/butchering/proc/startButcher(obj/item/source, mob/living/M, mob/living/user)
 	to_chat(user, span_notice("You begin to butcher [M]..."))
-	playsound(M.loc, butcher_sound, 50, TRUE, -1)
-	if(do_after(user, speed, M) && M.Adjacent(source))
+	playsound(M, butcher_sound, 50, TRUE, -1)
+	if(do_after(user, speed, M, extra_checks = CALLBACK(src, PROC_REF(butcher_effects), source, M, user), interaction_key = "[REF(M)]_butchering") && M.Adjacent(source))
 		on_butchering(user, M)
+
+/datum/component/butchering/proc/butcher_effects(obj/item/source, mob/living/butchering, mob/living/user)
+	if(user.next_move <= world.time)
+		user.face_atom(butchering)
+		// performs an attack against the mob
+		var/old_combat_mode = user.combat_mode
+		user.set_combat_mode(TRUE, TRUE)
+		source.melee_attack_chain(user, butchering)
+		user.set_combat_mode(old_combat_mode, TRUE)
+		// and play the sound
+		playsound(butchering, butcher_sound, 50, TRUE, -1)
+		// start our own click cd
+		user.changeNext_move(0.6 SECONDS)
+	// so the butchering doesn't stop
+	return TRUE
+
+//IRIS EDIT END
 
 /datum/component/butchering/proc/startNeckSlice(obj/item/source, mob/living/carbon/human/H, mob/living/user)
 	if(DOING_INTERACTION_WITH_TARGET(user, H))
@@ -221,6 +244,13 @@
 	if(victim.stat == DEAD && (victim.butcher_results || victim.guaranteed_butcher_results))
 		on_butchering(parent, victim)
 
+//IRIS ADDITION START: MapleStation Port https://github.com/MrMelbert/MapleStationCode/pull/612
+
+/datum/component/butchering/recycler/butcher_effects(obj/item/source, mob/living/butchering, mob/living/user)
+	return TRUE // p sure this won't work
+
+//IRIS ADDITION END
+
 /datum/component/butchering/mecha
 
 /datum/component/butchering/mecha/RegisterWithParent()
@@ -241,6 +271,13 @@
 /datum/component/butchering/mecha/proc/on_drill(datum/source, obj/vehicle/sealed/mecha/chassis, mob/living/target)
 	SIGNAL_HANDLER
 	INVOKE_ASYNC(src, PROC_REF(on_butchering), chassis, target)
+
+//IRIS ADDITION START: MapleStation Port https://github.com/MrMelbert/MapleStationCode/pull/612
+
+/datum/component/butchering/mecha/butcher_effects(obj/item/source, mob/living/butchering, mob/living/user)
+	return TRUE // could give this one, unsure if it's needed though
+
+//IRIS ADDITION END
 
 /datum/component/butchering/wearable
 
@@ -276,3 +313,22 @@
 	if(!isliving(target))
 		return NONE
 	return onItemAttack(parent, target, user)
+
+//IRIS ADDITION START: MapleStation Port https://github.com/MrMelbert/MapleStationCode/pull/612
+
+/datum/component/butchering/wearable/butcher_effects(obj/item/source, mob/living/butchering, mob/living/user)
+	if(user.next_move <= world.time)
+		user.face_atom(butchering)
+		// performs an attack against the mob
+		var/old_combat_mode = user.combat_mode
+		user.set_combat_mode(TRUE, TRUE)
+		user.UnarmedAttack(butchering, TRUE)
+		user.set_combat_mode(old_combat_mode, TRUE)
+		// and play the sound
+		playsound(butchering, butcher_sound, 50, TRUE, -1)
+		// start our own click cd
+		user.changeNext_move(0.6 SECONDS)
+	// so the butchering doesn't stop
+	return TRUE
+
+//IRIS ADDITION END
