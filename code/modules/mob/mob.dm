@@ -799,7 +799,7 @@
 
 	usr.log_message("used the respawn button.", LOG_GAME)
 
-	to_chat(usr, span_boldnotice("Please roleplay correctly!"))
+	to_chat(usr, span_boldnotice("Please roleplay correctly! If your in-round character is dead, pick a new character!"))
 
 	if(!client)
 		usr.log_message("respawn failed due to disconnect.", LOG_GAME)
