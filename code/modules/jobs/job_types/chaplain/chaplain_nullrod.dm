@@ -236,7 +236,7 @@
 	. = ..()
 	AddComponent(
 		/datum/component/butchering, \
-		speed = 7 SECONDS, \
+		speed = 6 SECONDS, \
 		effectiveness = 110, \
 	)
 
@@ -535,7 +535,7 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, HAND_REPLACEMENT_TRAIT)
 	AddComponent(/datum/component/butchering, \
-	speed = 8 SECONDS, \
+	speed = 6 SECONDS, \
 	effectiveness = 70, \
 	)
 

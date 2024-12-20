@@ -258,7 +258,7 @@
 		species_exception = string_list(species_exception)
 
 	if(sharpness && force > 5) //give sharp objects butchering functionality, for consistency
-		AddComponent(/datum/component/butchering, speed = 8 SECONDS * toolspeed)
+		AddComponent(/datum/component/butchering, speed = 6 SECONDS * toolspeed)
 
 	if(!greyscale_config && greyscale_colors && (greyscale_config_worn || greyscale_config_belt || greyscale_config_inhand_right || greyscale_config_inhand_left))
 		update_greyscale()

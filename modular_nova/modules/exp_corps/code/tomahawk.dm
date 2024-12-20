@@ -28,6 +28,6 @@
 /obj/item/melee/tomahawk/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/butchering, \
-	speed = 7 SECONDS, \
+	speed = 6 SECONDS, \
 	effectiveness = 100, \
 	)

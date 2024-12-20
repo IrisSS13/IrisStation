@@ -51,7 +51,7 @@
 		)
 
 	AddComponent(/datum/component/butchering, \
-		speed = 10 SECONDS, \
+		speed = 7.5 SECONDS, \
 		effectiveness = 70, \
 	)
 	AddComponent(/datum/component/two_handed, \

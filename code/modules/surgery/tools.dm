@@ -226,7 +226,7 @@
 /obj/item/scalpel/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/butchering, \
-	speed = 8 SECONDS * toolspeed, \
+	speed = 6 SECONDS * toolspeed, \
 	effectiveness = 100, \
 	bonus_modifier = 0, \
 	)
