@@ -16,6 +16,7 @@
 	name = "Memo"
 	default_raw_text= "Please keep the documents from the malfunctioning shuttle safe until someone picks it up. We really shouldn't have this kind of stuff on us."
 /// Syndicate Holodisk
+//IRIS EDIT
 /obj/item/disk/holodisk/ruin/waystation
 	name = "Ops NUCLEUS - Briefing"
 	preset_image_type = /datum/preset_holoimage/syndicatebattlecruisercaptain
@@ -25,7 +26,7 @@
 	DELAY 20
 	SAY You will be breaching an distant waystation on the fringe of Nanotrasen territory.
 	DELAY 25
-	SAY Your main objective is to secure highly classified documents about recent Nanotrasen expansion in the Spinward sector.
+	SAY Your main objective is to secure highly classified documents about recent Nanotrasen expansion in the Cabriole sector.
 	DELAY 20
 	SAY The documents are located in the secure storage room.
 	DELAY 25

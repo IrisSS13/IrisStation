@@ -69,7 +69,7 @@
 	"}
 
 
-/obj/item/paper/fluff/ruins/listeningstation/reports/october
+/obj/item/paper/fluff/ruins/listeningstation/reports/october //IRIS EDIT
 	name = "october report"
 	default_raw_text = {"i am so fucking stupid. i ran out of tank oxygen, so i tried to jerry rig one of the auxiliary pressure tanks abroad the station to feed an eva tank.
 	<br> as i have just learned, that was very stupid. the oxygen was below zero degrees, and it sprayed right into my open eyes. i can make out blobs of shapes and colors, but not much more.
@@ -81,7 +81,7 @@
 	<br> my only concern is the person in the sleeper. i'm not going to bother them with anything. if i woke them up, maybe i wouldn't be blind and i would be happy. i couldn't see that.
 	<br> i fear they'll go insane reading these, so i'll make something up for november. i'll lie, effortfully lie. scatter the others, and this one. if you happen upon this note, i'm sorry. i ruined it for you.
 	<br>
-	<br> as soon as i find where i dropped my keycard, i'm going to use one last emergency oxygen tank, and float. if i am gunned for being a deserter, so be it. if i am shot by terragov or nanotrasen, so be it.
+	<br> as soon as i find where i dropped my keycard, i'm going to use one last emergency oxygen tank, and float. if i am gunned for being a deserter, so be it. if i am shot by solgov or nanotrasen, so be it.
 	<br> even if the pickup should come in a matter of weeks, i literally can not live with myself. a future in where i live in is completely unfeasible.
 	<br> i will die among the stars.
 	"}

@@ -1156,7 +1156,7 @@
 
 /datum/mod_theme/syndicate
 	name = "syndicate"
-	desc = "A suit designed by Gorlex Marauders, offering armor ruled illegal in most of Spinward Stellar."
+	desc = "A suit designed by Gorlex Marauders, offering armor ruled illegal in most of Cabriole Stellar." //IRIS EDIT
 	extended_desc = "An advanced combat suit adorned in a sinister crimson red color scheme, produced and manufactured \
 		for special mercenary operations. The build is a streamlined layering consisting of shaped Plasteel, \
 		and composite ceramic, while the under suit is lined with a lightweight Kevlar and durathread hybrid weave \

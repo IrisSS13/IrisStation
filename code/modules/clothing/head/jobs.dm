@@ -824,7 +824,7 @@
 //Independant Militia
 /obj/item/clothing/head/beret/militia
 	name = "\improper Militia General's Beret"
-	desc = "A rallying cry for the inhabitants of the Spinward Sector, the heroes that wear this keep the horrors of the galaxy at bay. Call them, and they'll be there in a minute!"
+	desc = "A rallying cry for the inhabitants of the Cabriole Sector, the heroes that wear this keep the horrors of the galaxy at bay. Call them, and they'll be there in a minute!"
 	icon_state = "beret_badge"
 	greyscale_config = /datum/greyscale_config/beret_badge
 	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn

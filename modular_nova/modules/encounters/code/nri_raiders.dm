@@ -61,7 +61,7 @@ GLOBAL_VAR(first_officer)
 	response_not_enough = "Your bank balance does not hold enough money at the moment or the system has been overriden. We are sending a patrol ship for second attempt negotiations, stand by."
 	announcement_color = "purple"
 
-/datum/pirate_gang/nri_raiders/generate_message(payoff)
+/datum/pirate_gang/nri_raiders/generate_message(payoff) //IRIS EDIT
 	var/number = rand(1,99)
 	///Station name one is the most important pick and is pretty much the station's main argument against getting fined, thus it better be mostly always right.
 	var/station_designation = pick_weight(list(
@@ -70,13 +70,13 @@ GLOBAL_VAR(first_officer)
 		"Interdyne Pharmaceuticals Chemical Factory" = 5,
 		"Free Teshari League Engineering Station" = 5,
 		"Agurkrral Military Base" = 5,
-		"Sol Federation Embassy" = 5,
+		"Sol Government Embassy" = 5,
 		"Novaya Rossiyskaya Imperiya Civilian Port" = 5,
 	))
 	///"right" = Right for the raiders to use as an argument; usually pretty difficult to avoid.
 	var/right_pick = pick(
 		"high probability of NRI-affiliated civilian casualties aboard the facility",
-		"highly increased funding by the SolFed authorities; neglected NRI-backed subsidiaries' contracts",
+		"highly increased funding by the SolGov authorities; neglected NRI-backed subsidiaries' contracts",
 		"unethical hiring practices and unfair payment allocation for the NRI citizens",
 		"recently discovered BSA-[number] or similar model in close proximity to the neutral space aboard this or nearby affiliated facility",
 	)

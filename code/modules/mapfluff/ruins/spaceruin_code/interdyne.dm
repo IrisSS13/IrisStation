@@ -1,7 +1,7 @@
 /// Research notes
 /obj/item/paper/fluff/ruins/interdyne/reception
 	name = "Interdyne reception note"
-	default_raw_text = "Welcome to your new life in the spinward frontier employee! As you may already know some of our current clients require products that don't exactly fall in line with current TerraGov regulations. As such you and many other of our best and bravest will continue our great work far from any prying eyes. Please remember that any and all mention of frontier work to non-employees will result in the immediate termination of your contracts."
+	default_raw_text = "Welcome to your new life in the cabriole frontier employee! As you may already know some of our current clients require products that don't exactly fall in line with current SolGov regulations. As such you and many other of our best and bravest will continue our great work far from any prying eyes. Please remember that any and all mention of frontier work to non-employees will result in the immediate termination of your contracts." //IRIS EDIT
 
 /obj/item/paper/fluff/ruins/interdyne/note_1
 	name = "The first note"

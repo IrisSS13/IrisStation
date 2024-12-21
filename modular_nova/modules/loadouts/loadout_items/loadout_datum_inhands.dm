@@ -93,7 +93,7 @@
 	item_path = /obj/item/sign/flag/ssc
 
 /datum/loadout_item/inhand/flag_solfed
-	name = "Folded Sol Federation Flag"
+	name = "Folded Sol Government Flag" //IRIS EDIT
 	item_path = /obj/item/sign/flag/terragov
 
 /datum/loadout_item/inhand/flag_moghes
