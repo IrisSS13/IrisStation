@@ -85,7 +85,7 @@
 
 /obj/item/weaponcrafting/gunkit/beam_rifle
 	name = "\improper Event Horizon anti-existential beam rifle part kit (DOOMSDAY DEVICE, DO NOT CONSTRUCT)"
-	desc = "What fevered minds wrought this terrible construction kit? To create a frame to harness the strange energies that flow through the Spinward Sector towards such horrible acts of violence?"
+	desc = "What fevered minds wrought this terrible construction kit? To create a frame to harness the strange energies that flow through the Cabriole Sector towards such horrible acts of violence?" //IRIS EDIT
 
 /obj/item/weaponcrafting/gunkit/ebow
 	name = "energy crossbow part kit (less lethal)"

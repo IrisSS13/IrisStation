@@ -104,7 +104,7 @@
 
 /obj/item/paper/fluff/ruins/nt_commsbuoy/inspection
 	name = "Spinward-NT-EBCB Inspection Report"
-	desc = "A few notes from the pre-activation inspection. Probably shouldn't still be here post-activation."
+	desc = "A few notes from the pre-activation inspection. Probably shouldn't still be here post-activation. Wait, how did this end up all the way into Cabriole sector?" //IRIS EDIT
 	default_raw_text = {"
 	<center><h3>"SS13-Relay" Spinward NT-EBCB Pre-Activation Inspection</h3></center>
 	<hr>

@@ -1,4 +1,4 @@
-/obj/item/paper/work_contract
+/obj/item/paper/work_contract //IRIS EDIT
 	icon_state = "paper_words"
 	throw_range = 3
 	throw_speed = 3
@@ -32,12 +32,12 @@
 	value or condition of assets, existence of pending lawsuits, or any other material that may impact the profit and health of the <i><u>employer</u></i> as a whole.\
 	<br><br>Additionally, the <i><u>employee</u></i> allows the <i><u>employer</u></i> to access their medical, security and employment records for use in public relations, marketing, \
 	product placement, experiments, or other company purposes not detailed by the contract. This includes and is not limited to the <i><u>employee</u></i>'s voice,\
-	physical appearance, DNA sequences and Resonance; their provided criminal records and affiliations with any groups of interest; provided general background information \
+	physical appearance and DNA sequences; their provided criminal records and affiliations with any groups of interest; provided general background information \
 	and additional information provided by verified third-party investigators; provided medical records and so forth.\
 	<br><br>In case of lack of necessary skills to perform required tasks before the employment, the <i><u>employee</u></i> agrees to perform a skillchip installment and/or \
 	memory upload with qualifications/skills programs necessary to perform their duties, and a skillchip removal and/or memory wipe after their contract's over. The following procedures' \
 	medical fees, as well as the skillchip and/or memory altering procedures cost will be deducted from the <i><u>employee</u></i>'s payment at the end of the contract.\
-	<br><br>To note for the aforementioned, any ongoing or pending criminal investigations, if originated from the Sol Federation, are to be halted for the duration of work contract, \
+	<br><br>To note for the aforementioned, any ongoing or pending criminal investigations, if originated from the SolGov, are to be halted for the duration of work contract, \
 	with any possible crimes occuring within the <i><u>employer</u></i>'s facilities punished by the contracted or corporate paramilitary and security forces.\
 	<br>Finally, the <i><u>employee</u></i> understands that the <i><u>employer</u></i> is not bound by the same contract principles as them and may terminate the contract at any time, \
 	for any reason, and without warning if need be. The <i><u>employee</u></i> agrees to approach any and all employment disputes through the assigned Head of Personnel \
