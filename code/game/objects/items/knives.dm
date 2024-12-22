@@ -37,10 +37,11 @@
 ///Adds the butchering component, used to override stats for special cases
 /obj/item/knife/proc/set_butchering()
 	AddComponent(/datum/component/butchering, \
-	speed = 6 SECONDS - force, \ // IRIS EDIT: Originally 8 SECONDS
+	speed = 6 SECONDS - force, \
 	effectiveness = 100, \
 	bonus_modifier = force - 10, \
 	)
+	// IRIS EDIT: Originally 8 SECONDS
 	//bonus chance increases depending on force
 
 /obj/item/knife/suicide_act(mob/living/user)
@@ -113,10 +114,11 @@
 
 /obj/item/knife/hunting/set_butchering()
 	AddComponent(/datum/component/butchering, \
-	speed = 6 SECONDS - force, \ // IRIS EDIT: Originally 8 SECONDS
+	speed = 6 SECONDS - force, \
 	effectiveness = 100, \
 	bonus_modifier = force + 10, \
 	)
+	// IRIS EDIT: Originally 8 SECONDS
 
 /obj/item/knife/combat
 	name = "combat knife"
