@@ -32,9 +32,8 @@
 	slot = AUGMENT_SLOT_LUNGS
 	allowed_biotypes = MOB_ORGANIC | MOB_ROBOTIC
 
-/datum/augment_item/organ/lungs/normal
-	name = "Organic lungs"
-	path = /obj/item/organ/lungs
+//IRIS EDIT: /datum/augment_item/organ/lungs/normal moved to modular_iris/modules/customization/modules/client/augment/organs.dm to preserve the organization
+//IRIS EDIT: /datum/augment_item/organ/lungs/cybernetic moved to modular_iris/modules/customization/modules/client/augment/organs.dm to preserve the organization
 
 /datum/augment_item/organ/lungs/hot
 	name = "Lungs Adapted to Heat"
@@ -45,17 +44,16 @@
 	name = "Cold-Adapted Lungs"
 	path = /obj/item/organ/lungs/cold
 	cost = 1
+
 /datum/augment_item/organ/lungs/toxin
 	name = "Lungs Adapted to Toxins"
 	path = /obj/item/organ/lungs/toxin
 	cost = 1
+
 /datum/augment_item/organ/lungs/oxy
 	name = "Low-Pressure Adapted Lungs"
 	path = /obj/item/organ/lungs/oxy
 	cost = 1
-/datum/augment_item/organ/lungs/cybernetic
-	name = "Cybernetic lungs"
-	path = /obj/item/organ/lungs/cybernetic
 
 //LIVERS
 /datum/augment_item/organ/liver
