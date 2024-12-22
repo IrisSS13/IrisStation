@@ -87,7 +87,7 @@
 /obj/item/forging/reagent_weapon/dagger/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/butchering, \
-	speed = 6 SECONDS, \
+	speed = 6 SECONDS, \ // IRIS EDIT: Originally 8 SECONDS
 	effectiveness = 100, \
 	bonus_modifier = force + 7, \
 	)

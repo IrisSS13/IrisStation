@@ -1,6 +1,6 @@
 /datum/component/butchering
 	/// Time in deciseconds taken to butcher something
-	var/speed = 6 SECONDS
+	var/speed = 6 SECONDS // IRIS EDIT: Originally 8 SECONDS
 	/// Percentage effectiveness; numbers above 100 yield extra drops
 	var/effectiveness = 100
 	/// Percentage increase to bonus item chance
@@ -15,7 +15,7 @@
 	var/datum/callback/butcher_callback
 
 /datum/component/butchering/Initialize(
-	speed = 6 SECONDS,
+	speed = 6 SECONDS, // IRIS EDIT: Originally 8 SECONDS
 	effectiveness = 100,
 	bonus_modifier = 0,
 	butcher_sound = 'sound/effects/butcher.ogg',

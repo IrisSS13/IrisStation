@@ -139,7 +139,7 @@
 /obj/item/shovel/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/butchering, \
-	speed = 11.5 SECONDS, \
+	speed = 11.5 SECONDS, \ // IRIS EDIT: Originally 15 SECONDS
 	effectiveness = 40, \
 	)
 	//it's sharp, so it works, but barely.

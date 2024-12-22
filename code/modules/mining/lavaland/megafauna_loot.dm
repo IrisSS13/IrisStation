@@ -673,7 +673,7 @@
 	SSpoints_of_interest.make_point_of_interest(src)
 	AddComponent(\
 		/datum/component/butchering, \
-		speed = 11.5 SECONDS, \
+		speed = 11.5 SECONDS, \ // IRIS EDIT: Originally 15 SECONDS
 		effectiveness = 90, \
 	)
 

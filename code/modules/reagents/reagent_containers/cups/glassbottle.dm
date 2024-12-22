@@ -262,7 +262,7 @@
 	. = ..()
 	AddComponent(/datum/component/caltrop, min_damage = force)
 	AddComponent(/datum/component/butchering, \
-		speed = 15 SECONDS, \
+		speed = 15 SECONDS, \ // IRIS EDIT: Originally 20 SECONDS
 		effectiveness = 55, \
 	)
 

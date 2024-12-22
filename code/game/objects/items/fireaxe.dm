@@ -40,7 +40,7 @@ GLOBAL_DATUM(bridge_axe, /obj/item/fireaxe)
 		GLOB.bridge_axe = src
 
 	AddComponent(/datum/component/butchering, \
-		speed = 7.5 SECONDS, \
+		speed = 7.5 SECONDS, \ // IRIS EDIT: Originally 10 SECONDS
 		effectiveness = 80, \
 		bonus_modifier = 0 , \
 		butcher_sound = hitsound, \

@@ -27,7 +27,7 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, HAND_REPLACEMENT_TRAIT)
 	AddComponent(/datum/component/butchering, \
-	speed = 6 SECONDS, \
+	speed = 6 SECONDS, \ // IRIS EDIT: Originally 8 SECONDS
 	effectiveness = 70, \
 	)
 	AddComponent(/datum/component/light_eater)

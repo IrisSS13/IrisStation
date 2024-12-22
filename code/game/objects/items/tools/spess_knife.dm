@@ -29,7 +29,7 @@
 /obj/item/spess_knife/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/butchering, \
-		speed = 6 SECONDS, \
+		speed = 6 SECONDS, \ // IRIS EDIT: Originally 8 SECONDS
 		effectiveness = 100, \
 		disabled = TRUE, \
 	)
