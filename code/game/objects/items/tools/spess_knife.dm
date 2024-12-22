@@ -29,10 +29,11 @@
 /obj/item/spess_knife/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/butchering, \
-		speed = 6 SECONDS, \ // IRIS EDIT: Originally 8 SECONDS
+		speed = 6 SECONDS, \
 		effectiveness = 100, \
 		disabled = TRUE, \
 	)
+	// IRIS EDIT: Originally 8 SECONDS
 	options = list(
 		NO_TOOL = image(icon = 'icons/obj/tools.dmi', icon_state = initial(icon_state)),
 		TOOL_KNIFE = image(icon = 'icons/obj/tools.dmi', icon_state = "[initial(icon_state)]_[TOOL_KNIFE]"),

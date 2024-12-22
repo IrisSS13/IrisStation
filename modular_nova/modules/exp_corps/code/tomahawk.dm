@@ -28,6 +28,7 @@
 /obj/item/melee/tomahawk/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/butchering, \
-	speed = 6 SECONDS, \ // IRIS EDIT: Originally 7 SECONDS
+	speed = 6 SECONDS, \
 	effectiveness = 100, \
 	)
+// IRIS EDIT: Originally 7 SECONDS

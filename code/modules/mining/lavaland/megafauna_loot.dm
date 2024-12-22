@@ -673,9 +673,10 @@
 	SSpoints_of_interest.make_point_of_interest(src)
 	AddComponent(\
 		/datum/component/butchering, \
-		speed = 11.5 SECONDS, \ // IRIS EDIT: Originally 15 SECONDS
+		speed = 11.5 SECONDS, \
 		effectiveness = 90, \
 	)
+	// IRIS EDIT: Originally 15 SECONDS
 
 /obj/item/melee/ghost_sword/Destroy()
 	for(var/mob/dead/observer/G in spirits)

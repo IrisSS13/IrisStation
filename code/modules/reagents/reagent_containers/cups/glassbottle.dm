@@ -262,9 +262,10 @@
 	. = ..()
 	AddComponent(/datum/component/caltrop, min_damage = force)
 	AddComponent(/datum/component/butchering, \
-		speed = 15 SECONDS, \ // IRIS EDIT: Originally 20 SECONDS
+		speed = 15 SECONDS, \
 		effectiveness = 55, \
 	)
+	// IRIS EDIT: Originally 20 SECONDS
 
 /// Mimics the appearance and properties of the passed in bottle.
 /// Takes the broken bottle to mimic, and the thing the bottle was broken agaisnt as args

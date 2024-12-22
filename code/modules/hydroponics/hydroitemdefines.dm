@@ -503,9 +503,10 @@
 /obj/item/hatchet/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/butchering, \
-	speed = 6 SECONDS, \ // IRIS EDIT: Originally 7 SECONDS
+	speed = 6 SECONDS, \
 	effectiveness = 100, \
 	)
+	// IRIS EDIT: Originally 7 SECONDS
 
 /obj/item/hatchet/suicide_act(mob/living/user)
 	user.visible_message(span_suicide("[user] is chopping at [user.p_them()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!"))

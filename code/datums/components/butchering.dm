@@ -15,7 +15,7 @@
 	var/datum/callback/butcher_callback
 
 /datum/component/butchering/Initialize(
-	speed = 6 SECONDS, // IRIS EDIT: Originally 8 SECONDS
+	speed = 6 SECONDS,
 	effectiveness = 100,
 	bonus_modifier = 0,
 	butcher_sound = 'sound/effects/butcher.ogg',
@@ -23,6 +23,7 @@
 	can_be_blunt = FALSE,
 	butcher_callback,
 )
+// IRIS EDIT: Originally 8 SECONDS
 	src.speed = speed
 	src.effectiveness = effectiveness
 	src.bonus_modifier = bonus_modifier

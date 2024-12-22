@@ -1147,9 +1147,10 @@ Striking a noncultist, however, will tear their flesh."}
 /obj/item/melee/cultblade/halberd/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/butchering, \
-		speed = 7.5 SECONDS, \ // IRIS EDIT: Originally 10 SECONDS
+		speed = 7.5 SECONDS, \
 		effectiveness = 90, \
 	)
+	// IRIS EDIT: Originally 10 SECONDS
 	AddComponent(/datum/component/two_handed, \
 		force_unwielded = 17, \
 		force_wielded = 24, \
