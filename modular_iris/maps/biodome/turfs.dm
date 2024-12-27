@@ -7,7 +7,7 @@
 
 /turf/open/water/jungle/biodome/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/lazy_fishing_spot, /datum/fish_source/ocean/beach)
+	AddComponent(/datum/component/fishing_spot, GLOB.preset_fish_sources[/datum/fish_source/ocean/beach])
 
 /turf/open/misc/ashplanet/wateryrock/biodome
 	name="Biodome Lake Rocks"
