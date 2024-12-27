@@ -1319,7 +1319,10 @@
 		return FALSE
 
 	if(!is_literate())
-		to_chat(src, span_warning("You try to write, but don't know how to spell anything!"))
+		if(HAS_TRAIT_FROM(src, TRAIT_ILLITERATE, FARSIGHT_TRAIT)) //ORBSTATION: farsighted gives alternate text
+			to_chat(src, span_warning("You try to write, but it's too blurry to make out."))
+		else
+			to_chat(src, span_warning("You try to write, but don't know how to spell anything!"))
 		return FALSE
 
 	if(!has_light_nearby() && !has_nightvision())
@@ -1360,7 +1363,10 @@
 /mob/proc/can_read(atom/viewed_atom, reading_check_flags = (READING_CHECK_LITERACY|READING_CHECK_LIGHT), silent = FALSE)
 	if((reading_check_flags & READING_CHECK_LITERACY) && !is_literate())
 		if(!silent)
-			to_chat(src, span_warning("You try to read [viewed_atom], but can't comprehend any of it."))
+			if(HAS_TRAIT_FROM(src, TRAIT_ILLITERATE, FARSIGHT_TRAIT)) //ORBSTATION: farsighted gives alternate text
+				to_chat(src, span_warning("You try to read [viewed_atom], but it's too blurry to make out."))
+			else
+				to_chat(src, span_warning("You try to read [viewed_atom], but can't comprehend any of it."))
 		return FALSE
 
 	if((reading_check_flags & READING_CHECK_LIGHT) && !has_light_nearby() && !has_nightvision())

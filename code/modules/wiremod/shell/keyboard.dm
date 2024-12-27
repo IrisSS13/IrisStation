@@ -46,7 +46,10 @@
 
 /obj/item/circuit_component/keyboard_shell/proc/use_keyboard(mob/user)
 	if(HAS_TRAIT(user, TRAIT_ILLITERATE))
-		to_chat(user, span_warning("You start mashing keys at random!"))
+		if (HAS_TRAIT_FROM(user, TRAIT_ILLITERATE, FARSIGHT_TRAIT)) // ORBSTATION: alternate message for farsighted quirk
+			to_chat(user, span_warning("You can't make out the words on the screen, so you start mashing keys at random!"))
+		else
+			to_chat(user, span_warning("You start mashing keys at random!"))
 		return
 
 	var/message = tgui_input_text(user, "Input your text", "Keyboard", max_length = MAX_MESSAGE_LEN)

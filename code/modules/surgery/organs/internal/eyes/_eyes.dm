@@ -175,6 +175,15 @@
 			if(owner.is_nearsighted_from(EYE_DAMAGE))
 				return conditional_tooltip("Subject is nearsighted from eye damage.", "Repair surgically or use medication such as [/datum/reagent/medicine/oculine::name]. Prescription glasses will assuage the effects.", add_tooltips)
 		return "Subject is nearsighted."
+// IRIS ADDITION: Ports Farsighted from Orbstation
+// Done with Traits bc my ass isn't going to bother changing it to a status effect
+	if(HAS_TRAIT(owner, TRAIT_FARSIGHT))
+		if(advanced)
+			if(HAS_TRAIT_FROM(owner, TRAIT_FARSIGHT, QUIRK_TRAIT))
+				return conditional_tooltip("Subject is permanently farsighted.", "Irreparable under normal circumstances. Prescription glasses will assuage the effects.", add_tooltips)
+			if(HAS_TRAIT_FROM(owner, TRAIT_FARSIGHT, GENETIC_MUTATION))
+				return conditional_tooltip("Subject is genetically farsighted.", "Use medication such as [/datum/reagent/medicine/mutadone::name]. Prescription glasses will assuage the effects.", add_tooltips)
+		return "Subject is farsighted."
 	return ""
 
 /obj/item/organ/eyes/show_on_condensed_scans()
