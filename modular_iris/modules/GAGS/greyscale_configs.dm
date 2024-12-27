@@ -59,7 +59,35 @@
 	icon_file = 'modular_iris/modules/GAGS/icons/glasses/glasses_worn.dmi'
 	json_config = 'modular_iris/modules/GAGS/json_configs/glasses/glasses_hipster_color_worn.json'
 
+/datum/greyscale_config/glasses_transparent_regular_color
+	name = "Glasses"
+	icon_file = 'modular_iris/modules/GAGS/icons/glasses/glasses.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/glasses/glasses_transparent_regular_color.json'
 
+/datum/greyscale_config/glasses_transparent_regular_color/worn
+	name = "Glasses (Worn)"
+	icon_file = 'modular_iris/modules/GAGS/icons/glasses/glasses_worn.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/glasses/glasses_transparent_regular_color_worn.json'
+
+datum/greyscale_config/glasses_transparent_thin_color
+	name = "Thin Glasses"
+	icon_file = 'modular_iris/modules/GAGS/icons/glasses/glasses.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/glasses/glasses_transparent_thin_color.json'
+
+/datum/greyscale_config/glasses_transparent_thin_color/worn
+	name = "Thin Glasses (Worn)"
+	icon_file = 'modular_iris/modules/GAGS/icons/glasses/glasses_worn.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/glasses/glasses_transparent_thin_color_worn.json'
+
+/datum/greyscale_config/glasses_transparent_circle_color
+	name = "Circle Glasses"
+	icon_file = 'modular_iris/modules/GAGS/icons/glasses/glasses.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/glasses/glasses_transparent_circle_color.json'
+
+/datum/greyscale_config/glasses_transparent_circle_color/worn
+	name = "Circle Glasses (Worn)"
+	icon_file = 'modular_iris/modules/GAGS/icons/glasses/glasses_worn.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/glasses/glasses_transparent_circle_color_worn.json'
 
 /*
 *	NECK
