@@ -4,7 +4,7 @@
 /datum/quirk/item_quirk/farsighted
 	name = "Farsighted"
 	desc = "You are farsighted - you won't be able to read a thing without prescription glasses. Fortunately, you spawn with a pair."
-	icon = "magnifying-glass"
+	icon = FA_ICON_MAGNIFYING_GLASS
 	value = -3
 	gain_text = "<span class='danger'>Things close to you start looking blurry.</span>"
 	lose_text = "<span class='notice'>You start seeing nearby things normally again.</span>"
