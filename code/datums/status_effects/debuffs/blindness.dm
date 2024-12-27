@@ -101,14 +101,20 @@
 	owner.overlay_fullscreen(id, /atom/movable/screen/fullscreen/blind)
 	// You are blind - at most, able to make out shapes near you
 	owner.add_client_colour(/datum/client_colour/monochrome/blind)
+	// IRIS ADDITION START - MapleStation Port: But to represent the fact that you can feel your way around, you are unaffected by darkness
+	ADD_TRAIT(owner, TRAIT_TRUE_NIGHT_VISION, id)
+	// but your eyes will start to wander, you may end up staring unintentionally
+	ADD_TRAIT(owner, TRAIT_SHIFTY_EYES, id)
+	return ..()
+	// IRIS ADDITION END
 
 /datum/status_effect/grouped/blindness/proc/make_unblind()
 	owner.clear_fullscreen(id)
 	owner.remove_client_colour(/datum/client_colour/monochrome/blind)
-
-/datum/status_effect/grouped/blindness/on_remove()
-	make_unblind()
-	UnregisterSignal(owner, update_signals)
+	// IRIS ADDITION START - MapleStation Port
+	REMOVE_TRAIT(owner, TRAIT_TRUE_NIGHT_VISION, id)
+	REMOVE_TRAIT(owner, TRAIT_SHIFTY_EYES, id)
+	// IRIS ADDITION END
 	return ..()
 
 /atom/movable/screen/alert/status_effect/blind

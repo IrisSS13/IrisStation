@@ -83,18 +83,15 @@
 	if(prob(85) || (istype(mind_check) && mind_check.mind))
 		return
 
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), quirk_holder, span_smallnotice("You make eye contact with [A].")), 0.3 SECONDS)
+// IRIS EDIT START - MapleStation Port
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), quirk_holder, span_smallnotice("You make eye contact with [A].")), 0.2 SECONDS)
 
-/datum/quirk/social_anxiety/proc/eye_contact(datum/source, mob/living/other_mob, triggering_examiner)
+/datum/quirk/social_anxiety/proc/eye_contact(datum/source, mob/living/other_mob)
 	SIGNAL_HANDLER
 
 	if(prob(75))
-		return
-	var/msg
-	if(triggering_examiner)
-		msg = "You make eye contact with [other_mob], "
-	else
-		msg = "[other_mob] makes eye contact with you, "
+		return NONE
+	var/msg = "You make eye contact with [other_mob], "
 
 	switch(rand(1,3))
 		if(1)
@@ -108,8 +105,9 @@
 			msg += "causing you to freeze up!"
 
 	quirk_holder.add_mood_event("anxiety_eyecontact", /datum/mood_event/anxiety_eyecontact)
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), quirk_holder, span_userdanger("[msg]")), 3) // so the examine signal has time to fire and this will print after
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), quirk_holder, span_userdanger("[msg]")), 0.2 SECONDS) // so the examine signal has time to fire and this will print after
 	return COMSIG_BLOCK_EYECONTACT
+// IRIS EDIT END
 
 /datum/mood_event/anxiety_eyecontact
 	description = "Sometimes eye contact makes me so nervous..."
