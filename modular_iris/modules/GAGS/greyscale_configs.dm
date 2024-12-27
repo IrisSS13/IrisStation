@@ -69,7 +69,7 @@
 	icon_file = 'modular_iris/modules/GAGS/icons/glasses/glasses_worn.dmi'
 	json_config = 'modular_iris/modules/GAGS/json_configs/glasses/glasses_transparent_regular_color_worn.json'
 
-datum/greyscale_config/glasses_transparent_thin_color
+/datum/greyscale_config/glasses_transparent_thin_color
 	name = "Thin Glasses"
 	icon_file = 'modular_iris/modules/GAGS/icons/glasses/glasses.dmi'
 	json_config = 'modular_iris/modules/GAGS/json_configs/glasses/glasses_transparent_thin_color.json'
