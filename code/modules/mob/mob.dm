@@ -653,32 +653,44 @@
  * Also note that examine_more() doesn't proc this or extend the timer, just because it's simpler this way and doesn't lose much.
  * The nice part about relying on examining is that we don't bother checking visibility, because we already know they were both visible to each other within the last second, and the one who triggers it is currently seeing them
  */
-/mob/proc/handle_eye_contact(mob/living/examined_mob)
+// IRIS EDIT START - MapleStation Port
+/mob/proc/handle_eye_contact(mob/living/examined_mob, allow_imagine = TRUE)
 	return
 
-/mob/living/handle_eye_contact(mob/living/examined_mob)
-	if(!istype(examined_mob) || src == examined_mob || examined_mob.stat >= UNCONSCIOUS || !client)
+/mob/living/handle_eye_contact(mob/living/examined_mob, alert_examined = TRUE)
+	if(!istype(examined_mob) || src == examined_mob || !GET_CLIENT(src))
+		return
+	if(stat >= UNCONSCIOUS || examined_mob.stat >= UNCONSCIOUS || is_blind() || !examined_mob.is_eyes_visible())
 		return
 
 	var/imagined_eye_contact = FALSE
+	var/glance_dist = get_dist(src, examined_mob)
 	if(!LAZYACCESS(examined_mob.client?.recent_examines, src))
-		// even if you haven't looked at them recently, if you have the shift eyes trait, they may still imagine the eye contact
-		if(HAS_TRAIT(examined_mob, TRAIT_SHIFTY_EYES) && prob(10 - get_dist(src, examined_mob)))
+		// you imagine they made eye contact
+		if(alert_examined && HAS_TRAIT(examined_mob, TRAIT_SHIFTY_EYES) && prob(10 - glance_dist))
 			imagined_eye_contact = TRUE
 		else
 			return
 
-	if(get_dist(src, examined_mob) > EYE_CONTACT_RANGE)
+	if(glance_dist > EYE_CONTACT_RANGE)
 		return
 
-	// check to see if their face is blocked or, if not, a signal blocks it
-	if(examined_mob.is_face_visible() && SEND_SIGNAL(src, COMSIG_MOB_EYECONTACT, examined_mob, TRUE) != COMSIG_BLOCK_EYECONTACT)
-		var/msg = span_smallnotice("You make eye contact with [examined_mob].")
-		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), src, msg), 0.3 SECONDS) // so the examine signal has time to fire and this will print after
-
-	if(!imagined_eye_contact && is_face_visible() && SEND_SIGNAL(examined_mob, COMSIG_MOB_EYECONTACT, src, FALSE) != COMSIG_BLOCK_EYECONTACT)
-		var/msg = span_smallnotice("[src] makes eye contact with you.")
-		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), examined_mob, msg), 0.3 SECONDS)
+	// eye contact is "happening" now but it can be "stopped" by signal
+	if(SEND_SIGNAL(src, COMSIG_MOB_EYECONTACT, examined_mob) & COMSIG_BLOCK_EYECONTACT)
+		return
+	// generic eye contact
+	// message is on a timer so it pops up after examine is processed
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), src, span_smallnotice("You[imagined_eye_contact && prob(10) ? " think you" : ""] make eye contact with [examined_mob].")), 0.2 SECONDS)
+	// feedback to the other end of the glance
+	if(alert_examined && !examined_mob.is_blind() && GET_CLIENT(examined_mob))
+		if(imagined_eye_contact)
+			// we imagined eye contact, we didn't actually make anything. so in reality, we're just staring like a weirdo
+			if(prob(5 - glance_dist))
+				addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), examined_mob, span_smallnotice("You notice [src] staring at you.")), 0.2 SECONDS)
+		else
+			// we made real eye contact, so now go through and process them looking back at us. no alert back though obviously
+			examined_mob.handle_eye_contact(src, FALSE)
+// IRIS EDIT END
 
 /**
  * Called by using Activate Held Object with an empty hand/limb
