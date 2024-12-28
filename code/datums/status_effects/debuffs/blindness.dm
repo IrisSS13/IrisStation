@@ -11,12 +11,7 @@
 	// fullheal should instead remove all the sources and in turn cure this
 
 	/// Static list of signals that, when received, we force an update to our nearsighted overlay
-	var/static/list/update_signals = list(
-		SIGNAL_ADDTRAIT(TRAIT_NEARSIGHTED_CORRECTED),
-		SIGNAL_REMOVETRAIT(TRAIT_NEARSIGHTED_CORRECTED),
-		SIGNAL_ADDTRAIT(TRAIT_SIGHT_BYPASS),
-		SIGNAL_REMOVETRAIT(TRAIT_SIGHT_BYPASS),
-	)
+	var/static/list/update_signals = list(SIGNAL_ADDTRAIT(TRAIT_NEARSIGHTED_CORRECTED), SIGNAL_REMOVETRAIT(TRAIT_NEARSIGHTED_CORRECTED))
 	/// How severe is our nearsightedness right now
 	var/overlay_severity = 2
 
@@ -42,11 +37,7 @@
 		var/mob/living/carbon/human/human_owner = owner
 		if (human_owner.get_eye_scars())
 			return TRUE
-	if(HAS_TRAIT(owner, TRAIT_NEARSIGHTED_CORRECTED))
-		return FALSE
-	if(HAS_TRAIT(owner, TRAIT_SIGHT_BYPASS))
-		return FALSE
-	return TRUE
+	return !HAS_TRAIT(owner, TRAIT_NEARSIGHTED_CORRECTED)
 
 /// Updates our nearsightd overlay, either removing it if we have the trait or adding it if we don't
 /datum/status_effect/grouped/nearsighted/proc/update_nearsighted_overlay()
@@ -70,10 +61,6 @@
 	id = "blindness"
 	tick_interval = STATUS_EFFECT_NO_TICK
 	alert_type = /atom/movable/screen/alert/status_effect/blind
-	var/static/list/update_signals = list(
-		SIGNAL_REMOVETRAIT(TRAIT_SIGHT_BYPASS),
-		SIGNAL_ADDTRAIT(TRAIT_SIGHT_BYPASS),
-	)
 	// This is not "remove on fullheal" as in practice,
 	// fullheal should instead remove all the sources and in turn cure this
 
@@ -81,23 +68,6 @@
 	if(!CAN_BE_BLIND(owner))
 		return FALSE
 
-	RegisterSignals(owner, update_signals, PROC_REF(update_blindness))
-
-	update_blindness()
-
-	return ..()
-
-/datum/status_effect/grouped/blindness/proc/update_blindness()
-	if(!CAN_BE_BLIND(owner)) // future proofing
-		qdel(src)
-		return
-
-	if(HAS_TRAIT(owner, TRAIT_SIGHT_BYPASS))
-		make_unblind()
-		return
-	make_blind()
-
-/datum/status_effect/grouped/blindness/proc/make_blind()
 	owner.overlay_fullscreen(id, /atom/movable/screen/fullscreen/blind)
 	// You are blind - at most, able to make out shapes near you
 	owner.add_client_colour(/datum/client_colour/monochrome/blind)
@@ -108,7 +78,7 @@
 	return ..()
 	// IRIS ADDITION END
 
-/datum/status_effect/grouped/blindness/proc/make_unblind()
+/datum/status_effect/grouped/blindness/on_remove()
 	owner.clear_fullscreen(id)
 	owner.remove_client_colour(/datum/client_colour/monochrome/blind)
 	// IRIS ADDITION START - MapleStation Port
