@@ -187,7 +187,7 @@
 
 /obj/item/organ/heart/corrupt/on_life(seconds_per_tick, times_fired)
 	. = ..()
-	if (!COOLDOWN_FINISHED(src, hand_cooldown) || IS_IN_MANSUS(owner) || !owner.needs_heart() || !is_beating() || owner.has_reagent(/datum/reagent/water/holywater) || owner.ssd_indicator()) // IRIS EDIT: Added a check to make certain you don't get killed when AFK
+	if (!COOLDOWN_FINISHED(src, hand_cooldown) || IS_IN_MANSUS(owner) || !owner.needs_heart() || !is_beating() || owner.has_reagent(/datum/reagent/water/holywater) || owner.ssd_indicator) // IRIS EDIT: Added a check to make certain you don't get killed when AFK
 		return
 	fire_curse_hand(owner)
 	COOLDOWN_START(src, hand_cooldown, rand(6 SECONDS, 5 MINUTES)) // Wide variance to put you off guard -- IRIS EDIT: Makes it a Wider variance, so it's at least a little more playable.
