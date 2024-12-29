@@ -76,11 +76,6 @@ const SCANNER_GATE_ROUTES = {
   },
   */
   //  NOVA EDIT END - MORE SCANNER GATE OPTIONS
-
-  Contraband: {
-    title: 'Scanner Mode: Contraband',
-    component: () => ScannerGateContraband,
-  },
 };
 
 const ScannerGateControl = (props) => {
