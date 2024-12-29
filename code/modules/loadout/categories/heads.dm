@@ -68,7 +68,7 @@
 
 /datum/loadout_item/head/white_cap
 	name = "Cap (White)"
-	item_path = /obj/item/clothing/head/soft
+	item_path = /obj/item/clothing/head/soft/mime
 
 /datum/loadout_item/head/yellow_cap
 	name = "Cap (Yellow)"

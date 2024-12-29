@@ -37,7 +37,7 @@
 	icon_state = "sword"
 	inhand_icon_state = "sword"
 	worn_icon_state = "sword_back"
-	belt_icon_state = "sword_belt"
+	inside_belt_icon_state = "sword_belt"
 	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	block_chance = 20
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
@@ -55,7 +55,7 @@
 	icon_state = "katana"
 	inhand_icon_state = "katana"
 	worn_icon_state = "katana_back"
-	belt_icon_state = "katana_belt"
+	inside_belt_icon_state = "katana_belt"
 	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	block_chance = 10
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
@@ -71,7 +71,7 @@
 	icon_state = "dagger"
 	inhand_icon_state = "dagger"
 	worn_icon_state = "dagger_back"
-	belt_icon_state = "dagger_belt"
+	inside_belt_icon_state = "dagger_belt"
 	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	embed_type = /datum/embed_data/forged_dagger
 	throwforce = 17
@@ -87,10 +87,11 @@
 /obj/item/forging/reagent_weapon/dagger/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/butchering, \
-	speed = 8 SECONDS, \
+	speed = 6 SECONDS, \
 	effectiveness = 100, \
 	bonus_modifier = force + 7, \
 	)
+	// IRIS EDIT: Originally 8 SECONDS
 
 /datum/embed_data/forged_dagger
 	embed_chance = 50

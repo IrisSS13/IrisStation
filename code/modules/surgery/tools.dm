@@ -226,10 +226,11 @@
 /obj/item/scalpel/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/butchering, \
-	speed = 8 SECONDS * toolspeed, \
+	speed = 6 SECONDS * toolspeed, \
 	effectiveness = 100, \
 	bonus_modifier = 0, \
 	)
+	// IRIS EDIT: Originally 8 SECONDS
 	AddElement(/datum/element/eyestab)
 
 /obj/item/scalpel/get_surgery_tool_overlay(tray_extended)

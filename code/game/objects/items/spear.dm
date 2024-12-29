@@ -51,9 +51,10 @@
 		)
 
 	AddComponent(/datum/component/butchering, \
-		speed = 10 SECONDS, \
+		speed = 7.5 SECONDS, \
 		effectiveness = 70, \
 	)
+	// IRIS EDIT: Originally 10 SECONDS
 	AddComponent(/datum/component/two_handed, \
 		force_unwielded = force_unwielded, \
 		force_wielded = force_wielded, \
