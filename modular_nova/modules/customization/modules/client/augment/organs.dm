@@ -131,9 +131,7 @@
 	slot = AUGMENT_SLOT_TONGUE
 	allowed_biotypes = MOB_ORGANIC | MOB_ROBOTIC
 
-/datum/augment_item/organ/tongue/normal
-	name = "Organic tongue"
-	path = /obj/item/organ/tongue/human
+//IRIS EDIT: /datum/augment_item/organ/tongue/normal moved to modular_iris/modules/customization/modules/client/augment/organs.dm to preserve the organization
 
 /datum/augment_item/organ/tongue/robo
 	name = "Robotic voicebox"

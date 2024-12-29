@@ -327,8 +327,9 @@
 
 	to_chat(carbon_owner, span_userdanger("Your existence as a living creature snaps as your statue form crumbles!"))
 	carbon_owner.forceMove(get_turf(statue))
-	carbon_owner.dust(just_ash = TRUE, drop_items = TRUE)
-	carbon_owner.investigate_log("has been dusted from having their Silverscale Statue deconstructed / destroyed.", INVESTIGATE_DEATHS)
+	carbon_owner.adjustBruteLoss(300) // IRIS EDIT: Replaces statue dusting with absolutely shattering your body
+	// carbon_owner.dust(just_ash = TRUE, drop_items = TRUE)
+	carbon_owner.investigate_log("has been killed from having their Silverscale Statue deconstructed / destroyed.", INVESTIGATE_DEATHS)
 
 	clean_up_statue() // unregister signal before we can do further side effects.
 
