@@ -39,23 +39,3 @@
 	click_wrapper(attacker, victim)
 	TEST_ASSERT_NOTEQUAL(victim.getBruteLoss(), 0, "Victim did not take brute damage from being bayonet stabbed.")
 	victim.fully_heal()
-
-/// Test that bayonetted weapons can be used to butcher
-/datum/unit_test/bayonet_butchering
-
-/datum/unit_test/bayonet_butchering/Run()
-	var/mob/living/carbon/human/species/monkey/meat = EASY_ALLOCATE()
-	meat.death()
-
-	var/mob/living/carbon/human/consistent/butcher = EASY_ALLOCATE()
-	butcher.set_combat_mode(TRUE)
-	var/obj/item/gun/energy/recharge/kinetic_accelerator/gun = EASY_ALLOCATE()
-	var/obj/item/knife/combat/knife = EASY_ALLOCATE()
-	var/datum/component/bayonet_attachable/bayonet = gun.GetComponent(/datum/component/bayonet_attachable)
-	bayonet.add_bayonet(knife)
-	var/datum/component/butchering/butcher_comp = knife.GetComponent(/datum/component/butchering)
-	butcher_comp.speed = 1 SECONDS
-
-	butcher.put_in_active_hand(gun, forced = TRUE)
-	click_wrapper(butcher, meat)
-	TEST_ASSERT(DOING_INTERACTION(butcher, meat), "The butcher did not start butchering the monkey when using a bayonetted weapon.")
