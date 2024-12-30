@@ -67,11 +67,14 @@ const SCANNER_GATE_ROUTES = {
     title: 'Scanner Mode: Nutrition',
     component: () => ScannerGateNutrition,
   },
+  // IRIS REMOVAL - BROKEN FEATURE, FIX IT
+  /*
   //  NOVA EDIT START - MORE SCANNER GATE OPTIONS
   Gender: {
     title: 'Scanner Mode: Gender',
     component: () => ScannerGateGender,
   },
+  */
   //  NOVA EDIT END - MORE SCANNER GATE OPTIONS
 };
 
@@ -124,10 +127,6 @@ const ScannerGateOff = (props) => {
           content="Species"
           onClick={() => act('set_mode', { new_mode: 'Species' })}
         />
-        <Button //  NOVA EDIT START - MORE SCANNER GATE OPTIONS
-          content="Gender"
-          onClick={() => act('set_mode', { new_mode: 'Gender' })} //  NOVA EDIT END - MORE SCANNER GATE OPTIONS
-        />
         <Button
           content="Nutrition"
           onClick={() => act('set_mode', { new_mode: 'Nutrition' })}
@@ -136,6 +135,13 @@ const ScannerGateOff = (props) => {
     </>
   );
 };
+
+/* IRIS REMOVAL - BROKEN FEATURE, FIX IT, WAS IN LINE 134
+<Button //  NOVA EDIT START - MORE SCANNER GATE OPTIONS
+content="Gender"
+onClick={() => act('set_mode', { new_mode: 'Gender' })} //  NOVA EDIT END - MORE SCANNER GATE OPTIONS
+/>
+*/
 
 const ScannerGateWanted = (props) => {
   const { data } = useBackend();
@@ -272,7 +278,8 @@ const ScannerGateNutrition = (props) => {
     </>
   );
 };
-
+// IRIS EDIT - BROKEN FEATURE, SOMEONE FIX IT
+/*
 //  NOVA EDIT START - MORE SCANNER GATE OPTIONS
 const ScannerGateGender = (props) => {
   const { act, data } = useBackend();
@@ -303,6 +310,7 @@ const ScannerGateGender = (props) => {
     </>
   );
 };
+*/
 //  NOVA EDIT END - MORE SCANNER GATE OPTIONS
 const ScannerGateMode = (props) => {
   const { act, data } = useBackend();
