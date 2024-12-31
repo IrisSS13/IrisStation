@@ -232,7 +232,7 @@
 
 	/// The statue we turn into.
 	/// We only ever make one (in New) and simply move it into nullspace or back.
-	var/obj/structure/statue/custom/statue
+	var/obj/structure/statue/custom/silverscale/statue // IRIS EDIT: New subtype to prevent jank
 
 /datum/action/cooldown/turn_to_statue/New(Target)
 	. = ..()
@@ -259,9 +259,8 @@
 		return FALSE
 
 	if(isnull(statue))
-		if(feedback)
-			owner.balloon_alert(owner, "you can't seem to statue-ize!")
-		return FALSE // permanently bricked
+		init_statue() // IRIS EDIT: If your statue is destroyed let's generate a new one
+
 	if(owner.stat != CONSCIOUS)
 		if(feedback)
 			owner.balloon_alert(owner, "you're too weak!")
@@ -292,7 +291,7 @@
 	if(is_statue)
 		statue.visible_message(span_danger("[statue] becomes animated!"))
 		owner.forceMove(get_turf(statue))
-		statue.moveToNullspace()
+		qdel(statue) //IRIS EDIT: lazy way to resolve appearance layering issue (and a few others)
 		UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
 
 	else
