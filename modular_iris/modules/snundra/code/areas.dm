@@ -31,6 +31,6 @@
 
 /area/snundra/outdoors/unexplored/deep
 	name = "Rocks 'n' Stones"
-	map_generator = /datum/map_generator/cave_generator/snundra
+	map_generator = /datum/map_generator/cave_generator/tunderground
 	ambience_index = AMBIENCE_ICEMOON
 	sound_environment = SOUND_AREA_ICEMOON
