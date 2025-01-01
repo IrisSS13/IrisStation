@@ -31,7 +31,7 @@
 
 /datum/loadout_item/glasses/prescription_glasses
 	name = "Glasses"
-	item_path = /obj/item/clothing/glasses/regular
+	item_path = /obj/item/clothing/glasses/regular/color // IRIS EDIT: Makes Select Loadout Glasses Recolorable!
 
 /datum/loadout_item/glasses/prescription_glasses/circle_glasses
 	name = "Circle Glasses"
@@ -47,7 +47,7 @@
 
 /datum/loadout_item/glasses/prescription_glasses/thin
 	name = "Thin Glasses"
-	item_path = /obj/item/clothing/glasses/thin
+	item_path = /obj/item/clothing/glasses/regular/thin
 
 /datum/loadout_item/glasses/prescription_glasses/better
 	name = "Modern Glasses"
@@ -56,6 +56,22 @@
 /datum/loadout_item/glasses/prescription_glasses/kim
 	name = "Binoclard Lenses"
 	item_path = /obj/item/clothing/glasses/regular/kim
+
+//IRIS ADDITION START: Adds three new transparent prescription glasses to loadout
+
+/datum/loadout_item/glasses/prescription_glasses/transparent
+	name = "Transparent Glasses"
+	item_path = /obj/item/clothing/glasses/regular/transparent
+
+/datum/loadout_item/glasses/prescription_glasses/circle/transparent
+	name = "Transparent Circle Glasses"
+	item_path = /obj/item/clothing/glasses/regular/circle/transparent
+
+/datum/loadout_item/glasses/prescription_glasses/thin/transparent
+	name = "Transparent Thin Glasses"
+	item_path = /obj/item/clothing/glasses/regular/thin/transparent
+
+//IRIS ADDITION END
 
 /*
 *	COSMETIC GLASSES

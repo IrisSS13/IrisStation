@@ -20,7 +20,7 @@
 	if (!..(preferences))
 		return FALSE
 
-	return "Nearsighted" in preferences.all_quirks
+	return ("Nearsighted" in preferences.all_quirks) || ("Farsighted" in preferences.all_quirks) //ORBSTATION: added farsighted quirk
 
 /datum/preference/choiced/glasses/apply_to_human(mob/living/carbon/human/target, value)
 	return

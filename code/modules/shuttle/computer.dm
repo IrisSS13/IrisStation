@@ -45,18 +45,28 @@
 		to_chat(user, span_warning("You get the feeling you shouldn't mess with this."))
 		return
 	if(!user.can_read(src, reading_check_flags = READING_CHECK_LITERACY)) //Illiterate mobs which aren't otherwise blocked from using computers will send the shuttle to a random valid destination
-		to_chat(user, span_warning("You start mashing buttons at random!"))
+		var/farsighted = (HAS_TRAIT_FROM(user, TRAIT_ILLITERATE, FARSIGHT_TRAIT)) //ORBSTATION: alternate messages if you're farsighted
+		if(farsighted)
+			to_chat(user, span_warning("You can't make out the words on the screen, so you start mashing buttons at random!"))
+		else
+			to_chat(user, span_warning("You start mashing buttons at random!"))
 		if(do_after(user, 10 SECONDS, target = src))
 			var/list/dest_list = get_valid_destinations()
 			if(!dest_list.len) //No valid destinations
-				to_chat(user, span_warning("The console shows a flashing error message, but you can't comprehend it."))
+				if(farsighted)
+					to_chat(user, span_warning("The console shows a flashing error message, but you can't make it out."))
+				else
+					to_chat(user, span_warning("The console shows a flashing error message, but you can't comprehend it."))
 				return
 			var/list/destination = pick(dest_list)
 			switch (send_shuttle(destination["id"], user))
 				if (SHUTTLE_CONSOLE_SUCCESS)
 					return
 				else
-					to_chat(user, span_warning("The console shows a flashing error message, but you can't comprehend it."))
+					if(farsighted)
+						to_chat(user, span_warning("The console shows a flashing error message, but you can't make it out."))
+					else
+						to_chat(user, span_warning("The console shows a flashing error message, but you can't comprehend it."))
 					return
 		return
 	ui = SStgui.try_update_ui(user, src, ui)
