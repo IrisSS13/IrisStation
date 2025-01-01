@@ -235,7 +235,7 @@
 	mouse_opacity = MOUSE_OPACITY_ICON
 	var/mob/ghost = ..()
 	if(ghost?.mind)
-		ghost.mind.original_character = aghosted_original_mob
+		ghost.mind.original_character = WEAKREF(aghosted_original_mob)
 	return ghost
 
 /datum/action/innate/imaginary_orbit
