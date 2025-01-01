@@ -1,4 +1,5 @@
 // Actual NTSL coding defines below
+// IRIS NOTE: I think these two are unused.
 #define SERVER_LOG_STORAGE_MAX 400 // Number of chat logs the telecomms servers will store before they start deleting the older ones.
 #define TELECOMMS_SCAN_RANGE 25 // The range at which the telecomms computers can scan for telecomm servers.
 
