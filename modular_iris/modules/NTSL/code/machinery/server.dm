@@ -80,6 +80,7 @@ GLOBAL_LIST_EMPTY(tcomms_servers)
 		var/datum/signal/subspace/vocal/signal = new(src, freq, speaker, /datum/language/common, "test", list(), )
 		signal.data["server"] = src
 		Compiler.Run(signal)
+		/*
 		if(signal.data["reject"] == TRUE)
 			signal.data["name"] = ""
 			signal.data["reject"] = FALSE
@@ -91,5 +92,6 @@ GLOBAL_LIST_EMPTY(tcomms_servers)
 				if(sample == SPAN_COMMAND)
 					user.client.give_award(/datum/award/achievement/jobs/Poly_loud, user)
 					break // Not having this break leaves us open to a potential DoS attack.
+		*/
 	return compileerrors
 //end-NTSL

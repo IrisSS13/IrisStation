@@ -150,7 +150,8 @@
 			return TRUE
 		if("log_in")
 			var/mob/living/usr_mob = usr
-			if(usr_mob.has_unlimited_silicon_privilege)
+			//if(usr_mob.has_unlimited_silicon_privilege) // UNIQUE IRIS EDIT OLD
+			if(HAS_SILICON_ACCESS(usr_mob)) // UNIQUE IRIS EDIT: made this check if user is silicon instead.
 				user_name = "System Administrator"
 			else if(check_access(inserted_id))
 				user_name = "[inserted_id?.registered_name] ([inserted_id?.assignment])"
@@ -206,7 +207,7 @@
 /obj/machinery/computer/telecomms/traffic/attackby(obj/item/item, mob/user, params)
 	if(istype(item, /obj/item/card/id) && check_access(item) && user.transferItemToLoc(item, src))
 		inserted_id = item
-		playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, 0)
+		playsound(src, 'sound/machines/terminal/terminal_insert_disc.ogg', 50, 0)
 		return
 	return ..()
 
@@ -216,7 +217,7 @@
 	obj_flags |= EMAGGED
 	user_name = "System Administrator"
 	create_log("has logged in.")
-	playsound(src.loc, 'sound/effects/sparks4.ogg', 75, 1)
+	playsound(src.loc, 'sound/effects/sparks/sparks4.ogg', 75, 1)
 	to_chat(user, span_notice("You bypass the console's security protocols."))
 
 /obj/machinery/computer/telecomms/traffic/click_alt_secondary(mob/user)
@@ -225,7 +226,7 @@
 
 	var/mob/living/carbon/carbon_user = user
 	if(inserted_id)
-		playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, 0)
+		playsound(src, 'sound/machines/terminal/terminal_insert_disc.ogg', 50, 0)
 		inserted_id.forceMove(drop_location())
 		carbon_user.put_in_hands(inserted_id)
 		inserted_id = null
