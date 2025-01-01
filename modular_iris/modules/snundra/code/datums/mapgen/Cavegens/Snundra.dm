@@ -1,5 +1,5 @@
 /datum/map_generator/cave_generator/snundra
-	weighted_open_turf_types = list(/turf/open/misc/asteroid/snow/icemoon = 19, /turf/open/misc/asteroid/snow/ice/icemoon = 1)
+	weighted_open_turf_types = list(/turf/open/misc/asteroid/snow/icemoon = 30, /turf/open/misc/asteroid/snow/ice/icemoon = 1)
 	initial_closed_chance = 15
 	weighted_closed_turf_types = list(
 		/turf/closed/mineral/random/snow = 100,
@@ -37,8 +37,8 @@
 	)
 
 /datum/map_generator/cave_generator/tunderground
-	weighted_open_turf_types = list(/turf/open/misc/asteroid/snow/icemoon = 19, /turf/open/misc/ice/icemoon = 1)
-	initial_closed_chance = 90
+	weighted_open_turf_types = list(/turf/open/misc/asteroid/snow/icemoon = 17, /turf/open/misc/ice/icemoon = 1, /turf/open/misc/asteroid/snow/ice/icemoon = 1)
+	initial_closed_chance = 50 // Just enough open space
 	weighted_closed_turf_types = list(
 		/turf/closed/mineral/random/snow = 100,
 	)
@@ -48,14 +48,13 @@
 
 	weighted_mob_spawn_list = list(
 		/mob/living/basic/mining/wolf = 50,
+		/mob/living/basic/mining/lobstrosity = 15,
 		/obj/effect/spawner/random/lavaland_mob/raptor = 15,
 		/mob/living/simple_animal/hostile/asteroid/polarbear = 25,
 		/mob/living/basic/deer/ice = 5,
 	)
 
 	weighted_flora_spawn_list = list(
-		/obj/structure/flora/tree/pine/style_random = 18,
-		/obj/structure/flora/tree/dead/style_random = 1,
 		/obj/structure/flora/tree/stump = 1,
 		/obj/structure/flora/rock/icy/style_random = 1,
 		/obj/structure/flora/rock/pile/icy/style_random = 3,
