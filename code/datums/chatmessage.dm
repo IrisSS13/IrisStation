@@ -314,12 +314,18 @@
 	// Ensure the list we are using, if present, is a copy so we don't modify the list provided to us
 	spans = spans ? spans.Copy() : list()
 
+
 	// Check for virtual speakers (aka hearing a message through a radio)
 	var/atom/movable/originalSpeaker = speaker
 	if (istype(speaker, /atom/movable/virtualspeaker))
 		var/atom/movable/virtualspeaker/v = speaker
 		speaker = v.source
 		spans |= "virtual-speaker"
+
+	// IRIS EDIT START -- NTSL -- NTSL doesn't pass a speaker when you do broadcast() since technically nothing is actually speaking. (or so it says where we're porting from)
+	if(!speaker)
+		return
+	// IRIS EDIT END
 
 	// Ignore virtual speaker (most often radio messages) from ourselves
 	if (originalSpeaker != src && speaker == src)

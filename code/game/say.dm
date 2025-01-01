@@ -155,9 +155,11 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	var/list/stored_name = list(null)
 	SEND_SIGNAL(speaker, COMSIG_MOVABLE_MESSAGE_GET_NAME_PART, stored_name, visible_name)
 	namepart = stored_name[NAME_PART_INDEX] || "[speaker.GetVoice()]"
+	var/realnamepart = stored_name[NAME_PART_INDEX] || "[speaker.GetVoice(TRUE)]" // IRIS EDIT -- NTSL
 
 	//End name span.
-	var/endspanpart = "</span>"
+	//var/endspanpart = "</span>" // IRIS EDIT OLD -- NTSL
+	var/endspanpart = "</span></a>" // IRIS EDIT NEW
 
 	//Message
 	var/messagepart
@@ -173,7 +175,11 @@ GLOBAL_LIST_INIT(freqtospan, list(
 
 	messagepart = " <span class='message'>[say_emphasis(messagepart)]</span></span>"
 
-	return "[spanpart1][spanpart2][freqpart][languageicon][compose_track_href(speaker, namepart)][namepart][compose_job(speaker, message_language, raw_message, radio_freq)][endspanpart][messagepart]"
+	// IRIS EDIT OLD -- NTSL down there
+//	return "[spanpart1][spanpart2][freqpart][languageicon][compose_track_href(speaker, namepart)][namepart][compose_job(speaker, message_language, raw_message, radio_freq)][endspanpart][messagepart]"
+	// IRIS EDIT NEW -- NTSL down there
+	return "[spanpart1][spanpart2][freqpart][languageicon][compose_track_href(speaker, realnamepart)][namepart][compose_job(speaker, message_language, raw_message, radio_freq)][endspanpart][messagepart]"
+
 
 /atom/movable/proc/compose_track_href(atom/movable/speaker, message_langs, raw_message, radio_freq)
 	return ""
@@ -314,6 +320,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/virtualspeaker)
 	source = M
 	if(istype(M))
 		name = radio.anonymize ? "Unknown" : M.GetVoice()
+		realvoice = name // IRIS ADDITION -- NTSL
 		verb_say = M.get_default_say_verb()
 		verb_ask = M.verb_ask
 		verb_exclaim = M.verb_exclaim
