@@ -266,3 +266,52 @@
 		button_icon_state = "unhidemob"
 
 	build_button_icon()
+
+
+// MARK: Verb
+ADMIN_VERB(imaginary_friend, R_MENTOR, "Imaginary friend", "Become an imaginary friend.", ADMIN_CATEGORY_MENTOR)
+	user.holder.imaginary_friend()
+	BLACKBOX_LOG_ADMIN_VERB("Imaginary friend")
+
+/datum/admins/proc/imaginary_friend()
+	var/mob/user = usr
+
+	if(istype(user, /mob/eye/camera/imaginary_friend))
+		var/mob/eye/camera/imaginary_friend/friend = user
+		friend.deactivate()
+		return
+
+	if(!isobserver(user))
+		to_chat(user, span_warning("Can only become an imaginary friend while observing or aghosted."))
+		return
+
+	var/mob/living/befriended_mob
+	switch(tgui_input_list(user, "Select by:", "Imaginary Friend", list("Key", "Mob")))
+		if("Key")
+			var/client/selected_client = tgui_input_list(user, "Select a key", "Imaginary Friend", GLOB.clients)
+			if(!selected_client)
+				return
+			befriended_mob = selected_client.mob
+		if("Mob")
+			var/list/cliented_mobs = GLOB.mob_living_list.Copy()
+			for(var/mob/checking_mob as anything in cliented_mobs)
+				if(checking_mob.client)
+					continue
+				cliented_mobs -= checking_mob
+			var/mob/selected_mob = tgui_input_list(user, "Select a mob", "Imaginary Friend", cliented_mobs)
+			if(!selected_mob)
+				return
+			befriended_mob = selected_mob
+
+	if(!isobserver(user))
+		return
+
+	if(!istype(befriended_mob))
+		return
+
+	var/mob/eye/camera/imaginary_friend/friend = new(get_turf(befriended_mob), befriended_mob)
+	friend.aghosted_original_mob = user.mind?.original_character
+	user.mind.transfer_to(friend)
+
+	log_admin("[key_name(friend)] started being imaginary friend of [key_name(befriended_mob)].")
+	message_admins("[key_name_admin(friend)] started being imaginary friend of [key_name_admin(befriended_mob)].")
