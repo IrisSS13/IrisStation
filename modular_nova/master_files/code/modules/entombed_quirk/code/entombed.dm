@@ -136,12 +136,17 @@
 	if (!modsuit) // really don't know how this could ever happen but it's better than runtimes
 		return
 	var/mob/living/carbon/human/human_holder = quirk_holder
+	var/obj/item/mod/module/plasma_stabilizer/entombed/plasma_stab = new
 	if (isethereal(human_holder))
 		var/obj/item/mod/core/ethereal/eth_core = new
 		eth_core.install(modsuit)
-	else if (isplasmaman(human_holder))
-		var/obj/item/mod/module/plasma_stabilizer/entombed/plasma_stab = new
+	if (isplasmaman(human_holder)) // IRIS EDIT: Shifted var/.../plasma_stabilizer/entombed to above to reduce redundancy with addition below. retained species check as fallback
 		modsuit.install(plasma_stab, human_holder)
+	//IRIS ADDITION START: Check if quirk holder has Any plasma limbs, give them a stabilizer if so
+	for (var/obj/item/bodypart/part in human_holder.bodyparts)
+		if (part.limb_id == SPECIES_PLASMAMAN)
+			modsuit.install(plasma_stab, human_holder)
+	//IRIS ADDITION END
 
 /datum/quirk/equipping/entombed/proc/install_quirk_interaction_features()
 	// if entombed needs to interact with certain other quirks, add it here
