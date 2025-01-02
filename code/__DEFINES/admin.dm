@@ -43,7 +43,7 @@
 #define R_SPAWN (1<<12)
 #define R_AUTOADMIN (1<<13)
 #define R_DBRANKS (1<<14)
-#define R_MENTOR (1<< 15)
+#define R_MENTOR (1<<15)
 
 #define R_DEFAULT R_AUTOADMIN
 
