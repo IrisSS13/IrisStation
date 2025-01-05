@@ -63,7 +63,7 @@
 	name = "Transparent Glasses"
 	item_path = /obj/item/clothing/glasses/regular/transparent
 
-/datum/loadout_item/glasses/prescription_glasses/circle/transparent
+/datum/loadout_item/glasses/prescription_glasses/circle_glasses/transparent
 	name = "Transparent Circle Glasses"
 	item_path = /obj/item/clothing/glasses/regular/circle/transparent
 
