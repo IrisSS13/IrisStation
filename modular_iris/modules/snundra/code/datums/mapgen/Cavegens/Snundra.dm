@@ -24,6 +24,7 @@
 		/obj/structure/flora/rock/pile/icy/style_random = 3,
 		/obj/structure/flora/grass/both/style_random = 50,
 		/obj/structure/flora/bush/flowers_pp/style_random = 25,
+		/obj/structure/flora/bush/snow/style_random = 6,
 		/obj/structure/flora/ash/chilly = 15,
 		/obj/structure/flora/lunar_plant/snundra = 1,
 	)
