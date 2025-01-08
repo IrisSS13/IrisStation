@@ -1,4 +1,4 @@
-#define TESHARI_TEMP_OFFSET -30 // K, added to comfort/damage limit etc
+#define TESHARI_TEMP_OFFSET -10 // K, added to comfort/damage limit etc // IRIS EDIT: -30 to -10 to account for the addition of cold lungs
 #define TESHARI_HEATMOD 1.3
 #define TESHARI_COLDMOD 0.67 // Except cold.
 
