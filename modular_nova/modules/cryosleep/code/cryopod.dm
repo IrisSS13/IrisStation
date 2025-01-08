@@ -509,14 +509,16 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cryopod/prison, 18)
 
-/obj/machinery/cryopod/prison/set_density(new_value)
-	// Simple way to make it always non-dense.
-	return ..(FALSE)
-
+//IRIS EDIT: makes prisonpods no longer locked to DENSITY=FALSE, which had previously prevented them from being used at all
 /obj/machinery/cryopod/prison/close_machine(atom/movable/target, density_to_set = TRUE)
 	. = ..()
 	// Flick the pod for a second when user enters
 	flick("prisonpod-open", src)
+	set_density(FALSE)
+
+/obj/machinery/cryopod/prison/open_machine(drop = TRUE, density_to_set = FALSE)
+	..()
+	set_density(FALSE)
 
 // Wake-up notifications
 
