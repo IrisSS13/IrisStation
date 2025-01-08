@@ -788,11 +788,6 @@
 	set category = "Emotes+"
 	usr.emote("whistle", intentional = TRUE)
 
-/mob/living/proc/emote_blep()
-	set name = "~ Blep"
-	set category = "Emotes+"
-	usr.emote("blep", intentional = TRUE)
-
 /mob/living/proc/emote_bork()
 	set name = "> Bork"
 	set category = "Emotes+"
