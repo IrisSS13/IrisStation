@@ -1788,29 +1788,29 @@
 	icon = 'icons/mob/human/fish_features.dmi'
 	color_src = USE_ONE_COLOR
 
-/datum/sprite_accessory/tails/fish/simple
-	name = "Simple"
-	icon_state = "simple"
+/datum/sprite_accessory/tails/fish/chonky
+	name = "Chonky Fish"
+	icon_state = "chonky"
+	center = TRUE
+	dimension_x = 36
 
 /datum/sprite_accessory/tails/fish/crescent
-	name = "Crescent"
+	name = "Crescent Fish"
 	icon_state = "crescent"
 
 /datum/sprite_accessory/tails/fish/long
-	name = "Long"
+	name = "Long Fish"
 	icon_state = "long"
 	center = TRUE
 	dimension_x = 38
+/datum/sprite_accessory/tails/fish/simple
+	name = "Simple Fish"
+	icon_state = "simple"
 
 /datum/sprite_accessory/tails/fish/shark
 	name = "Shark Alt" // IRIS EDIT: Allows this to co-exist with the Akula shark tail
 	icon_state = "shark"
 
-/datum/sprite_accessory/tails/fish/chonky
-	name = "Chonky"
-	icon_state = "chonky"
-	center = TRUE
-	dimension_x = 36
 
 /datum/sprite_accessory/tails/monkey
 
