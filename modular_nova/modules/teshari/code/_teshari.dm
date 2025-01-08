@@ -1,4 +1,4 @@
-#define TESHARI_TEMP_OFFSET -30 // K, added to comfort/damage limit etc
+#define TESHARI_TEMP_OFFSET -10 // K, added to comfort/damage limit etc // IRIS EDIT: -30 to -10 to account for the addition of cold lungs
 #define TESHARI_HEATMOD 1.3
 #define TESHARI_COLDMOD 0.67 // Except cold.
 
@@ -37,6 +37,7 @@
 	bodytemp_cold_damage_limit = (BODYTEMP_COLD_DAMAGE_LIMIT + TESHARI_TEMP_OFFSET)
 	species_language_holder = /datum/language_holder/teshari
 	mutantears = /obj/item/organ/ears/teshari
+	mutantlungs = /obj/item/organ/lungs/cold // IRIS EDIT: makes teshari cold resistance / heat weakness consistent
 	body_size_restricted = TRUE
 	bodypart_overrides = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/mutant/teshari,
@@ -82,3 +83,27 @@
 /datum/species/teshari/get_species_description()
 	return placeholder_description
 
+
+//IRIS ADDITION START: Actually desplay teshari species traits
+/datum/species/teshari/create_pref_unique_perks()
+	var/list/perks = list()
+	perks += list(list(
+		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+		SPECIES_PERK_ICON = FA_ICON_RUNNING,
+		SPECIES_PERK_NAME = "Agile",
+		SPECIES_PERK_DESC = "Teshari have an above-average agility, able to vault over tables and outpace others with ease."
+	))
+	perks += list(list(
+		SPECIES_PERK_TYPE = SPECIES_NEUTRAL_PERK,
+		SPECIES_PERK_ICON = FA_ICON_ASSISTIVE_LISTENING_SYSTEMS,
+		SPECIES_PERK_NAME = "Sensitive Hearing",
+		SPECIES_PERK_DESC = "Teshari have far more sensitive ears than other species, capable of picking up on noises others can't. Just try not to get caught near any airhorns."
+	))
+	perks += list(list(
+		SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
+		SPECIES_PERK_ICON = FA_ICON_HAND_ROCK,
+		SPECIES_PERK_NAME = "Weak Fighter",
+		SPECIES_PERK_DESC = "Teshari lack the weight to throw a proper punch, hitting noticably less hard than average."
+	))
+	return perks
+//IRIS ADDITION END
