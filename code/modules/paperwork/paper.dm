@@ -875,4 +875,5 @@
 	icon_state = "scrap_bloodied"
 
 /obj/item/paper/crumpled/muddy
+	icon = 'icons/obj/service/bureaucracy.dmi' //IRIS EDIT
 	icon_state = "scrap_mud"

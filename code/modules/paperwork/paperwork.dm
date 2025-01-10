@@ -14,7 +14,7 @@
 	name = "paperwork documents"
 	desc = "A disorganized mess of documents, research results, and investigation findings."
 	icon = 'modular_iris/paradise_ports/icons/obj/bureaucracy.dmi' //IRIS EDIT
-	icon_state = "docs_part"
+	icon_state = "docs_generic" //IRIS EDIT
 	inhand_icon_state = "paper"
 	throwforce = 0
 	w_class = WEIGHT_CLASS_TINY

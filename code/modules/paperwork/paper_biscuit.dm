@@ -1,6 +1,7 @@
 /obj/item/folder/biscuit
 	name = "biscuit card"
 	desc = "A biscuit card. On the back, <b>DO NOT DIGEST</b> is printed in large lettering."
+	icon = 'icons/obj/service/bureaucracy.dmi' //IRIS EDIT
 	icon_state = "paperbiscuit"
 	bg_color = "#ffffff"
 	w_class = WEIGHT_CLASS_TINY
@@ -98,6 +99,7 @@
 	name = "confidential biscuit card"
 	desc = "A confidential biscuit card. The tasteful blue color and NT logo on the front makes it look a little like a chocolate bar. \
 		On the back, <b>DO NOT DIGEST</b> is printed in large lettering."
+	icon = 'icons/obj/service/bureaucracy.dmi' //IRIS EDIT
 	icon_state = "paperbiscuit_secret"
 	bg_color = "#355e9f"
 
@@ -113,6 +115,7 @@
 /obj/item/folder/biscuit/unsealed
 	name = "biscuit card"
 	desc = "A biscuit card. On the back, <b>DO NOT DIGEST</b> is printed in large lettering."
+	icon = 'icons/obj/service/bureaucracy.dmi' //IRIS EDIT
 	icon_state = "paperbiscuit_cracked"
 	contents_hidden = FALSE
 	cracked = TRUE
@@ -143,6 +146,7 @@
 /obj/item/folder/biscuit/unsealed/confidential
 	name = "confidential biscuit card"
 	desc = "A confidential biscuit card. The tasteful blue color and NT logo on the front makes it look a little like a chocolate bar. On the back, <b>DO NOT DIGEST</b> is printed in large lettering."
+	icon = 'icons/obj/service/bureaucracy.dmi' //IRIS EDIT
 	icon_state = "paperbiscuit_secret_cracked"
 	bg_color = "#355e9f"
 	sealed_icon = "paperbiscuit_secret"

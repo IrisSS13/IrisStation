@@ -217,7 +217,7 @@
 
 /obj/item/paper/report/proc/generate_report(area/scan_area)
 	scanned_area = scan_area
-	icon_state = "slipfull"
+	icon_state = "slip_taped" //IRIS EDIT
 	desc = "Contains detailed information about the station's current status."
 
 	var/list/characters = list()
@@ -238,7 +238,7 @@
 	else if(scanned_area)
 		. += span_notice("\The [src] contains data on a vague area on station, you should throw it away.")
 	else if(get_total_length())
-		icon_state = "slipfull"
+		icon_state = "slip_taped"
 		. += span_notice("Wait a minute, this isn't an encrypted inspection report! You should throw it away.")
 	else
 		. += span_notice("Wait a minute, this thing's blank! You should throw it away.")
@@ -416,7 +416,7 @@
 
 /obj/item/paper/fake_report/proc/generate_report(area/scan_area)
 	scanned_area = scan_area
-	icon_state = "slipfull"
+	icon_state = "slip_taped"
 
 	var/list/new_info = list()
 	for(var/i in 1 to rand(23, 123))

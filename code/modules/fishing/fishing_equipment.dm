@@ -463,7 +463,7 @@
 
 /obj/item/paper/lures_instructions
 	name = "instructions paper"
-	icon_state = "slipfull"
+	icon_state = "slip_taped"
 	show_written_words = FALSE
 	desc = "A piece of grey paper with a how-to for dummies about fishing lures printed on it. Smells cheap."
 	default_raw_text =  "<b>Thank you for buying this set.</b><br>\

@@ -28,6 +28,7 @@
 	update_appearance()
 
 /obj/item/folder/syndicate
+	icon = 'icons/obj/service/bureaucracy.dmi' //IRIS EDIT
 	icon_state = "folder_syndie"
 	bg_color = "#3f3f3f"
 	name = "folder- 'TOP SECRET'"

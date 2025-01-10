@@ -81,7 +81,7 @@
 
 /obj/item/stamp/void
 	name = "VOID rubber stamp"
-	icon_state = "stamp-void"
+	icon_state = "paper_stamp-law" //IRIS EDIT
 
 /obj/item/stamp/clown
 	name = "clown's rubber stamp"
@@ -95,17 +95,19 @@
 
 /obj/item/stamp/mime
 	name = "mime's rubber stamp"
+	icon = 'icons/obj/service/bureaucracy.dmi' //IRIS EDIT
 	icon_state = "stamp-mime"
 	dye_color = DYE_MIME
 
 /obj/item/stamp/chap
 	name = "chaplain's rubber stamp"
+	icon = 'icons/obj/service/bureaucracy.dmi' //IRIS EDIT
 	icon_state = "stamp-chap"
 	dye_color = DYE_CHAP
 
 /obj/item/stamp/centcom
 	name = "CentCom rubber stamp"
-	icon_state = "stamp-centcom"
+	icon_state = "stamp-cent" //IRIS EDIT
 	dye_color = DYE_CENTCOM
 
 /obj/item/stamp/syndicate
