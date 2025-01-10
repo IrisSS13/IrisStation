@@ -261,7 +261,7 @@
 /obj/item/paper_bin/carbon
 	name = "carbon paper bin"
 	desc = "Contains all the paper you'll ever need, in duplicate!"
-	icon_state = "paper_bin_carbon0"
+	icon_state = "paper_bin0" //IRIS EDIT
 	papertype = /obj/item/paper/carbon
 	bin_overlay_string = "paper_bin_carbon_overlay"
 

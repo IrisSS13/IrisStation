@@ -44,6 +44,7 @@
 	name = "Old Receipt"
 	desc = "A ratty old sales receipt printed on cheap thermal paper."
 	default_raw_text = "DONK CO OUTLET 6013<BR>YOUR SERVER TODAY WAS: COLM<BR><BR>2x DONKPOCKETPIZBOX    400<BR>1x CRYPTOGRAPHICSEQ    800<BR>2x CRYPTOGRAPHICTOY    200<BR>1x DONKPOCKETPLUSHY    120<BR><BR>TOTAL VALUE            1520<BR><BR>PAYMENT: CASH"
+	icon = 'icons/obj/service/bureaucracy.dmi' //IRIS EDIT
 	icon_state = "paperslip"
 
 /obj/item/paper/fluff/ruins/hauntedtradingpost/receipt/alternate
