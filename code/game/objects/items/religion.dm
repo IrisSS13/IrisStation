@@ -88,8 +88,8 @@
 	desc = "The banner of Securistan, ruling the station with an iron fist."
 	icon_state = "secflag" //IRIS EDIT
 	inhand_icon_state = "secflag"//IRIS EDIT
-	lefthand_file = 'icons/mob/inhands/equipment/banners_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/banners_righthand.dmi'
+	lefthand_file = 'modular_iris/paradise_ports/icons/mob/inhands/flags_lefthand.dmi' //IRIS EDIT
+	righthand_file = 'modular_iris/paradise_ports/icons/mob/inhands/flags_righthand.dmi' //IRIS EDIT
 	warcry = "EVERYONE DOWN ON THE GROUND!!"
 
 /obj/item/banner/security/Initialize(mapload)
@@ -112,8 +112,8 @@
 	desc = "The banner of Meditopia, generous benefactors that cure wounds and shelter the weak."
 	icon_state = "medflag" //IRIS EDIT
 	inhand_icon_state = "medflag" //IRIS EDIT
-	lefthand_file = 'icons/mob/inhands/equipment/banners_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/banners_righthand.dmi'
+	lefthand_file = 'modular_iris/paradise_ports/icons/mob/inhands/flags_lefthand.dmi' //IRIS EDIT
+	righthand_file = 'modular_iris/paradise_ports/icons/mob/inhands/flags_righthand.dmi' //IRIS EDIT
 	warcry = "No wounds cannot be healed!"
 
 /obj/item/banner/medical/Initialize(mapload)
@@ -147,8 +147,8 @@
 	desc = "The banner of Sciencia, bold and daring thaumaturges and researchers that take the path less traveled."
 	icon_state = "rndflag" //IRIS EDIT
 	inhand_icon_state = "rndflag" //IRIS EDIT
-	lefthand_file = 'icons/mob/inhands/equipment/banners_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/banners_righthand.dmi'
+	lefthand_file = 'modular_iris/paradise_ports/icons/mob/inhands/flags_lefthand.dmi' //IRIS EDIT
+	righthand_file = 'modular_iris/paradise_ports/icons/mob/inhands/flags_righthand.dmi' //IRIS EDIT
 	warcry = "For Cuban Pete!"
 
 /obj/item/banner/science/Initialize(mapload)
@@ -174,8 +174,8 @@
 	desc = "The banner of the eternal Cargonia, with the mystical power of conjuring any object into existence."
 	icon_state = "cargoflag" //IRIS EDIT
 	inhand_icon_state = "cargoflag" //IRIS EDIT
-	lefthand_file = 'icons/mob/inhands/equipment/banners_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/banners_righthand.dmi'
+	lefthand_file = 'modular_iris/paradise_ports/icons/mob/inhands/flags_lefthand.dmi' //IRIS EDIT
+	righthand_file = 'modular_iris/paradise_ports/icons/mob/inhands/flags_righthand.dmi' //IRIS EDIT
 	warcry = "Hail Cargonia!"
 
 /obj/item/banner/cargo/Initialize(mapload)
@@ -198,8 +198,8 @@
 	desc = "The banner of Engitopia, wielders of limitless power."
 	icon_state = "atmosflag" //IRIS EDIT
 	inhand_icon_state = "atmosflag" //IRIS EDIT
-	lefthand_file = 'icons/mob/inhands/equipment/banners_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/banners_righthand.dmi'
+	lefthand_file = 'modular_iris/paradise_ports/icons/mob/inhands/flags_lefthand.dmi' //IRIS EDIT
+	righthand_file = 'modular_iris/paradise_ports/icons/mob/inhands/flags_righthand.dmi' //IRIS EDIT
 	warcry = "All hail lord Singuloth!!"
 
 /obj/item/banner/engineering/Initialize(mapload)
