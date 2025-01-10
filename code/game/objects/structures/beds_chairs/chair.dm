@@ -187,6 +187,7 @@
 /obj/structure/chair/comfy
 	name = "comfy chair"
 	desc = "It looks comfy."
+	icon = 'modular_iris/paradise_ports/icons/obj/chairs.dmi' //IRIS EDIT
 	icon_state = "comfychair"
 	color = rgb(255, 255, 255)
 	resistance_flags = FLAMMABLE
@@ -197,19 +198,19 @@
 	has_armrest = TRUE
 
 /obj/structure/chair/comfy/brown
-	color = rgb(70, 47, 28)
+	color = rgb(128,83,51) //IRIS EDIT
 
 /obj/structure/chair/comfy/beige
-	color = rgb(240, 238, 198)
+	color = rgb(174,169,147) //IRIS EDIT
 
 /obj/structure/chair/comfy/teal
-	color = rgb(117, 214, 214)
+	color = rgb(64,186,174) //IRIS EDIT
 
 /obj/structure/chair/comfy/black
-	color = rgb(61, 60, 56)
+	color = rgb(74,74,85) //IRIS EDIT
 
 /obj/structure/chair/comfy/lime
-	color = rgb(193, 248, 104)
+	color = rgb(160,251,66) //IRIS EDIT
 
 /obj/structure/chair/comfy/shuttle
 	name = "shuttle seat"
