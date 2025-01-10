@@ -1,7 +1,7 @@
 /obj/item/stamp
 	name = "\improper GRANTED rubber stamp"
 	desc = "A rubber stamp for stamping important documents."
-	icon = 'icons/obj/service/bureaucracy.dmi'
+	icon = 'modular_iris/paradise_ports/icons/obj/bureaucracy.dmi' //IRIS EDIT
 	icon_state = "stamp-ok"
 	worn_icon_state = "nothing"
 	inhand_icon_state = "stamp"

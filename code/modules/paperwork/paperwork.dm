@@ -13,7 +13,7 @@
 /obj/item/paperwork
 	name = "paperwork documents"
 	desc = "A disorganized mess of documents, research results, and investigation findings."
-	icon = 'icons/obj/service/bureaucracy.dmi'
+	icon = 'modular_iris/paradise_ports/icons/obj/bureaucracy.dmi' //IRIS EDIT
 	icon_state = "docs_part"
 	inhand_icon_state = "paper"
 	throwforce = 0

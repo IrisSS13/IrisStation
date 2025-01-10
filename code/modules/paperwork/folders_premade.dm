@@ -42,6 +42,7 @@
 	update_appearance()
 
 /obj/item/folder/syndicate/blue
+	icon = 'modular_iris/paradise_ports/icons/obj/bureaucracy.dmi'
 	icon_state = "folder_sblue"
 
 /obj/item/folder/syndicate/blue/Initialize(mapload)

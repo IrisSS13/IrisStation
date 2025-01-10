@@ -2,8 +2,8 @@
 /obj/item/hand_labeler //NOVA EDIT - ICON OVERRIDDEN BY AESTHETICS - SEE MODULE
 	name = "hand labeler"
 	desc = "A combined label printer, applicator, and remover, all in a single portable device. Designed to be easy to operate and use."
-	icon = 'icons/obj/service/bureaucracy.dmi'
-	icon_state = "labeler0"
+	icon = 'modular_iris/paradise_ports/icons/obj/bureaucracy.dmi' //IRIS EDIT
+	icon_state = "labeler1"
 	item_flags = NOBLUDGEON
 	w_class = WEIGHT_CLASS_SMALL
 	drop_sound = 'sound/items/handling/tape_drop.ogg'
