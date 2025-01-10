@@ -229,7 +229,7 @@
 /obj/structure/chair/comfy/carp
 	name = "carpskin chair"
 	desc = "A luxurious chair, the many purple scales reflect the light in a most pleasing manner."
-	icoon = 'icons/obj/chairs.dmi' //IRIS EDIT
+	icon = 'icons/obj/chairs.dmi' //IRIS EDIT
 	icon_state = "carp_chair"
 	buildstacktype = /obj/item/stack/sheet/animalhide/carp
 	fishing_modifier = -12
