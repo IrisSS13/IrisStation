@@ -238,6 +238,7 @@
 	buildstackamount = 5
 	item_chair = null
 	fishing_modifier = -6
+	icon = 'modular_iris/paradise_ports/icons/obj/chairs.dmi' //IRIS EDIT
 	icon_state = "officechair_dark"
 
 /obj/structure/chair/office/Initialize(mapload)
@@ -255,6 +256,7 @@
 
 /obj/structure/chair/office/light
 	name = "office chair"
+	icon = 'modular_iris/paradise_ports/icons/obj/chairs.dmi' //IRIS EDIT
 	icon_state = "officechair_white"
 
 //Stool
@@ -262,6 +264,7 @@
 /obj/structure/chair/stool
 	name = "stool"
 	desc = "Apply butt."
+	icon = 'modular_iris/paradise_ports/icons/obj/chairs.dmi' //IRIS EDIT
 	icon_state = "stool"
 	can_buckle = FALSE
 	buildstackamount = 1
@@ -295,6 +298,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/chair/stool, 0)
 /obj/structure/chair/stool/bar
 	name = "bar stool"
 	desc = "It has some unsavory stains on it..."
+	icon = 'modular_iris/paradise_ports/icons/obj/chairs.dmi' //IRIS EDIT
 	icon_state = "bar"
 	item_chair = /obj/item/chair/stool/bar
 	can_buckle = TRUE
@@ -410,6 +414,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/chair/stool/bar, 0)
 
 /obj/item/chair/stool
 	name = "stool"
+	icon = 'modular_iris/paradise_ports/icons/obj/chairs.dmi' //IRIS EDIT
 	icon_state = "stool_toppled"
 	inhand_icon_state = "stool"
 	origin_type = /obj/structure/chair/stool
@@ -417,6 +422,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/chair/stool/bar, 0)
 
 /obj/item/chair/stool/bar
 	name = "bar stool"
+	icon = 'modular_iris/paradise_ports/icons/obj/chairs.dmi' //IRIS EDIT
 	icon_state = "bar_toppled"
 	inhand_icon_state = "stool_bar"
 	origin_type = /obj/structure/chair/stool/bar
