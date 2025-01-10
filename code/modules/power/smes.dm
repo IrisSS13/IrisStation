@@ -17,6 +17,7 @@
 /obj/machinery/power/smes
 	name = "power storage unit"
 	desc = "A high-capacity superconducting magnetic energy storage (SMES) unit."
+	icon = 'modular_iris/paradise_ports/icons/obj/power.dmi'
 	icon_state = "smes"
 	density = TRUE
 	use_power = NO_POWER_USE
