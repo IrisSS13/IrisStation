@@ -439,11 +439,14 @@
 	base_icon_state = "freezerfloor"
 	floor_tile = /obj/item/stack/tile/iron/freezer
 
+/*
 /turf/open/floor/iron/grimy
 	icon_state = "grimy"
 	base_icon_state = "grimy"
 	tiled_dirt = FALSE
 	floor_tile = /obj/item/stack/tile/iron/grimy
+
+*/
 
 /turf/open/floor/iron/vaporwave
 	icon_state = "pinkblack"
