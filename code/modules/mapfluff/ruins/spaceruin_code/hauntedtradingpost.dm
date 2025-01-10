@@ -57,6 +57,7 @@
 	name = "Notice"
 	desc = "A bunch of words have been written on this slip of paper. Truly, this is the future."
 	default_raw_text = "We are SOLD OUT of modsuits."
+	icon = 'icons/obj/service/bureaucracy.dmi'
 	icon_state = "paperslip"
 
 /obj/item/paper/fluff/ruins/hauntedtradingpost/oldnote
