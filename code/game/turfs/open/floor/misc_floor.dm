@@ -2,7 +2,6 @@
 #define CIRCUIT_FLOOR_POWERUSE 120
 //Circuit flooring, glows a little
 /turf/open/floor/circuit
-	icon = 'icons/turf/floors.dmi'
 	icon = 'modular_iris/paradise_ports/icons/turfs/floors.dmi' //IRIS EDIT
 	icon_state = "bcircuit"
 	var/icon_normal = "bcircuit"
@@ -72,6 +71,7 @@
 #undef CIRCUIT_FLOOR_POWERUSE
 
 /turf/open/floor/circuit/off
+	icon = 'icons/turf/floors.dmi' //IRIS EDIT
 	icon_state = "bcircuitoff"
 	always_off = TRUE
 
@@ -95,10 +95,12 @@
 	floor_tile = /obj/item/stack/tile/circuit/green
 
 /turf/open/floor/circuit/green/off
+	icon = 'icons/turf/floors.dmi' //IRIS EDIT
 	icon_state = "gcircuitoff"
 	always_off = TRUE
 
 /turf/open/floor/circuit/green/anim
+	icon = 'icons/turf/floors.dmi' //IRIS EDIT
 	icon_state = "gcircuitanim"
 	icon_normal = "gcircuitanim"
 	floor_tile = /obj/item/stack/tile/circuit/green/anim
@@ -120,10 +122,12 @@
 	floor_tile = /obj/item/stack/tile/circuit/red
 
 /turf/open/floor/circuit/red/off
+	icon = 'icons/turf/floors.dmi' //IRIS EDIT
 	icon_state = "rcircuitoff"
 	always_off = TRUE
 
 /turf/open/floor/circuit/red/anim
+	icon = 'icons/turf/floors.dmi' //IRIS EDIT
 	icon_state = "rcircuitanim"
 	icon_normal = "rcircuitanim"
 	floor_tile = /obj/item/stack/tile/circuit/red/anim
