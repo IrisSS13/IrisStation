@@ -3,6 +3,7 @@
 //Circuit flooring, glows a little
 /turf/open/floor/circuit
 	icon = 'icons/turf/floors.dmi'
+	icon = 'modular_iris/paradise_ports/icons/turfs/floors.dmi' //IRIS EDIT
 	icon_state = "bcircuit"
 	var/icon_normal = "bcircuit"
 	light_color = LIGHT_COLOR_BABY_BLUE
@@ -87,6 +88,7 @@
 	name = "server base"
 
 /turf/open/floor/circuit/green
+	icon = 'modular_iris/paradise_ports/icons/turfs/floors.dmi' //IRIS EDIT
 	icon_state = "gcircuit"
 	icon_normal = "gcircuit"
 	light_color = LIGHT_COLOR_VIVID_GREEN
@@ -111,6 +113,7 @@
 	name = "mainframe base"
 
 /turf/open/floor/circuit/red
+	icon = 'modular_iris/paradise_ports/icons/turfs/floors.dmi' //IRIS EDIT
 	icon_state = "rcircuit"
 	icon_normal = "rcircuit"
 	light_color = LIGHT_COLOR_INTENSE_RED
