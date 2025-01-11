@@ -1,9 +1,9 @@
 /**
  * Clipboard
  */
-/obj/item/clipboard
+/obj/item/clipboard //IRIS EDIT SPRITES OVERRIDEN IN PARADISE_PORTS
 	name = "clipboard"
-	icon = 'modular_iris/paradise_ports/icons/obj/bureaucracy.dmi'
+	icon = 'icons/obj/service/bureaucracy.dmi'
 	icon_state = "clipboard"
 	inhand_icon_state = "clipboard"
 	worn_icon_state = "clipboard"

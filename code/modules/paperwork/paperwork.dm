@@ -10,11 +10,11 @@
  *
  */
 
-/obj/item/paperwork
+/obj/item/paperwork //IRIS EDIT SPRITES OVERRIDEN IN PARADISE_PORTS
 	name = "paperwork documents"
 	desc = "A disorganized mess of documents, research results, and investigation findings."
-	icon = 'modular_iris/paradise_ports/icons/obj/bureaucracy.dmi' //IRIS EDIT
-	icon_state = "docs_generic" //IRIS EDIT
+	icon = 'icons/obj/service/bureaucracy.dmi'
+	icon_state = "docs_part"
 	inhand_icon_state = "paper"
 	throwforce = 0
 	w_class = WEIGHT_CLASS_TINY

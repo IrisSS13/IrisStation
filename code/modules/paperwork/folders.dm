@@ -1,7 +1,7 @@
-/obj/item/folder
+/obj/item/folder //IRIS EDIT SPRITES OVERRIDEN IN PARADISE_PORTS
 	name = "folder"
 	desc = "A folder."
-	icon = 'modular_iris/paradise_ports/icons/obj/bureaucracy.dmi' //IRIS EDIT
+	icon = 'icons/obj/service/bureaucracy.dmi'
 	icon_state = "folder"
 	w_class = WEIGHT_CLASS_SMALL
 	pressure_resistance = 2

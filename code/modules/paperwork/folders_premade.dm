@@ -28,7 +28,6 @@
 	update_appearance()
 
 /obj/item/folder/syndicate
-	icon = 'icons/obj/service/bureaucracy.dmi' //IRIS EDIT
 	icon_state = "folder_syndie"
 	bg_color = "#3f3f3f"
 	name = "folder- 'TOP SECRET'"
@@ -42,8 +41,7 @@
 	new /obj/item/documents/syndicate/red(src)
 	update_appearance()
 
-/obj/item/folder/syndicate/blue
-	icon = 'modular_iris/paradise_ports/icons/obj/bureaucracy.dmi'
+/obj/item/folder/syndicate/blue //IRIS EDIT SPRITES OVERRIDEN IN PARADISE_PORTS
 	icon_state = "folder_sblue"
 
 /obj/item/folder/syndicate/blue/Initialize(mapload)

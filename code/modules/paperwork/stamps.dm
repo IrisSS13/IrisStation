@@ -1,7 +1,7 @@
-/obj/item/stamp
+/obj/item/stamp //IRIS EDIT SPRITES OVERRIDEN IN PARADISE_PORTS
 	name = "\improper GRANTED rubber stamp"
 	desc = "A rubber stamp for stamping important documents."
-	icon = 'modular_iris/paradise_ports/icons/obj/bureaucracy.dmi' //IRIS EDIT
+	icon = 'icons/obj/service/bureaucracy.dmi'
 	icon_state = "stamp-ok"
 	worn_icon_state = "nothing"
 	inhand_icon_state = "stamp"
@@ -81,7 +81,7 @@
 
 /obj/item/stamp/void
 	name = "VOID rubber stamp"
-	icon_state = "paper_stamp-law" //IRIS EDIT
+	icon_state = "stamp-void"
 
 /obj/item/stamp/clown
 	name = "clown's rubber stamp"
@@ -95,19 +95,17 @@
 
 /obj/item/stamp/mime
 	name = "mime's rubber stamp"
-	icon = 'icons/obj/service/bureaucracy.dmi' //IRIS EDIT
 	icon_state = "stamp-mime"
 	dye_color = DYE_MIME
 
 /obj/item/stamp/chap
 	name = "chaplain's rubber stamp"
-	icon = 'icons/obj/service/bureaucracy.dmi' //IRIS EDIT
 	icon_state = "stamp-chap"
 	dye_color = DYE_CHAP
 
 /obj/item/stamp/centcom
 	name = "CentCom rubber stamp"
-	icon_state = "stamp-cent" //IRIS EDIT
+	icon_state = "stamp-centcom"
 	dye_color = DYE_CENTCOM
 
 /obj/item/stamp/syndicate

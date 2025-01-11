@@ -10,10 +10,10 @@
 /*
  * Filing Cabinets
  */
-/obj/structure/filingcabinet
+/obj/structure/filingcabinet //IRIS EDIT SPRITES OVERRIDEN IN PARADISE_PORTS
 	name = "filing cabinet"
 	desc = "A large cabinet with drawers."
-	icon = 'modular_iris/paradise_ports/icons/obj/bureaucracy.dmi' //IRIS EDIT
+	icon = 'icons/obj/service/bureaucracy.dmi'
 	icon_state = "filingcabinet"
 	density = TRUE
 	anchored = TRUE

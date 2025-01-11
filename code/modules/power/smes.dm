@@ -14,10 +14,9 @@
 #define SMES_INPUT_ATTEMPT 9
 
 // NOVA EDIT COMMENT: Modularized Power change in modular_nova\master_files\code\modules\power\smes.dm
-/obj/machinery/power/smes
+/obj/machinery/power/smes //IRIS EDIT SPRITES OVERRIDEN IN PARADISE_PORTS
 	name = "power storage unit"
 	desc = "A high-capacity superconducting magnetic energy storage (SMES) unit."
-	icon = 'modular_iris/paradise_ports/icons/obj/power.dmi'
 	icon_state = "smes"
 	density = TRUE
 	use_power = NO_POWER_USE

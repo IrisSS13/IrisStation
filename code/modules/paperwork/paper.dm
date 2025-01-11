@@ -10,10 +10,10 @@
  * so we do loose a bit of functionality but we gain in easy of use of
  * paper and getting rid of that crashing bug
  */
-/obj/item/paper
+/obj/item/paper //IRIS EDIT SPRITES OVERRIDEN IN PARADISE_PORTS
 	name = "paper"
 	gender = NEUTER
-	icon = 'modular_iris/paradise_ports/icons/obj/bureaucracy.dmi' //IRIS EDIT
+	icon = 'icons/obj/service/bureaucracy.dmi'
 	icon_state = "paper"
 	inhand_icon_state = "paper"
 	worn_icon_state = "paper"
@@ -875,5 +875,4 @@
 	icon_state = "scrap_bloodied"
 
 /obj/item/paper/crumpled/muddy
-	icon = 'icons/obj/service/bureaucracy.dmi' //IRIS EDIT
 	icon_state = "scrap_mud"

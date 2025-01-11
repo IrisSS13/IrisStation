@@ -1,7 +1,7 @@
-/obj/item/paperplane
+/obj/item/paperplane //IRIS EDIT SPRITES OVERRIDEN IN PARADISE_PORTS
 	name = "paper plane"
 	desc = "Paper, folded in the shape of a plane."
-	icon = 'modular_iris/paradise_ports/icons/obj/bureaucracy.dmi' //IRIS EDIT
+	icon = 'icons/obj/service/bureaucracy.dmi'
 	icon_state = "paperplane"
 	base_icon_state = "paperplane"
 	//custom_fire_overlay = "paperplane_onfire" //IRIS EDIT
