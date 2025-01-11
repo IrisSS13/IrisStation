@@ -60,3 +60,6 @@
 
 /obj/item/chair/stool/bar
 	icon = 'modular_iris/paradise_ports/icons/obj/chairs.dmi'
+
+/obj/structure/chair/comfy/shuttle
+	icon = 'icons/obj/chairs.dmi'
