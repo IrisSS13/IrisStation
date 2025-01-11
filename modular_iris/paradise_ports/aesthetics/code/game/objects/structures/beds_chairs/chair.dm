@@ -46,8 +46,11 @@
 /obj/structure/chair/stool
 	icon = 'modular_iris/paradise_ports/icons/obj/chairs.dmi'
 
+/obj/item/chair/stool/bamboo
+	icon = 'icons/obj/chairs.dmi'
+
 /obj/structure/chair/stool/bamboo
-		icon = 'icons/obj/chairs.dmi'
+	icon = 'icons/obj/chairs.dmi'
 
 /obj/structure/chair/stool/bar
 	icon = 'modular_iris/paradise_ports/icons/obj/chairs.dmi'
