@@ -1,3 +1,4 @@
+/* //OVERRIDEN BY IRIS PARADISE PORTS
 /obj/structure/window/fulltile
 	icon = 'modular_nova/modules/aesthetics/windows/icons/window.dmi'
 	canSmoothWith = SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
@@ -25,3 +26,4 @@
 	canSmoothWith = SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
 
 /obj/structure/window/reinforced/fulltile/ice
+*/
