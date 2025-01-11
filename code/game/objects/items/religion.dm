@@ -1,16 +1,15 @@
-//IRIS EDIT START
+//IRIS EDIT SPRITES OVERRIDEN IN PARADISE_PORTS
 /obj/item/banner
 	name = "banner"
-	desc = "A banner with Nanotrasen's logo on it."
-	icon = 'modular_iris/paradise_ports/icons/obj/flag.dmi'
-	icon_state = "ntflag"
-	custom_fire_overlay = "fire"
+	icon = 'icons/obj/banner.dmi'
+	icon_state = "banner"
+	inhand_icon_state = "banner"
 	inhand_icon_state = "ntflag"
 	force = 8
 	attack_verb_continuous = list("forcefully inspires", "violently encourages", "relentlessly galvanizes")
 	attack_verb_simple = list("forcefully inspire", "violently encourage", "relentlessly galvanize")
-	lefthand_file = 'modular_iris/paradise_ports/icons/mob/inhands/flags_lefthand.dmi'
-	righthand_file = 'modular_iris/paradise_ports/icons/mob/inhands/flags_righthand.dmi'
+	lefthand_file = 'icons/mob/inhands/equipment/banners_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/banners_righthand.dmi'
 	var/inspiration_available = TRUE //If this banner can be used to inspire crew
 	var/morale_time = 0
 	var/morale_cooldown = 600 //How many deciseconds between uses
@@ -19,7 +18,6 @@
 	/// Mobs with any of these special roles will be inspired
 	var/list/role_loyalties
 	var/warcry
-//IRIS EDIT END
 
 /obj/item/banner/examine(mob/user)
 	. = ..()
@@ -86,10 +84,10 @@
 /obj/item/banner/security
 	name = "securistan banner"
 	desc = "The banner of Securistan, ruling the station with an iron fist."
-	icon_state = "secflag" //IRIS EDIT
-	inhand_icon_state = "secflag"//IRIS EDIT
-	lefthand_file = 'modular_iris/paradise_ports/icons/mob/inhands/flags_lefthand.dmi' //IRIS EDIT
-	righthand_file = 'modular_iris/paradise_ports/icons/mob/inhands/flags_righthand.dmi' //IRIS EDIT
+	icon_state = "banner_security"
+	inhand_icon_state = "banner_security"
+	lefthand_file = 'icons/mob/inhands/equipment/banners_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/banners_righthand.dmi'
 	warcry = "EVERYONE DOWN ON THE GROUND!!"
 
 /obj/item/banner/security/Initialize(mapload)
@@ -110,10 +108,10 @@
 /obj/item/banner/medical
 	name = "meditopia banner"
 	desc = "The banner of Meditopia, generous benefactors that cure wounds and shelter the weak."
-	icon_state = "medflag" //IRIS EDIT
-	inhand_icon_state = "medflag" //IRIS EDIT
-	lefthand_file = 'modular_iris/paradise_ports/icons/mob/inhands/flags_lefthand.dmi' //IRIS EDIT
-	righthand_file = 'modular_iris/paradise_ports/icons/mob/inhands/flags_righthand.dmi' //IRIS EDIT
+	icon_state = "banner_medical"
+	inhand_icon_state = "banner_medical"
+	lefthand_file = 'icons/mob/inhands/equipment/banners_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/banners_righthand.dmi'
 	warcry = "No wounds cannot be healed!"
 
 /obj/item/banner/medical/Initialize(mapload)
@@ -145,10 +143,10 @@
 /obj/item/banner/science
 	name = "sciencia banner"
 	desc = "The banner of Sciencia, bold and daring thaumaturges and researchers that take the path less traveled."
-	icon_state = "rndflag" //IRIS EDIT
-	inhand_icon_state = "rndflag" //IRIS EDIT
-	lefthand_file = 'modular_iris/paradise_ports/icons/mob/inhands/flags_lefthand.dmi' //IRIS EDIT
-	righthand_file = 'modular_iris/paradise_ports/icons/mob/inhands/flags_righthand.dmi' //IRIS EDIT
+	icon_state = "banner_science"
+	inhand_icon_state = "banner_science"
+	lefthand_file = 'icons/mob/inhands/equipment/banners_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/banners_righthand.dmi'
 	warcry = "For Cuban Pete!"
 
 /obj/item/banner/science/Initialize(mapload)
@@ -172,10 +170,10 @@
 /obj/item/banner/cargo
 	name = "cargonia banner"
 	desc = "The banner of the eternal Cargonia, with the mystical power of conjuring any object into existence."
-	icon_state = "cargoflag" //IRIS EDIT
-	inhand_icon_state = "cargoflag" //IRIS EDIT
-	lefthand_file = 'modular_iris/paradise_ports/icons/mob/inhands/flags_lefthand.dmi' //IRIS EDIT
-	righthand_file = 'modular_iris/paradise_ports/icons/mob/inhands/flags_righthand.dmi' //IRIS EDIT
+	icon_state = "banner_cargo"
+	inhand_icon_state = "banner_cargo"
+	lefthand_file = 'icons/mob/inhands/equipment/banners_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/banners_righthand.dmi'
 	warcry = "Hail Cargonia!"
 
 /obj/item/banner/cargo/Initialize(mapload)
@@ -196,10 +194,10 @@
 /obj/item/banner/engineering
 	name = "engitopia banner"
 	desc = "The banner of Engitopia, wielders of limitless power."
-	icon_state = "atmosflag" //IRIS EDIT
-	inhand_icon_state = "atmosflag" //IRIS EDIT
-	lefthand_file = 'modular_iris/paradise_ports/icons/mob/inhands/flags_lefthand.dmi' //IRIS EDIT
-	righthand_file = 'modular_iris/paradise_ports/icons/mob/inhands/flags_righthand.dmi' //IRIS EDIT
+	icon_state = "banner_engineering"
+	inhand_icon_state = "banner_engineering"
+	lefthand_file = 'icons/mob/inhands/equipment/banners_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/banners_righthand.dmi'
 	warcry = "All hail lord Singuloth!!"
 
 /obj/item/banner/engineering/Initialize(mapload)
@@ -244,12 +242,8 @@
 				/obj/item/clothing/under/rank/captain/parade = 1)
 	category = CAT_MISC
 
-//IRIS EDIT START
 /obj/item/banner/red
 	name = "red banner"
-	icon = 'icons/obj/banner.dmi'
-	lefthand_file = 'icons/mob/inhands/equipment/banners_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/banners_righthand.dmi'
 	icon_state = "banner-red"
 	inhand_icon_state = "banner-red"
 	desc = "A banner with the logo of the red deity."
@@ -262,7 +256,6 @@
 	icon_state = "banner-blue"
 	inhand_icon_state = "banner-blue"
 	desc = "A banner with the logo of the blue deity."
-//IRIS EDIT END
 
 /obj/item/storage/backpack/bannerpack
 	name = "\improper Nanotrasen banner backpack"

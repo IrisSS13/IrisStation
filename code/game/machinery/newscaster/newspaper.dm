@@ -1,3 +1,4 @@
+//IRIS EDIT SPRITES OVERRIDEN IN PARADISE_PORTS
 /**
  * Newspapers
  * A static version of the newscaster, that won't update as new stories are added.
@@ -6,7 +7,7 @@
 /obj/item/newspaper
 	name = "newspaper"
 	desc = "An issue of The Griffon, the newspaper circulating aboard Nanotrasen Space Stations."
-	icon = 'modular_iris/paradise_ports/icons/obj/bureaucracy.dmi' //IRIS EDIT
+	icon = 'icons/obj/service/bureaucracy.dmi'
 	icon_state = "newspaper"
 	inhand_icon_state = "newspaper"
 	lefthand_file = 'icons/mob/inhands/items/books_lefthand.dmi'

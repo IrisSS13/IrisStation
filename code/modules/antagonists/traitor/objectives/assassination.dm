@@ -184,7 +184,6 @@
 
 /obj/item/paper/calling_card
 	name = "calling card"
-	icon = 'icons/obj/service/bureaucracy.dmi' //IRIS EDIT
 	icon_state = "syndicate_calling_card"
 	color = "#ff5050"
 	show_written_words = FALSE

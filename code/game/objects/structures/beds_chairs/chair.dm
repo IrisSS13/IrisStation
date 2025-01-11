@@ -1,3 +1,4 @@
+//IRIS EDIT SPRITES OVERRIDEN IN PARADISE_PORTS
 /obj/structure/chair
 	name = "chair"
 	desc = "You sit in this. Either by will or force."
@@ -187,7 +188,6 @@
 /obj/structure/chair/comfy
 	name = "comfy chair"
 	desc = "It looks comfy."
-	icon = 'modular_iris/paradise_ports/icons/obj/chairs.dmi' //IRIS EDIT
 	icon_state = "comfychair"
 	color = rgb(255, 255, 255)
 	resistance_flags = FLAMMABLE
@@ -198,19 +198,19 @@
 	has_armrest = TRUE
 
 /obj/structure/chair/comfy/brown
-	color = rgb(128,83,51) //IRIS EDIT
+	color = rgb(70, 47, 28)
 
 /obj/structure/chair/comfy/beige
-	color = rgb(174,169,147) //IRIS EDIT
+	color = rgb(240, 238, 198)
 
 /obj/structure/chair/comfy/teal
-	color = rgb(64,186,174) //IRIS EDIT
+	color = rgb(117, 214, 214)
 
 /obj/structure/chair/comfy/black
-	color = rgb(74,74,85) //IRIS EDIT
+	color = rgb(61, 60, 56)
 
 /obj/structure/chair/comfy/lime
-	color = rgb(160,251,66) //IRIS EDIT
+	color = rgb(193, 248, 104)
 
 /obj/structure/chair/comfy/shuttle
 	name = "shuttle seat"
@@ -229,7 +229,6 @@
 /obj/structure/chair/comfy/carp
 	name = "carpskin chair"
 	desc = "A luxurious chair, the many purple scales reflect the light in a most pleasing manner."
-	icon = 'icons/obj/chairs.dmi' //IRIS EDIT
 	icon_state = "carp_chair"
 	buildstacktype = /obj/item/stack/sheet/animalhide/carp
 	fishing_modifier = -12
@@ -240,7 +239,6 @@
 	buildstackamount = 5
 	item_chair = null
 	fishing_modifier = -6
-	icon = 'modular_iris/paradise_ports/icons/obj/chairs.dmi' //IRIS EDIT
 	icon_state = "officechair_dark"
 
 /obj/structure/chair/office/Initialize(mapload)
@@ -258,7 +256,6 @@
 
 /obj/structure/chair/office/light
 	name = "office chair"
-	icon = 'modular_iris/paradise_ports/icons/obj/chairs.dmi' //IRIS EDIT
 	icon_state = "officechair_white"
 
 //Stool
@@ -266,7 +263,6 @@
 /obj/structure/chair/stool
 	name = "stool"
 	desc = "Apply butt."
-	icon = 'modular_iris/paradise_ports/icons/obj/chairs.dmi' //IRIS EDIT
 	icon_state = "stool"
 	can_buckle = FALSE
 	buildstackamount = 1
@@ -300,7 +296,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/chair/stool, 0)
 /obj/structure/chair/stool/bar
 	name = "bar stool"
 	desc = "It has some unsavory stains on it..."
-	icon = 'modular_iris/paradise_ports/icons/obj/chairs.dmi' //IRIS EDIT
 	icon_state = "bar"
 	item_chair = /obj/item/chair/stool/bar
 	can_buckle = TRUE
@@ -416,7 +411,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/chair/stool/bar, 0)
 
 /obj/item/chair/stool
 	name = "stool"
-	icon = 'modular_iris/paradise_ports/icons/obj/chairs.dmi' //IRIS EDIT
 	icon_state = "stool_toppled"
 	inhand_icon_state = "stool"
 	origin_type = /obj/structure/chair/stool
@@ -424,7 +418,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/chair/stool/bar, 0)
 
 /obj/item/chair/stool/bar
 	name = "bar stool"
-	icon = 'modular_iris/paradise_ports/icons/obj/chairs.dmi' //IRIS EDIT
 	icon_state = "bar_toppled"
 	inhand_icon_state = "stool_bar"
 	origin_type = /obj/structure/chair/stool/bar

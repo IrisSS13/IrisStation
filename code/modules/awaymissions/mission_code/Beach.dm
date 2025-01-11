@@ -10,7 +10,6 @@
 
 /obj/item/paper/fluff/old_pirate_note
 	name = "rum-stained letter"
-	icon = 'icons/obj/service/bureaucracy.dmi' //IRIS EDIT
 	icon_state = "scrap_mud"
 	desc = "An unsent letter from a terminally drunk pirate."
 	default_raw_text = {"Dear,
