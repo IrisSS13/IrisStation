@@ -1,8 +1,8 @@
 // Usage for a bar light is 160, let's do a bit less then that since these tend to be used a lot in one place
 #define CIRCUIT_FLOOR_POWERUSE 120
 //Circuit flooring, glows a little
-/turf/open/floor/circuit
-	icon = 'modular_iris/paradise_ports/icons/turfs/floors.dmi' //IRIS EDIT
+/turf/open/floor/circuit //IRIS EDIT SPRITES OVERRIDEN IN PARADISE_SPRITES
+	icon = 'icons/turf/floors.dmi'
 	icon_state = "bcircuit"
 	var/icon_normal = "bcircuit"
 	light_color = LIGHT_COLOR_BABY_BLUE
@@ -71,7 +71,6 @@
 #undef CIRCUIT_FLOOR_POWERUSE
 
 /turf/open/floor/circuit/off
-	icon = 'icons/turf/floors.dmi' //IRIS EDIT
 	icon_state = "bcircuitoff"
 	always_off = TRUE
 
@@ -88,19 +87,16 @@
 	name = "server base"
 
 /turf/open/floor/circuit/green
-	icon = 'modular_iris/paradise_ports/icons/turfs/floors.dmi' //IRIS EDIT
 	icon_state = "gcircuit"
 	icon_normal = "gcircuit"
 	light_color = LIGHT_COLOR_VIVID_GREEN
 	floor_tile = /obj/item/stack/tile/circuit/green
 
 /turf/open/floor/circuit/green/off
-	icon = 'icons/turf/floors.dmi' //IRIS EDIT
 	icon_state = "gcircuitoff"
 	always_off = TRUE
 
 /turf/open/floor/circuit/green/anim
-	icon = 'icons/turf/floors.dmi' //IRIS EDIT
 	icon_state = "gcircuitanim"
 	icon_normal = "gcircuitanim"
 	floor_tile = /obj/item/stack/tile/circuit/green/anim
@@ -115,19 +111,16 @@
 	name = "mainframe base"
 
 /turf/open/floor/circuit/red
-	icon = 'modular_iris/paradise_ports/icons/turfs/floors.dmi' //IRIS EDIT
 	icon_state = "rcircuit"
 	icon_normal = "rcircuit"
 	light_color = LIGHT_COLOR_INTENSE_RED
 	floor_tile = /obj/item/stack/tile/circuit/red
 
 /turf/open/floor/circuit/red/off
-	icon = 'icons/turf/floors.dmi' //IRIS EDIT
 	icon_state = "rcircuitoff"
 	always_off = TRUE
 
 /turf/open/floor/circuit/red/anim
-	icon = 'icons/turf/floors.dmi' //IRIS EDIT
 	icon_state = "rcircuitanim"
 	icon_normal = "rcircuitanim"
 	floor_tile = /obj/item/stack/tile/circuit/red/anim
