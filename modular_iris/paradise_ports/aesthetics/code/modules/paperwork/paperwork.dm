@@ -59,7 +59,7 @@
 	icon = 'modular_iris/paradise_ports/icons/obj/bureaucracy.dmi'
 
 /obj/item/stamp/void
-	icon_state = "paper_stamp-law"
+	icon = 'icons/obj/service/bureaucracy.dmi'
 
 /obj/item/stamp/mime
 	icon = 'icons/obj/service/bureaucracy.dmi'
