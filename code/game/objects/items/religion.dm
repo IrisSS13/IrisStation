@@ -1,10 +1,11 @@
 //IRIS EDIT SPRITES OVERRIDEN IN PARADISE_PORTS
 /obj/item/banner
 	name = "banner"
+	desc = "A banner with Nanotrasen's logo on it."
 	icon = 'icons/obj/banner.dmi'
 	icon_state = "banner"
 	inhand_icon_state = "banner"
-	inhand_icon_state = "ntflag"
+	inhand_icon_state = "ntflag" //IRIS EDIT
 	force = 8
 	attack_verb_continuous = list("forcefully inspires", "violently encourages", "relentlessly galvanizes")
 	attack_verb_simple = list("forcefully inspire", "violently encourage", "relentlessly galvanize")
@@ -250,9 +251,11 @@
 
 /obj/item/banner/blue
 	name = "blue banner"
+	//IRIS EDIT START
 	icon = 'icons/obj/banner.dmi'
 	lefthand_file = 'icons/mob/inhands/equipment/banners_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/banners_righthand.dmi'
+	//IRIS EDIT END
 	icon_state = "banner-blue"
 	inhand_icon_state = "banner-blue"
 	desc = "A banner with the logo of the blue deity."
