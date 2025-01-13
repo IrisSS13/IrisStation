@@ -162,29 +162,141 @@
 	icon = 'modular_iris/icons/mob/species/human/humanface.dmi'
 	icon_state = "hair_deathhawk"
 
-//tails
-/datum/sprite_accessory/tails/iris
-	key = "tail"
-	generic = "Tail"
-	organ_type = /obj/item/organ/tail
-	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/tails.dmi'
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
-	genetic = TRUE
-
-/datum/sprite_accessory/tails/iris/mammal
-	icon_state = "none"
-	recommended_species = list(SPECIES_MAMMAL,SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_HUMANOID, SPECIES_GHOUL)
-	organ_type = /obj/item/organ/tail/fluffy/no_wag
-	color_src = USE_MATRIXED_COLORS
-
-/datum/sprite_accessory/tails/iris/mammal/teshari
-	recommended_species = list(SPECIES_TESHARI)
-
 //teshari
-/datum/sprite_accessory/tails/iris/mammal/teshari/damaged
+/datum/sprite_accessory/tails/mammal/teshari/damaged
 	name = "Teshari (Damaged)"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/tails.dmi'
 	icon_state = "teshari_damaged"
 
-/datum/sprite_accessory/tails/iris/mammal/teshari/stubby
+/datum/sprite_accessory/tails/mammal/teshari/stubby
 	name = "Teshari (Stubby)"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/tails.dmi'
 	icon_state = "teshari_stubby"
+
+//moth wings - apparently Nova uses /datum/sprite_accessory/wings/moth/ and not /datum/sprite_accessory/moth_wings/
+
+/datum/sprite_accessory/wings/moth/twilight
+	name = "Moth (Twilight)"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/moth_wings.dmi'
+	icon_state = "twilight"
+
+/datum/sprite_accessory/wings/moth/metamorphosis
+	name = "Moth (Metamorphosis)"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/moth_wings.dmi'
+	icon_state = "metamorphosis"
+
+/datum/sprite_accessory/wings/moth/maple
+	name = "Moth (Maple)"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/moth_wings.dmi'
+	icon_state = "maple"
+
+/datum/sprite_accessory/wings/moth/tetractys
+	name = "Moth (Tetractys)"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/moth_wings.dmi'
+	icon_state = "tetractys"
+
+/datum/sprite_accessory/wings/moth/aspen
+	name = "Moth (Aspen)"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/moth_wings.dmi'
+	icon_state = "aspen"
+
+/datum/sprite_accessory/wings/moth/bluespace
+	name = "Moth (Bluespace)"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/moth_wings.dmi'
+	icon_state = "bluespace"
+
+/datum/sprite_accessory/wings/moth/tundra
+	name = "Moth (Tundra)"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/moth_wings.dmi'
+	icon_state = "tundra"
+
+//antennae
+/datum/sprite_accessory/moth_antennae/twilight
+	name = "Twilight"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/moth_antennae.dmi'
+	icon_state = "twilight"
+
+/datum/sprite_accessory/moth_antennae/metamorphosis_p
+	name = "Metamorphosis (Pink)"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/moth_antennae.dmi'
+	icon_state = "metamorphosis_p"
+
+/datum/sprite_accessory/moth_antennae/metamorphosis_b
+	name = "Metamorphosis (Blue)"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/moth_antennae.dmi'
+	icon_state = "metamorphosis_b"
+
+/datum/sprite_accessory/moth_antennae/maple
+	name = "Maple"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/moth_antennae.dmi'
+	icon_state = "maple"
+
+/datum/sprite_accessory/moth_antennae/tetractys
+	name = "Tetractys"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/moth_antennae.dmi'
+	icon_state = "tetractys"
+
+/datum/sprite_accessory/moth_antennae/aspen
+	name = "Aspen"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/moth_antennae.dmi'
+	icon_state = "aspen"
+
+/datum/sprite_accessory/moth_antennae/bluespace
+	name = "Bluespace"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/moth_antennae.dmi'
+	icon_state = "bluespace"
+
+/datum/sprite_accessory/moth_antennae/tundra
+	name = "Tundra"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/moth_antennae.dmi'
+	icon_state = "tundra"
+
+// moth fluff
+
+/datum/sprite_accessory/fluff/moth/twilight
+	name = "Twilight"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/moth_fluff.dmi'
+	icon_state = "twilight"
+
+/datum/sprite_accessory/fluff/moth/metamorphosis
+	name = "Metamorphosis"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/moth_fluff.dmi'
+	icon_state = "metamorphosis"
+
+/datum/sprite_accessory/fluff/moth/maple
+	name = "Maple"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/moth_fluff.dmi'
+	icon_state = "metamorphosis"
+
+/datum/sprite_accessory/fluff/moth/tetractys
+	name = "Tetractys"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/moth_fluff.dmi'
+	icon_state = "tetractys"
+
+/datum/sprite_accessory/fluff/moth/aspen
+	name = "Aspen"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/moth_fluff.dmi'
+	icon_state = "aspen"
+
+/datum/sprite_accessory/fluff/moth/bluespace
+	name = "Bluespace"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/moth_fluff.dmi'
+	icon_state = "bluespace"
+
+/datum/sprite_accessory/fluff/moth/tundra
+	name = "Tundra"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/moth_fluff.dmi'
+	icon_state = "tundra"
+
+/datum/sprite_accessory/fluff/moth/mega_fluff
+	name = "Mega Fluff"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/moth_fluff.dmi'
+	icon_state = "megafluff"
+
+// moth marking - Nova uses /datum/body_marking/moth/ instead of /datum/sprite_accessory/moth_markings/
+
+/datum/body_marking/moth/tundra
+	name = "Tundra"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/moth_markings.dmi'
+	icon_state = "tundra"
+
