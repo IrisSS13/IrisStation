@@ -4,12 +4,12 @@
 	icon_state = "hair_hyenamane"
 	icon = 'modular_iris/icons/mob/species/human/humanface.dmi'
 
-/datum/sprite_accessory/hair/taggot_franny
+/datum/sprite_accessory/hair/tailhair
 	name = "Tail Hair"
 	icon_state = "hair_tailhair"
 	icon = 'modular_iris/icons/mob/species/human/humanface.dmi'
 
-/datum/sprite_accessory/hair/whor_eee
+/datum/sprite_accessory/hair/hairfre
 	name = "Hairfre"
 	icon_state = "hair_hairfre"
 	icon = 'modular_iris/icons/mob/species/human/humanface.dmi'
@@ -172,6 +172,13 @@
 	name = "Teshari (Stubby)"
 	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/tails.dmi'
 	icon_state = "teshari_stubby"
+
+//moved from modular_nova/.../sprite_accessories to keep "none" at the top of our wing selection list
+
+/datum/sprite_accessory/wings/none
+	name = SPRITE_ACCESSORY_NONE
+	icon_state = "none"
+	factual = FALSE
 
 //moth wings - apparently Nova uses /datum/sprite_accessory/wings/moth/ and not /datum/sprite_accessory/moth_wings/
 
