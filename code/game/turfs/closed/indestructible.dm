@@ -209,7 +209,7 @@ NOVA EDIT REMOVAL END */
 	icon_state = "wall3"
 
 
-/turf/closed/indestructible/fakeglass
+/turf/closed/indestructible/fakeglass //IRIS EDIT OVERRIDEN IN MODULAR_IRIS/AESTHETICS
 	name = "window"
 	icon = MAP_SWITCH('icons/obj/smooth_structures/reinforced_window.dmi', 'icons/obj/smooth_structures/structure_variations.dmi')
 	icon_state = MAP_SWITCH("reinforced_window-0", "fake_window")
