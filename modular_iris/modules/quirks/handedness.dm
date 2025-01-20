@@ -1,8 +1,3 @@
-//defines
-
-#define TRAIT_HANDEDNESS "handedness"
-#define TRAIT_HANDEDNESS_LEFT "handedness_left"
-
 //quirk itself
 
 /datum/quirk/handedness
@@ -24,6 +19,3 @@
 	medical_record_text = "Patient demonstrates impaired adroitness when asked to use their right hand."
 
 //mutations
-
-#undef TRAIT_HANDEDNESS
-#undef TRAIT_HANDEDNESS_LEFT
