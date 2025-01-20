@@ -24,3 +24,6 @@
 	medical_record_text = "Patient demonstrates impaired adroitness when asked to use their right hand."
 
 //mutations
+
+#undef TRAIT_HANDEDNESS
+#undef TRAIT_HANDEDNESS_LEFT
