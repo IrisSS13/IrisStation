@@ -809,6 +809,12 @@ GLOBAL_LIST_INIT(traits_by_type, list(
 		"TRAIT_SLIME_HYDROPHOBIA" = TRAIT_SLIME_HYDROPHOBIA
 	),
 	// NOVA EDIT ADDITION END
+	// IRIS EDIT ADDITION START - IRIS TRAITS
+	/obj/item/toy/plush/iris = list(
+		"TRAIT_HANDEDNESS" = TRAIT_HANDEDNESS,
+		"TRAIT_HANDEDNESS_LEFT" = TRAIT_HANDEDNESS_LEFT
+	),
+	// IRIS EDIT ADDITION END
 ))
 
 /// value -> trait name, list of ALL traits that exist in the game, used for any type of accessing.

@@ -1,3 +1,8 @@
+//defines
+
+#define TRAIT_HANDEDNESS "handedness"
+#define TRAIT_HANDEDNESS_LEFT "handedness_left"
+
 //quirk itself
 
 /datum/quirk/handedness
