@@ -40,8 +40,11 @@
 	if (HAS_TRAIT(user, TRAIT_PACIFISM))
 		return
 
-	if (HAS_TRAIT(user, TRAIT_CLUMSY) && prob(CLUMSY_ATTACK_SELF_CHANCE))
-		target = user
+	//IRIS EDIT CHANGE BEGIN - HANDEDNESS_QUIRK
+	if (HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && istype(user.get_active_hand(), /obj/item/bodypart/arm/left)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && istype(user.get_active_hand(), /obj/item/bodypart/arm/right)))
+		if(prob(CLUMSY_ATTACK_SELF_CHANCE))
+			target = user
+	//IRIS EDIT CHANGE END
 
 	if (target.is_eyes_covered() || isalien(target) || isbrain(target))
 		return

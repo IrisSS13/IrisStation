@@ -68,7 +68,10 @@
 	flick("[icon_state]-scan", src) //makes it so that it plays the scan animation upon scanning, including clumsy scanning
 
 	// Clumsiness/brain damage check
-	if ((HAS_TRAIT(user, TRAIT_CLUMSY) || HAS_TRAIT(user, TRAIT_DUMB)) && prob(50))
+	//IRIS EDIT CHANGE BEGIN - HANDEDNESS_QUIRK
+	if ((HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && istype(user.get_active_hand(), /obj/item/bodypart/arm/left)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && istype(user.get_active_hand(), /obj/item/bodypart/arm/right)) \
+		 || HAS_TRAIT(user, TRAIT_DUMB)) && prob(50))
+	//IRIS EDIT CHANGE END
 		var/turf/scan_turf = get_turf(user)
 		user.visible_message(
 			span_warning("[user] analyzes [scan_turf]'s vitals!"),

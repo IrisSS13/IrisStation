@@ -189,7 +189,10 @@
 	if(tank && !tank.remove_air(gasPerThrow * pressure_setting))
 		to_chat(user, span_warning("\The [src] lets out a weak hiss and doesn't react!"))
 		return
-	if(HAS_TRAIT(user, TRAIT_CLUMSY) && prob(75) && clumsyCheck && iscarbon(user))
+	//IRIS EDIT CHANGE BEGIN - HANDEDNESS_QUIRK
+	if((HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && istype(user.get_active_hand(), /obj/item/bodypart/arm/left)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && istype(user.get_active_hand(), /obj/item/bodypart/arm/right))) \
+				 && prob(75) && clumsyCheck && iscarbon(user))
+	//IRIS EDIT CHANGE END
 		var/mob/living/carbon/C = user
 		C.visible_message(span_warning("[C] loses [C.p_their()] grip on [src], causing it to go off!"), span_userdanger("[src] slips out of your hands and goes off!"))
 		C.dropItemToGround(src, TRUE)

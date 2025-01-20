@@ -15,7 +15,10 @@
 /obj/item/scanner_wand/attack(mob/living/M, mob/living/carbon/human/user)
 	flick("[icon_state]_active", src) //nice little visual flash when scanning someone else.
 
-	if((HAS_TRAIT(user, TRAIT_CLUMSY) || HAS_TRAIT(user, TRAIT_DUMB)) && prob(25))
+	//IRIS EDIT CHANGE BEGIN - HANDEDNESS_QUIRK
+	if((HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && istype(user.get_active_hand(), /obj/item/bodypart/arm/left)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && istype(user.get_active_hand(), /obj/item/bodypart/arm/right)) \
+		|| HAS_TRAIT(user, TRAIT_DUMB)) && prob(25))
+	//IRIS EDIT CHANGE END
 		user.visible_message(span_warning("[user] targets himself for scanning."), \
 		to_chat(user, span_info("You try scanning [M], before realizing you're holding the scanner backwards. Whoops.")))
 		selected_target = user
