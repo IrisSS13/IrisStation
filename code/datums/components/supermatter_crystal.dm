@@ -165,7 +165,7 @@
 		var/obj/item/cigarette/cig = item
 		//IRIS EDIT CHANGE BEGIN - HANDEDNESS_QUIRK
 		var/clumsy = FALSE
-		if(HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && istype(user.get_active_hand(/obj/item/bodypart/arm/left))) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && istype(user.get_active_hand(/obj/item/bodypart/arm/right))))
+		if(HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && istype(user.get_active_hand(), /obj/item/bodypart/arm/left)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && istype(user.get_active_hand(), /obj/item/bodypart/arm/right)))
 			clumsy = TRUE
 		//IRIS EDIT CHANGE END
 		if(clumsy)
