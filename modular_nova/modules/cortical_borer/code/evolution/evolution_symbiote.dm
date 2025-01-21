@@ -5,7 +5,7 @@
 /datum/borer_evolution/symbiote/minor_chemicals
 	name = "Minor Chemicals"
 	desc = "Gain some minor benifical chemicals."
-	gain_text = "Some of the monkeys we gave the worms seemed far more... willing than others to be a host. I could've sworn one let them climb up their arm."
+	gain_text = "Some of the monkeys we gave the worms seemed far more... drunk than others after the worms got in."
 	tier = 1
 	unlocked_evolutions = list(/datum/borer_evolution/symbiote/chem_per_level)
 	evo_cost = 1
