@@ -355,7 +355,7 @@
 	/// If the projectile that applies this was boosted, the mark will also be boosted
 	var/boosted = FALSE
 	/// How long before the mark is ready to be detonated. Used for both the visual overlay and to determine when it's ready
-	var/ready_delay = 0.8 SECONDS
+	var/ready_delay = 0.5 SECONDS
 	/// Tracks world.time when the mark was applied
 	var/mark_applied
 
