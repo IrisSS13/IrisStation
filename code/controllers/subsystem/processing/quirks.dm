@@ -44,7 +44,7 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	//ORBSTATION PORT: if you're illiterate, farsighted would just be free points
 	list(/datum/quirk/item_quirk/farsighted, /datum/quirk/illiterate),
 	//HANDEDNESS_QUIRK
-	list(/datum/quirk/clumsy, /datum/quirk/handedness, /datum/quirk/handedness/left),
+	list(/datum/quirk/clumsy, /datum/quirk/handedness, /datum/quirk/handedness/left, /datum/quirk/hemiplegic, /datum/quirk/quadruple_amputee),
 	//IRIS EDIT ADDITION END
 ))
 
