@@ -1,8 +1,8 @@
-GLOBAL_VAR_INIT(objective_egg_borer_number, 2)
-GLOBAL_VAR_INIT(objective_egg_egg_number, 5)
-GLOBAL_VAR_INIT(objective_willing_hosts, 2)
-GLOBAL_VAR_INIT(objective_blood_chem, 3)
-GLOBAL_VAR_INIT(objective_blood_borer, 3)
+GLOBAL_VAR_INIT(objective_egg_borer_number, 0)
+GLOBAL_VAR_INIT(objective_egg_egg_number, 0)
+GLOBAL_VAR_INIT(objective_willing_hosts, 0)
+GLOBAL_VAR_INIT(objective_blood_chem, 0)
+GLOBAL_VAR_INIT(objective_blood_borer, 0)
 
 GLOBAL_VAR_INIT(successful_egg_number, 0)
 GLOBAL_LIST_EMPTY(willing_hosts)
@@ -114,7 +114,6 @@ GLOBAL_LIST_EMPTY(cortical_borers)
 										/datum/reagent/lithium,
 										/datum/reagent/medicine/salglu_solution,
 										/datum/reagent/medicine/mutadone,
-										/datum/reagent/toxin/heparin,
 										/datum/reagent/drug/methamphetamine/borer_version,
 										/datum/reagent/medicine/morphine,
 										/datum/reagent/medicine/inacusiate,
@@ -212,12 +211,6 @@ GLOBAL_LIST_EMPTY(cortical_borers)
 
 /mob/living/basic/cortical_borer/Initialize(mapload)
 	. = ..()
-	AddComponent( \
-		/datum/component/squashable, \
-		squash_chance = 25, \
-		squash_damage = 25, \
-		squash_flags = SQUASHED_DONT_SQUASH_IN_CONTENTS, \
-	)
 	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT) //they need to be able to move around
 
 	var/matrix/borer_matrix = matrix(transform)
