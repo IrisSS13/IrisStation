@@ -4,6 +4,21 @@
 	icon = FA_ICON_HANDSHAKE_SIMPLE_SLASH
 	value = -4
 
+/datum/quirk_constant_data/handedness
+	associated_typepath = /datum/quirk/handedness
+	customization_options = list(/datum/preference/choiced/handedness)
+
+/datum/quirk/handedness/add(client/client_source)
+	var/datum/quirk/handedness/side_choice = GLOB.side_choice_handedness[client_source?.prefs?.read_preference(/datum/preference/choiced/handedness)]
+	if(isnull(side_choice))  // Client gone or they chose a random side
+		side_choice = GLOB.side_choice_handedness[pick(GLOB.side_choice_handedness)]
+
+	var/mob/living/carbon/human/human_holder = quirk_holder
+	human_holder.add_quirk(side_choice)
+
+/datum/quirk/handedness/remove()
+	var/mob/living/carbon/human/human_holder = quirk_holder
+	human_holder.remove_quirk(/datum/quirk/handedness) //need to remove derivative quirk too
 
 /datum/quirk/handedness/right
 	name = "Dominant Hand (Right)"
