@@ -29,12 +29,12 @@
 
 /datum/quirk/handedness/right
 	mob_trait = TRAIT_HANDEDNESS
-	gain_text = span_danger("You no longer feel able to fully control your left hand.")
+	gain_text = span_danger("You no longer feel able to accurately control your left hand.")
 	lose_text = span_notice("You feel able to control your left hand again.")
 	medical_record_text = "Patient demonstrates impaired adroitness when asked to use their left hand."
 
 /datum/quirk/handedness/left
 	mob_trait = TRAIT_HANDEDNESS_LEFT
-	gain_text = span_danger("You no longer feel able to fully control your right hand.")
+	gain_text = span_danger("You no longer feel able to accurately control your right hand.")
 	lose_text = span_notice("You feel able to control your right hand again.")
 	medical_record_text = "Patient demonstrates impaired adroitness when asked to use their right hand."
