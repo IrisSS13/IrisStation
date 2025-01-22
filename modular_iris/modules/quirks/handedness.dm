@@ -1,7 +1,7 @@
 /datum/quirk/handedness
 	name = "Dominant Hand"
 	desc = "One of your hands is noticeably better coordinated than the other. You've found that attempting to use your weaker hand often results in unfortunate mishaps."
-	icon = FA_ICON_HANDSHAKE_SIMPLE_SLASH
+	icon = FA_ICON_HANDSHAKE_SLASH
 	value = -4
 
 /datum/quirk_constant_data/handedness
