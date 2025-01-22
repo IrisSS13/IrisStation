@@ -61,7 +61,9 @@
 	return ..()
 
 /obj/item/assembly/flash/proc/clown_check(mob/living/carbon/human/user)
-	if(HAS_TRAIT(user, TRAIT_CLUMSY) && prob(50))
+	//IRIS EDIT CHANGE BEGIN - HANDEDNESS_QUIRK
+	if(prob(50) && (HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && istype(user.get_active_hand(), /obj/item/bodypart/arm/left)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && istype(user.get_active_hand(), /obj/item/bodypart/arm/right))))
+	//IRIS EDIT CHANGE END
 		flash_carbon(user, user, confusion_duration = 15 SECONDS, targeted = FALSE)
 		return FALSE
 	return TRUE
