@@ -18,7 +18,14 @@
 
 /datum/quirk/handedness/remove()
 	var/mob/living/carbon/human/human_holder = quirk_holder
-	human_holder.remove_quirk(/datum/quirk/handedness) //need to remove derivative quirk too
+
+	//remove whichever of the child quirks they have
+	if(human_holder.has_quirk(/datum/quirk/handedness/right))
+		human_holder.remove_quirk(/datum/quirk/handedness/right)
+	else if(human_holder.has_quirk(/datum/quirk/handedness/left))
+		human_holder.remove_quirk(/datum/quirk/handedness/left)
+
+	human_holder.remove_quirk(/datum/quirk/handedness) //remove this quirk
 
 /datum/quirk/handedness/right
 	name = "Dominant Hand (Right)"
