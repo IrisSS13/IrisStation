@@ -265,7 +265,11 @@
 	addtimer(TRAIT_CALLBACK_REMOVE(target, TRAIT_IWASBATONED, user_ref), cooldown)
 
 /obj/item/melee/baton/proc/clumsy_check(mob/living/user, mob/living/intented_target)
-	if(!active || !HAS_TRAIT(user, TRAIT_CLUMSY) || prob(50))
+	//IRIS EDIT CHANGE BEGIN - HANDEDNESS_QUIRK
+	if(!(HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && istype(user.get_active_hand(), /obj/item/bodypart/arm/left)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && istype(user.get_active_hand(), /obj/item/bodypart/arm/right))))
+		return FALSE
+	if(!active || prob(50))
+	//IRIS EDIT CHANGE END
 		return FALSE
 	user.visible_message(span_danger("[user] accidentally hits [user.p_them()]self over the head with [src]! What a doofus!"), span_userdanger("You accidentally hit yourself over the head with [src]!"))
 
