@@ -37,6 +37,7 @@
 		"synth_r_leg",
 		"synth_l_d_leg",
 		"synth_r_d_leg",
+		"synth_construction",
 	)
 
 /datum/techweb_node/android_organs
