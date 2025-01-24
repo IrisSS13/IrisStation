@@ -16,13 +16,14 @@
 	if(isnull(side_choice))  // Client gone or they chose a random side
 		side_choice = GLOB.side_choice_handedness[pick(GLOB.side_choice_handedness)]
 
-	if(side_choice == TRAIT_HANDEDNESS_LEFT)
+	var/mob/living/carbon/human/human_holder = quirk_holder
+	if(side_choice == "Dominant Left Hand")
 		gain_text = span_danger("You no longer feel able to accurately control your right hand.")
 		lose_text = span_notice("You feel able to control your right hand again.")
 		medical_record_text = "Patient demonstrates impaired adroitness when asked to use their right hand."
-
-	var/mob/living/carbon/human/human_holder = quirk_holder
-	ADD_TRAIT(human_holder, side_choice, QUIRK_TRAIT)
+		ADD_TRAIT(human_holder, TRAIT_HANDEDNESS_LEFT, QUIRK_TRAIT)
+	else
+		ADD_TRAIT(human_holder, TRAIT_HANDEDNESS, QUIRK_TRAIT)
 
 /datum/quirk/handedness/remove()
 	var/mob/living/carbon/human/human_holder = quirk_holder

@@ -127,7 +127,7 @@ GLOBAL_LIST_INIT(quirk_chipped_choice, list(
 
 //IRIS EDIT ADDITION BEGIN - HANDEDNESS_QUIRK
 GLOBAL_LIST_INIT(side_choice_handedness, list(
-	"Dominant Left Hand" = TRAIT_HANDEDNESS_LEFT,
-	"Dominant Right Hand" = TRAIT_HANDEDNESS,
+	"Dominant Left Hand",
+	"Dominant Right Hand",
 ))
 //IRIS EDIT ADDITION END
