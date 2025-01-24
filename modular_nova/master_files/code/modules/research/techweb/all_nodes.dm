@@ -22,7 +22,7 @@
 	design_ids = list("borg_shapeshifter_module")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_3_POINTS)
 
-/datum/techweb_node/android_chassis
+/datum/techweb_node/android_chassis //IRIS EDIT PRINTABLE SYNTHS
 	id = TECHWEB_NODE_ANDROID_CHASSIS
 	starting_node = TRUE
 	display_name = "Android Technology"
@@ -38,6 +38,7 @@
 		"synth_l_d_leg",
 		"synth_r_d_leg",
 		"synth_construction",
+		"synth_positronic",
 	)
 
 /datum/techweb_node/android_organs
