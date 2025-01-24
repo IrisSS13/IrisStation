@@ -50,6 +50,7 @@
 		"freeform_module",
 		"remove_module",
 		//IRIS EDIT ADDITION BEGIN - CREWSIMOV_PR
+		"crewsimov_module",
 		"sophontsimov_module",
 		"noidimov_module",
 		//IRIS EDIT ADDITION END
