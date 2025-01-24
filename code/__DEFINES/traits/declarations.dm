@@ -58,10 +58,6 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_DEFIB_BLACKLISTED "defib_blacklisted"
 #define TRAIT_BADDNA "baddna"
 #define TRAIT_CLUMSY "clumsy"
-// IRIS EDIT ADDITION BEGIN - HANDEDNESS_QUIRK
-#define TRAIT_HANDEDNESS "handedness"
-#define TRAIT_HANDEDNESS_LEFT "handedness_left"
-// IRIS EDIT ADDITION END
 /// Trait that means you are capable of holding items in some form
 #define TRAIT_CAN_HOLD_ITEMS "can_hold_items"
 /// Trait which lets you clamber over a barrier
