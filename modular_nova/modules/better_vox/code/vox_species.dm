@@ -72,7 +72,7 @@
 /datum/species/vox_primalis/get_species_lore()
 	return list(placeholder_lore)
 
-/datum/species/vox_primalis/on_species_gain(mob/living/carbon/human/transformer)
+/datum/species/vox_primalis/on_species_gain(mob/living/carbon/human/transformer, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
 	var/vox_color = transformer.dna.features["vox_bodycolor"]
 	if(!vox_color || vox_color == "default")

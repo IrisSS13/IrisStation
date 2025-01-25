@@ -305,6 +305,18 @@
 	desc = "Will fix you up from shaking the room."
 	remove_mutations = list(/datum/mutation/human/epilepsy)
 
+//IRIS ADDITION: Ports Farsighted from Orbstation
+
+/obj/item/dnainjector/farsighted
+	name = "\improper DNA injector (Farsighted)"
+	add_mutations = list(/datum/mutation/human/farsighted)
+
+/obj/item/dnainjector/antifarsighted
+	name = "\improper DNA injector (Anti-Farsighted)"
+	remove_mutations = list(/datum/mutation/human/farsighted)
+
+//IRIS ADDITION END
+
 /obj/item/dnainjector/geladikinesis
 	name = "\improper DNA injector (Geladikinesis)"
 	add_mutations = list(/datum/mutation/human/geladikinesis)
