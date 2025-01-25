@@ -6,10 +6,10 @@
 	inhand_icon_state = "softsuit_helm"
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT|HIDEMASK|HIDEEARS|HIDEEYES
 
-	icon = 'modular_iris/provenance_ports/costumes/softsuit/icons/helmet/softsuit_helmet.dmi'
-	worn_icon = 'modular_iris/provenance_ports/costumes/softsuit/icons/helmet/softsuit_helmet_worn.dmi'
-	lefthand_file = 'modular_iris/provenance_ports/costumes/softsuit/icons/helmet/softsuit_helmet_lefthand.dmi'
-	righthand_file = 'modular_iris/provenance_ports/costumes/softsuit/icons/helmet/softsuit_helmet_righthand.dmi'
+	icon = 'modular_iris/modules/provenance_ports/costumes/softsuit/icons/helmet/softsuit_helmet.dmi'
+	worn_icon = 'modular_iris/modules/provenance_ports/costumes/softsuit/icons/helmet/softsuit_helmet_worn.dmi'
+	lefthand_file = 'modular_iris/modules/provenance_ports/costumes/softsuit/icons/helmet/softsuit_helmet_lefthand.dmi'
+	righthand_file = 'modular_iris/modules/provenance_ports/costumes/softsuit/icons/helmet/softsuit_helmet_righthand.dmi'
 
 //suit
 /obj/item/clothing/suit/softsuit
@@ -20,7 +20,7 @@
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS|HANDS|FEET
 	flags_inv = HIDEJUMPSUIT|HIDEGLOVES|HIDESHOES
 
-	icon = 'modular_iris/provenance_ports/costumes/softsuit/icons/suit/softsuit.dmi'
-	worn_icon = 'modular_iris/provenance_ports/costumes/softsuit/icons/suit/softsuit_worn.dmi'
-	lefthand_file = 'modular_iris/provenance_ports/costumes/softsuit/icons/suit/softsuit_lefthand.dmi'
-	righthand_file = 'modular_iris/provenance_ports/costumes/softsuit/icons/suit/softsuit_righthand.dmi'
+	icon = 'modular_iris/modules/provenance_ports/costumes/softsuit/icons/suit/softsuit.dmi'
+	worn_icon = 'modular_iris/modules/provenance_ports/costumes/softsuit/icons/suit/softsuit_worn.dmi'
+	lefthand_file = 'modular_iris/modules/provenance_ports/costumes/softsuit/icons/suit/softsuit_lefthand.dmi'
+	righthand_file = 'modular_iris/modules/provenance_ports/costumes/softsuit/icons/suit/softsuit_righthand.dmi'
