@@ -71,4 +71,7 @@ GLOBAL_LIST_INIT(arcade_prize_pool, list(
 	/obj/item/clothing/glasses/trickblindfold = 2,
 	/obj/item/clothing/mask/party_horn = 2,
 	/obj/item/storage/box/party_poppers = 2,
+	//IRIS EDIT ADDITION BEGIN - PROVENANCE_COSTUMES
+	/obj/item/storage/box/softsuit = 2,
+	//IRIS EDIT ADDITION END
 ))
