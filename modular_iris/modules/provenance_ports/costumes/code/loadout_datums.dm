@@ -1,10 +1,10 @@
 //masks
 
-/datum/loadout_item/face/orderly_mask
+/datum/loadout_item/mask/orderly_mask
 	name = "Orderly Mask"
 	item_path = /obj/item/clothing/mask/patho/orderly
 
-/datum/loadout_item/face/tragedian_mask
+/datum/loadout_item/mask/tragedian_mask
 	name = "Tragedian Mask"
 	item_path = /obj/item/clothing/mask/patho/tragedian
 
@@ -42,14 +42,14 @@
 
 //shoes
 
-/datum/loadout_item/feet/thanotologist_boots
+/datum/loadout_item/shoes/thanotologist_boots
 	name = "Thanatologist's Boots"
 	item_path = /obj/item/clothing/shoes/patho/thanatologist
 
-/datum/loadout_item/feet/physician_boots
+/datum/loadout_item/shoes/physician_boots
 	name = "Physician's Boots"
 	item_path = /obj/item/clothing/shoes/patho/physician
 
-/datum/loadout_item/feet/miraculist_boots
+/datum/loadout_item/shoes/miraculist_boots
 	name = "Miraculist's Boots"
 	item_path = /obj/item/clothing/shoes/patho/miraculist
