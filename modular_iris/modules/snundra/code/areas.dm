@@ -4,7 +4,7 @@
 	icon_state = "explored"
 	base_lighting_alpha = 100
 	base_lighting_color = "#F877C0"
-	has_gravity = STANDARD_GRAVITY
+	default_gravity = STANDARD_GRAVITY
 	flags_1 = NONE
 	area_flags = UNIQUE_AREA | FLORA_ALLOWED
 	ambience_index = AMBIENCE_ICEMOON
