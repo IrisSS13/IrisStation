@@ -14,6 +14,14 @@
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 
 //suits
+/obj/item/clothing/suit/tragedian
+	name = "tragedian's suit"
+	desc = "A form fitting black suit used by certain actors in tragic plays."
+	icon_state = "tragedian_suit"
+	inhand_icon_state = "tragedian_suit"
+	body_parts_covered = CHEST|GROIN|LEGS|ARMS
+	flags_inv = HIDEJUMPSUIT
+
 /obj/item/clothing/suit/orderly
 	name = "orderly's costume"
 	desc = "A heavy cloak used in plays, often repurposed to help protect against disease."
@@ -22,14 +30,6 @@
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	flags_inv = HIDEJUMPSUIT
 	alternate_worn_layer = ABOVE_BODY_FRONT_LAYER
-
-/obj/item/clothing/suit/tragedian
-	name = "tragedian's suit"
-	desc = "A form fitting black suit used by certain actors in tragic plays."
-	icon_state = "tragedian_suit"
-	inhand_icon_state = "tragedian_suit"
-	body_parts_covered = CHEST|GROIN|LEGS|ARMS
-	flags_inv = HIDEJUMPSUIT
 
 /obj/item/clothing/suit/thanatologist
 	name = "thanatologist's coat"
