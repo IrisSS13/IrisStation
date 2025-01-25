@@ -4,7 +4,7 @@
 	desc = "A replica of the helmet from a deprecated, self-pressurizing flightsuit."
 	icon_state = "softsuit_helm"
 	inhand_icon_state = "softsuit_helm"
-	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
+	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT|HIDEMASK|HIDEEARS|HIDEEYES
 
 	icon = 'modular_iris/provenance_ports/costumes/softsuit/icons/helmet/softsuit_helmet.dmi'
 	worn_icon = 'modular_iris/provenance_ports/costumes/softsuit/icons/helmet/softsuit_helmet_worn.dmi'
@@ -18,7 +18,7 @@
 	icon_state = "softsuit"
 	inhand_icon_state = "softsuit"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS|HANDS|FEET
-	flags_inv = HIDEJUMPSUIT
+	flags_inv = HIDEJUMPSUIT|HIDEGLOVES|HIDESHOES
 
 	icon = 'modular_iris/provenance_ports/costumes/softsuit/icons/suit/softsuit.dmi'
 	worn_icon = 'modular_iris/provenance_ports/costumes/softsuit/icons/suit/softsuit_worn.dmi'
