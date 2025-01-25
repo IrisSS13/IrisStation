@@ -1,4 +1,12 @@
 //masks
+
+//parent type
+/obj/item/clothing/mask/patho
+	icon = 'modular_iris/provenance_ports/costumes/patho/icons/masks/patho_masks.dmi'
+	worn_icon = 'modular_iris/provenance_ports/costumes/patho/icons/masks/patho_masks_worn.dmi'
+	lefthand_file = 'modular_iris/provenance_ports/costumes/patho/icons/masks/patho_masks_lefthand.dmi'
+	righthand_file = 'modular_iris/provenance_ports/costumes/patho/icons/masks/patho_masks_righthand.dmi'
+
 /obj/item/clothing/mask/tragedian
 	name = "tragedian mask"
 	desc = "A simple white mask often used in tragic plays."
@@ -14,6 +22,14 @@
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 
 //suits
+
+//parent type
+/obj/item/clothing/suit/patho
+	icon = 'modular_iris/provenance_ports/costumes/patho/icons/suits/patho_suits.dmi'
+	worn_icon = 'modular_iris/provenance_ports/costumes/patho/icons/suits/patho_suits_worn.dmi'
+	lefthand_file = 'modular_iris/provenance_ports/costumes/patho/icons/suits/patho_suits_lefthand.dmi'
+	righthand_file = 'modular_iris/provenance_ports/costumes/patho/icons/suits/patho_suits_righthand.dmi'
+
 /obj/item/clothing/suit/tragedian
 	name = "tragedian's suit"
 	desc = "A form fitting black suit used by certain actors in tragic plays."
@@ -53,6 +69,14 @@
 	body_parts_covered = ARMS
 
 //shoes
+
+//parent type
+/obj/item/clothing/shoes/patho
+	icon = 'modular_iris/provenance_ports/costumes/patho/icons/shoes/patho_shoes.dmi'
+	worn_icon = 'modular_iris/provenance_ports/costumes/patho/icons/shoes/patho_shoes_worn.dmi'
+	lefthand_file = 'modular_iris/provenance_ports/costumes/patho/icons/shoes/patho_shoes_lefthand.dmi'
+	righthand_file = 'modular_iris/provenance_ports/costumes/patho/icons/shoes/patho_shoes_righthand.dmi'
+
 /obj/item/clothing/shoes/thanatologist
 	name = "thanatologist's boots"
 	desc = "Heavy black boots for walking through diseased terrain unharmed."
