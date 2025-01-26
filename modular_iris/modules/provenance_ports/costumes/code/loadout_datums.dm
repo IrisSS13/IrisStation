@@ -1,11 +1,11 @@
 //masks
 
 /datum/loadout_item/mask/orderly_mask
-	name = "Orderly Mask"
+	name = "Orderly's Mask"
 	item_path = /obj/item/clothing/mask/patho/orderly
 
 /datum/loadout_item/mask/tragedian_mask
-	name = "Tragedian Mask"
+	name = "Tragedian's Mask"
 	item_path = /obj/item/clothing/mask/patho/tragedian
 
 //headwear

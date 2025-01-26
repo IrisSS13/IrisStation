@@ -8,14 +8,14 @@
 	righthand_file = 'modular_iris/modules/provenance_ports/costumes/patho/icons/masks/patho_masks_righthand.dmi'
 
 /obj/item/clothing/mask/patho/tragedian
-	name = "tragedian mask"
+	name = "tragedian's mask"
 	desc = "A simple white mask often used in tragic plays."
 	icon_state = "tragedian_mask"
 	inhand_icon_state = "tragedian_mask"
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 
 /obj/item/clothing/mask/patho/orderly
-	name = "orderly mask"
+	name = "orderly's mask"
 	desc = "Birdies, birdies... gather ye here 'round the marble nest."
 	icon_state = "orderly_mask"
 	inhand_icon_state = "orderly_mask"
