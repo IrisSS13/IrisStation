@@ -42,7 +42,7 @@
 
 //shoes
 
-/datum/loadout_item/shoes/thanotologist_boots
+/datum/loadout_item/shoes/thanatologist_boots
 	name = "Thanatologist's Boots"
 	item_path = /obj/item/clothing/shoes/patho/thanatologist
 
