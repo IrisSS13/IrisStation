@@ -12,14 +12,14 @@
 	desc = "A simple white mask often used in tragic plays."
 	icon_state = "tragedian_mask"
 	inhand_icon_state = "tragedian_mask"
-	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
+	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT|HIDEEARS
 
 /obj/item/clothing/mask/patho/orderly
 	name = "orderly's mask"
 	desc = "Birdies, birdies... gather ye here 'round the marble nest."
 	icon_state = "orderly_mask"
 	inhand_icon_state = "orderly_mask"
-	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
+	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT|HIDEEARS
 
 //suits
 
