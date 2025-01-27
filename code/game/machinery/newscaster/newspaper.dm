@@ -1,3 +1,4 @@
+//IRIS EDIT SPRITES OVERRIDEN IN PARADISE_PORTS
 /**
  * Newspapers
  * A static version of the newscaster, that won't update as new stories are added.
