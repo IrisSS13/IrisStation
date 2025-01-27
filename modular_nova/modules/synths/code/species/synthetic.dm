@@ -55,8 +55,11 @@
 	/// Set to TRUE if the species was emagged before
 	var/emag_effect = FALSE
 
+//IRIS REMOVAL
+/*
 /datum/species/synthetic/allows_food_preferences()
 	return FALSE
+*/
 
 /datum/species/synthetic/get_default_mutant_bodyparts()
 	return list(
