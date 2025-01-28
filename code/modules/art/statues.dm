@@ -20,13 +20,16 @@
 	var/art_type = /datum/element/art
 	/// Abstract root type
 	var/abstract_type = /obj/structure/statue
+	/// IRIS ADDITION: Controls whether or not we want to be able to speak through the statue
+	var/should_marionette = TRUE
 
 /obj/structure/statue/Initialize(mapload)
 	. = ..()
 	AddElement(art_type, impressiveness)
 	AddElement(/datum/element/beauty, impressiveness * 75)
 	AddComponent(/datum/component/simple_rotation)
-	AddComponent(/datum/component/marionette)
+	if(should_marionette)
+		AddComponent(/datum/component/marionette)
 
 /obj/structure/statue/wrench_act(mob/living/user, obj/item/tool)
 	. = ..()
@@ -265,6 +268,7 @@
 	icon = 'icons/obj/art/statue.dmi'
 	icon_state = "chisel"
 	inhand_icon_state = "screwdriver_nuke"
+	icon_angle = -90
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	obj_flags = CONDUCTS_ELECTRICITY
@@ -608,3 +612,7 @@ Moving interrupts
 		. += content_ma
 
 #undef SCULPT_SOUND_INCREMENT
+
+//IRIS ADDITION: Structure base for silverscale tongue
+/obj/structure/statue/custom/silverscale
+	should_marionette = FALSE

@@ -1,6 +1,6 @@
 #define PAPERS_PER_OVERLAY 8
 #define PAPER_OVERLAY_PIXEL_SHIFT 2
-/obj/item/paper_bin
+/obj/item/paper_bin //IRIS EDIT SPRITES OVERRIDEN IN PARADISE_PORTS
 	name = "paper bin"
 	desc = "Contains all the paper you'll never need."
 	icon = 'icons/obj/service/bureaucracy.dmi'

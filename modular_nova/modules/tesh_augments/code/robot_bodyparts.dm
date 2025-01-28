@@ -97,7 +97,8 @@
 	brute_modifier = 1
 	burn_modifier = 0.9
 
-	head_flags = HEAD_EYESPRITES
+	head_flags = HEAD_EYESPRITES|HEAD_EYECOLOR // IRIS EDIT: added HEAD_EYECOLOR
+	eyes_icon = 'modular_nova/modules/organs/icons/teshari_eyes.dmi' // IRIS EDIT: no more floating human eyes
 
 // teshari_ surplus
 

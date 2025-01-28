@@ -156,6 +156,7 @@
 		"manulathe",
 		"manusorter",
 		"manurouter",
+		"mailsorter",
 	)
 
 /datum/techweb_node/energy_manipulation

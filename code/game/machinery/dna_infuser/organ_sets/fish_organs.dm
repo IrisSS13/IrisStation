@@ -228,14 +228,14 @@
 		source.add_traits(list(TRAIT_OFF_BALANCE_TACKLER, TRAIT_NO_STAGGER, TRAIT_NO_THROW_HITPUSH), type)
 
 /datum/bodypart_overlay/mutant/tail/fish
-	feature_key = "fish_tail"
+	feature_key = "tail" // IRIS EDIT: changed feature key to be consistent with other selectable tails
 	color_source = ORGAN_COLOR_OVERRIDE
 
 /datum/bodypart_overlay/mutant/tail/fish/on_mob_insert(obj/item/organ/parent, mob/living/carbon/receiver)
 	//Initialize the related dna feature block if we don't have any so it doesn't error out.
 	//This isn't tied to any species, but I kinda want it to be mutable instead of having a fixed sprite accessory.
-	if(imprint_on_next_insertion && !receiver.dna.features["fish_tail"])
-		receiver.dna.features["fish_tail"] = pick(SSaccessories.tails_list_fish)
+	if(imprint_on_next_insertion && !receiver.dna.features["tail"])
+		receiver.dna.features["tail"] = pick(SSaccessories.tails_list_fish)
 		receiver.dna.update_uf_block(DNA_FISH_TAIL_BLOCK)
 
 	return ..()
@@ -248,7 +248,7 @@
 		return pick("#B4B8DD", "#85C7D0", "#67BBEE", "#2F4450", "#55CCBB", "#999FD0", "#345066", "#585B69", "#7381A0", "#B6DDE5", "#4E4E50")
 
 /datum/bodypart_overlay/mutant/tail/fish/get_global_feature_list()
-	return SSaccessories.tails_list_fish
+	return SSaccessories.sprite_accessories["tail"] // IRIS EDIT: changed feature key to be consistent with other selectable tails
 
 
 ///Lungs that replace the need of oxygen with water vapor or being wet

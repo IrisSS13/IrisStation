@@ -1747,35 +1747,6 @@
 	/// Describes which tail spine sprites to use, if any.
 	var/spine_key = NONE
 
-///Used for fish-infused tails, which come in different flavors.
-/datum/sprite_accessory/tails/fish
-	icon = 'icons/mob/human/fish_features.dmi'
-	color_src = TRUE
-
-/datum/sprite_accessory/tails/fish/simple
-	name = "Simple"
-	icon_state = "simple"
-
-/datum/sprite_accessory/tails/fish/crescent
-	name = "Crescent"
-	icon_state = "crescent"
-
-/datum/sprite_accessory/tails/fish/long
-	name = "Long"
-	icon_state = "long"
-	center = TRUE
-	dimension_x = 38
-
-/datum/sprite_accessory/tails/fish/shark
-	name = "Shark"
-	icon_state = "shark"
-
-/datum/sprite_accessory/tails/fish/chonky
-	name = "Chonky"
-	icon_state = "chonky"
-	center = TRUE
-	dimension_x = 36
-
 /datum/sprite_accessory/tails/lizard
 	icon = 'icons/mob/human/species/lizard/lizard_tails.dmi'
 	spine_key = SPINE_KEY_LIZARD
@@ -1811,6 +1782,35 @@
 	icon = 'icons/mob/human/cat_features.dmi'
 	icon_state = "default"
 	color_src = HAIR_COLOR
+
+///Used for fish-infused tails, which come in different flavors.
+/datum/sprite_accessory/tails/fish
+	icon = 'icons/mob/human/fish_features.dmi'
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/tails/fish/chonky
+	name = "Chonky Fish"
+	icon_state = "chonky"
+	center = TRUE
+	dimension_x = 36
+
+/datum/sprite_accessory/tails/fish/crescent
+	name = "Crescent Fish"
+	icon_state = "crescent"
+
+/datum/sprite_accessory/tails/fish/long
+	name = "Long Fish"
+	icon_state = "long"
+	center = TRUE
+	dimension_x = 38
+/datum/sprite_accessory/tails/fish/simple
+	name = "Simple Fish"
+	icon_state = "simple"
+
+/datum/sprite_accessory/tails/fish/shark
+	name = "Shark Alt" // IRIS EDIT: Allows this to co-exist with the Akula shark tail
+	icon_state = "shark"
+
 
 /datum/sprite_accessory/tails/monkey
 

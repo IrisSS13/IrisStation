@@ -56,10 +56,7 @@
 
 	return TRUE
 
-/datum/sprite_accessory/wings/none
-	name = SPRITE_ACCESSORY_NONE
-	icon_state = "none"
-	factual = FALSE
+// moved /datum/sprite_accessory/wings/none to modular_iris/.../sprite_accessories to keep "none" at the top of our wing selection list
 
 /*
 *	FLIGHT POTION WINGS

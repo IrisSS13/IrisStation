@@ -8,7 +8,9 @@
  */
 /obj/item/inspector
 	name = "\improper N-spect scanner"
-	desc = "Central Command standard issue inspection device. Can perform either wide area scans that central command can use to verify the security of the station, or detailed scan. Can scan people for contraband on their person or items being contraband."
+	desc = "Central Command standard issue inspection device. \
+	Performs wide area scan reports for inspectors to use to verify the security and integrity of the station. \
+	Can additionally be used for precision scans to determine if an item contains, or is itself, contraband."
 	icon = 'icons/obj/devices/scanner.dmi'
 	icon_state = "inspector"
 	worn_icon_state = "salestagger"
@@ -88,14 +90,16 @@
 
 /obj/item/inspector/examine(mob/user)
 	. = ..()
+	. += span_info("Use in-hand to scan the local area, creating an encrypted security inspection.")
+	. += span_info("Use on an item to scan if it contains, or is, contraband.")
 	if(!cell_cover_open)
-		. += "Its cell cover is closed. It looks like it could be <strong>pried</strong> out, but doing so would require an appropriate tool."
+		. += span_notice("Its cell cover is closed. It looks like it could be <strong>pried</strong> out, but doing so would require an appropriate tool.")
 		return
-	. += "Its cell cover is open, exposing the cell slot. It looks like it could be <strong>pried</strong> in, but doing so would require an appropriate tool."
+	. += span_notice("Its cell cover is open, exposing the cell slot. It looks like it could be <strong>pried</strong> in, but doing so would require an appropriate tool.")
 	if(!cell)
-		. += "The slot for a cell is empty."
+		. += span_notice("The slot for a cell is empty.")
 	else
-		. += "\The [cell] is firmly in place. [span_info("Ctrl-click with an empty hand to remove it.")]"
+		. += span_notice("\The [cell] is firmly in place. Ctrl-click with an empty hand to remove it.")
 
 /obj/item/inspector/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!user.Adjacent(interacting_with))
@@ -209,7 +213,7 @@
 /obj/item/paper/report
 	name = "encrypted station inspection"
 	desc = "Contains no information about the station's current status."
-	icon = 'icons/obj/service/bureaucracy.dmi'
+	icon = 'modular_iris/paradise_ports/icons/obj/bureaucracy.dmi' //IRIS EDIT
 	icon_state = "slip"
 	///What area the inspector scanned when the report was made. Used to verify the security bounty.
 	var/area/scanned_area
@@ -217,7 +221,7 @@
 
 /obj/item/paper/report/proc/generate_report(area/scan_area)
 	scanned_area = scan_area
-	icon_state = "slipfull"
+	icon_state = "slip_taped" //IRIS EDIT
 	desc = "Contains detailed information about the station's current status."
 
 	var/list/characters = list()
@@ -238,7 +242,7 @@
 	else if(scanned_area)
 		. += span_notice("\The [src] contains data on a vague area on station, you should throw it away.")
 	else if(get_total_length())
-		icon_state = "slipfull"
+		icon_state = "slip_taped" //IRIS EDIT
 		. += span_notice("Wait a minute, this isn't an encrypted inspection report! You should throw it away.")
 	else
 		. += span_notice("Wait a minute, this thing's blank! You should throw it away.")
@@ -416,7 +420,7 @@
 
 /obj/item/paper/fake_report/proc/generate_report(area/scan_area)
 	scanned_area = scan_area
-	icon_state = "slipfull"
+	icon_state = "slip_taped" //IRIS EDIT
 
 	var/list/new_info = list()
 	for(var/i in 1 to rand(23, 123))

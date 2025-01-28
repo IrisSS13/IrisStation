@@ -1,9 +1,11 @@
+//IRIS EDIT SPRITES OVERRIDEN IN PARADISE_PORTS
 /obj/item/banner
 	name = "banner"
 	desc = "A banner with Nanotrasen's logo on it."
 	icon = 'icons/obj/banner.dmi'
 	icon_state = "banner"
 	inhand_icon_state = "banner"
+	inhand_icon_state = "ntflag" //IRIS EDIT
 	force = 8
 	attack_verb_continuous = list("forcefully inspires", "violently encourages", "relentlessly galvanizes")
 	attack_verb_simple = list("forcefully inspire", "violently encourage", "relentlessly galvanize")
@@ -249,6 +251,11 @@
 
 /obj/item/banner/blue
 	name = "blue banner"
+	//IRIS EDIT START
+	icon = 'icons/obj/banner.dmi'
+	lefthand_file = 'icons/mob/inhands/equipment/banners_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/banners_righthand.dmi'
+	//IRIS EDIT END
 	icon_state = "banner-blue"
 	inhand_icon_state = "banner-blue"
 	desc = "A banner with the logo of the blue deity."
@@ -337,6 +344,7 @@
 	desc = "It's a stick..?"
 	icon = 'icons/obj/weapons/staff.dmi'
 	icon_state = "godstaff-red"
+	icon_angle = -45
 	lefthand_file = 'icons/mob/inhands/weapons/staves_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/staves_righthand.dmi'
 	var/conversion_color = "#ffffff"
@@ -427,8 +435,14 @@
 	force = 24
 	armour_penetration = 10
 
+/obj/item/claymore/weak/make_stabby()
+	AddComponent(/datum/component/alternative_sharpness, SHARP_POINTY, alt_continuous, alt_simple, -9)
+
 /obj/item/claymore/weak/ceremonial
 	desc = "A rusted claymore, once at the heart of a powerful scottish clan struck down and oppressed by tyrants, it has been passed down the ages as a symbol of defiance."
 	force = 15
 	block_chance = 30
 	armour_penetration = 5
+
+/obj/item/claymore/weak/ceremonial/make_stabby()
+	AddComponent(/datum/component/alternative_sharpness, SHARP_POINTY, alt_continuous, alt_simple, -5)

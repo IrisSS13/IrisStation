@@ -45,7 +45,7 @@
 /obj/item/organ/tongue/corrupt/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/corrupted_organ)
-	AddElement(/datum/element/noticable_organ, "The inside of %PRONOUN_Their mouth is full of stars.", BODY_ZONE_PRECISE_MOUTH)
+	AddElement(/datum/element/noticable_organ, "The inside of %PRONOUN_their mouth is full of stars.", BODY_ZONE_PRECISE_MOUTH)
 
 /obj/item/organ/tongue/corrupt/on_mob_insert(mob/living/carbon/organ_owner, special, movement_flags)
 	. = ..()
@@ -71,13 +71,13 @@
 	/// How much extra ingredients to add?
 	var/amount_added = 5
 	/// What extra ingredients can we add?
+	/// IRIS EDIT: Removes /datum/reagent/drug/bath_salts because that one was a little excessive
 	var/list/extra_ingredients = list(
 		/datum/reagent/consumable/ethanol/pina_olivada,
 		/datum/reagent/consumable/ethanol/rum,
 		/datum/reagent/consumable/ethanol/thirteenloko,
 		/datum/reagent/consumable/ethanol/vodka,
 		/datum/reagent/consumable/superlaughter,
-		/datum/reagent/drug/bath_salts,
 		/datum/reagent/drug/blastoff,
 		/datum/reagent/drug/happiness,
 		/datum/reagent/drug/mushroomhallucinogen,
@@ -98,12 +98,12 @@
 /// If we drank something, add a little extra
 /obj/item/organ/liver/corrupt/proc/on_drank(atom/source, list/reagents, datum/reagents/source_reagents, methods)
 	SIGNAL_HANDLER
-	if (!(methods & INGEST))
+	if (!(methods & INGEST) || prob(60)) // IRIS EDIT: Adds an additional probability check to make spiking your drink less likely
 		return
 	var/datum/reagents/extra_reagents = new()
 	extra_reagents.add_reagent(pick(extra_ingredients), amount_added)
 	extra_reagents.trans_to(source, amount_added, transferred_by = src, methods = INJECT)
-	if (prob(20))
+	if (prob(90)) // IRIS EDIT: Changes prob check to consistently give feedback on when your drink was spiked. Most of the time ;)
 		to_chat(source, span_warning("As you take a sip, you feel something bubbling in your stomach..."))
 
 
@@ -146,7 +146,7 @@
 		to_chat(source, span_cult_italic("The thirst is satisfied... for now."))
 	thirst_satiated = TRUE
 	deltimer(thirst_timer)
-	thirst_timer = addtimer(VARSET_CALLBACK(src, thirst_satiated, FALSE), 3 MINUTES, TIMER_STOPPABLE | TIMER_DELETE_ME)
+	thirst_timer = addtimer(VARSET_CALLBACK(src, thirst_satiated, FALSE), 6 MINUTES, TIMER_STOPPABLE | TIMER_DELETE_ME) // IRIS EDIT: Blood satiates for longer
 
 /obj/item/organ/stomach/corrupt/handle_hunger(mob/living/carbon/human/human, seconds_per_tick, times_fired)
 	if (thirst_satiated || human.has_reagent(/datum/reagent/water/holywater))
@@ -156,7 +156,7 @@
 
 	if (!COOLDOWN_FINISHED(src, message_cooldown))
 		return ..()
-	COOLDOWN_START(src, message_cooldown, 30 SECONDS)
+	COOLDOWN_START(src, message_cooldown, 90 SECONDS)
 
 	var/static/list/blood_messages = list(
 		"Blood...",
@@ -187,11 +187,10 @@
 
 /obj/item/organ/heart/corrupt/on_life(seconds_per_tick, times_fired)
 	. = ..()
-	if (!COOLDOWN_FINISHED(src, hand_cooldown) || IS_IN_MANSUS(owner) || !owner.needs_heart() || !is_beating() || owner.has_reagent(/datum/reagent/water/holywater))
+	if (!COOLDOWN_FINISHED(src, hand_cooldown) || IS_IN_MANSUS(owner) || !owner.needs_heart() || !is_beating() || owner.has_reagent(/datum/reagent/water/holywater) || owner.ssd_indicator) // IRIS EDIT: Added a check to make certain you don't get killed when AFK
 		return
 	fire_curse_hand(owner)
-	COOLDOWN_START(src, hand_cooldown, rand(6 SECONDS, 45 SECONDS)) // Wide variance to put you off guard
-
+	COOLDOWN_START(src, hand_cooldown, rand(6 SECONDS, 5 MINUTES)) // Wide variance to put you off guard -- IRIS EDIT: Makes it a Wider variance, so it's at least a little more playable.
 
 /// Sometimes cough out some kind of dangerous gas
 /obj/item/organ/lungs/corrupt
