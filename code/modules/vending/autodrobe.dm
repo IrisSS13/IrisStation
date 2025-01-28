@@ -48,18 +48,6 @@ GLOBAL_LIST_INIT(autodrobe_costumes_items, list(
 	/obj/item/clothing/under/costume/gi = 4,
 	/obj/item/clothing/head/soft/propeller_hat = 3,
 	/obj/item/clothing/neck/bowtie/rainbow = 3,
-	//IRIS EDIT ADDITION BEGIN - PROVENANCE_COSTUMES
-	/obj/item/clothing/suit/patho/thanatologist = 1,
-	/obj/item/clothing/shoes/patho/thanatologist = 1,
-	/obj/item/clothing/suit/patho/physician = 1,
-	/obj/item/clothing/shoes/patho/physician = 1,
-	/obj/item/clothing/suit/patho/miraculist = 1,
-	/obj/item/clothing/shoes/patho/miraculist = 1,
-	/obj/item/clothing/mask/patho/orderly = 2,
-	/obj/item/clothing/suit/patho/orderly = 2,
-	/obj/item/clothing/mask/patho/tragedian = 2,
-	/obj/item/clothing/suit/patho/tragedian = 2,
-	//IRIS EDIT ADDITION END
 ))
 
 GLOBAL_LIST_INIT(autodrobe_supernatural_items, list(
