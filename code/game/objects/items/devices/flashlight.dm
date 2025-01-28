@@ -244,8 +244,8 @@
 	if(user.combat_mode || (user.zone_selected != BODY_ZONE_PRECISE_EYES && user.zone_selected != BODY_ZONE_PRECISE_MOUTH))
 		return NONE
 	//IRIS EDIT CHANGE BEGIN - HANDEDNESS_QUIRK
-	if((HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && istype(user.get_active_hand(), /obj/item/bodypart/arm/left)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && istype(user.get_active_hand(), /obj/item/bodypart/arm/right)) \
-		|| HAS_TRAIT(user, TRAIT_DUMB)) && prob(50)) //too dumb to use flashlight properly
+	var/hand_index = user.active_hand_index
+	if(prob(50) && (HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && IS_LEFT_INDEX(hand_index)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && IS_RIGHT_INDEX(hand_index)) || HAS_TRAIT(user, TRAIT_DUMB))) //too dumb to use flashlight properly
 	//IRIS EDIT CHANGE END
 		return ITEM_INTERACT_SKIP_TO_ATTACK //just hit them in the head
 

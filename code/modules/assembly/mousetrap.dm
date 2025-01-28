@@ -86,8 +86,8 @@
 			if(ishuman(usr))
 				var/mob/living/carbon/human/user = usr
 				//IRIS EDIT CHANGE BEGIN - HANDEDNESS_QUIRK
-				if(HAS_TRAIT(user, TRAIT_DUMB) || HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && istype(user.get_active_hand(), /obj/item/bodypart/arm/left)) \
-					|| (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && istype(user.get_active_hand(), /obj/item/bodypart/arm/right)))
+				var/hand_index = user.active_hand_index
+				if(HAS_TRAIT(user, TRAIT_DUMB) || HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && IS_LEFT_INDEX(hand_index)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && IS_RIGHT_INDEX(hand_index)))
 					if(prob(50))
 						to_chat(user, span_warning("Your hand slips, setting off the trigger!"))
 						pulse()
@@ -159,8 +159,8 @@
 	if(!armed || !user)
 		return FALSE
 	//IRIS EDIT CHANGE BEGIN - HANDEDNESS_QUIRK
-	if(HAS_TRAIT(user, TRAIT_DUMB) || HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && istype(user.get_active_hand(), /obj/item/bodypart/arm/left)) \
-		|| (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && istype(user.get_active_hand(), /obj/item/bodypart/arm/right)))
+	var/hand_index = user.active_hand_index
+	if(HAS_TRAIT(user, TRAIT_DUMB) || HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && IS_LEFT_INDEX(hand_index)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && IS_RIGHT_INDEX(hand_index)))
 		if(prob(50))
 			var/which_hand = BODY_ZONE_PRECISE_L_HAND
 			if(IS_RIGHT_INDEX(user.active_hand_index))

@@ -69,8 +69,8 @@
 
 	// Clumsiness/brain damage check
 	//IRIS EDIT CHANGE BEGIN - HANDEDNESS_QUIRK
-	if ((HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && istype(user.get_active_hand(), /obj/item/bodypart/arm/left)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && istype(user.get_active_hand(), /obj/item/bodypart/arm/right)) \
-		 || HAS_TRAIT(user, TRAIT_DUMB)) && prob(50))
+	var/hand_index = user.active_hand_index
+	if (prob(50) && (HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && IS_LEFT_INDEX(hand_index)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && IS_RIGHT_INDEX(hand_index)) || HAS_TRAIT(user, TRAIT_DUMB)))
 	//IRIS EDIT CHANGE END
 		var/turf/scan_turf = get_turf(user)
 		user.visible_message(

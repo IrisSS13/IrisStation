@@ -190,8 +190,8 @@
 		to_chat(user, span_warning("\The [src] lets out a weak hiss and doesn't react!"))
 		return
 	//IRIS EDIT CHANGE BEGIN - HANDEDNESS_QUIRK
-	if((HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && istype(user.get_active_hand(), /obj/item/bodypart/arm/left)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && istype(user.get_active_hand(), /obj/item/bodypart/arm/right))) \
-				 && prob(75) && clumsyCheck && iscarbon(user))
+	var/hand_index = user.active_hand_index
+	if(clumsyCheck && iscarbon(user) && prob(75) && (HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && IS_LEFT_INDEX(hand_index)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && IS_RIGHT_INDEX(hand_index))))
 	//IRIS EDIT CHANGE END
 		var/mob/living/carbon/C = user
 		C.visible_message(span_warning("[C] loses [C.p_their()] grip on [src], causing it to go off!"), span_userdanger("[src] slips out of your hands and goes off!"))

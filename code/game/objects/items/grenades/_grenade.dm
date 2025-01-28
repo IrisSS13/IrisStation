@@ -106,7 +106,8 @@
 		ADD_TRAIT(src, TRAIT_NODROP, STICKY_NODROP)
 
 	//IRIS EDIT CHANGE BEGIN - HANDEDNESS_QUIRK
-	var/clumsy = (HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && istype(user.get_active_hand(), /obj/item/bodypart/arm/left)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && istype(user.get_active_hand(), /obj/item/bodypart/arm/right)))
+	var/hand_index = user.active_hand_index
+	var/clumsy = (HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && IS_LEFT_INDEX(hand_index)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && IS_RIGHT_INDEX(hand_index)))
 	//IRIS EDIT CHANGE END
 	if(clumsy && (clumsy_check == GRENADE_CLUMSY_FUMBLE) && prob(50))
 		to_chat(user, span_warning("Huh? How does this thing work?"))
