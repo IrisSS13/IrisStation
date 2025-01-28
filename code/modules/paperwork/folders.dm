@@ -1,4 +1,4 @@
-/obj/item/folder
+/obj/item/folder //IRIS EDIT SPRITES OVERRIDEN IN PARADISE_PORTS
 	name = "folder"
 	desc = "A folder."
 	icon = 'icons/obj/service/bureaucracy.dmi'

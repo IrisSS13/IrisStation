@@ -36,7 +36,7 @@
 	mail_goodies = list(
 		/obj/item/coffee_cartridge = 20,
 		/obj/item/reagent_containers/cup = 10,
-		/obj/item/stock_parts/subspace = 8,
+		/obj/item/stock_parts/subspace/ansible = 8,
 		/obj/item/banhammer = 8,
 		/obj/item/computer_disk/maintenance = 1,
 	)

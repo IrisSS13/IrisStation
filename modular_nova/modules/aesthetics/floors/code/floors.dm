@@ -4,6 +4,7 @@
 /turf/open/floor/catwalk_floor
 	icon = 'modular_nova/modules/aesthetics/floors/icons/catwalk_plating.dmi'
 
+//IRIS EDIT: REMOVED GRIMY FLOOR
 //Removes redundant textured stuff from this radial, as all of ours are textured by default
 /obj/item/stack/tile/iron
 	tile_reskin_types = list(
@@ -55,7 +56,6 @@
 		/obj/item/stack/tile/iron/showroomfloor,
 		/obj/item/stack/tile/iron/solarpanel,
 		/obj/item/stack/tile/iron/freezer,
-		/obj/item/stack/tile/iron/grimy,
 		/obj/item/stack/tile/iron/sepia,
 	)
 

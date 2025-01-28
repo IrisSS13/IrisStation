@@ -186,7 +186,7 @@
 		user.putItemFromInventoryInHandIfPossible(src, target_hand.held_index)
 	add_fingerprint(user)
 
-/obj/item/paper/paperslip
+/obj/item/paper/paperslip //IRIS EDIT SPRITES OVERRIDEN IN PARADISE_PORTS
 	name = "paper slip"
 	desc = "A little slip of paper left over after a larger piece was cut. Whoa."
 	icon_state = "paperslip"

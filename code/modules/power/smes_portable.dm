@@ -3,6 +3,7 @@
 /obj/machinery/power/smes/connector
 	name = "power connector"
 	desc = "A user-safe high-current contact port, used for connecting and interfacing with portable power storage units. Practically useless without one."
+	icon = 'icons/obj/machines/engine/other.dmi'
 	icon_state = "battery_port"
 	circuit = /obj/item/circuitboard/machine/smes/connector
 	density = FALSE
