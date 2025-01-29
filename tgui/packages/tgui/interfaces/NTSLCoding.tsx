@@ -1,4 +1,3 @@
-import { BooleanLike } from 'common/react';
 import {
   Box,
   Button,
@@ -9,6 +8,7 @@ import {
   Tabs,
   TextArea,
 } from 'tgui-core/components';
+import { BooleanLike } from 'tgui-core/react';
 
 import { useBackend, useLocalState } from '../backend';
 import { RADIO_CHANNELS } from '../constants';
