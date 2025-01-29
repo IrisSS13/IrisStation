@@ -105,6 +105,7 @@
 		ACCESS_NETWORK, //Sysadmin gets network access, of course
 		ACCESS_RC_ANNOUNCE, //to use the requests console announcement found in telecomms
 		ACCESS_TCOMMS,
+		ACCESS_TCOMMS_ADMIN, // IRIS EDIT -- NTSL --
 		ACCESS_TECH_STORAGE,
 		)
 	extra_access = list(
