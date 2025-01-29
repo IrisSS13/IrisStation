@@ -3,6 +3,7 @@ Because mapping is already tedious enough this spawner let you spawn generic
 "sets" of objects rather than having to make the same object stack again and
 again.
 */
+//IRIS EDIT SPRITES OVERRIDEN IN MODULAR_PARADISE
 
 /obj/effect/spawner/structure
 	name = "map structure spawner"

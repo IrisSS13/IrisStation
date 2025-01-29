@@ -10,14 +10,14 @@
  * so we do loose a bit of functionality but we gain in easy of use of
  * paper and getting rid of that crashing bug
  */
-/obj/item/paper
+/obj/item/paper //IRIS EDIT SPRITES OVERRIDEN IN PARADISE_PORTS
 	name = "paper"
 	gender = NEUTER
 	icon = 'icons/obj/service/bureaucracy.dmi'
 	icon_state = "paper"
 	inhand_icon_state = "paper"
 	worn_icon_state = "paper"
-	custom_fire_overlay = "paper_onfire_overlay"
+	//custom_fire_overlay = "paper_onfire_overlay" //IRIS EDIT
 	throwforce = 0
 	w_class = WEIGHT_CLASS_TINY
 	throw_range = 1
@@ -277,8 +277,7 @@
 
 	if(LAZYLEN(stamp_cache) > MAX_PAPER_STAMPS_OVERLAYS)
 		return
-
-	var/mutable_appearance/stamp_overlay = mutable_appearance('icons/obj/service/bureaucracy.dmi', "paper_[stamp_icon_state]", appearance_flags = KEEP_APART | RESET_COLOR)
+	var/mutable_appearance/stamp_overlay = mutable_appearance('modular_iris/paradise_ports/icons/obj/bureaucracy.dmi', "paper_[stamp_icon_state]", appearance_flags = KEEP_APART | RESET_COLOR) //IRIS EDIT
 	stamp_overlay.pixel_w = rand(-2, 2)
 	stamp_overlay.pixel_z = rand(-3, 2)
 	add_overlay(stamp_overlay)

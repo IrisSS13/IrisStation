@@ -1,2 +1,5 @@
+//IRIS REMOVAL
+/*
 /datum/species/ethereal/allows_food_preferences()
 	return FALSE
+*/
