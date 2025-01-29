@@ -1,3 +1,4 @@
+//IRIS EDIT SPRITES OVERRIDEN IN PARADISE_PORTS
 /obj/structure/chair
 	name = "chair"
 	desc = "You sit in this. Either by will or force."

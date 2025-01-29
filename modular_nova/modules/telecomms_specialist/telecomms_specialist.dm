@@ -36,7 +36,7 @@
 	mail_goodies = list(
 		/obj/item/coffee_cartridge = 20,
 		/obj/item/reagent_containers/cup = 10,
-		/obj/item/stock_parts/subspace = 8,
+		/obj/item/stock_parts/subspace/ansible = 8,
 		/obj/item/banhammer = 8,
 		/obj/item/computer_disk/maintenance = 1,
 	)
@@ -105,6 +105,7 @@
 		ACCESS_NETWORK, //Sysadmin gets network access, of course
 		ACCESS_RC_ANNOUNCE, //to use the requests console announcement found in telecomms
 		ACCESS_TCOMMS,
+		ACCESS_TCOMMS_ADMIN, // IRIS EDIT -- NTSL --
 		ACCESS_TECH_STORAGE,
 		)
 	extra_access = list(

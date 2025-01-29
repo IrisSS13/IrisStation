@@ -1,7 +1,7 @@
 // Usage for a bar light is 160, let's do a bit less then that since these tend to be used a lot in one place
 #define CIRCUIT_FLOOR_POWERUSE 120
 //Circuit flooring, glows a little
-/turf/open/floor/circuit
+/turf/open/floor/circuit //IRIS EDIT SPRITES OVERRIDEN IN PARADISE_SPRITES
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "bcircuit"
 	var/icon_normal = "bcircuit"
