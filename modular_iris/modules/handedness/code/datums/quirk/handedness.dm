@@ -5,7 +5,6 @@
 	value = -4
 	gain_text = span_danger("You no longer feel able to accurately control your left hand.")
 	lose_text = span_notice("You feel able to control your left hand again.")
-	medical_record_text = "Patient demonstrates impaired adroitness when asked to use their left hand."
 
 /datum/quirk_constant_data/handedness
 	associated_typepath = /datum/quirk/handedness
@@ -20,9 +19,10 @@
 	if(side_choice == "Dominant Left Hand")
 		gain_text = span_danger("You no longer feel able to accurately control your right hand.")
 		lose_text = span_notice("You feel able to control your right hand again.")
-		medical_record_text = "Patient demonstrates impaired adroitness when asked to use their right hand."
+		medical_record_text = "Patient demonstrates impaired adroitness when asked to use [human_holder.p_their()] right hand."
 		ADD_TRAIT(human_holder, TRAIT_HANDEDNESS_LEFT, QUIRK_TRAIT)
 	else
+		medical_record_text = "Patient demonstrates impaired adroitness when asked to use [human_holder.p_their()] left hand."
 		ADD_TRAIT(human_holder, TRAIT_HANDEDNESS, QUIRK_TRAIT)
 
 /datum/quirk/handedness/remove()
