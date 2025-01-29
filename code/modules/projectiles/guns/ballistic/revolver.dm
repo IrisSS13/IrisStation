@@ -304,7 +304,9 @@
 /obj/item/gun/ballistic/revolver/reverse/can_trigger_gun(mob/living/user, akimbo_usage)
 	if(akimbo_usage)
 		return FALSE
-	if(HAS_TRAIT(user, TRAIT_CLUMSY) || is_clown_job(user.mind?.assigned_role))
+	//IRIS EDIT CHANGE BEGIN - HANDEDNESS_QUIRK, makes this truly clown-only
+	if(is_clown_job(user.mind?.assigned_role) || user.mind?.has_antag_datum(/datum/antagonist/nukeop/clownop) || user.mind?.has_antag_datum(/datum/antagonist/nukeop/leader/clownop))
+	//IRIS EDIT CHANGE END
 		return ..()
 	if(process_fire(user, user, FALSE, null, BODY_ZONE_HEAD))
 		user.visible_message(span_warning("[user] somehow manages to shoot [user.p_them()]self in the face!"), span_userdanger("You somehow shoot yourself in the face! How the hell?!"))
