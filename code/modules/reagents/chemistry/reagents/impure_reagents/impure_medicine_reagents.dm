@@ -648,7 +648,6 @@ Basically, we fill the time between now and 2s from now with hands based off the
 			/datum/brain_trauma/severe/hypnotic_trigger,
 			/datum/brain_trauma/special/honorbound, // Designed to be chaplain exclusive
 		)
-		forbiddentraumas += typesof(/datum/brain_trauma/very_special) // NOVA EDIT ADDITION - No very special (lewd) quirks gained by inverse neurine
 
 		// Do give out these traumas but not any of their subtypes, usually because the trauma replaces itself with a subtype
 		var/list/forbiddensubtypes = list(

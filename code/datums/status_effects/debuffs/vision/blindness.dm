@@ -2,65 +2,15 @@
 /// There are no reason why these cannot be blinded, it is simply for "design reasons" (these things shouldn't be blinded)
 #define CAN_BE_BLIND(mob) (!isanimal_or_basicmob(mob) && !isbrain(mob) && !isrevenant(mob))
 
-/// Nearsighted
-/datum/status_effect/grouped/nearsighted
-	id = "nearsighted"
-	tick_interval = STATUS_EFFECT_NO_TICK
-	alert_type = null
-	// This is not "remove on fullheal" as in practice,
-	// fullheal should instead remove all the sources and in turn cure this
-
-	/// Static list of signals that, when received, we force an update to our nearsighted overlay
-	var/static/list/update_signals = list(SIGNAL_ADDTRAIT(TRAIT_NEARSIGHTED_CORRECTED), SIGNAL_REMOVETRAIT(TRAIT_NEARSIGHTED_CORRECTED))
-	/// How severe is our nearsightedness right now
-	var/overlay_severity = 2
-
-/datum/status_effect/grouped/nearsighted/on_apply()
-	RegisterSignals(owner, update_signals, PROC_REF(update_nearsightedness))
-	update_nearsighted_overlay()
-	return ..()
-
-/datum/status_effect/grouped/nearsighted/on_remove()
-	UnregisterSignal(owner, update_signals)
-	owner.clear_fullscreen(id)
-	return ..()
-
-/// Signal proc for when we gain or lose [TRAIT_NEARSIGHTED_CORRECTED] - (temporarily) disable the overlay if we're correcting it
-/datum/status_effect/grouped/nearsighted/proc/update_nearsightedness(datum/source)
-	SIGNAL_HANDLER
-
-	update_nearsighted_overlay()
-
-/// Checks if we should be nearsighted currently, or if we should clear the overlay
-/datum/status_effect/grouped/nearsighted/proc/should_be_nearsighted()
-	if (ishuman(owner))
-		var/mob/living/carbon/human/human_owner = owner
-		if (human_owner.get_eye_scars())
-			return TRUE
-	return !HAS_TRAIT(owner, TRAIT_NEARSIGHTED_CORRECTED)
-
-/// Updates our nearsightd overlay, either removing it if we have the trait or adding it if we don't
-/datum/status_effect/grouped/nearsighted/proc/update_nearsighted_overlay()
-	if(should_be_nearsighted())
-		owner.overlay_fullscreen(id, /atom/movable/screen/fullscreen/impaired, overlay_severity)
-	else
-		owner.clear_fullscreen(id)
-
-/// Sets the severity of our nearsighted overlay
-/datum/status_effect/grouped/nearsighted/proc/set_nearsighted_severity(to_value)
-	if(!isnum(to_value))
-		return
-	if(overlay_severity == to_value)
-		return
-
-	overlay_severity = to_value
-	update_nearsighted_overlay()
-
 /// Blindness
 /datum/status_effect/grouped/blindness
 	id = "blindness"
 	tick_interval = STATUS_EFFECT_NO_TICK
 	alert_type = /atom/movable/screen/alert/status_effect/blind
+	var/static/list/update_signals = list(
+		SIGNAL_REMOVETRAIT(TRAIT_SIGHT_BYPASS),
+		SIGNAL_ADDTRAIT(TRAIT_SIGHT_BYPASS),
+	)
 	// This is not "remove on fullheal" as in practice,
 	// fullheal should instead remove all the sources and in turn cure this
 
@@ -68,23 +18,43 @@
 	if(!CAN_BE_BLIND(owner))
 		return FALSE
 
+	RegisterSignals(owner, update_signals, PROC_REF(update_blindness))
+
+	update_blindness()
+
+	return ..()
+
+/datum/status_effect/grouped/blindness/proc/update_blindness()
+	if(!CAN_BE_BLIND(owner)) // future proofing
+		qdel(src)
+		return
+
+	if(HAS_TRAIT(owner, TRAIT_SIGHT_BYPASS))
+		make_unblind()
+		return
+	make_blind()
+
+/datum/status_effect/grouped/blindness/proc/make_blind()
 	owner.overlay_fullscreen(id, /atom/movable/screen/fullscreen/blind)
 	// You are blind - at most, able to make out shapes near you
 	owner.add_client_colour(/datum/client_colour/monochrome/blind)
-	// IRIS ADDITION START - MapleStation Port: But to represent the fact that you can feel your way around, you are unaffected by darkness
+		// IRIS ADDITION START - MapleStation Port: But to represent the fact that you can feel your way around, you are unaffected by darkness
 	ADD_TRAIT(owner, TRAIT_TRUE_NIGHT_VISION, id)
 	// but your eyes will start to wander, you may end up staring unintentionally
 	ADD_TRAIT(owner, TRAIT_SHIFTY_EYES, id)
-	return ..()
 	// IRIS ADDITION END
 
-/datum/status_effect/grouped/blindness/on_remove()
+/datum/status_effect/grouped/blindness/proc/make_unblind()
 	owner.clear_fullscreen(id)
 	owner.remove_client_colour(/datum/client_colour/monochrome/blind)
-	// IRIS ADDITION START - MapleStation Port
+		// IRIS ADDITION START - MapleStation Port
 	REMOVE_TRAIT(owner, TRAIT_TRUE_NIGHT_VISION, id)
 	REMOVE_TRAIT(owner, TRAIT_SHIFTY_EYES, id)
 	// IRIS ADDITION END
+
+/datum/status_effect/grouped/blindness/on_remove()
+	make_unblind()
+	UnregisterSignal(owner, update_signals)
 	return ..()
 
 /atom/movable/screen/alert/status_effect/blind
