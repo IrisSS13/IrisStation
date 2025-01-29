@@ -12,10 +12,12 @@ import {
   Popper,
   Stack,
 } from 'tgui-core/components';
+import { exhaustiveCheck } from 'tgui-core/exhaustive';
 import { classes } from 'tgui-core/react';
 import { createSearch } from 'tgui-core/string';
 
 import { CharacterPreview } from '../../common/CharacterPreview';
+import { PageButton } from '../components/PageButton'; // IRIS EDIT
 import { RandomizationButton } from '../components/RandomizationButton';
 import { features } from '../preferences/features';
 import {
@@ -515,6 +517,15 @@ export function MainPage(props: MainPageProps) {
   const [multiNameInputOpen, setMultiNameInputOpen] = useState(false);
   const [randomToggleEnabled] = useRandomToggleState();
 
+  // IRIS EDIT BEGIN: SWAPPABLE PREF MENUS - SKYRAT PORT
+  enum PrefPage {
+    Visual, // The visual parts
+    Lore, // Lore, Flavor Text, Age, Records
+  }
+
+  const [currentPrefPage, setCurrentPrefPage] = useState(PrefPage.Visual);
+  // IRIS EDIT END - SKYRAT PORT
+
   const serverData = useServerPrefs();
 
   const currentSpeciesData =
@@ -558,6 +569,40 @@ export function MainPage(props: MainPageProps) {
     // server doesn't know whether the random toggle is on.
     delete nonContextualPreferences['random_name'];
   }
+
+  // IRIS EDIT BEGIN: SWAPPABLE PREF MENUS - SKYRAT PORT
+  let prefPageContents;
+  switch (currentPrefPage) {
+    case PrefPage.Visual:
+      prefPageContents = (
+        <PreferenceList
+          randomizations={getRandomization(
+            contextualPreferences,
+            serverData,
+            randomBodyEnabled,
+          )}
+          preferences={contextualPreferences}
+          maxHeight="auto"
+        />
+      );
+      break;
+    case PrefPage.Lore:
+      prefPageContents = (
+        <PreferenceList
+          randomizations={getRandomization(
+            nonContextualPreferences,
+            serverData,
+            randomBodyEnabled,
+          )}
+          preferences={nonContextualPreferences}
+          maxHeight="auto"
+        />
+      );
+      break;
+    default:
+      exhaustiveCheck(currentPrefPage);
+  }
+  // IRIS EDIT END - SKYRAT PORT
 
   return (
     <>
@@ -680,41 +725,32 @@ export function MainPage(props: MainPageProps) {
         </Stack.Item>
 
         <Stack.Item grow basis={0}>
-          <Stack vertical fill>
-            <PreferenceList
-              randomizations={getRandomization(
-                contextualPreferences,
-                serverData,
-                randomBodyEnabled,
-              )}
-              preferences={contextualPreferences}
-              maxHeight="auto"
-            />
-
-            <PreferenceList
-              randomizations={getRandomization(
-                nonContextualPreferences,
-                serverData,
-                randomBodyEnabled,
-              )}
-              preferences={nonContextualPreferences}
-              maxHeight="auto"
-            >
-              <Box my={0.5}>
-                <Button
-                  color="red"
-                  disabled={
-                    Object.values(data.character_profiles).filter(
-                      (name) => name,
-                    ).length < 2
-                  } // check if existing chars more than one
-                  onClick={() => setDeleteCharacterPopupOpen(true)}
-                >
-                  Delete Character
-                </Button>
-              </Box>
-            </PreferenceList>
+          {/* IRIS EDIT BEGIN: Swappable pref menus - SKYRAT PORT */}
+          <Stack>
+            <Stack.Item grow>
+              <PageButton
+                currentPage={currentPrefPage}
+                page={PrefPage.Visual}
+                setPage={setCurrentPrefPage}
+              >
+                Character Visuals
+              </PageButton>
+            </Stack.Item>
+            <Stack.Item grow>
+              <PageButton
+                currentPage={currentPrefPage}
+                page={PrefPage.Lore}
+                setPage={setCurrentPrefPage}
+              >
+                Character Lore
+              </PageButton>
+            </Stack.Item>
           </Stack>
+          <Stack fill vertical>
+            <Stack.Divider />
+            {prefPageContents}
+          </Stack>
+          {/* IRIS EDIT END: Swappable pref menus -SKYRAT PORT*/}
         </Stack.Item>
       </Stack>
     </>
