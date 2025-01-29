@@ -173,7 +173,7 @@
 
 	var/accident = FALSE
 	if(clumsy && prob(cut_self_chance))
-		var/accident = TRUE
+		accident = TRUE
 	to_chat(user, span_userdanger("You neatly cut [stored_paper][accident ? "... and your finger in the process!" : "."]"))
 	if(accident)
 		var/obj/item/bodypart/finger = user.get_active_hand()
