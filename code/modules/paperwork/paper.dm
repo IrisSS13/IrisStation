@@ -413,7 +413,10 @@
 	var/ignition_message = attacking_item.ignition_effect(src, user)
 	if(!ignition_message)
 		return FALSE
-	if(!bypass_clumsy && HAS_TRAIT(user, TRAIT_CLUMSY) && prob(10) && Adjacent(user))
+	//IRIS EDIT CHANGE BEGIN - HANDEDNESS_QUIRK
+	var/hand_index = user.active_hand_index
+	if(!bypass_clumsy && (HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && IS_LEFT_INDEX(hand_index)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && IS_RIGHT_INDEX(hand_index))) && prob(10) && Adjacent(user))
+	//IRIS EDIT CHANGE END
 		user.visible_message(span_warning("[user] accidentally ignites [user.p_them()]self!"), \
 							span_userdanger("You miss [src] and accidentally light yourself on fire!"))
 		if(user.is_holding(attacking_item)) //checking if they're holding it in case TK is involved

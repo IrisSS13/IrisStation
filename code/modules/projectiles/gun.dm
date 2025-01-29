@@ -262,7 +262,10 @@
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 	COOLDOWN_START(src, flip_cooldown, 3 SECONDS)
-	if(HAS_TRAIT(user, TRAIT_CLUMSY) && prob(40))
+	//IRIS EDIT CHANGE BEGIN - HANDEDNESS_QUIRK
+	var/hand_index = user.active_hand_index
+	if(prob(40) && (HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && IS_LEFT_INDEX(hand_index)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && IS_RIGHT_INDEX(hand_index))))
+	//IRIS EDIT CHANGE END
 		// yes this will sound silly for bows and wands, but that's a "gun" moment for you
 		user.visible_message(
 			span_danger("While trying to flip [src] [user] pulls the trigger accidentally!"),
