@@ -41,7 +41,7 @@
 	new /obj/item/documents/syndicate/red(src)
 	update_appearance()
 
-/obj/item/folder/syndicate/blue
+/obj/item/folder/syndicate/blue //IRIS EDIT SPRITES OVERRIDEN IN PARADISE_PORTS
 	icon_state = "folder_sblue"
 
 /obj/item/folder/syndicate/blue/Initialize(mapload)

@@ -1,3 +1,4 @@
+//IRIS EDIT SPRITES OVERRIDEN IN PARADISE_PORTS
 /* Tables and Racks
  * Contains:
  * Tables
