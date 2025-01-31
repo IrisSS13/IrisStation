@@ -3714,7 +3714,7 @@
 	anchored = 1;
 	dir = 8
 	},
-/obj/item/circuitboard/computer/station_alert,
+/obj/item/circuitboard/computer/stationalert,
 /obj/effect/turf_decal/bot/right,
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 4
@@ -4123,8 +4123,8 @@
 /obj/item/clothing/glasses/welding,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/item/weldingtool/empty{
-	pixel_x = 9;
-	pixel_y = 8
+	pixel_y = 8;
+	pixel_x = 9
 	},
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
@@ -7198,7 +7198,7 @@
 /turf/open/floor/wood,
 /area/station/service/theater)
 "bKo" = (
-/obj/machinery/computer/station_alert/station_only{
+/obj/machinery/computer/station_alert{
 	dir = 1
 	},
 /obj/machinery/firealarm/directional/south,
@@ -8818,7 +8818,7 @@
 /area/station/ai_monitored/turret_protected/ai_upload)
 "cfx" = (
 /obj/structure/cable,
-/obj/machinery/computer/station_alert/station_only{
+/obj/machinery/computer/station_alert{
 	dir = 4
 	},
 /obj/effect/turf_decal/bot,
@@ -11054,14 +11054,6 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/station/hallway/secondary/entry)
-"cGR" = (
-/obj/structure/table/wood,
-/obj/item/radio/intercom/directional/north,
-/obj/item/paper_bin,
-/obj/item/folder/blue,
-/obj/item/pen,
-/turf/open/floor/iron/grimy,
-/area/station/tcommsat/computer)
 "cHb" = (
 /obj/machinery/door/firedoor/heavy,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -19692,7 +19684,7 @@
 /turf/open/floor/iron/dark,
 /area/station/service/kitchen)
 "eSU" = (
-/obj/machinery/computer/atmos_alert/station_only,
+/obj/machinery/computer/atmos_alert,
 /obj/effect/turf_decal/bot,
 /obj/structure/sign/warning/gas_mask/directional/north,
 /obj/machinery/light/small/directional/north,
@@ -21316,6 +21308,9 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /obj/effect/turf_decal/tile/brown/half/contrasted{
 	dir = 4
 	},
@@ -22494,8 +22489,8 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/machinery/door/window/brigdoor/right/directional/east{
 	name = "Tertiary AI Core Access";
-	pixel_x = 4;
-	req_access = list("ai_upload")
+	req_access = list("ai_upload");
+	pixel_x = 4
 	},
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/turret_protected/ai)
@@ -30255,8 +30250,8 @@
 	},
 /obj/machinery/vending/wardrobe/sec_wardrobe,
 /obj/machinery/button/door/directional/east{
-	id = "secmechbay";
 	name = "Security Mech Garage Door Controls";
+	id = "secmechbay";
 	req_access = list("security")
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -37380,8 +37375,8 @@
 	pixel_x = -6
 	},
 /obj/machinery/door/window/left/directional/north{
-	name = "Office Desk";
-	req_access = list("cargo")
+	req_access = list("cargo");
+	name = "Office Desk"
 	},
 /obj/effect/turf_decal/delivery,
 /obj/structure/desk_bell{
@@ -38437,7 +38432,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/fore)
 "jAY" = (
-/obj/machinery/computer/station_alert/station_only{
+/obj/machinery/computer/station_alert{
 	dir = 4
 	},
 /obj/effect/turf_decal/bot/left,
@@ -40491,8 +40486,8 @@
 	pixel_y = 9
 	},
 /obj/item/folder/yellow{
-	pixel_x = 5;
-	pixel_y = -5
+	pixel_y = -5;
+	pixel_x = 5
 	},
 /turf/open/floor/iron,
 /area/station/cargo/miningoffice)
@@ -45335,7 +45330,7 @@
 	},
 /obj/machinery/light/directional/south,
 /obj/effect/turf_decal/bot,
-/obj/machinery/computer/station_alert/station_only{
+/obj/machinery/computer/station_alert{
 	dir = 1
 	},
 /turf/open/floor/iron/dark/textured_large,
@@ -48248,8 +48243,8 @@
 	req_access = list("kitchen")
 	},
 /obj/machinery/button/ticket_machine{
-	pixel_x = -6;
-	pixel_y = 22
+	pixel_y = 22;
+	pixel_x = -6
 	},
 /obj/machinery/button/door/directional/west{
 	id = "hopblast";
@@ -48265,8 +48260,8 @@
 	},
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/machinery/button/photobooth{
-	pixel_x = 6;
-	pixel_y = 22
+	pixel_y = 22;
+	pixel_x = 6
 	},
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/hop)
@@ -49178,12 +49173,12 @@
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/neutral/half/contrasted,
 /obj/item/storage/box/monkeycubes{
-	pixel_x = 1;
-	pixel_y = 10
+	pixel_y = 10;
+	pixel_x = 1
 	},
 /obj/item/storage/box/monkeycubes{
-	pixel_x = -13;
-	pixel_y = 3
+	pixel_y = 3;
+	pixel_x = -13
 	},
 /turf/open/floor/iron,
 /area/station/science/xenobiology)
@@ -49934,6 +49929,9 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -56614,7 +56612,7 @@
 /turf/open/floor/iron/dark,
 /area/station/security/detectives_office)
 "oiO" = (
-/obj/machinery/computer/station_alert/station_only{
+/obj/machinery/computer/station_alert{
 	dir = 8
 	},
 /obj/effect/turf_decal/bot,
@@ -74596,8 +74594,8 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/machinery/door/window/brigdoor/left/directional/west{
 	name = "Secondary AI Core Access";
-	pixel_x = -4;
-	req_access = list("ai_upload")
+	req_access = list("ai_upload");
+	pixel_x = -4
 	},
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/turret_protected/ai)
@@ -75757,6 +75755,9 @@
 	dir = 1
 	},
 /obj/machinery/duct,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /obj/effect/turf_decal/tile/purple/full,
 /turf/open/floor/iron/large,
 /area/station/science/research)
@@ -76858,7 +76859,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/cyan/hidden{
 	dir = 4
 	},
-/obj/machinery/computer/atmos_alert/station_only{
+/obj/machinery/computer/atmos_alert{
 	dir = 1
 	},
 /obj/effect/turf_decal/bot,
@@ -78154,6 +78155,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port)
 "tCr" = (
+/obj/structure/disposalpipe/segment,
 /obj/structure/disposalpipe/segment,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
@@ -81243,6 +81245,9 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -88627,7 +88632,7 @@
 /area/station/commons/dorms)
 "wgF" = (
 /obj/structure/cable,
-/obj/machinery/computer/station_alert/station_only{
+/obj/machinery/computer/station_alert{
 	dir = 1
 	},
 /obj/machinery/status_display/ai/directional/south,
@@ -88976,7 +88981,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
 "wkT" = (
-/obj/machinery/computer/atmos_alert/station_only,
+/obj/machinery/computer/atmos_alert,
 /obj/effect/turf_decal/tile/yellow/half/contrasted{
 	dir = 1
 	},
@@ -90732,7 +90737,7 @@
 /turf/open/floor/plating,
 /area/station/science/research/abandoned)
 "wEX" = (
-/obj/machinery/computer/atmos_alert/station_only{
+/obj/machinery/computer/atmos_alert{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
@@ -92269,6 +92274,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/landmark/navigate_destination,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/rd)
 "xbK" = (
@@ -94450,7 +94458,7 @@
 	c_tag = "Engineering - Power Monitoring";
 	name = "engineering camera"
 	},
-/obj/machinery/computer/atmos_alert/station_only{
+/obj/machinery/computer/atmos_alert{
 	dir = 1
 	},
 /obj/structure/cable,
