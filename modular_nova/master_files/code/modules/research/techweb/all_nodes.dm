@@ -39,6 +39,7 @@
 		"synth_r_d_leg",
 		"synth_construction",
 		"synth_positronic",
+		"power_cord",
 	)
 
 /datum/techweb_node/android_organs
