@@ -35,9 +35,14 @@
 	//alert sound played during the announcement of this event
 	var/audio_alert = 'sound/announcer/notice/notice2.ogg'
 
+/datum/round_event/cognomerge/announce(fake)
+	priority_announce("[station_name()]: Alert! Unitary conceptual metastasization in progress, temporary cognitive and physiological maluses may result.",
+	sound = audio_alert,
+	sender_override = "Metaphysical Entity Watchdog")
+
 //extreme version (adds harsher quirks)
 /datum/round_event_control/cognomerge/extreme
-	name = "Monadic Cognomerge (Extreme)"
+	name = "Extreme Monadic Cognomerge"
 	typepath = /datum/round_event/cognomerge/extreme
 	weight = 5
 	max_occurrences = 1
