@@ -4,7 +4,7 @@
 	typepath = /datum/round_event/cognomerge
 	weight = 15
 	min_players = 5
-	max_occurrences = 3
+	max_occurrences = 2
 	category = EVENT_CATEGORY_HEALTH
 	description = "All crewmembers temporarily gain a random negative quirk."
 
