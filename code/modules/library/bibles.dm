@@ -229,7 +229,10 @@ GLOBAL_LIST_INIT(bibleitemstates, list(
 		balloon_alert(user, "not dextrous enough!")
 		return
 
-	if(HAS_TRAIT(user, TRAIT_CLUMSY) && prob(50))
+	//IRIS EDIT CHANGE BEGIN - HANDEDNESS_QUIRK
+	var/hand_index = user.active_hand_index
+	if(prob(50) && (HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && IS_LEFT_INDEX(hand_index)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && IS_RIGHT_INDEX(hand_index))))
+	//IRIS EDIT CHANGE END
 		to_chat(user, span_danger("[src] slips out of your hand and hits your head."))
 		user.take_bodypart_damage(10)
 		user.Unconscious(40 SECONDS)

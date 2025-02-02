@@ -163,7 +163,12 @@
 		return FALSE
 	if(istype(item, /obj/item/cigarette))
 		var/obj/item/cigarette/cig = item
-		var/clumsy = HAS_TRAIT(user, TRAIT_CLUMSY)
+		//IRIS EDIT CHANGE BEGIN - HANDEDNESS_QUIRK
+		var/clumsy = FALSE
+		var/hand_index = user.active_hand_index
+		if(HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && IS_LEFT_INDEX(hand_index)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && IS_RIGHT_INDEX(hand_index)))
+			clumsy = TRUE
+		//IRIS EDIT CHANGE END
 		if(clumsy)
 			var/obj/item/bodypart/dust_arm = user.get_active_hand()
 			dust_arm.dismember()
