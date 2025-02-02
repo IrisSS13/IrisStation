@@ -1,6 +1,6 @@
 /datum/quirk/complexdna
 	name = "Complex DNA"
-	desc = "For some reason your dna is too complex for DNA scanners. You can not gain mutations."
+	desc = "For some reason your DNA is too complex for DNA scanners. You can not gain mutations."
 	icon = FA_ICON_PERSON_DOTS_FROM_LINE
 	value = 0
 	mob_trait = TRAIT_GENELESS
