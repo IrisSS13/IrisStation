@@ -51,6 +51,9 @@
 	for(var/mob/living/carbon/human/victim in victims)
 		if(!victim.client)
 			continue //skip clientless
+		var/turf/victim_turf = get_turf(victim)
+		if(!is_station_level(victim_turf.z))
+			continue //skip those not on the station level
 		if(victim.add_quirk(chosen_quirk)) //only set a timer to remove the quirk if adding it succeeds (it will fail if they already possess the quirk)
 
 
