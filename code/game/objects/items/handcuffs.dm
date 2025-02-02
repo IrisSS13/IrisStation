@@ -89,10 +89,15 @@
 		victim.balloon_alert(user, "can't be handcuffed!")
 		return
 
-	if(iscarbon(user) && (HAS_TRAIT(user, TRAIT_CLUMSY) && prob(50))) //Clumsy people have a 50% chance to handcuff themselves instead of their target.
-		to_chat(user, span_warning("Uh... how do those things work?!"))
-		apply_cuffs(user, user)
-		return
+	//IRIS EDIT CHANGE BEGIN - HANDEDNESS_QUIRK
+	if(iscarbon(user))
+		var/hand_index = user.active_hand_index
+		if(HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && IS_LEFT_INDEX(hand_index)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && IS_RIGHT_INDEX(hand_index)))
+			if(prob(50)) //Clumsy people have a 50% chance to handcuff themselves instead of their target.
+				to_chat(user, span_warning("Uh... how do those things work?!"))
+				apply_cuffs(user, user)
+				return
+	//IRIS EDIT CHANGE END
 
 	if(!isnull(victim.handcuffed))
 		victim.balloon_alert(user, "already handcuffed!")
