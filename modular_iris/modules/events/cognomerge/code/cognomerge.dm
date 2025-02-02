@@ -50,9 +50,10 @@
 	var/list/victims = GLOB.human_list
 	for(var/mob/living/carbon/human/victim in victims)
 		if(!victim.client)
-			continue
-		else
-			victim.add_quirk(chosen_quirk)
+			continue //skip clientless
+		if(victim.add_quirk(chosen_quirk)) //only set a timer to remove the quirk if adding it succeeds (it will fail if they already possess the quirk)
+
+
 
 //extreme version (adds harsher quirks)
 /datum/round_event_control/cognomerge/extreme
