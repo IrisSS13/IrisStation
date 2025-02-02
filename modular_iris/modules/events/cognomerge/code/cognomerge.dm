@@ -41,6 +41,18 @@
 	sender_override = "Metaphysical Entity Watchdog")
 
 /datum/round_event/cognomerge/start()
+	var/datum/quirk/chosen_quirk = pick(cognomerge_quirk_pool)
+
+	var/duration = cognomerge_duration
+	if(vary_duration)
+		duration *= rand(1, 3)
+
+	var/list/victims = GLOB.human_list
+	for(var/mob/living/carbon/human/victim in victims)
+		if(!victim.client)
+			continue
+		else
+			victim.add_quirk(chosen_quirk)
 
 //extreme version (adds harsher quirks)
 /datum/round_event_control/cognomerge/extreme
