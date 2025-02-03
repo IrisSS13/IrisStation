@@ -238,6 +238,7 @@ export function FeatureValueInput(props: FeatureValueInputProps) {
     shrink: props.shrink,
     handleSetValue: changeValue,
     value: predictedValue,
+    act: act, // iris edit
   });
 }
 
