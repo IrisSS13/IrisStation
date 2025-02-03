@@ -98,7 +98,7 @@
 			return ADMIN_CANCEL_EVENT
 
 /datum/event_admin_setup/input_number/cognomerge/duration/apply_to_event(datum/round_event/cognomerge/event)
-	event.duration = chosen_value SECONDS
+	event.cognomerge_duration = chosen_value SECONDS
 
 /datum/event_admin_setup/listed_options/cognomerge/vary_duration
 	input_text = "Randomly vary the event duration? May be 100%, 200% or 300% of the selected time."
