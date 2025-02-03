@@ -82,7 +82,7 @@
 
 //admin options
 /datum/event_admin_setup/input_number/cognomerge/duration
-	input_text = "For how long should the quirk be applied (in seconds)?"
+	input_text = "For how long should a quirk be applied (in seconds)?"
 	default_value = 15
 	max_value = 300
 	min_value = 1
