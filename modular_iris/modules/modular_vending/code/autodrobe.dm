@@ -17,7 +17,7 @@
 				/obj/item/clothing/mask/patho/orderly = 2,
 				/obj/item/clothing/suit/patho/orderly = 2,
 				/obj/item/clothing/mask/patho/tragedian = 2,
-				/obj/item/clothing/suit/patho/tragedian = 2, // PROVENANCE_COSTUMES END
+				/obj/item/clothing/suit/patho/tragedian = 2 // PROVENANCE_COSTUMES END
 			),
 		),
 	)
