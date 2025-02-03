@@ -46,6 +46,7 @@
 	var/duration = cognomerge_duration
 	if(vary_duration)
 		duration *= rand(1, 3)
+	src.end_when = ROUND_UP((duration * 0.05) + 5) //end proc should be called ~10s after quirk removal
 
 	var/list/victims = GLOB.human_list
 	for(var/mob/living/carbon/human/victim in victims)
