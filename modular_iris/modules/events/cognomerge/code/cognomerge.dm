@@ -81,8 +81,27 @@
 	audio_alert = 'sound/announcer/notice/notice3.ogg'
 
 //admin options
+/datum/event_admin_setup/input_number/cognomerge/duration
+	input_text = "For how long should the quirk be applied (in seconds)?"
+	default_value = 15
+	max_value = 300
+	min_value = 1
+
+/datum/event_admin_setup/input_number/cognomerge/duration/prompt_admins()
+	var/customize_duration = tgui_alert(usr, "Set event duration!", event_control.name, list("Default", "Custom"))
+	switch(customize_duration)
+		if("Custom")
+			return ..()
+		if("Default")
+			chosen_value = null
+		else
+			return ADMIN_CANCEL_EVENT
+
+/datum/event_admin_setup/input_number/cognomerge/duration/apply_to_event(datum/round_event/cognomerge/event)
+	event.duration = chosen_value SECONDS
+
 /datum/event_admin_setup/listed_options/cognomerge/vary_duration
-	input_text = "Vary the event duration? May be 100, 200 or 300%."
+	input_text = "Vary the event duration? May be 100%, 200% or 300% of the selected time."
 	normal_run_option = "Yes"
 
 /datum/event_admin_setup/listed_options/cognomerge/vary_duration/get_list()
