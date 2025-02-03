@@ -50,7 +50,7 @@
 	var/duration = cognomerge_duration
 	if(vary_duration)
 		duration *= rand(1, 3)
-	src.end_when = ROUND_UP((duration * 0.05) + 5) //end proc should be called ~10s after quirk removal
+	//src.end_when = ROUND_UP((duration * 0.05) + 5) //end proc should be called ~10s after quirk removal
 
 	var/list/victims = GLOB.human_list
 	for(var/mob/living/carbon/human/victim in victims)
@@ -73,6 +73,7 @@
 	typepath = /datum/round_event/cognomerge/extreme
 	weight = 5
 	max_occurrences = 1
+	description = "All crewmembers temporarily gain a harsh random negative quirk."
 
 /datum/round_event/cognomerge/extreme
 	cognomerge_quirk_pool = list(
@@ -109,7 +110,7 @@
 	normal_run_option = "Yes"
 
 /datum/event_admin_setup/listed_options/cognomerge/vary_duration/get_list()
-	return list("No", "Yes")
+	return list("No")
 
 /datum/event_admin_setup/listed_options/cognomerge/vary_duration/apply_to_event(datum/round_event/cognomerge/event)
 	switch(chosen)
