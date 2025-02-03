@@ -14,7 +14,7 @@
 	end_when = 51
 	//list of quirks this version of the event can add, only includes those that might produce interesting scenarios and will have time to do so
 	var/list/cognomerge_quirk_pool = list(
-		/datum/quirk/item_quirk/allergic,
+		/datum/quirk/item_quirk/allergic/noitem,
 		/datum/quirk/bighands,
 		/datum/quirk/clumsy,
 		/datum/quirk/frail,
@@ -72,9 +72,9 @@
 /datum/round_event/cognomerge/extreme
 	cognomerge_quirk_pool = list(
 		/datum/quirk/cursed,
-		/datum/quirk/item_quirk/deafness,
-		/datum/quirk/item_quirk/blindness,
+		/datum/quirk/item_quirk/deafness/noitem,
+		/datum/quirk/item_quirk/blindness/noitem,
 		/datum/quirk/hemiplegic,
-		/datum/quirk/paraplegic
+		/datum/quirk/paraplegic/noitem
 	)
 	audio_alert = 'sound/announcer/notice/notice3.ogg'
