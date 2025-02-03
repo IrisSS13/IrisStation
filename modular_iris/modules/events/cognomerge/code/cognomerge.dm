@@ -69,7 +69,7 @@
 
 //extreme version (adds harsher quirks)
 /datum/round_event_control/cognomerge/extreme
-	name = "Extreme Monadic Cognomerge"
+	name = "Xtrm. Monadic Cognomerge"
 	typepath = /datum/round_event/cognomerge/extreme
 	weight = 5
 	max_occurrences = 1
@@ -106,7 +106,7 @@
 	event.cognomerge_duration = chosen_value SECONDS
 
 /datum/event_admin_setup/listed_options/cognomerge/vary_duration
-	input_text = "Randomly vary the event duration? May be 100%, 200% or 300% of the selected time."
+	input_text = "Randomly vary the event duration? May be 100, 200 or 300% of the selected time."
 	normal_run_option = "Yes"
 
 /datum/event_admin_setup/listed_options/cognomerge/vary_duration/get_list()
