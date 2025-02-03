@@ -79,3 +79,21 @@
 		/datum/quirk/paraplegic/noitem
 	)
 	audio_alert = 'sound/announcer/notice/notice3.ogg'
+
+//admin options
+/datum/event_admin_setup/listed_options/cognomerge/vary_duration
+	input_text = "Vary the event duration? May be 100, 200 or 300%."
+	normal_run_option = "Yes"
+
+/datum/event_admin_setup/listed_options/cognomerge/vary_duration/get_list()
+	return list("No", "Yes")
+
+/datum/event_admin_setup/listed_options/cognomerge/vary_duration/apply_to_event(datum/round_event/cognomerge/event)
+	switch(chosen)
+		if("No")
+			event.vary_duration = FALSE
+		if("Yes")
+			event.vary_duration = TRUE
+		else
+			return ADMIN_CANCEL_EVENT
+
