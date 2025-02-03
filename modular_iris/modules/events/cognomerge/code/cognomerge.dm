@@ -93,7 +93,7 @@
 		if("Custom")
 			return ..()
 		if("Default")
-			chosen_value = null
+			chosen_value = default_value
 		else
 			return ADMIN_CANCEL_EVENT
 
