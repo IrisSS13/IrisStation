@@ -36,7 +36,7 @@
 	var/audio_alert = 'sound/announcer/notice/notice2.ogg'
 
 /datum/round_event/cognomerge/announce()
-	priority_announce("[station_name()]: Alert! Unitary conceptual metastasization in progress, temporary cognitive and physiological maluses may result.",
+	priority_announce("Alert [station_name()]: Unitary conceptual metastasization in progress, temporary cognitive and physiological maluses may result.",
 	sound = audio_alert,
 	sender_override = "Metaphysical Entity Watchdog")
 
@@ -56,6 +56,11 @@
 			continue //skip those not on the station level
 		if(victim.add_quirk(chosen_quirk)) //only set a timer to remove the quirk if adding it succeeds (it will fail if they already possess the quirk)
 			addtimer(CALLBACK(victim, TYPE_PROC_REF(/mob/living, remove_quirk), chosen_quirk), duration, TIMER_DELETE_ME)
+
+/datum/round_event/cognomerge/end()
+	priority_announce("Update [station_name()]: The assimilatory phase has reached its conclusion, no further health risk is anticipated at this time.",
+	sound = audio_alert,
+	sender_override = "Metaphysical Entity Watchdog")
 
 //extreme version (adds harsher quirks)
 /datum/round_event_control/cognomerge/extreme
