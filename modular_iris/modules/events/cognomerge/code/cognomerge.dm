@@ -101,7 +101,7 @@
 	event.duration = chosen_value SECONDS
 
 /datum/event_admin_setup/listed_options/cognomerge/vary_duration
-	input_text = "Vary the event duration? May be 100%, 200% or 300% of the selected time."
+	input_text = "Randomly vary the event duration? May be 100%, 200% or 300% of the selected time."
 	normal_run_option = "Yes"
 
 /datum/event_admin_setup/listed_options/cognomerge/vary_duration/get_list()
