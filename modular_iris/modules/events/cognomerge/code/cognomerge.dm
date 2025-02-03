@@ -7,6 +7,10 @@
 	max_occurrences = 2
 	category = EVENT_CATEGORY_HEALTH
 	description = "All crewmembers temporarily gain a random negative quirk."
+	admin_setup = list(
+		/datum/event_admin_setup/input_number/cognomerge/duration,
+		/datum/event_admin_setup/listed_options/cognomerge/vary_duration
+	)
 
 /datum/round_event/cognomerge
 	announce_when = 1
