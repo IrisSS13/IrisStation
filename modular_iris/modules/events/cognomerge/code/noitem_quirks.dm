@@ -4,6 +4,7 @@
 /datum/quirk/item_quirk/deafness/noitem
 	name = "Deaf (No Item Version)"
 	hidden_quirk = TRUE
+	icon = FA_ICON_PHONE_SLASH
 
 /datum/quirk/item_quirk/deafness/noitem/add_unique(client/client_source)
 	return
@@ -12,6 +13,7 @@
 /datum/quirk/item_quirk/blindness/noitem
 	name = "Blind (No Item Version)"
 	hidden_quirk = TRUE
+	icon = FA_ICON_PERSON_CANE
 
 /datum/quirk/item_quirk/blindness/noitem/add_unique(client/client_source)
 	return
@@ -20,6 +22,7 @@
 /datum/quirk/paraplegic/noitem
 	name = "Paraplegic (No Item Version)"
 	hidden_quirk = TRUE
+	icon = FA_ICON_WHEELCHAIR_MOVE
 
 /datum/quirk/paraplegic/noitem/add_unique(client/client_source)
 	return
@@ -28,6 +31,7 @@
 /datum/quirk/item_quirk/allergic/noitem
 	name = "Extreme Medicine Allergy (No Item Version)"
 	hidden_quirk = TRUE
+	icon = FA_ICON_TABLETS
 
 /datum/quirk/item_quirk/allergic/noitem/add_unique(client/client_source)
 	//we have to copypasta here
