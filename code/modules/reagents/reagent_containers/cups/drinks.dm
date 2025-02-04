@@ -254,7 +254,12 @@
 		to_chat(user, span_warning("The cap seems to be missing! Where did it go?"))
 		return CLICK_ACTION_BLOCKING
 
-	var/fumbled = HAS_TRAIT(user, TRAIT_CLUMSY) && prob(5)
+	//IRIS EDIT CHANGE BEGIN - HANDEDNESS_QUIRK
+	var/fumbled = FALSE
+	var/hand_index = user.active_hand_index
+	if(prob(5) && (HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && IS_LEFT_INDEX(hand_index)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && IS_RIGHT_INDEX(hand_index))))
+		fumbled = TRUE
+	//IRIS EDIT CHANGE END
 	if(cap_on || fumbled)
 		cap_on = FALSE
 		spillable = TRUE

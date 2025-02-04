@@ -105,7 +105,10 @@
 		to_chat(user, span_warning("What the... [src] is stuck to your hand!"))
 		ADD_TRAIT(src, TRAIT_NODROP, STICKY_NODROP)
 
-	var/clumsy = HAS_TRAIT(user, TRAIT_CLUMSY)
+	//IRIS EDIT CHANGE BEGIN - HANDEDNESS_QUIRK
+	var/hand_index = user.active_hand_index
+	var/clumsy = (HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && IS_LEFT_INDEX(hand_index)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && IS_RIGHT_INDEX(hand_index)))
+	//IRIS EDIT CHANGE END
 	if(clumsy && (clumsy_check == GRENADE_CLUMSY_FUMBLE) && prob(50))
 		to_chat(user, span_warning("Huh? How does this thing work?"))
 		arm_grenade(user, 5, FALSE)
