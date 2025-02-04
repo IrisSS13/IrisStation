@@ -3,6 +3,7 @@
 //deafness
 /datum/quirk/item_quirk/deafness/noitem
 	name = "Deaf (No Item Version)"
+	hidden_quirk = TRUE
 
 /datum/quirk/item_quirk/deafness/noitem/add_unique(client/client_source)
 	return
@@ -10,6 +11,7 @@
 //blindness
 /datum/quirk/item_quirk/blindness/noitem
 	name = "Blind (No Item Version)"
+	hidden_quirk = TRUE
 
 /datum/quirk/item_quirk/blindness/noitem/add_unique(client/client_source)
 	return
@@ -17,6 +19,7 @@
 //paraplegia
 /datum/quirk/paraplegic/noitem
 	name = "Paraplegic (No Item Version)"
+	hidden_quirk = TRUE
 
 /datum/quirk/paraplegic/noitem/add_unique(client/client_source)
 	return
@@ -24,6 +27,7 @@
 //medicine allergy
 /datum/quirk/item_quirk/allergic/noitem
 	name = "Extreme Medicine Allergy (No Item Version)"
+	hidden_quirk = TRUE
 
 /datum/quirk/item_quirk/allergic/noitem/add_unique(client/client_source)
 	//we have to copypasta here
