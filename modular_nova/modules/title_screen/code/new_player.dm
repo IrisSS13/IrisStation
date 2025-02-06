@@ -57,7 +57,7 @@
 		play_lobby_button_sound()
 		if(CONFIG_GET(flag/min_flavor_text))
 			if(!is_admin(client) && length_char(client?.prefs?.read_preference(/datum/preference/text/flavor_text)) < CONFIG_GET(number/flavor_text_character_requirement))
-				to_chat(src, span_notice("You need at least [CONFIG_GET(number/flavor_text_character_requirement)] characters of flavor text to ready up for the round. You have [length_char(client.prefs.read_preference(/datum/preference/text/flavor_text))] characters."))
+				to_chat(src, span_notice("You need at least [CONFIG_GET(number/flavor_text_character_requirement)] characters of flavor text to ready up for the round. You have [length_char(client.prefs.read_preference(/datum/preference/text/flavor_text))] characters. If you need any help with writing flavor text, check out https://wiki.irisstation.lol/wiki/Roleplay_Guidelines#How_to_write_a_Flavor_Text."))
 				return
 
 		ready = !ready
