@@ -76,7 +76,7 @@
 #define BRAIN_DAMAGE_FILE "traumas.json"
 /// File location for AI ion laws
 //IRIS EDIT CHANGE BEGIN - SUSSY_CONTENT_REMOVAL
-#define ION_FILE "modular_iris/strings/ion_laws_iris.json"
+#define ION_FILE "iris/ion_laws_iris.json"
 //IRIS EDIT CHANGE END
 /// File location for pirate names
 #define PIRATE_NAMES_FILE "pirates.json"
