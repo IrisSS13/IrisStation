@@ -2,6 +2,7 @@
 
 /obj/item/ammo_box/magazine/m9mm
 	name = "pistol magazine (9mm)"
+	icon = 'modular_nova/modules/aesthetics/guns/icons/magazine.dmi' //iris edit
 	icon_state = "9x19p"
 	base_icon_state = "9x19p"
 	ammo_type = /obj/item/ammo_casing/c9mm
