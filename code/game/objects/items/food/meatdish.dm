@@ -621,6 +621,8 @@
 
 /obj/item/food/sausage/make_processable()
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/salami, 6, 3 SECONDS, table_required = TRUE,  screentip_verb = "Slice")
+//IRIS EDIT REMOVAL BEGIN - SUSSY_CONTENT_REMOVAL
+/*
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/sausage/american, 1, 3 SECONDS, table_required = TRUE,  screentip_verb = "Slice")
 
 /obj/item/food/sausage/american
@@ -630,6 +632,8 @@
 
 /obj/item/food/sausage/american/make_processable()
 	return
+*/
+//IRIS EDIT REMOVAL END
 
 /obj/item/food/salami
 	name = "salami"

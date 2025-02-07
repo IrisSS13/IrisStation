@@ -2231,7 +2231,9 @@
 	required_ingredients = list(
 		/obj/item/food/canned/beans = 1,
 		/obj/item/food/spaghetti/rawnoodles = 1,
-		/obj/item/food/sausage/american = 1,
+		//IRIS EDIT CHANGE BEGIN - SUSSY_CONTENT_REMOVAL
+		/obj/item/food/sausage = 1,
+		//IRIS EDIT CHANGE END
 		/obj/item/food/chapslice = 2,
 		/obj/item/food/kimchi = 1,
 		/obj/item/food/cheese/wedge = 1,
