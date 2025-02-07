@@ -270,7 +270,6 @@
 	consumed_components = list(
 		/obj/item/organ/monster_core/regenerative_core,
 		/mob/living/basic/mining/ice_whelp,
-		/obj/item/stack/ore/bluespace_crystal,
 	)
 
 /datum/ash_ritual/summon_lavaland_creature/ritual_success(obj/effect/ash_rune/success_rune)
@@ -297,7 +296,6 @@
 	consumed_components = list(
 		/obj/item/organ/monster_core/regenerative_core,
 		/obj/item/food/grown/surik,
-		/obj/item/stack/ore/bluespace_crystal,
 	)
 
 /datum/ash_ritual/summon_icemoon_creature/ritual_success(obj/effect/ash_rune/success_rune)
@@ -322,7 +320,6 @@
 		"west" = /obj/item/xenoarch/useless_relic,
 	)
 	consumed_components = list(
-		/obj/item/stack/ore/bluespace_crystal,
 		/obj/item/stack/sheet/animalhide/goliath_hide,
 		/obj/item/xenoarch/useless_relic,
 	)
@@ -505,3 +502,23 @@
 	for(var/mob/living/carbon/human/lizard_target in range(2, get_turf(success_rune)))
 		lizard_target.faction.Add(FACTION_MINING_FAUNA)
 		ADD_TRAIT(lizard_target, TRAIT_PACIFISM, SPECIES_TRAIT)
+
+
+/datum/ash_ritual/summon_cursed_carver
+	name = "Summon Cursed Ash Carver"
+	desc = "Summons a weapon that mimics the invader's tools, allowing us to collect trophies from the hunt."
+	required_components = list(
+		"north" = /obj/item/organ/monster_core/regenerative_core,
+		"south" = /obj/item/cursed_dagger,
+		"east" = /obj/item/stack/sheet/bone,
+		"west" = /obj/item/stack/sheet/sinew,
+	)
+	consumed_components = list(
+		/obj/item/organ/monster_core/regenerative_core,
+		/obj/item/cursed_dagger,
+		/obj/item/stack/sheet/bone,
+		/obj/item/stack/sheet/sinew,
+	)
+	ritual_success_items = list(
+		/obj/item/kinetic_crusher/cursed,
+	)
