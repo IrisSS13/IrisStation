@@ -7,7 +7,7 @@
 	maximum_value_length = MAX_MESSAGE_LEN
 	/// Assoc list of ckeys and their link, used to cut down on chat spam
 	var/list/stored_link = list()
-	var/static/link_regex = regex("i.gyazo.com|files.byondhome.com|images2.imgbox.com")
+	var/static/link_regex = regex("files.catbox.moe|images2.imgbox.com|i.gyazo.com") //IRIS EDIT: updates to use catbox instead of gyazo and byond files. still supports gyazo but i dont recommend it
 	var/static/list/valid_extensions = list("jpg", "png", "jpeg") // Regex works fine, if you know how it works
 
 /datum/preference/text/headshot/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
@@ -36,15 +36,15 @@
 
 	find_index = findtext(value, link_regex)
 	if(find_index != 9)
-		to_chat(usr, span_warning("The image must be hosted on one of the following sites: 'Gyazo (i.gyazo.com), Byond (files.byondhome.com), Imgbox (images2.imgbox.com)'"))
+		to_chat(usr, span_warning("The image must be hosted on one of the following sites: 'Catbox (catbox.moe), Imgbox (images2.imgbox.com)'")) //IRIS EDIT - made it have catbox instead
 		return
 
 	apply_headshot(value)
 	return TRUE
 
-/datum/preference/text/headshot/proc/apply_headshot(value)
+/datum/preference/text/headshot/proc/apply_headshot(value) // we want a fully sfw image, not a relatively one - IRIS EDIT
 	if(stored_link[usr.ckey] != value)
-		to_chat(usr, span_notice("Please use a relatively SFW image of the head and shoulder area to maintain immersion level. Think of it as a headshot for your ID. Lastly, [span_bold("do not use a real life photo or use any image that is less than serious.")]"))
+		to_chat(usr, span_notice("Please use a SFW image of the head and shoulder area to maintain immersion level. Think of it as a headshot for your ID. Lastly, [span_bold("do not use a real life photo or use any image that is less than serious.")]"))
 		to_chat(usr, span_notice("If the photo doesn't show up properly in-game, ensure that it's a direct image link that opens properly in a browser."))
 		to_chat(usr, span_notice("Keep in mind that the photo will be downsized to 250x250 pixels, so the more square the photo, the better it will look."))
 		log_game("[usr] has set their Headshot image to '[value]'.")
