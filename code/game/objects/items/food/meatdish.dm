@@ -594,7 +594,9 @@
 	)
 	tastes = list("meat" = 1)
 	foodtypes = MEAT | RAW
-	eatverbs = list("bite", "chew", "nibble", "deep throat", "gobble", "chomp")
+	//IRIS EDIT CHANGE BEGIN - SUSSY_CONTENT_REMOVAL
+	eatverbs = list("bite", "chew", "nibble", "gobble", "chomp")
+	//IRIS EDIT CHANGE END
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_1
 
@@ -613,7 +615,9 @@
 	tastes = list("meat" = 1)
 	foodtypes = MEAT | BREAKFAST
 	food_flags = FOOD_FINGER_FOOD
-	eatverbs = list("bite", "chew", "nibble", "deep throat", "gobble", "chomp")
+	//IRIS EDIT CHANGE BEGIN - SUSSY_CONTENT_REMOVAL
+	eatverbs = list("bite", "chew", "nibble", "gobble", "chomp")
+	//IRIS EDIT CHANGE END
 	w_class = WEIGHT_CLASS_SMALL
 	venue_value = FOOD_PRICE_CHEAP
 	crafting_complexity = FOOD_COMPLEXITY_2
