@@ -514,6 +514,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 /datum/preferences/proc/validate_quirks()
 	if(CONFIG_GET(flag/disable_quirk_points))
 		return
+
+	for(var/quirk_name in all_quirks)
+		var/datum/quirk/quirk_type = SSquirks.quirks[quirk_name]
+		var/datum/species/species = read_preference(/datum/preference/choiced/species)
+		if(species in initial(quirk_type.disabled_species))
+			all_quirks -= quirk_name
+
 	if(GetQuirkBalance() < 0)
 		all_quirks = list()
 

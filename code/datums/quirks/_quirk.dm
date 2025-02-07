@@ -33,6 +33,9 @@
 	/// The base weight for the each quirk's mail goodies list to be selected is 5
 	/// then the item selected is determined by pick(selected_quirk.mail_goodies)
 	var/list/mail_goodies
+	// IRIS EDIT quirk species locks
+	/// List of species types that are not allowed to have this quirk
+	var/list/disabled_species = list()
 
 /datum/quirk/Destroy()
 	if(quirk_holder)

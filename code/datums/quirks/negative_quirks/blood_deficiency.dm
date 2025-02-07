@@ -8,6 +8,7 @@
 	medical_record_text = "Patient requires regular treatment for blood loss due to low production of blood."
 	hardcore_value = 8
 	mail_goodies = list(/obj/item/reagent_containers/blood/o_minus) // universal blood type that is safe for all
+	disabled_species = list(/datum/species/synthetic)
 	/// Minimum amount of blood the paint is set to
 	var/min_blood = BLOOD_VOLUME_SAFE - 25 // just barely survivable without treatment
 
