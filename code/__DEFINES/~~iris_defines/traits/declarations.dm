@@ -9,11 +9,14 @@
 
 //mob traits
 
-//START PORT https://github.com/lizardqueenlexi/orbstation/pull/254:
-//Makes you illiterate while not wearing glasses
+//Makes you illiterate while not wearing glasses, part of https://github.com/lizardqueenlexi/orbstation/pull/254
 #define TRAIT_FARSIGHT "farsighted"
 
+//HANDEDNESS_QUIRK
+#define TRAIT_HANDEDNESS "handedness"
+#define TRAIT_HANDEDNESS_LEFT "handedness_left"
+
 //Trait sources
-// Special trait source for illiteracy granted by farsightedness
+
+//Special trait source for illiteracy granted by farsightedness, part of https://github.com/lizardqueenlexi/orbstation/pull/254
 #define FARSIGHT_TRAIT "farsighted_trait"
-//END PORT
