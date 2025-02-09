@@ -3,6 +3,7 @@
 
 /obj/item/ammo_box/magazine/m9mm
 	name = "pistol magazine (9mm)"
+	icon = 'modular_nova/modules/aesthetics/guns/icons/magazine.dmi' //iris edit
 	icon_state = "9x19p"
 	base_icon_state = "9x19p"
 	desc = "A 9mm handgun magazine, suitable for the Makarov pistol."

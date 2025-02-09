@@ -149,8 +149,12 @@
 	if(QDELETED(user))  //how the hell...?
 		stack_trace("/obj/item/firing_pin/clown/ultra/pin_auth called with a [isnull(user) ? "null" : "invalid"] user.")
 		return TRUE
+	//IRIS STATION REMOVAL BEGIN - HANDEDNESS_PR, reason for removal: unneccessary due to mind checks below, currently only expands firing pin use to non-clowns (which seems unintended) on account of the existence of the "Clumsy" quirk
+	/*
 	if(HAS_TRAIT(user, TRAIT_CLUMSY)) //clumsy
 		return TRUE
+	*/
+	//IRIS STATION REMOVAL END
 	if(user.mind)
 		if(is_clown_job(user.mind.assigned_role)) //traitor clowns can use this, even though they're technically not clumsy
 			return TRUE

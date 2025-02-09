@@ -260,8 +260,14 @@
 	if(!clumsy_check)
 		return FALSE
 
-	if(!user || !HAS_TRAIT(user, TRAIT_CLUMSY))
+	//IRIS EDIT CHANGE BEGIN - HANDEDNESS_QUIRK
+	if(!user)
 		return FALSE
+
+	var/hand_index = user.active_hand_index
+	if(!(HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && IS_LEFT_INDEX(hand_index)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && IS_RIGHT_INDEX(hand_index))))
+		return FALSE
+	//IRIS EDIT CHANGE END
 
 	if(active && prob(50))
 		var/hurt_self_verb_simple = LAZYLEN(attack_verb_simple_on) ? pick(attack_verb_simple_on) : "hit"
