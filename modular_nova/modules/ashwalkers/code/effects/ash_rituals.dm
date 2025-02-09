@@ -166,26 +166,6 @@
 		/obj/item/cursed_dagger,
 	)
 
-/// IRIS STATION EDIT: Summon Ash Crusher
-/datum/ash_ritual/summon_cursed_carver
-	name = "Summon Cursed Ash Carver"
-	desc = "Summons a weapon that mimics the invader's tools, allowing us to collect trophies from the hunt."
-	required_components = list(
-		"north" = /obj/item/organ/monster_core/regenerative_core,
-		"south" = /obj/item/cursed_dagger,
-		"east" = /obj/item/stack/sheet/bone,
-		"west" = /obj/item/stack/sheet/sinew,
-	)
-	consumed_components = list(
-		/obj/item/organ/monster_core/regenerative_core,
-		/obj/item/cursed_dagger,
-		/obj/item/stack/sheet/bone,
-		/obj/item/stack/sheet/sinew,
-	)
-	ritual_success_items = list(
-		/obj/item/kinetic_crusher/cursed,
-	)
-
 /// Impregnate the ground with a Tendril
 /datum/ash_ritual/summon_tendril_seed
 	name = "Summon Tendril Seed"
@@ -287,7 +267,7 @@
 		"east" = /obj/item/stack/ore/bluespace_crystal,
 		"west" = /obj/item/stack/ore/bluespace_crystal,
 	)
-	consumed_components = list(
+	consumed_components = list( //IRIS EDIT: Removes Bluespace Crystal as a consumed component
 		/obj/item/organ/monster_core/regenerative_core,
 		/mob/living/basic/mining/ice_whelp,
 	)
@@ -313,7 +293,7 @@
 		"east" = /obj/item/stack/ore/bluespace_crystal,
 		"west" = /obj/item/stack/ore/bluespace_crystal,
 	)
-	consumed_components = list(
+	consumed_components = list( //IRIS EDIT: Removes Bluespace Crystal as a consumed component
 		/obj/item/organ/monster_core/regenerative_core,
 		/obj/item/food/grown/surik,
 	)
@@ -339,7 +319,7 @@
 		"east" = /obj/item/xenoarch/brush,
 		"west" = /obj/item/xenoarch/useless_relic,
 	)
-	consumed_components = list(
+	consumed_components = list( //IRIS EDIT: Removes Bluespace Crystal as a consumed component
 		/obj/item/stack/sheet/animalhide/goliath_hide,
 		/obj/item/xenoarch/useless_relic,
 	)
