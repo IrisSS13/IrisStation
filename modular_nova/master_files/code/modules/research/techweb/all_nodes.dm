@@ -262,6 +262,7 @@
 /datum/techweb_node/mining/New()
 	design_ids += list(
 		"mesons_prescription",
+		"bsc_nt",
 	)
 	return ..()
 
