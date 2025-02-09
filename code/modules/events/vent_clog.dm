@@ -299,8 +299,8 @@
 		/mob/living/basic/lightgeist,
 		/mob/living/basic/mothroach,
 		/mob/living/basic/mushroom,
-		/mob/living/basic/pet/dog/corgi/puppy/void, // IRIS EDIT
 		/mob/living/basic/pet/gondola,
+		/mob/living/basic/pet/dog/corgi/puppy/void, // IRIS EDIT
 	)
 	return pick(mob_list)
 
