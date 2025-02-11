@@ -267,10 +267,9 @@
 		"east" = /obj/item/stack/ore/bluespace_crystal,
 		"west" = /obj/item/stack/ore/bluespace_crystal,
 	)
-	consumed_components = list(
+	consumed_components = list( //IRIS EDIT: Removes Bluespace Crystal as a consumed component
 		/obj/item/organ/monster_core/regenerative_core,
 		/mob/living/basic/mining/ice_whelp,
-		/obj/item/stack/ore/bluespace_crystal,
 	)
 
 /datum/ash_ritual/summon_lavaland_creature/ritual_success(obj/effect/ash_rune/success_rune)
@@ -294,10 +293,9 @@
 		"east" = /obj/item/stack/ore/bluespace_crystal,
 		"west" = /obj/item/stack/ore/bluespace_crystal,
 	)
-	consumed_components = list(
+	consumed_components = list( //IRIS EDIT: Removes Bluespace Crystal as a consumed component
 		/obj/item/organ/monster_core/regenerative_core,
 		/obj/item/food/grown/surik,
-		/obj/item/stack/ore/bluespace_crystal,
 	)
 
 /datum/ash_ritual/summon_icemoon_creature/ritual_success(obj/effect/ash_rune/success_rune)
@@ -321,8 +319,7 @@
 		"east" = /obj/item/xenoarch/brush,
 		"west" = /obj/item/xenoarch/useless_relic,
 	)
-	consumed_components = list(
-		/obj/item/stack/ore/bluespace_crystal,
+	consumed_components = list( //IRIS EDIT: Removes Bluespace Crystal as a consumed component
 		/obj/item/stack/sheet/animalhide/goliath_hide,
 		/obj/item/xenoarch/useless_relic,
 	)
