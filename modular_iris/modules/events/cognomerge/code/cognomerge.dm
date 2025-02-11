@@ -62,7 +62,7 @@
 		if(try_add_quirk(victim, chosen_quirk)) //only set a timer to remove the quirk if adding it succeeds (it will fail if they already possess the quirk)
 			addtimer(CALLBACK(victim, TYPE_PROC_REF(/mob/living, remove_quirk), chosen_quirk), duration, TIMER_DELETE_ME)
 
-/datum/round_event/cognomerge/try_add_quirk(mob/living/carbon/human/victim, datum/quirk/chosen_quirk)
+/datum/round_event/cognomerge/proc/try_add_quirk(mob/living/carbon/human/victim, datum/quirk/chosen_quirk)
 	//handle our noitem special cases
 	switch(chosen_quirk)
 		if(/datum/quirk/item_quirk/allergic/noitem)
@@ -78,10 +78,7 @@
 			if(victim.has_quirk(/datum/quirk/paraplegic))
 				return FALSE
 
-	if(victim.add_quirk(chosen_quirk))
-		return TRUE
-	else
-		return FALSE
+	return victim.add_quirk(chosen_quirk)
 
 /datum/round_event/cognomerge/end()
 	priority_announce("Update [station_name()]: The assimilatory phase has reached its conclusion, no further health risk is anticipated at this time.",
