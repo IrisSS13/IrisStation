@@ -50,6 +50,8 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	//HANDEDNESS_QUIRK (split across two lines so we don't prevent the taking of clumsy with hemiplegic)
 	list(/datum/quirk/handedness, /datum/quirk/hemiplegic),
 	list(/datum/quirk/handedness, /datum/quirk/clumsy),
+	//UNBLINKING_QUIRK
+	list(/datum/quirk/unblinking, /datum/quirk/item_quirk/fluoride_stare),
 	//IRIS EDIT ADDITION END
 ))
 
