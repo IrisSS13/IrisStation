@@ -331,21 +331,19 @@ function Department(props: DepartmentProps) {
 
   return (
     <Box>
-      <Stack vertical fill>
-        {jobsForDepartment.map(([name, job]) => {
-          return (
-            <JobRow
-              className={classes([
-                className,
-                name === department.head && 'head',
-              ])}
-              key={name}
-              job={job}
-              name={name}
-            />
-          );
-        })}
-      </Stack>
+      {jobsForDepartment.map(([name, job]) => {
+        return (
+          <JobRow
+            className={classes([
+              className,
+              name === department.head && 'head',
+            ])}
+            key={name}
+            job={job}
+            name={name}
+          />
+        );
+      })}
 
       {children}
     </Box>
