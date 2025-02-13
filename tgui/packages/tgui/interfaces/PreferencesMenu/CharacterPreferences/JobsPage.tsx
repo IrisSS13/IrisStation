@@ -329,6 +329,7 @@ function Department(props: DepartmentProps) {
     department.head,
   );
 
+  // IRIS EDIT START - growing job box fix
   return (
     <Box>
       {jobsForDepartment.map(([name, job]) => {
@@ -337,7 +338,7 @@ function Department(props: DepartmentProps) {
             className={classes([
               className,
               name === department.head && 'head',
-            ])}
+              ])}
             key={name}
             job={job}
             name={name}
@@ -348,6 +349,7 @@ function Department(props: DepartmentProps) {
       {children}
     </Box>
   );
+  // IRIS EDIT END
 }
 
 // *Please* find a better way to do this, this is RIDICULOUS.
