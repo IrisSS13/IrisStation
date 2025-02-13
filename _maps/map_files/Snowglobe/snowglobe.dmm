@@ -16025,6 +16025,10 @@
 /area/station/hallway/primary/aft)
 "epB" = (
 /obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 8;
+	id = "detectiveshutters"
+	},
 /turf/open/floor/plating,
 /area/station/security/detectives_office)
 "epE" = (
@@ -54108,6 +54112,10 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
+/obj/machinery/button/door/directional/south{
+	id = "detectiveshutters";
+	name = "Shutters"
+	},
 /turf/open/floor/wood/large,
 /area/station/security/detectives_office)
 "ozS" = (
@@ -69877,6 +69885,14 @@
 	},
 /turf/open/floor/plating,
 /area/station/commons/vacant_room/commissary)
+"sSI" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 1;
+	id = "detectiveshutters"
+	},
+/turf/open/floor/plating,
+/area/station/security/detectives_office)
 "sSJ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -251694,7 +251710,7 @@ gBJ
 sNr
 vvm
 bRb
-epB
+sSI
 rDV
 ydt
 mxW
@@ -251951,7 +251967,7 @@ aSG
 vAm
 ahk
 sxO
-epB
+sSI
 ret
 nxB
 rll
