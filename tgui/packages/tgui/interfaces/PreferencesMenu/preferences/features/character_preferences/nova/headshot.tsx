@@ -8,6 +8,7 @@ export const headshot: Feature<string> = {
     https://, and hosted on Imgbox or Catbox.moe. Renders the image underneath \
     your character preview in the examine more window. \
     Image larger than 250x250 will be resized to 250x250. \
-    Aim for 250x250 whenever possible',
+    Aim for 250x250 whenever possible. You cannot \
+    use headshots until you have played for 5 hours.',
   component: FeatureShortTextInput,
 };
