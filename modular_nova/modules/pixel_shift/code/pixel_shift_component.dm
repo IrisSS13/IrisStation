@@ -67,27 +67,46 @@
 	qdel(src)
 
 /// In-turf pixel movement which can allow things to pass through if the threshold is met.
+// IRIS EDIT START: Loosely ports https://github.com/Skyrat-SS13/Skyrat-tg/pull/29226
 /datum/component/pixel_shift/proc/pixel_shift(mob/source, direct)
 	passthroughable = NONE
 	var/mob/living/owner = parent
-	switch(direct)
-		if(NORTH)
-			if(owner.pixel_y <= maximum_pixel_shift + owner.base_pixel_y)
-				owner.pixel_y++
-				is_shifted = TRUE
-		if(EAST)
-			if(owner.pixel_x <= maximum_pixel_shift + owner.base_pixel_x)
-				owner.pixel_x++
-				is_shifted = TRUE
-		if(SOUTH)
-			if(owner.pixel_y >= -maximum_pixel_shift + owner.base_pixel_y)
-				owner.pixel_y--
-				is_shifted = TRUE
-		if(WEST)
-			if(owner.pixel_x >= -maximum_pixel_shift + owner.base_pixel_x)
-				owner.pixel_x--
-				is_shifted = TRUE
-
+	if(shifting && owner.pulling)
+		var/atom/pulled_atom = source.pulling
+		if(isstructure(pulled_atom) || (ismachinery(pulled_atom) && pulled_atom.density))
+			return
+		switch(direct)
+			if(NORTH)
+				if(pulled_atom.pixel_y <= maximum_pixel_shift + pulled_atom.base_pixel_y)
+					pulled_atom.pixel_y++
+			if(EAST)
+				if(pulled_atom.pixel_x <= maximum_pixel_shift + pulled_atom.base_pixel_x)
+					pulled_atom.pixel_x++
+			if(SOUTH)
+				if(pulled_atom.pixel_y >= -maximum_pixel_shift + pulled_atom.base_pixel_y)
+					pulled_atom.pixel_y--
+			if(WEST)
+				if(pulled_atom.pixel_x >= -maximum_pixel_shift + pulled_atom.base_pixel_x)
+					pulled_atom.pixel_x--
+	else if(shifting)
+		switch(direct)
+			if(NORTH)
+				if(owner.pixel_y <= maximum_pixel_shift + owner.base_pixel_y)
+					owner.pixel_y++
+					is_shifted = TRUE
+			if(EAST)
+				if(owner.pixel_x <= maximum_pixel_shift + owner.base_pixel_x)
+					owner.pixel_x++
+					is_shifted = TRUE
+			if(SOUTH)
+				if(owner.pixel_y >= -maximum_pixel_shift + owner.base_pixel_y)
+					owner.pixel_y--
+					is_shifted = TRUE
+			if(WEST)
+				if(owner.pixel_x >= -maximum_pixel_shift + owner.base_pixel_x)
+					owner.pixel_x--
+					is_shifted = TRUE
+// IRIS EDIT END
 	// Yes, I know this sets it to true for everything if more than one is matched.
 	// Movement doesn't check diagonals, and instead just checks EAST or WEST, depending on where you are for those.
 	if(owner.pixel_y > passable_shift_threshold)
