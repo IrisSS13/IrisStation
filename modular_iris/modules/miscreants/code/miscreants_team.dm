@@ -11,10 +11,12 @@
 	if(forced_max > 0)
 		max_miscreants = forced_max
 
+	var/selected_random_scenario = pick_list(MISCREANT_OBJECTIVES_FILE, "scenario")
+
 	if(custom_name)
 		name = "\improper [custom_name]"
-
-	var/selected_random_scenario = pick_list(MISCREANT_OBJECTIVES_FILE, "scenario")
+	else
+		name = "\improper [selected_random_scenario["group_name"]]"
 
 	if(custom_flavor)
 		flavor_text = custom_flavor
