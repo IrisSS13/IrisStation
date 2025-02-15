@@ -12,7 +12,7 @@
 		max_miscreants = forced_max
 
 	if(custom_name)
-		name = custom_name
+		name = "\improper [custom_name]"
 
 	var/selected_random_scenario = pick_list(MISCREANT_OBJECTIVES_FILE, "scenario")
 
