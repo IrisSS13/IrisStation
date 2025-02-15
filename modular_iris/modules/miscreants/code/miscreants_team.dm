@@ -8,7 +8,7 @@
 
 /datum/team/miscreants/New(forced_max = 0, custom_flavor, custom_objective, custom_ooc)
 	. = ..()
-	if(forced_max)
+	if(forced_max > 0)
 		max_miscreants = forced_max
 
 	var/selected_random_scenario = pick_list(MISCREANT_OBJECTIVES_FILE, "scenario")
@@ -18,9 +18,12 @@
 	else
 		flavor_text = selected_random_scenario.flavor_text
 
-	var/datum/objective/miscreant_goal/goal = new/datum/objective/miscreant_goal
+	var/datum/objective/miscreant/goal = new/datum/objective/miscreant
 	if(custom_objective)
-		add_objective()
+		goal.explanation_text = "[custom_objective]"
+	else
+		goal.explanation_text = "[selected_random_scenario.objective]"
+	add_objective(goal)
 
 	if(custom_ooc)
 		ooc_text = custom_ooc
