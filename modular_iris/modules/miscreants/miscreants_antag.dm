@@ -349,18 +349,12 @@
 
 /datum/team/miscreants
 	name = "\improper Band of Miscreants"
+	var/max_miscreants = 8 //maximum number of miscreants that can be assigned to this team
 
-	/// Maximum number of miscreants
-	var/max_miscreants = 8
-
-	/// List of all ex-headrevs. Useful because dynamic removes antag status when it ends, so this can be kept for the roundend report.
-	var/list/ex_headrevs = list()
-
-	/// List of all ex-revs. Useful because dynamic removes antag status when it ends, so this can be kept for the roundend report.
-	var/list/ex_revs = list()
-
-	/// The objective of the heads of staff, aka to kill the headrevs.
-	var/list/datum/objective/mutiny/heads_objective = list()
+/datum/team/miscreants/New(forced_max = 0)
+	. = ..()
+	if(forced_max)
+		max_miscreants = forced_max
 
 /datum/outfit/miscreant
 	name = "Miscreant (Preview only)"
