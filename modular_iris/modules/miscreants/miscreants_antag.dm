@@ -28,7 +28,7 @@
 
 /datum/antagonist/miscreant/on_gain()
 	. = ..()
-	create_objectives()
+	add_objectives()
 	owner.current.log_message("has been converted into a miscreant!", LOG_ATTACK, color="red")
 
 /datum/antagonist/miscreant/on_removal()
@@ -60,17 +60,17 @@
 /datum/antagonist/miscreant/get_team()
 	return miscreant_team
 
-/datum/antagonist/rev/proc/create_objectives()
-	objectives |= rev_team.objectives
+/datum/antagonist/miscreant/proc/add_objectives()
+	objectives |= miscreant_team?.objectives
 
-/datum/antagonist/rev/proc/remove_objectives()
-	objectives -= rev_team.objectives
+/datum/antagonist/miscreant/proc/remove_objectives()
+	objectives -= miscreant_team?.objectives
 
-/datum/antagonist/rev/get_admin_commands()
+/datum/antagonist/miscreant/get_admin_commands()
 	. = ..()
 	.["Promote"] = CALLBACK(src, PROC_REF(admin_promote))
 
-/datum/antagonist/rev/proc/admin_promote(mob/admin)
+/datum/antagonist/miscreant/proc/admin_promote(mob/admin)
 	var/datum/mind/O = owner
 	promote()
 	message_admins("[key_name_admin(admin)] has head-rev'ed [O].")
@@ -82,16 +82,16 @@
 	final_icon.Blend(make_assistant_icon("Business Hair"), ICON_UNDERLAY, -8, 0)
 	final_icon.Blend(make_assistant_icon("CIA"), ICON_UNDERLAY, 8, 0)
 
-	// Apply the rev head HUD, but scale up the preview icon a bit beforehand.
-	// Otherwise, the R gets cut off.
+	// Apply the miscreant HUD, but scale up the preview icon a bit beforehand.
+	// Otherwise, the M gets cut off.
 	final_icon.Scale(64, 64)
 
 	var/icon/miscreant_icon = icon('modular_iris/modules/miscreants/icons/miscreants_hud.dmi', "miscreant")
-	rev_head_icon.Scale(48, 48)
-	rev_head_icon.Crop(1, 1, 64, 64)
-	rev_head_icon.Shift(EAST, 10)
-	rev_head_icon.Shift(NORTH, 16)
-	final_icon.Blend(rev_head_icon, ICON_OVERLAY)
+	miscreant_icon.Scale(48, 48)
+	miscreant_icon.Crop(1, 1, 64, 64)
+	miscreant_icon.Shift(EAST, 10)
+	miscreant_icon.Shift(NORTH, 16)
+	final_icon.Blend(miscreant_icon, ICON_OVERLAY)
 
 	return finish_preview_icon(final_icon)
 
