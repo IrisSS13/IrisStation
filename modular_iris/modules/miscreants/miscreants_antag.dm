@@ -60,13 +60,22 @@
 
 /datum/antagonist/miscreant/get_admin_commands()
 	. = ..()
-	.["Promote"] = CALLBACK(src, PROC_REF(admin_promote))
+	.["Move to Team"] = CALLBACK(src, PROC_REF(admin_move))
+	.["Move to New Team"] = CALLBACK(src, PROC_REF(admin_move_to_new))
 
-/datum/antagonist/miscreant/proc/admin_promote(mob/admin)
+/datum/antagonist/miscreant/proc/admin_move(mob/admin)
+	var/list/miscreant_teams = list()
+	for(var/datum/team/miscreants/M in GLOB.antagonist_teams)
+		miscreant_teams += M
+	if(!(miscreant_teams.len > 1))
+		to_chat(admin, span_userdanger("Cannot move miscreant when one or fewer teams exist."))
+		return
+
+
+
 	var/datum/mind/O = owner
-	promote()
-	message_admins("[key_name_admin(admin)] has head-rev'ed [O].")
-	log_admin("[key_name(admin)] has head-rev'ed [O].")
+	message_admins("[key_name_admin(admin)] has moved miscreant [O] to team [].")
+	log_admin("[key_name(admin)] has moved miscreant [O] to team [].")
 
 /datum/antagonist/miscreant/get_preview_icon()
 	var/icon/final_icon = render_preview_outfit(preview_outfit)
