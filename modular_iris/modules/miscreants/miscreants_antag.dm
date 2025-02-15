@@ -61,21 +61,35 @@
 /datum/antagonist/miscreant/get_admin_commands()
 	. = ..()
 	.["Move to Team"] = CALLBACK(src, PROC_REF(admin_move))
-	.["Move to New Team"] = CALLBACK(src, PROC_REF(admin_move_to_new))
+	//.["Move to New Team"] = CALLBACK(src, PROC_REF(admin_move_to_new))
 
 /datum/antagonist/miscreant/proc/admin_move(mob/admin)
 	var/list/miscreant_teams = list()
-	for(var/datum/team/miscreants/M in GLOB.antagonist_teams)
-		miscreant_teams += M
+	for(var/datum/team/miscreants/team in GLOB.antagonist_teams)
+		miscreant_teams += team
 	if(!(miscreant_teams.len > 1))
 		to_chat(admin, span_userdanger("Cannot move miscreant when one or fewer teams exist."))
 		return
 
+	var/datum/team/miscreants/destination_team = tgui_alert(admin, "")
+	if(!destination_team || (destination_team == miscreant_team))
+		return
+	//Remove old team info
+	owner.objectives.Remove(miscreant_team.objectives)
+	miscreant_team.members.Remove(owner)
+	//Add new team info
+	destination_team.members.Add(owner)
+	owner.objectives.Add(destination_team.objectives)
+	//Announce the new info to the player
+	to_chat(owner, span_notice("[destination_team.flavor_text]"))
+	owner.announce_objectives()
+	if(destination_team.ooc_text)
+		to_chat(owner, span_userdanger("[destination_team.ooc_text]"))
 
-
+	//Log the move
 	var/datum/mind/O = owner
-	message_admins("[key_name_admin(admin)] has moved miscreant [O] to team [].")
-	log_admin("[key_name(admin)] has moved miscreant [O] to team [].")
+	message_admins("[key_name_admin(admin)] has moved miscreant [O] to team [destination_team].")
+	log_admin("[key_name(admin)] has moved miscreant [O] to team [destination_team].")
 
 /datum/antagonist/miscreant/get_preview_icon()
 	var/icon/final_icon = render_preview_outfit(preview_outfit)
