@@ -19,18 +19,18 @@
 	if(custom_flavor)
 		flavor_text = custom_flavor
 	else
-		flavor_text = selected_random_scenario.flavor_text
+		flavor_text = selected_random_scenario["flavor_text"]
 
 	var/datum/objective/miscreant/goal = new/datum/objective/miscreant
 	if(custom_objective)
 		goal.explanation_text = "[custom_objective]"
 	else
-		goal.explanation_text = "[selected_random_scenario.objective]"
+		goal.explanation_text = "[selected_random_scenario["objective"]]"
 	add_objective(goal)
 
 	if(custom_ooc)
 		ooc_text = custom_ooc
 	else
-		ooc_text = selected_random_scenario.flavor_text
+		ooc_text = selected_random_scenario["ooc_notes"]
 
 #undef MISCREANT_OBJECTIVES_FILE
