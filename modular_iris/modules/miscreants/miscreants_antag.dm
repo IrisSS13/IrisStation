@@ -1,5 +1,3 @@
-#define MISCREANT_OBJECTIVES_FILE "iris/miscreant_objectives.json"
-
 /datum/antagonist/miscreant
 	name = "\improper Miscreant"
 	roundend_category = "miscreants"
@@ -107,5 +105,3 @@
 	qdel(assistant)
 
 	return assistant_icon
-
-#undef MISCREANT_OBJECTIVES_FILE

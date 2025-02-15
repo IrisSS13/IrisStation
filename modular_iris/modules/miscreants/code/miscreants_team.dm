@@ -1,3 +1,5 @@
+#define MISCREANT_OBJECTIVES_FILE "iris/miscreant_objectives.json"
+
 /datum/team/miscreants
 	name = "\improper Band of Miscreants"
 	var/max_miscreants = 8 //maximum number of miscreants that can be assigned to this team
@@ -24,3 +26,5 @@
 		ooc_text = custom_ooc
 	else
 		ooc_text = selected_random_scenario.flavor_text
+
+#undef MISCREANT_OBJECTIVES_FILE
