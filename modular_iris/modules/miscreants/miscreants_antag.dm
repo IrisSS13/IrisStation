@@ -28,11 +28,11 @@
 
 /datum/antagonist/miscreant/on_gain()
 	. = ..()
-	add_objectives()
+	objectives |= miscreant_team?.objectives
 	owner.current.log_message("has been converted into a miscreant!", LOG_ATTACK, color="red")
 
 /datum/antagonist/miscreant/on_removal()
-	remove_objectives()
+	objectives -= miscreant_team?.objectives
 	. = ..()
 
 /datum/antagonist/miscreant/greet()
@@ -59,12 +59,6 @@
 
 /datum/antagonist/miscreant/get_team()
 	return miscreant_team
-
-/datum/antagonist/miscreant/proc/add_objectives()
-	objectives |= miscreant_team?.objectives
-
-/datum/antagonist/miscreant/proc/remove_objectives()
-	objectives -= miscreant_team?.objectives
 
 /datum/antagonist/miscreant/get_admin_commands()
 	. = ..()
