@@ -28,36 +28,34 @@
 /datum/antagonist/miscreant/remove_innate_effects(mob/living/mob_override)
 	var/mob/living/M = mob_override || owner.current
 
-/datum/antagonist/msicreant/on_gain()
+/datum/antagonist/miscreant/on_gain()
 	. = ..()
 	create_objectives()
 	owner.current.log_message("has been converted into a miscreant!", LOG_ATTACK, color="red")
 
-/datum/antagonist/rev/on_removal()
+/datum/antagonist/miscreant/on_removal()
 	remove_objectives()
 	. = ..()
 
-/datum/antagonist/rev/greet()
+/datum/antagonist/miscreant/greet()
 	. = ..()
 	to_chat(owner, span_userdanger("Help your cause. Do not harm your fellow miscreants. You can identify your comrades by the brown \"M\" icons."))
 	owner.announce_objectives()
 
-/datum/antagonist/rev/create_team(datum/team/revolution/new_team)
+/datum/antagonist/miscreant/create_team(datum/team/miscreants/new_team)
 	if(!new_team)
 		//For now only one revolution at a time
-		for(var/datum/antagonist/rev/head/H in GLOB.antagonists)
-			if(!H.owner)
+		for(var/datum/antagonist/miscreant/M in GLOB.antagonists)
+			if(!M.owner)
 				continue
-			if(H.rev_team)
-				rev_team = H.rev_team
+			if(M.miscreant_team)
+				miscreant_team = M.miscreant_team
 				return
-		rev_team = new /datum/team/revolution
-		rev_team.update_objectives()
-		rev_team.update_rev_heads()
+		miscreant_team = new /datum/team/miscreants
 		return
 	if(!istype(new_team))
 		stack_trace("Wrong team type passed to [type] initialization.")
-	rev_team = new_team
+	miscreant_team = new_team
 
 /datum/antagonist/rev/get_team()
 	return rev_team
