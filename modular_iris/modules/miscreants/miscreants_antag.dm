@@ -12,15 +12,15 @@
 	var/deconversion_source
 
 /datum/antagonist/miscreant/can_be_owned(datum/mind/new_owner)
-	if(new_owner.assigned_role.departments_bitflags & DEPARTMENT_BITFLAG_SECURITY)
+	if(new_owner.assigned_role.departments_bitflags & (DEPARTMENT_BITFLAG_SECURITY | DEPARTMENT_BITFLAG_CAPTAIN | DEPARTMENT_BITFLAG_CENTRAL_COMMAND) > 0)
 		return FALSE
 	return ..()
 
 /datum/antagonist/rev/admin_add(datum/mind/new_owner, mob/admin)
 	new_owner.add_antag_datum(src)
-	message_admins("[key_name_admin(admin)] has rev'ed [key_name_admin(new_owner)].")
-	log_admin("[key_name(admin)] has rev'ed [key_name(new_owner)].")
-	to_chat(new_owner.current, span_userdanger("You are a member of the revolution!"))
+	message_admins("[key_name_admin(admin)] has made [key_name_admin(new_owner)] a miscreant.")
+	log_admin("[key_name(admin)] has made [key_name(new_owner)] a miscreant.")
+	to_chat(new_owner.current, span_userdanger("You are a miscreant!"))
 
 /datum/antagonist/miscreant/apply_innate_effects(mob/living/mob_override)
 	var/mob/living/M = mob_override || owner.current
@@ -40,7 +40,7 @@
 	. = ..()
 	create_objectives()
 	equip_rev()
-	owner.current.log_message("has been converted to the revolution!", LOG_ATTACK, color="red")
+	owner.current.log_message("has been converted into a miscreant!", LOG_ATTACK, color="red")
 
 /datum/antagonist/rev/on_removal()
 	remove_objectives()
@@ -48,7 +48,7 @@
 
 /datum/antagonist/rev/greet()
 	. = ..()
-	to_chat(owner, span_userdanger("Help your cause. Do not harm your fellow freedom fighters. You can identify your comrades by the red \"R\" icons, and your leaders by the blue \"R\" icons. Help them kill the heads to win the revolution!"))
+	to_chat(owner, span_userdanger("Help your cause. Do not harm your fellow miscreants. You can identify your comrades by the brown \"M\" icons."))
 	owner.announce_objectives()
 
 /datum/antagonist/rev/create_team(datum/team/revolution/new_team)
