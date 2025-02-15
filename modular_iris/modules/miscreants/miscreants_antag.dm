@@ -108,40 +108,4 @@
 
 	return assistant_icon
 
-/datum/team/miscreants
-	name = "\improper Band of Miscreants"
-	var/max_miscreants = 8 //maximum number of miscreants that can be assigned to this team
-	var/flavor_text = "If you see this miscreant flavor text, report it as a bug."
-	var/ooc_text = "If you see this miscreant ooc text, report it as a bug."
-
-/datum/team/miscreants/New(forced_max = 0, custom_flavor, custom_objective, custom_ooc)
-	. = ..()
-	if(forced_max)
-		max_miscreants = forced_max
-
-	var/selected_random_scenario = pick_list(MISCREANT_OBJECTIVES_FILE, "scenario")
-
-	if(custom_flavor)
-		flavor_text = custom_flavor
-	else
-		flavor_text = selected_random_scenario.flavor_text
-
-	var/datum/objective/miscreant_goal/goal = new/datum/objective/miscreant_goal
-	if(custom_objective)
-		add_objective()
-
-	if(custom_ooc)
-		ooc_text = custom_ooc
-	else
-		ooc_text = selected_random_scenario.flavor_text
-
-/datum/outfit/miscreant
-	name = "Miscreant (Preview only)"
-
-	uniform = /obj/item/clothing/under/costume/soviet
-	head = /obj/item/clothing/head/costume/foilhat
-	gloves = /obj/item/clothing/gloves/color/yellow
-	l_hand = /obj/item/crayons
-	r_hand = /obj/item/melee/cleric_mace
-
 #undef MISCREANT_OBJECTIVES_FILE
