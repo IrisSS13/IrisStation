@@ -6,10 +6,13 @@
 	var/flavor_text = "If you see this miscreant flavor text, report it as a bug."
 	var/ooc_text = "If you see this miscreant ooc text, report it as a bug."
 
-/datum/team/miscreants/New(forced_max = 0, custom_flavor, custom_objective, custom_ooc)
+/datum/team/miscreants/New(forced_max = 0, custom_name, custom_flavor, custom_objective, custom_ooc)
 	. = ..()
 	if(forced_max > 0)
 		max_miscreants = forced_max
+
+	if(custom_name)
+		name = custom_name
 
 	var/selected_random_scenario = pick_list(MISCREANT_OBJECTIVES_FILE, "scenario")
 
