@@ -23,9 +23,6 @@
 	var/mob/living/M = mob_override || owner.current
 	add_team_hud(M, /datum/antagonist/miscreant)
 
-/datum/antagonist/miscreant/remove_innate_effects(mob/living/mob_override)
-	var/mob/living/M = mob_override || owner.current
-
 /datum/antagonist/miscreant/on_gain()
 	. = ..()
 	objectives |= miscreant_team?.objectives
