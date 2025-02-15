@@ -618,13 +618,13 @@
 	heads_report += "</table>"
 	return common_part + heads_report
 
-/datum/outfit/revolutionary
-	name = "Revolutionary (Preview only)"
+/datum/outfit/miscreant
+	name = "Miscreant (Preview only)"
 
 	uniform = /obj/item/clothing/under/costume/soviet
-	head = /obj/item/clothing/head/costume/ushanka
-	gloves = /obj/item/clothing/gloves/color/black
-	l_hand = /obj/item/spear
-	r_hand = /obj/item/assembly/flash
+	head = /obj/item/clothing/head/costume/foilhat
+	gloves = /obj/item/clothing/gloves/color/yellow
+	l_hand = /obj/item/crayons
+	r_hand = /obj/item/melee/cleric_mace
 
 #undef MISCREANT_OBJECTIVES_FILE
