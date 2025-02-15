@@ -37,7 +37,8 @@
 	to_chat(owner, span_userdanger("Help your cause. Do not harm your fellow miscreants. You can identify your comrades by the brown \"M\" icons."))
 	to_chat(owner, span_notice("[miscreant_team?.flavor_text]"))
 	owner.announce_objectives()
-	to_chat(owner, span_userdanger("[miscreant_team?.ooc_text]"))
+	if(miscreant_team?.ooc_text)
+		to_chat(owner, span_userdanger("[miscreant_team?.ooc_text]"))
 
 /datum/antagonist/miscreant/create_team(datum/team/miscreants/new_team)
 	if(!new_team)
