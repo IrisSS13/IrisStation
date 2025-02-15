@@ -40,7 +40,9 @@
 /datum/antagonist/miscreant/greet()
 	. = ..()
 	to_chat(owner, span_userdanger("Help your cause. Do not harm your fellow miscreants. You can identify your comrades by the brown \"M\" icons."))
+	to_chat(owner, span_notice("[miscreant_team?.flavor_text]"))
 	owner.announce_objectives()
+	to_chat(owner, span_userdanger("[miscreant_team?.ooc_text]"))
 
 /datum/antagonist/miscreant/create_team(datum/team/miscreants/new_team)
 	if(!new_team)
@@ -57,8 +59,8 @@
 		stack_trace("Wrong team type passed to [type] initialization.")
 	miscreant_team = new_team
 
-/datum/antagonist/rev/get_team()
-	return rev_team
+/datum/antagonist/miscreant/get_team()
+	return miscreant_team
 
 /datum/antagonist/rev/proc/create_objectives()
 	objectives |= rev_team.objectives
@@ -86,7 +88,7 @@
 	// Otherwise, the R gets cut off.
 	final_icon.Scale(64, 64)
 
-	var/icon/rev_head_icon = icon('icons/mob/huds/antag_hud.dmi', "rev_head")
+	var/icon/miscreant_icon = icon('modular_iris/modules/miscreants/icons/miscreants_hud.dmi', "miscreant")
 	rev_head_icon.Scale(48, 48)
 	rev_head_icon.Crop(1, 1, 64, 64)
 	rev_head_icon.Shift(EAST, 10)
