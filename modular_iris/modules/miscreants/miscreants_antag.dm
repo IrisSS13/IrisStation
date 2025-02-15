@@ -11,7 +11,7 @@
 	var/datum/team/miscreants/miscreant_team
 
 /datum/antagonist/miscreant/can_be_owned(datum/mind/new_owner)
-	if(new_owner.assigned_role.departments_bitflags & (DEPARTMENT_BITFLAG_SECURITY | DEPARTMENT_BITFLAG_CAPTAIN | DEPARTMENT_BITFLAG_CENTRAL_COMMAND) > 0)
+	if((new_owner.assigned_role.departments_bitflags & (DEPARTMENT_BITFLAG_SECURITY | DEPARTMENT_BITFLAG_CAPTAIN | DEPARTMENT_BITFLAG_CENTRAL_COMMAND)) > 0)
 		return FALSE
 	return ..()
 
