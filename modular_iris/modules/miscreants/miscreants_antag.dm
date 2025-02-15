@@ -1,3 +1,5 @@
+#define MISCREANT_OBJECTIVES_FILE "iris/miscreant_objectives.json"
+
 /datum/antagonist/miscreant
 	name = "\improper Miscreant"
 	roundend_category = "miscreants"
@@ -8,15 +10,12 @@
 	antag_hud_name = "miscreant"
 	var/datum/team/miscreants/miscreant_team
 
-	/// When this antagonist is being de-antagged, this is the source. Can be a mob (for mindshield/blunt force trauma) or a #define string.
-	var/deconversion_source
-
 /datum/antagonist/miscreant/can_be_owned(datum/mind/new_owner)
 	if(new_owner.assigned_role.departments_bitflags & (DEPARTMENT_BITFLAG_SECURITY | DEPARTMENT_BITFLAG_CAPTAIN | DEPARTMENT_BITFLAG_CENTRAL_COMMAND) > 0)
 		return FALSE
 	return ..()
 
-/datum/antagonist/rev/admin_add(datum/mind/new_owner, mob/admin)
+/datum/antagonist/miscreant/admin_add(datum/mind/new_owner, mob/admin)
 	new_owner.add_antag_datum(src)
 	message_admins("[key_name_admin(admin)] has made [key_name_admin(new_owner)] a miscreant.")
 	log_admin("[key_name(admin)] has made [key_name(new_owner)] a miscreant.")
@@ -26,20 +25,12 @@
 	var/mob/living/M = mob_override || owner.current
 	add_team_hud(M, /datum/antagonist/miscreant)
 
-/datum/antagonist/rev/remove_innate_effects(mob/living/mob_override)
+/datum/antagonist/miscreant/remove_innate_effects(mob/living/mob_override)
 	var/mob/living/M = mob_override || owner.current
 
-/datum/antagonist/rev/on_mindshield(mob/implanter)
-	remove_revolutionary(implanter)
-	return COMPONENT_MINDSHIELD_DECONVERTED
-
-/datum/antagonist/rev/proc/equip_rev()
-	return
-
-/datum/antagonist/rev/on_gain()
+/datum/antagonist/msicreant/on_gain()
 	. = ..()
 	create_objectives()
-	equip_rev()
 	owner.current.log_message("has been converted into a miscreant!", LOG_ATTACK, color="red")
 
 /datum/antagonist/rev/on_removal()
@@ -637,3 +628,5 @@
 	gloves = /obj/item/clothing/gloves/color/black
 	l_hand = /obj/item/spear
 	r_hand = /obj/item/assembly/flash
+
+#undef MISCREANT_OBJECTIVES_FILE
