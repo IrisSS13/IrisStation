@@ -25,35 +25,35 @@
 
 /datum/antagonist/miscreant/on_gain()
 	. = ..()
-	objectives |= miscreant_team?.objectives
+	var/list/miscreant_teams = list()
+	for(var/datum/team/miscreants/team in GLOB.antagonist_teams)
+		miscreant_teams += team
+	if(miscreants_teams.len = 0) //no existing teams so make a new one
+		miscreant_team = new/datum/team/miscreants(clamp(round(GLOB.alive_player_list.len * 0.2, 1), 2, 8))
+	var/full_teams_count = 0
+	for(var/datum/team/miscreants/existing_team in miscreant_teams)
+		if(existing_team.members.len >= existing_team.max_miscreants)
+			full_teams_count++
+			if(full_teams_count == miscreant_teams.len) //all existing teams are full so make a new one
+				miscreant_team = new/datum/team/miscreants(clamp(round(GLOB.alive_player_list.len * 0.2, 1), 2, 8))
+			continue
+		miscreant_team = existing_team //otherwise assign to first team with a spot
+		miscreant_team.members += owner
+		break
+	objectives += miscreant_team.objectives
 	owner.current.log_message("has been converted into a miscreant!", LOG_ATTACK, color="red")
 
 /datum/antagonist/miscreant/on_removal()
-	objectives -= miscreant_team?.objectives
+	objectives -= miscreant_team.objectives
 	. = ..()
 
 /datum/antagonist/miscreant/greet()
 	. = ..()
 	to_chat(owner, span_userdanger("Help your cause. Do not harm your fellow miscreants. You can identify your comrades by the brown \"M\" icons."))
-	to_chat(owner, span_notice("[miscreant_team?.flavor_text]"))
+	to_chat(owner, span_notice("[miscreant_team.flavor_text]"))
 	owner.announce_objectives()
-	if(miscreant_team?.ooc_text)
-		to_chat(owner, span_userdanger("[miscreant_team?.ooc_text]"))
-
-/datum/antagonist/miscreant/create_team(datum/team/miscreants/new_team)
-	if(!new_team)
-		//For now only one revolution at a time
-		for(var/datum/antagonist/miscreant/M in GLOB.antagonists)
-			if(!M.owner)
-				continue
-			if(M.miscreant_team)
-				miscreant_team = M.miscreant_team
-				return
-		miscreant_team = new /datum/team/miscreants
-		return
-	if(!istype(new_team))
-		stack_trace("Wrong team type passed to [type] initialization.")
-	miscreant_team = new_team
+	if(miscreant_team.ooc_text)
+		to_chat(owner, span_userdanger("[miscreant_team.ooc_text]"))
 
 /datum/antagonist/miscreant/get_team()
 	return miscreant_team
@@ -75,11 +75,11 @@
 	if(!destination_team || (destination_team == miscreant_team))
 		return
 	//Remove old team info
-	owner.objectives.Remove(miscreant_team.objectives)
-	miscreant_team.members.Remove(owner)
+	owner.objectives -= miscreant_team.objectives
+	miscreant_team.members -= owner
 	//Add new team info
-	destination_team.members.Add(owner)
-	owner.objectives.Add(destination_team.objectives)
+	destination_team.members += owner
+	owner.objectives += destination_team.objectives
 	//Announce the new info to the player
 	to_chat(owner, span_notice("[destination_team.flavor_text]"))
 	owner.announce_objectives()

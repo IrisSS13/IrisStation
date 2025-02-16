@@ -35,13 +35,6 @@
 	return TRUE
 
 /datum/dynamic_ruleset/roundstart/miscreants/execute()
-	var/datum/mind/first_miscreant = assigned[1]
-	assigned -= assigned[1]
-	first_miscreant.add_antag_datum(/datum/antagonist/miscreant)
-	var/datum/antagonist/miscreant/assigned_miscreant_datum = first_miscreant.antag_datums.Find(/datum/antagonist/miscreant)
-	roundstart_miscreant_team = assigned_miscreant_datum.get_team()
-	GLOB.pre_setup_antags -= M
-
 	for(var/datum/mind/M in assigned)
 		M.add_antag_datum(/datum/antagonist/miscreant)
 		GLOB.pre_setup_antags -= M
