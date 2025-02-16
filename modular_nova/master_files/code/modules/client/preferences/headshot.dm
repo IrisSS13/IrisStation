@@ -43,7 +43,7 @@
 	return TRUE
 
 /datum/preference/text/headshot/proc/apply_headshot(value) // we want a fully sfw image, not a relatively one - IRIS EDIT
-	if(usr.client?.get_exp_living(pure_numeric = TRUE) / 0 < 300) //adds check for hours - Iris EDIT
+	if(usr.client?.get_exp_living(pure_numeric = TRUE) < 300) //adds check for hours - Iris EDIT
 		to_chat(usr.client, span_warning("You need to play more before you can upload a headshot!"))
 		return FALSE
 	if(stored_link[usr.ckey] != value)
