@@ -76,7 +76,7 @@
 		to_chat(admin, span_userdanger("Cannot move miscreant when one or fewer teams exist."))
 		return
 
-	var/datum/team/miscreants/destination_team = tgui_alert(admin, "")
+	var/datum/team/miscreants/destination_team = tgui_input_list(admin, "Select a destination team for the miscreant.", "Miscreant destination team?", miscreant_teams)
 	if(!destination_team || (destination_team == miscreant_team))
 		return
 	//Remove old team info
