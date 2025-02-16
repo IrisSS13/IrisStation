@@ -15,35 +15,34 @@
 		JOB_BLUESHIELD,
 		JOB_NT_REP
 	)
+	minimum_players = 10
 	required_candidates = 2
-	weight = 4
-	cost = 10
+	weight = 4 //slightly rarer than traitors
+	cost = 8 //but at the same cost
 	var/datum/team/miscreants/roundstart_miscreant_team
-
-/datum/dynamic_ruleset/roundstart/miscreants/ready(population, forced = FALSE)
-	required_candidates = get_antag_cap(population)
-	return ..()
 
 /datum/dynamic_ruleset/roundstart/miscreants/pre_execute(population)
 	. = ..()
-	var/miscreants = get_antag_cap(population)
-	for(var/cultists_number = 1 to cultists)
+	var/miscreants = clamp(round(population * 0.2, 1), 2, 8)
+	for(var/miscreants_number = 1 to miscreants)
 		if(candidates.len <= 0)
 			break
 		var/mob/M = pick_n_take(candidates)
 		assigned += M.mind
-		M.mind.special_role = ROLE_CULTIST
+		M.mind.special_role = ROLE_MISCREANT
 		M.mind.restricted_roles = restricted_roles
 		GLOB.pre_setup_antags += M.mind
 	return TRUE
 
 /datum/dynamic_ruleset/roundstart/miscreants/execute()
-	main_cult = new(population)
+	var/datum/mind/first_miscreant = assigned[1]
+	assigned -= assigned[1]
+	first_miscreant.add_antag_datum(/datum/antagonist/miscreant)
+	var/datum/antagonist/miscreant/assigned_miscreant_datum = first_miscreant.antag_datums.Find(/datum/antagonist/miscreant)
+	roundstart_miscreant_team = assigned_miscreant_datum.get_team()
+	GLOB.pre_setup_antags -= M
+
 	for(var/datum/mind/M in assigned)
-		var/datum/antagonist/cult/new_cultist = new antag_datum()
-		new_cultist.cult_team = main_cult
-		new_cultist.give_equipment = TRUE
-		M.add_antag_datum(new_cultist)
+		M.add_antag_datum(/datum/antagonist/miscreant)
 		GLOB.pre_setup_antags -= M
-	main_cult.setup_objectives()
 	return TRUE
