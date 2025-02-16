@@ -55,6 +55,8 @@
 
 ///Announce team flavor text, objectives and OOC notes to miscreant
 /datum/antagonist/miscreant/proc/handle_announcements(datum/team/miscreants/team)
+	if(!team)
+		return
 	to_chat(owner, span_notice("[team.flavor_text]"))
 	owner.announce_objectives()
 	if(team.ooc_text)
