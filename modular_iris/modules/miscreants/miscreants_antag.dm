@@ -51,10 +51,13 @@
 /datum/antagonist/miscreant/greet()
 	. = ..()
 	to_chat(owner, span_userdanger("Help your cause. Do not harm your fellow miscreants. You can identify your comrades by the brown \"M\" icons."))
-	to_chat(owner, span_notice("[miscreant_team.flavor_text]"))
+	handle_announcements(miscreant_team)
+
+/datum/antagonist/miscreant/proc/handle_announcements(datum/team/miscreants/team)
+	to_chat(owner, span_notice("[team.flavor_text]"))
 	owner.announce_objectives()
-	if(miscreant_team.ooc_text)
-		to_chat(owner, span_userdanger("[miscreant_team.ooc_text]"))
+	if(team.ooc_text)
+		to_chat(owner, span_userdanger("[team.ooc_text]"))
 
 /datum/antagonist/miscreant/get_team()
 	return miscreant_team
@@ -82,15 +85,15 @@
 	destination_team.members += owner
 	owner.objectives += destination_team.objectives
 	//Announce the new info to the player
-	to_chat(owner, span_notice("[destination_team.flavor_text]"))
-	owner.announce_objectives()
-	if(destination_team.ooc_text)
-		to_chat(owner, span_userdanger("[destination_team.ooc_text]"))
+	handle_announcements(destination_team)
 
 	//Log the move
 	var/datum/mind/O = owner
 	message_admins("[key_name_admin(admin)] has moved miscreant [O] to team [destination_team].")
 	log_admin("[key_name(admin)] has moved miscreant [O] to team [destination_team].")
+
+	//Update the miscreant_team var
+	miscreant_team = destination_team
 
 /datum/antagonist/miscreant/get_preview_icon()
 	var/icon/final_icon = render_preview_outfit(preview_outfit)
