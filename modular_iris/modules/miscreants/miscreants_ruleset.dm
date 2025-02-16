@@ -19,6 +19,7 @@
 	required_candidates = 2
 	weight = 4 //slightly rarer than traitors
 	cost = 8 //but at the same cost
+	requirements = list(8,8,8,8,8,8,8,8,8,8) //same cost regardless of pop level (I think)
 	var/datum/team/miscreants/roundstart_miscreant_team
 
 /datum/dynamic_ruleset/roundstart/miscreants/pre_execute(population)
