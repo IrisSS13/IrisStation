@@ -53,6 +53,7 @@
 	to_chat(owner, span_userdanger("Help your cause. Do not harm your fellow miscreants. You can identify your comrades by the brown \"M\" icons."))
 	handle_announcements(miscreant_team)
 
+///Announce team flavor text, objectives and OOC notes to miscreant
 /datum/antagonist/miscreant/proc/handle_announcements(datum/team/miscreants/team)
 	to_chat(owner, span_notice("[team.flavor_text]"))
 	owner.announce_objectives()
