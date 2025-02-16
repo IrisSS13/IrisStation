@@ -28,7 +28,7 @@
 	var/list/miscreant_teams = list()
 	for(var/datum/team/miscreants/team in GLOB.antagonist_teams)
 		miscreant_teams += team
-	if(miscreants_teams.len = 0) //no existing teams so make a new one
+	if(miscreants_teams.len == 0) //no existing teams so make a new one
 		miscreant_team = new/datum/team/miscreants(clamp(round(GLOB.alive_player_list.len * 0.2, 1), 2, 8))
 	var/full_teams_count = 0
 	for(var/datum/team/miscreants/existing_team in miscreant_teams)
