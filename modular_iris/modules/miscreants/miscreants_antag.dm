@@ -36,6 +36,7 @@
 			full_teams_count++
 			if(full_teams_count == miscreant_teams.len) //all existing teams are full so make a new one
 				miscreant_team = new/datum/team/miscreants(clamp(round(GLOB.alive_player_list.len * 0.2, 1), 2, 8))
+				break
 			continue
 		miscreant_team = existing_team //otherwise assign to first team with a spot
 		miscreant_team.members += owner
