@@ -225,7 +225,7 @@
 	if(istype(C, /obj/item/cigarette))
 		var/obj/item/cigarette/ciggie = C
 		if(ciggie.lit)
-			to_chat(user, span_warning("The [ciggie.name] is already lit!"))
+			to_chat(user, span_warning("\The [ciggie] is already lit!"))
 			return TRUE
 		//IRIS EDIT CHANGE BEGIN - HANDEDNESS_QUIRK
 		var/clumsy_modifier = 1

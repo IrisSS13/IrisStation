@@ -1126,7 +1126,7 @@
 // Special soup for Ethereals to consume to gain nutrition (energy) from.
 /datum/reagent/consumable/nutriment/soup/electrons
 	name = "Electron Soup"
-	description = "A gastronomic curiosity of ethereal origin. It is famed for the minature weather system formed over a properly prepared soup."
+	description = "A gastronomic curiosity of ethereal origin. It is famed for the miniature weather system formed over a properly prepared soup."
 	data = list("mushroom" = 1, "electrons" = 4)
 	glass_price = FOOD_PRICE_EXOTIC
 	color = "#E60040"
@@ -1966,7 +1966,7 @@
 // Gyuramen
 /datum/reagent/consumable/nutriment/soup/gyuramen
 	name = "Gyuramen Miy Käzu"
-	description = "A rich beef and onion ramen with cheese- blending several cultural influences seemlessly into one tasty dish."
+	description = "A rich beef and onion ramen with cheese, blending several cultural influences seemlessly into one tasty dish."
 	data = list("beef broth" = 1, "onion" = 1, "cheese" = 1)
 	color = "#442621"
 
@@ -2094,7 +2094,7 @@
 // Hong Kong Borscht
 /datum/reagent/consumable/nutriment/soup/hong_kong_borscht
 	name = "Hong Kong Borscht"
-	description = "Also known as luo song tang or Russian soup, this dish bears little to no resemblance to Eastern European borscht- indeed, it's a tomato-based soup with no beets in sight."
+	description = "Also known as luo song tang or Russian soup, this dish bears little to no resemblance to Eastern European borscht; indeed, it's a tomato-based soup with no beets in sight."
 	data = list("tomato" = 1, "meat" = 1, "cabbage" = 1)
 	color = "#CA4810"
 
@@ -2231,7 +2231,9 @@
 	required_ingredients = list(
 		/obj/item/food/canned/beans = 1,
 		/obj/item/food/spaghetti/rawnoodles = 1,
-		/obj/item/food/sausage/american = 1,
+		//IRIS EDIT CHANGE BEGIN - SUSSY_CONTENT_REMOVAL
+		/obj/item/food/sausage = 1,
+		//IRIS EDIT CHANGE END
 		/obj/item/food/chapslice = 2,
 		/obj/item/food/kimchi = 1,
 		/obj/item/food/cheese/wedge = 1,

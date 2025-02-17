@@ -295,12 +295,12 @@
 	var/static/list/mob_list = list(
 		/mob/living/basic/bear,
 		/mob/living/basic/cockroach/glockroach/mobroach,
+		/mob/living/basic/goose,
 		/mob/living/basic/lightgeist,
 		/mob/living/basic/mothroach,
 		/mob/living/basic/mushroom,
-		/mob/living/basic/pet/dog/corgi/puppy/void,
-		/mob/living/simple_animal/hostile/retaliate/goose, //Janitors HATE geese.
 		/mob/living/basic/pet/gondola,
+		/mob/living/basic/pet/dog/corgi/puppy/void, // IRIS EDIT
 	)
 	return pick(mob_list)
 

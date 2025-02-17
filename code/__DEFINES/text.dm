@@ -75,7 +75,9 @@
 /// File location for brain damage traumas
 #define BRAIN_DAMAGE_FILE "traumas.json"
 /// File location for AI ion laws
-#define ION_FILE "ion_laws.json"
+//IRIS EDIT CHANGE BEGIN - SUSSY_CONTENT_REMOVAL
+#define ION_FILE "iris/ion_laws_iris.json"
+//IRIS EDIT CHANGE END
 /// File location for pirate names
 #define PIRATE_NAMES_FILE "pirates.json"
 /// File location for redpill questions

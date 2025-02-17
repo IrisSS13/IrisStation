@@ -118,7 +118,9 @@
 	reqs = list(
 		/obj/item/food/boiledrice = 1,
 		/obj/item/food/onion_slice = 1,
-		/obj/item/food/sausage/american = 1,
+		//IRIS EDIT CHANGE BEGIN - SUSSY_CONTENT_REMOVAL
+		/obj/item/food/sausage = 1,
+		//IRIS EDIT CHANGE END
 		/obj/item/food/grown/carrot = 1,
 		/obj/item/food/grown/peas = 1,
 		/datum/reagent/consumable/ketchup = 5,
