@@ -3,7 +3,7 @@
 import { Antagonist, Category } from '../base';
 
 export const MISCREANT_MECHANICAL_DESCRIPTION = `
-      A non-conversion team antag with RP-centric objectives. Expect highly variable amounts of conflict as it will depend on your team's objectives and your approach and may range from minimal to extreme.
+      A non-conversion team antag with RP-centric objectives. Expect highly variable amounts of conflict, from minimal to extreme, as it will depend on your team's objectives and your approach.
    `;
 
 const Miscreant: Antagonist = {
