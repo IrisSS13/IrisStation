@@ -30,7 +30,7 @@
 	for(var/datum/team/miscreants/team in GLOB.antagonist_teams)
 		miscreant_teams += team
 	if(miscreant_teams.len == 0) //no existing teams so make a new one
-		miscreant_team = new/datum/team/miscreants(clamp(round(GLOB.alive_player_list.len * 0.2, 1), 2, 8))
+		miscreant_team = new/datum/team/miscreants(clamp(round(GLOB.alive_player_list.len * 0.2, 1), 2, 8)) //max team size of 1/5th of the current pop but never fewer than 2 or more than 8 total
 	var/full_teams_count = 0
 	for(var/datum/team/miscreants/existing_team in miscreant_teams)
 		if(existing_team.members.len >= existing_team.max_miscreants)
