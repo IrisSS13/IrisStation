@@ -25,7 +25,9 @@
 		AddElement(/datum/element/can_shatter)
 
 /obj/item/plate/attackby(obj/item/I, mob/user, params)
-	if(!IS_EDIBLE(I))
+	//IRIS EDIT CHANGE BEGIN - TEA_PARTY - Lets teacups be placed onto plates so saucers can function
+	if(!IS_EDIBLE(I) && !istype(I, /obj/item/reagent_containers/cup/teacup))
+	//IRIS EDIT CHANGE END
 		balloon_alert(user, "not food!")
 		return
 	if(I.w_class > biggest_w_class)

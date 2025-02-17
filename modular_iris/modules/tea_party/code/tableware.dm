@@ -42,3 +42,12 @@
 	volume = 30 //we must leave room for milk and sugar, afterall
 
 //saucers
+
+/obj/item/plate/small/saucer
+	name = "saucer"
+	desc = "A very small plate shaped for the support of a teacup, with room for a spoon or dainty sweet on the side."
+	icon = 'modular_iris/modules/tea_party/icons/tableware.dmi'
+	icon_state = "saucer"
+	max_items = 3
+	max_x_offset = 3
+	max_height_offset = 4
