@@ -3,6 +3,7 @@
 	roundend_category = "miscreants"
 	antagpanel_category = "Miscreants"
 	job_rank = ROLE_MISCREANT
+	preview_outfit = /datum/outfit/miscreant
 	antag_moodlet = /datum/mood_event/miscreant
 	hud_icon = 'modular_iris/modules/miscreants/icons/miscreants_hud.dmi'
 	antag_hud_name = "miscreant"
