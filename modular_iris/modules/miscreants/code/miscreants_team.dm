@@ -11,7 +11,7 @@
 	var/meeting_has_started = FALSE
 
 	//must only contain publicly accessible areas
-	var/list/possible_meeting_places = (
+	var/list/possible_meeting_places = list(
 		/area/station/service/bar,
 		/area/station/service/theater,
 		/area/station/service/library,
