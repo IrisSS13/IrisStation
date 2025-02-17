@@ -262,7 +262,10 @@
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 	COOLDOWN_START(src, flip_cooldown, 3 SECONDS)
-	if(HAS_TRAIT(user, TRAIT_CLUMSY) && prob(40))
+	//IRIS EDIT CHANGE BEGIN - HANDEDNESS_QUIRK
+	var/hand_index = user.active_hand_index
+	if(prob(40) && (HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && IS_LEFT_INDEX(hand_index)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && IS_RIGHT_INDEX(hand_index))))
+	//IRIS EDIT CHANGE END
 		// yes this will sound silly for bows and wands, but that's a "gun" moment for you
 		user.visible_message(
 			span_danger("While trying to flip [src] [user] pulls the trigger accidentally!"),
@@ -320,6 +323,10 @@
 		return
 	if(firing_burst)
 		return
+
+	if(SEND_SIGNAL(user, COMSIG_MOB_TRYING_TO_FIRE_GUN, src, target, flag, params) & COMPONENT_CANCEL_GUN_FIRE)
+		return
+
 	if(SEND_SIGNAL(src, COMSIG_GUN_TRY_FIRE, user, target, flag, params) & COMPONENT_CANCEL_GUN_FIRE)
 		return
 	if(flag) //It's adjacent, is the user, or is on the user's person
@@ -374,7 +381,10 @@
 /obj/item/gun/proc/check_botched(mob/living/user, atom/target)
 	if(clumsy_check)
 		if(istype(user))
-			if(HAS_TRAIT(user, TRAIT_CLUMSY) && prob(40))
+			//IRIS EDIT CHANGE BEGIN - HANDEDNESS_QUIRK
+			var/hand_index = user.active_hand_index
+			if(prob(40) && (HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && IS_LEFT_INDEX(hand_index)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && IS_RIGHT_INDEX(hand_index))))
+			//IRIS EDIT CHANGE END
 				var/target_zone = user.get_random_valid_zone(blacklisted_parts = list(BODY_ZONE_CHEST, BODY_ZONE_HEAD, BODY_ZONE_L_ARM, BODY_ZONE_R_ARM), even_weights = TRUE, bypass_warning = TRUE)
 				if(!target_zone)
 					return
@@ -419,7 +429,8 @@
 		if(HAS_TRAIT(user, TRAIT_PACIFISM)) // If the user has the pacifist trait, then they won't be able to fire [src] if the round chambered inside of [src] is lethal.
 			if(chambered.harmful) // Is the bullet chambered harmful?
 				to_chat(user, span_warning("[src] is lethally chambered! You don't want to risk harming anyone..."))
-				return
+				firing_burst = FALSE
+				return FALSE
 		var/sprd
 		if(randomspread)
 			sprd = round((rand(0, 1) - 0.5) * DUALWIELD_PENALTY_EXTRA_MULTIPLIER * (random_spread))
@@ -560,7 +571,7 @@
 			return TRUE
 
 /obj/item/gun/animate_atom_living(mob/living/owner)
-	new /mob/living/simple_animal/hostile/mimic/copy/ranged(drop_location(), src, owner)
+	new /mob/living/basic/mimic/copy/ranged(drop_location(), src, owner)
 
 /obj/item/gun/proc/handle_suicide(mob/living/carbon/human/user, mob/living/carbon/human/target, params, bypass_timer)
 	if(!ishuman(user) || !ishuman(target))

@@ -225,9 +225,14 @@
 	if(istype(C, /obj/item/cigarette))
 		var/obj/item/cigarette/ciggie = C
 		if(ciggie.lit)
-			to_chat(user, span_warning("The [ciggie.name] is already lit!"))
+			to_chat(user, span_warning("\The [ciggie] is already lit!"))
 			return TRUE
-		var/clumsy_modifier = HAS_TRAIT(user, TRAIT_CLUMSY) ? 2 : 1
+		//IRIS EDIT CHANGE BEGIN - HANDEDNESS_QUIRK
+		var/clumsy_modifier = 1
+		var/hand_index = user.active_hand_index
+		if(HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && IS_LEFT_INDEX(hand_index)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && IS_RIGHT_INDEX(hand_index)))
+			clumsy_modifier *= 2 //double the chance of an accident if they're clumsy
+		//IRIS EDIT CHANGE END
 		if(prob(25 * clumsy_modifier) && isliving(user))
 			ciggie.light(span_warning("[user] expertly dips \the [ciggie.name] into [src], along with the rest of [user.p_their()] arm. What a dumbass."))
 			var/mob/living/burned_guy = user

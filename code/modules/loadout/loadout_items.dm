@@ -263,6 +263,8 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 		ADD_TRAIT(equipped_item, TRAIT_WAS_RENAMED, "Loadout")
 		equipped_item.on_loadout_custom_described()
 	// NOVA EDIT ADDITION END
+	// IRIS EDIT - Makes our pretty description visible to other players, part of https://github.com/DopplerShift13/DopplerShift/pull/345
+		equipped_item.AddElement(/datum/element/examined_when_worn)
 
 	if(can_be_reskinned && item_details?[INFO_RESKIN])
 		var/skin_chosen = item_details[INFO_RESKIN]

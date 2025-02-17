@@ -39,6 +39,7 @@
 		"synth_r_d_leg",
 		"synth_construction",
 		"synth_positronic",
+		"power_cord",
 	)
 
 /datum/techweb_node/android_organs
@@ -261,6 +262,7 @@
 /datum/techweb_node/mining/New()
 	design_ids += list(
 		"mesons_prescription",
+		"bsc_nt",
 	)
 	return ..()
 

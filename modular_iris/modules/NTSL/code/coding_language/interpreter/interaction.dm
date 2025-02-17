@@ -71,9 +71,9 @@
  */
 /datum/n_Interpreter/proc/GetCleanVar(name, compare)
 	var/x = GetVar(name)
-	if(istext(x) && compare && x != compare) // Was changed
+	if(istext(x)) //adds fix from Monke
 		x = sanitize(x)
-		if(isnotpretty(x)) // Pretty filter stuff
+		if(compare && x != compare && isnotpretty(x)) // Pretty filter stuff
 			var/log_message = "An NTSL script just tripped the pretty filter, setting variable [name] from [compare] to value [x]!"
 			message_admins(log_message)
 			logger.Log(LOG_NTSL, "[key_name(src)] [log_message] [loc_name(src)]")
