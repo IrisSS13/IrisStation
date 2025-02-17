@@ -61,6 +61,8 @@
 	if(!team)
 		return
 	to_chat(owner, span_notice("[team.flavor_text]"))
+	if(team.meeting_location && !team.meeting_has_started)
+		to_chat(owner, span_notice("Your first meeting is due to take place at <b>[team.meeting_location]</b> in <b>ten</b> 4th-wall-breaking meta-minutes."))
 	owner.announce_objectives()
 	if(team.ooc_text)
 		to_chat(owner, span_userdanger("[team.ooc_text]"))
