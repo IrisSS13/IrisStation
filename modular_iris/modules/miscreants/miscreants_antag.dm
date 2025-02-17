@@ -44,6 +44,9 @@
 	objectives += miscreant_team.objectives
 	owner.current.log_message("has been converted into a miscreant!", LOG_ATTACK, color="red")
 
+	//has to be called here rather than in greet() because that seems to be called before on_gain() so the team var is unset
+	handle_announcements(miscreant_team)
+
 /datum/antagonist/miscreant/on_removal()
 	objectives -= miscreant_team.objectives
 	. = ..()
@@ -51,7 +54,6 @@
 /datum/antagonist/miscreant/greet()
 	. = ..()
 	to_chat(owner, span_userdanger("Help your cause. Do not harm your fellow miscreants. You can identify your comrades by the brown \"M\" icons."))
-	handle_announcements(miscreant_team)
 
 ///Announce team flavor text, objectives and OOC notes to miscreant
 /datum/antagonist/miscreant/proc/handle_announcements(datum/team/miscreants/team)
