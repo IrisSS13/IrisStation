@@ -57,11 +57,15 @@
 	meeting_has_started = TRUE
 
 /datum/team/miscreants/proc/pick_meeting_location()
+	//fallback for if we run out of areas
+	if(!possible_meeting_places.len)
+		return /area/station/hallway/secondary/exit/departure_lounge
+
 	//pick from the list
 	var/area/station/chosen_location = pick(possible_meeting_places)
 
 	//check it exists on this map or redo
-	if(!(chosen_location in GLOB.areas))
+	if(!(chosen_location in GLOB.the_station_areas))
 		possible_meeting_places -= chosen_location
 		return pick_meeting_location()
 	else
