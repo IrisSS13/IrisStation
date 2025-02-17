@@ -213,7 +213,6 @@ type FeatureValueInputProps = {
   shrink?: boolean;
   value: unknown;
 };
-
 export function FeatureValueInput(props: FeatureValueInputProps) {
   const { act, data } = useBackend<PreferencesMenuData>();
 
@@ -238,7 +237,6 @@ export function FeatureValueInput(props: FeatureValueInputProps) {
     shrink: props.shrink,
     handleSetValue: changeValue,
     value: predictedValue,
-    act: act, // iris edit
   });
 }
 
