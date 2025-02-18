@@ -30,7 +30,7 @@
 	yield = 4
 	crafting_complexity = FOOD_COMPLEXITY_4
 
-/obj/item/food/cakeslice/madeira_cake_slice
+/obj/item/food/cakeslice/bienenstich_cake_slice
 	name = "\improper Bienenstich cake slice"
 	desc = "A slice of condensed cake with mixed in citrus rinds, often served with tea."
 	icon_state = "bienenstich_cake_slice"
