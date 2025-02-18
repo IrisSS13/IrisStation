@@ -18,7 +18,7 @@
 		if(istype(reagent, /datum/reagent/consumable))
 			continue
 		reagents_store += reagent
-		reagents -= reagent
+		reagents.reagent_list -= reagent
 	. = ..()
 	//add them back when the transfer of remaining reagents is complete
 	reagents += reagents_store
@@ -28,7 +28,7 @@
 	for(var/datum/reagent/reagent in reagents.reagent_list)
 		if(istype(reagent, /datum/reagent/consumable))
 			reagents_store += reagent
-			reagents -= reagent
+			reagents.reagent_list -= reagent
 	. = ..()
 	//add them back when the transfer of remaining reagents is complete
 	reagents += reagents_store
