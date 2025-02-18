@@ -17,21 +17,25 @@
 	for(var/datum/reagent/reagent in reagents.reagent_list)
 		if(istype(reagent, /datum/reagent/consumable))
 			continue
-		reagents_store += reagent
-		reagents.reagent_list -= reagent
+		reagents_store.add_reagent(reagent)
+		reagents.remove_reagent(reagent)
 	. = ..()
 	//add them back when the transfer of remaining reagents is complete
-	reagents.reagent_list += reagents_store
+	for(var/datum/reagent/reagent in reagents_store.reagent_list)
+		reagents.add_reagent(reagent)
+		reagents_store.remove_reagent(reagent)
 
 /obj/item/reagent_containers/cup/teapot/assassins/interact_with_atom_secondary(atom/target, mob/living/user, list/modifiers)
 	//remove reagents intended for consumption when we pour with right-click
 	for(var/datum/reagent/reagent in reagents.reagent_list)
 		if(istype(reagent, /datum/reagent/consumable))
-			reagents_store += reagent
-			reagents.reagent_list -= reagent
+			reagents_store.add_reagent(reagent)
+			reagents.remove_reagent(reagent)
 	. = ..()
 	//add them back when the transfer of remaining reagents is complete
-	reagents.reagent_list += reagents_store
+	for(var/datum/reagent/reagent in reagents_store.reagent_list)
+		reagents.add_reagent(reagent)
+		reagents_store.remove_reagent(reagent)
 
 /obj/item/reagent_containers/cup/teacup
 	name = "teacup"
