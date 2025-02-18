@@ -34,12 +34,20 @@
 	reagents += reagents_store
 
 /obj/item/reagent_containers/cup/teacup
-	name = "teacup
+	name = "teacup"
 	desc = "Never a bad time for a spot of tea, old chum."
 	icon = 'modular_iris/modules/tea_party/icons/tableware.dmi'
 	icon_state = "teacup"
 	fill_icon_thresholds = list(0)
 	volume = 30 //we must leave room for milk and sugar, afterall
+
+/obj/item/reagent_containers/cup/miniature_jug
+	ame = "miniature jug"
+	desc = "A tiny jug, typically used to store milk at the table."
+	icon = 'modular_iris/modules/tea_party/icons/tableware.dmi'
+	icon_state = "teacup"
+	fill_icon_thresholds = null
+	volume = 15
 
 //saucers
 
