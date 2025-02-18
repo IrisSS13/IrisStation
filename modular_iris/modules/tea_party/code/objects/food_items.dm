@@ -16,6 +16,31 @@
 
 //cakes
 
+/obj/item/food/cake/bienenstich_cake
+	name = "\improper Bienenstich cake"
+	desc = "A cream-filled cake topped with a layer of nuts that have been caramelized in a solution of honey and sugar. \
+			Its name means 'beesting cake' after a legend in which the bakers of a village repelled raiders by launching beehives at them."
+	icon_state = "bienenstich_cake"
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 28
+	)
+	tastes = list("cake" = 3, "cream"  = 1, "honey" = 1, "almonds" = 1)
+	foodtypes = GRAIN | DAIRY | SUGAR | NUTS
+	slice_type = /obj/item/food/cakeslice/bienenstich_cake_slice
+	yield = 4
+	crafting_complexity = FOOD_COMPLEXITY_4
+
+/obj/item/food/cakeslice/madeira_cake_slice
+	name = "\improper Bienenstich cake slice"
+	desc = "A slice of condensed cake with mixed in citrus rinds, often served with tea."
+	icon_state = "bienenstich_cake_slice"
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 7
+	)
+	tastes = list("cake" = 3, "cream"  = 1, "honey" = 1, "almonds" = 1)
+	foodtypes = GRAIN | DAIRY | SUGAR | NUTS
+	crafting_complexity = FOOD_COMPLEXITY_4
+
 /obj/item/food/cake/madeira_cake
 	name = "\improper Madeira cake"
 	desc = "A condensed cake with mixed in citrus rinds, often served with tea."
@@ -26,7 +51,7 @@
 	)
 	tastes = list("cake" = 5, "citrus" = 2)
 	foodtypes = GRAIN | DAIRY | SUGAR | JUNKFOOD
-	slice_type = /obj/item/food/cakeslice/pound_cake_slice
+	slice_type = /obj/item/food/cakeslice/madeira_cake_slice
 	yield = 4
 	crafting_complexity = FOOD_COMPLEXITY_3
 
@@ -76,3 +101,5 @@
 	foodtypes = GRAIN | SUGAR | DAIRY | JUNKFOOD
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_4
+
+//desserts

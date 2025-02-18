@@ -6,6 +6,18 @@
 
 //cakes
 
+/datum/crafting_recipe/food/bienenstich_cake
+	name = "Bienenstich Cake"
+	reqs = list(
+		/obj/item/food/cake/plain = 1,
+		/datum/reagent/consumable/whipped_cream = 20,
+		/datum/reagent/consumable/sugar = 10,
+		/datum/reagent/consumable/honey = 10,
+		/obj/item/food/grown/korta_nut/sweet = 2,
+	)
+	result = /obj/item/food/cake/bienenstich_cake
+	category = CAT_CAKE
+
 /datum/crafting_recipe/food/madeira_cake
 	name = "Madeira Cake"
 	reqs = list(
