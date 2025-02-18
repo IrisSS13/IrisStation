@@ -10,7 +10,7 @@
 	spillable = FALSE
 
 /obj/item/reagent_containers/cup/teapot/assassins
-	var/datum/reagents/reagents_store = null //we will be using this to store the reagents we do not want to transfer depending on the mode of interaction
+	var/datum/reagents/reagents_store = new() //we will be using this to store the reagents we do not want to transfer depending on the mode of interaction
 
 /obj/item/reagent_containers/cup/teapot/assassins/interact_with_atom(atom/target, mob/living/user, list/modifiers)
 	//remove reagents not intended for consumption when we pour with left-click
