@@ -21,7 +21,7 @@
 		reagents.reagent_list -= reagent
 	. = ..()
 	//add them back when the transfer of remaining reagents is complete
-	reagents += reagents_store
+	reagents.reagent_list += reagents_store
 
 /obj/item/reagent_containers/cup/teapot/assassins/interact_with_atom_secondary(atom/target, mob/living/user, list/modifiers)
 	//remove reagents intended for consumption when we pour with right-click
@@ -31,7 +31,7 @@
 			reagents.reagent_list -= reagent
 	. = ..()
 	//add them back when the transfer of remaining reagents is complete
-	reagents += reagents_store
+	reagents.reagent_list += reagents_store
 
 /obj/item/reagent_containers/cup/teacup
 	name = "teacup"
