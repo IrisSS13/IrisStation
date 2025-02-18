@@ -56,7 +56,7 @@
 	crafting_complexity = FOOD_COMPLEXITY_3
 
 /obj/item/food/financier
-	name = "financier
+	name = "financier"
 	desc = "A small, oblong, crisp-shelled cake, made with browned butter."
 	icon = 'modular_iris/modules/tea_party/icons/food_items.dmi'
 	icon_state = "financier"
@@ -65,3 +65,14 @@
 	foodtypes = GRAIN | SUGAR | DAIRY
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_2
+
+/obj/item/food/punschkrapfen
+	name = "\improper Punschkrapfen"
+	desc = "A little rum-soaked sponge cake filled with nougat and jelly."
+	icon = 'modular_iris/modules/tea_party/icons/food_items.dmi'
+	icon_state = "punschkrapfen"
+	food_reagents = list(/datum/reagent/consumable/nutriment = 6)
+	tastes = list("cake" = 2, "rum" = 1, "jelly" = 1, "chocolate" = 1, "nougat" = 1)
+	foodtypes = GRAIN | SUGAR | DAIRY | JUNKFOOD
+	w_class = WEIGHT_CLASS_SMALL
+	crafting_complexity = FOOD_COMPLEXITY_4

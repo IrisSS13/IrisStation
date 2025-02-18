@@ -7,7 +7,7 @@
 //cakes
 
 /datum/crafting_recipe/food/madeira_cake
-	name = "\improper Madeira cake"
+	name = "Madeira Cake"
 	reqs = list(
 		/obj/item/food/cake/pound_cake = 1,
 		/obj/item/food/grown/citrus/lemon = 1,
@@ -19,7 +19,7 @@
 //pastries
 
 /datum/crafting_recipe/food/custard_slice
-	name = "custard slice"
+	name = "Custard Slice"
 	reqs = list(
 		/obj/item/food/pastrybase = 1,
 		/datum/reagent/consumable/vanillapudding = 5
@@ -28,12 +28,24 @@
 	category = CAT_PASTRY
 
 /datum/crafting_recipe/food/financier
-	name = "financier"
+	name = "Financier"
 	reqs = list(
 		/obj/item/food/pastrybase = 1,
 		/datum/reagent/consumable/nutriment/soup/beurre_noisette = 5
 	)
 	result = /obj/item/food/financier
+	category = CAT_PASTRY
+
+/datum/crafting_recipe/food/punschkrapfen
+	name = "Punschkrapfen"
+	reqs = list(
+		/obj/item/food/pastrybase = 1,
+		/obj/item/food/candy = 1,
+		/obj/item/food/chocolatebar = 1,
+		/datum/reagent/consumable/cherryjelly = 5,
+		/datum/reagent/consumable/ethanol/rum = 5
+	)
+	result = /obj/item/food/punschkrapfen
 	category = CAT_PASTRY
 
 //desserts
