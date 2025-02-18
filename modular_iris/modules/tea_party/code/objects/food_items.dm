@@ -14,6 +14,34 @@
 		/datum/reagent/consumable/nutriment/soup/beurre_noisette = 15
 	)
 
+//cakes
+
+/obj/item/food/cake/madeira_cake
+	name = "\improper Madeira cake"
+	desc = "A condensed cake with mixed in citrus rinds, often served with tea."
+	icon_state = "madeira_cake"
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 40,
+		/datum/reagent/consumable/nutriment/vitamin = 20,
+	)
+	tastes = list("cake" = 5, "citrus" = 2)
+	foodtypes = GRAIN | DAIRY | SUGAR | JUNKFOOD
+	slice_type = /obj/item/food/cakeslice/pound_cake_slice
+	yield = 4
+	crafting_complexity = FOOD_COMPLEXITY_3
+
+/obj/item/food/cakeslice/madeira_cake_slice
+	name = "\improper Madeira cake slice"
+	desc = "A slice of condensed cake with mixed in citrus rinds, often served with tea."
+	icon_state = "madeira_cake_slice"
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 10,
+		/datum/reagent/consumable/nutriment/vitamin = 5,
+	)
+	tastes = list("cake" = 5, "citrus" = 2)
+	foodtypes = GRAIN | DAIRY | SUGAR | JUNKFOOD
+	crafting_complexity = FOOD_COMPLEXITY_3
+
 //pastries
 
 /obj/item/food/custard_slice

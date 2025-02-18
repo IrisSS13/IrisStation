@@ -13,6 +13,8 @@
 		/obj/item/food/grown/citrus/lemon = 1,
 		/obj/item/food/grown/citrus/orange = 1
 	)
+	result = /obj/item/food/cake/madeira_cake
+	category = CAT_CAKE
 
 //pastries
 
