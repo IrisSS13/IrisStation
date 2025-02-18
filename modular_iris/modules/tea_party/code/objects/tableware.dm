@@ -14,7 +14,7 @@
 
 /obj/item/reagent_containers/cup/teapot/assassins/interact_with_atom(atom/target, mob/living/user, list/modifiers)
 	//remove reagents not intended for consumption when we pour with left-click
-	for(var/datum/reagent/reagent in reagents)
+	for(var/datum/reagent/reagent in reagents.reagent_list)
 		if(istype(reagent, /datum/reagent/consumable))
 			continue
 		reagents_store += reagent
@@ -25,7 +25,7 @@
 
 /obj/item/reagent_containers/cup/teapot/assassins/interact_with_atom_secondary(atom/target, mob/living/user, list/modifiers)
 	//remove reagents intended for consumption when we pour with right-click
-	for(var/datum/reagent/reagent in reagents)
+	for(var/datum/reagent/reagent in reagents.reagent_list)
 		if(istype(reagent, /datum/reagent/consumable))
 			reagents_store += reagent
 			reagents -= reagent
@@ -42,7 +42,7 @@
 	volume = 30 //we must leave room for milk and sugar, afterall
 
 /obj/item/reagent_containers/cup/miniature_jug
-	ame = "miniature jug"
+	name = "miniature jug"
 	desc = "A tiny jug, typically used to store milk at the table."
 	icon = 'modular_iris/modules/tea_party/icons/tableware.dmi'
 	icon_state = "teacup"
