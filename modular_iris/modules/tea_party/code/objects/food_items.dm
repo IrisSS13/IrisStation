@@ -29,7 +29,7 @@
 
 /obj/item/food/financier
 	name = "financier
-	desc = "Two layers of puff pastry sandwiching a goopy, vanilla custard filling."
+	desc = "A small, oblong, crisp-shelled cake, made with browned butter."
 	icon = 'modular_iris/modules/tea_party/icons/food_items.dmi'
 	icon_state = "financier"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5)
