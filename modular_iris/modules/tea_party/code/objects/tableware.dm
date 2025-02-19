@@ -50,7 +50,7 @@
 	name = "miniature jug"
 	desc = "A tiny jug, typically used to store milk at the table."
 	icon = 'modular_iris/modules/tea_party/icons/tableware.dmi'
-	icon_state = "teacup"
+	icon_state = "jug"
 	fill_icon_thresholds = null
 	volume = 15
 
