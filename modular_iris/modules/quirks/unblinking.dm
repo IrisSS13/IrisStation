@@ -11,6 +11,10 @@
 /datum/quirk/unblinking/add_unique(client/client_source)
 	. = ..()
 	var/obj/item/organ/eyes/eyes = quirk_holder.get_organ_slot(ORGAN_SLOT_EYES)
+	if(!eyes)
+		return
 	eyes.blink_animation = FALSE
-	QDEL_NULL(eyes.eyelid_left)
-	QDEL_NULL(eyes.eyelid_right)
+	if(eyes.eyelid_left)
+		QDEL_NULL(eyes.eyelid_left)
+	if(eyes.eyelid_right)
+		QDEL_NULL(eyes.eyelid_right)
