@@ -7,3 +7,10 @@
 	lose_text = span_notice("You feel the need to blink again.")
 	medical_record_text = "Patient does not need to blink."
 	mob_trait = TRAIT_NO_EYELIDS //also prevents eye-shutting in knockout and death
+
+/datum/quirk/unblinking/add_unique(client/client_source)
+	. = ..()
+	var/obj/item/organ/eyes/eyes = quirk_holder.get_organ_slot(ORGAN_SLOT_EYES)
+	eyes.blink_animation = FALSE
+	QDEL_NULL(eyes.eyelid_left)
+	QDEL_NULL(eyes.eyelid_right)
