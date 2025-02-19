@@ -20,3 +20,8 @@
 
 //Special trait source for illiteracy granted by farsightedness, part of https://github.com/lizardqueenlexi/orbstation/pull/254
 #define FARSIGHT_TRAIT "farsighted_trait"
+
+//Items
+
+//Helps users examine items with custom text, part of https://github.com/DopplerShift13/DopplerShift/pull/345
+#define TRAIT_WORN_EXAMINE "worn_examine"
