@@ -1,6 +1,6 @@
 /datum/quirk/unblinking
 	name = "Unblinking"
-	desc = "For whatever reason, you do not need to blink to keep your eyes (or equivalent visual apparatus) functional."
+	desc = "For whatever reason, you are unable to blink and cannot wink either. Perhaps your eyes are lidless, self-hydrating, or ornamental.
 	icon = FA_ICON_FACE_FLUSHED //closest thing I could find to a stare
 	value = 0
 	gain_text = span_notice("You no longer feel the need to blink.")
