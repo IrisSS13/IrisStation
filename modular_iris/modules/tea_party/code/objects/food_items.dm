@@ -32,7 +32,7 @@
 
 /obj/item/food/cakeslice/bienenstich_cake_slice
 	name = "\improper Bienenstich cake slice"
-	desc = "A slice of condensed cake with mixed in citrus rinds, often served with tea."
+	desc = "A slice of cream-filled cake topped with a layer of nuts that have been caramelized in a solution of honey and sugar."
 	icon_state = "bienenstich_cake_slice"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 7
