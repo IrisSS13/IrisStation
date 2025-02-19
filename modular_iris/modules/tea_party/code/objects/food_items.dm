@@ -130,5 +130,3 @@
 	icon_state = "rock_cake_jamaican"
 	tastes = list("coconut" = 2, "raisins" = 2, "oats" = 2, "cake" = 1)
 	crafting_complexity = FOOD_COMPLEXITY_3
-
-//desserts

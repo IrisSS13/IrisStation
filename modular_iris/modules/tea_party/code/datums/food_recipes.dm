@@ -92,5 +92,3 @@
 	)
 	result = /obj/item/food/rock_cake/jamaican
 	category = CAT_PASTRY
-
-//desserts
