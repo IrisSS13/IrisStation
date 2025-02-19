@@ -43,7 +43,7 @@
 	icon = 'modular_iris/modules/tea_party/icons/tableware.dmi'
 	icon_state = "teacup"
 	fill_icon = 'modular_iris/modules/tea_party/icons/tableware.dmi'
-	fill_icon_thresholds = list(0, 1, 10)
+	fill_icon_thresholds = list(0, 1, 10, 20)
 	volume = 30 //we must leave room for milk and sugar, afterall
 
 /obj/item/reagent_containers/cup/miniature_jug
