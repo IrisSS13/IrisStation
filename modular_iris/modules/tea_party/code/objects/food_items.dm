@@ -102,4 +102,22 @@
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_4
 
+/obj/item/food/rock_cake
+	name = "rock cake"
+	desc = "A pebble-shaped cake with a rugged surface, made using oats as a partial substitute for flour."
+	icon = 'modular_iris/modules/tea_party/icons/food_items.dmi'
+	icon_state = "rock_cake"
+	food_reagents = list(/datum/reagent/consumable/nutriment = 5)
+	tastes = list("raisins" = 2, "oats" = 2, "cake" = 1)
+	foodtypes = GRAIN | SUGAR | DAIRY
+	w_class = WEIGHT_CLASS_SMALL
+	crafting_complexity = FOOD_COMPLEXITY_2
+
+/obj/item/food/rock_cake/jamaican
+	name = "\improper Jamaican rock cake"
+	desc = "A pebble-shaped cake with a rugged surface, this one has shredded coconut in it!"
+	icon_state = "rock_cake_jamaican"
+	tastes = list("coconut" = 2, "raisins" = 2, "oats" = 2, "cake" = 1)
+	crafting_complexity = FOOD_COMPLEXITY_3
+
 //desserts

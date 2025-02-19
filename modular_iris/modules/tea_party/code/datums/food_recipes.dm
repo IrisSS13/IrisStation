@@ -60,4 +60,26 @@
 	result = /obj/item/food/punschkrapfen
 	category = CAT_PASTRY
 
+/datum/crafting_recipe/food/rock_cake
+	name = "Rock Cake"
+	reqs = list(
+		/obj/item/food/pastrybase = 1,
+		/obj/item/food/grown/oat = 1,
+		/obj/item/food/no_raisin = 1
+	)
+	result = /obj/item/food/rock_cake
+	category = CAT_PASTRY
+
+/datum/crafting_recipe/food/rock_cake_jamaican
+	name = "Jamaican Rock Cake"
+	reqs = list(
+		/obj/item/food/pastrybase = 1,
+		/obj/item/food/grown/oat = 1,
+		/obj/item/food/no_raisin = 1,
+		//I somehow gaslit myself into believing coconuts were a growable thing in this game, their milk will have to serve as a substitute for the time being
+		/datum/reagent/consumable/coconut_milk = 5
+	)
+	result = /obj/item/food/rock_cake/jamaican
+	category = CAT_PASTRY
+
 //desserts
