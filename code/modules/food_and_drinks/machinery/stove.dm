@@ -229,6 +229,10 @@
 
 /obj/item/reagent_containers/cup/soup_pot/update_overlays()
 	. = ..()
+	//IRIS EDIT ADDITION BEGIN - TEA_PARTY - Used by child (/obj/item/reagent_containers/cup/soup_pot/kettle) to prevent addition of non-existent overlay
+	if(!base_icon_state)
+		return
+	//IRIS EDIT ADDITION END
 	if(length(added_ingredients) <= 0 && reagents.total_volume <= 0)
 		return
 	var/mutable_appearance/filled_overlay = mutable_appearance(icon, "[base_icon_state]_filling_overlay")
