@@ -62,5 +62,5 @@
 	icon = 'modular_iris/modules/tea_party/icons/tableware.dmi'
 	icon_state = "saucer"
 	max_items = 3
-	max_x_offset = 3
-	max_height_offset = 4
+	max_x_offset = 4
+	max_height_offset = 3
