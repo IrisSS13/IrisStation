@@ -69,6 +69,17 @@
 
 //pastries
 
+/obj/item/food/eccles_cake
+	name = "\improper Eccles cake"
+	desc = "A small flaky pastry filled with raisins and topped with sugar."
+	icon = 'modular_iris/modules/tea_party/icons/food_items.dmi'
+	icon_state = "eccles_cake"
+	food_reagents = list(/datum/reagent/consumable/nutriment = 6)
+	tastes = list("flaky pastry" = 3, "butter" = 2, "raisins" = 2, "sugar" = 1)
+	foodtypes = GRAIN | SUGAR | DAIRY
+	w_class = WEIGHT_CLASS_SMALL
+	crafting_complexity = FOOD_COMPLEXITY_2
+
 /obj/item/food/custard_slice
 	name = "custard slice"
 	desc = "Two layers of puff pastry sandwiching a goopy, vanilla custard filling."

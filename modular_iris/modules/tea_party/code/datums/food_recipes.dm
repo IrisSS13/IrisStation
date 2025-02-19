@@ -30,6 +30,17 @@
 
 //pastries
 
+/datum/crafting_recipe/food/eccles_cake
+	name = "Eccles Cake"
+	reqs = list(
+		/obj/item/food/pastrybase = 1,
+		/obj/item/food/butterslice = 1,
+		/obj/item/food/no_raisin = 1,
+		/datum/reagent/consumable/sugar = 5
+	)
+	result = /obj/item/food/eccles_cake
+	category = CAT_PASTRY
+
 /datum/crafting_recipe/food/custard_slice
 	name = "Custard Slice"
 	reqs = list(
