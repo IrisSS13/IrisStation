@@ -33,7 +33,7 @@
 		/datum/quirk/touchy
 	)
 	//time before the quirk is removed after being added
-	var/cognomerge_duration = 15 SECONDS
+	var/cognomerge_duration = 50 SECONDS
 	//do we multiply this duration by a random value, 1 - 3
 	var/vary_duration = TRUE
 	//alert sound played during the announcement of this event
