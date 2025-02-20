@@ -7,7 +7,6 @@
 	icon_state = "teapot"
 	fill_icon_thresholds = null
 	volume = 120
-	spillable = FALSE
 
 /obj/item/reagent_containers/cup/teapot/assassins
 	var/datum/reagents/reagents_store = new() //we will be using this to store the reagents we do not want to transfer depending on the mode of interaction
