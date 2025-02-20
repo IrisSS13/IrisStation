@@ -1,4 +1,3 @@
-//standard version
 /datum/round_event_control/cognomerge
 	name = "Monadic Cognomerge"
 	typepath = /datum/round_event/cognomerge
@@ -91,6 +90,7 @@
 	sender_override = "Metaphysical Entity Watchdog")
 
 //admin options
+
 /datum/event_admin_setup/input_number/cognomerge/duration
 	input_text = "For how many seconds should a quirk be applied?"
 	default_value = 120
