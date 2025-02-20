@@ -30,13 +30,13 @@
 	for(var/datum/team/miscreants/team in GLOB.antagonist_teams)
 		miscreant_teams += team
 	if(miscreant_teams.len == 0) //no existing teams so make a new one
-		miscreant_team = new/datum/team/miscreants(clamp(round(GLOB.alive_player_list.len * 0.2, 1), 2, 8)) //max team size of 1/5th of the current pop but never fewer than 2 or more than 8 total
+		miscreant_team = new/datum/team/miscreants() //max team size of 1/5th of the current pop but never fewer than 2 or more than 8 total
 	var/full_teams_count = 0
 	for(var/datum/team/miscreants/existing_team in miscreant_teams)
 		if(existing_team.members.len >= existing_team.max_miscreants)
 			full_teams_count++
 			if(full_teams_count == miscreant_teams.len) //all existing teams are full so make a new one
-				miscreant_team = new/datum/team/miscreants(clamp(round(GLOB.alive_player_list.len * 0.2, 1), 2, 8))
+				miscreant_team = new/datum/team/miscreants()
 				break
 			continue
 		miscreant_team = existing_team //otherwise assign to first team with a spot
@@ -99,6 +99,19 @@
 	var/datum/mind/O = owner
 	message_admins("[key_name_admin(admin)] has moved miscreant [O] to team [destination_team].")
 	log_admin("[key_name(admin)] has moved miscreant [O] to team [destination_team].")
+
+	//Request permission to delete empty team
+	if(!miscreant_team.members.len)
+		var/delete_empty_team = FALSE
+		var/admin_choice = tgui_alert(admin, "Miscreant origin team ([miscreant_team]) has no members. Delete it?", "Delete origin team?", list("Yes", "No"))
+
+		if(admin_choice == "Yes")
+			delete_empty_team = TRUE
+
+		if(delete_empty_team)
+			message_admins("[key_name_admin(admin)] has deleted miscreant team [miscreant_team].")
+			log_admin("[key_name(admin)] has deleted miscreant team [miscreant_team].")
+			QDEL_NULL(miscreant_team)
 
 	//Update the miscreant_team var
 	miscreant_team = destination_team

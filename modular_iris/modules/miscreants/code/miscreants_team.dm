@@ -24,6 +24,8 @@
 	. = ..()
 	if(forced_max > 0)
 		max_miscreants = forced_max
+	else
+		max_miscreants = clamp(round(GLOB.alive_player_list.len * 0.2, 1), 2, 8) //if no value is specified, make the team size 1/5th of the current pop, but never fewer than 2 nor more than 8
 
 	var/selected_random_scenario = pick_list(MISCREANT_OBJECTIVES_FILE, "scenarios")
 
