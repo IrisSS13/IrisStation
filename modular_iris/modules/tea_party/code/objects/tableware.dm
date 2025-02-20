@@ -54,6 +54,14 @@
 	fill_icon_thresholds = null
 	volume = 15
 
+/obj/item/reagent_containers/cup/sugar_pot
+	name = "sugar pot"
+	desc = "A pot for storing any sugar set aside for the purpose of sweeting beverages."
+	icon = 'modular_iris/modules/tea_party/icons/tableware.dmi'
+	icon_state = "sugar_pot"
+	fill_icon_thresholds = null
+	volume = 30
+
 //saucers
 
 /obj/item/plate/small/saucer
