@@ -54,7 +54,7 @@
 
 	var/duration = rand(natural_duration_min, natural_duration_max) SECONDS
 	if(forced_duration)
-		duration = forced_duration
+		duration = forced_duration SECONDS
 	end_when = (start_when + ROUND_UP((duration * 0.05) + 5)) //end proc should be called ~10s after quirk removal
 
 	var/list/victims = GLOB.human_list
@@ -108,5 +108,4 @@
 			return ADMIN_CANCEL_EVENT
 
 /datum/event_admin_setup/input_number/cognomerge/duration/apply_to_event(datum/round_event/cognomerge/event)
-	if(chosen_value)
-		event.forced_duration = chosen_value SECONDS
+	event.forced_duration = chosen_value
