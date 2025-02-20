@@ -4,12 +4,11 @@
 	typepath = /datum/round_event/cognomerge
 	weight = 15
 	min_players = 5
-	max_occurrences = 2
+	max_occurrences = 3
 	category = EVENT_CATEGORY_HEALTH
-	description = "All crewmembers temporarily gain a random negative quirk."
+	description = "All crewmembers temporarily gain a negative quirk."
 	admin_setup = list(
-		/datum/event_admin_setup/input_number/cognomerge/duration,
-		/datum/event_admin_setup/listed_options/cognomerge/vary_duration
+		/datum/event_admin_setup/input_number/cognomerge/duration
 	)
 
 /datum/round_event/cognomerge
@@ -24,18 +23,20 @@
 		/datum/quirk/frail,
 		/datum/quirk/illiterate,
 		/datum/quirk/numb,
-		/datum/quirk/nyctophobia,
-		/datum/quirk/photophobia,
 		/datum/quirk/poor_aim,
-		/datum/quirk/prosopagnosia,
-		/datum/quirk/social_anxiety,
 		/datum/quirk/softspoken,
-		/datum/quirk/touchy
+		/datum/quirk/cursed,
+		/datum/quirk/item_quirk/deafness/noitem,
+		/datum/quirk/item_quirk/blindness/noitem,
+		/datum/quirk/hemiplegic,
+		/datum/quirk/paraplegic/noitem
 	)
-	//time before the quirk is removed after being added
-	var/cognomerge_duration = 50 SECONDS
-	//do we multiply this duration by a random value, 1 - 3
-	var/vary_duration = TRUE
+	//minimum amount of time before the quirk is removed after being added
+	var/natural_duration_min = 120 SECONDS
+	//minimum amount of time before the quirk is removed after being added
+	var/natural_duration_max = 300 SECONDS
+	//if an admin sets a specific duration instead, it will be stored here
+	var/forced_duration
 	//alert sound played during the announcement of this event
 	var/audio_alert = 'sound/announcer/notice/notice2.ogg'
 
@@ -47,9 +48,9 @@
 /datum/round_event/cognomerge/start()
 	var/datum/quirk/chosen_quirk = pick(cognomerge_quirk_pool)
 
-	var/duration = cognomerge_duration
-	if(vary_duration)
-		duration *= rand(1, 3)
+	var/duration = rand(natural_duration_min, natural_duration_max)
+	if(forced_duration)
+		duration = forced_duration
 	end_when = (start_when + ROUND_UP((duration * 0.05) + 5)) //end proc should be called ~10s after quirk removal
 
 	var/list/victims = GLOB.human_list
@@ -85,57 +86,24 @@
 	sound = audio_alert,
 	sender_override = "Metaphysical Entity Watchdog")
 
-//extreme version (adds harsher quirks)
-/datum/round_event_control/cognomerge/extreme
-	name = "Xtrm. Monadic Cognomerge"
-	typepath = /datum/round_event/cognomerge/extreme
-	weight = 5
-	max_occurrences = 1
-	description = "All crewmembers temporarily gain a harsh random negative quirk."
-
-/datum/round_event/cognomerge/extreme
-	cognomerge_quirk_pool = list(
-		/datum/quirk/cursed,
-		/datum/quirk/item_quirk/deafness/noitem,
-		/datum/quirk/item_quirk/blindness/noitem,
-		/datum/quirk/hemiplegic,
-		/datum/quirk/paraplegic/noitem
-	)
-	audio_alert = 'sound/announcer/notice/notice3.ogg'
-
 //admin options
 /datum/event_admin_setup/input_number/cognomerge/duration
-	input_text = "For how long should a quirk be applied (in seconds)?"
-	default_value = 15
-	max_value = 300
+	input_text = "For how many seconds should a quirk be applied?"
+	default_value = 120
+	max_value = 900
 	min_value = 1
 
 /datum/event_admin_setup/input_number/cognomerge/duration/prompt_admins()
-	var/customize_duration = tgui_alert(usr, "Set event duration!", event_control.name, list("Default", "Custom"))
+	var/customize_duration = tgui_alert(usr, "Set event duration!", event_control.name, list("Random", "Custom"))
 	switch(customize_duration)
 		if("Custom")
 			return ..()
-		if("Default")
-			chosen_value = default_value
+		if("Random")
+			chosen_value = null
 		else
 			return ADMIN_CANCEL_EVENT
 
 /datum/event_admin_setup/input_number/cognomerge/duration/apply_to_event(datum/round_event/cognomerge/event)
-	event.cognomerge_duration = chosen_value SECONDS
-
-/datum/event_admin_setup/listed_options/cognomerge/vary_duration
-	input_text = "Randomly vary the event duration? May be 100, 200 or 300% of the selected time."
-	normal_run_option = "Yes"
-
-/datum/event_admin_setup/listed_options/cognomerge/vary_duration/get_list()
-	return list("No")
-
-/datum/event_admin_setup/listed_options/cognomerge/vary_duration/apply_to_event(datum/round_event/cognomerge/event)
-	switch(chosen)
-		if("No")
-			event.vary_duration = FALSE
-		if("Yes")
-			event.vary_duration = TRUE
-		else
-			return ADMIN_CANCEL_EVENT
+	if(chosen_value)
+		event.forced_duration = chosen_value SECONDS
 
