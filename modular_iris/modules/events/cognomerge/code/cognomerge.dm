@@ -89,6 +89,7 @@
 	sound = audio_alert,
 	sender_override = "Metaphysical Entity Watchdog")
 
+
 //admin options
 
 /datum/event_admin_setup/input_number/cognomerge/duration
@@ -109,3 +110,4 @@
 
 /datum/event_admin_setup/input_number/cognomerge/duration/apply_to_event(datum/round_event/cognomerge/event)
 	event.forced_duration = chosen_value
+
