@@ -37,6 +37,8 @@
 	var/natural_duration_max = 300
 	//if an admin sets a specific duration instead, it will be stored here
 	var/forced_duration
+	//if an admin selects a specific quirk for the event we store it here
+	var/datum/quirk/forced_quirk
 	//alert sound played during the announcement of this event
 	var/audio_alert = 'sound/announcer/notice/notice2.ogg'
 
@@ -106,4 +108,3 @@
 /datum/event_admin_setup/input_number/cognomerge/duration/apply_to_event(datum/round_event/cognomerge/event)
 	if(chosen_value)
 		event.forced_duration = chosen_value SECONDS
-
