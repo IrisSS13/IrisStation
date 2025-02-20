@@ -31,10 +31,10 @@
 		/datum/quirk/hemiplegic,
 		/datum/quirk/paraplegic/noitem
 	)
-	//minimum amount of time before the quirk is removed after being added
-	var/natural_duration_min = 120 SECONDS
-	//maximum amount of time before the quirk is removed after being added
-	var/natural_duration_max = 300 SECONDS
+	//minimum amount of time before the quirk is removed after being added (in seconds)
+	var/natural_duration_min = 120
+	//maximum amount of time before the quirk is removed after being added (in seconds)
+	var/natural_duration_max = 300
 	//if an admin sets a specific duration instead, it will be stored here
 	var/forced_duration
 	//alert sound played during the announcement of this event
@@ -48,7 +48,7 @@
 /datum/round_event/cognomerge/start()
 	var/datum/quirk/chosen_quirk = pick(cognomerge_quirk_pool)
 
-	var/duration = rand(natural_duration_min, natural_duration_max)
+	var/duration = rand(natural_duration_min, natural_duration_max) SECONDS
 	if(forced_duration)
 		duration = forced_duration
 	end_when = (start_when + ROUND_UP((duration * 0.05) + 5)) //end proc should be called ~10s after quirk removal
