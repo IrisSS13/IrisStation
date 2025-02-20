@@ -7,7 +7,8 @@
 	category = EVENT_CATEGORY_HEALTH
 	description = "All crewmembers temporarily gain a negative quirk."
 	admin_setup = list(
-		/datum/event_admin_setup/input_number/cognomerge/duration
+		/datum/event_admin_setup/input_number/cognomerge/duration,
+		/datum/event_admin_setup/input_number/cognomerge/quirk_selection
 	)
 
 /datum/round_event/cognomerge
@@ -111,3 +112,21 @@
 /datum/event_admin_setup/input_number/cognomerge/duration/apply_to_event(datum/round_event/cognomerge/event)
 	event.forced_duration = chosen_value
 
+/datum/event_admin_setup/listed_options/cognomerge/quirk_selection
+	input_text = "Which quirk should be applied?"
+
+/datum/event_admin_setup/listed_options/cognomerge/quirk_selection/get_list()
+	return event.cognomerge_quirk_pool
+
+/datum/event_admin_setup/listed_options/cognomerge/quirk_selection/prompt_admins()
+	var/specific_quirk_desired = tgui_alert(usr, "Apply a specific quirk?", event_control.name, list("Yes", "No"))
+	switch(specific_quirk_desired)
+		if("Yes")
+			return ..()
+		if("No")
+			chosen = null
+		else
+			return ADMIN_CANCEL_EVENT
+
+/datum/event_admin_setup/listed_options/cognomerge/quirk_selection/apply_to_event(datum/round_event/cognomerge/event)
+	event.forced_quirk = chosen
