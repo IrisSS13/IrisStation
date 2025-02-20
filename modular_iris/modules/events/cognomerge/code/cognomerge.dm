@@ -33,7 +33,7 @@
 	)
 	//minimum amount of time before the quirk is removed after being added
 	var/natural_duration_min = 120 SECONDS
-	//minimum amount of time before the quirk is removed after being added
+	//maximum amount of time before the quirk is removed after being added
 	var/natural_duration_max = 300 SECONDS
 	//if an admin sets a specific duration instead, it will be stored here
 	var/forced_duration
