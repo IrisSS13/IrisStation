@@ -15,7 +15,10 @@
 	announce_when = 1
 	start_when = 21
 	end_when = 51
-	//list of quirks this version of the event can add, only includes those that might produce interesting scenarios and will have time to do so
+	/*
+	List of quirks this version of the event can add, only includes those that might produce interesting scenarios and will have time to do so
+	Don't forget to update the duplicate list in the admin setup options down below if you modify this one
+	*/
 	var/list/cognomerge_quirk_pool = list(
 		/datum/quirk/item_quirk/allergic/noitem,
 		/datum/quirk/bighands,
@@ -118,7 +121,21 @@
 	input_text = "Which quirk should be applied?"
 
 /datum/event_admin_setup/listed_options/cognomerge/quirk_selection/get_list()
-	return event.cognomerge_quirk_pool
+	return list(
+		/datum/quirk/item_quirk/allergic/noitem,
+		/datum/quirk/bighands,
+		/datum/quirk/clumsy,
+		/datum/quirk/frail,
+		/datum/quirk/illiterate,
+		/datum/quirk/numb,
+		/datum/quirk/poor_aim,
+		/datum/quirk/softspoken,
+		/datum/quirk/cursed,
+		/datum/quirk/item_quirk/deafness/noitem,
+		/datum/quirk/item_quirk/blindness/noitem,
+		/datum/quirk/hemiplegic,
+		/datum/quirk/paraplegic/noitem
+	)
 
 /datum/event_admin_setup/listed_options/cognomerge/quirk_selection/prompt_admins()
 	var/specific_quirk_desired = tgui_alert(usr, "Apply a specific quirk?", event_control.name, list("Yes", "No"))
