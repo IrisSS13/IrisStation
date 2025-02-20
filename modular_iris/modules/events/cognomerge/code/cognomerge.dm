@@ -49,6 +49,8 @@
 
 /datum/round_event/cognomerge/start()
 	var/datum/quirk/chosen_quirk = pick(cognomerge_quirk_pool)
+	if(forced_quirk)
+		chosen_quirk = forced_quirk
 
 	var/duration = rand(natural_duration_min, natural_duration_max) SECONDS
 	if(forced_duration)
