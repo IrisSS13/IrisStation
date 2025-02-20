@@ -8,7 +8,7 @@
 	description = "All crewmembers temporarily gain a negative quirk."
 	admin_setup = list(
 		/datum/event_admin_setup/input_number/cognomerge/duration,
-		/datum/event_admin_setup/input_number/cognomerge/quirk_selection
+		/datum/event_admin_setup/listed_options/cognomerge/quirk_selection
 	)
 
 /datum/round_event/cognomerge
