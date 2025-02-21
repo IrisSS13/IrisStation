@@ -1,8 +1,8 @@
 /datum/quirk/chipped
 	name = "Chipped"
-	desc = "You got caught up in the skillchip craze a few years back, and had one of the commercially available chips implanted into yourself."
+	desc = "You got caught up in the skillchip craze a few years back, and had one of the commercially available chips implanted into yourself. Note: The chip is rather dated and sometimes hurts your brain." //IRIS EDIT: warning about the damage it causes
 	icon = FA_ICON_MICROCHIP
-	value = 2
+	value = 1 //IRIS EDIT: was 2 points, not worth as it causes brain damage
 	gain_text = span_notice("The chip in your head itches a bit.")
 	lose_text = span_danger("You don't feel so chipped anymore..")
 	medical_record_text = "Patient explained how they got caught up in 'the skillchip chase' recently, and now the chip in their head itches every so often. Dumbass."

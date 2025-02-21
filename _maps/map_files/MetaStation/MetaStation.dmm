@@ -1552,14 +1552,13 @@
 /area/station/hallway/secondary/exit/departure_lounge)
 "aDA" = (
 /obj/machinery/light/small/directional/south,
-/obj/item/folder,
-/obj/item/folder,
 /obj/machinery/camera/directional/south{
 	c_tag = "Telecomms - Control Room";
 	network = list("ss13","tcomms")
 	},
-/obj/structure/table/wood,
-/obj/item/pen,
+/obj/machinery/computer/telecomms/traffic{
+	dir = 1
+	},
 /turf/open/floor/carpet/grimey,
 /area/station/tcommsat/computer)
 "aDQ" = (
@@ -2179,6 +2178,7 @@
 /obj/effect/turf_decal/tile/neutral/opposingcorners{
 	dir = 1
 	},
+/obj/effect/mapping_helpers/airalarm/tlv_kitchen,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "aNQ" = (
@@ -57085,6 +57085,9 @@
 /obj/effect/mapping_helpers/requests_console/announcement,
 /obj/effect/mapping_helpers/requests_console/information,
 /obj/effect/mapping_helpers/requests_console/assistance,
+/obj/item/folder,
+/obj/item/folder,
+/obj/item/pen,
 /turf/open/floor/carpet/grimey,
 /area/station/tcommsat/computer)
 "uga" = (
