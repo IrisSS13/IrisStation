@@ -73,10 +73,6 @@
 /obj/machinery/atmospherics/components/tank/air,
 /turf/open/floor/plating,
 /area/station/maintenance/department/bridge)
-"aE" = (
-/obj/structure/fans/tiny,
-/turf/open/floor/iron/dark/textured_large,
-/area/station/tcommsat/server)
 "aF" = (
 /obj/structure/flora/bush/reed/style_random,
 /turf/open/water/hot_spring/icemoon,
@@ -356,7 +352,6 @@
 /area/station/tcommsat/server)
 "dr" = (
 /obj/machinery/door/airlock/colony_prefab,
-/obj/structure/cable,
 /obj/structure/fans/tiny,
 /turf/open/floor/iron/colony,
 /area/station/cargo/lobby)
@@ -549,11 +544,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/station/maintenance/department/bridge)
-"eN" = (
-/obj/structure/cable,
-/obj/machinery/power/apc/auto_name/directional/north,
-/turf/open/floor/catwalk_floor/colony_fabricator,
-/area/station/cargo/breakroom)
 "eO" = (
 /obj/machinery/washing_machine{
 	pixel_y = 10
@@ -1705,7 +1695,7 @@
 /area/station/command/bridge)
 "nQ" = (
 /turf/open/openspace,
-/area/station/cargo/office)
+/area/station/cargo/boutique)
 "nT" = (
 /obj/structure/fence{
 	dir = 4
@@ -2215,10 +2205,6 @@
 /obj/structure/sign/poster/contraband/random/directional/north,
 /turf/open/floor/iron/colony/texture,
 /area/station/commons/dorms)
-"tn" = (
-/obj/structure/cable,
-/turf/open/floor/iron/colony/texture,
-/area/station/cargo/breakroom)
 "tp" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -2347,7 +2333,7 @@
 /obj/machinery/light/directional/north,
 /obj/effect/landmark/atmospheric_sanity/ignore_area,
 /turf/open/openspace,
-/area/station/cargo/office)
+/area/station/cargo/boutique)
 "uR" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -2401,6 +2387,7 @@
 "vp" = (
 /obj/effect/mapping_helpers/airlock/access/all/command/general,
 /obj/structure/fans/tiny,
+/obj/machinery/door/airlock/command/glass,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/bridge)
 "vu" = (
@@ -2855,9 +2842,6 @@
 	},
 /turf/open/floor/iron/colony/texture,
 /area/station/cargo/storage)
-"yW" = (
-/turf/closed/wall/prefab_plastic,
-/area/station/cargo/office)
 "yY" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/colony/texture,
@@ -3019,14 +3003,6 @@
 /obj/machinery/digital_clock/directional/north,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/ce)
-"AS" = (
-/obj/machinery/door/airlock/hatch{
-	transport_linked_id = "snundra_lift";
-	elevator_mode = 1;
-	name = "Elevator"
-	},
-/turf/open/floor/iron/colony/bolts,
-/area/station/cargo/office)
 "AY" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 8
@@ -4686,6 +4662,10 @@
 /obj/machinery/telecomms/bus/preset_three,
 /turf/open/floor/circuit/green/telecomms/mainframe,
 /area/station/tcommsat/server)
+"PS" = (
+/obj/effect/landmark/atmospheric_sanity/ignore_area,
+/turf/open/floor/iron/colony/texture,
+/area/station/security/checkpoint/arrivals)
 "PV" = (
 /obj/structure/flora/rock/pile/jungle/style_random,
 /turf/open/water/hot_spring/icemoon,
@@ -4910,13 +4890,6 @@
 /obj/structure/flora/bush/flowers_pp/style_random,
 /turf/open/misc/asteroid/snow/icemoon,
 /area/snundra/outdoors/nospawn)
-"RX" = (
-/obj/machinery/door/airlock/multi_tile/metal{
-	dir = 4
-	},
-/obj/structure/fans/tiny,
-/turf/open/floor/iron/dark/textured_large,
-/area/station/command/bridge)
 "Sk" = (
 /obj/structure/flora/bush/reed/style_random,
 /obj/effect/turf_decal/weather/dirt{
@@ -5519,10 +5492,10 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/snundra/outdoors/nospawn)
 "WR" = (
-/obj/machinery/door/airlock/multi_tile/metal,
 /obj/effect/mapping_helpers/airlock/access/all/command/general,
 /obj/structure/fans/tiny,
 /obj/structure/cable,
+/obj/machinery/door/airlock/command,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/tcommsat/server)
 "WS" = (
@@ -93982,7 +93955,7 @@ yN
 yL
 kN
 kN
-ES
+PS
 rR
 tr
 "}
@@ -98704,10 +98677,10 @@ tr
 tr
 tr
 Ao
-yW
-yW
-yW
-yW
+Lh
+Lh
+Lh
+Lh
 lN
 rb
 rb
@@ -98961,10 +98934,10 @@ tr
 tr
 tr
 dS
-yW
+Lh
 nQ
 nQ
-AS
+AB
 LA
 gK
 Gw
@@ -99218,10 +99191,10 @@ tr
 tr
 dS
 dS
-yW
+Lh
 uP
 nQ
-AS
+AB
 gK
 Wk
 fr
@@ -99475,12 +99448,12 @@ tr
 dS
 dS
 Hl
-yW
-yW
-yW
-yW
-eN
-tn
+Lh
+Lh
+Lh
+Lh
+gK
+Wk
 Wk
 cO
 UK
@@ -99737,7 +99710,7 @@ rb
 wr
 wr
 gK
-tn
+Wk
 Jv
 JS
 gK
@@ -101051,7 +101024,7 @@ nn
 gm
 nn
 vp
-RX
+nn
 nn
 gm
 nn
@@ -104644,7 +104617,7 @@ xw
 Co
 xc
 UI
-aE
+aS
 Rg
 xm
 ZJ
