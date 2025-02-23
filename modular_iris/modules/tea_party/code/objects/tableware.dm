@@ -16,25 +16,25 @@
 	for(var/datum/reagent/reagent in reagents.reagent_list)
 		if(istype(reagent, /datum/reagent/consumable))
 			continue
-		reagents_store.add_reagent(reagent, reagent.volume)
-		reagents.remove_reagent(reagent, reagent.volume)
+		reagents_store.add_reagent(reagent.type, reagent.volume)
+		reagents.remove_reagent(reagent.type, reagent.volume)
 	. = ..()
 	//add them back when the transfer of remaining reagents is complete
 	for(var/datum/reagent/reagent in reagents_store.reagent_list)
-		reagents.add_reagent(reagent, reagent.volume)
-		reagents_store.remove_reagent(reagent, reagent.volume)
+		reagents.add_reagent(reagent.type, reagent.volume)
+		reagents_store.remove_reagent(reagent.type, reagent.volume)
 
 /obj/item/reagent_containers/cup/teapot/assassins/interact_with_atom_secondary(atom/target, mob/living/user, list/modifiers)
 	//remove reagents intended for consumption when we pour with right-click
 	for(var/datum/reagent/reagent in reagents.reagent_list)
 		if(istype(reagent, /datum/reagent/consumable))
-			reagents_store.add_reagent(reagent, reagent.volume)
-			reagents.remove_reagent(reagent, reagent.volume)
+			reagents_store.add_reagent(reagent.type, reagent.volume)
+			reagents.remove_reagent(reagent.type, reagent.volume)
 	. = ..()
 	//add them back when the transfer of remaining reagents is complete
 	for(var/datum/reagent/reagent in reagents_store.reagent_list)
-		reagents.add_reagent(reagent, reagent.volume)
-		reagents_store.remove_reagent(reagent, reagent.volume)
+		reagents.add_reagent(reagent.type, reagent.volume)
+		reagents_store.remove_reagent(reagent.type, reagent.volume)
 
 /obj/item/reagent_containers/cup/teacup
 	name = "teacup"
