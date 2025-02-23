@@ -12,29 +12,29 @@
 	var/datum/reagents/reagents_store = new() //we will be using this to store the reagents we do not want to transfer depending on the mode of interaction
 
 /obj/item/reagent_containers/cup/teapot/assassins/interact_with_atom(atom/target, mob/living/user, list/modifiers)
-	//remove reagents not intended for consumption when we pour with left-click
-	for(var/datum/reagent/reagent in reagents.reagent_list)
-		if(istype(reagent, /datum/reagent/consumable))
-			continue
-		reagents_store.add_reagent(reagent.type, reagent.volume)
-		reagents.remove_reagent(reagent.type, reagent.volume)
-	. = ..()
-	//add them back when the transfer of remaining reagents is complete
-	for(var/datum/reagent/reagent in reagents_store.reagent_list)
-		reagents.add_reagent(reagent.type, reagent.volume)
-		reagents_store.remove_reagent(reagent.type, reagent.volume)
-
-/obj/item/reagent_containers/cup/teapot/assassins/interact_with_atom_secondary(atom/target, mob/living/user, list/modifiers)
-	//remove reagents intended for consumption when we pour with right-click
-	for(var/datum/reagent/reagent in reagents.reagent_list)
-		if(istype(reagent, /datum/reagent/consumable))
+	if(user.combat_mode)
+		//remove reagents intended for consumption when we pour with combat mode enabled
+		for(var/datum/reagent/reagent in reagents.reagent_list)
+			if(istype(reagent, /datum/reagent/consumable))
+				reagents_store.add_reagent(reagent.type, reagent.volume)
+				reagents.remove_reagent(reagent.type, reagent.volume)
+		. = ..()
+		//add them back when the transfer of remaining reagents is complete
+		for(var/datum/reagent/reagent in reagents_store.reagent_list)
+			reagents.add_reagent(reagent.type, reagent.volume)
+			reagents_store.remove_reagent(reagent.type, reagent.volume)
+	else
+		//remove reagents not intended for consumption when we pour without combat mode
+		for(var/datum/reagent/reagent in reagents.reagent_list)
+			if(istype(reagent, /datum/reagent/consumable))
+				continue
 			reagents_store.add_reagent(reagent.type, reagent.volume)
 			reagents.remove_reagent(reagent.type, reagent.volume)
-	. = ..()
-	//add them back when the transfer of remaining reagents is complete
-	for(var/datum/reagent/reagent in reagents_store.reagent_list)
-		reagents.add_reagent(reagent.type, reagent.volume)
-		reagents_store.remove_reagent(reagent.type, reagent.volume)
+		. = ..()
+		//add them back when the transfer of remaining reagents is complete
+		for(var/datum/reagent/reagent in reagents_store.reagent_list)
+			reagents.add_reagent(reagent.type, reagent.volume)
+			reagents_store.remove_reagent(reagent.type, reagent.volume)
 
 /obj/item/reagent_containers/cup/teacup
 	name = "teacup"
