@@ -115,6 +115,9 @@
 #define ORGAN_SLOT_TONGUE "tongue"
 #define ORGAN_SLOT_VOICE "vocal_cords"
 #define ORGAN_SLOT_ZOMBIE "zombie_infection"
+//iris winged gizzard edit
+#define	ORGAN_SLOT_GIZZARD "gizzard"
+//end iris gizzard edit
 
 /// Organ slot external
 #define ORGAN_SLOT_EXTERNAL_TAIL "tail"
@@ -185,7 +188,11 @@ GLOBAL_LIST_INIT(organ_process_order, list(
 	ORGAN_SLOT_XENO_RESINSPINNER,
 	ORGAN_SLOT_XENO_ACIDGLAND,
 	ORGAN_SLOT_XENO_NEUROTOXINGLAND,
-	ORGAN_SLOT_XENO_EGGSAC,))
+	ORGAN_SLOT_XENO_EGGSAC,
+	//iris gizzard edit
+	ORGAN_SLOT_GIZZARD,
+	//end iris gizzard edit
+	))
 
 //Defines for Golem Species IDs
 #define SPECIES_GOLEM "golem"
