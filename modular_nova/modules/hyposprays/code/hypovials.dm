@@ -6,8 +6,8 @@
 	greyscale_config = /datum/greyscale_config/hypovial
 	fill_icon_state = "hypovial_fill"
 	spillable = FALSE
-	volume = 10
-	amount_per_transfer_from_this = 5
+	volume = 10 // IRIS EDIT
+	amount_per_transfer_from_this = 5 // IRIS EDIT
 	possible_transfer_amounts = list(1,2,5,10)
 	fill_icon_thresholds = list(10, 25, 50, 75, 100)
 	var/chem_color = "#FFFFFF" //Used for hypospray overlay
