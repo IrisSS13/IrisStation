@@ -13,7 +13,7 @@
 
 /obj/item/reagent_containers/cup/teapot/assassins/interact_with_atom(atom/target, mob/living/user, list/modifiers)
 	//if our target atom is drainable, but not one of the two drainables you would more likely be wanting to fill, don't change our contents before interacting
-	if(target.is_drainable && !(istype(target, /obj/item/reagent_containers/cup/soup_pot) || istype(target, /obj/item/reagent_containers/cup/glass/drinkingglass/shotglass/syndicate)))
+	if(target.is_drainable() && !(istype(target, /obj/item/reagent_containers/cup/soup_pot) || istype(target, /obj/item/reagent_containers/cup/glass/drinkingglass/shotglass/syndicate)))
 		return ..()
 
 	if(user.combat_mode)
