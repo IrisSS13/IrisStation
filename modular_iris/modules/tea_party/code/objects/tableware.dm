@@ -19,7 +19,7 @@
 	if(user.combat_mode)
 		//remove non-toxic and non-narcotic reagents when we pour with combat mode enabled
 		for(var/datum/reagent/reagent in reagents.reagent_list)
-			if(!istype(reagent, /datum/reagent/drug) || !istype(reagent, /datum/reagent/toxin))
+			if(!istype(reagent.type, /datum/reagent/drug) || !istype(reagent.type, /datum/reagent/toxin))
 				reagents_store.add_reagent(reagent.type, reagent.volume)
 				reagents.remove_reagent(reagent.type, reagent.volume)
 		if(!reagents.reagent_list.len)
@@ -34,7 +34,7 @@
 	else
 		//remove toxic and narcotic reagents when we pour without combat mode
 		for(var/datum/reagent/reagent in reagents.reagent_list)
-			if(!istype(reagent, /datum/reagent/drug) || !istype(reagent, /datum/reagent/toxin))
+			if(!istype(reagent.type, /datum/reagent/drug) || !istype(reagent.type, /datum/reagent/toxin))
 				continue
 			reagents_store.add_reagent(reagent.type, reagent.volume)
 			reagents.remove_reagent(reagent.type, reagent.volume)
