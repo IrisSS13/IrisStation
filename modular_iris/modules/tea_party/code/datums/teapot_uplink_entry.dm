@@ -6,4 +6,4 @@
 	cost = 1
 	restricted_roles = list(JOB_BARTENDER, JOB_CHEF)
 	limited_stock = 1
-	surplus = 5
+	surplus = 0 //pretty useless so let's not burden people with it at random
