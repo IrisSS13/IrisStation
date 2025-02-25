@@ -17,24 +17,32 @@
 		return ..()
 
 	if(user.combat_mode)
-		//remove reagents intended for consumption when we pour with combat mode enabled
+		//remove non-toxic and non-narcotic reagents when we pour with combat mode enabled
 		for(var/datum/reagent/reagent in reagents.reagent_list)
-			if(istype(reagent, /datum/reagent/consumable))
+			if(!istype(reagent, /datum/reagent/drug) || !istype(reagent, /datum/reagent/toxin))
 				reagents_store.add_reagent(reagent.type, reagent.volume)
 				reagents.remove_reagent(reagent.type, reagent.volume)
-		. = ..()
+		if(!reagents.reagent_list.len)
+			to_chat(user, span_warning("Nothing to pour! Hidden chamber is empty."))
+			. = NONE
+		else
+			. = ..()
 		//add them back when the transfer of remaining reagents is complete
 		for(var/datum/reagent/reagent in reagents_store.reagent_list)
 			reagents.add_reagent(reagent.type, reagent.volume)
 			reagents_store.remove_reagent(reagent.type, reagent.volume)
 	else
-		//remove reagents not intended for consumption when we pour without combat mode
+		//remove toxic and narcotic reagents when we pour without combat mode
 		for(var/datum/reagent/reagent in reagents.reagent_list)
-			if(istype(reagent, /datum/reagent/consumable))
+			if(!istype(reagent, /datum/reagent/drug) || !istype(reagent, /datum/reagent/toxin))
 				continue
 			reagents_store.add_reagent(reagent.type, reagent.volume)
 			reagents.remove_reagent(reagent.type, reagent.volume)
-		. = ..()
+		if(!reagents.reagent_list.len)
+			to_chat(user, span_warning("Nothing to pour! Primary chamber is empty."))
+			. = NONE
+		else
+			. = ..()
 		//add them back when the transfer of remaining reagents is complete
 		for(var/datum/reagent/reagent in reagents_store.reagent_list)
 			reagents.add_reagent(reagent.type, reagent.volume)
