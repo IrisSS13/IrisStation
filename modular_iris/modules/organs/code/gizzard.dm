@@ -8,15 +8,17 @@
 	fly = /datum/action/innate/flight/gizzard
 	organ_flags = ORGAN_ORGANIC | ORGAN_EDIBLE | ORGAN_VIRGIN
 	use_mob_sprite_as_obj_sprite = FALSE
-	//bodypart_overlay = /datum/bodypart_overlay/mutant/antennae
-
-/datum/bodypart_overlay/mutant/wings/functional/can_draw_on_bodypart(mob/living/carbon/human/human)
-	return FALSE
+	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/functional/gizzard
 
 /obj/item/organ/wings/functional/gizzard/handle_flight(mob/living/carbon/human/human)
   . = ..()
   if(HAS_TRAIT_FROM(human, TRAIT_MOVE_FLOATING, SPECIES_FLIGHT_TRAIT))
   		human.adjustStaminaLoss(8)
+
+/datum/bodypart_overlay/mutant/wings/functional/gizzard
+
+/datum/bodypart_overlay/mutant/wings/functional/gizzard/can_draw_on_bodypart(obj/living/carbon/human/human)
+	return FALSE
 
 /datum/action/innate/flight/gizzard
 	name = "Toggle Flight (Natural)"
