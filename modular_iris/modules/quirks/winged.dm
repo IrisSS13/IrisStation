@@ -3,7 +3,6 @@
 	desc = "Your wings are not just for show, fly and hover with ease!"
 	icon = FA_ICON_FEATHER
 	value = 10
-	//mob_trait = TRAIT_MOVE_FLYING
 	gain_text = span_notice("You feel like the sky's the limit!")
 	lose_text = span_danger("You feel a little bit more grounded.")
 	medical_record_text = "Patient excels at aerial movement."
