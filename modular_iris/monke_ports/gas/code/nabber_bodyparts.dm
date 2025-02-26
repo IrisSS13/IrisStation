@@ -82,7 +82,7 @@
 	held_hand_offset =  new(
 		attached_part = src,
 		feature_key = OFFSET_HELD,
-		offset_x = list("north" = 0, "south" = 0, "east" = 6, "west" = 3, "northwest" = 0, "southwest" = 0, "northeast" = 6, "southeast" = 6),
+		offset_x = list("north" = -2, "south" = 2, "east" = 0, "west" = 3, "northwest" = 0, "southwest" = 0, "northeast" = 6, "southeast" = 6),
 		offset_y = list("north" = -1, "south" = -1, "east" = -1, "west" = -1),
 	)
 	return ..()
