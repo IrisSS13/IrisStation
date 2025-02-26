@@ -197,7 +197,7 @@
 */
 
 /datum/species/nabber/randomize_features(mob/living/carbon/human_mob) //NEVER randomise features. This causes runtimes.
-	. = ..()
+	SHOULD_CALL_PARENT(FALSE)
 	return FALSE
 
 /mob/living/carbon/human/species/nabber

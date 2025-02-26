@@ -24,35 +24,27 @@
 		return
 
 /obj/item/clothing/under
-	species_clothing_color_coords = list(list(BASE_CLOTH_X_1, BASE_CLOTH_Y_1))
 	greyscale_config_worn_nabber_fallback = /datum/greyscale_config/nabber
 
 /obj/item/clothing/neck
-	species_clothing_color_coords = list(list(BASE_CLOTH_X_1, BASE_CLOTH_Y_1))
 	greyscale_config_worn_nabber_fallback = /datum/greyscale_config/nabber/scarf
 
 /obj/item/clothing/neck/cloak
-	species_clothing_color_coords = list(list(BASE_CLOTH_X_1, BASE_CLOTH_Y_1))
 	greyscale_config_worn_nabber_fallback = /datum/greyscale_config/nabber/cloak
 
 /obj/item/clothing/neck/tie
-	species_clothing_color_coords = list(list(BASE_CLOTH_X_1, BASE_CLOTH_Y_1))
 	greyscale_config_worn_nabber_fallback = /datum/greyscale_config/nabber/tie
 
 /obj/item/clothing/gloves
-	species_clothing_color_coords = list(list(BASE_CLOTH_X_1, BASE_CLOTH_Y_1))
 	greyscale_config_worn_nabber_fallback = /datum/greyscale_config/nabber/gloves
 
 /obj/item/clothing/belt
-	species_clothing_color_coords = list(list(BASE_CLOTH_X_1, BASE_CLOTH_Y_1))
 	greyscale_config_worn_nabber_fallback = /datum/greyscale_config/nabber/belt
 
 /obj/item/clothing/mask // I can only forsee this going well
-	species_clothing_color_coords = list(list(BASE_CLOTH_X_1, BASE_CLOTH_Y_1))
 	greyscale_config_worn_nabber_fallback = /datum/greyscale_config/nabber/mask
 
 /obj/item/clothing/mask/gas //because we have to subtype... every single time.
-	species_clothing_color_coords = list(list(BASE_CLOTH_X_1, BASE_CLOTH_Y_1))
 	greyscale_config_worn_nabber_fallback = /datum/greyscale_config/nabber/mask
 
 /obj/item/clothing/glasses
