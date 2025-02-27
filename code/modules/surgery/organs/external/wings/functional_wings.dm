@@ -52,15 +52,15 @@
 
 //iris winged quirk edit START
 /obj/item/organ/wings/functional/on_mob_insert(mob/living/carbon/receiver, special, movement_flags)
-    . = ..()
+	. = ..()
 
-    if(QDELETED(fly))
-        var/action_path = get_action_path()
-        fly = new action_path
-    fly.Grant(receiver)
+	if(QDELETED(fly))
+    	var/action_path = get_action_path()
+    	fly = new action_path
+	fly.Grant(receiver)
 
 /obj/item/organ/wings/functional/proc/get_action_path()
-    return /datum/action/innate/flight
+	return /datum/action/innate/flight
 //iris winged quirk edit END
 
 /obj/item/organ/wings/functional/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
