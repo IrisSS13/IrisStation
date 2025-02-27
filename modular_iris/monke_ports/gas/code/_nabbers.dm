@@ -204,6 +204,7 @@
 	return random_name
 */
 
+/*
 /datum/species/nabber/randomize_features() //NEVER randomise features. This causes runtimes. EDIT: this stops runtimes lmao
 	var/list/features = ..()
 	var/main_color
@@ -236,6 +237,7 @@
 			second_color = "#FFEECC"
 			third_color = "#FFDDBB"
 	return features
+*/
 
 /mob/living/carbon/human/species/nabber
 	race = /datum/species/nabber
