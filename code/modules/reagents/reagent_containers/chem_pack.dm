@@ -19,7 +19,10 @@
 		balloon_alert(user, "sealed!")
 		return CLICK_ACTION_BLOCKING
 
-	if(iscarbon(user) && (HAS_TRAIT(user, TRAIT_CLUMSY) && prob(50)))
+	//IRIS EDIT CHANGE BEGIN - HANDEDNESS_QUIRK
+	var/hand_index = user.active_hand_index
+	if(prob(50) && (HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && IS_LEFT_INDEX(hand_index)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && IS_RIGHT_INDEX(hand_index))))
+	//IRIS EDIT CHANGE END
 		to_chat(user, span_warning("Uh... whoops! You accidentally spill the content of the bag onto yourself."))
 		SplashReagents(user)
 		return CLICK_ACTION_BLOCKING

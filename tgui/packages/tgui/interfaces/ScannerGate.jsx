@@ -1,5 +1,6 @@
+import { Box, Button, LabeledList, Section } from 'tgui-core/components';
+
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, Section } from '../components';
 import { Window } from '../layouts';
 import { InterfaceLockNoticeBox } from './common/InterfaceLockNoticeBox';
 
@@ -67,16 +68,15 @@ const SCANNER_GATE_ROUTES = {
     title: 'Scanner Mode: Nutrition',
     component: () => ScannerGateNutrition,
   },
+  // IRIS REMOVAL - BROKEN FEATURE, FIX IT
+  /*
   //  NOVA EDIT START - MORE SCANNER GATE OPTIONS
   Gender: {
     title: 'Scanner Mode: Gender',
     component: () => ScannerGateGender,
   },
+  */
   //  NOVA EDIT END - MORE SCANNER GATE OPTIONS
-  Contraband: {
-    title: 'Scanner Mode: Contraband',
-    component: () => ScannerGateContraband,
-  },
 };
 
 const ScannerGateControl = (props) => {
@@ -104,7 +104,6 @@ const ScannerGateControl = (props) => {
 
 const ScannerGateOff = (props) => {
   const { act, data } = useBackend();
-  const { contraband_enabled } = data;
   return (
     <>
       <Box mb={2}>Select a scanning mode below.</Box>
@@ -129,23 +128,21 @@ const ScannerGateOff = (props) => {
           content="Species"
           onClick={() => act('set_mode', { new_mode: 'Species' })}
         />
-        <Button //  NOVA EDIT START - MORE SCANNER GATE OPTIONS
-          content="Gender"
-          onClick={() => act('set_mode', { new_mode: 'Gender' })} //  NOVA EDIT END - MORE SCANNER GATE OPTIONS
-        />
         <Button
           content="Nutrition"
           onClick={() => act('set_mode', { new_mode: 'Nutrition' })}
-        />
-        <Button
-          content="Contraband"
-          disabled={contraband_enabled ? false : true}
-          onClick={() => act('set_mode', { new_mode: 'Contraband' })}
         />
       </Box>
     </>
   );
 };
+
+/* IRIS REMOVAL - BROKEN FEATURE, FIX IT, WAS IN LINE 134
+<Button //  NOVA EDIT START - MORE SCANNER GATE OPTIONS
+content="Gender"
+onClick={() => act('set_mode', { new_mode: 'Gender' })} //  NOVA EDIT END - MORE SCANNER GATE OPTIONS
+/>
+*/
 
 const ScannerGateWanted = (props) => {
   const { data } = useBackend();
@@ -282,7 +279,8 @@ const ScannerGateNutrition = (props) => {
     </>
   );
 };
-
+// IRIS EDIT - BROKEN FEATURE, SOMEONE FIX IT
+/*
 //  NOVA EDIT START - MORE SCANNER GATE OPTIONS
 const ScannerGateGender = (props) => {
   const { act, data } = useBackend();
@@ -313,22 +311,8 @@ const ScannerGateGender = (props) => {
     </>
   );
 };
+*/
 //  NOVA EDIT END - MORE SCANNER GATE OPTIONS
-const ScannerGateContraband = (props) => {
-  const { data } = useBackend();
-  const { reverse } = data;
-  return (
-    <>
-      <Box mb={2}>
-        Trigger if the person scanned {reverse ? 'does not have' : 'has'} any
-        anything considered contraband. Requires an N-spect scanner installed to
-        enable.
-      </Box>
-      <ScannerGateMode />
-    </>
-  );
-};
-
 const ScannerGateMode = (props) => {
   const { act, data } = useBackend();
   const { reverse } = data;

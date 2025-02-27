@@ -6,6 +6,7 @@
 	icon = 'icons/obj/weapons/changeling_items.dmi'
 	icon_state = "arm_blade"
 	inhand_icon_state = "arm_blade"
+	icon_angle = 180
 	force = 25
 	armour_penetration = 35
 	lefthand_file = 'icons/mob/inhands/antag/changeling_lefthand.dmi'
@@ -27,9 +28,10 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, HAND_REPLACEMENT_TRAIT)
 	AddComponent(/datum/component/butchering, \
-	speed = 8 SECONDS, \
+	speed = 6 SECONDS, \
 	effectiveness = 70, \
 	)
+	// IRIS EDIT: Originally 8 SECONDS
 	AddComponent(/datum/component/light_eater)
 
 /obj/item/light_eater/equipped(mob/user, slot, initial = FALSE)

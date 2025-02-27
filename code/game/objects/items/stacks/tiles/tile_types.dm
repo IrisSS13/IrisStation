@@ -336,6 +336,9 @@
 /obj/item/stack/tile/carpet/fifty
 	amount = 50
 
+/obj/item/stack/tile/iron/fifty
+	amount = 50
+
 /obj/item/stack/tile/carpet/black/fifty
 	amount = 50
 
@@ -1041,7 +1044,7 @@
 
 /obj/item/stack/tile/tram/plate
 	name = "linear induction tram tiles"
-	singular_name = "linear induction tram tile tile"
+	singular_name = "linear induction tram tile"
 	desc = "A tile with an aluminium plate for tram propulsion."
 	icon_state = "darkiron_plate"
 	inhand_icon_state = "tile-neon"

@@ -9,7 +9,6 @@
 	name = "Akula"
 	plural_form = "Akulae"
 	id = SPECIES_AKULA
-	lore_protected = TRUE
 	offset_features = list(
 		OFFSET_GLASSES = list(0, 1),
 		OFFSET_EARS = list(0, 2),
@@ -54,8 +53,9 @@
 /datum/species/akula/get_species_description()
 	return placeholder_description
 
+//IRIS EDIT
 /datum/species/akula/get_species_lore()
-	return list("The Azuleans, known as 'Akulas' or 'Akulans' to humans, are a strong-willed and monarchist culture. A vast nation, the Kingdom of Agurkrral has achieved its status largely by sheer tenacity; Azuleans forcing themselves upwards from the depths of their home seas all the way to a monarchy that even dwarfs the Sol Federation. They are known to be an expansionist culture, collectivist opportunists that are driven by history and culture to push further, and to push onward. To keep moving, or to suffocate and stagnate.",
+	return list("The Azuleans, known as 'Akulas' or 'Akulans' to humans, are a strong-willed and monarchist culture. A vast nation, the Kingdom of Agurkrral has achieved its status largely by sheer tenacity; Azuleans forcing themselves upwards from the depths of their home seas all the way to a monarchy that even dwarfs the Sol Government. They are known to be an expansionist culture, collectivist opportunists that are driven by history and culture to push further, and to push onward. To keep moving, or to suffocate and stagnate.",
 	"Beginning their prehistory with total defeat of another intelligent species set to keep them in their waters forever, the Azuleans have forged themselves into a pioneering people willing to exploit even the most hostile lands; and turn foreign places, flora and fauna, and even people to their advantage. New colonies are being terraformed into 'Agurkrral-A-Likes' every day, strange bioengineered creatures released into the wilds and massive treatment machines being ran in the waters to accomodate the new biosphere. Even some foreign citizens have been forcibly turned into Azuleans through genemodding, before having their genes locked and unable to be altered by anyone else.",
 	"Their drive for constant expansion and 'the next great thing' has made the Kingdom a divided one; a culture split in two. Generations of Azuleans are separated not by age-based cohorts, but by distance; the 'Near' generations growing up in the Old Principalities, and the 'Far' generations growing up in the New Principalities.",
 	"The Old Principalities, coreward around their Homeworld, are a burgeoning place slowly falling victim to stagnation. The core worlds still cling to ancient traditions, ceremonies and expectation; old aristocratic houses, tracing their power from ancient ancestors placed to protect and shepherd their assigned lands, still thrive; and the King still rules over many systems of old. Constant reforms and false shake-ups of the status quo demand more and more. Longer bouts of service to achieve citizenship, reformation camps to 'iron out' those with physical and mental defects, and high reliance on exams, education, and pomp to create a hierarchy within its society.",
@@ -232,7 +232,7 @@
 // more about grab_resists in `code\modules\mob\living\living.dm` at li 1119
 // more about slide_distance in `code\game\turfs\open\_open.dm` at li 233
 /// Lets register the signal which calls when we are above 10 wet_stacks
-/datum/species/akula/on_species_gain(mob/living/carbon/akula, datum/species/old_species, pref_load)
+/datum/species/akula/on_species_gain(mob/living/carbon/akula, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
 	RegisterSignal(akula, COMSIG_MOB_TRIGGER_WET_SKIN, PROC_REF(wetted), akula)
 	// lets give 15 wet_stacks on initial

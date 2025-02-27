@@ -23,12 +23,18 @@
 		/obj/item/ai_module/core/full/nutimov,
 		/obj/item/ai_module/core/full/drone,
 		/obj/item/ai_module/core/full/custom, // uses lawsets from config/silicon_laws.txt (defaults to asmiov if no lawsets)
+		//IRIS EDIT ADDITION BEGIN - CREWSIMOV_PR
+		//no crewsimov module here because it'll be spawned by the mapped in default lawset spawner most rounds
+		/obj/item/ai_module/core/full/sophontsimov,
+		/obj/item/ai_module/core/full/noidimov,
+		//IRIS EDIT ADDITION END
 	)
 
 /obj/effect/spawner/random/aimodule/neutral
 	name = "neutral AI module spawner"
 	loot = list( // These shouldn't allow the AI to start butchering people without reason
 		/obj/item/ai_module/core/full/reporter,
+		/obj/item/ai_module/core/full/thinkermov,
 		/obj/item/ai_module/core/full/hulkamania,
 		/obj/item/ai_module/core/full/overlord,
 		/obj/item/ai_module/core/full/tyrant,

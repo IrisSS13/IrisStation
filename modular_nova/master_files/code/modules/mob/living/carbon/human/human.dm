@@ -5,7 +5,6 @@
 /mob/living/carbon/human/Initialize(mapload)
 	. = ..()
 	mob_examine_panel = new(src) //create the datum
-	AddComponent(/datum/component/interactable)
 
 /mob/living/carbon/human/Destroy()
 	QDEL_NULL(mob_examine_panel)

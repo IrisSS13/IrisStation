@@ -8,8 +8,8 @@
 	id = "organ_set_bonus_fish"
 	tick_interval = 1 SECONDS
 	organs_needed = 3
-	bonus_activate_text = span_notice("Fish DNA is deeply infused with you! While wet, you crawl faster, are slippery, and cannot slip, and it takes longer to dry out. \
-		You're also more resistant to high pressure, better at fishing, but less resilient when dry, especially against burns.")
+	bonus_activate_text = span_notice("Fish DNA is deeply infused with you! While wet, you crawl faster, are slippery, cannot slip, and it takes longer to dry out. \
+		You're also resistant to high pressure, better at fishing, but less resilient when dry, especially against burns.")
 	bonus_deactivate_text = span_notice("You no longer feel as fishy. The moisture around your body begins to dissipate faster...")
 	bonus_traits = list(
 		TRAIT_RESISTHIGHPRESSURE,
@@ -23,6 +23,7 @@
 		TRAIT_EXPANDED_FOV, //fish vision
 		TRAIT_WATER_ADAPTATION,
 		)
+	bonus_biotype = MOB_AQUATIC
 
 /datum/status_effect/organ_set_bonus/fish/enable_bonus()
 	. = ..()
@@ -34,15 +35,19 @@
 
 	if(ishuman(owner))
 		var/mob/living/carbon/human/human = owner
+		//Fish is slightly weaker to being cooked. oh oh.
+		human.physiology.burn_mod *= 1.15
+		human.physiology.heat_mod *= 1.15
 		human.physiology.damage_resistance += 8 //base 8% damage resistance, much wow.
 	if(!HAS_TRAIT(owner, TRAIT_IS_WET))
 		apply_debuff()
 	else
-		ADD_TRAIT(owner, TRAIT_GRABRESISTANCE, REF(src))
+		ADD_TRAIT(owner, TRAIT_GRABRESISTANCE, TRAIT_STATUS_EFFECT(id))
 		owner.add_mood_event("fish_organs_bonus", /datum/mood_event/fish_water)
 	if(HAS_TRAIT(owner, TRAIT_IS_WET) && istype(owner.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL), /obj/item/organ/tail/fish))
 		add_speed_buff()
 	owner.mind?.adjust_experience(/datum/skill/fishing, SKILL_EXP_JOURNEYMAN, silent = TRUE)
+	owner.grant_language(/datum/language/carptongue, ALL, type)
 
 /datum/status_effect/organ_set_bonus/fish/disable_bonus()
 	. = ..()
@@ -57,14 +62,17 @@
 	if(!HAS_TRAIT(owner, TRAIT_IS_WET))
 		remove_debuff()
 	else
-		REMOVE_TRAIT(owner, TRAIT_GRABRESISTANCE, REF(src))
+		REMOVE_TRAIT(owner, TRAIT_GRABRESISTANCE, TRAIT_STATUS_EFFECT(id))
 	owner.clear_mood_event("fish_organs_bonus")
 	if(ishuman(owner))
 		var/mob/living/carbon/human/human = owner
+		human.physiology.burn_mod /= 1.15
+		human.physiology.heat_mod /= 1.15
 		human.physiology.damage_resistance -= 8
 	if(HAS_TRAIT(owner, TRAIT_IS_WET) && istype(owner.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL), /obj/item/organ/tail/fish))
 		remove_speed_buff()
 	owner.mind?.adjust_experience(/datum/skill/fishing, -SKILL_EXP_JOURNEYMAN, silent = TRUE)
+	owner.remove_language(/datum/language/carptongue, ALL, type)
 
 /datum/status_effect/organ_set_bonus/fish/proc/get_perceived_food_quality(datum/source, datum/component/edible/edible, list/extra_quality)
 	SIGNAL_HANDLER
@@ -109,7 +117,7 @@
 	human.physiology.damage_resistance -= 16 //from +8% to -8%
 
 /datum/status_effect/organ_set_bonus/fish/proc/remove_debuff()
-	ADD_TRAIT(owner, TRAIT_GRABRESISTANCE, REF(src)) //harder to grab when wet.
+	ADD_TRAIT(owner, TRAIT_GRABRESISTANCE, TRAIT_STATUS_EFFECT(id)) //harder to grab when wet.
 	owner.remove_movespeed_modifier(/datum/movespeed_modifier/fish_waterless)
 	owner.add_mood_event("fish_organs_bonus", /datum/mood_event/fish_water)
 	if(!ishuman(owner))
@@ -190,6 +198,7 @@
 	. = ..()
 	owner.AddElementTrait(TRAIT_WADDLING, type, /datum/element/waddling)
 	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(check_location))
+	RegisterSignal(owner, COMSIG_LIVING_GIBBER_ACT, PROC_REF(on_gibber_processed))
 	check_location(owner, null)
 
 /obj/item/organ/tail/fish/on_mob_remove(mob/living/carbon/owner)
@@ -197,7 +206,12 @@
 	owner.remove_traits(list(TRAIT_WADDLING, TRAIT_NO_STAGGER), type)
 	owner.remove_movespeed_modifier(/datum/movespeed_modifier/fish_on_water)
 	owner.remove_actionspeed_modifier(/datum/actionspeed_modifier/fish_on_water)
-	UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
+	UnregisterSignal(owner, list(COMSIG_MOVABLE_MOVED, COMSIG_LIVING_GIBBER_ACT))
+
+/obj/item/organ/tail/fish/proc/on_gibber_processed(mob/living/carbon/owner, mob/living/user, obj/machinery/gibber, list/results)
+	SIGNAL_HANDLER
+	for(var/iteration in 1 to fillet_amount * 0.5)
+		results += new fillet_type
 
 /obj/item/organ/tail/fish/get_greyscale_color_from_draw_color()
 	set_greyscale(bodypart_overlay.draw_color)
@@ -216,14 +230,14 @@
 		source.add_traits(list(TRAIT_OFF_BALANCE_TACKLER, TRAIT_NO_STAGGER, TRAIT_NO_THROW_HITPUSH), type)
 
 /datum/bodypart_overlay/mutant/tail/fish
-	feature_key = "fish_tail"
+	feature_key = "tail" // IRIS EDIT: changed feature key to be consistent with other selectable tails
 	color_source = ORGAN_COLOR_OVERRIDE
 
 /datum/bodypart_overlay/mutant/tail/fish/on_mob_insert(obj/item/organ/parent, mob/living/carbon/receiver)
 	//Initialize the related dna feature block if we don't have any so it doesn't error out.
 	//This isn't tied to any species, but I kinda want it to be mutable instead of having a fixed sprite accessory.
-	if(imprint_on_next_insertion && !receiver.dna.features["fish_tail"])
-		receiver.dna.features["fish_tail"] = pick(SSaccessories.tails_list_fish)
+	if(imprint_on_next_insertion && !receiver.dna.features["tail"])
+		receiver.dna.features["tail"] = pick(SSaccessories.tails_list_fish)
 		receiver.dna.update_uf_block(DNA_FISH_TAIL_BLOCK)
 
 	return ..()
@@ -236,7 +250,7 @@
 		return pick("#B4B8DD", "#85C7D0", "#67BBEE", "#2F4450", "#55CCBB", "#999FD0", "#345066", "#585B69", "#7381A0", "#B6DDE5", "#4E4E50")
 
 /datum/bodypart_overlay/mutant/tail/fish/get_global_feature_list()
-	return SSaccessories.tails_list_fish
+	return SSaccessories.sprite_accessories["tail"] // IRIS EDIT: changed feature key to be consistent with other selectable tails
 
 
 ///Lungs that replace the need of oxygen with water vapor or being wet
@@ -267,7 +281,6 @@
 		gills = new()
 		AddElement(/datum/element/noticable_organ, "%PRONOUN_Theyve a set of gills on %PRONOUN_their neck.", BODY_ZONE_PRECISE_MOUTH)
 	AddComponent(/datum/component/bubble_icon_override, "fish", BUBBLE_ICON_PRIORITY_ORGAN)
-	AddComponent(/datum/component/speechmod, replacements = strings("crustacean_replacement.json", "crustacean"))
 
 /obj/item/organ/lungs/fish/Destroy()
 	QDEL_NULL(gills)
@@ -406,6 +419,10 @@
 /obj/item/organ/tongue/inky/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/noticable_organ, "Slick black ink seldom rivulets from %PRONOUN_their mouth.", BODY_ZONE_PRECISE_MOUTH)
+
+/obj/item/organ/tongue/inky/get_possible_languages()
+	. = ..()
+	. += /datum/language/carptongue
 
 ///Organ from fish with the toxic trait. Allows the user to use tetrodotoxin as a healing chem instead of a toxin.
 /obj/item/organ/liver/fish

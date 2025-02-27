@@ -101,7 +101,7 @@ GLOBAL_LIST_INIT(turfs_pass_meteor, typecacheof(list(
 #define isdummy(A) (istype(A, /mob/living/carbon/human/dummy))
 
 //Human sub-species
-#define isabductor(A) (is_species(A, /datum/species/abductor))
+#define isabductor(A) (is_species(A, /datum/species/abductor) && !is_species(A, /datum/species/abductor/abductorweak)) // NOVA EDIT CHANGE - ORIGINAL: #define isabductor(A) (is_species(A, /datum/species/abductor))
 #define isgolem(A) (is_species(A, /datum/species/golem))
 #define islizard(A) (is_species(A, /datum/species/lizard))
 #define isashwalker(A) (is_species(A, /datum/species/lizard/ashwalker))
@@ -196,27 +196,29 @@ GLOBAL_LIST_INIT(turfs_pass_meteor, typecacheof(list(
 
 #define isguardian(A) (istype(A, /mob/living/basic/guardian))
 
-#define ismegafauna(A) (istype(A, /mob/living/simple_animal/hostile/megafauna))
+#define ismegafauna(A) (istype(A, /mob/living/simple_animal/hostile/megafauna) || istype(A, /mob/living/basic/boss))
 
 #define isclown(A) (istype(A, /mob/living/basic/clown))
 
 #define isspider(A) (istype(A, /mob/living/basic/spider))
 
-
-//Misc mobs
-#define isobserver(A) (istype(A, /mob/dead/observer))
-
-#define isdead(A) (istype(A, /mob/dead))
-
-#define isnewplayer(A) (istype(A, /mob/dead/new_player))
+//Eye mobs
+#define iseyemob(A) (istype(A, /mob/eye))
 
 #define isovermind(A) (istype(A, /mob/eye/blob))
 
-#define issentientdisease(A) (istype(A, /mob/eye/disease))
+#define iscameramob(A) (istype(A, /mob/eye/camera))
 
-#define iseyemob(A) (istype(A, /mob/eye))
+#define isaicamera(A) (istype(A, /mob/eye/camera/ai))
 
-#define isaicamera(A) (istype(A, /mob/eye/ai_eye))
+#define isremotecamera(A) (istype(A, /mob/eye/camera/remote))
+
+//Dead mobs
+#define isdead(A) (istype(A, /mob/dead))
+
+#define isobserver(A) (istype(A, /mob/dead/observer))
+
+#define isnewplayer(A) (istype(A, /mob/dead/new_player))
 
 //Objects
 #define isobj(A) istype(A, /obj) //override the byond proc because it returns true on children of /atom/movable that aren't objs
@@ -241,8 +243,6 @@ GLOBAL_LIST_INIT(turfs_pass_meteor, typecacheof(list(
 
 #define isstructure(A) (istype(A, /obj/structure))
 
-#define isaquarium(A) (istype(A, /obj/structure/aquarium))
-
 #define ismachinery(A) (istype(A, /obj/machinery))
 
 #define istramwall(A) (istype(A, /obj/structure/tram))
@@ -252,8 +252,6 @@ GLOBAL_LIST_INIT(turfs_pass_meteor, typecacheof(list(
 #define isvehicle(A) (istype(A, /obj/vehicle))
 
 #define ismecha(A) (istype(A, /obj/vehicle/sealed/mecha))
-
-#define ismopable(A) (A && ((PLANE_TO_TRUE(A.plane) == FLOOR_PLANE) ? (A.layer <= FLOOR_CLEAN_LAYER) : (A.layer <= GAME_CLEAN_LAYER))) //If something can be cleaned by floor-cleaning devices such as mops or clean bots
 
 #define isorgan(A) (istype(A, /obj/item/organ))
 
@@ -304,6 +302,9 @@ GLOBAL_LIST_INIT(glass_sheet_types, typecacheof(list(
 
 #define isProbablyWallMounted(O) (O.pixel_x > 20 || O.pixel_x < -20 || O.pixel_y > 20 || O.pixel_y < -20)
 #define isbook(O) (is_type_in_typecache(O, GLOB.book_types))
+
+// Is this an iron tile, or a material tile made from iron?
+#define ismetaltile(tile_thing) (istype(tile_thing, /obj/item/stack/tile/iron) || istype(tile_thing, /obj/item/stack/tile/material) && tile_thing.has_material_type(/datum/material/iron))
 
 GLOBAL_LIST_INIT(book_types, typecacheof(list(
 	/obj/item/book,

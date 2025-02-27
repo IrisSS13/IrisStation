@@ -1,11 +1,11 @@
-//Reagents produced by metabolising/reacting fermichems inoptimally, i.e. inverse_chems or impure_chems
+//Reagents produced by metabolising/reacting fermichems suboptimally, i.e. inverse_chems or impure_chems
 //Inverse = Splitting
 //Invert = Whole conversion
 
 //Causes slight liver damage, and that's it.
 /datum/reagent/impurity
 	name = "Chemical Isomers"
-	description = "Impure chemical isomers made from inoptimal reactions. Causes mild liver damage"
+	description = "Impure chemical isomers made from suboptimal reactions. Causes mild liver damage"
 	//by default, it will stay hidden on splitting, but take the name of the source on inverting. Cannot be fractioned down either if the reagent is somehow isolated.
 	chemical_flags = REAGENT_SNEAKYNAME | REAGENT_DONOTSPLIT | REAGENT_CAN_BE_SYNTHESIZED //impure can be synthed, and is one of the only ways to get almost pure impure
 	ph = 3
@@ -92,7 +92,6 @@
 /datum/reagent/inverse/cryostylane
 	name = "Cryogelidia"
 	description = "Freezes the live or dead patient in a cryostasis ice block."
-	reagent_state = LIQUID
 	color = "#03dbfc"
 	taste_description = "your tongue freezing, shortly followed by your thoughts. Brr!"
 	ph = 14

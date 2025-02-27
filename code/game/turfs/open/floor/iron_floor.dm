@@ -434,16 +434,29 @@
 	name = "cold room floor"
 	initial_gas_mix = KITCHEN_COLDROOM_ATMOS
 
+/turf/open/floor/iron/kitchen_coldroom/dark
+	icon_state = "darkfull"
+	base_icon_state = "darkfull"
+	floor_tile = /obj/item/stack/tile/iron/dark
+
+/turf/open/floor/iron/kitchen_coldroom/dark/textured
+	icon_state = "textured_dark"
+	base_icon_state = "textured_dark"
+	floor_tile = /obj/item/stack/tile/iron/dark/textured
+
 /turf/open/floor/iron/kitchen_coldroom/freezerfloor
 	icon_state = "freezerfloor"
 	base_icon_state = "freezerfloor"
 	floor_tile = /obj/item/stack/tile/iron/freezer
 
+/*
 /turf/open/floor/iron/grimy
 	icon_state = "grimy"
 	base_icon_state = "grimy"
 	tiled_dirt = FALSE
 	floor_tile = /obj/item/stack/tile/iron/grimy
+
+*/
 
 /turf/open/floor/iron/vaporwave
 	icon_state = "pinkblack"

@@ -50,7 +50,7 @@
 	var/list/genes = list()
 	/// A list of reagents to add to product.
 	var/list/reagents_add
-	// Format: "reagent_id" = potency multiplier
+	// Format: /datum/reagent/type = potency multiplier
 	// Stronger reagents must always come first to avoid being displaced by weaker ones.
 	// Total amount of any reagent in plant is calculated by formula: max(round(potency * multiplier), 1)
 	///If the chance below passes, then this many weeds sprout during growth
@@ -79,6 +79,18 @@
 		icon_harvest = "[species]-harvest"
 
 	if(!nogenes)
+		// IRIS EDIT
+		genes += new /datum/plant_gene/core/lifespan(lifespan)
+		genes += new /datum/plant_gene/core/endurance(endurance)
+		genes += new /datum/plant_gene/core/weed_rate(weed_rate)
+		genes += new /datum/plant_gene/core/weed_chance(weed_chance)
+		if(yield != -1)
+			genes += new /datum/plant_gene/core/yield(yield)
+			genes += new /datum/plant_gene/core/production(production)
+		if(potency != -1)
+			genes += new /datum/plant_gene/core/potency(potency)
+			genes += new /datum/plant_gene/core/instability(instability)
+
 		for(var/plant_gene in genes)
 			if(ispath(plant_gene))
 				genes -= plant_gene
@@ -280,7 +292,7 @@
 
 		//Handles the juicing trait, swaps nutriment and vitamins for that species various juices if they exist. Mutually exclusive with distilling.
 		if(get_gene(/datum/plant_gene/trait/juicing) && grown_edible.juice_typepath)
-			grown_edible.juice()
+			grown_edible.juice(juicer = FALSE) //we pass FALSE & not null because Byond default args will subtitute it with the default value
 		else if(get_gene(/datum/plant_gene/trait/brewing))
 			grown_edible.ferment()
 

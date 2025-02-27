@@ -7,7 +7,7 @@
 /datum/armament_entry/company_import/deforest/first_aid_kit
 	subcategory = "First-Aid Kits"
 
-/datum/armament_entry/deforest/first_aid_kit/civil_defense/comfort
+/datum/armament_entry/company_import/deforest/first_aid_kit/comfort
 	item_type = /obj/item/storage/medkit/civil_defense/comfort/stocked
 	cost = PAYCHECK_COMMAND * 2
 
@@ -108,6 +108,10 @@
 	item_type = /obj/item/stack/medical/wound_recovery/robofoam_super
 	cost = PAYCHECK_COMMAND * 4
 
+/datum/armament_entry/company_import/deforest/first_aid/mannitol // Bitrunners and Degenerative players should not be out of a job if med is slow, gone or bad
+	item_type = /obj/item/storage/pill_bottle/mannitol
+	cost = PAYCHECK_COMMAND * 4 // pricey to not obsolete med if they ARE here
+
 // Autoinjectors for healing
 
 /datum/armament_entry/company_import/deforest/medpens
@@ -149,7 +153,6 @@
 
 /datum/armament_entry/company_import/deforest/medpens/pentibinin
 	item_type = /obj/item/reagent_containers/hypospray/medipen/deforest/pentibinin
-	contraband = TRUE
 
 // Autoinjectors for fighting
 
@@ -168,21 +171,17 @@
 
 /datum/armament_entry/company_import/deforest/medpens_stim/aranepaine
 	item_type = /obj/item/reagent_containers/hypospray/medipen/deforest/aranepaine
-	contraband = TRUE
 
 /datum/armament_entry/company_import/deforest/medpens_stim/synalvipitol
 	item_type = /obj/item/reagent_containers/hypospray/medipen/deforest/synalvipitol
-	contraband = TRUE
 
 /datum/armament_entry/company_import/deforest/medpens_stim/twitch
 	item_type = /obj/item/reagent_containers/hypospray/medipen/deforest/twitch
 	cost = PAYCHECK_COMMAND * 3
-	contraband = TRUE
 
 /datum/armament_entry/company_import/deforest/medpens_stim/demoneye
 	item_type = /obj/item/reagent_containers/hypospray/medipen/deforest/demoneye
 	cost = PAYCHECK_COMMAND * 3
-	contraband = TRUE
 
 // Equipment, from defibs to scanners to surgical tools
 

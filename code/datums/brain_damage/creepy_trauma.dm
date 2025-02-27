@@ -112,14 +112,16 @@
 			to_chat(owner, span_userdanger("You gag and swallow a bit of bile..."))
 
 // if the creep examines first, then the obsession examines them, have a 50% chance to possibly blow their cover. wearing a mask avoids this risk
-/datum/brain_trauma/special/obsessed/proc/stare(datum/source, mob/living/examining_mob, triggering_examiner)
+// IRIS EDIT START - MapleStation Port
+/datum/brain_trauma/special/obsessed/proc/stare(datum/source, mob/living/examining_mob)
 	SIGNAL_HANDLER
 
-	if(examining_mob != owner || !triggering_examiner || prob(50))
-		return
+	if(prob(50))
+		return NONE
 
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), obsession, span_warning("You catch [examining_mob] staring at you..."), 3))
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), obsession, span_warning("You notice [examining_mob] staring at you oddly..."), 0.6 SECONDS))
 	return COMSIG_BLOCK_EYECONTACT
+// IRIS EDIT END
 
 /datum/brain_trauma/special/obsessed/proc/find_obsession()
 	var/list/viable_minds = list() //The first list, which excludes hijinks

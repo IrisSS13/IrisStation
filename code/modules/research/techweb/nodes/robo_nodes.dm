@@ -49,6 +49,11 @@
 		"quarantine_module",
 		"freeform_module",
 		"remove_module",
+		//IRIS EDIT ADDITION BEGIN - CREWSIMOV_PR
+		"crewsimov_module",
+		"sophontsimov_module",
+		"noidimov_module",
+		//IRIS EDIT ADDITION END
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
 	announce_channels = list(RADIO_CHANNEL_SCIENCE)
@@ -91,6 +96,7 @@
 		"balance_module",
 		"thermurderdynamic_module",
 		"damaged_module",
+		"thinkermov_module",
 		"freeformcore_module",
 		"onehuman_module",
 		"purge_module",

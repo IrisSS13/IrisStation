@@ -18,17 +18,21 @@
 /// The multiplier of how much the difficulty negatively impacts the bait height
 #define BAIT_HEIGHT_DIFFICULTY_MALUS 1.3
 
-///Defines to know how the bait is moving on the minigame slider.
+/// Defines to know how the bait is moving on the minigame slider.
 #define REELING_STATE_IDLE 0
 #define REELING_STATE_UP 1
 #define REELING_STATE_DOWN 2
 
-///The pixel height of the minigame bar
+/// The pixel height of the minigame bar
 #define MINIGAME_SLIDER_HEIGHT 76
-///The standard pixel height of the bait
+/// The standard pixel height of the bait
 #define MINIGAME_BAIT_HEIGHT 27
-///The standard pixel height of the fish (minus a pixel on each direction for the sake of a better looking sprite)
+/// How many pixels bottom and top parts of the bait take up
+#define MINIGAME_BAIT_TOP_AND_BOTTOM_HEIGHT 6
+/// The standard pixel height of the fish (minus a pixel on each direction for the sake of a better looking sprite)
 #define MINIGAME_FISH_HEIGHT 4
+/// Pixel height of the completion bar
+#define MINIGAME_COMPLETION_BAR_HEIGHT 80
 
 GLOBAL_LIST_EMPTY(fishing_challenges_by_user)
 
@@ -49,11 +53,13 @@ GLOBAL_LIST_EMPTY(fishing_challenges_by_user)
 	var/reward_path = FISHING_DUD
 	/// Minigame difficulty
 	var/difficulty = FISHING_DEFAULT_DIFFICULTY
-	// Current phase
+	/// Current phase
 	var/phase = WAIT_PHASE
-	// Timer for the next phase
+	/// Timer for the next phase
 	var/next_phase_timer
-	// The last time we clicked during the baiting phase
+	/// The lower and upper bounds of the waiting phase timer
+	var/list/wait_time_range = list(3 SECONDS, 25 SECONDS)
+	/// The last time we clicked during the baiting phase
 	var/last_baiting_click
 	/// Fishing mob
 	var/mob/user
@@ -124,8 +130,11 @@ GLOBAL_LIST_EMPTY(fishing_challenges_by_user)
 	RegisterSignal(comp, COMSIG_QDELETING, PROC_REF(on_spot_gone))
 	register_reward_signals(comp.fish_source)
 	RegisterSignal(fish_source, COMSIG_FISHING_SOURCE_INTERRUPT_CHALLENGE, PROC_REF(interrupt_challenge))
-	fish_source.RegisterSignal(user, COMSIG_MOB_COMPLETE_FISHING, TYPE_PROC_REF(/datum/fish_source, on_challenge_completed))
 	background = comp.fish_source.background
+	if(comp.fish_source.wait_time_range)
+		wait_time_range = comp.fish_source.wait_time_range
+	if(float.spin_frequency) //Using a fishing lure narrows the range a bit, for better or worse.
+		wait_time_range = list(wait_time_range[1] + 8 SECONDS, wait_time_range[2] - 8 SECONDS)
 	SEND_SIGNAL(user, COMSIG_MOB_BEGIN_FISHING, src)
 	SEND_SIGNAL(rod, COMSIG_ROD_BEGIN_FISHING, src)
 	GLOB.fishing_challenges_by_user[user] = src
@@ -179,18 +188,20 @@ GLOBAL_LIST_EMPTY(fishing_challenges_by_user)
 	return ..()
 
 /**
- * Proc responsible for registering the signals for difficulty and possible reward.
+ * Proc responsible for registering the signals for difficulty, possible reward, and challenge completion.
  * Call this if you want to override the fish source from which we roll rewards (preferably before the minigame phase).
  */
-/datum/fishing_challenge/proc/register_reward_signals(datum/fish_source/fish_source)
+/datum/fishing_challenge/proc/register_reward_signals(datum/fish_source/new_fish_source)
 	if(fish_source)
 		fish_source.UnregisterSignal(src, list(
 			COMSIG_FISHING_CHALLENGE_ROLL_REWARD,
 			COMSIG_FISHING_CHALLENGE_GET_DIFFICULTY,
 		))
-	src.fish_source = fish_source
+		fish_source.UnregisterSignal(user, COMSIG_MOB_COMPLETE_FISHING)
+	fish_source = new_fish_source
 	fish_source.RegisterSignal(src, COMSIG_FISHING_CHALLENGE_ROLL_REWARD, TYPE_PROC_REF(/datum/fish_source, roll_reward_minigame))
 	fish_source.RegisterSignal(src, COMSIG_FISHING_CHALLENGE_GET_DIFFICULTY, TYPE_PROC_REF(/datum/fish_source, calculate_difficulty_minigame))
+	fish_source.RegisterSignal(user, COMSIG_MOB_COMPLETE_FISHING, TYPE_PROC_REF(/datum/fish_source, on_challenge_completed))
 
 /datum/fishing_challenge/proc/send_alert(message)
 	location?.balloon_alert(user, message)
@@ -209,7 +220,7 @@ GLOBAL_LIST_EMPTY(fishing_challenges_by_user)
 /datum/fishing_challenge/proc/start(mob/living/user)
 	/// Create fishing line visuals
 	if(!used_rod.internal)
-		fishing_line = used_rod.create_fishing_line(float, user, target_py = 5)
+		fishing_line = used_rod.create_fishing_line(float, user, target_py = float.pixel_y + 4)
 		if(isnull(fishing_line)) //couldn't create a fishing line, probably because we don't have a good line of sight.
 			qdel(src)
 			return
@@ -339,6 +350,7 @@ GLOBAL_LIST_EMPTY(fishing_challenges_by_user)
 	completed = TRUE
 	if(phase == MINIGAME_PHASE)
 		remove_minigame_hud()
+
 	if(!QDELETED(user) && user.mind && start_time && !(special_effects & FISHING_MINIGAME_RULE_NO_EXP))
 		var/seconds_spent = (world.time - start_time) * 0.1
 		var/extra_exp_malus = user.mind.get_skill_level(/datum/skill/fishing) - difficulty * 0.1
@@ -348,10 +360,32 @@ GLOBAL_LIST_EMPTY(fishing_challenges_by_user)
 		user.mind.adjust_experience(/datum/skill/fishing, round(seconds_spent * FISHING_SKILL_EXP_PER_SECOND * experience_multiplier))
 		if(user.mind.get_skill_level(/datum/skill/fishing) >= SKILL_LEVEL_LEGENDARY)
 			user.client?.give_award(/datum/award/achievement/skill/legendary_fisher, user)
-	if(win)
-		if(reward_path != FISHING_DUD)
-			playsound(location, 'sound/effects/bigsplash.ogg', 100)
-	SEND_SIGNAL(user, COMSIG_MOB_COMPLETE_FISHING, src, win)
+
+	if(!win)
+		SEND_SIGNAL(user, COMSIG_MOB_COMPLETE_FISHING, src, FALSE)
+		if(!QDELETED(src))
+			qdel(src)
+		return
+
+	if(reward_path != FISHING_DUD)
+		playsound(location, 'sound/effects/bigsplash.ogg', 100)
+
+	var/valid_achievement_catch = FALSE
+	if (ispath(reward_path, /obj/item/fish))
+		valid_achievement_catch = TRUE
+	else if (isfish(reward_path))
+		var/obj/item/fish/fishy_individual = reward_path
+		if (!HAS_TRAIT(fishy_individual, TRAIT_NO_FISHING_ACHIEVEMENT) && fishy_individual.status == FISH_ALIVE)
+			valid_achievement_catch = TRUE
+
+	if(valid_achievement_catch)
+		var/obj/item/fish/fish_reward = reward_path
+		var/obj/item/fish/redirect_path = initial(fish_reward.fish_id_redirect_path)
+		var/fish_id = ispath(redirect_path, /obj/item/fish) ? initial(redirect_path.fish_id) : initial(fish_reward.fish_id)
+		if(fish_id)
+			user.client?.give_award(/datum/award/score/progress/fish, user, fish_id)
+
+	SEND_SIGNAL(user, COMSIG_MOB_COMPLETE_FISHING, src, TRUE)
 	if(!QDELETED(src))
 		qdel(src)
 
@@ -364,7 +398,7 @@ GLOBAL_LIST_EMPTY(fishing_challenges_by_user)
 	if(penalty)
 		wait_time = min(timeleft(next_phase_timer) + rand(3 SECONDS, 5 SECONDS), 30 SECONDS)
 	else
-		wait_time = float.spin_frequency ? rand(11 SECONDS, 17 SECONDS) : rand(3 SECONDS, 25 SECONDS)
+		wait_time = rand(wait_time_range[1], wait_time_range[2])
 		if(special_effects & FISHING_MINIGAME_AUTOREEL && wait_time >= 15 SECONDS)
 			wait_time = max(wait_time - 7.5 SECONDS, 15 SECONDS)
 	deltimer(next_phase_timer)
@@ -386,7 +420,13 @@ GLOBAL_LIST_EMPTY(fishing_challenges_by_user)
 	playsound(location, 'sound/effects/fish_splash.ogg', 100)
 
 	if(HAS_MIND_TRAIT(user, TRAIT_REVEAL_FISH))
-		fish_icon = GLOB.specific_fish_icons[reward_path] || FISH_ICON_DEF
+		var/possible_icon
+		if(isdatum(reward_path))
+			var/datum/reward = reward_path
+			possible_icon = GLOB.specific_fish_icons[reward.type]
+		else
+			possible_icon = GLOB.specific_fish_icons[reward_path]
+		fish_icon = possible_icon || FISH_ICON_DEF
 		switch(fish_icon)
 			if(FISH_ICON_DEF)
 				send_alert("fish!!!")
@@ -418,6 +458,8 @@ GLOBAL_LIST_EMPTY(fishing_challenges_by_user)
 				send_alert("seed!!!")
 			if(FISH_ICON_BOTTLE)
 				send_alert("bottle!!!")
+			if(FISH_ICON_ORGAN)
+				send_alert("organ!!!")
 	else
 		send_alert("!!!")
 	animate(float, pixel_y = 3, time = 5, loop = -1, flags = ANIMATION_RELATIVE)
@@ -442,11 +484,22 @@ GLOBAL_LIST_EMPTY(fishing_challenges_by_user)
 	SIGNAL_HANDLER
 	interrupt()
 
+/datum/fishing_challenge/proc/on_reward_removed(datum/source)
+	SIGNAL_HANDLER
+	send_alert("reward gone!")
+	interrupt()
+
+/datum/fishing_challenge/proc/on_fish_death(obj/item/fish/source)
+	SIGNAL_HANDLER
+	if(source.status == FISH_DEAD)
+		win_anyway()
+
 /datum/fishing_challenge/proc/win_anyway()
-	if(!completed)
-		//winning by timeout or idling around shouldn't give as much experience.
-		experience_multiplier *= 0.5
-		complete(TRUE)
+	if(completed)
+		return
+	//winning by timeout / fish death shouldn't give as much experience.
+	experience_multiplier *= 0.5
+	complete(TRUE)
 
 /datum/fishing_challenge/proc/hurt_fish(datum/source, obj/item/fish/reward)
 	SIGNAL_HANDLER
@@ -493,13 +546,15 @@ GLOBAL_LIST_EMPTY(fishing_challenges_by_user)
 	if(difficulty > FISHING_DEFAULT_DIFFICULTY)
 		completion -= MAX_FISH_COMPLETION_MALUS * (difficulty * 0.01)
 
+	var/is_fish_instance = isfish(reward_path)
+
 	/// Fish minigame properties
-	if(ispath(reward_path,/obj/item/fish))
+	if(ispath(reward_path,/obj/item/fish) || is_fish_instance)
 		var/obj/item/fish/fish = reward_path
 		var/movement_path = initial(fish.fish_movement_type)
 		mover = new movement_path(src)
 		// Apply fish trait modifiers
-		var/list/fish_traits = SSfishing.fish_properties[fish][FISH_PROPERTIES_TRAITS]
+		var/list/fish_traits = is_fish_instance ? fish.fish_traits : SSfishing.fish_properties[fish][FISH_PROPERTIES_TRAITS]
 		for(var/fish_trait in fish_traits)
 			var/datum/fish_trait/trait = GLOB.fish_traits[fish_trait]
 			trait.minigame_mod(used_rod, user, src)
@@ -539,6 +594,11 @@ GLOBAL_LIST_EMPTY(fishing_challenges_by_user)
 		var/obj/item/fish/fish = reward_path
 		var/wait_time = (initial(fish.health) / FISH_DAMAGE_PER_SECOND) SECONDS
 		addtimer(CALLBACK(src, PROC_REF(win_anyway)), wait_time, TIMER_DELETE_ME)
+	else if(ismovable(reward_path))
+		var/atom/movable/reward = reward_path
+		RegisterSignal(reward, COMSIG_MOVABLE_MOVED, PROC_REF(on_reward_removed))
+		if(is_fish_instance)
+			RegisterSignal(reward, COMSIG_FISH_STATUS_CHANGED, PROC_REF(on_fish_death))
 	start_time = world.time
 
 ///Throws a stack with prefixed text.
@@ -601,7 +661,7 @@ GLOBAL_LIST_EMPTY(fishing_challenges_by_user)
 	mover.move_fish(seconds_per_tick)
 	move_bait(seconds_per_tick)
 	if(!QDELETED(fishing_hud))
-		update_visuals()
+		update_visuals(seconds_per_tick)
 
 ///The proc that handles fancy effects like flipping the hud or skewing movement
 /datum/fishing_challenge/proc/select_active_effect()
@@ -720,12 +780,12 @@ GLOBAL_LIST_EMPTY(fishing_challenges_by_user)
 	return (fish_position + fish_height >= bait_position) && (bait_position + bait_height >= fish_position)
 
 ///update the vertical pixel position of both fish and bait, and the icon state of the completion bar
-/datum/fishing_challenge/proc/update_visuals()
-	var/bait_offset_mult = bait_position/FISHING_MINIGAME_AREA
-	fishing_hud.hud_bait.pixel_y = round(MINIGAME_SLIDER_HEIGHT * bait_offset_mult, 1)
-	var/fish_offset_mult = fish_position/FISHING_MINIGAME_AREA
-	fishing_hud.hud_fish.pixel_y = round(MINIGAME_SLIDER_HEIGHT * fish_offset_mult, 1)
-	fishing_hud.hud_completion.icon_state = "completion_[FLOOR(completion, 5)]"
+/datum/fishing_challenge/proc/update_visuals(seconds_per_tick)
+	var/bait_offset_mult = bait_position / FISHING_MINIGAME_AREA
+	animate(fishing_hud.hud_bait, pixel_y = MINIGAME_SLIDER_HEIGHT * bait_offset_mult, time = seconds_per_tick SECONDS)
+	var/fish_offset_mult = fish_position / FISHING_MINIGAME_AREA
+	animate(fishing_hud.hud_fish, pixel_y = MINIGAME_SLIDER_HEIGHT * fish_offset_mult, time = seconds_per_tick SECONDS)
+	fishing_hud.hud_completion.update_state(completion, seconds_per_tick)
 
 ///The screen object which bait, fish, and completion bar are visually attached to.
 /atom/movable/screen/fishing_hud
@@ -733,7 +793,6 @@ GLOBAL_LIST_EMPTY(fishing_challenges_by_user)
 	screen_loc = "CENTER+1:8,CENTER:2"
 	name = "fishing minigame"
 	appearance_flags = APPEARANCE_UI|KEEP_TOGETHER
-	alpha = 230
 	///The fish as shown in the minigame
 	var/atom/movable/screen/hud_fish/hud_fish
 	///The bait as shown in the minigame
@@ -744,12 +803,13 @@ GLOBAL_LIST_EMPTY(fishing_challenges_by_user)
 ///Initialize bait, fish and completion bar and add them to the visual appearance of this screen object.
 /atom/movable/screen/fishing_hud/proc/prepare_minigame(datum/fishing_challenge/challenge)
 	icon_state = challenge.background
-	add_overlay("frame")
+	add_overlay(challenge.used_rod?.get_frame(challenge) || "frame_wood")
 	hud_bait = new(null, null, challenge)
 	hud_fish = new(null, null, challenge)
-	hud_completion = new(null, null, challenge)
+	hud_completion = new(null, null)
 	vis_contents += list(hud_bait, hud_fish, hud_completion)
 	challenge.user.client.screen += src
+	challenge.update_visuals(0) // Set all states to their initial positions so they don't jump around when the game starts
 	master_ref = WEAKREF(challenge)
 
 /atom/movable/screen/fishing_hud/Destroy()
@@ -763,26 +823,31 @@ GLOBAL_LIST_EMPTY(fishing_challenges_by_user)
 
 /atom/movable/screen/hud_bait
 	icon = 'icons/hud/fishing_hud.dmi'
-	icon_state = "bait"
+	icon_state = "bait_bottom"
 	vis_flags = VIS_INHERIT_ID
-	///The stored value we used to squish the bar based on the difficulty
-	var/current_vertical_transform
+	var/cur_height = MINIGAME_BAIT_HEIGHT
 
 /atom/movable/screen/hud_bait/Initialize(mapload, datum/hud/hud_owner, datum/fishing_challenge/challenge)
 	. = ..()
 	if(!challenge || challenge.bait_pixel_height == MINIGAME_BAIT_HEIGHT)
+		update_icon()
 		return
+
 	adjust_to_difficulty(challenge)
 
 /atom/movable/screen/hud_bait/proc/adjust_to_difficulty(datum/fishing_challenge/challenge)
-	if(current_vertical_transform)
-		transform = transform.Scale(1, 1/current_vertical_transform)
-		pixel_z = 0
-	var/list/icon_dimensions = get_icon_dimensions(icon)
-	var/icon_height = icon_dimensions["height"]
-	current_vertical_transform = challenge.bait_pixel_height/MINIGAME_BAIT_HEIGHT
-	transform = transform.Scale(1, current_vertical_transform)
-	pixel_z = -icon_height * (1 - current_vertical_transform) * 0.5
+	cur_height = challenge.bait_pixel_height
+	update_icon()
+
+/atom/movable/screen/hud_bait/update_overlays()
+	. = ..()
+	var/mutable_appearance/bait_top = mutable_appearance(icon, "bait_top")
+	bait_top.pixel_y += cur_height - MINIGAME_BAIT_TOP_AND_BOTTOM_HEIGHT
+	. += bait_top
+	for (var/i in 1 to (cur_height - MINIGAME_BAIT_TOP_AND_BOTTOM_HEIGHT))
+		var/mutable_appearance/bait_bar = mutable_appearance(icon, "bait_bar")
+		bait_bar.pixel_y += i
+		. += bait_bar
 
 /atom/movable/screen/hud_fish
 	icon = 'icons/hud/fishing_hud.dmi'
@@ -796,13 +861,15 @@ GLOBAL_LIST_EMPTY(fishing_challenges_by_user)
 
 /atom/movable/screen/hud_completion
 	icon = 'icons/hud/fishing_hud.dmi'
-	icon_state = "completion_0"
+	icon_state = "completion_overlay"
 	vis_flags = VIS_INHERIT_ID
 
-/atom/movable/screen/hud_completion/Initialize(mapload, datum/hud/hud_owner, datum/fishing_challenge/challenge)
+/atom/movable/screen/hud_completion/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
-	if(challenge)
-		icon_state = "completion_[FLOOR(challenge.completion, 5)]"
+	add_filter("completion_mask", 1, alpha_mask_filter(icon = icon(icon, "completion_overlay")))
+
+/atom/movable/screen/hud_completion/proc/update_state(completion, seconds_per_tick)
+	animate(get_filter("completion_mask"), y = -MINIGAME_COMPLETION_BAR_HEIGHT * (1 - completion * 0.01), time = seconds_per_tick SECONDS)
 
 /// The visual that appears over the fishing spot
 /obj/effect/fishing_float
@@ -849,6 +916,8 @@ GLOBAL_LIST_EMPTY(fishing_challenges_by_user)
 #undef MINIGAME_SLIDER_HEIGHT
 #undef MINIGAME_BAIT_HEIGHT
 #undef MINIGAME_FISH_HEIGHT
+#undef MINIGAME_BAIT_TOP_AND_BOTTOM_HEIGHT
+#undef MINIGAME_COMPLETION_BAR_HEIGHT
 
 #undef BAIT_HEIGHT_DIFFICULTY_MALUS
 

@@ -1,7 +1,7 @@
 //Ingredients and Simple Dishes
 /obj/item/food/kimchi
 	name = "kimchi"
-	desc = "A classic Korean dish in the Martian style- shredded cabbage with chilli peppers, konbu, bonito, and a mix of spices."
+	desc = "A classic Korean dish in the Martian style: shredded cabbage with chilli peppers, konbu, bonito, and a mix of spices."
 	icon = 'icons/obj/food/martian.dmi'
 	icon_state = "kimchi"
 	food_reagents = list(
@@ -459,7 +459,7 @@
 
 /obj/item/food/little_shiro_sandwich
 	name = "\improper Little Shiro sandwich"
-	desc = "A classic Martian sandwich, named for the first president of TerraGov to come from Mars. It features fried eggs, bulgogi beef, a kimchi salad, and a healthy topping of mozzarella cheese."
+	desc = "A classic Martian sandwich, named for the first president of SolGov to come from Mars. It features fried eggs, bulgogi beef, a kimchi salad, and a healthy topping of mozzarella cheese." //IRIS EDIT
 	icon = 'icons/obj/food/martian.dmi'
 	icon_state = "marte_cubano_sandwich"
 	food_reagents = list(

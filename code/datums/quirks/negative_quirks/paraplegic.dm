@@ -8,6 +8,10 @@
 	medical_record_text = "Patient has an untreatable impairment in motor function in the lower extremities."
 	hardcore_value = 15
 	mail_goodies = list(/obj/vehicle/ridden/wheelchair/motorized) //yes a fullsized unfolded motorized wheelchair does fit
+	//IRIS EDIT ADDITION BEGIN - COGNOMERGE_EVENT
+	gain_text = span_danger("You can't feel your legs.")
+	lose_text = span_notice("You can feel your legs again.")
+	//IRIS EDIT ADDITION END
 
 /datum/quirk_constant_data/paraplegic
 	associated_typepath = /datum/quirk/paraplegic

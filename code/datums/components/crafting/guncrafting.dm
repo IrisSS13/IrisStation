@@ -65,7 +65,7 @@
 
 /obj/item/weaponcrafting/gunkit/nuclear
 	name = "advanced energy gun parts kit (lethal/nonlethal)"
-	desc = "A suitcase containing the necessary gun parts to tranform a standard energy gun into an advanced energy gun."
+	desc = "A suitcase containing the necessary gun parts to transform a standard energy gun into an advanced energy gun."
 
 /obj/item/weaponcrafting/gunkit/tesla
 	name = "tesla cannon parts kit (lethal)"
@@ -81,11 +81,11 @@
 
 /obj/item/weaponcrafting/gunkit/temperature
 	name = "temperature gun parts kit (less lethal/very lethal (lizardpeople))"
-	desc = "A suitcase containing the necessary gun parts to tranform a standard energy gun into a temperature gun. Fantastic at birthday parties and killing indigenious populations of lizardpeople."
+	desc = "A suitcase containing the necessary gun parts to transform a standard energy gun into a temperature gun. Fantastic at birthday parties and killing indigenous populations of lizardpeople."
 
 /obj/item/weaponcrafting/gunkit/beam_rifle
 	name = "\improper Event Horizon anti-existential beam rifle part kit (DOOMSDAY DEVICE, DO NOT CONSTRUCT)"
-	desc = "What fevered minds wrought this terrible construction kit? To create a frame to harness the strange energies that flow through the Spinward Sector towards such horrible acts of violence?"
+	desc = "What fevered minds wrought this terrible construction kit? To create a frame to harness the strange energies that flow through the Cabriole Sector towards such horrible acts of violence?" //IRIS EDIT
 
 /obj/item/weaponcrafting/gunkit/ebow
 	name = "energy crossbow part kit (less lethal)"

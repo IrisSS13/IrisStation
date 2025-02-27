@@ -227,7 +227,7 @@
  * It sends back a lot of mail to the station, at the cost of wrecking the cargo shuttle a little.
  */
 /datum/shuttle_loan_situation/mail_strike
-	sender = "Spinward Mail Workers Union"
+	sender = "Cabriole Mail Workers Union" //IRIS EDIT
 	announcement_text = "The Mail Workers Union wants to borrow your cargo shuttle to employ \"advanced union strike tactics\" with. Payment is strictly in mails."
 	bonus_points = 0
 	thanks_msg = "The cargo shuttle should return in five minutes."

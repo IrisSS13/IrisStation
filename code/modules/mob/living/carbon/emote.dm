@@ -6,16 +6,6 @@
 	message = "is strumming the air and headbanging like a safari chimp."
 	hands_use_check = TRUE
 
-/datum/emote/living/carbon/blink
-	key = "blink"
-	key_third_person = "blinks"
-	message = "blinks."
-
-/datum/emote/living/carbon/blink_r
-	key = "blink_r"
-	name = "blink (Rapid)"
-	message = "blinks rapidly."
-
 //NOVA EDIT REMOVAL BEGIN - EMOTES - (Moved to modular_nova/modules/emotes/code/emotes.dm as /datum/emote/living/clap)
 /*
 /datum/emote/living/carbon/clap
@@ -86,6 +76,33 @@
 	var/obj/item/hand_item/circlegame/N = new(user)
 	if(user.put_in_hands(N))
 		to_chat(user, span_notice("You make a circle with your hand."))
+
+/datum/emote/living/carbon/meow
+	key = "meow"
+	key_third_person = "meows"
+	vary = TRUE
+	sound = SFX_CAT_MEOW
+	message = "meows!"
+	message_mime = "meows silently."
+	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
+
+/datum/emote/living/carbon/meow/can_run_emote(mob/living/carbon/user, status_check = TRUE , intentional, params)
+	if(!iscarbon(user) || (!istype(user.get_organ_slot(ORGAN_SLOT_TONGUE), /obj/item/organ/tongue/cat)))
+		return FALSE
+	return ..()
+
+/datum/emote/living/carbon/purr
+	key = "purr"
+	key_third_person = "purrs"
+	vary = TRUE
+	sound = SFX_CAT_PURR
+	message = "purrs."
+	emote_type = EMOTE_AUDIBLE
+
+/datum/emote/living/carbon/purr/can_run_emote(mob/living/carbon/user, status_check = TRUE , intentional, params)
+	if(!iscarbon(user) || (!istype(user.get_organ_slot(ORGAN_SLOT_TONGUE), /obj/item/organ/tongue/cat)) || HAS_MIND_TRAIT(user, TRAIT_MIMING))
+		return FALSE
+	return ..()
 
 /datum/emote/living/carbon/moan
 	key = "moan"
@@ -214,3 +231,25 @@
 	key = "wink"
 	key_third_person = "winks"
 	message = "winks."
+
+//IRIS EDIT ADDITION BEGIN - UNBLINKING_QUIRK - Seems like an upstream oversight to allow winking without eyelids
+/datum/emote/living/carbon/wink/can_run_emote(mob/user, status_check, intentional, params)
+	if(HAS_TRAIT(user, TRAIT_NO_EYELIDS))
+		return FALSE
+	return ..()
+//IRIS EDIT ADDITION END
+
+/datum/emote/living/carbon/hiss
+	key = "hiss"
+	key_third_person = "hisses"
+	message = "hisses!"
+	emote_type = EMOTE_AUDIBLE | EMOTE_VISIBLE
+	vary = TRUE
+
+/datum/emote/living/carbon/hiss/get_sound(mob/living/carbon/user)
+	. = ..()
+	if(!istype(user))
+		return
+	if(isalien(user))
+		return SFX_HISS
+	return user.dna.species.get_hiss_sound()

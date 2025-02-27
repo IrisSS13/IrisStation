@@ -129,13 +129,13 @@
 	SSstock_market.materials_prices[mat] = round(price_maximum * mat.value_per_unit)
 	create_news()
 
-/datum/stock_market_event/lockdown
+/datum/stock_market_event/lockdown //IRIS EDIT
 	name = "Lockdown!"
 	trend_value = MARKET_TREND_DOWNWARD
 	trend_duration = 2
 	circumstance = list(
 		"is being investigated by the Galactic Trade Commission, resulting in a halt of trade for ",
-		", in a stunning move, has been embargoed by TerraGov, resulting in a halt of trade of ",
+		", in a stunning move, has been embargoed by SolGov, resulting in a halt of trade of ",
 	)
 
 /datum/stock_market_event/lockdown/handle()

@@ -131,7 +131,6 @@
 		/mob/living/proc/emote_caw,
 		/mob/living/proc/emote_caw2,
 		/mob/living/proc/emote_whistle,
-		/mob/living/proc/emote_blep,
 		/mob/living/proc/emote_bork,
 		/mob/living/proc/emote_hoot,
 		/mob/living/proc/emote_growl,
@@ -787,11 +786,6 @@
 	set name = "~ Whistle"
 	set category = "Emotes+"
 	usr.emote("whistle", intentional = TRUE)
-
-/mob/living/proc/emote_blep()
-	set name = "~ Blep"
-	set category = "Emotes+"
-	usr.emote("blep", intentional = TRUE)
 
 /mob/living/proc/emote_bork()
 	set name = "> Bork"

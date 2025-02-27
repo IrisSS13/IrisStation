@@ -55,8 +55,11 @@
 	/// Set to TRUE if the species was emagged before
 	var/emag_effect = FALSE
 
+//IRIS REMOVAL
+/*
 /datum/species/synthetic/allows_food_preferences()
 	return FALSE
+*/
 
 /datum/species/synthetic/get_default_mutant_bodyparts()
 	return list(
@@ -86,7 +89,7 @@
 	playsound(transformer.loc, 'sound/machines/chime.ogg', 50, TRUE)
 	transformer.visible_message(span_notice("[transformer]'s [screen ? "monitor lights up" : "eyes flicker to life"]!"), span_notice("All systems nominal. You're back online!"))
 
-/datum/species/synthetic/on_species_gain(mob/living/carbon/human/transformer)
+/datum/species/synthetic/on_species_gain(mob/living/carbon/human/transformer, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
 
 	RegisterSignal(transformer, COMSIG_ATOM_EMAG_ACT, PROC_REF(on_emag_act))

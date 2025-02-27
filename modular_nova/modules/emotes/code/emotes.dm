@@ -398,13 +398,6 @@
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/caw2.ogg'
 
-/datum/emote/living/blep
-	key = "blep"
-	key_third_person = "bleps"
-	message = "bleps their tongue out. Blep."
-	message_AI = "shows an image of a random blepping animal. Blep."
-	message_robot = "bleps their robo-tongue out. Blep."
-
 /datum/emote/living/bork
 	key = "bork"
 	key_third_person = "borks"

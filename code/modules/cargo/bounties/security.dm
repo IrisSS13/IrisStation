@@ -14,7 +14,7 @@
 
 /datum/bounty/item/security/prison_clothes
 	name = "Prison Uniforms"
-	description = "TerraGov has been unable to source any new prisoner uniforms, so if you have any spares, we'll take them off your hands."
+	description = "SolGov has been unable to source any new prisoner uniforms, so if you have any spares, we'll take them off your hands." //IRIS EDIT
 	reward = CARGO_CRATE_VALUE * 4
 	required_count = 4
 	wanted_types = list(/obj/item/clothing/under/rank/prisoner = TRUE)
@@ -84,7 +84,7 @@
 
 /datum/bounty/item/security/contraband
 	name = "Confiscated Contraband"
-	description = "The syndicate are constantly acting to subvert crewmates of Nanotrasen afilliated stations. Ship us your latest batch of confiscated contraband."
+	description = "The Syndicate is constantly acting to subvert crewmates of Nanotrasen-affiliated stations. Ship us your latest batch of confiscated contraband."
 	reward = CARGO_CRATE_VALUE * 4
 	required_count = 5
 	wanted_types = list(/obj/item = TRUE)

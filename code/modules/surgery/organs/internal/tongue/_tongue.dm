@@ -124,7 +124,7 @@
 		food_taste_reaction = FOOD_LIKED
 	return food_taste_reaction
 
-/obj/item/organ/tongue/mob_insert(mob/living/carbon/receiver, special, movement_flags)
+/obj/item/organ/tongue/on_mob_insert(mob/living/carbon/receiver, special, movement_flags)
 	. = ..()
 
 	if(modifies_speech)
@@ -138,7 +138,7 @@
 	REMOVE_TRAIT(receiver, TRAIT_AGEUSIA, NO_TONGUE_TRAIT)
 	apply_tongue_effects()
 
-/obj/item/organ/tongue/mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
+/obj/item/organ/tongue/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
 	. = ..()
 
 	temp_say_mod = ""
@@ -212,7 +212,7 @@
 	)
 	// NOVA EDIT ADDITION END
 
-/obj/item/organ/tongue/lizard/New(class, timer, datum/mutation/human/copymut)
+/obj/item/organ/tongue/lizard/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/speechmod, replacements = CONFIG_GET(flag/russian_text_formation) ? russian_speech_replacements : speech_replacements, should_modify_speech = CALLBACK(src, PROC_REF(should_modify_speech))) // NOVA EDIT CHANGE - ORIGINAL: AddComponent(/datum/component/speechmod, replacements = speech_replacements, should_modify_speech = CALLBACK(src, PROC_REF(should_modify_speech)))
 
@@ -232,7 +232,7 @@
 
 	/// The statue we turn into.
 	/// We only ever make one (in New) and simply move it into nullspace or back.
-	var/obj/structure/statue/custom/statue
+	var/obj/structure/statue/custom/silverscale/statue // IRIS EDIT: New subtype to prevent jank
 
 /datum/action/cooldown/turn_to_statue/New(Target)
 	. = ..()
@@ -259,9 +259,8 @@
 		return FALSE
 
 	if(isnull(statue))
-		if(feedback)
-			owner.balloon_alert(owner, "you can't seem to statue-ize!")
-		return FALSE // permanently bricked
+		init_statue() // IRIS EDIT: If your statue is destroyed let's generate a new one
+
 	if(owner.stat != CONSCIOUS)
 		if(feedback)
 			owner.balloon_alert(owner, "you're too weak!")
@@ -292,7 +291,7 @@
 	if(is_statue)
 		statue.visible_message(span_danger("[statue] becomes animated!"))
 		owner.forceMove(get_turf(statue))
-		statue.moveToNullspace()
+		qdel(statue) //IRIS EDIT: lazy way to resolve appearance layering issue (and a few others)
 		UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
 
 	else
@@ -327,8 +326,9 @@
 
 	to_chat(carbon_owner, span_userdanger("Your existence as a living creature snaps as your statue form crumbles!"))
 	carbon_owner.forceMove(get_turf(statue))
-	carbon_owner.dust(just_ash = TRUE, drop_items = TRUE)
-	carbon_owner.investigate_log("has been dusted from having their Silverscale Statue deconstructed / destroyed.", INVESTIGATE_DEATHS)
+	carbon_owner.adjustBruteLoss(300) // IRIS EDIT: Replaces statue dusting with absolutely shattering your body
+	// carbon_owner.dust(just_ash = TRUE, drop_items = TRUE)
+	carbon_owner.investigate_log("has been killed from having their Silverscale Statue deconstructed / destroyed.", INVESTIGATE_DEATHS)
 
 	clean_up_statue() // unregister signal before we can do further side effects.
 
@@ -572,7 +572,7 @@ GLOBAL_LIST_INIT(english_to_zombie, list())
 
 /obj/item/organ/tongue/snail
 	name = "radula"
-	desc = "A minutely toothed, chitious ribbon, which as a side effect, makes all snails talk IINNCCRREEDDIIBBLLYY SSLLOOWWLLYY."
+	desc = "A minutely toothed, chitinous ribbon, which as a side effect, makes all snails talk IINNCCRREEDDIIBBLLYY SSLLOOWWLLYY."
 	color = "#96DB00" // TODO proper sprite, rather than recoloured pink tongue
 	modifies_speech = TRUE
 	voice_filter = "atempo=0.5" // makes them talk really slow

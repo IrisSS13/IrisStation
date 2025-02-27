@@ -7,6 +7,7 @@
 		/datum/action/cooldown/spell/shapeshift/minor_illusion,
 		/datum/action/cooldown/spell/conjure_item/fire,
 		/datum/action/cooldown/spell/conjure_item/water,
+		/datum/action/cooldown/spell/conjure/cheese,
 	)
 
 /obj/item/bitrunning_disk/item/tier0
@@ -18,6 +19,7 @@
 		/obj/item/dice/d20,
 		/obj/item/storage/pouch/medical/firstaid/stabilizer,
 		/obj/item/storage/pouch/cin_medkit,
+		/obj/item/storage/medkit/robotic_repair/preemo/stocked,
 	)
 
 /obj/item/bitrunning_disk/prefs
@@ -69,18 +71,21 @@
 
 /datum/orderable_item/bitrunning_tech/ability_tier0
 	cost_per_order = 350
-	item_path = /obj/item/bitrunning_disk/ability/tier0
-	desc = "This disk contains a program that lets you cast Minor Illusion, Conjure Presents!, Produce Flame, or Produce Water."
+	purchase_path = /obj/item/bitrunning_disk/ability/tier0
+	desc = "This disk contains a program that lets you cast Minor Illusion, Summon Cheese, Produce Flame, or Produce Water."
 
 /datum/orderable_item/bitrunning_tech/item_tier0
 	cost_per_order = 350
-	item_path = /obj/item/bitrunning_disk/item/tier0
-	desc = "This disk contains a program that lets you equip a pair of binoculars, thirty marker beacons, a snack rig, a D20, a stabilizer pouch, or an empty colonial first-aid pouch."
+	purchase_path = /obj/item/bitrunning_disk/item/tier0
+	desc = "This disk contains a program that lets you equip a pair of binoculars, thirty marker beacons, a snack rig, a D20, a stabilizer pouch, a robotic repair kit, or an empty colonial first-aid pouch."
 
 /obj/item/bitrunning_disk/item/tier1/Initialize(mapload)
 	. = ..()
 	selectable_items += list(
 		/obj/item/storage/belt/military,
+		/obj/item/book_of_babel,
+		/obj/item/storage/toolbox/syndicate,
+		/obj/item/knife/combat,
 	)
 
 /obj/item/bitrunning_disk/item/tier2/Initialize(mapload)
@@ -90,11 +95,19 @@
 	)
 	selectable_items += list(
 		/obj/item/storage/toolbox/guncase/clandestine,
-		/obj/item/autosurgeon/syndicate/hackerman,
+		/obj/item/storage/toolbox/guncase/wt550,
+		/obj/item/autosurgeon/syndicate/hackerman/bitrunning,
 		/obj/item/clothing/head/helmet,
 		/obj/item/melee/energy/sword/saber/blue,
 		/obj/item/storage/medkit/expeditionary/surplus,
+		/obj/item/katana,
+		/obj/item/shield/riot/tele,
+		/obj/item/gun/energy/modular_laser_rifle/carbine,
+		/obj/item/syndicate_contacts,
 	)
+
+/obj/item/autosurgeon/syndicate/hackerman/bitrunning
+	name = "hacking arm implanter"
 
 /obj/item/bitrunning_disk/item/tier3/Initialize(mapload)
 	. = ..()
@@ -102,17 +115,24 @@
 		/obj/item/gun/energy/e_gun/nuclear,
 	)
 	selectable_items += list(
-		/obj/item/autosurgeon/syndicate/nodrop,
+		/obj/item/domain_anchor,
+		/obj/item/autosurgeon/syndicate/nodrop/bitrunning,
 		/obj/item/gun/energy/modular_laser_rifle,
 		/obj/item/storage/belt/holster/energy/nanite,
 		/obj/item/minigunpack,
 	)
+
+/obj/item/autosurgeon/syndicate/nodrop/bitrunning
+	name = "anti-drop implanter"
 
 /obj/item/bitrunning_disk/ability/tier1/Initialize(mapload)
 	. = ..()
 	selectable_actions += list(
 		/datum/action/cooldown/spell/touch/lay_on_hands,
 		/datum/action/cooldown/spell/conjure/flare,
+	)
+	selectable_actions -= list(
+		/datum/action/cooldown/spell/conjure/cheese,
 	)
 
 /obj/item/bitrunning_disk/ability/tier2/Initialize(mapload)
@@ -121,8 +141,26 @@
 		/datum/action/cooldown/adrenaline,
 		/datum/action/cooldown/spell/charge,
 		/datum/action/cooldown/mob_cooldown/dash,
-		/datum/action/cooldown/spell/touch/scream_for_me,
+		/datum/action/cooldown/spell/teleport/radius_turf/blink/bitrunning,
+		/datum/action/cooldown/spell/sanguine_strike,
+		/datum/action/cooldown/spell/tap/bitrunning,
+		/datum/action/cooldown/spell/summonitem,
 	)
+
+/datum/action/cooldown/spell/tap/bitrunning
+	name = "Data Tap"
+	desc = "Resets all spell cooldowns but weakens your connection, lowering your avatar's max health when used."
+	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC
+
+/datum/action/cooldown/spell/teleport/radius_turf/blink/bitrunning
+	name = "Corrupt Position"
+	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC
+	invocation = "CEE'OCEE TEH-HALL!" // coc testinghall
+	desc = "Randomly teleports you a short distance. May prove unreliable in cramped areas or near domain limits."
+
+/datum/action/cooldown/spell/chuuni_invocations/bitrunning
+	name = "Slice of Life Data Torrent"
+	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC
 
 /obj/item/bitrunning_disk/ability/tier3/Initialize(mapload)
 	. = ..()
@@ -130,6 +168,7 @@
 		/datum/action/cooldown/spell/shapeshift/juggernaut,
 		/datum/action/cooldown/spell/shapeshift/wraith,
 		/datum/action/cooldown/spell/death_loop,
+		/datum/action/cooldown/spell/chuuni_invocations/bitrunning,
 	)
 
 /obj/item/storage/belt/holster/energy/nanite
@@ -142,24 +181,24 @@
 	),src)
 
 /datum/orderable_item/bitrunning_tech/item_tier1
-	desc = "This disk contains a program that lets you equip a medical beamgun, a C4 explosive, a box of infinite pizza, or a military webbing."
+	desc = "This disk contains a program that lets you equip a medical beamgun, a C4 explosive, a box of infinite pizza, a tactical toolbox, a combat knife, or a military webbing."
 
 /datum/orderable_item/bitrunning_tech/item_tier2
-	desc = "This disk contains a program that lets you equip a luxury medipen, a pistol case, an armour vest, a helmet, an energy sword, an expeditionary medkit, or a hacker implant."
+	desc = "This disk contains a program that lets you equip a luxury medipen, a pistol case, a rifle case, an armour vest, a helmet, an energy sword, a katana, a modular laser carbine, an expeditionary medkit, a ballistic shield, flashproof contacts, or a hacker implant."
 
 /datum/orderable_item/bitrunning_tech/item_tier3
-	desc = "This disk contains a program that lets you equip a Hyeseong laser rifle, a laser minigun pack, a nanite pistol holster, a dual bladed energy sword, a minibomb, or an anti-drop implanter."
+	desc = "This disk contains a program that lets you equip a domain connection anchor, Hyeseong laser rifle, a laser minigun pack, a nanite pistol holster, a dual bladed energy sword, a minibomb, or an anti-drop implanter."
 
 /datum/orderable_item/bitrunning_tech/ability_tier1
-	desc = "This disk contains a program that lets you cast Summon Cheese, Summon Light Source, Lesser Heal, or Mending Touch."
+	desc = "This disk contains a program that lets you cast Summon Light Source, Lesser Heal, or Mending Touch."
 
 /datum/orderable_item/bitrunning_tech/ability_tier2
-	desc = "This disk contains a program that lets you cast Fireball, Lightning Bolt, Scream For Me, Forcewall, Adrenaline Rush, Dash, or Charge Item."
+	desc = "This disk contains a program that lets you cast Fireball, Lightning Bolt, Sanguine Strike, Forcewall, Adrenaline Rush, Dash, Blink, Data Tap, Instant Summons, or Charge Item."
 
 /datum/orderable_item/bitrunning_tech/ability_tier3
-	desc = "This disk contains a program that lets you shapeshift into a lesser ashdrake, a polar bear, a holy juggernaut, or a holy wraith; or cast Death Loop."
+	desc = "This disk contains a program that lets you shapeshift into a lesser ashdrake, a polar bear, a holy juggernaut, or a holy wraith; or learn Death Loop or Chuuni Invocations."
 
 /datum/orderable_item/bitrunning_tech/pref_item
 	cost_per_order = 500
-	item_path = /obj/item/bitrunning_disk/prefs
+	purchase_path = /obj/item/bitrunning_disk/prefs
 	desc = "This disk contains a program that lets you load in custom characters."

@@ -162,6 +162,10 @@ GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
 			log_shuttle(log_text, data)
 		if(LOG_SPEECH_INDICATORS)
 			log_speech_indicators(log_text, data)
+		// IRIS EDIT START
+		if(LOG_NTSL)
+			log_ntsl(log_text, data)
+		//IRIS EDIT END
 		else
 			stack_trace("Invalid individual logging type: [message_type]. Defaulting to [LOG_GAME] (LOG_GAME).")
 			log_game(log_text, data)
@@ -233,11 +237,11 @@ GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
 	if(key)
 		if(C?.holder && C.holder.fakekey && !include_name)
 			if(include_link)
-				. += "<a href='?priv_msg=[C.getStealthKey()]'>"
+				. += "<a href='byond://?priv_msg=[C.getStealthKey()]'>"
 			. += "Administrator"
 		else
 			if(include_link)
-				. += "<a href='?priv_msg=[ckey]'>"
+				. += "<a href='byond://?priv_msg=[ckey]'>"
 			. += key
 		if(!C)
 			. += "\[DC\]"

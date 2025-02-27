@@ -1,3 +1,4 @@
+//IRIS EDIT
 // NOVA PLAQUES
 
 //Current stations
@@ -5,16 +6,16 @@
 // Interdyne
 /obj/structure/plaque/static_plaque/golden/commission/interdyne_planetary_base // default. should go unused
 	icon_state = "commission_syndie"
-	desc = "IP Spinward Sector Station\nModular Surfaceside Facility\nCommissioned 01/01/2550\n'Discovering Tomorrow'" // just so it doesn't look totally goofy if it breaks
+	desc = "IP Cabriole Sector Station\nModular Surfaceside Facility\nCommissioned 01/01/2550\n'Discovering Tomorrow'" // just so it doesn't look totally goofy if it breaks
 
  // Lavaland
 /obj/structure/plaque/static_plaque/golden/commission/interdyne_planetary_base/lavaland
-	desc = "IP Spinward Sector Base 3c76928\nModular Surfaceside Facility\nCommissioned 11/19/2556\n'Tomorrow, from the Crucible of Today'"
+	desc = "IP Cabriole Sector Base 3c76928\nModular Surfaceside Facility\nCommissioned 11/19/2556\n'Tomorrow, from the Crucible of Today'"
 	// named after Skyrat commit 3c76928, which created lavaland_surface_syndicate_base1.dmm
 
  // Ice moon
 /obj/structure/plaque/static_plaque/golden/commission/interdyne_planetary_base/icemoon
-	desc = "IP Spinward Sector Base 88172386\nModular Surfaceside Facility\nCommissioned 01/11/2561\n'Thawing out Progress'"
+	desc = "IP Cabriole Sector Base 88172386\nModular Surfaceside Facility\nCommissioned 01/11/2561\n'Thawing out Progress'"
 	// named after Skyrat commit 88172386, which put lavaland_surface_syndicate_base1.dmm on icebox
 
 //Removed Stations
@@ -36,5 +37,5 @@
 
 // DS-1: added January 29th, 2021 (#2317)
 /obj/structure/plaque/static_plaque/golden/commission/assaultops
-	desc = "Spinward Sector Forward Operating Station 13\n'DS-1'\nCommissioned 13/05/2560\n'It's Donk Or Don't'" //Ironic, since Donk Co. Ended their sponsorship.
+	desc = "Cabriole Sector Forward Operating Station 13\n'DS-1'\nCommissioned 13/05/2560\n'It's Donk Or Don't'" //Ironic, since Donk Co. Ended their sponsorship.
 	icon_state = "commission_syndie"

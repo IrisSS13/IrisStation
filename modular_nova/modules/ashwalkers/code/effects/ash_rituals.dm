@@ -56,7 +56,11 @@
 		if(!atom_check)
 			ritual_fail(checked_rune)
 			return FALSE
-
+		if(isliving(atom_check))
+			var/mob/living/human_sacrifice = atom_check
+			if(human_sacrifice.stat < DEAD)
+				ritual_fail(checked_rune)
+				return FALSE
 		if(is_type_in_list(atom_check, consumed_components))
 			qdel(atom_check)
 			checked_rune.balloon_alert_to_viewers("[checked_component] component has been consumed...")
@@ -263,10 +267,9 @@
 		"east" = /obj/item/stack/ore/bluespace_crystal,
 		"west" = /obj/item/stack/ore/bluespace_crystal,
 	)
-	consumed_components = list(
+	consumed_components = list( //IRIS EDIT: Removes Bluespace Crystal as a consumed component
 		/obj/item/organ/monster_core/regenerative_core,
 		/mob/living/basic/mining/ice_whelp,
-		/obj/item/stack/ore/bluespace_crystal,
 	)
 
 /datum/ash_ritual/summon_lavaland_creature/ritual_success(obj/effect/ash_rune/success_rune)
@@ -290,10 +293,9 @@
 		"east" = /obj/item/stack/ore/bluespace_crystal,
 		"west" = /obj/item/stack/ore/bluespace_crystal,
 	)
-	consumed_components = list(
+	consumed_components = list( //IRIS EDIT: Removes Bluespace Crystal as a consumed component
 		/obj/item/organ/monster_core/regenerative_core,
 		/obj/item/food/grown/surik,
-		/obj/item/stack/ore/bluespace_crystal,
 	)
 
 /datum/ash_ritual/summon_icemoon_creature/ritual_success(obj/effect/ash_rune/success_rune)
@@ -317,8 +319,7 @@
 		"east" = /obj/item/xenoarch/brush,
 		"west" = /obj/item/xenoarch/useless_relic,
 	)
-	consumed_components = list(
-		/obj/item/stack/ore/bluespace_crystal,
+	consumed_components = list( //IRIS EDIT: Removes Bluespace Crystal as a consumed component
 		/obj/item/stack/sheet/animalhide/goliath_hide,
 		/obj/item/xenoarch/useless_relic,
 	)

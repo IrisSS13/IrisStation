@@ -57,7 +57,7 @@
 
 /datum/award/achievement/misc/swirlie
 	name = "A Bowl-d New World"
-	desc = "There's a lot of grisly ways to kick it on the Spinward Periphery, but drowning to death in a toilet probably wasn't what you had in mind. Probably."
+	desc = "There's a lot of grisly ways to kick it on the Cabriole Periphery, but drowning to death in a toilet probably wasn't what you had in mind. Probably." //IRIS EDIT
 	database_id = MEDAL_SWIRLIE
 
 /datum/award/achievement/misc/selfouch

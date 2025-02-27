@@ -105,7 +105,10 @@
 		to_chat(user, span_warning("What the... [src] is stuck to your hand!"))
 		ADD_TRAIT(src, TRAIT_NODROP, STICKY_NODROP)
 
-	var/clumsy = HAS_TRAIT(user, TRAIT_CLUMSY)
+	//IRIS EDIT CHANGE BEGIN - HANDEDNESS_QUIRK
+	var/hand_index = user.active_hand_index
+	var/clumsy = (HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && IS_LEFT_INDEX(hand_index)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && IS_RIGHT_INDEX(hand_index)))
+	//IRIS EDIT CHANGE END
 	if(clumsy && (clumsy_check == GRENADE_CLUMSY_FUMBLE) && prob(50))
 		to_chat(user, span_warning("Huh? How does this thing work?"))
 		arm_grenade(user, 5, FALSE)
@@ -159,7 +162,7 @@
 	if(istype(user))
 		user.add_mob_memory(/datum/memory/bomb_planted, antagonist = src)
 	active = TRUE
-	icon_state = initial(icon_state) + "_active"
+	icon_state = (base_icon_state || initial(icon_state)) + "_active"
 	SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time, delayoverride)
 	addtimer(CALLBACK(src, PROC_REF(detonate)), isnull(delayoverride)? det_time : delayoverride)
 
@@ -255,7 +258,7 @@
 	if(det_time == 0)
 		det_time = "Instant"
 	else
-		det_time = num2text(det_time * 0.1) 
+		det_time = num2text(det_time * 0.1)
 
 	var/old_selection = possible_fuse_time.Find(det_time) //Position of det_time in the list
 	if(old_selection >= possible_fuse_time.len)

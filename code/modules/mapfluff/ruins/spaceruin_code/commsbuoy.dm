@@ -38,7 +38,7 @@
 /area/ruin/space/nt_commsbuoy
 	name = "\improper Nanotrasen Comms Buoy"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
-	has_gravity = FALSE
+	default_gravity = ZERO_GRAVITY
 	ambientsounds = list(
 		'sound/ambience/engineering/ambisin2.ogg',
 		'sound/ambience/misc/signal.ogg',
@@ -104,7 +104,7 @@
 
 /obj/item/paper/fluff/ruins/nt_commsbuoy/inspection
 	name = "Spinward-NT-EBCB Inspection Report"
-	desc = "A few notes from the pre-activation inspection. Probably shouldn't still be here post-activation."
+	desc = "A few notes from the pre-activation inspection. Probably shouldn't still be here post-activation. Wait, how did this end up all the way into Cabriole sector?" //IRIS EDIT
 	default_raw_text = {"
 	<center><h3>"SS13-Relay" Spinward NT-EBCB Pre-Activation Inspection</h3></center>
 	<hr>
@@ -220,7 +220,7 @@
 		<center><h5>The Spinward Project - brought to you by Nanotrasen Futures and Innovation Division, in partnership with Nanotrasen \
 		Heavy Industry.</h5></center><hr>",
 
-		"<b>14/08/2563</b> - Inbound to Foward - <br>\
+		"<b>14/08/2563</b> - Inbound to Forward - <br>\
 		<i>From: wilson_peters@NTFIDspinward.nt</i> <br>\
 		<i>Relay Target: PORT_ELLIS</i> <br>\
 		<br>\

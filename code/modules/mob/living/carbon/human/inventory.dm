@@ -159,6 +159,7 @@
 				return
 			glasses = equipping
 			if(glasses.vision_flags || glasses.invis_override || glasses.invis_view || !isnull(glasses.lighting_cutoff))
+				REMOVE_TRAIT(src, TRAIT_ILLITERATE, FARSIGHT_TRAIT) //ORBSTATION: remove illiteracy iff it's from the Farsighted quirk
 				update_sight()
 			update_worn_glasses()
 		if(ITEM_SLOT_GLOVES)
@@ -268,6 +269,8 @@
 	else if(I == glasses)
 		glasses = null
 		var/obj/item/clothing/glasses/old_glasses = I
+		if(HAS_TRAIT(src, TRAIT_FARSIGHT)) //ORBSTATION: Farsighted quirk handling
+			ADD_TRAIT(src, TRAIT_ILLITERATE, FARSIGHT_TRAIT)
 		if(old_glasses.vision_flags || old_glasses.invis_override || old_glasses.invis_view || !isnull(old_glasses.lighting_cutoff))
 			update_sight()
 		if(!QDELETED(src))
@@ -409,7 +412,7 @@
 	if(!storage.supports_smart_equip)
 		return
 	if (equipped_item.atom_storage.locked) // Determines if container is locked before trying to put something in or take something out so we dont give out information on contents (or lack of)
-		to_chat(src, span_warning("The [equipped_item.name] is locked!"))
+		to_chat(src, span_warning("\The [equipped_item] is locked!"))
 		return
 	if(thing) // put thing in storage item
 		if(!equipped_item.atom_storage?.attempt_insert(thing, src))
@@ -436,7 +439,7 @@
 		hand_bodyparts.len = amt
 		for(var/i in old_limbs+1 to amt)
 			var/path = /obj/item/bodypart/arm/left
-			if(!(i % 2))
+			if(IS_RIGHT_INDEX(i))
 				path = /obj/item/bodypart/arm/right
 
 			var/obj/item/bodypart/BP = new path ()

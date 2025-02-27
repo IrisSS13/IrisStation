@@ -164,13 +164,22 @@
 
 /obj/item/papercutter/proc/cut_paper(mob/user)
 	playsound(src.loc, 'sound/items/weapons/slash.ogg', 50, TRUE)
-	var/clumsy = (iscarbon(user) && HAS_TRAIT(user, TRAIT_CLUMSY) && prob(cut_self_chance))
-	to_chat(user, span_userdanger("You neatly cut [stored_paper][clumsy ? "... and your finger in the process!" : "."]"))
-	if(clumsy)
+	//IRIS EDIT CHANGE BEGIN - HANDEDNESS_QUIRK
+	var/clumsy = FALSE
+	if(iscarbon(user))
+		var/hand_index = user.active_hand_index
+		if(HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && IS_LEFT_INDEX(hand_index)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && IS_RIGHT_INDEX(hand_index)))
+			clumsy = TRUE
+
+	var/accident = FALSE
+	if(clumsy && prob(cut_self_chance))
+		accident = TRUE
+	to_chat(user, span_userdanger("You neatly cut [stored_paper][accident ? "... and your finger in the process!" : "."]"))
+	if(accident)
 		var/obj/item/bodypart/finger = user.get_active_hand()
-		if (iscarbon(user))
-			var/mob/living/carbon/carbon_user = user
-			carbon_user.cause_wound_of_type_and_severity(WOUND_SLASH, finger, WOUND_SEVERITY_MODERATE, wound_source = "paper cut")
+		var/mob/living/carbon/carbon_user = user //removed a redundant carbon check here
+		carbon_user.cause_wound_of_type_and_severity(WOUND_SLASH, finger, WOUND_SEVERITY_MODERATE, wound_source = "paper cut")
+	//IRIS EDIT CHANGE END
 	stored_paper = null
 	qdel(stored_paper)
 	new /obj/item/paper/paperslip(get_turf(src))
@@ -186,7 +195,7 @@
 		user.putItemFromInventoryInHandIfPossible(src, target_hand.held_index)
 	add_fingerprint(user)
 
-/obj/item/paper/paperslip
+/obj/item/paper/paperslip //IRIS EDIT SPRITES OVERRIDEN IN PARADISE_PORTS
 	name = "paper slip"
 	desc = "A little slip of paper left over after a larger piece was cut. Whoa."
 	icon_state = "paperslip"

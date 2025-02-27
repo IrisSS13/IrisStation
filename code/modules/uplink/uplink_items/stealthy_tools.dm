@@ -94,6 +94,7 @@
 	surplus = 30
 	uplink_item_flags = NONE
 
+/* // NOVA EDIT REMOVAL START
 /datum/uplink_item/stealthy_tools/mail_counterfeit
 	name = "GLA Brand Mail Counterfeit Device"
 	desc = "A device capable of counterfeiting NT's mail. Can be used to store items within as an easy means of smuggling contraband. \
@@ -103,6 +104,14 @@
 	item = /obj/item/storage/mail_counterfeit_device
 	cost = 1
 	surplus = 30
+*/ // NOVA EDIT REMOVAL END
+
+/datum/uplink_item/stealthy_tools/forensics_spofer
+	name = "Forensics Spoofing Kit"
+	desc = "A box that contains the forensics spoofer (and instructions) which can scan and replicate fingerprints and fibers \
+			and apply them to a target object. Helpful for framing crew. Recommend buying soap with your purchase."
+	item = /obj/item/storage/box/syndie_kit/forensics_spoofer
+	cost = 5
 
 /datum/uplink_item/stealthy_tools/telecomm_blackout
 	name = "Disable Telecomms"

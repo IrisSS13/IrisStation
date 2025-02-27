@@ -3,6 +3,7 @@
 	icon = 'icons/obj/devices/scanner.dmi'
 	icon_state = "scanner_wand"
 	inhand_icon_state = "healthanalyzer"
+	icon_angle = -45
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
 	desc = "A wand that medically scans people. Inserting it into a medical kiosk makes it able to perform a health scan on the patient."
@@ -14,7 +15,10 @@
 /obj/item/scanner_wand/attack(mob/living/M, mob/living/carbon/human/user)
 	flick("[icon_state]_active", src) //nice little visual flash when scanning someone else.
 
-	if((HAS_TRAIT(user, TRAIT_CLUMSY) || HAS_TRAIT(user, TRAIT_DUMB)) && prob(25))
+	//IRIS EDIT CHANGE BEGIN - HANDEDNESS_QUIRK
+	var/hand_index = user.active_hand_index
+	if(prob(25) && (HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && IS_LEFT_INDEX(hand_index)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && IS_RIGHT_INDEX(hand_index)) || HAS_TRAIT(user, TRAIT_DUMB)))
+	//IRIS EDIT CHANGE END
 		user.visible_message(span_warning("[user] targets himself for scanning."), \
 		to_chat(user, span_info("You try scanning [M], before realizing you're holding the scanner backwards. Whoops.")))
 		selected_target = user

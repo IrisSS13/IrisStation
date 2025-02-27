@@ -468,6 +468,46 @@
 	name = "Giant Scarf"
 	item_path = /obj/item/clothing/under/dress/nova/giant_scarf
 
+/datum/loadout_item/under/miscellaneous/giant_scarf_crystal
+	name = "Giant Scarf (Crystal)"
+	item_path = /obj/item/clothing/under/dress/nova/giant_scarf/crystal
+
+/datum/loadout_item/under/miscellaneous/giant_scarf_stripe
+	name = "Giant Scarf (Stripe)"
+	item_path = /obj/item/clothing/under/dress/nova/giant_scarf/stripe
+
+/datum/loadout_item/under/miscellaneous/giant_scarf_twotone
+	name = "Giant Scarf (Two-Tone)"
+	item_path = /obj/item/clothing/under/dress/nova/giant_scarf/two_tone
+
+/datum/loadout_item/under/miscellaneous/giant_scarf_arrow
+	name = "Giant Scarf (Arrow)"
+	item_path = /obj/item/clothing/under/dress/nova/giant_scarf/arrow
+
+/datum/loadout_item/under/miscellaneous/giant_scarf_fancy
+	name = "Giant Scarf (Fancy)"
+	item_path = /obj/item/clothing/under/dress/nova/giant_scarf/fancy
+
+/datum/loadout_item/under/miscellaneous/giant_scarf_sepharim
+	name = "Giant Scarf (Sepharim)"
+	item_path = /obj/item/clothing/under/dress/nova/giant_scarf/sepharim
+
+/datum/loadout_item/under/miscellaneous/giant_scarf_bones
+	name = "Giant Scarf (Bones)"
+	item_path = /obj/item/clothing/under/dress/nova/giant_scarf/bones
+
+/datum/loadout_item/under/miscellaneous/giant_scarf_lines
+	name = "Giant Scarf (Lines)"
+	item_path = /obj/item/clothing/under/dress/nova/giant_scarf/lines
+
+/datum/loadout_item/under/miscellaneous/giant_scarf_runes
+	name = "Giant Scarf (Runes)"
+	item_path = /obj/item/clothing/under/dress/nova/giant_scarf/runes
+
+/datum/loadout_item/under/miscellaneous/giant_scarf_heart
+	name = "Giant Scarf (Heart)"
+	item_path = /obj/item/clothing/under/dress/nova/giant_scarf/heart
+
 /datum/loadout_item/under/miscellaneous/red_skirt
 	name = "Red Bra and Skirt"
 	item_path = /obj/item/clothing/under/dress/skirt/nova/red_skirt
@@ -1102,26 +1142,18 @@
 /datum/loadout_item/under/formal/azulea_oldblood
 	name = " Oldblood's Royal regalia"
 	item_path = /obj/item/clothing/under/rank/azulean/old_blood
-	restricted_roles = list(JOB_CAPTAIN, JOB_NT_REP)
-	restricted_species = list(SPECIES_AKULA)
 
 /datum/loadout_item/under/formal/azulea_oldblood/skirt
 	name = " Oldblood's Royal regalia (Skirt)"
 	item_path = /obj/item/clothing/under/rank/azulean/old_blood/skirt
-	restricted_roles = list(JOB_CAPTAIN, JOB_NT_REP)
-	restricted_species = list(SPECIES_AKULA)
 
 /datum/loadout_item/under/formal/azulea_upstart
 	name = "Upstart's Noble Getup"
 	item_path = /obj/item/clothing/under/rank/azulean/upstart
-	restricted_roles = list(JOB_CAPTAIN, JOB_NT_REP)
-	restricted_species = list(SPECIES_AKULA)
 
 /datum/loadout_item/under/formal/azulea_upstart/skirt
 	name = "Upstart's Noble Getup (Skirt)"
 	item_path = /obj/item/clothing/under/rank/azulean/upstart/skirt
-	restricted_roles = list(JOB_CAPTAIN, JOB_NT_REP)
-	restricted_species = list(SPECIES_AKULA)
 
 /// DONATOR
 /datum/loadout_item/donator/under/donator

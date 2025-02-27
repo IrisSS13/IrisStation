@@ -18,7 +18,7 @@
 		MECHA_R_ARM = 1,
 		MECHA_UTILITY = 3,
 		MECHA_POWER = 1,
-		MECHA_ARMOR = 3,
+		MECHA_ARMOR = 1,
 	)
 	var/obj/durand_shield/shield
 
@@ -84,7 +84,7 @@
 //Redirects projectiles to the shield if defense_check decides they should be blocked and returns true.
 /obj/vehicle/sealed/mecha/durand/bullet_act(obj/projectile/source, def_zone, mode)
 	if(defense_check(source.loc) && shield)
-		return shield.bullet_act(source, def_zone, mode)
+		return shield.projectile_hit(source, def_zone, mode)
 	return ..()
 
 
@@ -143,7 +143,9 @@ Expects a turf. Returns true if the attack should be blocked, false if not.*/
 	button_icon_state = "mech_defense_mode_off"
 
 /datum/action/vehicle/sealed/mecha/mech_defense_mode/Trigger(trigger_flags, forced_state = FALSE)
-	if(!owner || !chassis || !(owner in chassis.occupants))
+	if(!..())
+		return
+	if(!chassis || !(owner in chassis.occupants))
 		return
 	SEND_SIGNAL(chassis, COMSIG_MECHA_ACTION_TRIGGER, owner, args) //Signal sent to the mech, to be handed to the shield. See durand.dm for more details
 
@@ -274,7 +276,7 @@ own integrity back to max. Shield is automatically dropped if we run out of powe
 	flick("shield_impact", src)
 	if(!.)
 		return
-	if(!chassis.use_energy(. * (STANDARD_CELL_CHARGE / 15)))
+	if(!chassis.use_energy(. * (STANDARD_CELL_CHARGE / 150)))
 		chassis.cell?.charge = 0
 		for(var/O in chassis.occupants)
 			var/mob/living/occupant = O

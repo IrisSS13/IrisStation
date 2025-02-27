@@ -454,10 +454,6 @@
 		if (sawoff(user, A))
 			return
 
-	if(misfire_probability && istype(A, /obj/item/stack/sheet/cloth))
-		if(guncleaning(user, A))
-			return
-
 	return FALSE
 
 /obj/item/gun/ballistic/proc/check_if_held(mob/user)
@@ -479,7 +475,7 @@
 /obj/item/gun/ballistic/shoot_live_shot(mob/living/user, pointblank = 0, atom/pbtarget = null, message = 1)
 	if(isnull(chambered))
 		return ..()
-	if(can_misfire && chambered.can_misfire != FALSE)
+	if(can_misfire)
 		misfire_probability += misfire_percentage_increment
 		misfire_probability = clamp(misfire_probability, 0, misfire_probability_cap)
 	if(chambered.can_misfire)
@@ -577,7 +573,7 @@
 /obj/item/gun/ballistic/examine(mob/user)
 	. = ..()
 	var/count_chambered = !(bolt_type == BOLT_TYPE_NO_BOLT || bolt_type == BOLT_TYPE_OPEN)
-	. += "It has [get_ammo(count_chambered)] round\s remaining."
+	. += "It has <b>[get_ammo(count_chambered)]</b> round\s remaining."
 
 	if (!chambered && !hidden_chambered)
 		. += "It does not seem to have a round chambered."
@@ -687,19 +683,6 @@ GLOBAL_LIST_INIT(gun_saw_types, typecacheof(list(
 	recoil = SAWN_OFF_RECOIL
 	update_appearance()
 	return TRUE
-
-/obj/item/gun/ballistic/proc/guncleaning(mob/user, obj/item/A)
-	if(misfire_probability == initial(misfire_probability))
-		balloon_alert(user, "it's already clean!")
-		return
-
-	user.changeNext_move(CLICK_CD_MELEE)
-	balloon_alert(user, "cleaning...")
-
-	if(do_after(user, 10 SECONDS, target = src))
-		misfire_probability = initial(misfire_probability)
-		balloon_alert(user, "fouling cleaned out")
-		return TRUE
 
 /obj/item/gun/ballistic/wrench_act(mob/living/user, obj/item/I)
 	if(!can_modify_ammo)

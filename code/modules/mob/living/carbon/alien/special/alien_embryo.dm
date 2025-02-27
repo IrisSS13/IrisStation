@@ -33,7 +33,7 @@
 	switch(stage)
 		if(3, 4)
 			if(SPT_PROB(1, seconds_per_tick))
-				owner.sneeze()
+				owner.emote("sneeze")
 			if(SPT_PROB(1, seconds_per_tick))
 				owner.emote("cough")
 			if(SPT_PROB(1, seconds_per_tick))
@@ -42,7 +42,7 @@
 				to_chat(owner, span_danger("Mucous runs down the back of your throat."))
 		if(5)
 			if(SPT_PROB(1, seconds_per_tick))
-				owner.sneeze()
+				owner.emote("sneeze")
 			if(SPT_PROB(1, seconds_per_tick))
 				owner.emote("cough")
 			if(SPT_PROB(2, seconds_per_tick))
@@ -78,7 +78,7 @@
 		for(var/datum/surgery/operations as anything in owner.surgeries)
 			if(operations.location != BODY_ZONE_CHEST)
 				continue
-			if(!istype(operations.get_surgery_step(), /datum/surgery_step/manipulate_organs/internal))
+			if(!ispath(operations.steps[operations.status], /datum/surgery_step/manipulate_organs/internal))
 				continue
 			attempt_grow(gib_on_success = FALSE)
 			return

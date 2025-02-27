@@ -16,6 +16,7 @@
 		TRAIT_NO_BLOOD_OVERLAY,
 		TRAIT_NO_DNA_COPY,
 		TRAIT_NO_UNDERWEAR,
+		TRAIT_SHIFTY_EYES, // IRIS EDIT - MapleStation Port NON-MODULE CHANGE: monkey are shifty
 		TRAIT_VENTCRAWLER_NUDE,
 		TRAIT_WEAK_SOUL,
 	)
@@ -40,7 +41,7 @@
 	payday_modifier = 1.5
 	ai_controlled_species = TRUE
 
-/datum/species/monkey/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load)
+/datum/species/monkey/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
 	passtable_on(human_who_gained_species, SPECIES_TRAIT)
 	human_who_gained_species.dna.add_mutation(/datum/mutation/human/race, MUT_NORMAL)
@@ -62,6 +63,10 @@
 
 /datum/species/monkey/get_scream_sound(mob/living/carbon/human/monkey)
 	return get_sfx(SFX_SCREECH)
+
+/datum/species/monkey/get_hiss_sound(mob/living/carbon/human/monkey)
+	return 'sound/mobs/humanoids/human/hiss/human_hiss.ogg'
+	// we're both great apes, or something..
 
 /datum/species/monkey/get_physical_attributes()
 	return "Monkeys are slippery, can crawl into vents, and are more dextrous than humans.. but only when stealing things. \
@@ -125,7 +130,7 @@
 
 /obj/item/organ/brain/primate //Ook Ook
 	name = "Primate Brain"
-	desc = "This wad of meat is small, but has enlaged occipital lobes for spotting bananas."
+	desc = "This wad of meat is small, but has enlarged occipital lobes for spotting bananas."
 	organ_traits = list(TRAIT_CAN_STRIP, TRAIT_PRIMITIVE, TRAIT_GUN_NATURAL) // No literacy or advanced tool usage.
 	actions_types = list(/datum/action/item_action/organ_action/toggle_trip)
 	/// Will this monkey stumble if they are crossed by a simple mob or a carbon in combat mode? Toggable by monkeys with clients, and is messed automatically set to true by monkey AI.
@@ -151,7 +156,7 @@
 	else
 		monkey_brain.tripping = TRUE
 		background_icon_state = "bg_default_on"
-		to_chat(monkey_brain.owner, span_notice("You will now stumble while while colliding with people who are in combat mode."))
+		to_chat(monkey_brain.owner, span_notice("You will now stumble while colliding with people who are in combat mode."))
 	build_all_button_icons()
 
 /obj/item/organ/brain/primate/on_mob_insert(mob/living/carbon/primate)
