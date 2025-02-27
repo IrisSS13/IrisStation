@@ -19,6 +19,7 @@
 //who tf adds the same thing 3 times
 /datum/species/nabber
 	id = SPECIES_NABBER
+	name = "Giant Armored Serpentid"
 	held_accessory = null
 	held_accessory_path = 'modular_iris/monke_ports/gas/icons/bodyparts/bodypart_overlays.dmi'
 	inherent_traits = list(
@@ -123,6 +124,13 @@
 	if(H.fire_stacks <= 5 && !H.on_fire) //Never give more than 15 firestacks... Normally. Or if they have enough fire armor.
 		H.adjust_fire_stacks(10)
 
+/datum/species/nabbers/get_default_mutant_bodyparts()
+	return list(
+		"wings" = list("None", FALSE),
+		"head_acc" = list("None", FALSE),
+		"neck_acc" = list("None", FALSE),
+	)
+
 /datum/species/nabber/prepare_human_for_preview(mob/living/carbon/human/nabber)
 	var/nabber_color = "#00ac1d"
 	nabber.dna.features["mcolor"] = nabber_color
@@ -196,9 +204,38 @@
 	return random_name
 */
 
-/datum/species/nabber/randomize_features(mob/living/carbon/human_mob) //NEVER randomise features. This causes runtimes.
-	SHOULD_CALL_PARENT(FALSE)
-	return FALSE
+/datum/species/nabber/randomize_features() //NEVER randomise features. This causes runtimes. EDIT: this stops runtimes lmao
+	var/list/features = ..()
+	var/main_color
+	var/second_color
+	var/third_color
+	var/random = rand(1,6)
+	switch(random)
+		if(1)
+			main_color = "#FFFFFF"
+			second_color = "#333333"
+			third_color = "#333333"
+		if(2)
+			main_color = "#FFFFDD"
+			second_color = "#DD6611"
+			third_color = "#AA5522"
+		if(3)
+			main_color = "#DD6611"
+			second_color = "#FFFFFF"
+			third_color = "#DD6611"
+		if(4)
+			main_color = "#CCCCCC"
+			second_color = "#FFFFFF"
+			third_color = "#FFFFFF"
+		if(5)
+			main_color = "#AA5522"
+			second_color = "#CC8833"
+			third_color = "#FFFFFF"
+		if(6)
+			main_color = "#FFFFDD"
+			second_color = "#FFEECC"
+			third_color = "#FFDDBB"
+	return features
 
 /mob/living/carbon/human/species/nabber
 	race = /datum/species/nabber
