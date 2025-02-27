@@ -17,7 +17,6 @@
 	StartCooldown()
 
 /datum/action/cooldown/toggle_welding/Destroy()
-	. = ..()
 	eyes = null
 	cooldown_time = null
-	return ..()
+	. = ..()
