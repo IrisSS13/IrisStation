@@ -4,11 +4,14 @@
 	zone = BODY_ZONE_PRECISE_GROIN
 	slot = ORGAN_SLOT_GIZZARD
 	w_class = WEIGHT_CLASS_BULKY
-	actions_types = list(/datum/action/innate/flight/gizzard)
-	fly = /datum/action/innate/flight/gizzard
+	//actions_types = list(/datum/action/innate/flight/gizzard)
+	//fly = /datum/action/innate/flight/gizzard
 	organ_flags = ORGAN_ORGANIC | ORGAN_EDIBLE | ORGAN_VIRGIN
 	use_mob_sprite_as_obj_sprite = FALSE
 	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/functional/gizzard
+
+/obj/item/organ/wings/functional/gizzard/get_action_path()
+    return /datum/action/innate/flight/gizzard
 
 /obj/item/organ/wings/functional/gizzard/handle_flight(mob/living/carbon/human/human)
   . = ..()
