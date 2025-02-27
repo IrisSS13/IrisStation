@@ -13,7 +13,6 @@
 	brute_modifier = NABBER_BRUTE_MODIFIER
 	burn_modifier = NABBER_BURN_MODIFIER
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
-	//bodytype = BODYTYPE_ORGANIC | BODYTYPE_CUSTOM
 
 /obj/item/bodypart/head/mutant/nabber/Initialize(mapload)
 	worn_ears_offset = new(
@@ -47,8 +46,6 @@
 	brute_modifier = NABBER_BRUTE_MODIFIER
 	burn_modifier = NABBER_BURN_MODIFIER
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
-	//bodytype = BODYTYPE_ORGANIC | BODYTYPE_CUSTOM
-	//acceptable_bodytype = BODYTYPE_ORGANIC | BODYTYPE_CUSTOM
 
 /obj/item/bodypart/chest/mutant/nabber/Initialize(mapload)
 	worn_back_offset = new(
@@ -63,11 +60,11 @@
 	)
 	return ..()
 
-/*/obj/item/bodypart/chest/mutant/nabber/Destroy() //unsure if needed
+/obj/item/bodypart/chest/mutant/nabber/Destroy()
 	. = ..()
 	QDEL_NULL(worn_back_offset) // ditto
 	QDEL_NULL(worn_accessory_offset)
-*/
+
 
 /obj/item/bodypart/arm/left/mutant/nabber/Initialize(mapload)
 	held_hand_offset =  new(
@@ -95,7 +92,6 @@
 	brute_modifier = NABBER_BRUTE_MODIFIER
 	burn_modifier = NABBER_BURN_MODIFIER
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
-	//bodytype = BODYTYPE_ORGANIC | BODYTYPE_ORGANIC | BODYTYPE_CUSTOM
 	biological_state = BIO_STANDARD_UNJOINTED
 	bodypart_traits = list(TRAIT_CHUNKYFINGERS)
 
@@ -107,7 +103,6 @@
 	brute_modifier = NABBER_BRUTE_MODIFIER
 	burn_modifier = NABBER_BURN_MODIFIER
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
-	//bodytype =  BODYTYPE_ORGANIC | BODYTYPE_CUSTOM
 	biological_state = BIO_STANDARD_UNJOINTED
 	bodypart_traits = list(TRAIT_CHUNKYFINGERS)
 
@@ -118,7 +113,6 @@
 	burn_modifier = NABBER_BURN_MODIFIER
 	biological_state = BIO_STANDARD_UNJOINTED
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
-	//bodytype = BODYTYPE_ORGANIC | BODYTYPE_CUSTOM
 
 /obj/item/bodypart/leg/right/mutant/nabber
 	icon_greyscale = BODYPART_ICON_NABBER
@@ -126,7 +120,6 @@
 	brute_modifier = NABBER_BRUTE_MODIFIER
 	burn_modifier = NABBER_BURN_MODIFIER
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
-	//bodytype = BODYTYPE_ORGANIC | BODYTYPE_CUSTOM
 	biological_state = BIO_STANDARD_UNJOINTED
 
 #undef NABBER_PUNCH_LOW

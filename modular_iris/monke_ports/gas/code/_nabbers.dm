@@ -39,14 +39,12 @@
 	//blood_colours = "#30498f" //Haemolyph is typically a deep blue. we dont have blood colors here, leaving it if upstream adds it or w/e
 	no_equip_flags = ITEM_SLOT_FEET | ITEM_SLOT_OCLOTHING | ITEM_SLOT_SUITSTORE
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
-	//uses_offsets = TRUE //doing it the golem wae i think
 	mutanttongue = /obj/item/organ/tongue/nabber
 	hair_alpha = 0
 	coldmod = 0.3 //Very very resistant to cold
 	heatmod = 2.5 // IT BURNS
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	bodytemp_heat_damage_limit = (BODYTEMP_HEAT_DAMAGE_LIMIT - 5) //-10 was a bit too high, as it already does damage to their lungs
-	/*bodytype = BODYTYPE_ORGANIC | BODYTYPE_CUSTOM*/ //This is done per bodypart now
 	mutantbrain = /obj/item/organ/brain/nabber
 	mutanteyes = /obj/item/organ/eyes/robotic/nabber
 	mutantlungs = /obj/item/organ/lungs/nabber
@@ -124,7 +122,7 @@
 	if(H.fire_stacks <= 5 && !H.on_fire) //Never give more than 15 firestacks... Normally. Or if they have enough fire armor.
 		H.adjust_fire_stacks(10)
 
-/datum/species/nabbers/get_default_mutant_bodyparts()
+/datum/species/nabber/get_default_mutant_bodyparts()
 	return list(
 		"wings" = list("None", FALSE),
 		"head_acc" = list("None", FALSE),
@@ -202,41 +200,6 @@
 	var/random_name
 	random_name += (pick("Alpha","Delta","Dzetta","Phi","Epsilon","Gamma","Tau","Omega") + " [rand(1, 199)]") //Stolen from elsewhere.
 	return random_name
-*/
-
-/*
-/datum/species/nabber/randomize_features() //NEVER randomise features. This causes runtimes. EDIT: this stops runtimes lmao
-	var/list/features = ..()
-	var/main_color
-	var/second_color
-	var/third_color
-	var/random = rand(1,6)
-	switch(random)
-		if(1)
-			main_color = "#FFFFFF"
-			second_color = "#333333"
-			third_color = "#333333"
-		if(2)
-			main_color = "#FFFFDD"
-			second_color = "#DD6611"
-			third_color = "#AA5522"
-		if(3)
-			main_color = "#DD6611"
-			second_color = "#FFFFFF"
-			third_color = "#DD6611"
-		if(4)
-			main_color = "#CCCCCC"
-			second_color = "#FFFFFF"
-			third_color = "#FFFFFF"
-		if(5)
-			main_color = "#AA5522"
-			second_color = "#CC8833"
-			third_color = "#FFFFFF"
-		if(6)
-			main_color = "#FFFFDD"
-			second_color = "#FFEECC"
-			third_color = "#FFDDBB"
-	return features
 */
 
 /mob/living/carbon/human/species/nabber
