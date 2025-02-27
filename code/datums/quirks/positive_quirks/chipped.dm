@@ -1,8 +1,8 @@
 /datum/quirk/chipped
 	name = "Chipped"
-	desc = "You got caught up in the skillchip craze a few years back, and had one of the commercially available chips implanted into yourself. Note: The chip is rather dated and sometimes hurts your brain." //IRIS EDIT: warning about the damage it causes
+	desc = "You got caught up in the skillchip craze a few years back, and had one of the commercially available chips implanted into yourself." 
 	icon = FA_ICON_MICROCHIP
-	value = 1 //IRIS EDIT: was 2 points, not worth as it causes brain damage
+	value = 2 
 	gain_text = span_notice("The chip in your head itches a bit.")
 	lose_text = span_danger("You don't feel so chipped anymore..")
 	medical_record_text = "Patient explained how they got caught up in 'the skillchip chase' recently, and now the chip in their head itches every so often. Dumbass."
@@ -46,9 +46,11 @@
 
 /datum/quirk/chipped/proc/apply_effect(datum/source, obj/item/brain_applied)
 	SIGNAL_HANDLER
+	/* NOVA EDIT REMOVAL - we disable the itchy status effect so people dont get brain damage from a positive quirk.
 	var/mob/living/carbon/quirk_holder_carbon = quirk_holder
 	if(brain_applied == quirk_holder_carbon.get_organ_slot(ORGAN_SLOT_BRAIN))
 		itchy_effect = quirk_holder.apply_status_effect(/datum/status_effect/itchy_skillchip_quirk)
+	*/
 
 /datum/quirk/chipped/proc/remove_effect(datum/source, obj/item/brain_removed)
 	SIGNAL_HANDLER
