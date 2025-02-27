@@ -55,8 +55,8 @@
 	. = ..()
 
 	if(QDELETED(fly))
-    	var/action_path = get_action_path()
-    	fly = new action_path
+		var/action_path = get_action_path()
+		fly = new action_path
 	fly.Grant(receiver)
 
 /obj/item/organ/wings/functional/proc/get_action_path()
