@@ -23,8 +23,8 @@
 	worn_head_offset = new(
 		attached_part = src,
 		feature_key = OFFSET_HEAD,
-		offset_y = list("north" = 8, "south" = 9, "east" = 8, "west" = 8),
-		offset_x = list("north" = 8, "south" = -0.15, "east" = 8, "west" = 8),
+		offset_y = list("north" = 8, "south" = 9, "east" = 9, "west" = 9),
+		offset_x = list("north" = 0, "south" = -0.15, "east" = 0, "west" = 0),
 	)
 	worn_mask_offset = new(
 		attached_part = src,
@@ -70,8 +70,8 @@
 	held_hand_offset =  new(
 		attached_part = src,
 		feature_key = OFFSET_HELD,
-		offset_x = list("north" = 0, "south" = 0, "east" = 0, "west" = -6, "northwest" = -6, "southwest" = -6, "northeast" = 0, "southeast" = 0),
-		offset_y = list("north" = -3, "south" = -3, "east" = -3, "west" = -3),
+		offset_x = list("north" = 2, "south" = -2, "east" = 0, "west" = -3, "northwest" = 0, "southwest" = 0, "northeast" = -6, "southeast" = -6),
+		offset_y = list("north" = -1, "south" = -1, "east" = -1, "west" = -1),
 	)
 	return ..()
 

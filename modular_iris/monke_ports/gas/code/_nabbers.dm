@@ -46,7 +46,7 @@
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	bodytemp_heat_damage_limit = (BODYTEMP_HEAT_DAMAGE_LIMIT - 5) //-10 was a bit too high, as it already does damage to their lungs
 	mutantbrain = /obj/item/organ/brain/nabber
-	mutanteyes = /obj/item/organ/eyes/robotic/nabber
+	mutanteyes = /obj/item/organ/eyes/nabber
 	mutantlungs = /obj/item/organ/lungs/nabber
 	mutantheart = /obj/item/organ/heart/nabber
 	mutantliver = /obj/item/organ/liver/nabber
@@ -85,25 +85,6 @@
 
 /datum/species/nabber/get_species_description()
 	return "Large, bulky - impressively armoured and chitinous, these ambush predators are a recent acquisition by NanoTrasen. Loyal workers, not the brightest bulb in the pack - and physically impressive, they're perfect for all forms of menial, unimportant labor. Known to be extremely flammable."
-
-//not needed but might be useful for something later on, idk
-/*
-/mob/living/carbon/human/proc/destroy_anime() //HATE. LET ME TELL YOU HOW MUCH I HAVE COME TO HATE.
-	var/obj/item/organ/external/anime_head/removing1 = src.get_organ_slot(ORGAN_SLOT_EXTERNAL_ANIME_HEAD)
-	var/obj/item/organ/external/anime_middle/removing2 = src.get_organ_slot(ORGAN_SLOT_EXTERNAL_ANIME_CHEST)
-	var/obj/item/organ/external/anime_bottom/removing3 = src.get_organ_slot(ORGAN_SLOT_EXTERNAL_ANIME_BOTTOM)
-	if(removing1) //Fugly-ass code but it works for ensuring we don't get sprite/code issues.
-		qdel(removing1)
-	if(removing2)
-		qdel(removing2)
-	if(removing3)
-		qdel(removing3)
-
-
-/datum/species/nabber/after_equip_job(datum/job/J, mob/living/carbon/human/C, visualsOnly = FALSE, client/preference_source = null) //Handle things such as post_spawn timers here. In this case, prepare to evaporate anime.
-	..()
-	addtimer(CALLBACK(C, TYPE_PROC_REF(/mob/living/carbon/human, destroy_anime), TRUE), 2.5 SECONDS) //Enough time to ensure that we don't get any runtimes.
-*/
 
 /datum/species/nabber/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)
 	. = ..()
@@ -167,14 +148,14 @@
 		SPECIES_PERK_NAME = "Flammable Chitin",
 		SPECIES_PERK_DESC = "Due to the photoreflectivity and nature of their chitin, Giant Armoured Serpentids are known to be EXTREMELY burn weak, taking almost double damage from all sources, and combusting on exposure to open flame or hot enough atmospherics."
 	))
-
+	/*
 	perk_descriptions += list(list(
 		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 		SPECIES_PERK_ICON = "user-plus",
 		SPECIES_PERK_NAME = "Nictating Membrane",
 		SPECIES_PERK_DESC = "Giant Armoured Serpentids have a secondary membrane in their eyes that allows them to shield their sensitive vision from bright lights."
 	))
-
+	*/
 	perk_descriptions += list(list(
 		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 		SPECIES_PERK_ICON = "user-plus",

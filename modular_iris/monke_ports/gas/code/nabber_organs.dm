@@ -34,8 +34,9 @@
 	desc = "Small orange orbs."
 	icon = ORGAN_ICON_NABBER
 	icon_state = "eyes"
-	flash_protect = FLASH_PROTECTION_SENSITIVE
+	//flash_protect = FLASH_PROTECTION_SENSITIVE
 
+/*
 /obj/item/organ/eyes/robotic/nabber
 	name = "nictating eyes"
 	desc = "Small orange orbs. With pair welding shield linses."
@@ -77,6 +78,7 @@
 	qdel(shield)
 	active = FALSE
 	toggle_shielding()
+*/
 
 /obj/item/organ/lungs/nabber
 	name = "spiracle lungs" //Insects breathe differently
