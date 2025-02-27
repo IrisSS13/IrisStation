@@ -25,6 +25,7 @@
 
 /obj/item/clothing/under
 	greyscale_config_worn_nabber_fallback = /datum/greyscale_config/nabber
+	worn_icon_nabber = 'modular_iris/monke_ports/gas/icons/mob/clothing/uniform.dmi'
 
 /obj/item/clothing/neck
 	greyscale_config_worn_nabber_fallback = /datum/greyscale_config/nabber/scarf
@@ -60,6 +61,11 @@
 /datum/greyscale_config/nabber
 	name = "Nabber clothing"
 	icon_file = 'modular_iris/modules/GAGS/icons/nabbers/nabber_fallbacks.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/nabber_fallbacks/uniform.json'
+
+/datum/greyscale_config/nabber/under
+	name = "Nabber Suit"
+	icon_file = 'modular_iris/monke_ports/gas/icons/mob/clothing/uniform.dmi'
 	json_config = 'modular_iris/modules/GAGS/json_configs/nabber_fallbacks/uniform.json'
 
 /datum/greyscale_config/nabber/cloak
