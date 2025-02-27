@@ -20,3 +20,4 @@
 	. = ..()
 	eyes = null
 	cooldown_time = null
+	return ..()
