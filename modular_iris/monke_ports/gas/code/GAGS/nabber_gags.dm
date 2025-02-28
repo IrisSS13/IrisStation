@@ -39,11 +39,14 @@
 /obj/item/clothing/belt
 	greyscale_config_worn_nabber_fallback = /datum/greyscale_config/nabber/belt
 
+/*
 /obj/item/clothing/mask // I can only forsee this going well
 	greyscale_config_worn_nabber_fallback = /datum/greyscale_config/nabber/mask
 
 /obj/item/clothing/mask/gas //because we have to subtype... every single time.
 	greyscale_config_worn_nabber_fallback = /datum/greyscale_config/nabber/mask
+
+*/
 
 /obj/item/clothing/glasses
 	greyscale_config_worn_nabber_fallback = /datum/greyscale_config/nabber/glasses
