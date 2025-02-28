@@ -2,7 +2,6 @@
 
 /datum/crafting_recipe/food/reaction/soup/beurre_noisette
 	reaction = /datum/chemical_reaction/food/soup/beurre_noisette
-	expected_container = /obj/item/reagent_containers/cup/bottle
 
 //cakes
 
