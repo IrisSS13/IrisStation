@@ -30,7 +30,25 @@
 	if (isnull(client_use_echo))
 		client_use_echo = TRUE
 
-	human_holder.AddComponent(/datum/component/echolocation, blocking_trait = TRAIT_DEAF, echo_range = 5, echo_group = client_echo_group, images_are_static = FALSE, use_echo = client_use_echo, show_own_outline = TRUE)
+	//IRIS EDIT ADDITION BEGIN - SLOWER_ECHOLOCATION_PREFS
+	var/client_echo_speed = client_source?.prefs.read_preference(/datum/preference/choiced/echolocation_speed)
+	if(isnull(client_echo_speed))
+		client_echo_speed = 1 SECONDS
+	else
+		switch(client_echo_speed)
+			if("Normal")
+				client_echo_speed = 1 SECONDS
+			if("Slow")
+				client_echo_speed = 2 SECONDS
+			if("Very Slow")
+				client_echo_speed = 3 SECONDS
+			if("Slowest")
+				client_echo_speed = 4 SECONDS
+	//IRIS EDIT CHANGE END
+
+	//IRIS EDIT CHANGE BEGIN - SLOWER_ECHOLOCATION_PREFS
+	human_holder.AddComponent(/datum/component/echolocation, blocking_trait = TRAIT_DEAF, echo_range = 5, echo_group = client_echo_group, images_are_static = FALSE, use_echo = client_use_echo, show_own_outline = TRUE, cooldown_time = client_echo_speed)
+	//IRIS EDIT CHANGE END
 	esp = human_holder.GetComponent(/datum/component/echolocation)
 
 	// HEY! we probably need something to make sure they don't set a color that's too dark or their UI could be totally invisible.
@@ -147,3 +165,23 @@
 
 /datum/preference/toggle/echolocation_overlay/apply_to_human(mob/living/carbon/human/target, value)
 	return
+
+//IRIS EDIT ADDITION BEGIN - SLOWER_ECHOLOCATION_PREFS
+/datum/preference/choiced/echolocation_speed
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
+	savefile_key = "echolocation_speed"
+	savefile_identifier = PREFERENCE_CHARACTER
+
+/datum/preference/choiced/echolocation_key/is_accessible(datum/preferences/preferences)
+	if (!..(preferences))
+		return FALSE
+
+	return "Echolocation" in preferences.all_quirks
+
+/datum/preference/choiced/echolocation_speed/init_possible_values()
+	var/list/values = list("Normal", "Slow", "Very Slow", "Slowest")
+	return values
+
+/datum/preference/choiced/echolocation_speed/apply_to_human(mob/living/carbon/human/target, value)
+	return
+//IRIS EDIT ADDITION END

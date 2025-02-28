@@ -22,3 +22,10 @@ export const echolocation_use_echo: FeatureToggle = {
   name: 'Display echo overlay',
   component: CheckboxInput,
 };
+
+// IRIS EDIT ADDITION BEGIN - SLOWER_ECHOLOCATION_PREFS
+export const echolocation_speed: FeatureChoiced = {
+  name: 'Echolocation speed',
+  component: FeatureDropdownInput,
+};
+// IRIS EDIT ADDITION END
