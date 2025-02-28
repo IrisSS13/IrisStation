@@ -8,7 +8,6 @@
 //Whenever you adjust these variables, make sure to adjust their damage reduction, heat modifiers, and burn vulnerability to prevent scaling issues.
 //All values are currently temporary and will require further balancing as eye protection, and nabber nukie modsuits are added.
 
-//THIS APPEARS TO NOT WORK, OR WORKS PARTIALLY, SOMEONE FIX
 /datum/armor/nabbers
 	melee = 45 //Massively reduce incoming melee damage
 	bullet = 25 //Reduce incoming bullet damage, too
@@ -81,8 +80,8 @@
 	camouflage = new(nabber)
 	camouflage.Grant(nabber)
 
-	nabber.set_armor(nabber.get_armor().add_other_armor(/datum/armor/nabbers)) //Assign the armor
-
+	//nabber.set_armor(nabber.get_armor().add_other_armor(/datum/armor/nabbers)) //Assign the armor
+	nabber.physiology.armor = nabber.physiology.armor.add_other_armor(/datum/armor/nabbers)
 /datum/species/nabber/get_species_description()
 	return "Large, bulky - impressively armoured and chitinous, these ambush predators are a recent acquisition by NanoTrasen. Loyal workers, not the brightest bulb in the pack - and physically impressive, they're perfect for all forms of menial, unimportant labor. Known to be extremely flammable."
 
@@ -90,7 +89,8 @@
 	. = ..()
 	qdel(arms)
 	qdel(camouflage)
-	C.set_armor(C.get_armor().subtract_other_armor(/datum/armor/nabbers)) //Make sure to remove it, to stop people abusing lings/etc to gain infinite melee armor
+	//C.set_armor(C.get_armor().subtract_other_armor(/datum/armor/nabbers)) //Make sure to remove it, to stop people abusing lings/etc to gain infinite melee armor
+	C.physiology.armor = C.physiology.armor.subtract_other_armor(/datum/armor/nabbers)
 	//threat_mod.Destroy()
 
 /datum/species/nabber/spec_life(mob/living/carbon/human/H, seconds_per_tick, times_fired)

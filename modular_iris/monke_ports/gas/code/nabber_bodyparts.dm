@@ -2,7 +2,7 @@
 #define NABBER_PUNCH_LOW 3 // Base punch damage.
 #define NABBER_PUNCH_HIGH 5
 #define BODYPART_ICON_NABBER 'modular_iris/monke_ports/gas/icons/bodyparts/nabber_parts_greyscale.dmi'
-#define NABBER_BRUTE_MODIFIER 0.70 //10% total incoming brute damage reduction atop of armor. Reduces toolboxes from 12 damage to ~10 (9.8) but does not significantly affect AP using weapons //EDIT: UPPED IT TO 30 BECAUSE ARMOR APPEARS TO NOT WORK
+#define NABBER_BRUTE_MODIFIER 0.90 //10% total incoming brute damage reduction atop of armor. Reduces toolboxes from 12 damage to ~10 (9.8) but does not significantly affect AP using weapons
 #define NABBER_BURN_MODIFIER 1.3 // 0.65x incoming brute, 1.3x burn. 1.8x was way too high and allowed you to be crit in 3 hits from a regular welder.
 
 //Nabbers limbs.
