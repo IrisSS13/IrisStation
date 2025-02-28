@@ -115,7 +115,9 @@
 
 /datum/quirk_constant_data/echolocation
 	associated_typepath = /datum/quirk/echolocation
+	//IRIS EDIT CHANGE BEGIN - SLOWER_ECHOLOCATION_PREFS
 	customization_options = list(/datum/preference/color/echolocation_outline, /datum/preference/choiced/echolocation_key, /datum/preference/toggle/echolocation_overlay, /datum/preference/choiced/echolocation_speed)
+	//IRIS EDIT CHANGE END
 
 // Client preference for echolocation outline colour
 /datum/preference/color/echolocation_outline
