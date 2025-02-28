@@ -1,6 +1,3 @@
-#define BASE_CLOTH_X_1 1
-#define BASE_CLOTH_Y_1 1
-
 /obj/item
 	var/datum/greyscale_config/greyscale_config_worn_nabber_fallback
 	var/icon/worn_icon_nabber
