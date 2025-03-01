@@ -30,7 +30,7 @@
 	if (isnull(client_use_echo))
 		client_use_echo = TRUE
 
-	//IRIS EDIT ADDITION BEGIN - SLOWER_ECHOLOCATION_PREFS
+	//IRIS EDIT ADDITION BEGIN - SLOWER_ECHOLOCATION_PREF
 	var/client_echo_speed = client_source?.prefs.read_preference(/datum/preference/choiced/echolocation_speed)
 	if(isnull(client_echo_speed))
 		client_echo_speed = 1 SECONDS
@@ -46,7 +46,7 @@
 				client_echo_speed = 4 SECONDS
 	//IRIS EDIT CHANGE END
 
-	//IRIS EDIT CHANGE BEGIN - SLOWER_ECHOLOCATION_PREFS
+	//IRIS EDIT CHANGE BEGIN - SLOWER_ECHOLOCATION_PREF
 	human_holder.AddComponent(/datum/component/echolocation, blocking_trait = TRAIT_DEAF, echo_range = 5, echo_group = client_echo_group, images_are_static = FALSE, use_echo = client_use_echo, show_own_outline = TRUE, cooldown_time = client_echo_speed)
 	//IRIS EDIT CHANGE END
 	esp = human_holder.GetComponent(/datum/component/echolocation)
@@ -115,7 +115,7 @@
 
 /datum/quirk_constant_data/echolocation
 	associated_typepath = /datum/quirk/echolocation
-	//IRIS EDIT CHANGE BEGIN - SLOWER_ECHOLOCATION_PREFS
+	//IRIS EDIT CHANGE BEGIN - SLOWER_ECHOLOCATION_PREF
 	customization_options = list(/datum/preference/color/echolocation_outline, /datum/preference/choiced/echolocation_key, /datum/preference/toggle/echolocation_overlay, /datum/preference/choiced/echolocation_speed)
 	//IRIS EDIT CHANGE END
 
@@ -168,7 +168,7 @@
 /datum/preference/toggle/echolocation_overlay/apply_to_human(mob/living/carbon/human/target, value)
 	return
 
-//IRIS EDIT ADDITION BEGIN - SLOWER_ECHOLOCATION_PREFS
+//IRIS EDIT ADDITION BEGIN - SLOWER_ECHOLOCATION_PREF
 /datum/preference/choiced/echolocation_speed
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_key = "echolocation_speed"
