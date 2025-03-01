@@ -35,7 +35,7 @@
 	if(isnull(client_echo_speed))
 		client_echo_speed = 1 SECONDS
 	else
-		client_echo_speed *= SECONDS
+		client_echo_speed = client_echo_speed SECONDS
 	//IRIS EDIT CHANGE END
 
 	//IRIS EDIT CHANGE BEGIN - SLOWER_ECHOLOCATION_PREF
