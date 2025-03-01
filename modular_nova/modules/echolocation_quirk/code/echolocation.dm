@@ -43,6 +43,14 @@
 	//IRIS EDIT CHANGE END
 	esp = human_holder.GetComponent(/datum/component/echolocation)
 
+	//IRIS EDIT ADDITION BEGIN - SLOWER_ECHOLOCATION_PREF
+	var/client_echo_render_mult = client_source?.prefs.read_preference(/datum/preference/numeric/echolocation_mult)
+	if(client_echo_render_mult)
+		esp.fade_in_time *= client_echo_render_mult
+		esp.image_expiry_time *= client_echo_render_mult
+		esp.fade_out_time *= client_echo_render_mult
+	//IRIS EDIT ADDITION END
+
 	// HEY! we probably need something to make sure they don't set a color that's too dark or their UI could be totally invisible.
 	// GOOD NEWS! we can re-use the runechat colour stuff for this (probably)
 	human_holder.remove_client_colour(/datum/client_colour/monochrome/blind) // get rid of the existing blind one
@@ -108,7 +116,7 @@
 /datum/quirk_constant_data/echolocation
 	associated_typepath = /datum/quirk/echolocation
 	//IRIS EDIT CHANGE BEGIN - SLOWER_ECHOLOCATION_PREF
-	customization_options = list(/datum/preference/color/echolocation_outline, /datum/preference/choiced/echolocation_key, /datum/preference/toggle/echolocation_overlay, /datum/preference/numeric/echolocation_speed)
+	customization_options = list(/datum/preference/color/echolocation_outline, /datum/preference/choiced/echolocation_key, /datum/preference/toggle/echolocation_overlay, /datum/preference/numeric/echolocation_speed, /datum/preference/numeric/echolocation_mult)
 	//IRIS EDIT CHANGE END
 
 // Client preference for echolocation outline colour
@@ -161,6 +169,7 @@
 	return
 
 //IRIS EDIT ADDITION BEGIN - SLOWER_ECHOLOCATION_PREF
+/// Used to change delay between echolation auto-pulses, measured in seconds
 /datum/preference/numeric/echolocation_speed
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_key = "echolocation_speed"
@@ -178,5 +187,25 @@
 	return 5
 
 /datum/preference/numeric/echolocation_speed/apply_to_human(mob/living/carbon/human/target, value)
+	return
+
+/// Used to stretch fadein, presence and fadeout times of each echolocation image
+/datum/preference/numeric/echolocation_mult
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
+	savefile_key = "echolocation_mult"
+	savefile_identifier = PREFERENCE_CHARACTER
+	minimum = 1
+	maximum = 15
+
+/datum/preference/numeric/echolocation_mult/is_accessible(datum/preferences/preferences)
+	if (!..(preferences))
+		return FALSE
+
+	return "Echolocation" in preferences.all_quirks
+
+/datum/preference/numeric/echolocation_mult/create_default_value()
+	return 1
+
+/datum/preference/numeric/echolocation_mult/apply_to_human(mob/living/carbon/human/target, value)
 	return
 //IRIS EDIT ADDITION END
