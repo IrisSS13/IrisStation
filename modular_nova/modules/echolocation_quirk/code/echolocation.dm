@@ -36,7 +36,7 @@
 		client_echo_speed = 1 SECONDS
 	else
 		client_echo_speed = client_echo_speed SECONDS
-	//IRIS EDIT CHANGE END
+	//IRIS EDIT ADDITION END
 
 	//IRIS EDIT CHANGE BEGIN - SLOWER_ECHOLOCATION_PREF
 	human_holder.AddComponent(/datum/component/echolocation, blocking_trait = TRAIT_DEAF, echo_range = 5, echo_group = client_echo_group, images_are_static = FALSE, use_echo = client_use_echo, show_own_outline = TRUE, cooldown_time = client_echo_speed)
