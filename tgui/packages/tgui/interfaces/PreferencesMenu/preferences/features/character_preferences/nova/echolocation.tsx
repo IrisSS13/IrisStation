@@ -4,6 +4,7 @@ import {
   Feature,
   FeatureChoiced,
   FeatureColorInput,
+  FeatureNumberInput,
   FeatureToggle,
 } from '../../base';
 import { FeatureDropdownInput } from '../../dropdowns';
@@ -24,8 +25,8 @@ export const echolocation_use_echo: FeatureToggle = {
 };
 
 // IRIS EDIT ADDITION BEGIN - SLOWER_ECHOLOCATION_PREF
-export const echolocation_speed: FeatureChoiced = {
-  name: 'Echolocation speed',
-  component: FeatureDropdownInput,
+export const echolocation_speed: Feature<number> = {
+  name: 'Pulse frequency (in seconds)',
+  component: FeatureNumberInput,
 };
 // IRIS EDIT ADDITION END

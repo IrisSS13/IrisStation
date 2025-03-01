@@ -31,19 +31,11 @@
 		client_use_echo = TRUE
 
 	//IRIS EDIT ADDITION BEGIN - SLOWER_ECHOLOCATION_PREF
-	var/client_echo_speed = client_source?.prefs.read_preference(/datum/preference/choiced/echolocation_speed)
+	var/client_echo_speed = client_source?.prefs.read_preference(/datum/preference/numeric/echolocation_speed)
 	if(isnull(client_echo_speed))
 		client_echo_speed = 1 SECONDS
 	else
-		switch(client_echo_speed)
-			if("Normal")
-				client_echo_speed = 1 SECONDS
-			if("Slow")
-				client_echo_speed = 2 SECONDS
-			if("Very Slow")
-				client_echo_speed = 3 SECONDS
-			if("Slowest")
-				client_echo_speed = 4 SECONDS
+		client_echo_speed *= SECONDS
 	//IRIS EDIT CHANGE END
 
 	//IRIS EDIT CHANGE BEGIN - SLOWER_ECHOLOCATION_PREF
@@ -116,7 +108,7 @@
 /datum/quirk_constant_data/echolocation
 	associated_typepath = /datum/quirk/echolocation
 	//IRIS EDIT CHANGE BEGIN - SLOWER_ECHOLOCATION_PREF
-	customization_options = list(/datum/preference/color/echolocation_outline, /datum/preference/choiced/echolocation_key, /datum/preference/toggle/echolocation_overlay, /datum/preference/choiced/echolocation_speed)
+	customization_options = list(/datum/preference/color/echolocation_outline, /datum/preference/choiced/echolocation_key, /datum/preference/toggle/echolocation_overlay, /datum/preference/numeric/echolocation_speed)
 	//IRIS EDIT CHANGE END
 
 // Client preference for echolocation outline colour
@@ -169,21 +161,22 @@
 	return
 
 //IRIS EDIT ADDITION BEGIN - SLOWER_ECHOLOCATION_PREF
-/datum/preference/choiced/echolocation_speed
+/datum/preference/numeric/echolocation_speed
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_key = "echolocation_speed"
 	savefile_identifier = PREFERENCE_CHARACTER
+	minimum = 1
+	maximum = 15
 
-/datum/preference/choiced/echolocation_key/is_accessible(datum/preferences/preferences)
+/datum/preference/numeric/echolocation_speed/is_accessible(datum/preferences/preferences)
 	if (!..(preferences))
 		return FALSE
 
 	return "Echolocation" in preferences.all_quirks
 
-/datum/preference/choiced/echolocation_speed/init_possible_values()
-	var/list/values = list("Normal", "Slow", "Very Slow", "Slowest")
-	return values
+/datum/preference/numeric/echolocation_speed/create_default_value()
+	return 5
 
-/datum/preference/choiced/echolocation_speed/apply_to_human(mob/living/carbon/human/target, value)
+/datum/preference/numeric/echolocation_speed/apply_to_human(mob/living/carbon/human/target, value)
 	return
 //IRIS EDIT ADDITION END
