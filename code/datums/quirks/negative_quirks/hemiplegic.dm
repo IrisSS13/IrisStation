@@ -11,6 +11,10 @@
 		/obj/item/stack/sheet/mineral/uranium/half, //half a stack of a material that has a half life
 		/obj/item/reagent_containers/cup/glass/drinkingglass/filled/half_full,
 	)
+	//IRIS EDIT ADDITION BEGIN - COGNOMERGE_EVENT
+	gain_text = span_danger("One side of your body suddenly goes limp.")
+	lose_text = span_notice("You regain motor control over the limp side of your body.")
+	//IRIS EDIT ADDITION END
 
 /datum/quirk_constant_data/hemiplegic
 	associated_typepath = /datum/quirk/hemiplegic
