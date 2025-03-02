@@ -15476,12 +15476,16 @@
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
 "eLy" = (
-/obj/machinery/smartfridge/extract/preloaded,
 /obj/effect/turf_decal/tile/purple/half/contrasted{
 	dir = 8
 	},
 /obj/effect/turf_decal/bot,
 /obj/machinery/status_display/evac/directional/west,
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on{
+	dir = 1;
+	initialize_directions = 4;
+	name = "euthanization chamber freezer"
+	},
 /turf/open/floor/iron/showroomfloor,
 /area/station/science/xenobiology)
 "eLG" = (
@@ -17493,6 +17497,7 @@
 "fpU" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /turf/open/floor/engine,
 /area/station/science/xenobiology)
 "fqb" = (
@@ -18812,6 +18817,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
+/obj/item/radio/intercom/directional/west,
 /turf/open/floor/iron,
 /area/station/hallway/primary/starboard)
 "fIW" = (
@@ -25041,9 +25047,9 @@
 	pixel_y = -4;
 	pixel_x = 7
 	},
-/obj/item/toy/plush/lizard_plushie/greyscale{
+/obj/item/toy/plush/lizard_plushie{
 	pixel_x = -9;
-	pixel_y = -2
+	pixel_y = 2
 	},
 /turf/open/floor/iron/showroomfloor,
 /area/station/science/xenobiology)
@@ -25888,7 +25894,8 @@
 /obj/effect/turf_decal/tile/purple{
 	dir = 4
 	},
-/obj/machinery/smartfridge/extract/preloaded,
+/obj/machinery/processor/slime,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/iron/showroomfloor,
 /area/station/science/xenobiology)
 "hPn" = (
@@ -26148,6 +26155,7 @@
 /obj/machinery/processor/slime,
 /obj/effect/turf_decal/bot,
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /turf/open/floor/iron/showroomfloor,
 /area/station/science/xenobiology)
 "hRB" = (
@@ -28100,9 +28108,6 @@
 	},
 /turf/open/floor/iron/dark/textured_corner,
 /area/station/service/chapel/dock)
-"itn" = (
-/turf/closed/wall/r_wall/rust,
-/area/station/ai_monitored/command/nuke_storage)
 "itw" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/machinery/power/shieldwallgen,
@@ -28346,7 +28351,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/bot,
-/obj/machinery/processor/slime,
+/obj/machinery/smartfridge/extract/preloaded,
 /turf/open/floor/iron/showroomfloor,
 /area/station/science/xenobiology)
 "ixc" = (
@@ -31845,9 +31850,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/commons/fitness/recreation)
-"jwV" = (
-/turf/closed/wall/r_wall/rust,
-/area/station/engineering/atmos)
 "jxy" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/random/structure/crate,
@@ -42567,14 +42569,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
-"mSl" = (
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on{
-	dir = 8;
-	initialize_directions = 4;
-	name = "euthanization chamber freezer"
-	},
-/turf/open/floor/circuit/telecomms,
-/area/station/science/xenobiology)
 "mSm" = (
 /obj/structure/table,
 /obj/item/stack/cable_coil{
@@ -51668,7 +51662,7 @@
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/effect/decal/cleanable/vomit/old,
 /obj/structure/sign/poster/contraband/random/directional/north,
-/mob/living/simple_animal/hostile/retaliate/goose/vomit,
+/mob/living/basic/goose/vomit,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard)
@@ -54965,20 +54959,6 @@
 	},
 /turf/open/floor/iron/showroomfloor,
 /area/station/medical/office)
-"qOv" = (
-/obj/structure/disposalpipe/segment,
-/obj/structure/cable,
-/obj/structure/disposalpipe/segment,
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/public/glass{
-	name = "Chapel Hallway"
-	},
-/obj/effect/turf_decal/stripes/line,
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/turf/open/floor/iron/dark,
-/area/station/hallway/primary/fore)
 "qOx" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 8
@@ -64004,6 +63984,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /turf/open/floor/iron/showroomfloor,
 /area/station/science/xenobiology)
 "tyI" = (
@@ -70003,6 +69984,7 @@
 	},
 /obj/effect/turf_decal/bot,
 /obj/structure/sign/xenobio_guide/directional/west,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /turf/open/floor/iron/showroomfloor,
 /area/station/science/xenobiology)
 "vqU" = (
@@ -71797,12 +71779,6 @@
 "vNE" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/item/radio/intercom/directional/north{
-	broadcasting = 1;
-	frequency = 1447;
-	name = "Private Channel";
-	pixel_x = -26
-	},
 /obj/structure/sign/departments/aiupload/directional/west,
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 8
@@ -103455,7 +103431,7 @@ aSX
 aSX
 xDP
 aSX
-qOv
+euc
 uQI
 bHB
 gBJ
@@ -107823,7 +107799,7 @@ xRE
 pDF
 jQW
 qXc
-itn
+uxN
 cXH
 gIz
 veW
@@ -108393,7 +108369,7 @@ sfI
 biP
 cfL
 cfL
-jwV
+sSZ
 bDQ
 ouC
 kHQ
@@ -116013,7 +115989,7 @@ aUz
 vJc
 dGR
 dGR
-hgZ
+dGR
 fpU
 hRv
 tyx
@@ -116268,7 +116244,7 @@ aeu
 aeu
 aeu
 vJc
-mSl
+hgZ
 dGR
 glv
 vJc

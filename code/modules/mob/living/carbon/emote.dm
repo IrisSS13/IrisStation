@@ -232,6 +232,13 @@
 	key_third_person = "winks"
 	message = "winks."
 
+//IRIS EDIT ADDITION BEGIN - UNBLINKING_QUIRK - Seems like an upstream oversight to allow winking without eyelids
+/datum/emote/living/carbon/wink/can_run_emote(mob/user, status_check, intentional, params)
+	if(HAS_TRAIT(user, TRAIT_NO_EYELIDS))
+		return FALSE
+	return ..()
+//IRIS EDIT ADDITION END
+
 /datum/emote/living/carbon/hiss
 	key = "hiss"
 	key_third_person = "hisses"
