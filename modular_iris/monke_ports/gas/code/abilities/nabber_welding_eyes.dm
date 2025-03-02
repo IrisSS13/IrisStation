@@ -1,5 +1,5 @@
 //Seems to harddel at least one time out of 10 during tests for unknown reasons, turning it off for now
-
+/*
 /datum/action/cooldown/toggle_welding
 	name = "Toggle welding shield"
 	desc = "Toggle your eyes welding shield"
@@ -22,4 +22,4 @@
 	. = ..()
 	eyes = null
 	cooldown_time = null
-
+*/

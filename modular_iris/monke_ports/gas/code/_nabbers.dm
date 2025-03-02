@@ -46,7 +46,7 @@
 	bodytemp_heat_damage_limit = (BODYTEMP_HEAT_DAMAGE_LIMIT - 5) //-10 was a bit too high, as it already does damage to their lungs
 	species_language_holder = /datum/language_holder/nabber
 	mutantbrain = /obj/item/organ/brain/nabber
-	mutanteyes = /obj/item/organ/eyes/robotic/nabber
+	mutanteyes = /obj/item/organ/eyes/nabber
 	mutantlungs = /obj/item/organ/lungs/nabber
 	mutantheart = /obj/item/organ/heart/nabber
 	mutantliver = /obj/item/organ/liver/nabber
