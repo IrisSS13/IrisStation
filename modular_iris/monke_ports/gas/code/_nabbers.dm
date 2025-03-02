@@ -44,6 +44,7 @@
 	heatmod = 2.5 // IT BURNS
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	bodytemp_heat_damage_limit = (BODYTEMP_HEAT_DAMAGE_LIMIT - 5) //-10 was a bit too high, as it already does damage to their lungs
+	species_language_holder = /datum/language_holder/nabber
 	mutantbrain = /obj/item/organ/brain/nabber
 	mutanteyes = /obj/item/organ/eyes/nabber
 	mutantlungs = /obj/item/organ/lungs/nabber
@@ -171,17 +172,6 @@
 	))
 
 	return perk_descriptions
-
-//this was never working so it's gonna get a replacement
-/*
-/datum/language/nabber/get_random_name(gender, unique, lastname)
-	if(unique)
-		return random_unique_name(gender)
-
-	var/random_name
-	random_name += (pick("Alpha","Delta","Dzetta","Phi","Epsilon","Gamma","Tau","Omega") + " [rand(1, 199)]") //Stolen from elsewhere.
-	return random_name
-*/
 
 /mob/living/carbon/human/species/nabber
 	race = /datum/species/nabber

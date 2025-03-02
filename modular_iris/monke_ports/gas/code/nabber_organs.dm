@@ -10,6 +10,7 @@
 
 /obj/item/organ/tongue/nabber
 	name = "nabber tongue"
+	say_mod = "chitters"
 	liked_foodtypes = RAW | GORE | GRAIN
 	disliked_foodtypes = CLOTH | FRIED | TOXIC
 	toxic_foodtypes = DAIRY
