@@ -56,8 +56,8 @@
 	worn_accessory_offset = new(
 		attached_part = src,
 		feature_key = OFFSET_ACCESSORY,
-		offset_y = list("north" = 10, "south" = 10, "east" = 10, "west" = 10),
-	)
+		offset_y = list("north" = 0, "south" = 0, "east" = 0, "west" = 0),
+	) //temporary
 	return ..()
 
 /obj/item/bodypart/chest/mutant/nabber/Destroy()
