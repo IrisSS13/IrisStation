@@ -113,6 +113,8 @@
 	burn_modifier = NABBER_BURN_MODIFIER
 	biological_state = BIO_STANDARD_UNJOINTED
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
+	footprint_sprite = FOOTPRINT_SPRITE_SNAKE
+	footstep_type = null
 
 /obj/item/bodypart/leg/right/mutant/nabber
 	icon_greyscale = BODYPART_ICON_NABBER
@@ -121,6 +123,8 @@
 	burn_modifier = NABBER_BURN_MODIFIER
 	bodyshape = parent_type::bodyshape | BODYSHAPE_CUSTOM
 	biological_state = BIO_STANDARD_UNJOINTED
+	footprint_sprite = FOOTPRINT_SPRITE_SNAKE
+	footstep_type = null
 
 #undef NABBER_PUNCH_LOW
 #undef NABBER_PUNCH_HIGH
