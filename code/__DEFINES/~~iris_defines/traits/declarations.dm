@@ -16,6 +16,9 @@
 #define TRAIT_HANDEDNESS "handedness"
 #define TRAIT_HANDEDNESS_LEFT "handedness_left"
 
+// Part of https://github.com/Monkestation/Monkestation2.0/pull/5623
+#define TRAIT_CAFFEINE_DEPENDENCE "caffeine_dependence"
+
 //Trait sources
 
 //Special trait source for illiteracy granted by farsightedness, part of https://github.com/lizardqueenlexi/orbstation/pull/254
