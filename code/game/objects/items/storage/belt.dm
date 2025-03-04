@@ -272,6 +272,7 @@
 		/obj/item/handheld_soulcatcher, // NOVA EDIT SOULCATCHERS
 		/obj/item/wrench/medical,
 		/obj/item/knife/ritual,
+		/obj/item/flesh_shears,
 	))
 
 /obj/item/storage/belt/medical/paramedic
