@@ -19,6 +19,11 @@
 // Part of https://github.com/Monkestation/Monkestation2.0/pull/5623
 #define TRAIT_CAFFEINE_DEPENDENCE "caffeine_dependence"
 
+//COLORBLINDNESS_QUIRK, part of https://github.com/MrMelbert/MapleStationCode/pull/632
+#define COLORBLINDNESS_PROTANOPIA "Protanopia (Red-Green)"
+#define COLORBLINDNESS_DEUTERANOPIA "Deuteranopia (Red-Green)"
+#define COLORBLINDNESS_TRITANOPIA "Tritanopia (Blue-Yellow)"
+
 //Trait sources
 
 //Special trait source for illiteracy granted by farsightedness, part of https://github.com/lizardqueenlexi/orbstation/pull/254
