@@ -1,9 +1,11 @@
+//Quirk ported from https://github.com/Monkestation/Monkestation2.0/pull/313
 /datum/quirk/extra_sensory_paranoia
 	name = "Extra-Sensory Paranoia"
 	desc = "You feel like something wants to kill you..."
 	mob_trait = TRAIT_PARANOIA
 	value = -8
 	icon = FA_ICON_GHOST
+	medical_record_text = "Patient shows signs of scopophobia, and appears to suffer from vivid hallucinations."
 
 /datum/quirk/extra_sensory_paranoia/add()
 	var/mob/living/carbon/human/human_holder = quirk_holder
