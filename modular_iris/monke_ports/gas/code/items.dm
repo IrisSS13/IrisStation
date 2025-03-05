@@ -170,6 +170,7 @@
 
 //Ponchos
 
+/*
 /obj/item/clothing/suit/costume/nabber/poncho
 	species_exception = list(/datum/species/nabber) //ensure nabbers can wear ponchos.
 	name = "Basetype Poncho"
@@ -184,7 +185,7 @@
 		/obj/item/fireaxe/metal_h2_axe,
 		/obj/item/tank/internals,
 	)
-
+*/
 
 //Blood stuff
 
