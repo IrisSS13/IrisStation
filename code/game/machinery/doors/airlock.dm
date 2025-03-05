@@ -1056,6 +1056,8 @@
 		cable.plugin(src, user)
 	else if(istype(C, /obj/item/airlock_painter))
 		change_paintjob(C, user)
+	else if(istype(C, /obj/item/card/id/fake_card)) //IRIS ADDITION: Fake ID as part of https://github.com/Monkestation/MonkeStation/pull/806
+		open_with_fake_card(C, user)
 	else if(istype(C, /obj/item/door_seal)) //adding the seal
 		var/obj/item/door_seal/airlockseal = C
 		if(!density)
@@ -1250,6 +1252,28 @@
 	take_damage(25, BRUTE, 0, 0) // Enough to sometimes spark
 	if(density && !open(BYPASS_DOOR_CHECKS))
 		to_chat(user, span_warning("Despite your attempts, [src] refuses to open."))
+
+//IRIS ADDITION START: Fake ID interaction as part of https://github.com/Monkestation/MonkeStation/pull/806
+/obj/machinery/door/airlock/proc/open_with_fake_card(obj/card, mob/user)
+	add_fingerprint(user)
+	if(operating || welded || locked)
+		return FALSE
+	var/obj/item/card/id/fake_card/fake = card
+	if(fake.uses)
+		if(check_access_list(fake.access))
+			user.visible_message("<span class='warning'>[user] starts fumbling at \the [src] with a piece of paper!</span>", "<span class='userwarning'>You start swiping \the [fake] in \the [src]!</span>")
+			playsound(src, 'sound/items/handling/paper_pickup.ogg', 100, TRUE)
+			if(do_after(user, 5 SECONDS, target = src))
+				if(open()) //only take a use away if the door actually opens
+					playsound(src, 'sound/items/poster/poster_ripped.ogg', 100, TRUE)
+					fake.used()
+					if(fake.uses == 0)
+						to_chat(user, "<span class='warning'>It's no good, this ID is so torn up it won't fit in another door.</span>")
+		else
+			run_animation(DOOR_DENY_ANIMATION)
+	else
+		to_chat(user, "<span class='warning'>It's no good, this ID is so torn up it won't fit in another door.</span>")
+//IRIS ADDITION END
 
 /obj/machinery/door/airlock/open(forced = DEFAULT_DOOR_CHECKS)
 	if(cycle_pump && !operating && !welded && !seal && locked && density)
