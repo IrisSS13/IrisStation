@@ -4,7 +4,8 @@
 	desc = "You wake up inside a random locker with only a crude fake for an ID card."
 	value = -2
 	quirk_flags = QUIRK_HUMAN_ONLY | QUIRK_HIDE_FROM_SCAN
-	icon = FA_ICON_SUITCASE
+	icon = FA_ICON_SUITCASE_ROLLING
+	medical_record_text = "Patient has a knack for turning up where they aren't supposed to."
 
 /datum/quirk/stowaway/add_unique()
 	var/mob/living/carbon/human/stowaway = quirk_holder
@@ -21,6 +22,7 @@
 	var/obj/structure/closet/selected_closet = get_unlocked_closed_locker() //Find your new home
 	if(selected_closet)
 		stowaway.forceMove(selected_closet) //Move in
+
 
 /datum/quirk/stowaway/post_add()
 	to_chat(quirk_holder, span_boldnotice("You've awoken to find yourself inside [GLOB.station_name] without real identification!"))
