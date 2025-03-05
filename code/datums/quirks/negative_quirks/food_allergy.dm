@@ -22,6 +22,7 @@ GLOBAL_LIST_INIT(possible_food_allergies, list(
 	hardcore_value = 1
 	quirk_flags = QUIRK_HUMAN_ONLY
 	mail_goodies = list(/obj/item/reagent_containers/hypospray/medipen)
+	disabled_species = list(/datum/species/synthetic)
 	/// Footype flags that will trigger the allergy
 	var/target_foodtypes = NONE
 

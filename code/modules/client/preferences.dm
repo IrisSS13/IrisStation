@@ -524,6 +524,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	if(GetQuirkBalance() < 0)
 		all_quirks = list()
 
+/obj/item/testing/attack_self(mob/user, modifiers)
+	. = ..()
+	var/list/test = subtypesof(/datum/species) - /datum/species/synthetic
+	message_admins(test.Join(", "))
+
 /**
  * Safely read a given preference datum from a given client.
  *

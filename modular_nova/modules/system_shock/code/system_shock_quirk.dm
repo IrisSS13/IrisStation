@@ -8,6 +8,25 @@
 	mob_trait = TRAIT_SYSTEM_SHOCK
 	icon = FA_ICON_PLUG_CIRCLE_XMARK
 	quirk_flags = QUIRK_HUMAN_ONLY
+	disabled_species = list(/datum/species/shadow, /datum/species/shadow/nightmare, /datum/species/voidwalker,
+							/datum/species/abductor, /datum/species/abductor/abductorweak, /datum/species/android,
+							/datum/species/dullahan, /datum/species/ethereal, /datum/species/ethereal/lustrous,
+							/datum/species/human, /datum/species/human/felinid, /datum/species/human/felinid/primitive,
+							/datum/species/human/vampire, /datum/species/human/krokodil_addict, /datum/species/fly,
+							/datum/species/golem, /datum/species/jelly, /datum/species/jelly/slime,
+							/datum/species/jelly/luminescent, /datum/species/jelly/stargazer, /datum/species/jelly/roundstartslime,
+							/datum/species/lizard, /datum/species/lizard/ashwalker, /datum/species/lizard/silverscale,
+							/datum/species/monkey, /datum/species/moth, /datum/species/mush,
+							/datum/species/plasmaman, /datum/species/pod, /datum/species/pod/podweak,
+							/datum/species/skeleton, /datum/species/snail, /datum/species/zombie,
+							/datum/species/zombie/infectious, /datum/species/vox_primalis,
+							/datum/species/akula, /datum/species/aquatic, /datum/species/dwarf,
+							/datum/species/ghoul, /datum/species/humanoid, /datum/species/insect,
+							/datum/species/mammal, /datum/species/skrell, /datum/species/tajaran,
+							/datum/species/unathi, /datum/species/vox, /datum/species/vulpkanin,
+							/datum/species/xeno, /datum/species/hemophage, /datum/species/teshari,
+							/datum/species/mutant, /datum/species/mutant/infectious, /datum/species/mutant/infectious/fast,
+							/datum/species/mutant/infectious/slow)
 
 /datum/quirk/system_shock/add(client/client_source)
 	if(issynthetic(quirk_holder))
