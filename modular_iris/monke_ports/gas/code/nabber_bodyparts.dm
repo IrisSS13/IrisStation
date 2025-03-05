@@ -58,13 +58,19 @@
 		feature_key = OFFSET_ACCESSORY,
 		offset_y = list("north" = 0, "south" = 0, "east" = 0, "west" = 0),
 	) //temporary
+	worn_suit_storage_offset = new(
+		attached_part = src,
+		feature_key = OFFSET_S_STORE,
+		offset_x = list("north" = 0, "south" = 0, "east" = 3, "west" = -3),
+		offset_y = list("north" = 5, "south" = 5, "east" = 5, "west" = 5),
+	)
 	return ..()
 
 /obj/item/bodypart/chest/mutant/nabber/Destroy()
 	. = ..()
 	QDEL_NULL(worn_back_offset) // ditto
 	QDEL_NULL(worn_accessory_offset)
-
+	QDEL_NULL(worn_suit_storage_offset)
 
 /obj/item/bodypart/arm/left/mutant/nabber/Initialize(mapload)
 	held_hand_offset =  new(

@@ -167,3 +167,37 @@
 	w_class = WEIGHT_CLASS_TINY
 	icon = 'icons/obj/devices/syndie_gadget.dmi'
 	icon_state = "contacts" //stealing these for now.
+
+//Ponchos
+
+/obj/item/clothing/suit/costume/nabber/poncho
+	species_exception = list(/datum/species/nabber) //ensure nabbers can wear ponchos.
+	name = "Basetype Poncho"
+	desc = "The MOST basic poncho you can find (you shouldn't see this actually)."
+	icon = 'modular_iris/monke_ports/gas/icons/clothing.dmi'
+	worn_icon_nabber = 'modular_iris/monke_ports/gas/icons/clothing.dmi'
+	icon_state = "poncho"
+	allowed = list(
+		/obj/item/crowbar,
+		/obj/item/extinguisher,
+		/obj/item/flashlight,
+		/obj/item/fireaxe/metal_h2_axe,
+		/obj/item/tank/internals,
+	)
+
+
+//Blood stuff
+
+/obj/item/reagent_containers/blood/nabber
+	blood_type = "H"
+
+/datum/design/organic_bloodbag_nabber
+	name = "H Blood Pack"
+	id = "organic_bloodbag_nabber"
+	build_type = BIOGENERATOR
+	materials = list(/datum/material/biomass = 100)
+	build_path = /obj/item/reagent_containers/blood/nabber
+	category = list(
+		RND_CATEGORY_INITIAL,
+		RND_CATEGORY_DEFOREST_BLOOD,
+	)

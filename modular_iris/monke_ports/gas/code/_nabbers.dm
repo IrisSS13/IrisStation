@@ -36,7 +36,7 @@
 	)
 	digitigrade_customization = DIGITIGRADE_NEVER
 	//blood_colours = "#30498f" //Haemolyph is typically a deep blue. we dont have blood colors here, leaving it if upstream adds it or w/e
-	no_equip_flags = ITEM_SLOT_FEET | ITEM_SLOT_OCLOTHING | ITEM_SLOT_SUITSTORE
+	no_equip_flags = ITEM_SLOT_FEET | ITEM_SLOT_OCLOTHING
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
 	mutanttongue = /obj/item/organ/tongue/nabber
 	hair_alpha = 0
@@ -45,6 +45,8 @@
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	bodytemp_heat_damage_limit = (BODYTEMP_HEAT_DAMAGE_LIMIT - 5) //-10 was a bit too high, as it already does damage to their lungs
 	species_language_holder = /datum/language_holder/nabber
+	species_cookie = /obj/item/food/meat/slab
+	exotic_bloodtype = "H"
 	mutantbrain = /obj/item/organ/brain/nabber
 	mutanteyes = /obj/item/organ/eyes/nabber
 	mutantlungs = /obj/item/organ/lungs/nabber
@@ -84,7 +86,7 @@
 	//nabber.set_armor(nabber.get_armor().add_other_armor(/datum/armor/nabbers)) //Assign the armor
 	nabber.physiology.armor = nabber.physiology.armor.add_other_armor(/datum/armor/nabbers)
 /datum/species/nabber/get_species_description()
-	return "Large, bulky - impressively armoured and chitinous, these ambush predators are a recent acquisition by NanoTrasen. Loyal workers, not the brightest bulb in the pack - and physically impressive, they're perfect for all forms of menial, unimportant labor. Known to be extremely flammable."
+	return "(PH) PUT IRIS LORE HERE IDK"
 
 /datum/species/nabber/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)
 	. = ..()
