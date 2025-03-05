@@ -153,6 +153,7 @@
 		C.attack_alien(user)
 
                       //TRAITOR ITEMS\\
+
 /datum/uplink_item/device_tools/nabber_energyblades
 	name = "Energy Projector Attachment Case (EPAC)"
 	desc = "Techy, flashy. The ultimate upgrade for a premier predator - this case of energy-projectors allows Nabbers to turn themselves from scary, to downright terrifying. \
