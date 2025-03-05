@@ -170,12 +170,12 @@
 
 //Ponchos
 
-/*
 /obj/item/clothing/suit/costume/nabber/poncho
 	species_exception = list(/datum/species/nabber) //ensure nabbers can wear ponchos.
 	name = "Basetype Poncho"
 	desc = "The MOST basic poncho you can find (you shouldn't see this actually)."
-	icon = 'modular_iris/monke_ports/gas/icons/clothing.dmi'
+	icon = 'modular_iris/monke_ports/gas/icons/clothing_item.dmi' //[PH]
+	worn_icon = 'modular_iris/monke_ports/gas/icons/clothing.dmi' //[PH]
 	worn_icon_nabber = 'modular_iris/monke_ports/gas/icons/clothing.dmi'
 	icon_state = "poncho"
 	allowed = list(
@@ -185,7 +185,7 @@
 		/obj/item/fireaxe/metal_h2_axe,
 		/obj/item/tank/internals,
 	)
-*/
+
 
 //Blood stuff
 
