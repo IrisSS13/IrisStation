@@ -6,16 +6,6 @@
 	message = "is strumming the air and headbanging like a safari chimp."
 	hands_use_check = TRUE
 
-/datum/emote/living/carbon/blink
-	key = "blink"
-	key_third_person = "blinks"
-	message = "blinks."
-
-/datum/emote/living/carbon/blink_r
-	key = "blink_r"
-	name = "blink (Rapid)"
-	message = "blinks rapidly."
-
 //NOVA EDIT REMOVAL BEGIN - EMOTES - (Moved to modular_nova/modules/emotes/code/emotes.dm as /datum/emote/living/clap)
 /*
 /datum/emote/living/carbon/clap
@@ -241,6 +231,13 @@
 	key = "wink"
 	key_third_person = "winks"
 	message = "winks."
+
+//IRIS EDIT ADDITION BEGIN - UNBLINKING_QUIRK - Seems like an upstream oversight to allow winking without eyelids
+/datum/emote/living/carbon/wink/can_run_emote(mob/user, status_check, intentional, params)
+	if(HAS_TRAIT(user, TRAIT_NO_EYELIDS))
+		return FALSE
+	return ..()
+//IRIS EDIT ADDITION END
 
 /datum/emote/living/carbon/hiss
 	key = "hiss"

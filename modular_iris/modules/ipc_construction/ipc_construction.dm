@@ -30,9 +30,9 @@
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 10 SECONDS
 	materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.25,
-		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/gold = SMALL_MATERIAL_AMOUNT,
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 10,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/gold = SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/synth_chest
 	category = list(
@@ -86,12 +86,28 @@
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 10 SECONDS
 	materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.5,
-		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 2,
-		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 2,
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
+		/datum/material/gold = SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/silver = SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/mmi/posibrain/ipc
+	category = list(
+		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_CHASSIS,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
+
+/datum/design/power_cord
+	name = "Charging Implant"
+	id = "power_cord"
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
+	construction_time = 3 SECONDS
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
+		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 5,
+	)
+	build_path = /obj/item/organ/cyberimp/arm/power_cord/left_arm
 	category = list(
 		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_CHASSIS,
 	)

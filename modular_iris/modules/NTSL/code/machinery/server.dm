@@ -71,7 +71,7 @@ GLOBAL_LIST_EMPTY(tcomms_servers)
 	if(!length(compileerrors) && (compiledcode != rawcode))
 		user.log_message(rawcode, LOG_NTSL)
 		compiledcode = rawcode
-	if(user.mind.assigned_role == JOB_TELECOMMS_SPECIALIST) //achivement description says only Signal Technician gets the achivement
+	if(user.mind.assigned_role.title == JOB_TELECOMMS_SPECIALIST) //achivement description says only Signal Technician gets the achivement
 		var/freq = length(freq_listening[1]) ? freq_listening[1] : 1459
 		var/atom/movable/M = new()
 		var/atom/movable/virtualspeaker/speaker = new(null, M, server_radio)
@@ -84,7 +84,7 @@ GLOBAL_LIST_EMPTY(tcomms_servers)
 			signal.data["name"] = ""
 			signal.data["reject"] = FALSE
 			Compiler.Run(signal)
-			if(!signal.data["reject"] == FALSE)
+			if(signal.data["reject"] == FALSE)
 				user.client.give_award(/datum/award/achievement/jobs/Poly_silent, user)
 		else
 			for(var/sample in signal.data["spans"])

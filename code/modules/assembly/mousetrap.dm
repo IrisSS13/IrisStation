@@ -4,7 +4,7 @@
 	icon_state = "mousetrap"
 	inhand_icon_state = "mousetrap"
 	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT)
-	attachable = TRUE
+	assembly_behavior = ASSEMBLY_TOGGLEABLE_INPUT
 	var/armed = FALSE
 	drop_sound = 'sound/items/handling/component_drop.ogg'
 	pickup_sound = 'sound/items/handling/component_pickup.ogg'
@@ -85,9 +85,13 @@
 		if(!armed)
 			if(ishuman(usr))
 				var/mob/living/carbon/human/user = usr
-				if((HAS_TRAIT(user, TRAIT_DUMB) || HAS_TRAIT(user, TRAIT_CLUMSY)) && prob(50))
-					to_chat(user, span_warning("Your hand slips, setting off the trigger!"))
-					pulse()
+				//IRIS EDIT CHANGE BEGIN - HANDEDNESS_QUIRK
+				var/hand_index = user.active_hand_index
+				if(HAS_TRAIT(user, TRAIT_DUMB) || HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && IS_LEFT_INDEX(hand_index)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && IS_RIGHT_INDEX(hand_index)))
+					if(prob(50))
+						to_chat(user, span_warning("Your hand slips, setting off the trigger!"))
+						pulse()
+				//IRIS EDIT CHANGE END
 		update_appearance()
 		playsound(loc, 'sound/items/weapons/handcuffs.ogg', 30, TRUE, -3)
 
@@ -154,14 +158,18 @@
 /obj/item/assembly/mousetrap/proc/clumsy_check(mob/living/carbon/human/user)
 	if(!armed || !user)
 		return FALSE
-	if((HAS_TRAIT(user, TRAIT_DUMB) || HAS_TRAIT(user, TRAIT_CLUMSY)) && prob(50))
-		var/which_hand = BODY_ZONE_PRECISE_L_HAND
-		if(IS_RIGHT_INDEX(user.active_hand_index))
-			which_hand = BODY_ZONE_PRECISE_R_HAND
-		triggered(user, which_hand)
-		user.visible_message(span_warning("[user] accidentally sets off [src], breaking their fingers."), \
-			span_warning("You accidentally trigger [src]!"))
-		return TRUE
+	//IRIS EDIT CHANGE BEGIN - HANDEDNESS_QUIRK
+	var/hand_index = user.active_hand_index
+	if(HAS_TRAIT(user, TRAIT_DUMB) || HAS_TRAIT(user, TRAIT_CLUMSY) || (HAS_TRAIT(user, TRAIT_HANDEDNESS) && IS_LEFT_INDEX(hand_index)) || (HAS_TRAIT(user, TRAIT_HANDEDNESS_LEFT) && IS_RIGHT_INDEX(hand_index)))
+		if(prob(50))
+			var/which_hand = BODY_ZONE_PRECISE_L_HAND
+			if(IS_RIGHT_INDEX(user.active_hand_index))
+				which_hand = BODY_ZONE_PRECISE_R_HAND
+			triggered(user, which_hand)
+			user.visible_message(span_warning("[user] accidentally sets off [src], breaking their fingers."), \
+				span_warning("You accidentally trigger [src]!"))
+			return TRUE
+	//IRIS EDIT CHANGE END
 	return FALSE
 
 /obj/item/assembly/mousetrap/attack_self(mob/living/carbon/human/user)

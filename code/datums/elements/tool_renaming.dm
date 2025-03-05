@@ -64,11 +64,13 @@
 			renamed_obj.AddComponent(/datum/component/rename, renamed_obj.name, input)
 			to_chat(user, span_notice("You have successfully changed [renamed_obj]'s description."))
 			renamed_obj.update_appearance(UPDATE_DESC)
+			renamed_obj.AddElement(/datum/element/examined_when_worn) // IRIS EDIT: Examine people's held items (if they have altered descriptions)
 
 		if(OPTION_RESET)
 			qdel(renamed_obj.GetComponent(/datum/component/rename))
 			to_chat(user, span_notice("You have successfully reset [renamed_obj]'s name and description."))
 			renamed_obj.update_appearance(UPDATE_NAME | UPDATE_DESC)
+			renamed_obj.RemoveElement(/datum/element/examined_when_worn) // IRIS EDIT: Examine people's held items (if they have altered descriptions)
 
 #undef OPTION_RENAME
 #undef OPTION_DESCRIPTION

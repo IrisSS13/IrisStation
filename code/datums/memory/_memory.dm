@@ -279,7 +279,11 @@
 		/mob/living/basic/stickman,
 		/mob/living/basic/stickman/dog,
 		/mob/living/simple_animal/hostile/megafauna/dragon/lesser,
+		//IRIS EDIT REMOVAL BEGIN - SUSSY_CONTENT_REMOVAL
+		/*
 		/obj/item/food/sausage/american,
+		*/
+		//IRIS EDIT REMOVAL END
 		/obj/item/skub,
 	)
 

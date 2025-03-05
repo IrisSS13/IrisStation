@@ -55,9 +55,9 @@
 	AddComponent(/datum/component/alternative_sharpness, SHARP_POINTY, alt_continuous, alt_simple)
 
 /obj/item/knife/suicide_act(mob/living/user)
-	user.visible_message(pick(span_suicide("[user] is slitting [user.p_their()] wrists with the [src.name]! It looks like [user.p_theyre()] trying to commit suicide."), \
-		span_suicide("[user] is slitting [user.p_their()] throat with the [src.name]! It looks like [user.p_theyre()] trying to commit suicide."), \
-		span_suicide("[user] is slitting [user.p_their()] stomach open with the [src.name]! It looks like [user.p_theyre()] trying to commit seppuku.")))
+	user.visible_message(pick(span_suicide("[user] is slitting [user.p_their()] wrists with \the [src]! It looks like [user.p_theyre()] trying to commit suicide."), \
+		span_suicide("[user] is slitting [user.p_their()] throat with \the [src]! It looks like [user.p_theyre()] trying to commit suicide."), \
+		span_suicide("[user] is slitting [user.p_their()] stomach open with \the [src]! It looks like [user.p_theyre()] trying to commit seppuku.")))
 	return BRUTELOSS
 
 /obj/item/knife/ritual
@@ -147,14 +147,14 @@
 	icon_state = "buckknife"
 	worn_icon_state = "buckknife"
 	icon_angle = -45
-	embed_type = /datum/embed_data/combat_knife
+	embed_type = /datum/embedding/combat_knife
 	force = 20
 	throwforce = 20
 	attack_verb_continuous = list("slashes", "stabs", "slices", "tears", "lacerates", "rips", "cuts")
 	attack_verb_simple = list("slash", "stab", "slice", "tear", "lacerate", "rip", "cut")
 	slot_flags = ITEM_SLOT_MASK
 
-/datum/embed_data/combat_knife
+/datum/embedding/combat_knife
 	pain_mult = 4
 	embed_chance = 65
 	fall_chance = 10
@@ -187,7 +187,7 @@
 	desc = "A hunting grade survival knife."
 	icon_state = "survivalknife"
 	worn_icon_state = "survivalknife"
-	embed_type = /datum/embed_data/combat_knife/weak
+	embed_type = /datum/embedding/combat_knife/weak
 	force = 15
 	throwforce = 15
 
@@ -199,7 +199,7 @@
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
 	inhand_icon_state = "rootshiv"
-	embed_type = /datum/embed_data/combat_knife/weak
+	embed_type = /datum/embedding/combat_knife/weak
 	force = 15
 	throwforce = 15
 
@@ -211,13 +211,13 @@
 	worn_icon_state = "bone_dagger"
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
-	embed_type = /datum/embed_data/combat_knife/weak
+	embed_type = /datum/embedding/combat_knife/weak
 	obj_flags = parent_type::obj_flags & ~CONDUCTS_ELECTRICITY
 	force = 15
 	throwforce = 15
 	custom_materials = null
 
-/datum/embed_data/combat_knife/weak
+/datum/embedding/combat_knife/weak
 	embed_chance = 35
 
 /obj/item/knife/combat/cyborg
