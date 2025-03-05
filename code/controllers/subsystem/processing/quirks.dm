@@ -52,6 +52,8 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/handedness, /datum/quirk/clumsy),
 	//UNBLINKING_QUIRK
 	list(/datum/quirk/unblinking, /datum/quirk/item_quirk/fluoride_stare),
+	list(/datum/quirk/colorblind, /datum/quirk/monochromatic),
+	list(/datum/quirk/echolocation, /datum/quirk/item_quirk/blindness, /datum/quirk/tunnel_vision),
 	//IRIS EDIT ADDITION END
 ))
 
