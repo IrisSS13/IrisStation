@@ -170,7 +170,7 @@
 
 //Ponchos
 
-/obj/item/clothing/suit/costume/nabber/poncho
+/obj/item/clothing/suit/costume/nabber_poncho
 	species_exception = list(/datum/species/nabber) //ensure nabbers can wear ponchos.
 	name = "Basetype Poncho"
 	desc = "The MOST basic poncho you can find (you shouldn't see this actually)."
