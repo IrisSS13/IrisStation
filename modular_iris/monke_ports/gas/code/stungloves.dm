@@ -7,7 +7,7 @@
 	worn_icon_nabber = 'modular_iris/monke_ports/gas/icons/mob/clothing/hands.dmi'
 	icon_state = "stunglove"
 	base_icon_state = "stunglove"
-	inhand_icon_state = "baton"
+	inhand_icon_state = "stunbaton"
 	worn_icon_state = "stunglove_onmob"
 	body_parts_covered = HANDS
 	slot_flags = ITEM_SLOT_GLOVES
