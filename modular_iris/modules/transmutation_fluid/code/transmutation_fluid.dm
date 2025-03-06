@@ -16,6 +16,7 @@
 	optimal_ph_max = 14
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_OTHER
 
+//Oil and hydrogen makes welding fuel
 /datum/chemical_reaction/transmutation/fuel
 	results = list(/datum/reagent/fuel = 2)
 	required_reagents = list(/datum/reagent/fuel/oil = 1, /datum/reagent/hydrogen = 1)
