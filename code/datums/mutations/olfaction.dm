@@ -21,6 +21,7 @@
 	name = "Remember the Scent"
 	desc = "Get a scent off of the item you're currently holding to track it. \
 		With an empty hand, you'll track the scent you've remembered."
+	button_icon = 'modular_iris/master_files/icons/mob/actions/actions_spells.dmi' // IRIS EDIT: fixes invisible icon
 	button_icon_state = "nose"
 
 	cooldown_time = 10 SECONDS
