@@ -48,7 +48,7 @@
 	species_cookie = /obj/item/food/meat/slab
 	exotic_bloodtype = "H"
 	mutantbrain = /obj/item/organ/brain/nabber
-	mutanteyes = /obj/item/organ/eyes/nabber
+	mutanteyes = /obj/item/organ/eyes/robotic/nabber
 	mutantlungs = /obj/item/organ/lungs/nabber
 	mutantheart = /obj/item/organ/heart/nabber
 	mutantliver = /obj/item/organ/liver/nabber
@@ -151,14 +151,14 @@
 		SPECIES_PERK_NAME = "Flammable Chitin",
 		SPECIES_PERK_DESC = "Due to the photoreflectivity and nature of their chitin, Giant Armoured Serpentids are known to be EXTREMELY burn weak, taking almost double damage from all sources, and combusting on exposure to open flame or hot enough atmospherics."
 	))
-	/*
+
 	perk_descriptions += list(list(
 		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 		SPECIES_PERK_ICON = "user-plus",
 		SPECIES_PERK_NAME = "Nictating Membrane",
 		SPECIES_PERK_DESC = "Giant Armoured Serpentids have a secondary membrane in their eyes that allows them to shield their sensitive vision from bright lights."
 	))
-	*/
+
 	perk_descriptions += list(list(
 		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 		SPECIES_PERK_ICON = "user-plus",
