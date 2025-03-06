@@ -5,7 +5,7 @@
 // Shifted to glob so they are generated at world start instead of risking players doing preference stuff before the subsystem inits
 GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/item_quirk/blindness, /datum/quirk/item_quirk/nearsighted),
-	list(/datum/quirk/item_quirk/blindness, /datum/quirk/item_quirk/farsighted), //IRIS ADDITION
+	list(/datum/quirk/item_quirk/blindness, /datum/quirk/item_quirk/farsighted, /datum/quirk/echolocation), //IRIS ADDITION
 	list(/datum/quirk/item_quirk/blindness, /datum/quirk/item_quirk/scarred_eye),
 	list(/datum/quirk/item_quirk/blindness, /datum/quirk/item_quirk/fluoride_stare),
 	list(/datum/quirk/item_quirk/blindness, /datum/quirk/touchy),
@@ -42,7 +42,7 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/oversized, /datum/quirk/freerunning),
 	list(/datum/quirk/oversized, /datum/quirk/item_quirk/settler),
 	list(/datum/quirk/echolocation, /datum/quirk/item_quirk/blindness, /datum/quirk/item_quirk/nearsighted, /datum/quirk/item_quirk/deafness),
-	list(/datum/quirk/sensitive_hearing, /datum/quirk/item_quirk/blindness, /datum/quirk/item_quirk/deafness, /datum/quirk/echolocation),
+	list(/datum/quirk/sensitive_hearing, /datum/quirk/item_quirk/deafness, /datum/quirk/echolocation),
 	//NOVA EDIT ADDITION END
 	//IRIS EDIT ADDITION BEGIN
 	//ORBSTATION PORT: if you're illiterate, farsighted would just be free points
