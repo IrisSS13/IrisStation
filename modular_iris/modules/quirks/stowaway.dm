@@ -9,19 +9,22 @@
 
 /datum/quirk/stowaway/add_unique()
 	var/mob/living/carbon/human/stowaway = quirk_holder
-	stowaway.Sleeping(5 SECONDS)
-	var/obj/item/card/id/trashed = stowaway.get_item_by_slot(ITEM_SLOT_ID) //No ID
-	qdel(trashed)
+	if(!(stowaway.mind.assigned_role.job_flags & JOB_CREW_MEMBER)) //We don't want ghostroles working their way on-station
+		return
+	else
+		stowaway.Sleeping(5 SECONDS)
+		var/obj/item/card/id/trashed = stowaway.get_item_by_slot(ITEM_SLOT_ID) //No ID
+		qdel(trashed)
 
-	var/obj/item/card/id/fake_card/card = new(quirk_holder.drop_location()) //a fake ID with two uses for maint doors
-	quirk_holder.equip_to_slot_if_possible(card, ITEM_SLOT_ID)
-	card.register_name(quirk_holder.real_name)
+		var/obj/item/card/id/fake_card/card = new(quirk_holder.drop_location()) //a fake ID with two uses for maint doors
+		quirk_holder.equip_to_slot_if_possible(card, ITEM_SLOT_ID)
+		card.register_name(quirk_holder.real_name)
 
-	if(prob(20))
-		stowaway.adjust_drunk_effect(50) //What did I DO last night?
-	var/obj/structure/closet/selected_closet = get_unlocked_closed_locker() //Find your new home
-	if(selected_closet)
-		stowaway.forceMove(selected_closet) //Move in
+		if(prob(20))
+			stowaway.adjust_drunk_effect(50) //What did I DO last night?
+		var/obj/structure/closet/selected_closet = get_unlocked_closed_locker() //Find your new home
+		if(selected_closet)
+			stowaway.forceMove(selected_closet) //Move in
 
 
 /datum/quirk/stowaway/post_add()
