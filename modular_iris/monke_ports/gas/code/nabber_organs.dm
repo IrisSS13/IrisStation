@@ -49,8 +49,8 @@
 /obj/item/organ/eyes/robotic/nabber/on_mob_insert(mob/living/carbon/eye_recipient)
 	. = ..()
 	shield = new(eye_recipient)
-	shield.button_icon = ORGAN_ICON_NABBER
-	shield.button_icon_state = "eyes"
+	shield.button_icon = 'modular_iris/monke_ports/gas/icons/actions.dmi'
+	shield.button_icon_state = "nabber-shield-0"
 	shield.Grant(eye_recipient)
 	shield.eyes = src
 
