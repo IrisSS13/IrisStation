@@ -51,7 +51,7 @@
 	accepts_accounts = FALSE
 	registered_name = "Nohbdy"
 	access = list(ACCESS_MAINT_TUNNELS)
-	var/uses = 2
+	var/uses = 4
 
 /obj/item/card/id/fake_card/proc/register_name(new_name)
 	registered_name = new_name
@@ -62,10 +62,10 @@
 	switch(uses)
 		if(0)
 			icon_state = "counterfeit_torn2"
-		if(1)
+		if(2, 1)
 			icon_state = "counterfeit_torn"
 		else
-			icon_state = "counterfeit" //in case you somehow repair it to 3+
+			icon_state = "counterfeit" //in case you somehow repair it to 4+
 
 /obj/item/card/id/fake_card/alt_click_can_use_id(mob/living/user)
 	return FALSE //no accounts on fake cards
