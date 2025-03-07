@@ -6,7 +6,7 @@
 	hardcore_value = 3
 	quirk_flags = QUIRK_HUMAN_ONLY | QUIRK_CHANGES_APPEARANCE
 	mail_goodies = list(/obj/item/weldingtool/mini, /obj/item/stack/cable_coil/five)
-	disabled_species = list(/datum/species/synthetic)
+	disabled_species = list(/datum/species/synthetic) //IRIS EDIT
 	/// The slot to replace, in string form
 	var/slot_string = "limb"
 	/// the original limb from before the prosthetic was applied

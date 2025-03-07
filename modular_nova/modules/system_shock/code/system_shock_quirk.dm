@@ -26,7 +26,7 @@
 							/datum/species/unathi, /datum/species/vox, /datum/species/vulpkanin,
 							/datum/species/xeno, /datum/species/hemophage, /datum/species/teshari,
 							/datum/species/mutant, /datum/species/mutant/infectious, /datum/species/mutant/infectious/fast,
-							/datum/species/mutant/infectious/slow)
+							/datum/species/mutant/infectious/slow) //IRIS EDIT
 
 /datum/quirk/system_shock/add(client/client_source)
 	if(issynthetic(quirk_holder))

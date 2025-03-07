@@ -518,7 +518,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	for(var/quirk_name in all_quirks)
 		var/datum/quirk/quirk_type = SSquirks.quirks[quirk_name]
 		var/datum/species/species = read_preference(/datum/preference/choiced/species)
-		if(species in initial(quirk_type.disabled_species))
+		if(species in initial(quirk_type.disabled_species)) //IRIS EDIT
 			all_quirks -= quirk_name
 
 	if(GetQuirkBalance() < 0)
