@@ -66,12 +66,16 @@
 		tint = 2
 		owner.update_tint()
 		owner.balloon_alert(owner, "Welder eyelids shut!")
+		shield.button_icon_state = "nabber-shield-1"
+		owner.update_action_buttons()
 		return
 
 	flash_protect = FLASH_PROTECTION_SENSITIVE
 	tint = 0
 	owner.update_tint()
 	owner.balloon_alert(owner, "Welder eyelids open!")
+	shield.button_icon_state = "nabber-shield-0"
+	owner.update_action_buttons()
 
 /obj/item/organ/eyes/robotic/nabber/Remove(mob/living/carbon/eye_owner, special)
 	. = ..()

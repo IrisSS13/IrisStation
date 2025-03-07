@@ -173,12 +173,12 @@
 
 /obj/item/clothing/suit/costume/nabber_poncho
 	species_exception = list(/datum/species/nabber) //ensure nabbers can wear ponchos.
-	name = "Basetype Poncho"
-	desc = "The MOST basic poncho you can find (you shouldn't see this actually)."
+	name = "Giant Poncho"
+	desc = "Departmental poncho, mainly used by species with biology that makes it hard to wear most outerwear."
 	icon = 'modular_iris/monke_ports/gas/icons/clothing_item.dmi' //[PH]
-	worn_icon = 'modular_iris/monke_ports/gas/icons/clothing.dmi' //[PH]
+	worn_icon = 'modular_iris/monke_ports/gas/icons/poncho_human.dmi' //[PH] mostly
 	worn_icon_nabber = 'modular_iris/monke_ports/gas/icons/clothing.dmi'
-	icon_state = "poncho"
+	icon_state = "classicponcho"
 	allowed = list(
 		/obj/item/crowbar,
 		/obj/item/extinguisher,
@@ -187,6 +187,36 @@
 		/obj/item/tank/internals,
 	)
 
+
+/obj/item/clothing/suit/costume/nabber_poncho/cargo
+	name = "Cargo Poncho"
+	icon_state = "cargoponcho"
+
+/obj/item/clothing/suit/costume/nabber_poncho/engi
+	name = "Engineering Poncho"
+	icon_state = "engiponcho"
+
+/obj/item/clothing/suit/costume/nabber_poncho/medbay
+	name = "Medbay Poncho"
+	icon_state = "medponcho"
+
+/obj/item/clothing/suit/costume/nabber_poncho/security
+	name = "Security Poncho"
+	icon_state = "secponcho"
+
+/obj/item/clothing/suit/costume/nabber_poncho/science
+	name = "Science Poncho"
+	icon_state = "sciponcho_nt"
+
+/obj/item/clothing/suit/costume/nabber_poncho/fireresistant
+	name = "Fire-resistant Poncho"
+	desc = "This poncho was designed to protect the user from extreme heat at the cost of significant slowdown."
+	icon_state = "sciponcho"
+	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
+	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS
+	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS
+	resistance_flags = FIRE_PROOF
+	slowdown = 1.5
 
 //Blood stuff
 
