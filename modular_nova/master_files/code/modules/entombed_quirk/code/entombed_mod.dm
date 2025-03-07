@@ -10,8 +10,7 @@
 	siemens_coefficient = 0
 	complexity_max = DEFAULT_MAX_COMPLEXITY //IRIS EDIT: Increased complexity to base value (Assorted Entombed Buffs)
 	charge_drain = DEFAULT_CHARGE_DRAIN * 0.6  // IRIS EDIT: Slower charge drain (Assorted Entombed Buffs)
-	slowdown_inactive = 2.5 // very slow because the quirk infers you rely on this to move/exist
-	slowdown_active = 0.5 // IRIS EDIT: Reduced slowdown (Assorted Entombed Buffs)
+	slowdown_deployed = 0.95
 	//IRIS EDIT: Removed joint torsion to balance around new charge drain, added basic EMP Protections and Status Readout (Assorted Entombed Buffs)
 	inbuilt_modules = list(
 		/obj/item/mod/module/storage,
