@@ -6,6 +6,10 @@
 	medical_record_text = "Patient possesses a strong tremor in both hands."
 	hardcore_value = 3
 	mail_goodies = list(/obj/item/cardboard_cutout) // for target practice
+	//IRIS EDIT ADDITION BEGIN - COGNOMERGE_EVENT
+	gain_text = span_danger("The thought of shooting a gun sets your hands trembling.")
+	lose_text = span_notice("Your hands no longer tremble when you think about shooting guns.")
+	//IRIS EDIT ADDITION END
 
 /datum/quirk/poor_aim/add(client/client_source)
 	RegisterSignal(quirk_holder, COMSIG_MOB_FIRED_GUN, PROC_REF(on_mob_fired_gun))
