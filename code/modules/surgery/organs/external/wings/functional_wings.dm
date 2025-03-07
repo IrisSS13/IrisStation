@@ -163,7 +163,9 @@
 	owner.update_body_parts()
 
 	if(isturf(owner?.loc))
-		var/turf/location = loc
+		//start iris edit change change "= loc" into get_turf(owner)
+		var/turf/location = get_turf(owner)
+		//end iris edit
 		location.Entered(src, NONE)
 
 	SEND_SIGNAL(src, COMSIG_WINGS_CLOSED, owner)

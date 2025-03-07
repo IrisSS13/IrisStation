@@ -18,6 +18,13 @@
   if(HAS_TRAIT_FROM(human, TRAIT_MOVE_FLOATING, SPECIES_FLIGHT_TRAIT))
   		human.adjustStaminaLoss(8)
 
+
+/obj/item/organ/wings/functional/gizzard
+	name = "Natural wings"
+	desc = "This should help you fly"
+	sprite_accessory_override = /datum/sprite_accessory/wings/dragon
+
+
 /datum/bodypart_overlay/mutant/wings/functional/gizzard
 
 /datum/bodypart_overlay/mutant/wings/functional/gizzard/can_draw_on_bodypart(mob/living/carbon/human/human)
