@@ -14,7 +14,7 @@
 	name = "augment auto-ripper"
 	desc = "An advanced automatic ripper for augmentation and implantation alike. \
 		You wonder why you don't see more of these things..."
-	icon = 'modular_doppler/autoimplanter/icons/implanter.dmi'
+	icon = 'modular_iris/autoimplanter/icons/implanter.dmi'
 	icon_state = "harvester"
 	base_icon_state = "harvester"
 	verb_say = "states"
