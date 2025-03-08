@@ -4,26 +4,26 @@
 	restricted_species = list(SPECIES_NABBER)
 
 /datum/loadout_item/suit/nabberponcho_cargo
-	name = "Giant Poncho"
+	name = "Cargo Poncho"
 	item_path = /obj/item/clothing/suit/costume/nabber_poncho/cargo
 	restricted_species = list(SPECIES_NABBER)
 
 /datum/loadout_item/suit/nabberponcho_engi
-	name = "Giant Poncho"
+	name = "Engineering Poncho"
 	item_path = /obj/item/clothing/suit/costume/nabber_poncho/engi
 	restricted_species = list(SPECIES_NABBER)
 
 /datum/loadout_item/suit/nabberponcho_sec
-	name = "Giant Poncho"
+	name = "Security Poncho"
 	item_path = /obj/item/clothing/suit/costume/nabber_poncho/security
 	restricted_species = list(SPECIES_NABBER)
 
 /datum/loadout_item/suit/nabberponcho_sci
-	name = "Giant Poncho"
+	name = "Science Poncho"
 	item_path = /obj/item/clothing/suit/costume/nabber_poncho/science
 	restricted_species = list(SPECIES_NABBER)
 
 /datum/loadout_item/suit/nabberponcho_med
-	name = "Giant Poncho"
+	name = "Medbay Poncho"
 	item_path = /obj/item/clothing/suit/costume/nabber_poncho/medbay
 	restricted_species = list(SPECIES_NABBER)
