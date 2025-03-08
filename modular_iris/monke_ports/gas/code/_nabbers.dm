@@ -15,7 +15,6 @@
 	acid = 15 // Acid reduction
 	bomb = 10 //Forgot to add this earlier. Should stop them from instantly getting eviscerated from things like exploding vines/etc
 
-//who tf adds the same thing 3 times
 /datum/species/nabber
 	id = SPECIES_NABBER
 	name = "Giant Armored Serpentid"
@@ -74,7 +73,7 @@
 
 	var/datum/action/cooldown/toggle_arms/arms
 	var/datum/action/cooldown/optical_camouflage/camouflage
-	//var/datum/action/cooldown/nabber_threat/threat_mod -Disabled pending balance and re-spriting.
+	var/datum/action/cooldown/nabber_threat/threat_mod
 
 /datum/species/nabber/on_species_gain(mob/living/carbon/human/nabber, datum/species/old_species, pref_load, regenerate_icons = TRUE)
 	. = ..()
@@ -82,8 +81,8 @@
 	arms.Grant(nabber)
 	camouflage = new(nabber)
 	camouflage.Grant(nabber)
-
-	//nabber.set_armor(nabber.get_armor().add_other_armor(/datum/armor/nabbers)) //Assign the armor
+	//threat_mod = new(nabber)
+	//threat_mod.Grant(nabber)
 	nabber.physiology.armor = nabber.physiology.armor.add_other_armor(/datum/armor/nabbers)
 /datum/species/nabber/get_species_description()
 	return "(PH) PUT IRIS LORE HERE IDK"
@@ -92,7 +91,6 @@
 	. = ..()
 	qdel(arms)
 	qdel(camouflage)
-	//C.set_armor(C.get_armor().subtract_other_armor(/datum/armor/nabbers)) //Make sure to remove it, to stop people abusing lings/etc to gain infinite melee armor
 	C.physiology.armor = C.physiology.armor.subtract_other_armor(/datum/armor/nabbers)
 	//threat_mod.Destroy()
 
