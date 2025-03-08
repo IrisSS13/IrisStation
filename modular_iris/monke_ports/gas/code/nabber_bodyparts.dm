@@ -18,7 +18,7 @@
 	worn_ears_offset = new(
 		attached_part = src,
 		feature_key = OFFSET_EARS,
-		offset_y = list("north" = 9, "south" = 9, "east" = 9, "west" = 9),
+		offset_y = list("north" = 9, "south" = 7, "east" = 9, "west" = 9),
 	)
 	worn_head_offset = new(
 		attached_part = src,

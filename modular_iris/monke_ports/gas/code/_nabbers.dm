@@ -24,9 +24,9 @@
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_PUSHIMMUNE, //You aint pushing it, chief.
-		//TRAIT_LIGHT_STEP,	//Can't wear shoes (do i really want both lol)
 		TRAIT_RESISTLOWPRESSURE,
 		TRAIT_HARD_SOLES,
+		TRAIT_NO_AUGMENTS, //it looks BAD
 		TRAIT_RADIMMUNE, //Flavor
 		TRAIT_MUTANT_COLORS,
 		EYE_COLOR,
