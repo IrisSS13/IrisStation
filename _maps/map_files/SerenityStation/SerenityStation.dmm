@@ -4949,10 +4949,6 @@
 /turf/open/floor/wood/large,
 /area/station/security/prison/garden)
 "bvd" = (
-/obj/structure/chair/sofa/corp/right{
-	dir = 8;
-	pixel_x = 7
-	},
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron/dark/smooth_half{
 	dir = 1
@@ -8669,6 +8665,7 @@
 	name = "Kill Chamber";
 	req_access = list("xenobiology")
 	},
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
 "cyn" = (
@@ -21737,7 +21734,8 @@
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/cable,
 /obj/machinery/computer/telecomms/traffic{
-	dir = 4
+	dir = 4;
+	network = "tcommsat"
 	},
 /turf/open/floor/circuit/green,
 /area/station/tcommsat/computer)
@@ -29661,6 +29659,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/white,
 /area/station/medical/storage)
 "iuC" = (
@@ -39640,7 +39639,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/obj/effect/landmark/start/captain,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/heads_quarters/captain)
 "lsf" = (
@@ -40533,6 +40531,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/dark,
 /area/station/tcommsat/computer)
 "lEE" = (
@@ -58627,6 +58626,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/duct,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/service/kitchen/coldroom)
 "rbk" = (
@@ -60157,6 +60157,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
 /obj/effect/turf_decal/stripes/full,
 /obj/effect/mapping_helpers/airlock/access/all/science/rd,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/white,
 /area/station/science/server)
 "rzv" = (
@@ -67127,13 +67128,12 @@
 /turf/open/floor/iron,
 /area/station/science/lab)
 "tAg" = (
-/obj/structure/chair/sofa/corp/left{
-	dir = 8;
-	pixel_x = 7
+/obj/machinery/greenscreen_camera{
+	dir = 4;
+	pixel_x = -16;
+	pixel_y = 4
 	},
-/obj/structure/sign/painting/library{
-	pixel_x = 32
-	},
+/obj/structure/sign/poster/greenscreen/directional/east,
 /turf/open/floor/iron/dark/smooth_half{
 	dir = 1
 	},

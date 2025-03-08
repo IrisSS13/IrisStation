@@ -187,6 +187,20 @@
 	icon = 'modular_iris/icons/mob/species/human/hair.dmi'
 	icon_state = "hair_short_side"
 
+// TAILS
+
+/datum/sprite_accessory/tails/mammal/wagging/dog
+	name = "Dog"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/tails.dmi'
+	icon_state = "dog"
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/tails/mammal/wagging/bunny
+	name = "Bunny"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/tails.dmi'
+	icon_state = "bunny"
+	color_src = USE_ONE_COLOR
+
 //teshari
 /datum/sprite_accessory/tails/mammal/teshari/damaged
 	name = "Teshari (Damaged)"
@@ -197,6 +211,27 @@
 	name = "Teshari (Stubby)"
 	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/tails.dmi'
 	icon_state = "teshari_stubby"
+
+// EARS
+
+/datum/sprite_accessory/ears/mutant/dog
+	name = "Dog"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/ears.dmi'
+	icon_state = "dog"
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/ears/mutant/rabbit/upwards
+	name = "Rabbit (Upwards)"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/ears.dmi'
+	icon_state = "rabbit"
+
+/datum/sprite_accessory/ears/mutant/rabbit/upwards/bent
+	name = "Rabbit (Bent)"
+	icon_state = "rabbit_bent"
+
+/datum/sprite_accessory/ears/mutant/rabbit/upwards/floppy
+	name = "Rabbit (Floppy)"
+	icon_state = "rabbit_floppy"
 
 //moved from modular_nova/.../sprite_accessories to keep "none" at the top of our wing selection list
 
