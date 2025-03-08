@@ -73,7 +73,7 @@
 
 	var/datum/action/cooldown/toggle_arms/arms
 	var/datum/action/cooldown/optical_camouflage/camouflage
-	var/datum/action/cooldown/nabber_threat/threat_mod
+	//var/datum/action/cooldown/nabber_threat/threat_mod
 
 /datum/species/nabber/on_species_gain(mob/living/carbon/human/nabber, datum/species/old_species, pref_load, regenerate_icons = TRUE)
 	. = ..()
@@ -84,6 +84,7 @@
 	//threat_mod = new(nabber)
 	//threat_mod.Grant(nabber)
 	nabber.physiology.armor = nabber.physiology.armor.add_other_armor(/datum/armor/nabbers)
+
 /datum/species/nabber/get_species_description()
 	return "(PH) PUT IRIS LORE HERE IDK"
 
