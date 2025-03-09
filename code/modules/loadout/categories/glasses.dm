@@ -63,7 +63,7 @@
 */ // NOVA EDIT REMOVAL END
 
 /datum/loadout_item/glasses/prescription_glasses/kim
-	name = "Thin Glasses"
+	name = "Binoclard Lenses" //IRIS EDIT fixes duping glasses / was Thin Glasses
 	item_path = /obj/item/clothing/glasses/regular/kim
 
 /datum/loadout_item/glasses/monocle
