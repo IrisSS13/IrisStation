@@ -218,6 +218,20 @@
 	resistance_flags = FIRE_PROOF
 	slowdown = 1.5
 
+//Other suits that have nabber icon
+
+/obj/item/clothing/suit/apron/chef
+	worn_icon_nabber = 'modular_iris/monke_ports/gas/icons/clothing.dmi'
+	species_exception = list(/datum/species/nabber)
+
+/obj/item/clothing/suit/apron
+	worn_icon_nabber = 'modular_iris/monke_ports/gas/icons/clothing.dmi'
+	species_exception = list(/datum/species/nabber)
+
+/obj/item/clothing/suit/hazardvest
+	worn_icon_nabber = 'modular_iris/monke_ports/gas/icons/clothing.dmi'
+	species_exception = list(/datum/species/nabber)
+
 //Blood stuff
 
 /obj/item/reagent_containers/blood/nabber
