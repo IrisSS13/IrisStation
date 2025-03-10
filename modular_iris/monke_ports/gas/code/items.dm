@@ -178,6 +178,7 @@
 	icon = 'modular_iris/monke_ports/gas/icons/clothing_item.dmi' //[PH]
 	worn_icon = 'modular_iris/monke_ports/gas/icons/poncho_human.dmi' //[PH] mostly
 	worn_icon_nabber = 'modular_iris/monke_ports/gas/icons/clothing.dmi'
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	icon_state = "classicponcho"
 	allowed = list(
 		/obj/item/crowbar,
