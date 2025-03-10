@@ -107,10 +107,19 @@
 	heat_level_3_damage = HEAT_GAS_DAMAGE_LEVEL_3
 	heat_damage_type = BURN
 
+	safe_plasma_max = 0 //they heal oxygen damage from liquid plasma
+
 /obj/item/organ/liver/nabber
 	name = "catalytic processor" //Nabbers convert oxygen -> plasma lorewise in their blood
 	icon_state = "liver"
 	icon = ORGAN_ICON_NABBER
 	liver_resistance = 0.8 //Weaker livers
 
+/obj/item/organ/liver/nabber/handle_chemical(mob/living/carbon/owner, datum/reagent/toxin/chem, seconds_per_tick, times_fired) //converts plasma tox damage to healing oxy damage
+	. = ..()
+	if(. & COMSIG_MOB_STOP_REAGENT_CHECK)
+		return
+	if(chem.type == /datum/reagent/toxin/plasma || chem.type == /datum/reagent/toxin/hot_ice)
+		chem.toxpwr = 0
+		owner.adjustOxyLoss(-0.5 * REM * seconds_per_tick, updating_health = FALSE)
 #undef ORGAN_ICON_NABBER
