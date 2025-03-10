@@ -24,7 +24,7 @@
 		attached_part = src,
 		feature_key = OFFSET_HEAD,
 		offset_y = list("north" = 8, "south" = 9, "east" = 8.5, "west" = 8.5),
-		offset_x = list("north" = 0, "south" = -0.15, "east" = 0, "west" = -2.7),
+		offset_x = list("north" = 0, "south" = -0.15, "east" = 2.7, "west" = -2.7),
 	)
 	worn_mask_offset = new(
 		attached_part = src,

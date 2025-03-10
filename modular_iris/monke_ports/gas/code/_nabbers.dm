@@ -43,6 +43,7 @@
 	heatmod = 2.5 // IT BURNS
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	bodytemp_heat_damage_limit = (BODYTEMP_HEAT_DAMAGE_LIMIT - 5) //-10 was a bit too high, as it already does damage to their lungs
+	outfit_important_for_life = /datum/outfit/nabber
 	species_language_holder = /datum/language_holder/nabber
 	species_cookie = /obj/item/food/meat/slab
 	exotic_bloodtype = "H"
@@ -87,6 +88,13 @@
 
 /datum/species/nabber/get_species_description()
 	return "(PH) PUT IRIS LORE HERE IDK"
+
+/datum/species/nabber/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only)
+	. = ..()
+	if(job?.nabber_outfit)
+		equipping.equipOutfit(job.nabber_outfit, visuals_only)
+	else
+		give_important_for_life(equipping)
 
 /datum/species/nabber/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)
 	. = ..()
