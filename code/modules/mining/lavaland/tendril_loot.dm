@@ -543,7 +543,9 @@
 		return
 	var/mob/living/carbon/human/exposed_human = exposed_mob
 	var/obj/item/bodypart/chest/chest = exposed_human.get_bodypart(BODY_ZONE_CHEST)
-	if(!chest.wing_types || reac_volume < 5 || !exposed_human.dna)
+	//IRIS EDIT CHANGE BEGIN -WINGED_QUIRK
+	if(!chest.wing_types || reac_volume < 5 || !exposed_human.dna || exposed_human.get_organ_slot(ORGAN_SLOT_GIZZARD))
+	//IRIS EDIT CHANGE END
 		if((methods & INGEST) && show_message)
 			to_chat(exposed_human, span_notice("<i>You feel nothing but a terrible aftertaste.</i>"))
 		return
