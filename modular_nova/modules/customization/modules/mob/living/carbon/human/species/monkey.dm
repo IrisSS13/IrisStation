@@ -1,6 +1,7 @@
 /datum/species/monkey/get_default_mutant_bodyparts()
 	return list(
 		"tail" = list("Monkey", FALSE),
+		"ears" = list("None", FALSE),
 	)
 
 /datum/species/monkey/randomize_features()

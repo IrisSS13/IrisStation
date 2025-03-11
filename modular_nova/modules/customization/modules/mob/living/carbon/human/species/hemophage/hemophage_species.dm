@@ -34,6 +34,7 @@
 /datum/species/hemophage/get_default_mutant_bodyparts()
 	return list(
 		"legs" = list("Normal Legs", FALSE),
+		"ears" = list("None", FALSE),
 	)
 
 /datum/species/hemophage/check_roundstart_eligible()

@@ -50,6 +50,7 @@
 		"legs" = list(DIGITIGRADE_LEGS,FALSE),
 		"snout" = list("Vox Snout", FALSE),
 		"spines" = list("Vox Bands", TRUE),
+		"ears" = list("None", FALSE),
 	)
 
 /datum/species/vox/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only)

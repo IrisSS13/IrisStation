@@ -14,6 +14,7 @@
 		"legs" = list(DIGITIGRADE_LEGS,FALSE),
 		"taur" = list("None", FALSE),
 		"wings" = list("None", FALSE),
+		"ears" = list("None", FALSE),
 	)
 
 /datum/species/lizard/ashwalker/get_default_mutant_bodyparts()

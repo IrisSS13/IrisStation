@@ -9,6 +9,7 @@
 		"fluff" = list("Plain", FALSE),
 		"wings" = list("Moth (Plain)", TRUE),
 		"moth_antennae" = list("Plain", TRUE),
+		"ears" = list("None", FALSE),
 	)
 
 /datum/species/moth/randomize_features()
