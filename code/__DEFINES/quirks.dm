@@ -14,3 +14,7 @@
 #define QUIRK_MOODLET_BASED (1<<3)
 /// This quirk shouldn't be shown by health analyzers and hud, perhaps as considering it medical condition is a far stretch.
 #define QUIRK_HIDE_FROM_SCAN (1<<4)
+
+
+/// IRIS ADDITION: This quirk shouldn't be applied to ghost roles
+#define QUIRK_EXCLUDES_GHOSTROLES (1<<5)
