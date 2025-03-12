@@ -67,6 +67,10 @@
 
 	/// The name registered on the card (for example: Dr Bryan See)
 	var/registered_name = null
+
+	/// IRIS ADDITON: Part of https://github.com/Monkestation/MonkeStation/pull/806 for the stowaway quirk
+	var/accepts_accounts = TRUE
+
 	/// Linked bank account.
 	var/datum/bank_account/registered_account
 
@@ -820,7 +824,9 @@
 			var/datum/bank_account/linked_dept = SSeconomy.get_dep_account(registered_account.account_job.paycheck_department)
 			. += "The [linked_dept.account_holder] linked to the ID reports a balance of [linked_dept.account_balance] cr."
 	else
-		. += span_notice("Alt-Right-Click the ID to set the linked bank account.")
+		//IRIS ADDITION: Accepts_accounts created as part of https://github.com/Monkestation/MonkeStation/pull/806 for the stowaway quirk
+		if(accepts_accounts)
+			. += span_notice("Alt-Right-Click the ID to set the linked bank account.")
 
 	if(HAS_TRAIT(user, TRAIT_ID_APPRAISER))
 		. += HAS_TRAIT(src, TRAIT_JOB_FIRST_ID_CARD) ? span_boldnotice("Hmm... yes, this ID was issued from Central Command!") : span_boldnotice("This ID was created in this sector, not by Central Command.")
@@ -877,7 +883,9 @@
 		if(registered_account.account_holder == user.real_name)
 			. += span_boldnotice("If you lose this ID card, you can reclaim your account by Alt-Clicking a blank ID card while holding it and entering your account ID number.")
 	else
-		. += span_info("There is no registered account linked to this card. Alt-Click to add one.")
+		//IRIS ADDITION: Accepts_accounts created as part of https://github.com/Monkestation/MonkeStation/pull/806 for the stowaway quirk
+		if(accepts_accounts)
+			. += span_info("There is no registered account linked to this card. Alt-Click to add one.")
 
 	return .
 
@@ -1615,8 +1623,9 @@
 	desc = "A highly advanced chameleon ID card. Touch this card on another ID card or player to choose which accesses to copy. \
 		Has special magnetic properties which force it to the front of wallets."
 	trim = /datum/id_trim/chameleon
-	wildcard_slots = WILDCARD_LIMIT_CHAMELEON_PLUS // NOVA EDIT - Original WILDCARD_LIMIT_CHAMELEON
+	wildcard_slots = WILDCARD_LIMIT_GOLD
 	actions_types = list(/datum/action/item_action/chameleon/change/id, /datum/action/item_action/chameleon/change/id_trim)
+	action_slots = ALL
 
 	/// Have we set a custom name and job assignment, or will we use what we're given when we chameleon change?
 	var/forged = FALSE
@@ -1625,6 +1634,10 @@
 	/// Weak ref to the ID card we're currently attempting to steal access from.
 	var/datum/weakref/theft_target
 
+/obj/item/card/id/advanced/chameleon/crummy
+	desc = "A surplus version of a chameleon ID card. Can only hold a limited number of access codes."
+	wildcard_slots = WILDCARD_LIMIT_CHAMELEON_PLUS // NOVA EDIT - Original WILDCARD_LIMIT_CHAMELEON
+
 /obj/item/card/id/advanced/chameleon/Initialize(mapload)
 	. = ..()
 	register_item_context()
@@ -1632,6 +1645,20 @@
 /obj/item/card/id/advanced/chameleon/Destroy()
 	theft_target = null
 	return ..()
+
+/obj/item/card/id/advanced/chameleon/equipped(mob/user, slot)
+	. = ..()
+	if (slot & ITEM_SLOT_ID)
+		RegisterSignal(user, COMSIG_LIVING_CAN_TRACK, PROC_REF(can_track))
+
+/obj/item/card/id/advanced/chameleon/dropped(mob/user)
+	UnregisterSignal(user, COMSIG_LIVING_CAN_TRACK)
+	return ..()
+
+/obj/item/card/id/advanced/chameleon/proc/can_track(datum/source, mob/user)
+	SIGNAL_HANDLER
+
+	return COMPONENT_CANT_TRACK
 
 /obj/item/card/id/advanced/chameleon/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(isidcard(interacting_with))
@@ -1913,11 +1940,10 @@
 		return CONTEXTUAL_SCREENTIP_SET
 	return .
 
-/// A special variant of the classic chameleon ID card which accepts all access.
+/// A special variant of the classic chameleon ID card which is black. Cool!
 /obj/item/card/id/advanced/chameleon/black
 	icon_state = "card_black"
 	assigned_icon_state = "assigned_syndicate"
-	wildcard_slots = WILDCARD_LIMIT_GOLD
 
 /obj/item/card/id/advanced/engioutpost
 	registered_name = "George 'Plastic' Miller"

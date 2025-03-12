@@ -1,9 +1,9 @@
 ## Iris Station 13 (/tg/station Downstream)
 
-[![CI Suite](https://github.com/Skyrat-SS13/Skyrat-tg/workflows/CI%20Suite/badge.svg)](https://github.com/Skyrat-SS13/Skyrat-tg/actions?query=workflow%3A%22CI+Suite%22)
-[![Percentage of issues still open](https://isitmaintained.com/badge/open/Skyrat-SS13/Skyrat-tg.svg)](https://isitmaintained.com/project/Skyrat-SS13/Skyrat-tg "Percentage of issues still open")
-[![Average time to resolve an issue](https://isitmaintained.com/badge/resolution/Skyrat-SS13/Skyrat-tg.svg)](https://isitmaintained.com/project/Skyrat-SS13/Skyrat-tg "Average time to resolve an issue")
-![Coverage](https://img.shields.io/codecov/c/github/Skyrat-SS13/Skyrat-tg)
+[![CI Suite](https://github.com/IrisSS13/IrisStation/workflows/CI%20Suite/badge.svg)](https://github.com/IrisSS13/IrisStation/actions?query=workflow%3A%22CI+Suite%22)
+[![Percentage of issues still open](https://isitmaintained.com/badge/open/IrisSS13/IrisStation.svg)](https://isitmaintained.com/project/IrisSS13/IrisStation "Percentage of issues still open")
+[![Average time to resolve an issue](https://isitmaintained.com/badge/resolution/IrisSS13/IrisStation.svg)](https://isitmaintained.com/project/IrisSS13/IrisStation "Average time to resolve an issue")
+![Coverage](https://img.shields.io/codecov/c/github/IrisSS13/IrisStation)
 
 [![resentment](.github/images/badges/built-with-resentment.svg)](.github/images/comics/131-bug-free.png) [![technical debt](.github/images/badges/contains-technical-debt.svg)](.github/images/comics/106-tech-debt-modified.png) [![forinfinityandbyond](.github/images/badges/made-in-byond.gif)](https://www.reddit.com/r/SS13/comments/5oplxp/what_is_the_main_problem_with_byond_as_an_engine/dclbu1a)
 
