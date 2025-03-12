@@ -4,7 +4,7 @@
 
 /obj/item/clothing/under/dress/iris/princess
 	name = "princess dress"
-	desc = "A luxurious dress, it makes you feel like you can call to animals and they would answer your song."
+	desc = "A luxurious dress, it makes you feel like you can sing to the animals and they would answer your call."
 	icon_state = "princess_dress"
 	greyscale_config = /datum/greyscale_config/princess_dress
 	greyscale_config_worn = /datum/greyscale_config/princess_dress/worn
