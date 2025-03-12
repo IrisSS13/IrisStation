@@ -91,7 +91,10 @@
 		if(quirk_type::hidden_quirk)
 			continue
 		// NOVA EDIT ADDITION END
-
+		// IRIS EDIT ADDITION START
+		if(quirk_type::quirk_flags & QUIRK_EXCLUDES_GHOSTROLES)
+			continue
+		//IRIS EDIT ADDITION END
 		var/mob/dead/new_player/abstract_player = allocate(/mob/dead/new_player)
 		var/datum/client_interface/roundstart_mock_client = new()
 		abstract_player.mock_client = roundstart_mock_client
