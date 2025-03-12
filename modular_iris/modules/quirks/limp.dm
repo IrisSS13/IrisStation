@@ -117,13 +117,13 @@
 /datum/preference/choiced/limp_cane/icon_for(value)
 	switch(value)
 		if(CANE_BASIC)
-			return icon(/obj/item/cane::icon, /obj/item/cane::icon_state)
+			return uni_icon('icons/obj/weapons/staff.dmi', "cane")
 		if(CANE_MEDICAL)
-			return icon(/obj/item/cane/crutch::icon, /obj/item/cane/crutch::icon_state)
+			return uni_icon('icons/obj/weapons/staff.dmi', "crutch_med")
 		if(CANE_WOODEN)
-			return icon(/obj/item/cane/crutch/wood::icon, /obj/item/cane/crutch/wood::icon_state)
+			return uni_icon('icons/obj/weapons/staff.dmi', "crutch_wood")
 		if(NO_CANE)
-			return icon('icons/hud/screen_gen.dmi', "x")
+			return uni_icon('icons/hud/screen_gen.dmi', "x")
 
 	return icon('icons/effects/random_spawners.dmi', "questionmark")
 
