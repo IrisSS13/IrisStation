@@ -93,38 +93,6 @@
 /datum/reagent/consumable/nutriment/mineral
 	taste_description = "rocks and stones"
 
-/obj/item/seeds/shell
-	name = "shell seed pack"
-	desc = "You aren't meant to see this. Tell an admin if you do."
-	icon = 'modular_iris/modules/hydroponics/icons/seeds.dmi'
-	species = "ore"
-	plantname = "Sandfruits"
-	product = /obj/item/food/grown/shell
-	reagents_add = list(/datum/reagent/consumable/nutriment = 0.1,
-						/datum/reagent/silicon = 0.1)
-	growthstages = 2
-	rarity = 1
-	growing_icon = 'modular_iris/modules/hydroponics/icons/growing_fruits.dmi'
-	genes = list(/datum/plant_gene/trait/chem_cooling)
-
-/obj/item/food/grown/shell
-	seed = /obj/item/seeds/shell
-	name = "shell"
-	desc = "You aren't meant to see this. Tell an admin if you do."
-	icon = 'modular_iris/modules/hydroponics/icons/harvest.dmi'
-	trash_type = /obj/item/stack/sheet/mineral/shellcore
-	foodtypes = FRUIT
-	distill_reagent = /datum/reagent/silicon
-
-/obj/item/stack/sheet/mineral/shellcore
-	name = "shell core"
-	desc = "You aren't meant to see this. Tell an admin if you do."
-	icon = 'modular_iris/modules/hydroponics/icons/harvest.dmi'
-	singular_name = "shell core"
-	merge_type = /obj/item/stack/sheet/mineral/shellcore
-	max_amount = 10
-	mats_per_unit = list(/datum/material/glass=SHEET_MATERIAL_AMOUNT*0.2)
-
 //Rockfruits evolutions? OREFRUITS!//
 //Sand - Base tier breaks into 4 trees ('energy', Precious, Metal, Miscmats)
 /obj/item/seeds/sandfruit
@@ -134,7 +102,7 @@
 	icon_state = "seed-sandfruit"
 	species = "ore"
 	plantname = "Sandfruits"
-	product = /obj/item/food/grown/shell/sand
+	product = /obj/item/food/grown/shell
 	mutatelist = list(/obj/item/seeds/uraniberry,
 					/obj/item/seeds/agbergine,
 					/obj/item/seeds/ferrotuber,
@@ -146,7 +114,7 @@
 	growing_icon = 'modular_iris/modules/hydroponics/icons/growing_fruits.dmi'
 	genes = list(/datum/plant_gene/trait/chem_cooling)
 
-/obj/item/food/grown/shell/sand
+/obj/item/food/grown/shell
 	seed = /obj/item/seeds/sandfruit
 	name = "sandfruit"
 	desc = "A mutated variant of rockfruits; rough, course and now available everywhere. Just peel it for a core."
