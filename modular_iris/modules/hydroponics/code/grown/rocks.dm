@@ -116,6 +116,15 @@
 	foodtypes = FRUIT
 	distill_reagent = /datum/reagent/silicon
 
+/obj/item/stack/sheet/mineral/shellcore
+	name = "shell core"
+	desc = "You aren't meant to see this. Tell an admin if you do."
+	icon = 'modular_iris/modules/hydroponics/icons/harvest.dmi'
+	singular_name = "shell core"
+	merge_type = /obj/item/stack/sheet/mineral/shellcore
+	max_amount = 10
+	mats_per_unit = list(/datum/material/glass=SHEET_MATERIAL_AMOUNT*0.2)
+
 //Rockfruits evolutions? OREFRUITS!//
 //Sand - Base tier breaks into 4 trees ('energy', Precious, Metal, Miscmats)
 /obj/item/seeds/sandfruit
