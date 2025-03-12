@@ -33,12 +33,14 @@
 				return FALSE
 		return TRUE //AI can do whatever it wants
 	//If the mob is holding a valid ID, we let them in. get_active_held_item() is on the mob level, so no need to copypasta everywhere.
-	else if(check_access(accessor.get_active_held_item()) || check_access(accessor.get_inactive_held_item()))
+	//IRIS EDIT: added check for fake_card as part of https://github.com/Monkestation/MonkeStation/pull/806
+	else if(check_access(accessor.get_active_held_item()) && !istype(accessor.get_active_held_item(), /obj/item/card/id/fake_card) || check_access(accessor.get_inactive_held_item()) && !istype(accessor.get_inactive_held_item(), /obj/item/card/id/fake_card))
 		return TRUE
 	else if(ishuman(accessor))
 		var/mob/living/carbon/human/human_accessor = accessor
-		if(check_access(human_accessor.wear_id))
+		if(check_access(human_accessor.wear_id) && !istype(human_accessor.wear_id, /obj/item/card/id/fake_card))
 			return TRUE
+	//IRIS EDIT END
 	//if they have a hacky abstract animal ID with the required access, let them in i guess...
 	else if(isanimal(accessor))
 		var/mob/living/simple_animal/animal = accessor

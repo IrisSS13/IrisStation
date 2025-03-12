@@ -9,12 +9,26 @@
 
 //mob traits
 
+//Part of https://github.com/Monkestation/Monkestation2.0/pull/5623
+#define TRAIT_CAFFEINE_DEPENDENCE "caffeine_dependence"
+
+//COLORBLINDNESS_QUIRK, part of https://github.com/MrMelbert/MapleStationCode/pull/632
+#define COLORBLINDNESS_PROTANOPIA "Protanopia (Red-Green)"
+#define COLORBLINDNESS_DEUTERANOPIA "Deuteranopia (Red-Green)"
+#define COLORBLINDNESS_TRITANOPIA "Tritanopia (Blue-Yellow)"
+
 //Makes you illiterate while not wearing glasses, part of https://github.com/lizardqueenlexi/orbstation/pull/254
 #define TRAIT_FARSIGHT "farsighted"
 
 //HANDEDNESS_QUIRK
 #define TRAIT_HANDEDNESS "handedness"
 #define TRAIT_HANDEDNESS_LEFT "handedness_left"
+
+//Trait for the Extra-Sensory Paranoia quirk, part of https://github.com/Monkestation/Monkestation2.0/pull/313
+#define TRAIT_PARANOIA "paranoia"
+
+//Stowaway quirk taken from https://github.com/Monkestation/Monkestation2.0/pull/4642
+#define TRAIT_STOWAWAY "stowaway"
 
 //Trait sources
 

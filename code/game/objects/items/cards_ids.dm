@@ -67,6 +67,10 @@
 
 	/// The name registered on the card (for example: Dr Bryan See)
 	var/registered_name = null
+
+	/// IRIS ADDITON: Part of https://github.com/Monkestation/MonkeStation/pull/806 for the stowaway quirk
+	var/accepts_accounts = TRUE
+
 	/// Linked bank account.
 	var/datum/bank_account/registered_account
 
@@ -820,7 +824,9 @@
 			var/datum/bank_account/linked_dept = SSeconomy.get_dep_account(registered_account.account_job.paycheck_department)
 			. += "The [linked_dept.account_holder] linked to the ID reports a balance of [linked_dept.account_balance] cr."
 	else
-		. += span_notice("Alt-Right-Click the ID to set the linked bank account.")
+		//IRIS ADDITION: Accepts_accounts created as part of https://github.com/Monkestation/MonkeStation/pull/806 for the stowaway quirk
+		if(accepts_accounts)
+			. += span_notice("Alt-Right-Click the ID to set the linked bank account.")
 
 	if(HAS_TRAIT(user, TRAIT_ID_APPRAISER))
 		. += HAS_TRAIT(src, TRAIT_JOB_FIRST_ID_CARD) ? span_boldnotice("Hmm... yes, this ID was issued from Central Command!") : span_boldnotice("This ID was created in this sector, not by Central Command.")
@@ -877,7 +883,9 @@
 		if(registered_account.account_holder == user.real_name)
 			. += span_boldnotice("If you lose this ID card, you can reclaim your account by Alt-Clicking a blank ID card while holding it and entering your account ID number.")
 	else
-		. += span_info("There is no registered account linked to this card. Alt-Click to add one.")
+		//IRIS ADDITION: Accepts_accounts created as part of https://github.com/Monkestation/MonkeStation/pull/806 for the stowaway quirk
+		if(accepts_accounts)
+			. += span_info("There is no registered account linked to this card. Alt-Click to add one.")
 
 	return .
 
