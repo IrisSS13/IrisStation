@@ -93,6 +93,28 @@
 /datum/reagent/consumable/nutriment/mineral
 	taste_description = "rocks and stones"
 
+/obj/item/seeds/shell
+	name = "shell seed pack"
+	desc = "You aren't meant to see this. Tell an admin if you do."
+	icon = 'modular_iris/modules/hydroponics/icons/seeds.dmi'
+	species = "ore"
+	plantname = "Sandfruits"
+	product = /obj/item/food/grown/shell
+	reagents_add = list(/datum/reagent/consumable/nutriment = 0.1,
+						/datum/reagent/silicon = 0.1)
+	growthstages = 2
+	rarity = 1
+	growing_icon = 'modular_iris/modules/hydroponics/icons/growing_fruits.dmi'
+	genes = list(/datum/plant_gene/trait/chem_cooling)
+
+/obj/item/food/grown/shell
+	seed = /obj/item/seeds/shell
+	name = "shell"
+	desc = "You aren't meant to see this. Tell an admin if you do."
+	icon = 'modular_iris/modules/hydroponics/icons/harvest.dmi'
+	trash_type = /obj/item/stack/sheet/mineral/shellcore
+	foodtypes = FRUIT
+	distill_reagent = /datum/reagent/silicon
 
 //Rockfruits evolutions? OREFRUITS!//
 //Sand - Base tier breaks into 4 trees ('energy', Precious, Metal, Miscmats)
