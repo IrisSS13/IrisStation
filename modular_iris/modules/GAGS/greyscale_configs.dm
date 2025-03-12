@@ -102,7 +102,14 @@
 /*
 *	UNDER
 */
+/datum/greyscale_config/princess_dress
+	name = "Princess Dress"
+	icon_file = 'modular_iris/icons/obj/clothing/under/dress.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/under/dresses/princess_dress.json'
 
+/datum/greyscale_config/princess_dress/worn
+	name = "Princess Dress (Worn)"
+	icon_file = 'modular_iris/icons/mob/clothing/under/dress.dmi'
 
 /*
 *	SHOES
