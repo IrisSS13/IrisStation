@@ -333,6 +333,7 @@
 	if(!bloodtype)
 		return
 
+//IRIS EDIT NABBER BLOOD
 	var/static/list/bloodtypes_safe = list(
 		"A-" = list("A-", "O-"),
 		"A+" = list("A-", "A+", "O-", "O+"),
@@ -343,6 +344,7 @@
 		"O-" = list("O-"),
 		"O+" = list("O-", "O+"),
 		"L" = list("L"),
+		"H" = list("H"),
 		"U" = list("A-", "A+", "B-", "B+", "O-", "O+", "AB-", "AB+", "L", "U")
 	)
 
