@@ -579,7 +579,7 @@
 
 /**
  * Alter Form is the ability of slimes to edit many of their character attributes at will
- * This covers most thing about their character, from body size or colour, to adding new wings, tails, ears, etc, to changing the presence of their genitalia
+ * This covers most thing about their character, from body size or colour, to adding new wings, tails, ears, etc
  * There are some balance concerns with some of these (looking at you, body size), but nobody has abused it Yet:tm:, and it would be exceedingly obvious if they did
  */
 /datum/action/innate/alter_form

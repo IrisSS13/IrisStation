@@ -94,7 +94,7 @@
 	desc = "A complicated drapery with an assortment of velcros and strings, designed to keep a patient modest during medical stay and surgeries."
 	icon_state = "hgown"
 	toggle_noun = "drapes"
-	body_parts_covered = NONE //Allows surgeries despite wearing it; hiding genitals is handled in /datum/sprite_accessory/genital/is_hidden() (Only place it'd work sadly)
+	body_parts_covered = NONE //Allows surgeries despite wearing it
 	armor_type = /datum/armor/none
 	equip_delay_other = 8
 

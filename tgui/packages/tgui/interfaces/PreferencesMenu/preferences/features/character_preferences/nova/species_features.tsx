@@ -135,12 +135,6 @@ export const allow_mismatched_hair_color_toggle: FeatureToggle = {
   component: CheckboxInput,
 };
 
-export const allow_genitals_toggle: FeatureToggle = {
-  name: 'Allow Genital Parts',
-  description: 'Enables if you want to have genitals on your character.',
-  component: CheckboxInput,
-};
-
 export const allow_emissives_toggle: FeatureToggle = {
   name: 'Allow Emissives',
   description: 'Emissive parts glow in the dark.',

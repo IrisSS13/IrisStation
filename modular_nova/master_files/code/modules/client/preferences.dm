@@ -9,7 +9,7 @@
 	var/augment_limb_styles = list()
 	/// Which augment slot we currently have chosen, this is for UI display
 	var/chosen_augment_slot
-	/// Has to include all information that extra organs from mutant bodyparts would need. (so far only genitals now)
+	/// Has to include all information that extra organs from mutant bodyparts would need.
 	var/list/features = MANDATORY_FEATURE_LIST
 	/// A list containing all of our mutant bodparts
 	var/list/list/mutant_bodyparts = list()
