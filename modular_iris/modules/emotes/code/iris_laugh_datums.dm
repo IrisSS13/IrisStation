@@ -12,3 +12,8 @@
 	name = "Raptor Laugh"
 	male_laughsounds = list('modular_iris/monke_ports/sound/voice/laugh/lizard/lizard_laugh.ogg')
 	female_laughsounds = null
+
+/datum/laugh_type/nabber
+	name = "Nabber Laugh"
+	male_laughsounds = list('modular_iris/monke_ports/gas/sounds/nabberlaugh.ogg')
+	female_laughsounds = null

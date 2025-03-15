@@ -242,7 +242,7 @@
 /obj/effect/decal/cleanable/blood/footprints
 	name = "footprints"
 	desc = "WHOSE FOOTPRINTS ARE THESE?"
-	icon = 'icons/effects/footprints.dmi'
+	icon = 'modular_iris/icons/effects/footprints.dmi' //IRIS OVERRIDE OG: icon = 'icons/effects/footprints.dmi'
 	icon_state = "blood_shoes_enter"
 	random_icon_states = null
 	blood_state = BLOOD_STATE_HUMAN //the icon state to load images from
@@ -294,6 +294,8 @@
 			name = "footprints"
 		if(FOOTPRINT_SPRITE_PAWS)
 			name = "pawprints"
+		if(FOOTPRINT_SPRITE_SNAKE) //IRIS ADDITION
+			name = "trails"
 	dryname = "dried [name]"
 	return ..()
 
