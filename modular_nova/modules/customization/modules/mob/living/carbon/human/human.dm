@@ -60,7 +60,7 @@
 /mob/living/carbon/human/verb/toggle_undies()
 	set category = "IC"
 	set name = "Toggle underwear visibility"
-	set desc = "Allows you to toggle which underwear should show or be hidden. Underwear will obscure genitals."
+	set desc = "Allows you to toggle which underwear should show or be hidden."
 
 	if(stat != CONSCIOUS)
 		to_chat(usr, span_warning("You can't toggle underwear visibility right now..."))
