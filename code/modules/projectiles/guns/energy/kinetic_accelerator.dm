@@ -264,20 +264,21 @@
 /obj/projectile/kinetic/mech
 	range = 5
 	damage = 50
-	//the multiplier we apply to our PKa's AOE effect.
-	var/aoe_damage_multiplier = 0.3
 
 /obj/projectile/kinetic/mech/strike_thing(atom/target)
 	. = ..()
 	new /obj/effect/temp_visual/explosion/fast(get_turf(target))
 
-	for(var/mob/living/living_mob in range(1, target) - firer - target)
+	for(var/turf/closed/mineral/mineral_turf in RANGE_TURFS(2, target) - target)
+		mineral_turf.gets_drilled(firer, 0.1)
+
+	for(var/mob/living/living_mob in range(2, target) - firer - target)
 
 		if(!(living_mob.mob_biotypes & MOB_MINING))
 			continue
 
 		var/armor = living_mob.run_armor_check(def_zone, armor_flag, armour_penetration = armour_penetration)
-		living_mob.apply_damage(damage*aoe_damage_multiplier, damage_type, def_zone, armor)
+		living_mob.apply_damage(damage, damage_type, def_zone, armor)
 		to_chat(living_mob, span_userdanger("You're struck by a [name]!"))
 
 //Modkits
