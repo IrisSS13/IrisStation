@@ -269,6 +269,9 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_STOCK
 	metabolized_traits = list(TRAIT_STIMULATED)
+	//IRIS ADDITION START: Ports https://github.com/Monkestation/Monkestation2.0/pull/5623
+	addiction_types = list(/datum/addiction/coffee = 5)
+	//IRIS ADDITION END
 
 /datum/reagent/consumable/coffee/overdose_process(mob/living/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -368,6 +371,9 @@
 	taste_description = "bitter coldness"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	metabolized_traits = list(TRAIT_STIMULATED)
+	//IRIS ADDITION START: Ports https://github.com/Monkestation/Monkestation2.0/pull/5623
+	addiction_types = list(/datum/addiction/coffee = 5)
+	//IRIS ADDITION END
 
 /datum/reagent/consumable/icecoffee/overdose_process(mob/living/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -389,6 +395,9 @@
 	taste_description = "bitter coldness and a hint of smoke"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	metabolized_traits = list(TRAIT_STIMULATED)
+	//IRIS ADDITION START: Ports https://github.com/Monkestation/Monkestation2.0/pull/5623
+	addiction_types = list(/datum/addiction/coffee = 5)
+	//IRIS ADDITION END
 
 /datum/reagent/consumable/hot_ice_coffee/overdose_process(mob/living/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -720,6 +729,9 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_EASY
 	metabolized_traits = list(TRAIT_STIMULATED)
+	//IRIS ADDITION START: Ports https://github.com/Monkestation/Monkestation2.0/pull/5623
+	addiction_types = list(/datum/addiction/coffee = 4)
+	//IRIS ADDITION END
 
 /datum/reagent/consumable/soy_latte/overdose_process(mob/living/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -747,6 +759,9 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_EASY
 	metabolized_traits = list(TRAIT_STIMULATED)
+	//IRIS ADDITION START: Ports https://github.com/Monkestation/Monkestation2.0/pull/5623
+	addiction_types = list(/datum/addiction/coffee = 4)
+	//IRIS ADDITION END
 
 /datum/reagent/consumable/cafe_latte/overdose_process(mob/living/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -878,6 +893,9 @@
 	taste_description = "creamy pumpkin"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	metabolized_traits = list(TRAIT_STIMULATED)
+	//IRIS ADDITION START: Ports https://github.com/Monkestation/Monkestation2.0/pull/5623
+	addiction_types = list(/datum/addiction/coffee = 4)
+	//IRIS ADDITION END
 
 /datum/reagent/consumable/pumpkin_latte/overdose_process(mob/living/affected_mob, seconds_per_tick, times_fired)
 	. = ..()

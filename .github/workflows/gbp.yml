@@ -44,8 +44,8 @@ jobs:
     - name: Setup git
       if: steps.value_holder.outputs.ACTIONS_ENABLED
       run: |
-        git config --global user.name "gbp-action"
-        git config --global user.email "<>"
+        git config --global user.name "irisstation-ci[bot]"
+        git config --global user.email "203450339+irisstation-ci[bot]@users.noreply.github.com"
     - name: Checkout alternate branch
       if: steps.value_holder.outputs.ACTIONS_ENABLED
       uses: actions/checkout@v4

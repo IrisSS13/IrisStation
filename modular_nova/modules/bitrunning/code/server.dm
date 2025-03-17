@@ -77,7 +77,7 @@
 		balloon_alert(activator, "message protected!")
 		return
 	playsound(loc, 'sound/machines/ectoscope_beep.ogg', 75)
-	aas_config_announce(/datum/aas_config_entry/bitrunning_ghost_mark, list("NAME" = messenger, "MESSAGE" = message), src, list(RADIO_CHANNEL_FACTION))
+	aas_config_announce(/datum/aas_config_entry/bitrunning_ghost_mark, list("NAME" = messenger, "MESSAGE" = message), src, list(RADIO_CHANNEL_SUPPLY)) // IRIS EDIT - Changes RADIO_CHANNEL_FACTION to RADIO_CHANNEL_SUPPLY
 	if(activator?.ckey)
 		spam_queue += activator.ckey
 		addtimer(CALLBACK(src, PROC_REF(clear_spam), activator.ckey), 30 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE | TIMER_DELETE_ME)
