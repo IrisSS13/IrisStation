@@ -273,10 +273,8 @@
 		mineral_turf.gets_drilled(firer, 0.1)
 
 	for(var/mob/living/living_mob in range(2, target) - firer - target)
-
-		if(!(living_mob.mob_biotypes & MOB_MINING))
+		if(!ismining(living_mob))
 			continue
-
 		var/armor = living_mob.run_armor_check(def_zone, armor_flag, armour_penetration = armour_penetration)
 		living_mob.apply_damage(damage, damage_type, def_zone, armor)
 		to_chat(living_mob, span_userdanger("You're struck by a [name]!"))
