@@ -36,13 +36,13 @@
 	suffix = "lavaland_surface_gas.dmm"
 	allow_duplicates = FALSE
 
-/datum/map_template/ruin/lavaland/cube
-	name = "Lava-Ruin The Wishgranter Cube"
-	id = "wishgranter-cube"
-	description = "Nothing good can come from this. Learn from their mistakes and turn around."
-	suffix = "lavaland_surface_cube.dmm"
-	cost = 10
-	allow_duplicates = FALSE
+// /datum/map_template/ruin/lavaland/cube - Iris edit: We don't really want a ruin that gives you hijack.
+//	name = "Lava-Ruin The Wishgranter Cube"
+//	id = "wishgranter-cube"
+//	description = "Nothing good can come from this. Learn from their mistakes and turn around."
+//	suffix = "lavaland_surface_cube.dmm"
+//	cost = 10
+//	allow_duplicates = FALSE
 
 /datum/map_template/ruin/lavaland/seed_vault
 	name = "Lava-Ruin Seed Vault"

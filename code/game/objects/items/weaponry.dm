@@ -637,6 +637,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 /obj/item/cane/equipped(mob/living/user, slot, initial)
 	..()
 	if(!(slot & ITEM_SLOT_HANDS))
+		movement_support_del(user) // IRIS EDIT: Fixes pocketed canes supporting limp legs
 		return
 	movement_support_add(user)
 

@@ -38,6 +38,7 @@
 	armour_penetration = 50
 	melee_damage_lower = 25
 	melee_damage_upper = 25
+	mob_biotypes = MOB_ORGANIC|MOB_SPECIAL|MOB_UNDEAD|MOB_MINING
 	speed = 5
 	ranged = TRUE
 	del_on_death = TRUE
@@ -167,7 +168,8 @@
 		loot = list(/obj/item/storm_staff)
 		elimination = FALSE
 	else if(prob(20)) //20% chance for sick lootz.
-		loot = list(/obj/structure/closet/crate/necropolis/tendril)
+//		loot = list(/obj/structure/closet/crate/necropolis/tendril) // IRIS EDIT OLD
+		loot = list(/obj/structure/closet/crate/necropolis/tendril/legion) // IRIS EDIT NEW
 		if(!true_spawn)
 			loot = null
 	return ..()

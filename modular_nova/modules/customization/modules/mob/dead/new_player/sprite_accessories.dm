@@ -19,7 +19,7 @@
 	///You can also put down a a HEX color, to be used instead as the default
 	var/default_color
 	///Set this to a name, then the accessory will be shown in preferences, if a species can have it. Most accessories have this
-	///Notable things that have it set to FALSE are things that need special setup, such as genitals
+	///Notable things that have it set to FALSE are things that need special setup
 	var/generic
 
 	/// Whether or not this sprite accessory has an additional overlay added to
@@ -43,7 +43,7 @@
 
 	///Set this to true to make an accessory appear as color customizable in preferences despite advanced color settings being off, will also prevent the accessory from being reset
 	var/always_color_customizable
-	///Special case of whether the accessory should be shifted in the X dimension, check taur genitals for example
+	///Special case of whether the accessory should be shifted in the X dimension
 	var/special_x_dimension
 	///Special case for MODsuit overlays
 	var/use_custom_mod_icon

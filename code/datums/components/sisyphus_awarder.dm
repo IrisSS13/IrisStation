@@ -46,7 +46,8 @@
 	if (atom_parent.loc != chosen_one)
 		qdel(src) // Hey! How did you do that?
 		return
-	if (entered_area.type != /area/centcom/central_command_areas/evacuation)
+//	if (entered_area.type != /area/centcom/central_command_areas/evacuation) // IRIS EDIT OLD
+	if(!istype(entered_area, /area/centcom/interlink/departures)) // IRIS EDIT NEW (also by the way pods dont come to the interlink)
 		return // Don't istype because taking pods doesn't count
 
 	chosen_one.client?.give_award(/datum/award/achievement/misc/sisyphus, chosen_one)

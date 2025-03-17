@@ -226,10 +226,7 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/security)
 "aZ" = (
-/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/hidden{
-	dir = 5
-	},
+/obj/machinery/space_heater,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "bd" = (
@@ -993,10 +990,7 @@
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/nova/des_two/service/lounge)
 "em" = (
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/hidden{
-	dir = 10
-	},
-/obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/smart/simple/cyan,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "ep" = (
@@ -1176,7 +1170,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/smart/simple/violet/hidden{
+/obj/machinery/atmospherics/pipe/smart/simple/purple/hidden/layer4{
 	dir = 9
 	},
 /turf/open/floor/plating,
@@ -1670,6 +1664,9 @@
 	},
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
+	},
+/obj/machinery/meter{
+	target_layer = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
 	dir = 4
@@ -2245,6 +2242,13 @@
 	},
 /turf/open/floor/iron/dark/side,
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
+"jK" = (
+/obj/machinery/status_display/department_balance{
+	credits_account = "DS2";
+	default_logo = "synd"
+	},
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/area/ruin/space/has_grav/nova/des_two/cargo)
 "jL" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering"
@@ -2671,9 +2675,11 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/security)
 "lu" = (
-/obj/machinery/light/cold/directional/north,
-/obj/machinery/firealarm/directional/north,
-/turf/open/floor/mineral/plastitanium/red,
+/obj/machinery/status_display/department_balance{
+	credits_account = "DS2";
+	default_logo = "synd"
+	},
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/space/has_grav/nova/des_two/bridge)
 "lD" = (
 /obj/effect/turf_decal/siding/thinplating/dark,
@@ -3197,24 +3203,24 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/smart/simple/violet/hidden,
-/obj/machinery/meter,
 /obj/machinery/airalarm/directional/west,
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
+/obj/machinery/atmospherics/pipe/smart/simple/purple/hidden/layer4,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "nN" = (
-/obj/machinery/atmospherics/pipe/layer_manifold/supply/hidden{
-	dir = 4
-	},
-/obj/machinery/meter,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
 	},
-/obj/machinery/space_heater,
+/obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/simple/cyan{
+	dir = 10
+	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "nO" = (
@@ -3257,6 +3263,7 @@
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
 "od" = (
 /obj/machinery/atmospherics/components/unary/portables_connector/visible,
+/obj/machinery/portable_atmospherics/canister,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "of" = (
@@ -3272,6 +3279,7 @@
 	},
 /obj/effect/turf_decal/trimline/dark_red/mid_joiner,
 /obj/machinery/light/cold/directional/south,
+/obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron/dark/textured_half,
 /area/ruin/space/has_grav/nova/des_two/bridge)
 "og" = (
@@ -3285,10 +3293,10 @@
 /turf/open/floor/iron/half,
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
 "oi" = (
-/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
-/obj/machinery/atmospherics/pipe/smart/manifold/cyan/hidden{
-	dir = 1
+/obj/machinery/atmospherics/pipe/layer_manifold/cyan/hidden{
+	dir = 4
 	},
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "ok" = (
@@ -4513,10 +4521,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/smart/simple/violet/hidden,
-/obj/machinery/atmospherics/pipe/bridge_pipe/cyan/hidden{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/smart/simple/purple/hidden/layer4,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "tP" = (
@@ -5142,6 +5147,16 @@
 	pixel_x = -30;
 	req_access = list("syndicate")
 	},
+/obj/structure/table,
+/obj/item/circuitboard/machine/syndiepad/syndicate,
+/obj/item/circuitboard/computer/syndiepad/syndicate{
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/obj/item/circuitboard/computer/cargo/express/interdyne/syndicate{
+	pixel_y = 4;
+	pixel_x = 4
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/bridge/vault)
 "xr" = (
@@ -5618,7 +5633,9 @@
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "zy" = (
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
-	dir = 9
+	dir = 9;
+	pixel_x = 0;
+	pixel_y = 0
 	},
 /obj/machinery/light/warm/directional/east,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
@@ -6774,8 +6791,8 @@
 /area/ruin/space/has_grav/nova/des_two/security/prison)
 "Fc" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
-/obj/machinery/atmospherics/pipe/smart/simple/violet/hidden{
-	dir = 8
+/obj/machinery/atmospherics/pipe/layer_manifold/purple/hidden{
+	dir = 4
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
@@ -9395,7 +9412,10 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 9
 	},
-/obj/machinery/atmospherics/components/trinary/mixer/airmix/inverse{
+/obj/machinery/atmospherics/pipe/smart/simple/cyan{
+	dir = 4
+	},
+/obj/machinery/atmospherics/components/trinary/mixer/layer4{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -9728,8 +9748,8 @@
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "Si" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
-/obj/machinery/atmospherics/pipe/smart/simple/orange/hidden{
-	dir = 8
+/obj/machinery/atmospherics/pipe/layer_manifold/orange{
+	dir = 4
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
@@ -10089,7 +10109,6 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
 	},
-/obj/item/stack/sheet/iron/five,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "Ty" = (
@@ -11339,10 +11358,10 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
-/obj/item/kirbyplants/organic/plant22,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
+/obj/machinery/vending/autodrobe,
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/nova/des_two/service/dorms)
 "ZQ" = (
@@ -12291,7 +12310,7 @@ Tt
 Tt
 Tt
 oi
-aZ
+Jz
 Tt
 Fc
 Jz
@@ -12456,7 +12475,7 @@ Tt
 SI
 rb
 hn
-uD
+aZ
 uD
 od
 iS
@@ -12482,8 +12501,8 @@ iE
 wg
 wg
 aT
-Bk
 lu
+VM
 fa
 dO
 ak
@@ -13116,7 +13135,7 @@ VG
 my
 KC
 fW
-my
+jK
 VG
 fz
 DI
@@ -13506,7 +13525,7 @@ ml
 my
 zh
 my
-my
+jK
 my
 my
 NB
