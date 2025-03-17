@@ -697,16 +697,12 @@
 /turf/open/misc/dirt/icemoon,
 /area/snundra/outdoors/nospawn)
 "eU" = (
-/obj/machinery/atmospherics/components/trinary/filter{
-	icon_state = "filter_on-0";
-	name = "omni gas filter";
-	piping_layer = 2
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer4,
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
+/obj/machinery/atmospherics/components/trinary/filter/layer2,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "eV" = (
@@ -1604,16 +1600,13 @@
 /turf/open/floor/carpet/grimey,
 /area/station/maintenance/department/electrical)
 "kz" = (
-/obj/machinery/door/window/brigdoor{
-	dir = 1;
-	name = "Reactor Core";
-	req_access = list("engineering")
-	},
-/obj/machinery/door/window/brigdoor{
-	name = "Reactor Core";
-	req_access = list("engineering")
-	},
 /obj/structure/fans/tiny,
+/obj/machinery/door/window/brigdoor/right/directional/north{
+	name = "Reactor Core"
+	},
+/obj/machinery/door/window/brigdoor/right/directional/south{
+	name = "Reactor Core"
+	},
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "kA" = (
@@ -5966,15 +5959,12 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/snundra/outdoors/nospawn)
 "NO" = (
-/obj/machinery/atmospherics/components/trinary/filter{
-	icon_state = "filter_on-0";
-	name = "omni gas filter"
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer4,
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
+/obj/machinery/atmospherics/components/trinary/filter/critical,
 /turf/open/floor/wood,
 /area/station/engineering/supermatter/room)
 "NT" = (
