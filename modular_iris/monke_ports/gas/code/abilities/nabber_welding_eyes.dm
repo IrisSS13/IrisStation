@@ -2,7 +2,7 @@
 	name = "Toggle welding shield"
 	desc = "Toggle your eyes welding shield"
 
-	var/obj/item/organ/eyes/robotic/nabber/eyes
+	var/obj/item/organ/eyes/nabber/eyes
 	cooldown_time = 1 SECONDS
 
 /datum/action/cooldown/toggle_welding/Activate()
