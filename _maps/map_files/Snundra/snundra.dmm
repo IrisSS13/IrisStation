@@ -226,6 +226,15 @@
 	},
 /turf/open/floor/material,
 /area/station/medical/surgery/theatre)
+"bB" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 5
+	},
+/obj/structure/sink/directional/south,
+/obj/machinery/power/apc/auto_name/directional/east,
+/obj/structure/cable,
+/turf/open/floor/wood/large,
+/area/station/service/chapel)
 "bD" = (
 /obj/effect/spawner/random/structure/crate_abandoned,
 /turf/open/floor/iron/colony/texture,
@@ -238,6 +247,10 @@
 /obj/machinery/rnd/destructive_analyzer,
 /turf/open/floor/catwalk_floor/colony_fabricator,
 /area/station/cargo/lobby)
+"bL" = (
+/obj/machinery/biogenerator,
+/turf/open/floor/catwalk_floor/colony_fabricator,
+/area/station/maintenance/hiddengarden)
 "bS" = (
 /turf/open/floor/glass/reinforced,
 /area/station/medical/surgery/theatre)
@@ -253,6 +266,9 @@
 /obj/effect/landmark/start/shaft_miner,
 /turf/open/floor/iron/colony/white,
 /area/station/cargo/lower)
+"bY" = (
+/turf/closed/wall/mineral/wood/nonmetal,
+/area/station/service/chapel)
 "bZ" = (
 /obj/structure/cable,
 /turf/open/floor/carpet/grimey,
@@ -306,6 +322,9 @@
 /obj/structure/toilet,
 /turf/open/floor/iron/colony/white,
 /area/station/commons/dorms)
+"cz" = (
+/turf/open/floor/iron/smooth_edge,
+/area/station/service/chapel)
 "cA" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/east,
 /obj/effect/turf_decal/tile/dark_blue/half/contrasted{
@@ -384,6 +403,18 @@
 /obj/effect/landmark/start/mime,
 /turf/open/floor/iron/colony/texture,
 /area/station/commons/dorms)
+"dc" = (
+/obj/structure/chair/pew/left{
+	dir = 1
+	},
+/obj/structure/wall_torch/mount_only{
+	dir = 8;
+	icon_state = "walltorch_on";
+	name = "mounted torch";
+	pixel_x = -28
+	},
+/turf/open/floor/mineral/gold,
+/area/station/service/chapel)
 "dd" = (
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 8
@@ -478,11 +509,11 @@
 /turf/open/floor/iron/dark/telecomms,
 /area/station/tcommsat/server)
 "dD" = (
-/obj/machinery/modular_computer{
-	dir = 8
-	},
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 4
+	},
+/obj/machinery/modular_computer/preset/cargochat/medical{
+	dir = 8
 	},
 /turf/open/floor/material,
 /area/station/medical/medbay/lobby)
@@ -513,6 +544,17 @@
 /obj/structure/closet/secure_closet/miner,
 /turf/open/floor/iron/colony/white,
 /area/station/cargo/lower)
+"dN" = (
+/obj/structure/wall_torch/mount_only{
+	dir = 1;
+	icon_state = "walltorch_on";
+	name = "mounted torch";
+	pixel_y = 28
+	},
+/turf/open/floor/iron/chapel{
+	dir = 4
+	},
+/area/station/service/chapel)
 "dO" = (
 /obj/structure/flora/grass/both/style_random,
 /obj/effect/turf_decal/weather/dirt{
@@ -799,6 +841,12 @@
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/iron/colony/texture,
 /area/station/commons/dorms)
+"fv" = (
+/obj/structure/flora/grass/both/style_random{
+	icon_state = "snowgrassall3"
+	},
+/turf/open/misc/asteroid/snow/icemoon,
+/area/snundra/outdoors/nospawn)
 "fA" = (
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 8
@@ -1055,6 +1103,9 @@
 /obj/machinery/door/airlock/colony_prefab,
 /turf/open/floor/iron/colony,
 /area/station/security/checkpoint/arrivals)
+"hv" = (
+/turf/open/floor/grass/thatch,
+/area/station/service/chapel)
 "hx" = (
 /turf/open/lava/plasma/ice_moon,
 /area/snundra/outdoors/nospawn/deep)
@@ -1566,12 +1617,6 @@
 	},
 /turf/open/floor/iron/colony/white,
 /area/station/cargo/breakroom)
-"kq" = (
-/obj/machinery/modular_computer/preset/cargochat/cargo{
-	dir = 4
-	},
-/turf/open/floor/carpet/grimey,
-/area/station/maintenance/department/electrical)
 "ks" = (
 /turf/open/floor/catwalk_floor/colony_fabricator,
 /area/station/cargo/storage)
@@ -1593,12 +1638,6 @@
 	},
 /turf/open/floor/iron/dark/textured,
 /area/station/command/heads_quarters/nt_rep)
-"kw" = (
-/obj/machinery/modular_computer/preset/cargochat/medical{
-	dir = 4
-	},
-/turf/open/floor/carpet/grimey,
-/area/station/maintenance/department/electrical)
 "kz" = (
 /obj/structure/fans/tiny,
 /obj/machinery/door/window/brigdoor/right/directional/north{
@@ -1853,6 +1892,11 @@
 	},
 /turf/open/floor/iron/colony,
 /area/station/cargo/storage)
+"ma" = (
+/turf/open/floor/iron/chapel{
+	dir = 4
+	},
+/area/station/service/chapel)
 "md" = (
 /obj/effect/turf_decal/tile/green/half/contrasted{
 	dir = 1
@@ -1900,6 +1944,7 @@
 	dir = 8
 	},
 /obj/machinery/light/floor,
+/obj/effect/landmark/start/telecomms_specialist,
 /turf/open/floor/iron/dark/textured,
 /area/station/hallway/secondary/entry)
 "mr" = (
@@ -1927,6 +1972,21 @@
 /obj/item/kirbyplants/random,
 /turf/open/floor/iron/dark/textured,
 /area/station/command/bridge)
+"mA" = (
+/obj/structure/table/wood,
+/obj/effect/decal/cleanable/ash{
+	pixel_x = -4;
+	pixel_y = -2
+	},
+/obj/effect/decal/cleanable/ash{
+	pixel_x = -5;
+	pixel_y = -1
+	},
+/obj/item/storage/fancy/candle_box,
+/turf/open/floor/iron/chapel{
+	dir = 8
+	},
+/area/station/service/chapel)
 "mB" = (
 /obj/structure/railing/corner,
 /turf/open/misc/asteroid/snow/icemoon,
@@ -2280,6 +2340,12 @@
 /obj/machinery/door/airlock/colony_prefab,
 /turf/open/floor/iron/colony/bolts,
 /area/station/commons/dorms)
+"ox" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/effect/landmark/atmospheric_sanity/ignore_area,
+/turf/open/floor/catwalk_floor/colony_fabricator,
+/area/station/maintenance/hiddengarden)
 "oy" = (
 /obj/structure/chair/office{
 	dir = 1
@@ -2423,6 +2489,11 @@
 /obj/item/kitchen/rollingpin,
 /turf/open/floor/iron/colony/texture,
 /area/station/commons/dorms)
+"pr" = (
+/turf/open/floor/iron/chapel{
+	dir = 8
+	},
+/area/station/service/chapel)
 "ps" = (
 /obj/structure/railing{
 	dir = 8
@@ -2550,6 +2621,11 @@
 /obj/effect/landmark/start/medical_doctor,
 /turf/open/floor/catwalk_floor,
 /area/station/medical/medbay/lobby)
+"qk" = (
+/obj/machinery/door/airlock/colony_prefab,
+/obj/structure/fans/tiny,
+/turf/open/floor/iron/colony,
+/area/station/maintenance/hiddengarden)
 "ql" = (
 /obj/machinery/light/directional/north,
 /obj/machinery/power/apc/auto_name/directional/north,
@@ -2560,6 +2636,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plating,
 /area/station/maintenance/department/bridge)
+"qs" = (
+/obj/structure/window/fulltile/colony_fabricator,
+/turf/open/floor/plating,
+/area/station/maintenance/hiddengarden)
 "qu" = (
 /obj/machinery/biogenerator/food_replicator,
 /turf/open/floor/iron/colony/texture,
@@ -2671,6 +2751,7 @@
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 1
 	},
+/obj/effect/landmark/atmospheric_sanity/ignore_area,
 /turf/open/floor/material,
 /area/station/medical/medbay/central)
 "qX" = (
@@ -2847,6 +2928,21 @@
 /obj/structure/sign/poster/contraband/random/directional/west,
 /turf/open/floor/catwalk_floor/colony_fabricator,
 /area/station/commons/dorms)
+"sr" = (
+/obj/structure/railing/wooden_fencing/gate,
+/turf/open/floor/grass/thatch,
+/area/station/service/chapel)
+"su" = (
+/obj/structure/chair/pew/right{
+	dir = 1
+	},
+/obj/structure/wall_torch/mount_only{
+	icon_state = "walltorch_on";
+	name = "mounted torch";
+	pixel_y = -28
+	},
+/turf/open/floor/mineral/gold,
+/area/station/service/chapel)
 "sw" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 8
@@ -2902,6 +2998,14 @@
 	dir = 10
 	},
 /obj/machinery/space_heater/wall_mounted/directional/west,
+/obj/item/reagent_containers/cup/beaker/large{
+	pixel_x = 5;
+	pixel_y = 1
+	},
+/obj/item/reagent_containers/cup/beaker/large{
+	pixel_x = 5;
+	pixel_y = 3
+	},
 /turf/open/floor/wood,
 /area/station/engineering/supermatter/room)
 "sS" = (
@@ -2945,6 +3049,11 @@
 /obj/structure/sign/poster/contraband/random/directional/north,
 /turf/open/floor/iron/colony/texture,
 /area/station/commons/dorms)
+"tl" = (
+/obj/machinery/hydroponics/constructable,
+/obj/machinery/door/window/survival_pod/left/directional/south,
+/turf/open/floor/catwalk_floor/colony_fabricator,
+/area/station/maintenance/hiddengarden)
 "tp" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -3014,6 +3123,18 @@
 	},
 /turf/open/floor/iron/dark/textured,
 /area/station/command/bridge)
+"tK" = (
+/obj/structure/wall_torch/mount_only{
+	dir = 8;
+	icon_state = "walltorch_on";
+	name = "mounted torch";
+	pixel_x = -28
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 9
+	},
+/turf/open/floor/wood/large,
+/area/station/service/chapel)
 "tO" = (
 /obj/structure/flora/rock/pile/jungle/style_random,
 /obj/effect/turf_decal/weather/dirt{
@@ -3128,24 +3249,6 @@
 	},
 /turf/open/misc/asteroid/snow/icemoon,
 /area/snundra/outdoors/nospawn)
-"uM" = (
-/obj/item/reagent_containers/cup/beaker/large{
-	pixel_x = 5;
-	pixel_y = 3
-	},
-/obj/item/reagent_containers/cup/beaker/large{
-	pixel_x = 5;
-	pixel_y = 1
-	},
-/obj/item/reagent_containers/cup/beaker/large{
-	dir = 4;
-	pixel_x = 2;
-	pixel_y = 5
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
-/obj/structure/cable,
-/turf/open/floor/wood,
-/area/station/engineering/supermatter/room)
 "uP" = (
 /obj/machinery/light/directional/north,
 /obj/effect/landmark/atmospheric_sanity/ignore_area,
@@ -3204,6 +3307,21 @@
 	},
 /turf/open/misc/asteroid/snow/icemoon,
 /area/snundra/outdoors/nospawn)
+"vk" = (
+/obj/machinery/door/airlock/wood,
+/turf/open/floor/wood/large,
+/area/station/service/chapel)
+"vl" = (
+/obj/structure/chair/pew/left{
+	dir = 1
+	},
+/obj/structure/wall_torch/mount_only{
+	icon_state = "walltorch_on";
+	name = "mounted torch";
+	pixel_y = -28
+	},
+/turf/open/floor/mineral/gold,
+/area/station/service/chapel)
 "vn" = (
 /turf/open/floor/catwalk_floor/colony_fabricator,
 /area/station/cargo/lobby)
@@ -3348,6 +3466,10 @@
 /obj/machinery/light/directional/west,
 /turf/open/floor/material,
 /area/station/medical/medbay/central)
+"wl" = (
+/obj/machinery/vending/hydronutrients,
+/turf/open/floor/catwalk_floor/colony_fabricator,
+/area/station/maintenance/hiddengarden)
 "wp" = (
 /obj/effect/landmark/observer_start,
 /turf/open/misc/dirt/icemoon,
@@ -3635,6 +3757,9 @@
 /obj/effect/landmark/atmospheric_sanity/ignore_area,
 /turf/open/floor/iron/dark/textured,
 /area/station/hallway/secondary/entry)
+"xS" = (
+/turf/open/floor/mineral/gold,
+/area/station/service/chapel)
 "xV" = (
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 4
@@ -3711,6 +3836,13 @@
 /obj/machinery/firealarm/directional/north,
 /turf/open/floor/material,
 /area/station/medical/surgery/theatre)
+"yr" = (
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/floor/wood/large,
+/area/station/service/chapel)
 "yz" = (
 /obj/structure/lattice/catwalk,
 /turf/open/lava/plasma/ice_moon,
@@ -3854,6 +3986,17 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/colony/texture,
 /area/station/engineering/supermatter/room)
+"zt" = (
+/obj/structure/wall_torch/mount_only{
+	dir = 1;
+	icon_state = "walltorch_on";
+	name = "mounted torch";
+	pixel_y = 28
+	},
+/turf/open/floor/iron/chapel{
+	dir = 1
+	},
+/area/station/service/chapel)
 "zw" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
@@ -3911,6 +4054,9 @@
 /obj/machinery/recharger,
 /turf/open/floor/iron/dark/textured,
 /area/station/command/bridge)
+"zY" = (
+/turf/open/floor/iron/chapel,
+/area/station/service/chapel)
 "Aa" = (
 /obj/effect/landmark/atmospheric_sanity/ignore_area,
 /turf/open/floor/iron/dark/telecomms,
@@ -4084,6 +4230,9 @@
 /obj/machinery/door/window/left/directional/west,
 /turf/open/floor/wood,
 /area/station/medical/medbay/lobby)
+"Bg" = (
+/turf/closed/wall/mineral/wood,
+/area/station/service/chapel)
 "Bi" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/siding/wood{
@@ -4127,6 +4276,11 @@
 /obj/structure/transport/linear/public,
 /turf/open/floor/plating/elevatorshaft,
 /area/station/cargo/boutique)
+"Bp" = (
+/obj/structure/flora/grass/both/style_random,
+/obj/machinery/door/airlock/colony_prefab,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/snundra/outdoors/nospawn)
 "Bt" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/west,
 /obj/structure/window/reinforced/plasma/spawner/directional/north,
@@ -4536,6 +4690,15 @@
 	},
 /turf/open/misc/dirt/icemoon,
 /area/snundra/outdoors/nospawn)
+"DR" = (
+/obj/structure/fermenting_barrel{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 6
+	},
+/turf/open/floor/wood/large,
+/area/station/service/chapel)
 "DS" = (
 /turf/closed/wall/prefab_plastic,
 /area/station/cargo/warehouse)
@@ -4543,6 +4706,9 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/station/security/checkpoint/arrivals)
+"Ec" = (
+/turf/closed/wall/prefab_plastic,
+/area/station/maintenance/hiddengarden)
 "Ed" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 10
@@ -4644,6 +4810,10 @@
 /obj/structure/sign/poster/contraband/random/directional/north,
 /turf/open/floor/catwalk_floor/colony_fabricator,
 /area/station/cargo/lobby)
+"EK" = (
+/obj/structure/sink/directional/south,
+/turf/open/floor/catwalk_floor/colony_fabricator,
+/area/station/maintenance/hiddengarden)
 "EM" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -5114,6 +5284,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/nt_rep)
+"Hv" = (
+/obj/machinery/vending/hydroseeds{
+	slogan_delay = 700
+	},
+/turf/open/floor/catwalk_floor/colony_fabricator,
+/area/station/maintenance/hiddengarden)
 "Hw" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 6
@@ -5168,6 +5344,9 @@
 /obj/machinery/button/door/directional/west{
 	name = "Warehouse Shutters Toggle";
 	id = "warehousetoggle"
+	},
+/obj/machinery/modular_computer/preset/cargochat/cargo{
+	dir = 4
 	},
 /turf/open/floor/catwalk_floor/colony_fabricator,
 /area/station/cargo/storage)
@@ -5276,6 +5455,15 @@
 	},
 /turf/open/floor/iron/dark/textured,
 /area/station/command/bridge)
+"IK" = (
+/obj/structure/flora/bush/flowers_pp/style_random{
+	icon_state = "ppflowers_2"
+	},
+/obj/structure/flora/rock/pile/icy/style_random{
+	icon_state = "lavarocks2"
+	},
+/turf/open/misc/asteroid/snow/icemoon,
+/area/snundra/outdoors/nospawn)
 "IM" = (
 /obj/structure/railing{
 	dir = 8
@@ -5638,7 +5826,14 @@
 	},
 /turf/open/floor/iron/colony/texture,
 /area/station/commons/dorms)
+"Ll" = (
+/obj/machinery/smartfridge/drying/rack{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
+/area/station/service/chapel)
 "Lo" = (
+/obj/machinery/computer/cargo/request,
 /turf/open/floor/iron/colony/white,
 /area/station/cargo/breakroom)
 "Lp" = (
@@ -5759,6 +5954,25 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/station/medical/pharmacy)
+"Mg" = (
+/obj/structure/wall_torch/mount_only{
+	dir = 4;
+	icon_state = "walltorch_on";
+	name = "mounted torch";
+	pixel_x = 28
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/wood/large,
+/area/station/service/chapel)
+"Mh" = (
+/obj/machinery/door/airlock/colony_prefab,
+/obj/structure/fans/tiny,
+/obj/structure/cable,
+/turf/open/floor/iron/colony,
+/area/station/maintenance/hiddengarden)
 "Mi" = (
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 4
@@ -5769,6 +5983,21 @@
 	},
 /turf/open/misc/dirt/icemoon,
 /area/snundra/outdoors/nospawn)
+"Mp" = (
+/obj/structure/railing/wooden_fencing{
+	icon_state = "fence_2"
+	},
+/turf/open/floor/grass/thatch,
+/area/station/service/chapel)
+"Mr" = (
+/obj/structure/closet/crate/wooden/storage_barrel{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 10
+	},
+/turf/open/floor/wood/large,
+/area/station/service/chapel)
 "Ms" = (
 /obj/machinery/airalarm{
 	name = "Medbay Central Air Alarm";
@@ -5948,6 +6177,10 @@
 /obj/machinery/atmospherics/components/binary/valve,
 /turf/open/floor/catwalk_floor/colony_fabricator,
 /area/station/maintenance/department/cargo)
+"NJ" = (
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor/colony_fabricator,
+/area/station/maintenance/hiddengarden)
 "NL" = (
 /obj/machinery/power/supermatter_crystal/shard/engine,
 /obj/structure/window/reinforced/plasma/spawner/directional/north,
@@ -6016,6 +6249,19 @@
 	},
 /turf/open/misc/asteroid/snow/icemoon,
 /area/snundra/outdoors/nospawn)
+"Og" = (
+/obj/structure/table/wood,
+/obj/effect/decal/cleanable/ash{
+	pixel_x = -2;
+	pixel_y = -3
+	},
+/obj/effect/decal/cleanable/ash{
+	pixel_x = -1;
+	pixel_y = 2
+	},
+/obj/item/storage/fancy/candle_box,
+/turf/open/floor/iron/chapel,
+/area/station/service/chapel)
 "Oi" = (
 /obj/structure/flora/bush/reed/style_random,
 /obj/effect/turf_decal/weather/dirt{
@@ -6031,6 +6277,11 @@
 	},
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/nt_rep)
+"Om" = (
+/obj/machinery/door/airlock/wood/glass,
+/obj/structure/cable,
+/turf/open/floor/wood/large,
+/area/station/service/chapel)
 "On" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen,
 /obj/machinery/atmospherics/components/unary/portables_connector/visible,
@@ -6086,6 +6337,21 @@
 "OJ" = (
 /turf/open/floor/iron/dark/telecomms,
 /area/station/tcommsat/server)
+"OK" = (
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/wood/large,
+/area/station/service/chapel)
+"OL" = (
+/turf/open/floor/iron/chapel{
+	dir = 1
+	},
+/area/station/service/chapel)
 "OP" = (
 /turf/open/floor/circuit/telecomms/mainframe,
 /area/station/tcommsat/server)
@@ -6093,6 +6359,10 @@
 /obj/effect/landmark/start/atmospheric_technician,
 /turf/open/floor/wood,
 /area/station/engineering/supermatter/room)
+"OS" = (
+/obj/effect/landmark/atmospheric_sanity/ignore_area,
+/turf/open/floor/mineral/gold,
+/area/station/service/chapel)
 "OU" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
@@ -6191,6 +6461,16 @@
 	},
 /turf/open/water/hot_spring/icemoon,
 /area/snundra/outdoors/nospawn)
+"Ps" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 9
+	},
+/turf/open/floor/wood/large,
+/area/station/service/chapel)
+"Pt" = (
+/obj/machinery/hydroponics/constructable,
+/turf/open/floor/catwalk_floor/colony_fabricator,
+/area/station/maintenance/hiddengarden)
 "Pu" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
@@ -6319,6 +6599,12 @@
 /obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock,
 /turf/open/floor/iron/colony/white,
 /area/station/cargo/breakroom)
+"Qo" = (
+/obj/structure/chair/pew/right{
+	dir = 1
+	},
+/turf/open/floor/mineral/gold,
+/area/station/service/chapel)
 "Qr" = (
 /obj/structure/railing/corner{
 	dir = 8
@@ -6390,6 +6676,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /turf/open/floor/material,
 /area/station/medical/storage)
+"QQ" = (
+/obj/structure/altar_of_gods,
+/turf/open/floor/mineral/gold,
+/area/station/service/chapel)
 "QR" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 8
@@ -6545,6 +6835,9 @@
 	},
 /turf/open/floor/carpet/grimey,
 /area/station/maintenance/department/electrical)
+"RS" = (
+/turf/open/floor/iron/colony/texture,
+/area/station/maintenance/hiddengarden)
 "RT" = (
 /obj/effect/turf_decal/tile/blue/half/contrasted,
 /obj/item/radio/intercom/directional/south,
@@ -6618,6 +6911,13 @@
 /obj/structure/flora/rock/pile/jungle/style_random,
 /turf/open/water/hot_spring/icemoon,
 /area/snundra/outdoors/nospawn)
+"Sv" = (
+/obj/machinery/space_heater/wall_mounted{
+	icon_state = "sheater-standby";
+	pixel_y = -29
+	},
+/turf/open/floor/catwalk_floor/colony_fabricator,
+/area/station/maintenance/hiddengarden)
 "Sw" = (
 /obj/effect/turf_decal/weather/dirt,
 /obj/item/reagent_containers/cup/glass/bottle/vodka{
@@ -6731,6 +7031,12 @@
 /obj/machinery/atmospherics/components/trinary/filter/layer4,
 /turf/open/floor/wood,
 /area/station/engineering/supermatter/room)
+"SZ" = (
+/obj/structure/chair/pew/left{
+	dir = 1
+	},
+/turf/open/floor/mineral/gold,
+/area/station/service/chapel)
 "Ta" = (
 /obj/machinery/light/directional/west,
 /obj/machinery/light_switch/directional/west,
@@ -6893,6 +7199,16 @@
 /obj/machinery/light/floor,
 /turf/open/floor/iron/dark/textured,
 /area/station/hallway/secondary/entry)
+"Ub" = (
+/obj/structure/flora/bush/flowers_pp/style_random{
+	icon_state = "ppflowers_2"
+	},
+/obj/structure/closet/crate/coffin{
+	dir = 1
+	},
+/obj/item/food/grown/rose,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/snundra/outdoors/nospawn)
 "Ue" = (
 /obj/structure/railing{
 	dir = 1
@@ -7232,6 +7548,9 @@
 /obj/machinery/power/smes/engineering,
 /turf/open/floor/circuit/telecomms/mainframe,
 /area/station/tcommsat/server)
+"Wh" = (
+/turf/open/floor/catwalk_floor/colony_fabricator,
+/area/station/maintenance/hiddengarden)
 "Wi" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/closed/wall/prefab_plastic,
@@ -7435,6 +7754,18 @@
 	},
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/nt_rep)
+"XB" = (
+/obj/structure/chair/pew/right{
+	dir = 1
+	},
+/obj/structure/wall_torch/mount_only{
+	dir = 4;
+	icon_state = "walltorch_on";
+	name = "mounted torch";
+	pixel_x = 28
+	},
+/turf/open/floor/mineral/gold,
+/area/station/service/chapel)
 "XI" = (
 /obj/structure/table/wood,
 /obj/item/papercutter,
@@ -7705,6 +8036,9 @@
 	dir = 4
 	},
 /turf/open/misc/dirt/icemoon,
+/area/snundra/outdoors/nospawn)
+"Zr" = (
+/turf/closed/wall/mineral/snow,
 /area/snundra/outdoors/nospawn)
 "Zu" = (
 /obj/machinery/light/small/directional/south,
@@ -75909,9 +76243,9 @@ tr
 tr
 vu
 vu
-kq
+gk
 cL
-kw
+gk
 vu
 vu
 tr
@@ -76166,9 +76500,9 @@ tr
 rF
 vu
 ge
+gk
 HB
-HB
-HB
+gk
 gk
 vu
 vu
@@ -92969,11 +93303,11 @@ tr
 tr
 tr
 tr
-tr
-tr
-tr
-tr
-tr
+Ec
+qs
+qs
+qs
+Ec
 tr
 tr
 tr
@@ -93224,13 +93558,13 @@ tr
 tr
 tr
 tr
+oW
 tr
-tr
-tr
-tr
-tr
-tr
-tr
+Ec
+tl
+tl
+Pt
+Ec
 tr
 tr
 tr
@@ -93480,14 +93814,14 @@ tr
 tr
 tr
 tr
+Hl
+oW
 tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
+Ec
+EK
+RS
+Wh
+Ec
 tr
 tr
 tr
@@ -93738,13 +94072,13 @@ tr
 tr
 tr
 tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
+MN
+MN
+Mh
+NJ
+RS
+Wh
+qk
 tr
 tr
 tr
@@ -93995,13 +94329,13 @@ tr
 tr
 tr
 tr
+oW
 tr
-tr
-tr
-tr
-tr
-tr
-tr
+Ec
+ox
+RS
+Sv
+Ec
 tr
 tr
 tr
@@ -94251,14 +94585,14 @@ tr
 tr
 tr
 tr
+Hl
+oW
 tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
+Ec
+bL
+wl
+Hv
+Ec
 tr
 tr
 tr
@@ -94511,11 +94845,11 @@ tr
 tr
 tr
 tr
-tr
-tr
-tr
-tr
-tr
+Ec
+qs
+qs
+qs
+Ec
 tr
 tr
 tr
@@ -99280,7 +99614,7 @@ Xc
 hz
 Yc
 nz
-uM
+MM
 zs
 kc
 wF
@@ -99651,7 +99985,7 @@ dS
 dS
 Ao
 dS
-Vt
+Bp
 dS
 Vt
 OX
@@ -103693,9 +104027,9 @@ tr
 tr
 tr
 tr
-tr
-tr
-tr
+bY
+bY
+bY
 tr
 tr
 tr
@@ -103950,9 +104284,9 @@ tr
 tr
 tr
 tr
-tr
-tr
-tr
+bY
+hv
+Mp
 tr
 tr
 tr
@@ -104207,9 +104541,9 @@ tr
 tr
 tr
 tr
-tr
-tr
-tr
+bY
+hv
+sr
 tr
 tr
 tr
@@ -104454,21 +104788,21 @@ tr
 tr
 tr
 tr
+Bg
+Bg
+Bg
+Bg
+Bg
+bY
 tr
 tr
 tr
 tr
+bY
+hv
+Mp
 tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
+Hl
 tr
 tr
 tr
@@ -104711,20 +105045,20 @@ tr
 tr
 tr
 tr
+Bg
+OL
+pr
+dc
+SZ
+bY
 tr
 tr
 tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
+bY
+bY
+bY
+bY
+Bg
 tr
 tr
 tr
@@ -104968,25 +105302,25 @@ tr
 tr
 tr
 tr
+Bg
+dN
+Og
+Qo
+su
+bY
+bY
+bY
+bY
+bY
+Ll
+tK
+Mr
+Bg
 tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
+oW
+oW
+oW
+oW
 tr
 tr
 tr
@@ -105225,22 +105559,22 @@ tr
 tr
 tr
 tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
+Bg
+xS
+QQ
+xS
+OS
+cz
+cz
+cz
+cz
+vk
+Ps
+yr
+OK
+Om
+MN
+MN
 tr
 tr
 tr
@@ -105482,24 +105816,24 @@ tr
 tr
 tr
 tr
+Bg
+zt
+mA
+SZ
+vl
+bY
+bY
+bY
+bY
+bY
+bB
+Mg
+DR
+Bg
 tr
 tr
 tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
+Hl
 tr
 tr
 tr
@@ -105739,22 +106073,22 @@ tr
 tr
 tr
 tr
+Bg
+ma
+zY
+XB
+Qo
+Bg
 tr
 tr
 tr
+bY
+bY
+Bg
+Bg
+Bg
 tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
-tr
+Hl
 tr
 tr
 tr
@@ -105996,12 +106330,12 @@ tr
 tr
 tr
 tr
-tr
-tr
-tr
-tr
-tr
-tr
+Bg
+Bg
+Bg
+Bg
+Bg
+Bg
 tr
 tr
 tr
@@ -130407,7 +130741,7 @@ tr
 tr
 tr
 tr
-tr
+Zr
 tr
 tr
 tr
@@ -130663,9 +130997,9 @@ tr
 tr
 tr
 tr
-tr
-tr
-tr
+fv
+me
+fv
 tr
 tr
 tr
@@ -130919,11 +131253,11 @@ tr
 tr
 tr
 tr
-tr
-tr
-tr
-tr
-tr
+Zr
+IK
+Ub
+fv
+Zr
 tr
 tr
 tr
@@ -131177,9 +131511,9 @@ tr
 tr
 tr
 tr
-tr
-tr
-tr
+fv
+dS
+IK
 tr
 tr
 tr
@@ -131435,7 +131769,7 @@ tr
 tr
 tr
 tr
-tr
+Zr
 tr
 tr
 tr
