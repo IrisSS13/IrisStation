@@ -33,8 +33,11 @@ find modular_nova/modules/GAGS/nsfw/json_configs -name \*.json -exec cp --parent
 # NOVA EDIT ADDITION END
 
 # IRIS EDIT ADDITION START
-mkdir -p $1/modular_iris
+mkdir -p \
+		$1/modular_iris
+
 find modular_iris/ -name \*.dmi -exec cp --parents {} $1 \;
+find modular_iris/modules/GAGS/json_configs -name \*.json -exec cp --parents {} $1 \;
 # IRIS EDIT ADDITION END
 
 cp tgstation.dmb tgstation.rsc $1/
