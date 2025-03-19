@@ -21,3 +21,33 @@
 	desc = "It's watching you suspiciously. You need a skeleton key to open it."
 	density = TRUE
 	animate(src, time = 3 SECONDS, alpha = 255)
+
+/obj/effect/wisp
+	var/mob/last_owner = null
+
+/obj/effect/wisp/Destroy()
+	if(last_owner)
+		UnregisterSignal(last_owner, COMSIG_QDELETING)
+		last_owner = null
+
+	return ..()
+
+/obj/effect/wisp/orbit(atom/A, radius = 10, clockwise = FALSE, rotation_speed = 20, rotation_segments = 36, pre_rotation = TRUE)
+	. = ..()
+	if(!.)
+		return
+
+	if(last_owner)
+		UnregisterSignal(last_owner, COMSIG_QDELETING)
+
+	last_owner = orbit_target
+	RegisterSignal(last_owner, COMSIG_QDELETING, PROC_REF(they_be_goned))
+
+/obj/effect/wisp/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
+	. = ..()
+	if(!orbit_target && last_owner && isturf(loc))
+		orbit(last_owner, 20)
+
+/obj/effect/wisp/proc/they_be_goned()
+	SIGNAL_HANDLER
+	last_owner = null
