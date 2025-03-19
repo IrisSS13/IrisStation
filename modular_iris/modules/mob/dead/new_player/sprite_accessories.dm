@@ -361,9 +361,32 @@
 	icon_state = "megafluff"
 
 // moth marking - Nova uses /datum/body_marking/moth/ instead of /datum/sprite_accessory/moth_markings/
-
 /datum/body_marking/moth/tundra
 	name = "Tundra"
 	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/moth_markings.dmi'
 	icon_state = "tundra"
 
+/datum/sprite_accessory/antenna/none //grabbed this originally from modular_nova
+	name = SPRITE_ACCESSORY_NONE
+	icon_state = "None"
+	recommended_species = null
+
+/datum/sprite_accessory/antenna/sidelights
+	name = "Sidelights"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/ipc_antennas.dmi'
+	icon_state = "sidelights"
+
+/datum/sprite_accessory/antenna/tesla
+	name = "Tesla"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/ipc_antennas.dmi'
+	icon_state = "tesla"
+
+/datum/sprite_accessory/antenna/droneeyes
+	name = "Drone Eyes"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/ipc_antennas.dmi'
+	icon_state = "droneeyes"
+
+/datum/sprite_accessory/antenna/light
+	name = "Light"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/ipc_antennas.dmi'
+	icon_state = "light"
