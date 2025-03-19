@@ -4,6 +4,8 @@
 
 /// Blindness
 /datum/status_effect/grouped/blindness
+	// This is not "remove on fullheal" as in practice,
+	// fullheal should instead remove all the sources and in turn cure this
 	id = "blindness"
 	tick_interval = STATUS_EFFECT_NO_TICK
 	alert_type = /atom/movable/screen/alert/status_effect/blind
@@ -11,33 +13,48 @@
 		SIGNAL_REMOVETRAIT(TRAIT_SIGHT_BYPASS),
 		SIGNAL_ADDTRAIT(TRAIT_SIGHT_BYPASS),
 	)
-	// This is not "remove on fullheal" as in practice,
-	// fullheal should instead remove all the sources and in turn cure this
+	/// List of sources which prevent SIGHT_BYPASS from working
+	var/static/list/blocking_sources = list(
+		QUIRK_TRAIT, // Meant to be completely immutable
+		ECHOLOCATION_TRAIT, // Breaks the UI badly
+		UNCONSCIOUS_TRAIT, // Duh
+	)
 
 /datum/status_effect/grouped/blindness/on_apply()
-	if(!CAN_BE_BLIND(owner))
+	if (!CAN_BE_BLIND(owner))
 		return FALSE
 
 	RegisterSignals(owner, update_signals, PROC_REF(update_blindness))
-
 	update_blindness()
-
 	return ..()
 
+/datum/status_effect/grouped/blindness/source_added(source, ...)
+	update_blindness()
+
+/datum/status_effect/grouped/blindness/source_removed(source, removing)
+	if (!removing)
+		update_blindness()
+
 /datum/status_effect/grouped/blindness/proc/update_blindness()
-	if(!CAN_BE_BLIND(owner)) // future proofing
+	if (!CAN_BE_BLIND(owner)) // future proofing
 		qdel(src)
 		return
 
-	if(HAS_TRAIT(owner, TRAIT_SIGHT_BYPASS))
-		make_unblind()
+	if (!HAS_TRAIT(owner, TRAIT_SIGHT_BYPASS))
+		make_blind()
 		return
-	make_blind()
+
+	for (var/blocker in blocking_sources)
+		if (owner.is_blind_from(blocker))
+			make_blind()
+			return
+
+	make_unblind()
 
 /datum/status_effect/grouped/blindness/proc/make_blind()
 	owner.overlay_fullscreen(id, /atom/movable/screen/fullscreen/blind)
 	// You are blind - at most, able to make out shapes near you
-	owner.add_client_colour(/datum/client_colour/monochrome/blind)
+	owner.add_client_colour(/datum/client_colour/monochrome, REF(src))
 		// IRIS ADDITION START - MapleStation Port: But to represent the fact that you can feel your way around, you are unaffected by darkness
 	ADD_TRAIT(owner, TRAIT_TRUE_NIGHT_VISION, id)
 	// but your eyes will start to wander, you may end up staring unintentionally
@@ -46,7 +63,7 @@
 
 /datum/status_effect/grouped/blindness/proc/make_unblind()
 	owner.clear_fullscreen(id)
-	owner.remove_client_colour(/datum/client_colour/monochrome/blind)
+	owner.remove_client_colour(REF(src))
 		// IRIS ADDITION START - MapleStation Port
 	REMOVE_TRAIT(owner, TRAIT_TRUE_NIGHT_VISION, id)
 	REMOVE_TRAIT(owner, TRAIT_SHIFTY_EYES, id)
