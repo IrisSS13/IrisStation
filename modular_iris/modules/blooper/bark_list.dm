@@ -162,7 +162,7 @@
 /datum/blooper/moff/short
 	name = "Moth Squeak"
 	id = "moffsqueak"
-	soundpath = 'modular_iris/code/modules/blooper/voice/bloopers/mothsqueak.ogg'
+	soundpath = 'modular_iris/modules/blooper/voice/bloopers/mothsqueak.ogg'
 	allow_random = TRUE
 	ignore = FALSE
 
@@ -170,7 +170,7 @@
 	name = "Meow"
 	id = "meow"
 	allow_random = TRUE
-	soundpath = 'modular_iris/code/modules/blooper/voice/bloopers/meow1.ogg'
+	soundpath = 'modular_iris/modules/blooper/voice/bloopers/meow1.ogg'
 	minspeed = 5
 	maxspeed = 11
 
@@ -178,125 +178,125 @@
 	name = "Chirp"
 	id = "chirp"
 	allow_random = TRUE
-	soundpath = 'modular_iris/code/modules/blooper/voice/bloopers/chirp.ogg'
+	soundpath = 'modular_iris/modules/blooper/voice/bloopers/chirp.ogg'
 
 /datum/blooper/caw
 	name = "Caw"
 	id = "caw"
 	allow_random = TRUE
-	soundpath = 'modular_iris/code/modules/blooper/voice/bloopers/caw.ogg'
+	soundpath = 'modular_iris/modules/blooper/voice/bloopers/caw.ogg'
 
 /datum/blooper/chitter/alt
 	name = "Chittery"
 	id = "chitter2"
-	soundpath = 'modular_iris/code/modules/blooper/voice/bloopers/moth/mothchitter2.ogg'
+	soundpath = 'modular_iris/modules/blooper/voice/bloopers/moth/mothchitter2.ogg'
 
 /datum/blooper/wilson
 	name = "Wilson"
 	id = "wilson"
-	soundpath = 'modular_iris/code/modules/blooper/voice/bloopers/dont_starve/wilson.ogg'
+	soundpath = 'modular_iris/modules/blooper/voice/bloopers/dont_starve/wilson.ogg'
 
 /datum/blooper/wolfgang
 	name = "Wolfgang"
 	id = "wolfgang"
-	soundpath = 'modular_iris/code/modules/blooper/voice/bloopers/dont_starve/wolfgang.ogg'
+	soundpath = 'modular_iris/modules/blooper/voice/bloopers/dont_starve/wolfgang.ogg'
 
 /datum/blooper/woodie
 	name = "Woodie"
 	id = "woodie"
-	soundpath = 'modular_iris/code/modules/blooper/voice/bloopers/dont_starve/woodie.ogg'
+	soundpath = 'modular_iris/modules/blooper/voice/bloopers/dont_starve/woodie.ogg'
 
 /datum/blooper/wurt
 	name = "Wurt"
 	id = "wurt"
-	soundpath = 'modular_iris/code/modules/blooper/voice/bloopers/dont_starve/wurt.ogg'
+	soundpath = 'modular_iris/modules/blooper/voice/bloopers/dont_starve/wurt.ogg'
 
 /datum/blooper/wx78
 	name = "Wx78"
 	id = "wx78"
-	soundpath = 'modular_iris/code/modules/blooper/voice/bloopers/dont_starve/wx78.ogg'
+	soundpath = 'modular_iris/modules/blooper/voice/bloopers/dont_starve/wx78.ogg'
 
 /datum/blooper/birdwhistle
 	name = "Bird Whistle"
 	id = "birdwhistle"
-	soundpath = 'modular_iris/code/modules/blooper/voice/bloopers/kazooie/birdwhistle.ogg'
+	soundpath = 'modular_iris/modules/blooper/voice/bloopers/kazooie/birdwhistle.ogg'
 
 /datum/blooper/birdwhistle2
 	name = "Bird Whistle 2"
 	id = "birdwhistle2"
-	soundpath = 'modular_iris/code/modules/blooper/voice/bloopers/kazooie/birdwhistle2.ogg'
+	soundpath = 'modular_iris/modules/blooper/voice/bloopers/kazooie/birdwhistle2.ogg'
 
 /datum/blooper/caw2
 	name = "Caw 2"
 	id = "caw2"
-	soundpath = 'modular_iris/code/modules/blooper/voice/bloopers/kazooie/caw2.ogg'
+	soundpath = 'modular_iris/modules/blooper/voice/bloopers/kazooie/caw2.ogg'
 
 /datum/blooper/caw3
 	name = "Caw 3"
 	id = "caw3"
-	soundpath = 'modular_iris/code/modules/blooper/voice/bloopers/kazooie/caw3.ogg'
+	soundpath = 'modular_iris/modules/blooper/voice/bloopers/kazooie/caw3.ogg'
 
 /datum/blooper/dwoop
 	name = "Dwoop"
 	id = "dwoop"
-	soundpath = 'modular_iris/code/modules/blooper/voice/bloopers/kazooie/dwoop.ogg'
+	soundpath = 'modular_iris/modules/blooper/voice/bloopers/kazooie/dwoop.ogg'
 
 /datum/blooper/ehh
 	name = "Ehh"
 	id = "ehh"
-	soundpath = 'modular_iris/code/modules/blooper/voice/bloopers/kazooie/ehh.ogg'
+	soundpath = 'modular_iris/modules/blooper/voice/bloopers/kazooie/ehh.ogg'
 
 /datum/blooper/ehh2
 	name = "Ehh 2"
 	id = "ehh2"
-	soundpath = 'modular_iris/code/modules/blooper/voice/bloopers/kazooie/ehh2.ogg'
+	soundpath = 'modular_iris/modules/blooper/voice/bloopers/kazooie/ehh2.ogg'
 
 /datum/blooper/ehh3
 	name = "Ehh 3"
 	id = "ehh3"
-	soundpath = 'modular_iris/code/modules/blooper/voice/bloopers/kazooie/ehh3.ogg'
+	soundpath = 'modular_iris/modules/blooper/voice/bloopers/kazooie/ehh3.ogg'
 
 /datum/blooper/ehh4
 	name = "Ehh 4"
 	id = "ehh 4"
-	soundpath = 'modular_iris/code/modules/blooper/voice/bloopers/kazooie/ehh4.ogg'
+	soundpath = 'modular_iris/modules/blooper/voice/bloopers/kazooie/ehh4.ogg'
 
 /datum/blooper/ehh5
 	name = "Ehh 5"
 	id = "ehh5"
-	soundpath = 'modular_iris/code/modules/blooper/voice/bloopers/kazooie/ehh5.ogg'
+	soundpath = 'modular_iris/modules/blooper/voice/bloopers/kazooie/ehh5.ogg'
 
 /datum/blooper/faucet
 	name = "Faucet"
 	id = "faucet"
-	soundpath = 'modular_iris/code/modules/blooper/voice/bloopers/kazooie/faucet.ogg'
+	soundpath = 'modular_iris/modules/blooper/voice/bloopers/kazooie/faucet.ogg'
 
 /datum/blooper/faucet2
 	name = "Faucet 2"
 	id = "faucet2"
-	soundpath = 'modular_iris/code/modules/blooper/voice/bloopers/kazooie/faucet2.ogg'
+	soundpath = 'modular_iris/modules/blooper/voice/bloopers/kazooie/faucet2.ogg'
 
 /datum/blooper/hoot
 	name = "Hoot"
 	id = "hoot"
-	soundpath = 'modular_iris/code/modules/blooper/voice/bloopers/kazooie/hoot.ogg'
+	soundpath = 'modular_iris/modules/blooper/voice/bloopers/kazooie/hoot.ogg'
 
 /datum/blooper/ribbit
 	name = "Ribbit"
 	id = "ribbit"
-	soundpath = 'modular_iris/code/modules/blooper/voice/bloopers/kazooie/ribbit.ogg'
+	soundpath = 'modular_iris/modules/blooper/voice/bloopers/kazooie/ribbit.ogg'
 
 /datum/blooper/tweet
 	name = "tweet"
 	id = "tweet"
-	soundpath = 'modular_iris/code/modules/blooper/voice/bloopers/kazooie/tweet.ogg'
+	soundpath = 'modular_iris/modules/blooper/voice/bloopers/kazooie/tweet.ogg'
 
 /datum/blooper/uhm
 	name = "Uhm"
 	id = "uhm"
-	soundpath = 'modular_iris/code/modules/blooper/voice/bloopers/kazooie/uhm.ogg'
+	soundpath = 'modular_iris/modules/blooper/voice/bloopers/kazooie/uhm.ogg'
 
 /datum/blooper/wurble1
 	name = "Wurble"
 	id = "wurble1"
-	soundpath = 'modular_iris/code/modules/blooper/voice/bloopers/kazooie/wurble1.ogg'
+	soundpath = 'modular_iris/modules/blooper/voice/bloopers/kazooie/wurble1.ogg'
