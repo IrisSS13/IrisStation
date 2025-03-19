@@ -25,7 +25,7 @@
 		/obj/item/cane,
 		/obj/item/cane/crutch,
 		/obj/item/cane/crutch/wood,
-		/obj/item/reagent_containers/pill/morphine/diluted,
+		/obj/item/reagent_containers/applicator/pill/morphine/diluted,
 	)
 /datum/quirk/limp/add_unique(client/client_source)
 	var/cane = client_source?.prefs?.read_preference(/datum/preference/choiced/limp_cane) || NO_CANE
