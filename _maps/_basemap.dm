@@ -22,6 +22,7 @@
 		// NOVA EDIT END
 		// IRIS EDIT START
 		#include "map_files\biodome\biodome.dmm"
+		#include "map_files\KiloStation\KiloStation.dmm"
 		// IRIS EDIT END
 		#ifdef CIBUILDING
 			#include "templates.dm"
