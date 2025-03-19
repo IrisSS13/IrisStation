@@ -29,7 +29,7 @@ mkdir -p \
 
 find modular_nova/ -name \*.dmi -exec cp --parents {} $1 \;
 find modular_nova/modules/GAGS/json_configs -name \*.json -exec cp --parents {} $1 \;
-find modular_nova/modules/GAGS/nsfw/json_configs -name \*.json -exec cp --parents {} $1 \;
+# find modular_nova/modules/GAGS/nsfw/json_configs -name \*.json -exec cp --parents {} $1 \;
 # NOVA EDIT ADDITION END
 
 # IRIS EDIT ADDITION START
