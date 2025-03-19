@@ -233,15 +233,51 @@
 	name = "Rabbit (Floppy)"
 	icon_state = "rabbit_floppy"
 
-//moved from modular_nova/.../sprite_accessories to keep "none" at the top of our wing selection list
+/datum/sprite_accessory/ears/mutant/soaring
+	name = "Wispy Headwings"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/ears.dmi'
+	icon_state = "wispy"
+	color_src = USE_ONE_COLOR
 
+/datum/sprite_accessory/ears/mutant/soaring/small
+	name = "Small Headwings"
+	icon_state = "small"
+
+// HORNS
+
+/datum/sprite_accessory/horns/messenger
+	name = "Winged Messenger"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/horns.dmi'
+	icon_state = "messenger"
+	color_src = USE_ONE_COLOR
+
+// SNOUT
+
+/datum/sprite_accessory/snouts/mammal/masked_wing
+	name = "Masked Wing"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/snouts.dmi'
+	icon_state = "masked"
+	color_src = USE_ONE_COLOR
+	organ_type = /obj/item/organ/snout/top_adj
+
+// WINGS
+
+
+//moved from modular_nova/.../sprite_accessories to keep "none" at the top of our wing selection list
 /datum/sprite_accessory/wings/none
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
 	factual = FALSE
 
-//moth wings - apparently Nova uses /datum/sprite_accessory/wings/moth/ and not /datum/sprite_accessory/moth_wings/
+/datum/sprite_accessory/wings/mammal/pinioned
+	name = "Pinioned Wings"
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/wings.dmi'
+	icon_state = "pinioned"
+	dimension_x = 32
+	dimension_y = 32
+	color_src = USE_MATRIXED_COLORS
 
+//moth wings - apparently Nova uses /datum/sprite_accessory/wings/moth/ and not /datum/sprite_accessory/moth_wings/
 /datum/sprite_accessory/wings/moth/twilight
 	name = "Moth (Twilight)"
 	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/moth_wings.dmi'
