@@ -428,6 +428,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/image/canvas
 	var/last_canvas_size
 	var/last_canvas_state
+	var/oversized_species
 	// IRIS EDIT END
 
 /atom/movable/screen/map_view/char_preview/Initialize(mapload, datum/preferences/preferences)
@@ -461,10 +462,18 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/canvas_size = 0
 	var/canvas_state = preferences.read_preference(/datum/preference/choiced/background_state)
 
+	// Our list of species who are default larger than 32x32, used to call a larger canvas
+	oversized_species = list(
+		/datum/species/nabber,
+	)
+
 	// Being a taur, or over 1.1 scales it up
 	if (body.dna.mutant_bodyparts["taur"] && body.dna.mutant_bodyparts["taur"]["name"] != "None")
 		canvas_size = 1
 	else if (!isnull(body.dna.features["body_size"]) && body.dna.features["body_size"] > 1.1)
+		canvas_size = 1
+	// Scales the canvas up if your species is larger than 32x32
+	if(body.dna.species.type in oversized_species)
 		canvas_size = 1
 	// Add extra level if we're oversized
 	if (preferences.all_quirks.Find("Oversized"))
