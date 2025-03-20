@@ -178,10 +178,12 @@ function AccessView(props) {
                 <Icon color="pink" name="star" mr={1} />
                 {points}
               </Tooltip>
+              {/* IRIS ADDITION START */}
               <Tooltip content="Total points obtained from completing domains.">
                 <Icon color="purple" name="star" mr={1} />
                 {total_points}
               </Tooltip>
+              {/* IRIS ADDITION END */}
             </>
           }
           fill
