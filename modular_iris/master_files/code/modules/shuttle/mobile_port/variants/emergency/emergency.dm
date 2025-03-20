@@ -5,7 +5,7 @@
 			roleplayer.density = FALSE
 			roleplayer.see_invisible++
 			roleplayer.invisibility = roleplayer.see_invisible // There's a proc for this, but we are ultimate in our judgement
-			ADD_TRAIT(roleplayer, TRAIT_PACIFISM, "EORG Preference Protection")
+			roleplayer.add_traits(list(TRAIT_PACIFISM, TRAIT_UNHITTABLE_BY_PROJECTILES, TRAIT_BLOCKING_PROJECTILES), "EORG Preference Protection")
 			// honesly signals is the best way i found, god bless there not being a simple "allow this mob to disarm" flags
 			RegisterSignal(roleplayer, COMSIG_MOB_TRYING_TO_FIRE_GUN, PROC_REF(prevent_guns))
 			RegisterSignal(roleplayer, COMSIG_LIVING_UNARMED_ATTACK, PROC_REF(prevent_shoves))
