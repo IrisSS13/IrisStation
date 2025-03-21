@@ -826,7 +826,9 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
-/obj/machinery/door/window/left/directional/west,
+/obj/machinery/door/window/left/directional/west{
+	req_access = list("medbay")
+	},
 /turf/open/floor/wood,
 /area/station/medical/medbay/lobby)
 "dS" = (
@@ -1680,8 +1682,8 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/snundra/outdoors/nospawn)
 "ie" = (
-/obj/structure/window/reinforced,
 /obj/item/kirbyplants/random,
+/obj/structure/window/reinforced/spawner/directional/south,
 /turf/open/floor/iron/large,
 /area/station/engineering/hallway)
 "if" = (
@@ -3047,9 +3049,7 @@
 /turf/open/floor/circuit/telecomms/mainframe,
 /area/station/tcommsat/server)
 "of" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/floor/plating/icemoon,
 /area/snundra/outdoors/nospawn/deep)
 "oh" = (
@@ -3480,9 +3480,7 @@
 /turf/open/floor/plating,
 /area/station/commons/dorms)
 "pV" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
+/obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/floor/iron/large,
 /area/station/engineering/hallway)
 "pX" = (
@@ -4684,12 +4682,8 @@
 /turf/open/floor/iron/dark/textured,
 /area/station/engineering/hallway)
 "vX" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/iron/large,
 /area/station/engineering/hallway)
 "vY" = (
@@ -5853,7 +5847,9 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
-/obj/machinery/door/window/left/directional/west,
+/obj/machinery/door/window/left/directional/west{
+	req_access = list("medbay")
+	},
 /turf/open/floor/wood,
 /area/station/medical/medbay/lobby)
 "Bg" = (
@@ -8914,10 +8910,8 @@
 /turf/open/misc/dirt/icemoon,
 /area/snundra/outdoors/nospawn)
 "OI" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /obj/structure/transit_tube/curved,
+/obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/floor/iron/large,
 /area/station/engineering/hallway)
 "OJ" = (
