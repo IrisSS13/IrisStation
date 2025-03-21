@@ -507,8 +507,20 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 /datum/preferences/proc/validate_quirks()
 	if(CONFIG_GET(flag/disable_quirk_points))
 		return
+
+	for(var/quirk_name in all_quirks)
+		var/datum/quirk/quirk_type = SSquirks.quirks[quirk_name]
+		var/datum/species/species = read_preference(/datum/preference/choiced/species)
+		if(species in initial(quirk_type.disabled_species)) //IRIS EDIT
+			all_quirks -= quirk_name
+
 	if(GetQuirkBalance() < 0)
 		all_quirks = list()
+
+/obj/item/testing/attack_self(mob/user, modifiers)
+	. = ..()
+	var/list/test = subtypesof(/datum/species) - /datum/species/synthetic
+	message_admins(test.Join(", "))
 
 /**
  * Safely read a given preference datum from a given client.
