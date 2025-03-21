@@ -30,16 +30,36 @@
 	if (isnull(client_use_echo))
 		client_use_echo = TRUE
 
-	human_holder.AddComponent(/datum/component/echolocation, blocking_trait = TRAIT_DEAF, echo_range = 5, echo_group = client_echo_group, images_are_static = FALSE, use_echo = client_use_echo, show_own_outline = TRUE)
+	//IRIS EDIT ADDITION BEGIN - SLOWER_ECHOLOCATION_PREF
+	var/client_echo_speed = client_source?.prefs.read_preference(/datum/preference/numeric/echolocation_speed)
+	if(isnull(client_echo_speed))
+		client_echo_speed = 1 SECONDS
+	else
+		client_echo_speed = client_echo_speed SECONDS
+	//IRIS EDIT ADDITION END
+
+	//IRIS EDIT CHANGE BEGIN - SLOWER_ECHOLOCATION_PREF
+	human_holder.AddComponent(/datum/component/echolocation, blocking_trait = TRAIT_DEAF, echo_range = 5, echo_group = client_echo_group, images_are_static = FALSE, use_echo = client_use_echo, show_own_outline = TRUE, cooldown_time = client_echo_speed)
+	//IRIS EDIT CHANGE END
 	esp = human_holder.GetComponent(/datum/component/echolocation)
+
+	//IRIS EDIT ADDITION BEGIN - SLOWER_ECHOLOCATION_PREF
+	var/client_echo_render_mult = client_source?.prefs.read_preference(/datum/preference/numeric/echolocation_mult)
+	if(client_echo_render_mult)
+		esp.fade_in_time *= client_echo_render_mult
+		esp.image_expiry_time *= client_echo_render_mult
+		esp.fade_out_time *= client_echo_render_mult
+	//IRIS EDIT ADDITION END
 
 	// HEY! we probably need something to make sure they don't set a color that's too dark or their UI could be totally invisible.
 	// GOOD NEWS! we can re-use the runechat colour stuff for this (probably)
-	human_holder.remove_client_colour(/datum/client_colour/monochrome/blind) // get rid of the existing blind one
-	esp_color = human_holder.add_client_colour(/datum/client_colour/echolocation_custom)
+	var/datum/status_effect/grouped/blindness/blindness_status_effect = human_holder.has_status_effect(/datum/status_effect/grouped/blindness)
+	if(blindness_status_effect)
+		human_holder.remove_client_colour(REF(blindness_status_effect)) // get rid of the existing blind one
+	esp_color = human_holder.add_client_colour(/datum/client_colour/echolocation_custom, QUIRK_TRAIT)
 	var/col = process_chat_color(client_source?.prefs.read_preference(/datum/preference/color/echolocation_outline))
 	esp_color.priority = 1 // mirrors PRIORITY_ABSOLUTE def inside client_color.dm, stops pipes and stuff showing as different colours
-	esp_color.update_colour(col)
+	esp_color.update_color(col)
 
 	// double the ear/hearing damage multiplier from any source.
 	var/obj/item/organ/ears/echo_ears = human_holder.get_organ_slot(ORGAN_SLOT_EARS)
@@ -61,7 +81,7 @@
 	if (!istype(echo_ears))
 		return
 	echo_ears.damage_multiplier = initial(echo_ears.damage_multiplier)
-	human_holder.remove_client_colour(/datum/client_colour/echolocation_custom) // clean up the custom colour override we added
+	human_holder.remove_client_colour(QUIRK_TRAIT) // clean up the custom colour override we added
 
 /datum/client_colour/echolocation_custom
 
@@ -97,7 +117,9 @@
 
 /datum/quirk_constant_data/echolocation
 	associated_typepath = /datum/quirk/echolocation
-	customization_options = list(/datum/preference/color/echolocation_outline, /datum/preference/choiced/echolocation_key, /datum/preference/toggle/echolocation_overlay)
+	//IRIS EDIT CHANGE BEGIN - SLOWER_ECHOLOCATION_PREF
+	customization_options = list(/datum/preference/color/echolocation_outline, /datum/preference/choiced/echolocation_key, /datum/preference/toggle/echolocation_overlay, /datum/preference/numeric/echolocation_speed, /datum/preference/numeric/echolocation_mult)
+	//IRIS EDIT CHANGE END
 
 // Client preference for echolocation outline colour
 /datum/preference/color/echolocation_outline
@@ -147,3 +169,45 @@
 
 /datum/preference/toggle/echolocation_overlay/apply_to_human(mob/living/carbon/human/target, value)
 	return
+
+//IRIS EDIT ADDITION BEGIN - SLOWER_ECHOLOCATION_PREF
+/// Used to change delay between echolation auto-pulses, measured in seconds
+/datum/preference/numeric/echolocation_speed
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
+	savefile_key = "echolocation_speed"
+	savefile_identifier = PREFERENCE_CHARACTER
+	minimum = 1
+	maximum = 15
+
+/datum/preference/numeric/echolocation_speed/is_accessible(datum/preferences/preferences)
+	if (!..(preferences))
+		return FALSE
+
+	return "Echolocation" in preferences.all_quirks
+
+/datum/preference/numeric/echolocation_speed/create_default_value()
+	return 5
+
+/datum/preference/numeric/echolocation_speed/apply_to_human(mob/living/carbon/human/target, value)
+	return
+
+/// Used to stretch fadein, presence and fadeout times of each echolocation image
+/datum/preference/numeric/echolocation_mult
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
+	savefile_key = "echolocation_mult"
+	savefile_identifier = PREFERENCE_CHARACTER
+	minimum = 1
+	maximum = 15
+
+/datum/preference/numeric/echolocation_mult/is_accessible(datum/preferences/preferences)
+	if (!..(preferences))
+		return FALSE
+
+	return "Echolocation" in preferences.all_quirks
+
+/datum/preference/numeric/echolocation_mult/create_default_value()
+	return 1
+
+/datum/preference/numeric/echolocation_mult/apply_to_human(mob/living/carbon/human/target, value)
+	return
+//IRIS EDIT ADDITION END

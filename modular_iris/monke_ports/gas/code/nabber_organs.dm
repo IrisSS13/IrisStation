@@ -32,13 +32,6 @@
 
 /obj/item/organ/eyes/nabber
 	name = "nictating eyes"
-	desc = "Small orange orbs."
-	icon = ORGAN_ICON_NABBER
-	icon_state = "eyes"
-	//flash_protect = FLASH_PROTECTION_SENSITIVE
-
-/obj/item/organ/eyes/robotic/nabber
-	name = "nictating eyes"
 	desc = "Small orange orbs. With pair welding shield linses."
 	icon = ORGAN_ICON_NABBER
 	icon_state = "eyes"
@@ -46,7 +39,7 @@
 	var/datum/action/cooldown/toggle_welding/shield
 	var/active = FALSE
 
-/obj/item/organ/eyes/robotic/nabber/on_mob_insert(mob/living/carbon/eye_recipient)
+/obj/item/organ/eyes/nabber/on_mob_insert(mob/living/carbon/eye_recipient)
 	. = ..()
 	shield = new(eye_recipient)
 	shield.button_icon = 'modular_iris/monke_ports/gas/icons/actions.dmi'
@@ -54,7 +47,7 @@
 	shield.Grant(eye_recipient)
 	shield.eyes = src
 
-/obj/item/organ/eyes/robotic/nabber/proc/toggle_shielding()
+/obj/item/organ/eyes/nabber/proc/toggle_shielding()
 	if(!owner)
 		return
 
@@ -77,7 +70,7 @@
 	shield.button_icon_state = "nabber-shield-0"
 	owner.update_action_buttons()
 
-/obj/item/organ/eyes/robotic/nabber/Remove(mob/living/carbon/eye_owner, special)
+/obj/item/organ/eyes/nabber/Remove(mob/living/carbon/eye_owner, special)
 	. = ..()
 	QDEL_NULL(shield)
 	active = FALSE

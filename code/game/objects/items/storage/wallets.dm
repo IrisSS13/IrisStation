@@ -41,7 +41,7 @@
 		/obj/item/photo,
 		/obj/item/reagent_containers/dropper,
 		/obj/item/reagent_containers/syringe,
-		/obj/item/reagent_containers/pill,
+		/obj/item/reagent_containers/applicator,
 		/obj/item/screwdriver,
 		/obj/item/seeds,
 		/obj/item/spess_knife,
