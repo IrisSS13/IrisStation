@@ -85,12 +85,13 @@
 
 	// Static lists
 	/// List of all available downloads
+	// IRIS EDIT: gives atmospheric sensor, manifest, messenger, photography, and encryption slots to pAIs for nearly free
 	var/static/list/available_software = list(
-		"Atmospheric Sensor" = 5,
-		"Crew Manifest" = 5,
-		"Digital Messenger" = 5,
-		"Photography Module" = 5,
-		"Encryption Slot" = 10,
+		"Atmospheric Sensor" = 1,
+		"Crew Manifest" = 1,
+		"Digital Messenger" = 1,
+		"Photography Module" = 1,
+		"Encryption Slot" = 1,
 		"Music Synthesizer" = 10,
 		"Newscaster" = 10,
 		"Remote Signaler" = 10,
@@ -103,26 +104,35 @@
 		"Universal Translator" = 35,
 	)
 	/// List of all possible chasises. TRUE means the pAI can be picked up in this chasis.
+	// IRIS EDIT ADDITION START: Ports new chassis and held sprites from Beestation
 	var/static/list/possible_chassis = list(
-		"bat" = FALSE,
-		"butterfly" = FALSE,
+		"bat" = TRUE,
+		"bee" = TRUE,
+		"butterfly" = TRUE,
+		"carp" = TRUE,
 		"cat" = TRUE,
 		"chicken" = FALSE,
-		"corgi" = FALSE,
+		"corgi" = TRUE,
 		"crow" = TRUE,
 		"duffel" = TRUE,
-		"fox" = FALSE,
+		"fox" = TRUE,
 		"frog" = TRUE,
-		"hawk" = FALSE,
-		"lizard" = FALSE,
+		"giant enemy spider" = TRUE,
+		"hawk" = TRUE,
+		"kitten" = FALSE,
+		"lizard" = TRUE,
 		"monkey" = TRUE,
+		"mothroach" = TRUE,
 		"mouse" = TRUE,
+		"mushroom" = TRUE,
+		"phantom" = TRUE,
+		"puppy" = FALSE,
 		"rabbit" = TRUE,
 		"repairbot" = TRUE,
-		"kitten" = TRUE,
-		"puppy" = TRUE,
+		"snake" = TRUE,
 		"spider" = TRUE,
 	)
+	// IRIS EDIT ADDITION END
 
 /mob/living/silicon/pai/add_sensors() //pAIs have to buy their HUDs
 	return
