@@ -13,6 +13,7 @@
 	return list(
 		"pod_hair" = list("Ivy", TRUE),
 		"legs" = list("Normal Legs", FALSE),
+		"ears" = list("None", FALSE),
 	)
 
 /datum/species/pod/podweak

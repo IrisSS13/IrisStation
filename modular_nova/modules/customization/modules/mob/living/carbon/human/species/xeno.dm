@@ -46,6 +46,7 @@
 		"xenohead" = list("Standard", TRUE),
 		"legs" = list(DIGITIGRADE_LEGS,FALSE),
 		"taur" = list("None", FALSE),
+		"ears" = list("None", FALSE),
 	)
 
 /datum/species/xeno/get_species_description()

@@ -48,6 +48,7 @@
 	return list(
 		"tail" = list("Akula", TRUE),
 		"legs" = list("Normal Legs", FALSE),
+		"ears" = list("None", FALSE),
 	)
 
 /datum/species/akula/get_species_description()

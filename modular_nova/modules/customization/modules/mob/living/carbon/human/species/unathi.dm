@@ -32,6 +32,7 @@
 		"horns" = list("Curled", FALSE),
 		"body_markings" = list("Smooth Belly", TRUE),
 		"legs" = list("Normal Legs", FALSE),
+		"ears" = list("None", FALSE),
 	)
 
 /obj/item/organ/tongue/unathi
