@@ -16,7 +16,7 @@ GLOBAL_LIST_INIT(background_state_options, list(
 	))
 
 /datum/preference/choiced/background_state/create_default_value()
-	return GLOB.background_state_options[1]
+	return GLOB.background_state_options[5]
 
 /datum/preference/choiced/background_state/init_possible_values()
 	return GLOB.background_state_options
