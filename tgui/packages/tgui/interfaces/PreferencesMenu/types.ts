@@ -206,6 +206,7 @@ export type PreferencesMenuData = {
       species: string;
       loadout_list: LoadoutList;
       job_clothes: BooleanLike;
+      background_state: string; // IRIS EDIT ADDITION: Swappable character editor backgrounds from https://github.com/Bubberstation/Bubberstation/pull/3015
     };
 
     randomization: Record<string, RandomSetting>;
@@ -272,5 +273,6 @@ export type ServerData = {
     loadout_tabs: LoadoutCategory[];
   };
   species: Record<string, Species>;
+  background_state: { choices: string[] }; // IRIS EDIT ADDITION: from https://github.com/Bubberstation/Bubberstation/pull/3015
   [otherKey: string]: unknown;
 };
