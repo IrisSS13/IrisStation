@@ -40,7 +40,7 @@
  * Overrides someones mob with their loaded prefs.
  */
 /mob/proc/vv_load_prefs()
-	if(!check_rights(R_ADMIN))
+	if(!check_rights(R_ADMIN|R_DEBUG)) //IRIS EDIT
 		return
 
 	if(!client)

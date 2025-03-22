@@ -13,7 +13,7 @@ ADMIN_VERB(hide_verbs, R_NONE, "Adminverbs - Hide All", "Hide most of your admin
 	to_chat(user, span_interface("Almost all of your adminverbs have been hidden."), confidential = TRUE)
 	BLACKBOX_LOG_ADMIN_VERB("Hide All Adminverbs")
 
-ADMIN_VERB(admin_ghost, R_ADMIN, "AGhost", "Become a ghost without DNR.", ADMIN_CATEGORY_GAME)
+ADMIN_VERB(admin_ghost, R_ADMIN|R_DEBUG, "AGhost", "Become a ghost without DNR.", ADMIN_CATEGORY_GAME)
 	. = TRUE
 	if(isobserver(user.mob))
 		//re-enter
@@ -92,7 +92,7 @@ ADMIN_VERB(unban_panel, R_BAN, "Unbanning Panel", "Unban players here.", ADMIN_C
 	user.holder.unban_panel()
 	BLACKBOX_LOG_ADMIN_VERB("Unbanning Panel")
 
-ADMIN_VERB(game_panel, R_ADMIN, "Game Panel", "Look at the state of the game.", ADMIN_CATEGORY_GAME)
+ADMIN_VERB(game_panel, R_ADMIN|R_DEBUG, "Game Panel", "Look at the state of the game.", ADMIN_CATEGORY_GAME) //IRIS EDIT
 	user.holder.Game()
 	BLACKBOX_LOG_ADMIN_VERB("Game Panel")
 
