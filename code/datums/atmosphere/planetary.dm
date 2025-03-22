@@ -42,13 +42,12 @@
 		/datum/gas/water_vapor=0.1,
 		/datum/gas/miasma=1.2,
 		/datum/gas/plasma=0,
-		/datum/gas/water_vapor=0, //they all still somehow appear despite nova turning them off lol
+		/datum/gas/water_vapor=0, // IRIS EDIT they all still somehow appear despite nova turning them off lol
 		/datum/gas/miasma=0,
 	)
 	restricted_chance = 0	// NOVA EDIT: Disables restricted gases from rolling - Original value (20)
 
-	minimum_pressure = HAZARD_LOW_PRESSURE + 10
-	minimum_pressure = HAZARD_LOW_PRESSURE + 20 //was 10
+	minimum_pressure = HAZARD_LOW_PRESSURE + 20 //IRIS EDIT - was 10
 	maximum_pressure = LAVALAND_EQUIPMENT_EFFECT_PRESSURE - 1
 
 	minimum_temp = ICEBOX_MIN_TEMPERATURE
