@@ -116,10 +116,6 @@
 	name = "Horrible Necktie"
 	item_path = /obj/item/clothing/neck/tie/disco
 
-/datum/loadout_item/neck/thinchoker
-	name = "Choker (Thin)"
-	item_path = /obj/item/clothing/neck/collar
-
 /*
 *	PONCHOS
 */
