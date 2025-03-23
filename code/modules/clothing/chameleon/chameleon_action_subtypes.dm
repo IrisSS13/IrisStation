@@ -1,4 +1,13 @@
-//IRIS EDIT
+/datum/action/item_action/chameleon/change/neck
+	chameleon_type = /obj/item/clothing/neck
+	chameleon_name = "Neck Accessory"
+	active_type = /obj/item/clothing/neck/tie/black
+
+/datum/action/item_action/chameleon/change/neck/initialize_blacklist()
+	. = ..()
+	chameleon_blacklist |= typecacheof(list(/obj/item/clothing/neck/cloak/skill_reward,
+		/obj/item/clothing/neck/petcollar))
+
 /datum/action/item_action/chameleon/change/stamp
 	chameleon_type = /obj/item/stamp
 	chameleon_name = "Stamp"
