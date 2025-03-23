@@ -228,6 +228,7 @@ Possible to do for anyone motivated enough:
 	. = ..()
 	if(isAI(user) || in_range(user, src) || isobserver(user))
 		. += span_notice("The status display reads: Current projection range: <b>[holo_range]</b> units.")
+
 	if(!isAI(user))
 		return
 
@@ -628,7 +629,6 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	return TRUE
 
 /obj/machinery/holopad/proc/clear_holo(datum/owner)
-
 	qdel(masters[owner])
 	unset_holo(owner)
 	return TRUE
