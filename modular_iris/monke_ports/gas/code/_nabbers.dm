@@ -48,7 +48,7 @@
 	species_cookie = /obj/item/food/meat/slab
 	exotic_bloodtype = "H"
 	mutantbrain = /obj/item/organ/brain/nabber
-	mutanteyes = /obj/item/organ/eyes/robotic/nabber
+	mutanteyes = /obj/item/organ/eyes/nabber
 	mutantlungs = /obj/item/organ/lungs/nabber
 	mutantheart = /obj/item/organ/heart/nabber
 	mutantliver = /obj/item/organ/liver/nabber

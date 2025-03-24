@@ -161,13 +161,14 @@
 /obj/item/market_uplink/blackmarket/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_CONTRABAND, INNATE_TRAIT)
-
+// IRIS EDIT: Reimplements /obj/item/stock_parts/subspace/amplifier as a requirement for uplink construction
 /datum/crafting_recipe/blackmarket_uplink
 	name = "Black Market Uplink"
 	result = /obj/item/market_uplink/blackmarket
 	time = 30
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER, TOOL_MULTITOOL)
 	reqs = list(
+		/obj/item/stock_parts/subspace/amplifier = 1,
 		/obj/item/stock_parts/micro_laser = 1,
 		/obj/item/assembly/signaler = 1,
 		/obj/item/stack/cable_coil = 15,

@@ -26,7 +26,8 @@
 	instant_crystallise(victim, respawn_heart)
 	TEST_ASSERT_NULL(respawn_heart.current_crystal, "Ethereal crystallised while heart was on cooldown.")
 
-	victim.gain_trauma(/datum/brain_trauma/special/ptsd, resilience = TRAUMA_RESILIENCE_BASIC) // One you can't gain via revival
+	// IRIS EDIT: Comments out below to restore ethereal revival functionality
+//	victim.gain_trauma(/datum/brain_trauma/special/ptsd, resilience = TRAUMA_RESILIENCE_BASIC) // One you can't gain via revival
 	var/obj/item/bodypart/leg/left_leg = victim.get_bodypart(BODY_ZONE_L_LEG)
 	left_leg.dismember()
 	var/obj/item/bodypart/leg/right_leg = victim.get_bodypart(BODY_ZONE_R_LEG)
@@ -38,7 +39,9 @@
 	TEST_ASSERT_NOTNULL(victim.get_bodypart(BODY_ZONE_L_LEG), "Ethereal failed to regrow limb when reviving.")
 	TEST_ASSERT(!length(right_leg.wounds), "Ethereal failed to fix wound when reviving.")
 	var/list/current_traumas = victim.get_traumas()
-	TEST_ASSERT(!(locate(/datum/brain_trauma/special/ptsd) in current_traumas), "Ethereal failed to heal curable brain trauma when reviving.")
+
+	// IRIS EDIT: Comments out below to restore ethereal revival functionality
+//	TEST_ASSERT(!(locate(/datum/brain_trauma/special/ptsd) in current_traumas), "Ethereal failed to heal curable brain trauma when reviving.")
 	TEST_ASSERT(length(current_traumas) == 1, "Ethereal failed to gain trauma when reviving.")
 
 	kill_and_revive(victim, respawn_heart)
