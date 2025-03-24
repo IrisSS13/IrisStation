@@ -24,4 +24,4 @@
 
 /datum/loadout_item/neck/choker/spiked
 	name = "Spiked Choker"
-	item_path = /obj/item/clothing/neck/choker/spike
+	item_path = /obj/item/clothing/neck/spiked_choker

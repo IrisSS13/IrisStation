@@ -132,14 +132,14 @@
 	icon_file = 'modular_iris/modules/GAGS/icons/chokers/choker_worn.dmi'
 	json_config = 'modular_iris/modules/GAGS/json_configs/neck/thick_cross_choker.json'
 
-/datum/greyscale_config/choker_spike
+/datum/greyscale_config/spike_choker
 	name = "Spiked Choker"
 	icon_file = 'modular_iris/modules/GAGS/icons/chokers/spiked_choker.dmi'
 	json_config = 'modular_iris/modules/GAGS/json_configs/neck/spike.json'
 
-/datum/greyscale_config/choker_spike/worn
+/datum/greyscale_config/spike_choker/worn
 	name = "Spiked Choker (Worn)"
-	icon_file = 'modular_iris/modules/GAGS/icons/chokers/spiked_choker.dmi'
+	icon_file = 'modular_iris/modules/GAGS/icons/chokers/spiked_choker_worn.dmi'
 	json_config = 'modular_iris/modules/GAGS/json_configs/neck/spike_worn.json'
 
 /*
@@ -163,6 +163,20 @@
 *	SHOES
 */
 
+/datum/greyscale_config/ballet_heel
+	name = "Ballet Heels"
+	icon_file = 'modular_iris/modules/GAGS/icons/shoes/high_heels.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/shoes/ballet_heel.json'
+
+/datum/greyscale_config/ballet_heel/worn
+	name = "Ballet Heels (Worn)"
+	icon_file = 'modular_iris/modules/GAGS/icons/shoes/high_heels_worn.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/shoes/ballet_heel.json'
+
+/datum/greyscale_config/ballet_heel/worn/digi
+	name = "Ballet Heels (Worn, Digi)"
+	icon_file = 'modular_iris/modules/GAGS/icons/shoes/high_heels_digi.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/shoes/ballet_heel.json'
 
 /*
 *	ITEMS
