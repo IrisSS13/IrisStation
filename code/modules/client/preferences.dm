@@ -486,35 +486,40 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		The first curveball of the bunch, this canvas should be used on anything
 		that stays within the max "tall" bounds	of sprite accessories. Currently
 		sized to fit the tallest ears and horns located in their big_[...].dmi's.
-		To make sure the character appears accurately scaled, we turn the dummy's
-		body size into X+3. This is all done to simulate a 40x40 display.
+		To make sure the character appears accurately scaled, we multiply the
+		dummy's body size by *= 4. This is all done to simulate a 40x40 display.
 
 		P.S. This size does not properly support the extra-large wings or tails.
-		If you know how to put the extra-large ones specifically on Canvas 2, by all
-		means please do so.
+		If you know how to put exclusively the extra-large ones on Canvas 2, by
+		all means please do so.
 
 		[CANVAS 2 - 192x192]
-		The older sister of Canvas 1, Canvas 2 should be used whenever we think
-		we might go over the tallest existing sprite accessory. At this point we
-		use this exclusively for when our body size has been set above 1.1 while
-		using accessories that could otherwise break the bounds of our 32x32 base.
-		This simulates a 48x48 display.
-
-		P.S. We also use this guy for species that are considered "oversized,"
-		such as Nabbers/GAS.
+		The estranged sister of Canvas 1, Canvas 2 should be used whenever we think
+		we might go over the tallest existing sprite accessory. In a perfect world,
+		this would be used for when our body size multiplier has been set above 1.1
+		while using accessories that could otherwise break the bounds of our 32x32
+		base. Unfortunately, I couldn't figure out a good way to get the dummy to
+		accurately show the body size as seen in-game. As such, Canvas 2 is as-of-now
+		used only when the dummy is a species that is considered "oversized," such
+		as Nabbers/GAS. Lastly, it should be noted that Canvas 2 simulates a 48x48
+		display.
 
 		[CANVAS 3 - 64x64]
 		Back to our "normal" sized canvases, this should be used for sprites that
 		we know will break a 48x48 model - namely, taurs. Has a snowflake clause
-		to remove the +3 body size in case your taur is using other sprite
+		to remove the *=4 body size in case your taur is using other sprite
 		accessories. Importantly, retains the scaling from the standard body size
 		selector.
+
+		P.S. Until a better solution to Canvas 2's body size multiplier is fixed,
+		Canvas 3 is ALSO used for characters who have their body size multiplier
+		(as selected in the character creator) set to anything other than 1.
 
 		[FALLBACK CANVAS - 96x96]
 		On the off-chance something goes catastrophically wrong, we fall back to
 		our 96x96 behemoth. Characters with the oversized quirk will use this by
 		default, but you really shouldn't see this otherwise. Has a snowflake
-		clause to remove the +3 body size in case your character is using other
+		clause to remove the *=4 body size in case your character is using other
 		sprite accessories.*/
 
 
@@ -525,37 +530,42 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		|| (body.dna.mutant_bodyparts["tail"] && body.dna.mutant_bodyparts["tail"]["name"] != "None") \
 	)
 		canvas_size = 1
-		body.dna.features["body_size"] += 3
+		body.dna.features["body_size"] *= 4
 		body.dna.update_body_size()
 
-	// If they have been scaled up one step AND have a body size greater than 1.1 then scale up to Canvas 2
-	if (!isnull(body.dna.features["body_size"]) && body.dna.features["body_size"] > 4.1 && canvas_size == 1)
-		canvas_size = 2
-	// If we haven't been scaled up one step but we have a body size greater than 1.1, we'll just use Canvas 1. Snowflake clause to prevent double-dipping on the scaling.
-	else if(!isnull(body.dna.features["body_size"]) && body.dna.features["body_size"] > 1.1 && (!canvas_size == 1))
-		body.dna.features["body_size"] *= 3
-		body.dna.features["body_size"] += 1
+	// If they have been scaled up one step AND have a body size other than default, scale up to Canvas 3. Would scale to Canvas 2 if I could get the size multiplier working correctly.
+	if (!isnull(body.dna.features["body_size"]) && body.dna.features["body_size"] != 4 && canvas_size == 1)
+		canvas_size = 3
+		body.dna.features["body_size"] /= 4
 		body.dna.update_body_size()
-		canvas_size = 1
+	// If we haven't been scaled up one step but we have a body size greater than 1.1, we'll use Canvas 3 to retain the wonky scaling. If it's less than 1, we'll use the base canvas, so it's a little clearer what you're looking at.
+	else if(!isnull(body.dna.features["body_size"]) && body.dna.features["body_size"] != 1 && (!canvas_size == 1))
+		if(body.dna.features["body_size"] > 1)
+			canvas_size = 3
+		else if(body.dna.features["body_size"] < 1)
+			canvas_size = 0
 
 	// Scales up to Canvas 2 if your species is larger than 32x32
 	if(body.dna.species.type in oversized_species)
-		canvas_size = 2
-		body.dna.features["body_size"] += 3
-		body.dna.update_body_size()
+		if(body.dna.features["body_size"] >= 3.2)
+			canvas_size = 2
+		else
+			body.dna.features["body_size"] *= 4
+			body.dna.update_body_size()
+			canvas_size = 2
 
 	// Being a taur scales us up to Canvas 3
 	if (body.dna.mutant_bodyparts["taur"] && body.dna.mutant_bodyparts["taur"]["name"] != "None")
 		canvas_size = 3
-		if(body.dna.features["body_size"] > 3.7)
-			body.dna.features["body_size"] -= 3
+		if(body.dna.features["body_size"] >= 3.2)
+			body.dna.features["body_size"] /= 4
 			body.dna.update_body_size()
 
 	// Fully zooms out if we're oversized
 	if (preferences.all_quirks.Find("Oversized"))
 		canvas_size += 4
-		if(body.dna.features["body_size"] > 3.7)
-			body.dna.features["body_size"] -= 3
+		if(body.dna.features["body_size"] >= 3.2)
+			body.dna.features["body_size"] /= 4
 			body.dna.update_body_size()
 
 	/* NOW EXITING: THE CLOUDYNEWT SHITCODE ZONE
