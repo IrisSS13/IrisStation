@@ -5,7 +5,7 @@
 	icon = 'modular_iris/modules/GAGS/icons/shoes/high_heels.dmi'
 	worn_icon = 'modular_iris/modules/GAGS/icons/shoes/high_heels_worn.dmi'
 	greyscale_colors = "#383840"
-	greyscale_config = /datum/greyscale_config/ballet_heel
+	greyscale_config = /datum/greyscale_config/ballet_heels
 	greyscale_config_worn = /datum/greyscale_config/ballet_heels/worn
 	greyscale_config_worn = /datum/greyscale_config/ballet_heels/worn/digi
 	flags_1 = IS_PLAYER_COLORABLE_1
