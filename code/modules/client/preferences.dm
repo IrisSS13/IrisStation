@@ -533,11 +533,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		canvas_size = 2
 	// If we haven't been scaled up one step but we have a body size greater than 1.1, we'll just use Canvas 1. Snowflake clause to prevent double-dipping on the scaling.
 	else if(!isnull(body.dna.features["body_size"]) && body.dna.features["body_size"] > 1.1 && (!canvas_size == 1))
-		body.dna.features["body_size"] += 3
+		body.dna.features["body_size"] *= 3
+		body.dna.features["body_size"] += 1
 		body.dna.update_body_size()
 		canvas_size = 1
 
-	// Scales up to Canvas 1 if your species is larger than 32x32
+	// Scales up to Canvas 2 if your species is larger than 32x32
 	if(body.dna.species.type in oversized_species)
 		canvas_size = 2
 		body.dna.features["body_size"] += 3
