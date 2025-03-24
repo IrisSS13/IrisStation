@@ -163,20 +163,18 @@
 *	SHOES
 */
 
-/datum/greyscale_config/ballet_heel
+/datum/greyscale_config/ballet_heels
 	name = "Ballet Heels"
 	icon_file = 'modular_iris/modules/GAGS/icons/shoes/high_heels.dmi'
 	json_config = 'modular_iris/modules/GAGS/json_configs/shoes/ballet_heel.json'
 
-/datum/greyscale_config/ballet_heel/worn
+/datum/greyscale_config/ballet_heels/worn
 	name = "Ballet Heels (Worn)"
 	icon_file = 'modular_iris/modules/GAGS/icons/shoes/high_heels_worn.dmi'
-	json_config = 'modular_iris/modules/GAGS/json_configs/shoes/ballet_heel.json'
 
-/datum/greyscale_config/ballet_heel/worn/digi
+/datum/greyscale_config/ballet_heels/worn/digi
 	name = "Ballet Heels (Worn, Digi)"
 	icon_file = 'modular_iris/modules/GAGS/icons/shoes/high_heels_digi.dmi'
-	json_config = 'modular_iris/modules/GAGS/json_configs/shoes/ballet_heel.json'
 
 /*
 *	ITEMS
