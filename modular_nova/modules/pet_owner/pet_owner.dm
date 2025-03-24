@@ -85,6 +85,9 @@ GLOBAL_LIST_INIT(possible_player_pet, list(
 	"Fennec" = /mob/living/basic/pet/cat/fennec,
 	"Fox" = /mob/living/basic/pet/fox/docile,
 	"Frog" = /mob/living/basic/frog,
+	//IRIS EDIT ADDITION BEGIN - RARE_FROG_PET
+	"Frog (rare)" = /mob/living/basic/frog/rare,
+	//IRIS EDIT ADDITION END
 	"Giant ant" = /mob/living/basic/ant,
 	"Kitten" = /mob/living/basic/pet/cat/kitten,
 	"Kiwi" = /mob/living/basic/kiwi,
