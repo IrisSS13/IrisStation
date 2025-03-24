@@ -4,10 +4,11 @@
 	icon_state = "ballet_heels"
 	icon = 'modular_iris/modules/GAGS/icons/shoes/high_heels.dmi'
 	worn_icon = 'modular_iris/modules/GAGS/icons/shoes/high_heels_worn.dmi'
-	greyscale_colors = "#383840"
+	worn_icon_digi = 'modular_iris/modules/GAGS/icons/shoes/high_heels_digi.dmi'
+	greyscale_colors = "#e8e8e8"
 	greyscale_config = /datum/greyscale_config/ballet_heels
 	greyscale_config_worn = /datum/greyscale_config/ballet_heels/worn
-	greyscale_config_worn = /datum/greyscale_config/ballet_heels/worn/digi
+	greyscale_config_worn_digi  = /datum/greyscale_config/ballet_heels/worn/digi
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
