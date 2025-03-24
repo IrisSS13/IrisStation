@@ -6,9 +6,8 @@
 /datum/action/item_action/chameleon/change/neck/initialize_blacklist()
 	. = ..()
 	chameleon_blacklist |= typecacheof(list(/obj/item/clothing/neck/cloak/skill_reward,
-		/obj/item/clothing/neck/human_petcollar,
 		/obj/item/clothing/neck/petcollar))
-//IRIS EDIT
+
 /datum/action/item_action/chameleon/change/stamp
 	chameleon_type = /obj/item/stamp
 	chameleon_name = "Stamp"
