@@ -467,18 +467,107 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		/datum/species/nabber,
 	)
 
-	// Being a taur, or over 1.1 scales it up
-	if (body.dna.mutant_bodyparts["taur"] && body.dna.mutant_bodyparts["taur"]["name"] != "None")
-		canvas_size = 1
-	else if (!isnull(body.dna.features["body_size"]) && body.dna.features["body_size"] > 1.1)
-		canvas_size = 1
-	// Scales the canvas up if your species is larger than 32x32
-	if(body.dna.species.type in oversized_species)
-		canvas_size = 1
-	// Add extra level if we're oversized
-	if (preferences.all_quirks.Find("Oversized"))
-		canvas_size += 1
+	/* NOW ENTERING: THE CLOUDYNEWT SHITCODE ZONE
+		The following section controls what canvas size our dummy decides to use.
+		Due to byond shennanigans, we can't cleanly scale directly in 48x48,
+		so we'll be using multiples of 32x32. As a result, SOME of the canvas
+		sizes require you to scale the dummy up, while others require the dummy
+		to be at a base.
 
+		On the off-chance some poor soul needs to use this code, I'll break down
+		each canvas' use case. I hope to God no other person needs to touch this,
+		however.
+
+		[CANVAS 0 - 32x32]
+		This is our base canvas, meant to mimic the base implementation of /tg/
+		in all the ways that matter. Stick to this unless we NEED a larger space.
+
+		[CANVAS 1 - 160x160]
+		The first curveball of the bunch, this canvas should be used on anything
+		that stays within the max "tall" bounds	of sprite accessories. Currently
+		sized to fit the tallest ears and horns located in their big_[...].dmi's.
+		To make sure the character appears accurately scaled, we turn the dummy's
+		body size into X+3. This is all done to simulate a 40x40 display.
+
+		P.S. This size does not properly support the extra-large wings or tails.
+		If you know how to put the extra-large ones specifically on Canvas 2, by all
+		means please do so.
+
+		[CANVAS 2 - 192x192]
+		The older sister of Canvas 1, Canvas 2 should be used whenever we think
+		we might go over the tallest existing sprite accessory. At this point we
+		use this exclusively for when our body size has been set above 1.1 while
+		using accessories that could otherwise break the bounds of our 32x32 base.
+		This simulates a 48x48 display.
+
+		P.S. We also use this guy for species that are considered "oversized,"
+		such as Nabbers/GAS.
+
+		[CANVAS 3 - 64x64]
+		Back to our "normal" sized canvases, this should be used for sprites that
+		we know will break a 48x48 model - namely, taurs. Has a snowflake clause
+		to remove the +3 body size in case your taur is using other sprite
+		accessories. Importantly, retains the scaling from the standard body size
+		selector.
+
+		[FALLBACK CANVAS - 96x96]
+		On the off-chance something goes catastrophically wrong, we fall back to
+		our 96x96 behemoth. Characters with the oversized quirk will use this by
+		default, but you really shouldn't see this otherwise. Has a snowflake
+		clause to remove the +3 body size in case your character is using other
+		sprite accessories.*/
+
+
+	// If we have sprite accessories that could go beyond the bounds of the standard 32x32, scale up to Canvas 1
+	if (
+		(body.dna.mutant_bodyparts["ears"] && body.dna.mutant_bodyparts["ears"]["name"] != "None") \
+		|| (body.dna.mutant_bodyparts["horns"] && body.dna.mutant_bodyparts["horns"]["name"] != "None") \
+		|| (body.dna.mutant_bodyparts["tail"] && body.dna.mutant_bodyparts["tail"]["name"] != "None") \
+	)
+		canvas_size = 1
+		body.dna.features["body_size"] += 3
+		body.dna.update_body_size()
+
+	// If they have been scaled up one step AND have a body size greater than 1.1 then scale up to Canvas 2
+	if (!isnull(body.dna.features["body_size"]) && body.dna.features["body_size"] > 4.1 && canvas_size == 1)
+		canvas_size = 2
+	// If we haven't been scaled up one step but we have a body size greater than 1.1, we'll just use Canvas 1. Snowflake clause to prevent double-dipping on the scaling.
+	else if(!isnull(body.dna.features["body_size"]) && body.dna.features["body_size"] > 1.1 && (!canvas_size == 1))
+		body.dna.features["body_size"] += 3
+		body.dna.update_body_size()
+		canvas_size = 1
+
+	// Scales up to Canvas 1 if your species is larger than 32x32
+	if(body.dna.species.type in oversized_species)
+		canvas_size = 2
+		body.dna.features["body_size"] += 3
+		body.dna.update_body_size()
+
+	// Being a taur scales us up to Canvas 3
+	if (body.dna.mutant_bodyparts["taur"] && body.dna.mutant_bodyparts["taur"]["name"] != "None")
+		canvas_size = 3
+		if(body.dna.features["body_size"] > 3.7)
+			body.dna.features["body_size"] -= 3
+			body.dna.update_body_size()
+
+	// Fully zooms out if we're oversized
+	if (preferences.all_quirks.Find("Oversized"))
+		canvas_size += 4
+		if(body.dna.features["body_size"] > 3.7)
+			body.dna.features["body_size"] -= 3
+			body.dna.update_body_size()
+
+	/* NOW EXITING: THE CLOUDYNEWT SHITCODE ZONE
+		On to better code that I DIDN'T write! The following section, taken from Bubber,
+		helps our preview find which canvas dimensions we want to use.
+
+		If you ever need to add a new canvas size, for some god-forsaken reason, just
+		plug in a if(4) before the final else in the switch statement.
+
+		Pixel_X controls the offset to make certain your dummy is centered in the preview.
+		As a general rule of thumb, pixel_x should be 16((Dimensions/32)-1). For example,
+		for a canvas set to 192x192, you would do 16((192/32)-1) = 16(6-1) = 16(5) = 80.
+	*/
 	if (last_canvas_size != canvas_size || last_canvas_state != canvas_state)
 		QDEL_NULL(canvas)
 		switch(canvas_size)
@@ -486,6 +575,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				body.pixel_x = 0
 				canvas = image('modular_iris/icons/customization/template.dmi', icon_state = canvas_state)
 			if(1)
+				body.pixel_x = 64
+				canvas = image('modular_iris/icons/customization/template_160x160.dmi', icon_state = canvas_state)
+			if(2)
+				body.pixel_x = 80
+				canvas = image('modular_iris/icons/customization/template_192x192.dmi', icon_state = canvas_state)
+			if(3)
 				body.pixel_x = 16
 				canvas = image('modular_iris/icons/customization/template_64x64.dmi', icon_state = canvas_state)
 			else
