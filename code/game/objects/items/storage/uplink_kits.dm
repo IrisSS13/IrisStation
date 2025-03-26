@@ -894,6 +894,7 @@
 	new /obj/item/jammer(src)
 	new /obj/item/storage/fancy/cigarettes/cigpack_syndicate(src)
 	new /obj/item/lighter(src)
+	new /obj/item/pinpointer/area_pinpointer(src) // IRIS ADDITION
 
 #undef KIT_RECON
 #undef KIT_BLOODY_SPAI

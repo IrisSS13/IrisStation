@@ -39,6 +39,10 @@
 
 /obj/item/pinpointer/examine(mob/user)
 	. = ..()
+	// IRIS ADDITION START
+	if(special_examine)
+		return
+	// IRIS ADDITION END
 	if(target)
 		. += "It is currently tracking [target]."
 
