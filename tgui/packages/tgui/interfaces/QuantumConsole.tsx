@@ -24,6 +24,7 @@ type Data =
       generated_domain: string | null;
       occupants: number;
       points: number;
+      total_points: number; // IRIS ADDITION
       randomized: BooleanLike;
       ready: BooleanLike;
       retries_left: number;
@@ -119,6 +120,7 @@ function AccessView(props) {
     generated_domain,
     occupants,
     points,
+    total_points, // IRIS ADDITION
     randomized,
     ready,
   } = data;
@@ -155,13 +157,20 @@ function AccessView(props) {
               </Button.Checkbox>
               <Button
                 disabled={
-                  !ready || occupants > 0 || points < 1 || !!generated_domain
+                  // !ready || occupants > 0 || points < 1 || !!generated_domain // IRIS EDIT OLD
+                  !ready || occupants > 0 || !!generated_domain // IRIS EDIT NEW
                 }
                 icon="random"
                 onClick={() => act('random_domain')}
                 mr={1}
+                /* IRIS EDIT OLD START
                 tooltip="Get a random domain for more rewards.
                   Weighted towards your current points. Minimum: 1 point."
+                */ // IRIS EDIT OLD END
+                // IRIS EDIT NEW START
+                tooltip="Get a random domain for more rewards.
+                  Already played domains are unlikelly to appear again."
+                // IRIS EDIT NEW END
               >
                 Randomize
               </Button>
@@ -169,6 +178,12 @@ function AccessView(props) {
                 <Icon color="pink" name="star" mr={1} />
                 {points}
               </Tooltip>
+              {/* IRIS ADDITION START */}
+              <Tooltip content="Total points obtained from completing domains.">
+                <Icon color="purple" name="star" mr={1} />
+                {total_points}
+              </Tooltip>
+              {/* IRIS ADDITION END */}
             </>
           }
           fill
