@@ -12,6 +12,10 @@
 	item_path = /obj/item/clothing/head/costume/yuri
 
 // MISC
+/datum/loadout_item/head/headband_thin
+	name = "Colourable Thin Headband"
+	item_path = /obj/item/clothing/head/iris/headband_thin
+
 /datum/loadout_item/head/razurathhat
 	name = "Golden Nanotrasen Officer Cap"
 	item_path = /obj/item/clothing/head/razurathhat

@@ -2,6 +2,15 @@
 *	HEAD
 */
 
+/datum/greyscale_config/headband_thin
+	name = "Thin Headband"
+	icon_file = 'modular_iris/modules/GAGS/icons/head/head.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/head/headband_thin.json'
+
+/datum/greyscale_config/headband_thin/worn
+	name = "Thin Headband (Worn)"
+	icon_file = 'modular_iris/modules/GAGS/icons/head/head_worn.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/head/headband_thin_worn.json'
 
 /*
 *	EYES
