@@ -45,13 +45,19 @@
 	var/poison_per_bite = 3
 	///What reagent the mob injects targets with
 	var/poison_type = /datum/reagent/drug/space_drugs
+	//IRIS EDIT ADDITION BEGIN - RARE_FROG_PET
+	///Chance of this frog being made rare upon spawning
+	var/rare_chance = 1
+	//IRIS EDIT ADDITION END
 
 /mob/living/basic/frog/Initialize(mapload)
 	. = ..()
 
 	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
 
-	if(prob(1))
+	//IRIS EDIT CHANGE BEGIN - RARE_FROG_PET
+	if(prob(rare_chance))
+	//IRIS EDIT CHANGE END
 		make_rare()
 	/* // NOVA EDIT REMOVAL START
 	var/static/list/loc_connections = list(
