@@ -46,7 +46,7 @@
 
 /mob/living/carbon/human/proc/exit_wrestling_stance(involuntary = FALSE)
 	UnregisterSignal(src, COMSIG_MOVABLE_MOVED)
-	UnregisterSignal(src, COMSIG_MOB_UNEQUIPPED_ITEM)
+	UnregisterSignal(src, COMSIG_MOB_EQUIPPED_ITEM)
 	UnregisterSignal(src, COMSIG_MOB_LOGOUT)
 
 	if(wrestle_tackling)
