@@ -84,6 +84,7 @@ GLOBAL_LIST_INIT(possible_player_pet, list(
 	"Dobermann" = /mob/living/basic/pet/dog/dobermann,
 	"Fennec" = /mob/living/basic/pet/cat/fennec,
 	"Fox" = /mob/living/basic/pet/fox/docile,
+	"Sweater Fox" = /mob/living/basic/pet/fox/docile/sweater,
 	//IRIS EDIT CHANGE BEGIN - RARE_FROG_PET
 	"Frog (green)" = /mob/living/basic/frog/common,
 	"Frog (purple)" = /mob/living/basic/frog/rare,
