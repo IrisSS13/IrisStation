@@ -1,0 +1,1 @@
+#define COMSIG_KB_LIVING_WRESTLING_STANCE "keybinding_living_wrestling_stance"
