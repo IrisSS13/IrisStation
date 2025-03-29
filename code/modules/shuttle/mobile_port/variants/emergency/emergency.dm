@@ -290,6 +290,7 @@
 				dock_id(destination_dock)
 				unbolt_all_doors() // NOVA EDIT ADDITION
 				INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(process_eorg_bans)) // NOVA EDIT ADDITION
+				INVOKE_ASYNC(src, PROC_REF(hide_roleplayers)) // IRIS ADDITION
 				mode = SHUTTLE_ENDGAME
 				timer = 0
 
