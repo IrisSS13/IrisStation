@@ -18,7 +18,7 @@
 	if(is_wrestling == current_state)
 		return
 
-	if(stat == DEAD)
+	if(stat != CONSCIOUS)
 		exit_wrestling_stance(involuntary = TRUE)
 
 	if(!is_wrestling)
