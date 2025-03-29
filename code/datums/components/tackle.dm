@@ -45,7 +45,9 @@
 	var/mob/P = parent
 	to_chat(P, span_notice("You are now able to launch tackles! You can do so by activating throw mode, and ") + span_boldnotice("RIGHT-CLICKING on your target with an empty hand."))
 
-	addtimer(CALLBACK(src, PROC_REF(resetTackle)), base_knockdown, TIMER_STOPPABLE)
+	//IRIS EDIT CHANGE BEGIN - WRESTLING_STANCE
+	addtimer(CALLBACK(src, PROC_REF(resetTackle)), base_knockdown, TIMER_STOPPABLE | TIMER_DELETE_ME)
+	//IRIS EDIT CHANGE END
 
 /datum/component/tackler/Destroy()
 	var/mob/P = parent
@@ -119,7 +121,9 @@
 	user.Knockdown(base_knockdown, ignore_canstun = TRUE)
 	user.adjustStaminaLoss(stamina_cost)
 	user.throw_at(clicked_atom, range, speed, user, FALSE)
-	addtimer(CALLBACK(src, PROC_REF(resetTackle)), base_knockdown, TIMER_STOPPABLE)
+	//IRIS EDIT CHANGE BEGIN - WRESTLING_STANCE
+	addtimer(CALLBACK(src, PROC_REF(resetTackle)), base_knockdown, TIMER_STOPPABLE | TIMER_DELETE_ME)
+	//IRIS EDIT CHANGE END
 	return(COMSIG_MOB_CANCEL_CLICKON)
 
 /**
