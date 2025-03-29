@@ -37,7 +37,8 @@
 		visible_message(span_danger("[src] has assumed a wrestling stance!"))
 		log_message("<font color='cyan'>[src] has entered a wrestling stance!</font>", LOG_ATTACK)
 
-		enable_combat_indicator()
+		if(!combat_indicator)
+			set_combat_indicator()
 
 /mob/living/carbon/human/proc/exit_wrestling_stance(involuntary = FALSE)
 	if(wrestle_tackling)
