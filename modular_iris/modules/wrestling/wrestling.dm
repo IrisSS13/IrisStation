@@ -42,7 +42,7 @@
 		log_message("<font color='cyan'>[src] has entered a wrestling stance!</font>", LOG_ATTACK)
 
 		if(!combat_indicator)
-			set_combat_indicator()
+			set_combat_indicator(TRUE)
 
 /mob/living/carbon/human/proc/exit_wrestling_stance(involuntary = FALSE)
 	UnregisterSignal(src, COMSIG_MOVABLE_MOVED)
