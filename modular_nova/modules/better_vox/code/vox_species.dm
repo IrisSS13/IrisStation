@@ -2,7 +2,7 @@
 	name = "Vox Primalis"
 	id = SPECIES_VOX_PRIMALIS
 	can_augment = FALSE
-	body_size_restricted = TRUE
+	body_size_restricted = FALSE // IRIS EDIT: allows vox to be rescaled (to fix the char creator)
 	digitigrade_customization = DIGITIGRADE_NEVER // We have our own unique sprites!
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,
