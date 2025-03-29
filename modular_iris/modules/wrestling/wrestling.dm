@@ -34,7 +34,7 @@
 			wrestle_tackling = src.AddComponent(/datum/component/tackler, stamina_cost = 40, base_knockdown = 1 SECONDS, range = 2, speed = 1, skill_mod = -1, min_distance = 0)
 
 		RegisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(exit_stance_wrapper))
-		RegisterSignal(src, COMSIG_MOB_EQUIPPED_ITEM, PROC_REF(exit_stance_wrapper))
+		RegisterSignal(src, COMSIG_MOB_EQUIPPED_ITEM, PROC_REF(exit_stance_wrapper), TRUE)
 		RegisterSignal(src, COMSIG_MOB_LOGOUT, PROC_REF(exit_stance_wrapper)) //to prevent infinite grapple fuckery
 
 		is_wrestling = current_state
