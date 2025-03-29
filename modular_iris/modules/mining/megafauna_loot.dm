@@ -8,7 +8,7 @@
 		return INITIALIZE_HINT_QDEL
 
 /obj/item/hierophant_club/Destroy(force)
-	if(active_clubs > 2)
+	if(active_clubs > 3)
 		new /obj/item/clothing/accessory/pandora_hope(loc)
 
 	active_clubs--
