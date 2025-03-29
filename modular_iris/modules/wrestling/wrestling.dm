@@ -1,6 +1,7 @@
 /mob/living
 	var/is_wrestling = FALSE
 	var/mob/living/wrestled_mob = null
+	var/datum/component/wrestle_tackling = null
 
 /mob/living/proc/user_toggle_wrestling()
 	if(stat != CONSCIOUS)
@@ -18,19 +19,30 @@
 		return
 
 	if(stat == DEAD)
-		disable_wrestling_stance(involuntary)
+		exit_wrestling_stance(involuntary = TRUE)
+
+	if(!is_wrestling)
+		exit_wrestling_stance()
 
 	visible_message(span_danger("[src] begins to assume a wrestling stance..."))
 	if(do_after(src, 1.5 SECONDS))
 		if(get_num_held_items() >= 1)
 			to_chat(src, span_warning("You quickly empty your hands in order to wrestle!"))
 			drop_all_held_items()
+
+		if(!istype(get_item_by_slot(ITEM_SLOT_GLOVES), /obj/item/clothing/gloves/tackler))
+			wrestle_tackling = src.AddComponent(/datum/component/tackler, stamina_cost = 40, base_knockdown = 2 SECONDS, range = 2, speed = 1, skill_mod = -1, min_distance = 0)
+
 		is_wrestling = current_state
 		visible_message(span_danger("[src] has assumed a wrestling stance!"))
+		log_message("<font color='cyan'>[src] has entered a wrestling stance!</font>", LOG_ATTACK)
 
-	SEND_SIGNAL(src, COMSIG_MOB_CI_TOGGLED)
+/mob/living/proc/exit_wrestling_stance(involuntary = FALSE)
+	if(wrestle_tackling)
+		QDEL_NULL(wrestle_tackling)
 
-	if(combat_indicator)
-		enable_combat_indicator()
+	wrestling_stance = FALSE
+	if(involuntary)
+		log_message("<font color='cyan'>[src] has been forced out of [src.p_their] wrestling stance!</font>", LOG_ATTACK)
 	else
-		disable_combat_indicator()
+		log_message("<font color='cyan'>[src] has voluntarily exited [src.p_their] wrestling stance!</font>", LOG_ATTACK)
