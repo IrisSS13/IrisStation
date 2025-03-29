@@ -1,9 +1,9 @@
-/mob/living
+/mob/living/carbon/human
 	var/is_wrestling = FALSE
-	var/mob/living/wrestled_mob = null
+	var/mob/living/carbon/human/wrestled_mob = null
 	var/datum/component/wrestle_tackling = null
 
-/mob/living/proc/user_toggle_wrestling()
+/mob/living/carbon/human/proc/user_toggle_wrestling()
 	if(stat != CONSCIOUS)
 		return
 	if(HAS_TRAIT(src, TRAIT_PACIFISM))
@@ -11,7 +11,7 @@
 		return
 	set_wrestling_stance(!is_wrestling)
 
-/mob/living/proc/set_wrestling_stance(current_state)
+/mob/living/carbon/human/proc/set_wrestling_stance(current_state)
 	if(!CONFIG_GET(flag/wrestling_stance))
 		return
 
@@ -37,7 +37,9 @@
 		visible_message(span_danger("[src] has assumed a wrestling stance!"))
 		log_message("<font color='cyan'>[src] has entered a wrestling stance!</font>", LOG_ATTACK)
 
-/mob/living/proc/exit_wrestling_stance(involuntary = FALSE)
+		enable_combat_indicator()
+
+/mob/living/carbon/human/proc/exit_wrestling_stance(involuntary = FALSE)
 	if(wrestle_tackling)
 		QDEL_NULL(wrestle_tackling)
 

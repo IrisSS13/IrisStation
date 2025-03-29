@@ -113,7 +113,11 @@ GLOBAL_VAR_INIT(combat_indicator_overlay, GenerateCombatOverlay())
 			if(issilicon(src))
 				visible_message(span_boldwarning("<b>[src] shifts its armour plating into a defensive stance, ready for combat!"))
 			if(ishuman(src))
-				visible_message(span_boldwarning("[src] raises [p_their()] fists in an offensive stance, ready for combat!"))
+				//IRIS EDIT CHANGE BEGIN - WRESTLING_STANCE
+				var/mob/living/carbon/human/H = src
+				if(!(H.is_wrestling))
+					visible_message(span_boldwarning("[src] raises [p_their()] fists in an offensive stance, ready for combat!"))
+				//IRIS EDIT CHANGE END
 			if(isalien(src))
 				visible_message(span_boldwarning("[src] hisses in a terrifying stance, claws raised and ready for combat!"))
 			else
