@@ -4,7 +4,7 @@
 /obj/item/hierophant_club/Initialize(mapload)
 	. = ..()
 	active_clubs++
-	if(active_clubs > 2)
+	if(active_clubs > 3)
 		return INITIALIZE_HINT_QDEL
 
 /obj/item/hierophant_club/Destroy(force)
