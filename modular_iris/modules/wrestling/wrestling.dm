@@ -47,14 +47,16 @@
 /mob/living/carbon/human/proc/exit_wrestling_stance(involuntary = FALSE)
 	SIGNAL_HANDLER
 
-	UnregisterSignal
+	UnregisterSignal(src, COMSIG_MOVABLE_MOVED)
+	UnregisterSignal(src, COMSIG_MOB_UNEQUIPPED_ITEM)
+	UnregisterSignal(src, COMSIG_MOB_LOGOUT)
 
 	if(wrestle_tackling)
 		QDEL_NULL(wrestle_tackling)
 
-	wrestling_stance = FALSE
+	is_wrestling = FALSE
 	if(involuntary)
-		log_message("<font color='cyan'>[src] has been forced out of [src.p_their] wrestling stance!</font>", LOG_ATTACK)
+		log_message("<font color='cyan'>[src] has been forced out of [src.p_their()] wrestling stance!</font>", LOG_ATTACK)
 	else
-		log_message("<font color='cyan'>[src] has voluntarily exited [src.p_their] wrestling stance!</font>", LOG_ATTACK)
+		log_message("<font color='cyan'>[src] has voluntarily exited [src.p_their()] wrestling stance!</font>", LOG_ATTACK)
 	visible_message(span_danger("[src] is no longer in a wrestling stance!"))
