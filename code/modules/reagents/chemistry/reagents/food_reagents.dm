@@ -480,6 +480,20 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	default_container = /obj/item/reagent_containers/condiment/saltshaker
 
+//IRIS EDIT ADDITION BEGIN - SALT_AND_SOMA_QUIRK_PACK
+/datum/reagent/consumable/salt/on_mob_add(mob/living/affected_mob, amount)
+	. = ..()
+	if(HAS_TRAIT(affected_mob, TRAIT_SALT_VULNERABILITY))
+		to_chat(affected_mob, span_userdanger("[src]! It burns!!!"))
+
+/datum/reagent/consumable/salt/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+	. = ..()
+	if(HAS_TRAIT(affected_mob, TRAIT_SALT_VULNERABILITY))
+		affected_mob.adjustToxLoss(5 * REM)
+		affected_mob.adjustStaminaLoss(5 * REM)
+		affected_mob.adjust_slurring(3 SECONDS)
+//IRIS EDIT ADDITION END
+
 /datum/reagent/consumable/salt/expose_turf(turf/exposed_turf, reac_volume) //Creates an umbra-blocking salt pile
 	. = ..()
 	if(!istype(exposed_turf) || (reac_volume < 1))
@@ -493,6 +507,10 @@
 	var/mob/living/carbon/carbies = exposed_mob
 	if(!(methods & (PATCH|TOUCH|VAPOR)))
 		return
+	//IRIS EDIT ADDITION BEGIN - SALT_AND_SOMA_QUIRK_PACK - No benefit for snails or other salt-vulnerable entities
+	if(HAS_TRAIT(carbies, TRAIT_SALT_VULNERABILITY))
+		return
+	//IRIS EDIT ADDITION END
 	for(var/datum/wound/iter_wound as anything in carbies.all_wounds)
 		iter_wound.on_salt(reac_volume, carbies)
 
