@@ -13,9 +13,6 @@
 /datum/round_event_control/processor_overload
 	tags = list(TAG_COMMUNAL)
 
-/datum/round_event_control/radiation_leak
-	tags = list(TAG_COMMUNAL)
-
 /datum/round_event_control/supermatter_surge
 	tags = list(TAG_TARGETED)
 
@@ -44,16 +41,12 @@
 
 /datum/round_event_control/mold
 	tags = list(TAG_COMMUNAL, TAG_COMBAT, TAG_CHAOTIC)
-	weight = 0
-	max_occurrences = 0
+	weight = 5
+	min_players = 15
 
 /datum/round_event_control/obsessed
 	tags = list(TAG_TARGETED)
 
-/datum/round_event_control/santa
-	tags = list(TAG_COMMUNAL, TAG_POSITIVE)
-	weight = 25
-	earliest_start = 45 MINUTES
-
 /datum/round_event_control/operative
 	track = EVENT_TRACK_MODERATE
+	max_occurrences = 0
