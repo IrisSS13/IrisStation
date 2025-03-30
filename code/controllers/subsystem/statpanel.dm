@@ -46,6 +46,7 @@ SUBSYSTEM_DEF(statpanels)
 			"Map: [SSmapping.current_map?.map_name || "Loading..."]",
 			cached ? "Next Map: [cached.map_name]" : null,
 			"Round ID: [GLOB.round_id ? GLOB.round_id : "NULL"]",
+			"Storyteller: [SSgamemode.storyteller ? SSgamemode.storyteller.name : "N/A"]", // IRIS EDIT ADDITION - Bubber Storyteller
 			"Connected: [GLOB.clients.len] | Active: [active_players] | Observing: [observing_players]", //IRIS EDIT: ACTIVE AND OBSERVING PLAYERS
 			"Connected Players: [GLOB.clients.len]",
 			" ",

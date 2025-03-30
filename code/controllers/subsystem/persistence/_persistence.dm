@@ -51,6 +51,7 @@ SUBSYSTEM_DEF(persistence)
 	var/tram_hits_this_round = 0
 	var/tram_hits_last_round = 0
 
+	var/last_storyteller_type = "" // IRIS EDIT ADD: Bubber Storyteller votes
 	/// A json database to data/message_bottles.json
 	var/datum/json_database/message_bottles_database
 	/// An index used to create unique ids for the message bottles database
@@ -75,6 +76,7 @@ SUBSYSTEM_DEF(persistence)
 	load_panic_bunker() //NOVA EDIT ADDITION - PANICBUNKER
 	load_tram_counter()
 	load_adventures()
+	load_storyteller_type() //IRIS EDIT ADD - Storyteller Bubber
 	return SS_INIT_SUCCESS
 
 ///Collects all data to persist.
