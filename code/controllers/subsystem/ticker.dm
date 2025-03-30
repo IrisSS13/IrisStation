@@ -171,11 +171,7 @@ SUBSYSTEM_DEF(ticker)
 
 			current_state = GAME_STATE_PREGAME
 		// IRIS EDIT START - Storyteller from Bubber
-			var/storyteller = CONFIG_GET(string/default_storyteller)
-			if(storyteller)
-				SSgamemode.set_storyteller(text2path(storyteller), TRUE)
-			else
-				SSvote.initiate_vote(/datum/vote/storyteller, "Storyteller Vote", forced = TRUE)
+			SSvote.initiate_vote(/datum/vote/storyteller, "Storyteller Vote", forced = TRUE)
 		// IRIS EDIT END - Storyteller from Bubber
 			SStitle.change_title_screen() // NOVA EDIT ADDITION - Title screen
 			addtimer(CALLBACK(SStitle, TYPE_PROC_REF(/datum/controller/subsystem/title, change_title_screen)), 1 SECONDS) // NOVA EDIT ADDITION - Title screen
