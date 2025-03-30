@@ -1,6 +1,7 @@
 /datum/round_event_control/slaughter
 	track = EVENT_TRACK_MAJOR
 	tags = list(TAG_COMBAT, TAG_CHAOTIC)
+	min_players = 7
 	max_occurrences = 1
 
 /datum/round_event_control/sandstorm // it's a shittier meteor wave that kills the server trying to process all the debris
@@ -31,4 +32,5 @@
 
 /datum/round_event_control/wizard
 	track = EVENT_TRACK_MAJOR
+	min_players = 10
 	tags = list(TAG_COMMUNAL, TAG_DESTRUCTIVE, TAG_CHAOTIC)
