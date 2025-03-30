@@ -78,7 +78,7 @@
 #define EVENT_PANEL_TRACKS list(EVENT_TRACK_MUNDANE, EVENT_TRACK_MODERATE, EVENT_TRACK_MAJOR, EVENT_TRACK_CREWSET, EVENT_TRACK_GHOSTSET, UNCATEGORIZED_EVENTS, ALL_EVENTS)
 
 /// Defines for the antag cap to prevent midround injections.
-#define ANTAG_CAP_FLAT 10
+#define ANTAG_CAP_FLAT 5
 #define ANTAG_CAP_DENOMINATOR 9
 
 ///Below are defines for the percentage fill that the tracks should start on. +- 50% of the value will be added
