@@ -45,8 +45,8 @@ SUBSYSTEM_DEF(statpanels)
 			"Time Dilation: [round(SStime_track.time_dilation_current,1)]% AVG:([round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)",
 			"Map: [SSmapping.current_map?.map_name || "Loading..."]",
 			cached ? "Next Map: [cached.map_name]" : null,
-			"Round ID: [GLOB.round_id ? GLOB.round_id : "NULL"]",
 			"Storyteller: [SSgamemode.storyteller ? SSgamemode.storyteller.name : "N/A"]", // IRIS EDIT ADDITION - Bubber Storyteller
+			"Round ID: [GLOB.round_id ? GLOB.round_id : "NULL"]",
 			"Connected: [GLOB.clients.len] | Active: [active_players] | Observing: [observing_players]", //IRIS EDIT: ACTIVE AND OBSERVING PLAYERS
 			"Connected Players: [GLOB.clients.len]",
 			" ",
