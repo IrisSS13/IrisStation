@@ -27,3 +27,9 @@
 /datum/round_event_control/mutant_infestation
 	track = EVENT_TRACK_MAJOR
 	tags = list(TAG_COMMUNAL, TAG_COMBAT, TAG_CHAOTIC, TAG_CREW_ANTAG)
+	weight = 0
+	max_occurrences = 0
+
+/datum/round_event_control/wizard
+	track = EVENT_TRACK_MAJOR
+	tags = list(TAG_COMMUNAL, TAG_DESTRUCTIVE, TAG_CHAOTIC)
