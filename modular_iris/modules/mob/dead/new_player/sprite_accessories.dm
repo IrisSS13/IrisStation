@@ -142,6 +142,14 @@
 	name = "Short (Side)"
 	icon_state = "hair_short_side"
 
+/datum/sprite_accessory/hair/iris/ruby //Ryerice - Thabes port
+	name = "Ruby"
+	icon_state = "hair_ruby"
+
+/datum/sprite_accessory/hair/iris/ruby_long //Ryerice - Thabes port
+	name = "Ruby Long"
+	icon_state = "hair_rubylong"
+
 // TAILS
 
 /datum/sprite_accessory/tails/mammal/iris
