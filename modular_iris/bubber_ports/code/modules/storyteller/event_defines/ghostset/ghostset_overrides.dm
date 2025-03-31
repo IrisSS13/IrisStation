@@ -12,6 +12,7 @@
 	track = EVENT_TRACK_GHOSTSET
 	tags = list(TAG_COMBAT)
 	weight = 4
+	min_players = 15
 
 /datum/round_event_control/changeling
 	track = EVENT_TRACK_GHOSTSET
@@ -23,8 +24,9 @@
 	track = EVENT_TRACK_GHOSTSET
 	tags = list(TAG_COMBAT, TAG_SPOOKY, TAG_CHAOTIC)
 	weight = 2
+	min_players = 20
 
 /datum/round_event_control/spider_infestation
 	track = EVENT_TRACK_GHOSTSET
 	tags = list(TAG_COMBAT, TAG_DESTRUCTIVE, TAG_CHAOTIC)
-	weight = 2
+	weight = 0

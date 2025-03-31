@@ -21,7 +21,7 @@
 /datum/round_event_control/stray_meteor
 	tags = list(TAG_DESTRUCTIVE, TAG_SPACE)
 	weight = 10
-	min_players = 7
+	min_players = 10
 
 /datum/round_event_control/shuttle_catastrophe
 	tags = list(TAG_COMMUNAL)
@@ -45,11 +45,11 @@
 /datum/round_event_control/mold
 	tags = list(TAG_COMMUNAL, TAG_COMBAT, TAG_CHAOTIC)
 	weight = 5
-	min_players = 10
+	min_players = 15
 
 /datum/round_event_control/obsessed
 	tags = list(TAG_TARGETED)
-	min_players = 7
+	min_players = 10
 
 /datum/round_event_control/operative
 	track = EVENT_TRACK_MODERATE

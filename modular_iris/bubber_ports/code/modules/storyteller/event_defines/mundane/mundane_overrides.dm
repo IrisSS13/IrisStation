@@ -66,6 +66,8 @@
 /datum/round_event_control/grey_tide
 	track = EVENT_TRACK_MUNDANE
 	tags = list(TAG_DESTRUCTIVE, TAG_SPOOKY)
+	weight = 0
+	max_occurrences = 0
 
 /datum/round_event_control/gravity_generator_blackout
 	track = EVENT_TRACK_MUNDANE
@@ -78,10 +80,13 @@
 /datum/round_event_control/tram_malfunction
 	track = EVENT_TRACK_MUNDANE
 	tags = list(TAG_TARGETED, TAG_SPOOKY)
+	weight = 0
+	max_occurrences = 0
 
 /datum/round_event_control/bitrunning_glitch
 	track = EVENT_TRACK_MUNDANE
 	tags = list(TAG_TARGETED)
+	min_players = 10
 
 /datum/round_event_control/sentience
 	track = EVENT_TRACK_MUNDANE

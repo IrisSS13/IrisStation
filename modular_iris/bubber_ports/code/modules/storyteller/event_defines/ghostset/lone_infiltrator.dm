@@ -2,13 +2,13 @@
 	name = "Spawn Lone Infiltrator"
 	typepath = /datum/round_event/ghost_role/lone_infiltrator
 	max_occurrences = 2
-	min_players = 10
+	min_players = 15
 	dynamic_should_hijack = TRUE
 	category = EVENT_CATEGORY_ENTITIES
 	description = "Spawns a lone infiltrator, a non-crew syndicate agent."
 	min_wizard_trigger_potency = NEVER_TRIGGERED_BY_WIZARDS
 	max_wizard_trigger_potency = NEVER_TRIGGERED_BY_WIZARDS
-	weight = 10
+	weight =
 
 	track = EVENT_TRACK_GHOSTSET
 	tags = list(TAG_COMBAT)
