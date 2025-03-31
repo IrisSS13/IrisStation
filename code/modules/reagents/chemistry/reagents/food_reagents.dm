@@ -485,7 +485,7 @@
 	. = ..()
 	if(HAS_TRAIT(affected_mob, TRAIT_SALT_VULNERABILITY))
 		to_chat(affected_mob, span_userdanger("[src]! It burns!!!"))
-		affect_mob.emote("scream")
+		affected_mob.emote("scream")
 		affected_mob.Paralyze(5 SECONDS)
 		affected_mob.set_slurring(20 SECONDS)
 		affected_mob.set_jitter(20 SECONDS)
