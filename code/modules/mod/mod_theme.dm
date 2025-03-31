@@ -5,6 +5,15 @@
 		var/datum/mod_theme/new_theme = new path()
 		.[path] = new_theme
 
+/// Global proc that gets a MOD theme by its default skin value - Iris EDIT
+/proc/get_mod_theme_by_skin(skin)
+	for(var/theme_path in GLOB.mod_themes)
+		var/datum/mod_theme/theme = GLOB.mod_themes[theme_path]
+		if(theme.default_skin == skin)
+			return theme
+	return null
+
+
 /// MODsuit theme, instanced once and then used by MODsuits to grab various statistics.
 /datum/mod_theme
 	/// Theme name for the MOD.
@@ -135,9 +144,26 @@
 	set_skin(mod, skin || default_skin)
 
 /datum/mod_theme/proc/set_skin(obj/item/mod/control/mod, skin)
+	if(!mod)
+		return
+
+	if(!skin)
+		return
+
+	if(!variants[skin])
+		return
+
 	mod.skin = skin
+
+	// works for both limited and universal mod skin applications as this is already checked by pre-attack() - Iris edit
 	var/list/used_skin = variants[skin]
+
+	if(!used_skin)
+		return
+
 	var/list/parts = mod.get_parts()
+	if(!length(parts))
+		return
 	for(var/obj/item/clothing/part as anything in parts)
 		var/list/category = used_skin[part.type]
 		var/datum/mod_part/part_datum = mod.get_part_datum(part)
@@ -2194,3 +2220,6 @@
 	fire = 100
 	acid = 100
 	wound = 100
+
+
+// Note: Donator Themes located in: modular_nova\modules\customization\modules\clothing\~donator\donator_modsuits.dm
