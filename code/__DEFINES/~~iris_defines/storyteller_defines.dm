@@ -82,15 +82,15 @@
 #define ANTAG_CAP_DENOMINATOR 7
 
 ///Below are defines for the percentage fill that the tracks should start on. +- 50% of the value will be added
-#define ROUNDSTART_MUNDANE_BASE 20
+#define ROUNDSTART_MUNDANE_BASE 60
 
-#define ROUNDSTART_MODERATE_BASE 35
+#define ROUNDSTART_MODERATE_BASE 40
 
 #define ROUNDSTART_MAJOR_BASE 40
 
-#define ROUNDSTART_CREWSET_BASE 60
+#define ROUNDSTART_CREWSET_BASE 30
 
-#define ROUNDSTART_GHOSTSET_BASE 40
+#define ROUNDSTART_GHOSTSET_BASE 30
 
 /// Storyteller types below, basically prevents several intense teller rounds in a row
 #define STORYTELLER_TYPE_ALWAYS_AVAILABLE 0
