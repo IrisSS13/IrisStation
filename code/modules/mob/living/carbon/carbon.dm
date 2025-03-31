@@ -864,7 +864,7 @@
 		if(health <= HEALTH_THRESHOLD_DEAD && !HAS_TRAIT(src, TRAIT_NODEATH))
 			//IRIS EDIT CHANGE BEGIN - SALT_AND_SOMA_QUIRK_PACK
 			if(HAS_TRAIT(src, TRAIT_SOMATIC_VOLATILITY))
-				var/gib_pref = src.client?.prefs.read_preference(/datum/preference/choiced/somatic_volatility_gib_choice)
+				var/gib_pref = src.client?.prefs.read_preference(/datum/preference/choiced/somatic_volatility_gib_choice) || "Default"
 				switch(gib_pref)
 					if("Default")
 						gib(drop_bitflags = DROP_ITEMS)

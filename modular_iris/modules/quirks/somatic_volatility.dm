@@ -18,7 +18,7 @@
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 
 /datum/preference/choiced/somatic_volatility_gib_choice/is_accessible(datum/preferences/preferences)
-	if (!..(preferences))
+	if(!..(preferences))
 		return FALSE
 
 	return "Somatic Volatility" in preferences.all_quirks
@@ -26,9 +26,6 @@
 /datum/preference/choiced/somatic_volatility_gib_choice/init_possible_values()
 	var/list/values = list("Default", "Inflation", "Dust (to remains)", "Dust (to ashes)")
 	return values
-
-/datum/preference/choiced/somatic_volatility_gib_choice/create_default_value()
-	return "Default"
 
 /datum/preference/choiced/somatic_volatility_gib_choice/apply_to_human(mob/living/carbon/human/target, value)
 	return
