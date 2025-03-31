@@ -5,7 +5,7 @@
 		var/datum/mod_theme/new_theme = new path()
 		.[path] = new_theme
 
-/// Global proc that gets a MOD theme by its default skin value
+/// Global proc that gets a MOD theme by its default skin value - Iris EDIT
 /proc/get_mod_theme_by_skin(skin)
 	for(var/theme_path in GLOB.mod_themes)
 		var/datum/mod_theme/theme = GLOB.mod_themes[theme_path]
@@ -155,7 +155,7 @@
 
 	mod.skin = skin
 
-	// works for both limited and universal mod skin applications as this is already checked by pre-attack()
+	// works for both limited and universal mod skin applications as this is already checked by pre-attack() - Iris edit
 	var/list/used_skin = variants[skin]
 
 	if(!used_skin)
