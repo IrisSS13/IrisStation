@@ -491,6 +491,10 @@
 		affected_mob.set_jitter(20 SECONDS)
 		affected_mob.set_dizzy(20 SECONDS)
 		affected_mob.set_eye_blur(20 SECONDS)
+		if(HAS_TRAIT(affected_mob, TRAIT_ANALGESIA))
+			affected_mob.visible_message(span_danger("[affected_mob] collapses, writhing as the [LOWER_TEXT(src)] enters their body."))
+		else
+			affected_mob.visible_message(span_danger("[affected_mob] collapses, writhing in pain as the [LOWER_TEXT(src)] enters their body."))
 
 /datum/reagent/consumable/salt/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
