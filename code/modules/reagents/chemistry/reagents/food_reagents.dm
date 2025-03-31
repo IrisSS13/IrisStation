@@ -491,7 +491,7 @@
 	if(HAS_TRAIT(affected_mob, TRAIT_SALT_VULNERABILITY))
 		affected_mob.adjustToxLoss(8 * REM)
 		affected_mob.adjustStaminaLoss(12 * REM)
-		affected_mob.adjust_slurring(3 SECONDS)
+		affected_mob.adjust_slurring(5 SECONDS)
 		affected_mob.adjust_jitter(3 SECONDS)
 //IRIS EDIT ADDITION END
 
