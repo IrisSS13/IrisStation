@@ -53,6 +53,7 @@
 	new /obj/item/storage/medkit/brute(src)
 	new /obj/item/storage/medkit/regular(src)
 	new /obj/item/defibrillator/compact/combat/loaded/nanotrasen(src)
+	new /obj/item/gun/medbeam(src)
 
 /obj/structure/closet/secure_closet/ert_engi
 	name = "emergency response team engineer locker"
