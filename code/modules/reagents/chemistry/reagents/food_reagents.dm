@@ -489,9 +489,10 @@
 /datum/reagent/consumable/salt/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
 	if(HAS_TRAIT(affected_mob, TRAIT_SALT_VULNERABILITY))
-		affected_mob.adjustToxLoss(5 * REM)
-		affected_mob.adjustStaminaLoss(5 * REM)
+		affected_mob.adjustToxLoss(8 * REM)
+		affected_mob.adjustStaminaLoss(12 * REM)
 		affected_mob.adjust_slurring(3 SECONDS)
+		affected_mob.adjust_jitter(3 SECONDS)
 //IRIS EDIT ADDITION END
 
 /datum/reagent/consumable/salt/expose_turf(turf/exposed_turf, reac_volume) //Creates an umbra-blocking salt pile
