@@ -13,7 +13,7 @@
 
 /datum/bodypart_overlay/mutant/ears
 	feature_key = "ears"
-	layers = EXTERNAL_FRONT | EXTERNAL_ADJACENT | EXTERNAL_BEHIND
+	layers = EXTERNAL_FRONT | EXTERNAL_ADJACENT | EXTERNAL_BEHIND | EXTERNAL_BACK // IRIS EDIT: adds EXTERNAL_BACK
 	color_source = ORGAN_COLOR_OVERRIDE
 
 /datum/bodypart_overlay/mutant/ears/set_appearance_from_name(accessory_name)

@@ -5,7 +5,7 @@
 	mutantpart_info = list(MUTANT_INDEX_NAME = "Simple", MUTANT_INDEX_COLOR_LIST = list("#FFFFFF"))
 
 /datum/bodypart_overlay/mutant/horns
-	layers = EXTERNAL_FRONT | EXTERNAL_ADJACENT | EXTERNAL_BEHIND
+	layers = EXTERNAL_FRONT | EXTERNAL_ADJACENT | EXTERNAL_BEHIND | EXTERNAL_BACK // IRIS EDIT: adds EXTERNAL_BACK
 	feature_key = "horns"
 	color_source = ORGAN_COLOR_OVERRIDE
 
