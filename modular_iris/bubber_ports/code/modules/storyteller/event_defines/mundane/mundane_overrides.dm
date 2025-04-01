@@ -86,7 +86,7 @@
 /datum/round_event_control/bitrunning_glitch
 	track = EVENT_TRACK_MUNDANE
 	tags = list(TAG_TARGETED)
-	min_players = 10
+	min_players = 5
 
 /datum/round_event_control/sentience
 	track = EVENT_TRACK_MUNDANE

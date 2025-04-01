@@ -2,7 +2,7 @@
 	name = "Spawn Lone Infiltrator"
 	typepath = /datum/round_event/ghost_role/lone_infiltrator
 	max_occurrences = 1
-	min_players = 15
+	min_players = 8
 	dynamic_should_hijack = TRUE
 	category = EVENT_CATEGORY_ENTITIES
 	description = "Spawns a lone infiltrator, a non-crew syndicate agent."

@@ -5,7 +5,7 @@
 	antag_flag = ROLE_CHANGELING
 	antag_datum = /datum/antagonist/changeling
 	weight = 6
-	min_players = 16
+	min_players = 8
 
 	tags = list(TAG_COMBAT, TAG_CREW_ANTAG)
 
