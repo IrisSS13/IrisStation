@@ -1,6 +1,7 @@
 /datum/round_event_control/aurora_caelus
 	track = EVENT_TRACK_MUNDANE
 	tags = list(TAG_COMMUNAL, TAG_POSITIVE, TAG_SPACE)
+	max_occurrences = 0
 
 /datum/round_event_control/brain_trauma
 	track = EVENT_TRACK_MUNDANE
