@@ -9,7 +9,6 @@
 
 /datum/quirk/stowaway/add_unique()
 	var/mob/living/carbon/human/stowaway = quirk_holder
-	stowaway.Sleeping(5 SECONDS)
 	var/obj/item/card/id/trashed = stowaway.get_item_by_slot(ITEM_SLOT_ID) //No ID
 	qdel(trashed)
 
@@ -22,6 +21,7 @@
 	var/obj/structure/closet/selected_closet = get_unlocked_closed_locker() //Find your new home
 	if(selected_closet)
 		stowaway.forceMove(selected_closet) //Move in
+		stowaway.Sleeping(5 SECONDS)
 
 
 /datum/quirk/stowaway/post_add()

@@ -52,10 +52,10 @@
 		if(premium[item] < MINIMUM_CLOTHING_STOCK && allow_increase(item))
 			premium[item] = MINIMUM_CLOTHING_STOCK
 
-	QDEL_NULL(products_iris)
-	QDEL_NULL(product_categories_iris)
-	QDEL_NULL(premium_iris)
-	QDEL_NULL(contraband_iris)
+	products_iris?.Cut()
+	product_categories_iris?.Cut()
+	premium_iris?.Cut()
+	contraband_iris?.Cut()
 	return ..()
 
 #undef MINIMUM_CLOTHING_STOCK
