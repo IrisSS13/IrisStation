@@ -40,27 +40,27 @@
 /datum/round_event_control/anomaly/anomaly_vortex
 	track = EVENT_TRACK_MAJOR
 	tags = list(TAG_DESTRUCTIVE)
-	min_players = 7
+	min_players = 6
 
 /datum/round_event_control/anomaly/anomaly_pyro
 	track = EVENT_TRACK_MAJOR
 	tags = list(TAG_DESTRUCTIVE)
-	min_players = 7
+	min_players = 6
 
 /datum/round_event_control/revenant
-	min_players = 7
+	min_players = 8
 	track = EVENT_TRACK_MAJOR
 	tags = list(TAG_DESTRUCTIVE, TAG_SPOOKY)
 
 /datum/round_event_control/abductor
 	track = EVENT_TRACK_MAJOR
 	tags = list(TAG_COMBAT, TAG_SPOOKY, TAG_CHAOTIC)
-	min_players = 7
+	min_players = 6
 
 /datum/round_event_control/fugitives
 	track = EVENT_TRACK_MAJOR
 	tags = list(TAG_COMBAT)
-	min_players = 8
+	min_players = 6
 
 /datum/round_event_control/cme
 	track = EVENT_TRACK_MAJOR

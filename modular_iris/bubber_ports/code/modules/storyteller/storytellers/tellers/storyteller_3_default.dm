@@ -5,3 +5,12 @@
 	welcome_text = "If I chopped you up in a meat grinder..."
 	antag_divisor = 8
 	storyteller_type = STORYTELLER_TYPE_ALWAYS_AVAILABLE
+
+	track_data = /datum/storyteller_data/tracks/default
+
+/datum/storyteller_data/tracks/default
+	threshold_mundane = 20
+	threshold_moderate = 50
+	threshold_major = 80
+	threshold_crewset = 6000
+	threshold_ghostset = 6000

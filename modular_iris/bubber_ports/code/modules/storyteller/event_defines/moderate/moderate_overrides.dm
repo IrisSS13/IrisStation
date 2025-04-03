@@ -34,6 +34,8 @@
 	tags = list(TAG_COMMUNAL, TAG_DESTRUCTIVE)
 
 /datum/round_event_control/spacevine
+
+	weight = 10
 	tags = list(TAG_COMMUNAL, TAG_COMBAT, TAG_CHAOTIC)
 
 /datum/round_event_control/portal_storm_syndicate

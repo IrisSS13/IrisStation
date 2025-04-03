@@ -4,7 +4,7 @@
 
 	antag_flag = ROLE_SPY
 	antag_datum = /datum/antagonist/spy
-	weight = 8
+	weight = 3
 	min_players = 8
 	maximum_antags = 1
 
@@ -13,3 +13,4 @@
 /datum/round_event_control/antagonist/solo/spy/midround
 	name = "Spies (Midround)"
 	roundstart = FALSE
+	maximum_antags = 1
