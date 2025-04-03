@@ -9,7 +9,7 @@
 	track_data = /datum/storyteller_data/tracks/default
 
 /datum/storyteller_data/tracks/default
-	threshold_mundane = 40
+	threshold_mundane = 30
 	threshold_moderate = 50
 	threshold_major = 80
 	threshold_crewset = 7000
