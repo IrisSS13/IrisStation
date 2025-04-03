@@ -628,7 +628,7 @@
 
 /obj/effect/abstract/liquid_turf/immutable
 	immutable = TRUE
-	var/list/starting_mixture = list(/datum/reagent/water = 600)
+	var/list/starting_mixture = list(/datum/reagent/water = INFINITY)
 	var/starting_temp = T20C
 
 //STRICTLY FOR IMMUTABLES DESPITE NOT BEING /immutable
