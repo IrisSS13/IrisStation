@@ -812,7 +812,10 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define EXTERNAL_FRONT_OVER (1 << 5)
 /// Draws organ on the HEAD_LAYER, for things that need to be above hair but below hats.
 #define EXTERNAL_FRONT_ABOVE_HAIR (1 << 6)
-// NOVA EDIT END (not touching what comes next because we don't actually have to (nor want to))
+// NOVA EDIT END
+// IRIS EDIT ADDITION - Customization
+#define EXTERNAL_BACK (1 << 7)
+// IRIS EDIT ADDITION END (not touching what comes next because we don't actually have to (nor want to))
 /// Draws organ on all EXTERNAL layers
 #define ALL_EXTERNAL_OVERLAYS EXTERNAL_FRONT | EXTERNAL_ADJACENT | EXTERNAL_BEHIND
 
