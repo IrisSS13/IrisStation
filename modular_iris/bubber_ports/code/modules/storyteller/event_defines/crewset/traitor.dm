@@ -5,7 +5,7 @@
 	antag_flag = ROLE_TRAITOR
 	antag_datum = /datum/antagonist/traitor
 	weight = 16
-	min_players = 10
+	min_players = 7
 	maximum_antags = 2
 
 	tags = list(TAG_CREW_ANTAG)
