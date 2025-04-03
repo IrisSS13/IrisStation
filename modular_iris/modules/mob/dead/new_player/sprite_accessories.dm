@@ -142,6 +142,14 @@
 	name = "Short (Side)"
 	icon_state = "hair_short_side"
 
+/datum/sprite_accessory/hair/iris/ruby //Ryerice - Thabes port
+	name = "Ruby"
+	icon_state = "hair_ruby"
+
+/datum/sprite_accessory/hair/iris/ruby_long //Ryerice - Thabes port
+	name = "Ruby Long"
+	icon_state = "hair_rubylong"
+
 // TAILS
 
 /datum/sprite_accessory/tails/mammal/iris
@@ -161,6 +169,72 @@
 	icon_state = "bunny"
 	color_src = USE_ONE_COLOR
 
+/datum/sprite_accessory/tails/mammal/iris/abdomen/fuzz_warm
+	name = "Fuzzy Abdomen (Warm)"
+	icon_state = "fuzz_warm"
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/tails/mammal/iris/abdomen/fuzz_cold
+	name = "Fuzzy Abdomen (Cold)"
+	icon_state = "fuzz_cold"
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/tails/mammal/iris/abdomen/wasp/thread
+	name = "Thread-Waisted Wasp"
+	icon_state = "wasp_thread"
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/tails/mammal/iris/abdomen/wasp/stinger
+	name = "Wasp (Stinger)"
+	icon_state = "wasp_stinger"
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/tails/mammal/iris/abdomen/wasp/stingerless
+	name = "Wasp (Stingerless)"
+	icon_state = "wasp_stingerless"
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/tails/mammal/iris/abdomen/spider
+	name = "Spider"
+	icon_state = "spider"
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/tails/mammal/iris/abdomen/spider/scarred
+	name = "Spider (Scarred)"
+	icon_state = "spider_scarred"
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/tails/mammal/iris/abdomen/spider/spotted
+	name = "Spider (Spotted)"
+	icon_state = "spider_spotted"
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/tails/mammal/iris/abdomen/spider/tipped
+	name = "Spider (Tipped)"
+	icon_state = "spider_tipped"
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/tails/mammal/iris/abdomen/spider/contour
+	name = "Spider (Contour)"
+	icon_state = "spider_contour"
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/tails/mammal/iris/abdomen/spider/underbelly
+	name = "Spider (Underbelly)"
+	icon_state = "spider_underbelly"
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/tails/mammal/iris/earwig
+	name = "Earwig"
+	icon_state = "earwig"
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/tails/mammal/iris/centipede
+	name = "Centipede"
+	icon_state = "centipede"
+	color_src = USE_MATRIXED_COLORS
+
+
 //teshari
 /datum/sprite_accessory/tails/mammal/teshari/iris
 	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/tails.dmi'
@@ -177,6 +251,7 @@
 
 /datum/sprite_accessory/ears/mutant/iris
 	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/ears.dmi'
+	relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER, BACK_LAYER)
 
 /datum/sprite_accessory/ears/mutant/iris/dog
 	name = "Dog"
@@ -204,14 +279,63 @@
 	name = "Small Headwings"
 	icon_state = "small"
 
+/datum/sprite_accessory/ears/mutant/iris/mandible/chunky
+	name = "Chunky Mandibles"
+	icon_state = "chunky"
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/ears/mutant/iris/mandible/beetle
+	name = "Beetle Mandibles"
+	icon_state = "beetle"
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/ears/mutant/iris/mandible/ittybitty
+	name = "Itty Bitty Mandibles"
+	icon_state = "ittybitty"
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/ears/mutant/iris/mandible/clamped
+	name = "Clamped Mandibles"
+	icon_state = "clamped"
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/ears/mutant/iris/mandible/fullcurled
+	name = "Curled Mandibles"
+	icon_state = "fullcurled"
+
+/datum/sprite_accessory/ears/mutant/iris/mandible/skinny
+	name = "Skinny Mandibles"
+	icon_state = "skinny"
+
+
 // HORNS
 
 /datum/sprite_accessory/horns/iris
 	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/horns.dmi'
+	relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER, BACK_LAYER)
 
 /datum/sprite_accessory/horns/iris/messenger
 	name = "Winged Messenger"
 	icon_state = "messenger"
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/horns/iris/antennae/bent
+	name = "Bent Antennae"
+	icon_state = "antennae_bent"
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/horns/iris/antennae/wisteria
+	name = "Wisteria Antennae"
+	icon_state = "antennae_wisteria"
+	color_src = USE_ONE_COLOR
+
+// BIG HORNS
+/datum/sprite_accessory/horns/big/iris
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/horns_big.dmi'
+
+/datum/sprite_accessory/horns/big/iris/antenna_slanted
+	name = "Slanted Antenna"
+	icon_state = "antenna_slanted"
 	color_src = USE_ONE_COLOR
 
 // SNOUT
@@ -236,6 +360,7 @@
 
 /datum/sprite_accessory/wings/mammal/iris
 	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/wings.dmi'
+	relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER, BACK_LAYER)
 
 /datum/sprite_accessory/wings/mammal/iris/pinioned
 	name = "Pinioned Wings"
@@ -243,6 +368,77 @@
 	dimension_x = 32
 	dimension_y = 32
 	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/wings/mammal/iris/mantis/up
+	name = "Mantis (Aloft)"
+	icon_state = "mantis_up"
+	dimension_x = 32
+	dimension_y = 32
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/wings/mammal/iris/mantis/down
+	name = "Mantis (Sunken)"
+	icon_state = "mantis_down"
+	dimension_x = 32
+	dimension_y = 32
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/wings/mammal/iris/tarantula
+	name = "Tarantula"
+	icon_state = "tarantula"
+	dimension_x = 32
+	dimension_y = 32
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/wings/mammal/iris/spiderlegs/thin
+	name = "Spiderlegs (Thin)"
+	icon_state = "spiderlegs_thin"
+	dimension_x = 32
+	dimension_y = 32
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/wings/mammal/iris/spiderlegs/striped
+	name = "Spiderlegs (Striped)"
+	icon_state = "spiderlegs_striped"
+	dimension_x = 32
+	dimension_y = 32
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/wings/mammal/iris/spiderlegs/thick
+	name = "Spiderlegs (Thick)"
+	icon_state = "spiderlegs_thick"
+	dimension_x = 32
+	dimension_y = 32
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/wings/mammal/iris/spiderlegs/segmented
+	name = "Spiderlegs (Segmented)"
+	icon_state = "spiderlegs_segmented"
+	dimension_x = 32
+	dimension_y = 32
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/wings/mammal/iris/spiderlegs/mechanical
+	name = "Spiderlegs (Mechanical)"
+	icon_state = "spiderlegs_mechanical"
+	dimension_x = 32
+	dimension_y = 32
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/wings/mammal/iris/dragonfly
+	name = "Dragonfly Wings"
+	icon_state = "dragonfly"
+	dimension_x = 32
+	dimension_y = 32
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/wings/mammal/iris/beetle_elytra
+	name = "Beetle Elytra"
+	icon_state = "beetle_elytra"
+	dimension_x = 32
+	dimension_y = 32
+	color_src = USE_MATRIXED_COLORS
+
 
 //moth wings - apparently Nova uses /datum/sprite_accessory/wings/moth/ and not /datum/sprite_accessory/moth_wings/
 /datum/sprite_accessory/wings/moth/iris
@@ -380,3 +576,43 @@
 /datum/sprite_accessory/antenna/iris/light
 	name = "Light"
 	icon_state = "light"
+
+// SCREENS
+/datum/sprite_accessory/screen/iris
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/ipc_screens.dmi'
+
+/datum/sprite_accessory/screen/iris/dolled
+	name = "Dolled Up"
+	icon_state = "dolled"
+
+/datum/sprite_accessory/screen/iris/heart_cracked
+	name = "Cracked Heart"
+	icon_state = "heart_cracked"
+
+/datum/sprite_accessory/screen/iris/paintsplatter
+	name = "Paint Splatter"
+	icon_state = "paintsplatter"
+
+/datum/sprite_accessory/screen/iris/hacker
+	name = "Hacker"
+	icon_state = "hacker"
+
+/datum/sprite_accessory/screen/iris/blood
+	name = "Bloody"
+	icon_state = "blood"
+
+/datum/sprite_accessory/screen/iris/dingy_black
+	name = "Dingy Black"
+	icon_state = "dingy_black"
+
+/datum/sprite_accessory/screen/iris/dingy_blue
+	name = "Dingy Blue"
+	icon_state = "dingy_blue"
+
+/datum/sprite_accessory/screen/iris/dingy_yellow
+	name = "Dingy Yellow"
+	icon_state = "dingy_yellow"
+
+/datum/sprite_accessory/screen/iris/dingy_yellow_cracked
+	name = "Cracked Dingy Yellow"
+	icon_state = "dingy_yellow_cracked"

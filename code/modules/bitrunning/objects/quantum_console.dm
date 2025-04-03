@@ -39,6 +39,7 @@
 	data["generated_domain"] = server.generated_domain?.key
 	data["occupants"] = length(server.avatar_connection_refs)
 	data["points"] = server.points
+	data["total_points"] = server.total_points // IRIS ADDITION
 	data["randomized"] = server.domain_randomized
 	data["ready"] = server.is_ready && server.is_operational
 	data["scanner_tier"] = server.scanner_tier
