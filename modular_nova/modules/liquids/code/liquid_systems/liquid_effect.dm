@@ -651,7 +651,7 @@
 	base_icon_state = "ocean"
 	layer = FLY_LAYER
 	plane = ABOVE_GAME_PLANE
-	starting_temp = T20C-150
+	starting_temp = T20C
 	no_effects = TRUE
 	vis_flags = NONE
 
