@@ -37,14 +37,14 @@
 
 /obj/effect/decal/cleanable/food/salt/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
-	//IRIS EDIT CHANGE BEGIN - SALT_AND_SOMA_QUIRK_PACK
+	//IRIS EDIT CHANGE BEGIN - SALT_VULNERABILITY_QUIRK
 	if(HAS_TRAIT(mover, TRAIT_SALT_VULNERABILITY))
 	//IRIS EDIT CHANGE END
 		return FALSE
 
 /obj/effect/decal/cleanable/food/salt/Bumped(atom/movable/AM)
 	. = ..()
-	//IRIS EDIT CHANGE BEGIN - SALT_AND_SOMA_QUIRK_PACK
+	//IRIS EDIT CHANGE BEGIN - SALT_VULNERABILITY_QUIRK
 	if(HAS_TRAIT(AM, TRAIT_SALT_VULNERABILITY))
 	//IRIS EDIT CHANGE END
 		to_chat(AM, span_danger("Your path is obstructed by [span_phobia("salt")]."))

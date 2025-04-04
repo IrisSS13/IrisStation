@@ -480,7 +480,7 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	default_container = /obj/item/reagent_containers/condiment/saltshaker
 
-//IRIS EDIT ADDITION BEGIN - SALT_AND_SOMA_QUIRK_PACK
+//IRIS EDIT ADDITION BEGIN - SALT_VULNERABILITY_QUIRK
 /datum/reagent/consumable/salt/on_mob_add(mob/living/affected_mob, amount)
 	. = ..()
 	if(HAS_TRAIT(affected_mob, TRAIT_SALT_VULNERABILITY))
@@ -520,7 +520,7 @@
 	var/mob/living/carbon/carbies = exposed_mob
 	if(!(methods & (PATCH|TOUCH|VAPOR)))
 		return
-	//IRIS EDIT ADDITION BEGIN - SALT_AND_SOMA_QUIRK_PACK - No benefit for snails or other salt-vulnerable entities
+	//IRIS EDIT ADDITION BEGIN - SALT_VULNERABILITY_QUIRK - No benefit for snails or other salt-vulnerable entities
 	if(HAS_TRAIT(carbies, TRAIT_SALT_VULNERABILITY))
 		return
 	//IRIS EDIT ADDITION END
