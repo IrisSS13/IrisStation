@@ -486,11 +486,12 @@
 	if(HAS_TRAIT(affected_mob, TRAIT_SALT_VULNERABILITY))
 		to_chat(affected_mob, span_userdanger("[src]! It burns!!!"))
 		affected_mob.emote("scream")
-		affected_mob.Paralyze(5 SECONDS)
-		affected_mob.set_slurring(20 SECONDS)
-		affected_mob.set_jitter(20 SECONDS)
-		affected_mob.set_dizzy(20 SECONDS)
-		affected_mob.set_eye_blur(20 SECONDS)
+		affected_mob.adjustToxLoss(round(log(3, amount), 1)) //per unit damage scales down with volume
+		affected_mob.Paralyze(7 SECONDS)
+		var/initial_status_effect_duration = clamp(amount * (3 SECONDS), 1 SECONDS, 150 SECONDS)
+		affected_mob.set_slurring_if_lower(initial_status_effect_duration)
+		affected_mob.set_jitter_if_lower(initial_status_effect_duration)
+		affected_mob.set_confusion_if_lower(initial_status_effect_duration)
 		if(HAS_TRAIT(affected_mob, TRAIT_ANALGESIA))
 			affected_mob.visible_message(span_danger("[affected_mob] collapses, writhing as the [LOWER_TEXT(src)] enters [affected_mob.p_their()] body."))
 		else
@@ -499,12 +500,11 @@
 /datum/reagent/consumable/salt/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
 	if(HAS_TRAIT(affected_mob, TRAIT_SALT_VULNERABILITY))
+		affected_mob.add_mood_event(type = /datum/mood_event/salt_encounter)
 		affected_mob.adjustToxLoss(12 * REM)
-		affected_mob.adjustStaminaLoss(28 * REM)
-		affected_mob.adjust_slurring(3 SECONDS)
-		affected_mob.adjust_jitter(3 SECONDS)
-		affected_mob.adjust_dizzy(3 SECONDS)
-		affected_mob.adjust_eye_blur(3 SECONDS)
+		affected_mob.adjust_slurring_up_to(3 SECONDS, 150 SECONDS)
+		affected_mob.adjust_jitter_up_to(3 SECONDS, 150 SECONDS)
+		affected_mob.adjust_confusion_up_to(3 SECONDS, 150 SECONDS)
 //IRIS EDIT ADDITION END
 
 /datum/reagent/consumable/salt/expose_turf(turf/exposed_turf, reac_volume) //Creates an umbra-blocking salt pile
