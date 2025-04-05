@@ -88,9 +88,23 @@
 		return CLICK_ACTION_BLOCKING
 
 /datum/species/proc/try_leg_lock(mob/living/carbon/human/user, mob/living/carbon/human/target)
+	if(target == user)
+		return FALSE
+	//check target is grabbed
 	if(!grab_maneuver_state_check(user, target))
 		return FALSE
-	//check for legs
-	//stance check comes later
+	//check user has at least two functioning legs with which to grapple
+	if(user.usable_legs < 2)
+		user.balloon_alert(user, "need two working legs!")
+		return FALSE
+	//check target isn't already leg-locked
+	if(HAS_TRAIT(target, TRAIT_LEG_LOCKED))
+		target.balloon_alert(user, "already leg-locked!")
+		return FALSE
+	//check user is in wrestling stance
+	if(!(user.is_wrestling))
+		user.balloon_alert(user, "not wrestling!")
+		return FALSE
+	//add component here
 
 #undef WRESTLING_STANCE_TRAIT
