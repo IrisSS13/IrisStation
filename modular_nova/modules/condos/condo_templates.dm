@@ -139,9 +139,3 @@ Due to some fuckery with how these templates work; the bottom left turf of your 
 	mappath = "modular_nova/modules/condos/_maps/public_library.dmm"
 	landing_zone_x_offset = 7
 	landing_zone_y_offset = 1
-
-/datum/map_template/condo/fast_food
-	name = "Condo - Diner Restaurant"
-	mappath = "modular_nova/modules/condos/_maps/fast_food.dmm"
-	landing_zone_x_offset = 8
-	landing_zone_y_offset = 2
