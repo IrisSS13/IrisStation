@@ -1,3 +1,5 @@
+#define WRESTLING_STANCE_TRAIT "wrestling_stance"
+
 /mob/living/carbon/human
 	var/is_wrestling = FALSE
 	var/mob/living/carbon/human/wrestled_mob = null
@@ -36,6 +38,8 @@
 		if(!istype(get_item_by_slot(ITEM_SLOT_GLOVES), /obj/item/clothing/gloves/tackler))
 			wrestle_tackling = src.AddComponent(/datum/component/tackler, stamina_cost = 40, base_knockdown = 1 SECONDS, range = 2, speed = 1, skill_mod = -1, min_distance = 0)
 
+		ADD_TRAIT(src, TRAIT_STRONG_GRABBER, WRESTLING_STANCE_TRAIT)
+
 		RegisterSignals(src, list(COMSIG_MOVABLE_MOVED, COMSIG_LIVING_UPDATED_RESTING, COMSIG_MOB_LOGOUT), PROC_REF(exit_stance_wrapper), TRUE)
 
 		is_wrestling = current_state
@@ -53,6 +57,9 @@
 	if(wrestle_tackling)
 		QDEL_NULL(wrestle_tackling)
 
+	if(HAS_TRAIT_FROM(src, TRAIT_STRONG_GRABBER, WRESTLING_STANCE_TRAIT))
+		REMOVE_TRAIT(src, TRAIT_STRONG_GRABBER, WRESTLING_STANCE_TRAIT)
+
 	is_wrestling = FALSE
 	if(involuntary)
 		log_message("<font color='cyan'>[src] has been forced out of [src.p_their()] wrestling stance!</font>", LOG_ATTACK)
@@ -63,3 +70,5 @@
 /mob/living/carbon/human/proc/exit_stance_wrapper()
 	SIGNAL_HANDLER
 	exit_wrestling_stance(involuntary = TRUE)
+
+#undef WRESTLING_STANCE_TRAIT
