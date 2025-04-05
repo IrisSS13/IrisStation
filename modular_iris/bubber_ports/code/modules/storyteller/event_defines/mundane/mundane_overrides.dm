@@ -26,7 +26,7 @@
 /datum/round_event_control/space_dust
 	track = EVENT_TRACK_MUNDANE
 	tags = list(TAG_DESTRUCTIVE, TAG_SPACE)
-	max_occurances = 2
+	max_occurrences = 2
 	weight = 10
 
 /datum/round_event_control/electrical_storm
@@ -57,7 +57,7 @@
 	var/list/run_situations = list()
 	track = EVENT_TRACK_MUNDANE
 	tags = list(TAG_COMMUNAL)
-	max_occurances = 1
+	max_occurrences = 1
 
 /datum/round_event_control/mass_hallucination
 	track = EVENT_TRACK_MUNDANE
@@ -70,7 +70,7 @@
 /datum/round_event_control/gravity_generator_blackout
 	track = EVENT_TRACK_MUNDANE
 	tags = list(TAG_COMMUNAL, TAG_SPACE)
-	max_occurances = 1
+	max_occurrences = 1
 
 /datum/round_event_control/shuttle_insurance
 	track = EVENT_TRACK_MUNDANE

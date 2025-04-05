@@ -37,13 +37,13 @@
 	weight = 6 // Lower from original 15 because it KEEPS SPAWNING THEM
 	tags = list(TAG_COMMUNAL, TAG_DESTRUCTIVE)
 	min_players = 5
-	max_occurances = 1
+	max_occurrences = 1
 
 /datum/round_event_control/anomaly_grav/high
 	weight = 6 // Lower from original 15 because it KEEPS SPAWNING THEM
 	tags = list(TAG_COMMUNAL, TAG_DESTRUCTIVE)
 	min_players = 10
-	max_occurances = 1
+	max_occurrences = 1
 
 /datum/round_event_control/spacevine
 

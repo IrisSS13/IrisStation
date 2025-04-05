@@ -41,13 +41,13 @@
 	track = EVENT_TRACK_MAJOR
 	tags = list(TAG_DESTRUCTIVE)
 	min_players = 6
-	max_occurances = 1
+	max_occurrences = 1
 
 /datum/round_event_control/anomaly/anomaly_pyro
 	track = EVENT_TRACK_MAJOR
 	tags = list(TAG_DESTRUCTIVE)
 	min_players = 6
-	max_occurances = 1
+	max_occurrences = 1
 
 /datum/round_event_control/revenant
 	min_players = 8
