@@ -36,7 +36,7 @@
 		if(!istype(get_item_by_slot(ITEM_SLOT_GLOVES), /obj/item/clothing/gloves/tackler))
 			wrestle_tackling = src.AddComponent(/datum/component/tackler, stamina_cost = 40, base_knockdown = 1 SECONDS, range = 2, speed = 1, skill_mod = -1, min_distance = 0)
 
-		RegisterSignals(src, list(COMSIG_MOVABLE_MOVED, COMSIG_LIVING_UPDATED_RESTING, COMSIG_MOB_EQUIPPED_ITEM, COMSIG_MOB_LOGOUT), PROC_REF(exit_stance_wrapper), TRUE)
+		RegisterSignals(src, list(COMSIG_MOVABLE_MOVED, COMSIG_LIVING_UPDATED_RESTING, COMSIG_MOB_LOGOUT), PROC_REF(exit_stance_wrapper), TRUE)
 
 		is_wrestling = current_state
 		visible_message(span_danger("[src] has assumed a wrestling stance!"))
@@ -48,7 +48,6 @@
 /mob/living/carbon/human/proc/exit_wrestling_stance(involuntary = FALSE)
 	UnregisterSignal(src, COMSIG_MOVABLE_MOVED)
 	UnregisterSignal(src, COMSIG_LIVING_UPDATED_RESTING)
-	UnregisterSignal(src, COMSIG_MOB_EQUIPPED_ITEM)
 	UnregisterSignal(src, COMSIG_MOB_LOGOUT)
 
 	if(wrestle_tackling)
