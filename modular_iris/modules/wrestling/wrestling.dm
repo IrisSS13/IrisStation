@@ -36,7 +36,10 @@
 			dropItemToGround(held_item)
 
 		if(!istype(get_item_by_slot(ITEM_SLOT_GLOVES), /obj/item/clothing/gloves/tackler))
-			wrestle_tackling = src.AddComponent(/datum/component/tackler, stamina_cost = 40, base_knockdown = 1 SECONDS, range = 2, speed = 1, skill_mod = -1, min_distance = 0)
+			var/tackle_range = 2
+			if(HAS_TRAIT(src, TRAIT_FREERUNNING))
+				tackle_range = 3
+			wrestle_tackling = src.AddComponent(/datum/component/tackler, stamina_cost = 40, base_knockdown = 1 SECONDS, range = tackle_range, speed = 1, skill_mod = -1, min_distance = 0)
 
 		ADD_TRAIT(src, TRAIT_STRONG_GRABBER, WRESTLING_STANCE_TRAIT)
 
