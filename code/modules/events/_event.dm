@@ -74,6 +74,8 @@
 	SHOULD_CALL_PARENT(TRUE)
 	if(occurrences >= max_occurrences)
 		return FALSE
+	if(!(roundstart ^ SSticker.HasRoundStarted())) // IRIS EDIT: Roundstart checks added
+		return FALSE
 	if(earliest_start >= world.time-SSticker.round_start_time)
 		return FALSE
 	if(!allow_magic && wizardevent != SSevents.wizardmode)

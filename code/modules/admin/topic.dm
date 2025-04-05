@@ -106,7 +106,8 @@
 	else if(href_list["gamemode_panel"])
 		if(!check_rights(R_ADMIN))
 			return
-		SSdynamic.admin_panel()
+		//SSdynamic.admin_panel() // IRIS EDIT - STORYTELLER Bubber
+		SSgamemode.ui_interact(usr) // IRIS EDIT - STORYTELLER Bubber
 
 	else if(href_list["call_shuttle"])
 		if(!check_rights(R_ADMIN))
