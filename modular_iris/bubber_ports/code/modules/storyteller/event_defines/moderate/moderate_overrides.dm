@@ -59,3 +59,12 @@
 
 /datum/round_event_control/anomaly/anomaly_ectoplasm
 	min_players = 5
+
+/datum/round_event_control/heart_attack
+	min_players = 10
+
+/datum/round_event_control/scrubber_overflow
+	min_players = 7
+
+/datum/round_event_control/scrubber_overflow/threatening
+	min_players = 11

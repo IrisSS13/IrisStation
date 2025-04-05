@@ -80,3 +80,14 @@
 	tags = list(TAG_DESTRUCTIVE, TAG_SPOOKY)
 	min_players = 5
 
+/datum/round_event_control/wizard
+	track = EVENT_TRACK_MAJOR
+	min_players = 10
+	tags = list(TAG_COMMUNAL, TAG_DESTRUCTIVE, TAG_CHAOTIC)
+
+/datum/round_event_control/slaughter
+	track = EVENT_TRACK_MAJOR
+	tags = list(TAG_COMBAT, TAG_CHAOTIC)
+	min_players = 11
+	max_occurrences = 1
+

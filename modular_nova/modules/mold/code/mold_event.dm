@@ -2,6 +2,9 @@
 #define MOLDIES_SPAWN_LOWPOP_MAX 1
 #define MOLDIES_SPAWN_HIGHPOP_MIN 1
 #define MOLDIES_SPAWN_HIGHPOP_MAX 2
+#define EVENT_LOWPOP_THRESHOLD 10
+#define EVENT_MIDPOP_THRESHOLD 25
+#define EVENT_HIGHPOP_THRESHOLD 40
 
 /datum/round_event_control/mold
 	name = "Moldies"
