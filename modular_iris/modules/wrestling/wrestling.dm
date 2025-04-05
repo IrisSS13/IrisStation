@@ -1,5 +1,9 @@
 #define WRESTLING_STANCE_TRAIT "wrestling_stance"
 
+/*
+	WRESTLING STANCE
+*/
+
 /mob/living/carbon/human
 	var/is_wrestling = FALSE
 	var/mob/living/carbon/human/wrestled_mob = null
@@ -71,5 +75,22 @@
 /mob/living/carbon/human/proc/exit_stance_wrapper()
 	SIGNAL_HANDLER
 	exit_wrestling_stance(involuntary = TRUE)
+
+/*
+	LEG LOCK ABILITY
+*/
+
+/mob/living/carbon/human/click_alt_secondary(mob/user)
+	if(!ishuman(user))
+		return ..()
+	var/mob/living/carbon/human/human_user = user
+	if(human_user != src && human_user.combat_mode && !human_user.dna.species.try_leg_lock(user, src))
+		return CLICK_ACTION_BLOCKING
+
+/datum/species/proc/try_leg_lock(mob/living/carbon/human/user, mob/living/carbon/human/target)
+	if(!grab_maneuver_state_check(user, target))
+		return FALSE
+	//check for legs
+	//stance check comes later
 
 #undef WRESTLING_STANCE_TRAIT
