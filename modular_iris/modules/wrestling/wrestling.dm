@@ -105,6 +105,6 @@
 	if(!(user.is_wrestling))
 		user.balloon_alert(user, "not wrestling!")
 		return FALSE
-	//add component here
+	target.AddComponent(/datum/component/leg_locked, lock_source = user)
 
 #undef WRESTLING_STANCE_TRAIT
