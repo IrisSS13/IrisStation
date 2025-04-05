@@ -11,7 +11,7 @@
 
 /datum/component/leg_locked/process(seconds_per_tick)
 	. = ..()
-	if(lock_source.is_wrestling)
+	if(lock_source.is_wrestling && grab_maneuver_state_check(user, target))
 		var/mob/living/carbon/human/H = parent //component won't be added if this isn't true, so no need to check again
 		H.Immobilize(2.1 SECONDS)
 	else
