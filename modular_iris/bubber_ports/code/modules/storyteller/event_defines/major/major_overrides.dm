@@ -41,11 +41,13 @@
 	track = EVENT_TRACK_MAJOR
 	tags = list(TAG_DESTRUCTIVE)
 	min_players = 6
+	max_occurances = 1
 
 /datum/round_event_control/anomaly/anomaly_pyro
 	track = EVENT_TRACK_MAJOR
 	tags = list(TAG_DESTRUCTIVE)
 	min_players = 6
+	max_occurances = 1
 
 /datum/round_event_control/revenant
 	min_players = 8
@@ -91,3 +93,8 @@
 	min_players = 11
 	max_occurrences = 1
 
+/datum/round_event_control/anomaly/anomaly_bioscrambler
+	track = EVENT_TRACK_MAJOR
+	tags = list(TAG_COMMUNAL, TAG_CHAOTIC)
+	min_players = 7
+	max_occurrences = 1

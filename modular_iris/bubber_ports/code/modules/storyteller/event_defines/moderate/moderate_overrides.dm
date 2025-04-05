@@ -33,10 +33,24 @@
 	weight = 10 // Lower from original 15 because it KEEPS SPAWNING THEM
 	tags = list(TAG_COMMUNAL, TAG_DESTRUCTIVE)
 
+/datum/round_event_control/anomaly_grav
+	weight = 6 // Lower from original 15 because it KEEPS SPAWNING THEM
+	tags = list(TAG_COMMUNAL, TAG_DESTRUCTIVE)
+	min_players = 5
+	max_occurances = 1
+
+/datum/round_event_control/anomaly_grav/high
+	weight = 6 // Lower from original 15 because it KEEPS SPAWNING THEM
+	tags = list(TAG_COMMUNAL, TAG_DESTRUCTIVE)
+	min_players = 10
+	max_occurances = 1
+
 /datum/round_event_control/spacevine
 
 	weight = 10
 	tags = list(TAG_COMMUNAL, TAG_COMBAT, TAG_CHAOTIC)
+	min_players = 5
+
 
 /datum/round_event_control/portal_storm_syndicate
 	tags = list(TAG_COMBAT, TAG_CHAOTIC)
@@ -46,11 +60,13 @@
 
 /datum/round_event_control/mold
 	tags = list(TAG_COMMUNAL, TAG_COMBAT, TAG_CHAOTIC)
+	track = EVENT_TRACK_MODERATE
 	weight = 5
 	min_players = 8
 
 /datum/round_event_control/obsessed
 	tags = list(TAG_TARGETED)
+	track = EVENT_TRACK_MODERATE
 	min_players = 5
 
 /datum/round_event_control/operative

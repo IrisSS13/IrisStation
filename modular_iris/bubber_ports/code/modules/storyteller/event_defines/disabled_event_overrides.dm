@@ -30,3 +30,8 @@
 	weight = 0
 	max_occurrences = 0
 
+/datum/round_event_control/radiation_leak
+	track = EVENT_TRACK_MODERATE
+	tags = list(TAG_DESTRUCTIVE, TAG_CHAOTIC)
+	weight = 0
+	max_occurrences = 0
