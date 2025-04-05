@@ -98,7 +98,7 @@
 		user.balloon_alert(user, "need two working legs!")
 		return FALSE
 	//check target isn't already leg-locked
-	if(HAS_TRAIT(target, TRAIT_LEG_LOCKED))
+	if(target.GetComponent(/datum/component/leg_locked))
 		target.balloon_alert(user, "already leg-locked!")
 		return FALSE
 	//check user is in wrestling stance
