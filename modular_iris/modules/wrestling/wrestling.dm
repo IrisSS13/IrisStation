@@ -107,6 +107,8 @@
 	if(!(user.is_wrestling))
 		user.balloon_alert(user, "not wrestling!")
 		return FALSE
-	target.AddComponent(/datum/component/leg_locked, lock_source = user)
+	if(target.AddComponent(/datum/component/leg_locked, lock_source = user))
+		user.visible_message(span_danger("[user] puts [target] into a leg lock!"))
+		to_chat(target, span_userdanger("[user] puts you into a leg lock!"))
 
 #undef WRESTLING_STANCE_TRAIT
