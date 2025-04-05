@@ -5,10 +5,11 @@
 	antag_flag = ROLE_CHANGELING
 	antag_datum = /datum/antagonist/changeling
 	weight = 6
-	min_players = 8
+	min_players = 5
 
 	tags = list(TAG_COMBAT, TAG_CREW_ANTAG)
 
 /datum/round_event_control/antagonist/solo/changeling/midround
 	name = "Genome Awakening (Changelings)"
 	roundstart = FALSE
+	min_players = 7

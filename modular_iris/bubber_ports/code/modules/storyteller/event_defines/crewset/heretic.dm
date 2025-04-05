@@ -5,7 +5,7 @@
 	antag_flag = ROLE_HERETIC
 	antag_datum = /datum/antagonist/heretic
 	weight = 3
-	min_players = 10
+	min_players = 7
 
 	maximum_antags_global = 2
 
@@ -18,3 +18,4 @@
 /datum/round_event_control/antagonist/solo/heretic/midround
 	name = "Midround Heretics"
 	roundstart = FALSE
+	min_players = 10
