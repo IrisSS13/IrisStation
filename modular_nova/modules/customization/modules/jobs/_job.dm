@@ -139,19 +139,15 @@
 //Service
 /datum/job/cook
 	required_languages = null
-	banned_quirks = list(JOB_RESTRICTED_QUIRKS)
 
 /datum/job/botanist
 	required_languages = null
-	banned_quirks = list(JOB_RESTRICTED_QUIRKS)
 
 /datum/job/curator
 	required_languages = null
-	banned_quirks = list(JOB_RESTRICTED_QUIRKS)
 
 /datum/job/janitor
 	required_languages = null
-	banned_quirks = list(JOB_RESTRICTED_QUIRKS)
 
 /datum/job/prisoner
 	required_languages = null
@@ -202,49 +198,3 @@
 /datum/job/bridge_officer
 	banned_quirks = list(HEAD_RESTRICTED_QUIRKS)
 	banned_augments = list(HEAD_RESTRICTED_AUGMENTS)
-
-//Other jobs - IRIS edit
-/datum/job/scientist
-
-	banned_quirks = list(JOB_RESTRICTED_QUIRKS)
-
-/datum/job/roboticist
-
-	banned_quirks = list(JOB_RESTRICTED_QUIRKS)
-
-/datum/job/shaft_miner
-
-	banned_quirks = list(JOB_RESTRICTED_QUIRKS)
-
-/datum/job/station_engineer
-
-	banned_quirks = list(JOB_RESTRICTED_QUIRKS)
-
-/datum/job/telecomms_specialist
-
-	banned_quirks = list(JOB_RESTRICTED_QUIRKS)
-
-/datum/job/virologist
-
-	banned_quirks = list(JOB_RESTRICTED_QUIRKS)
-
-/datum/job/paramedic
-
-	banned_quirks = list(JOB_RESTRICTED_QUIRKS)
-
-/datum/job/clown
-
-	banned_quirks = list(JOB_RESTRICTED_QUIRKS)
-
-/datum/job/mime
-
-	banned_quirks = list(JOB_RESTRICTED_QUIRKS)
-
-/datum/job/psychologist
-
-	banned_quirks = list(JOB_RESTRICTED_QUIRKS)
-
-/datum/job/psychologist
-
-	banned_quirks = list(JOB_RESTRICTED_QUIRKS)
-
