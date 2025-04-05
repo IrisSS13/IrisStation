@@ -5,6 +5,15 @@
 		var/datum/mod_theme/new_theme = new path()
 		.[path] = new_theme
 
+/// Global proc that gets a MOD theme by its default skin value - Iris EDIT
+/proc/get_mod_theme_by_skin(skin)
+	for(var/theme_path in GLOB.mod_themes)
+		var/datum/mod_theme/theme = GLOB.mod_themes[theme_path]
+		if(theme.default_skin == skin)
+			return theme
+	return null
+
+
 /// MODsuit theme, instanced once and then used by MODsuits to grab various statistics.
 /datum/mod_theme
 	/// Theme name for the MOD.
@@ -119,6 +128,7 @@
 		part_datum.part_item = mod_part
 		mod.mod_parts["[mod_part.slot_flags]"] = part_datum
 		parts += mod_part
+
 	for(var/obj/item/part as anything in parts)
 		part.name = "[name] [part.name]"
 		part.desc = "[part.desc] [desc]"
@@ -130,12 +140,30 @@
 		part.max_heat_protection_temperature = max_heat_protection_temperature
 		part.min_cold_protection_temperature = min_cold_protection_temperature
 		part.siemens_coefficient = siemens_coefficient
+
 	set_skin(mod, skin || default_skin)
 
 /datum/mod_theme/proc/set_skin(obj/item/mod/control/mod, skin)
+	if(!mod)
+		return
+
+	if(!skin)
+		return
+
+	if(!variants[skin])
+		return
+
 	mod.skin = skin
+
+	// works for both limited and universal mod skin applications as this is already checked by pre-attack() - Iris edit
 	var/list/used_skin = variants[skin]
+
+	if(!used_skin)
+		return
+
 	var/list/parts = mod.get_parts()
+	if(!length(parts))
+		return
 	for(var/obj/item/clothing/part as anything in parts)
 		var/list/category = used_skin[part.type]
 		var/datum/mod_part/part_datum = mod.get_part_datum(part)
@@ -1162,7 +1190,7 @@
 	complexity_max = DEFAULT_MAX_COMPLEXITY + 3
 	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
 	siemens_coefficient = 0
-	slowdown_deployed = 0.5
+	slowdown_deployed = 0
 	ui_theme = "syndicate"
 	resistance_flags = FIRE_PROOF
 	inbuilt_modules = list(/obj/item/mod/module/armor_booster)
@@ -1269,7 +1297,7 @@
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
 	complexity_max = DEFAULT_MAX_COMPLEXITY + 3
 	siemens_coefficient = 0
-	slowdown_deployed = 0.5
+	slowdown_deployed = 0
 	ui_theme = "syndicate"
 	inbuilt_modules = list(/obj/item/mod/module/armor_booster)
 	allowed_suit_storage = list(
@@ -1702,7 +1730,7 @@
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
 	complexity_max = DEFAULT_MAX_COMPLEXITY + 3
 	siemens_coefficient = 0
-	slowdown_deployed = 0.5
+	slowdown_deployed = 0
 	ui_theme = "ntos_terminal"
 	inbuilt_modules = list(/obj/item/mod/module/armor_booster)
 	allowed_suit_storage = list(
@@ -2192,3 +2220,6 @@
 	fire = 100
 	acid = 100
 	wound = 100
+
+
+// Note: Donator Themes located in: modular_nova\modules\customization\modules\clothing\~donator\donator_modsuits.dm

@@ -4,8 +4,7 @@ import { sendAct, useBackend } from 'tgui/backend';
 import {
   Autofocus,
   Box,
-  Button,
-  Dropdown, // NOVA EDIT ADDITION
+  Button, // NOVA EDIT ADDITION
   Flex,
   Input,
   LabeledList,
@@ -16,6 +15,7 @@ import { exhaustiveCheck } from 'tgui-core/exhaustive';
 import { classes } from 'tgui-core/react';
 import { createSearch } from 'tgui-core/string';
 
+import { SideDropdown } from '../../../iris_components/SideDropdown'; // IRIS EDIT ADDITION from https://github.com/Bubberstation/Bubberstation/pull/3157
 import { CharacterPreview } from '../../common/CharacterPreview';
 import { PageButton } from '../components/PageButton'; // IRIS EDIT
 import { RandomizationButton } from '../components/RandomizationButton';
@@ -37,7 +37,7 @@ import { DeleteCharacterPopup } from './DeleteCharacterPopup';
 import { MultiNameInput, NameInput } from './names';
 
 const CLOTHING_CELL_SIZE = 48;
-const CLOTHING_SIDEBAR_ROWS = 13.4; // NOVA EDIT CHANGE - ORIGINAL:  9
+const CLOTHING_SIDEBAR_ROWS = 12.4; // NOVA EDIT CHANGE - ORIGINAL:  9 // IRIS EDIT CHANGE - 12.4 from Nova's 13.4
 
 const CLOTHING_SELECTION_CELL_SIZE = 48;
 const CLOTHING_SELECTION_WIDTH = 5.4;
@@ -45,6 +45,7 @@ const CLOTHING_SELECTION_MULTIPLIER = 5.2;
 
 type CharacterControlsProps = {
   handleRotate: () => void;
+  handleRotateReverse: () => void; // IRIS EDIT ADDITION: Counter-Clockwise rotational support
   handleOpenSpecies: () => void;
   handleFood: () => void; // NOVA EDIT ADDITION
   gender: Gender;
@@ -59,8 +60,20 @@ function CharacterControls(props: CharacterControlsProps) {
         <Button
           onClick={props.handleRotate}
           fontSize="22px"
+          // IRIS EDIT ADDITION START: Retooled Rotate + Added Counter-Clockwise rotational icon
+          icon="redo"
+          tooltip="Rotate Clockwise"
+          tooltipPosition="top"
+        />
+      </Stack.Item>
+
+      <Stack.Item>
+        <Button
+          onClick={props.handleRotateReverse}
+          fontSize="22px"
           icon="undo"
-          tooltip="Rotate"
+          tooltip="Rotate Counter-Clockwise"
+          // IRIS EDIT ADDITION END
           tooltipPosition="top"
         />
       </Stack.Item>
@@ -630,7 +643,12 @@ export function MainPage(props: MainPageProps) {
                 gender={data.character_preferences.misc.gender}
                 handleOpenSpecies={props.openSpecies}
                 handleRotate={() => {
-                  act('rotate');
+                  // IRIS EDIT ADDITION START: retooled rotation to support counter/clockwise movement
+                  act('rotate', { backwards: false });
+                }}
+                handleRotateReverse={() => {
+                  act('rotate', { backwards: true });
+                  // IRIS EDIT ADDITION END
                 }}
                 setGender={createSetPreference(act, 'gender')}
                 showGender={
@@ -646,14 +664,14 @@ export function MainPage(props: MainPageProps) {
 
             <Stack.Item grow>
               <CharacterPreview
-                height="80%" // NOVA EDIT - ORIGINAL: height="100%"
+                height="100%" // NOVA EDIT - ORIGINAL: height="100%" // IRIS EDIT: returned to 100% from Nova's 80%
                 id={data.character_preview_view}
               />
             </Stack.Item>
 
             {/* NOVA EDIT ADDITION START */}
             <Stack.Item position="relative">
-              <Dropdown
+              <SideDropdown // IRIS EDIT: Dropdown -> SideDropdown to support https://github.com/Bubberstation/Bubberstation/pull/3015
                 width="100%"
                 selected={data.preview_selection}
                 options={data.preview_options}
@@ -665,6 +683,21 @@ export function MainPage(props: MainPageProps) {
               />
             </Stack.Item>
             {/* NOVA EDIT ADDITION END */}
+            {/* IRIS EDIT ADDITION START: Background Selection from https://github.com/Bubberstation/Bubberstation/pull/3015*/}
+            <Stack.Item position="relative">
+              <SideDropdown
+                width="100%"
+                selected={data.character_preferences.misc.background_state}
+                options={serverData?.background_state.choices || []}
+                onSelected={(value) =>
+                  act('update_background', {
+                    new_background: value,
+                  })
+                }
+              />
+            </Stack.Item>
+            {/* IRIS EDIT ADDITION END: Background Selection */}
+
             <Stack.Item position="relative">
               <NameInput
                 name={data.character_preferences.names[data.name_to_use]}
@@ -678,7 +711,8 @@ export function MainPage(props: MainPageProps) {
         </Stack.Item>
 
         <Stack.Item width={`${CLOTHING_CELL_SIZE * 2 + 15}px`}>
-          <Stack height="100%" vertical wrap>
+          {/* IRIS EDIT: altered wrap to better align icons*/}
+          <Stack height="100%" vertical wrap ml="-3px" mt="-3px">
             {mainFeatures.map(([clothingKey, clothing]) => {
               const catalog = serverData?.[
                 clothingKey

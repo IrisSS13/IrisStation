@@ -27,6 +27,9 @@
 //Trait for the Extra-Sensory Paranoia quirk, part of https://github.com/Monkestation/Monkestation2.0/pull/313
 #define TRAIT_PARANOIA "paranoia"
 
+//SALT_VULNERABILITY_QUIRK
+#define TRAIT_SALT_VULNERABILITY "salt_vulnerability"
+
 //Stowaway quirk taken from https://github.com/Monkestation/Monkestation2.0/pull/4642
 #define TRAIT_STOWAWAY "stowaway"
 
