@@ -13,7 +13,8 @@
 	. = ..()
 	var/mob/living/carbon/human/victim = parent //component won't be added if this isn't true, so no need to check again
 	if(lock_source.is_wrestling && victim.dna.species.grab_maneuver_state_check(lock_source, victim))
-		victim.Immobilize(2.1 SECONDS, TRUE)
+		victim.Knockdown(2.1 SECONDS)
+		victim.Immobilize(2.1 SECONDS)
 	else
 		STOP_PROCESSING(SSprocessing, src)
 		qdel(src)
