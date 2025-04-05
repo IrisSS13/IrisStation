@@ -28,9 +28,10 @@
 
 	visible_message(span_danger("[src] begins to assume a wrestling stance..."))
 	if(do_after(src, 1.5 SECONDS))
-		if(get_num_held_items() >= 1)
-			to_chat(src, span_warning("You quickly empty your hands in order to wrestle!"))
-			drop_all_held_items()
+		var/held_item = get_active_held_item()
+		if(held_item)
+			to_chat(src, span_warning("You quickly empty your [IS_RIGHT_INDEX(active_hand_index) ? "right" : "left"] hand in order to wrestle!"))
+			dropItemToGround(held_item)
 
 		if(!istype(get_item_by_slot(ITEM_SLOT_GLOVES), /obj/item/clothing/gloves/tackler))
 			wrestle_tackling = src.AddComponent(/datum/component/tackler, stamina_cost = 40, base_knockdown = 1 SECONDS, range = 2, speed = 1, skill_mod = -1, min_distance = 0)
