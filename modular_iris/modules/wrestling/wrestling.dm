@@ -28,9 +28,11 @@
 
 	if(stat != CONSCIOUS)
 		exit_wrestling_stance(involuntary = TRUE)
+		return
 
 	if(is_wrestling)
 		exit_wrestling_stance()
+		return
 
 	visible_message(span_danger("[src] begins to assume a wrestling stance..."))
 	if(do_after(src, 1.5 SECONDS))
