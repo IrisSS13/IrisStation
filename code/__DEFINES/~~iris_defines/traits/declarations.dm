@@ -24,14 +24,14 @@
 #define TRAIT_HANDEDNESS "handedness"
 #define TRAIT_HANDEDNESS_LEFT "handedness_left"
 
+//WRESTLING_STANCE
+#define TRAIT_LEG_LOCKED "leg_locked"
+
 //Trait for the Extra-Sensory Paranoia quirk, part of https://github.com/Monkestation/Monkestation2.0/pull/313
 #define TRAIT_PARANOIA "paranoia"
 
 //Stowaway quirk taken from https://github.com/Monkestation/Monkestation2.0/pull/4642
 #define TRAIT_STOWAWAY "stowaway"
-
-//WRESTLING_STANCE
-#define TRAIT_WRESTLING "wrestling"
 
 //Trait sources
 
