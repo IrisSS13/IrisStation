@@ -73,7 +73,7 @@
 		/obj/item/storage/box/handcuffs = 1,
 	)
 	belt = /obj/item/storage/belt/security/full
-	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
+	glasses = /obj/item/clothing/glasses/hud/security/night
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	additional_radio = /obj/item/encryptionkey/heads/hos
 

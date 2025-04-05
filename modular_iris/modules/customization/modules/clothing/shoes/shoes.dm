@@ -27,3 +27,11 @@
 	greyscale_config = null
 	greyscale_config_worn = null
 	greyscale_config_worn_digi = null
+
+/obj/item/clothing/shoes/sandal/kumi
+	name = "shrine keeper's sandals"
+	desc = "A fancy pair of sandals made of hinoki."
+	icon = 'modular_iris/icons/obj/clothing/feet/feet.dmi'
+	worn_icon = 'modular_iris/icons/mob/clothing/feet/feet.dmi'
+	worn_icon_digi = 'modular_iris/icons/mob/clothing/feet/feet_digi.dmi'
+	icon_state = "sandals_kumi"

@@ -93,6 +93,10 @@
 	else
 		boulder_bounty = initial(boulder_bounty) //Just resets to what it started with. Yes, this is all this needs.
 
+	// IRIS ADDITION START
+	drone_vent_name = null
+	gps_name = "*New [gps_name]"
+	// IRIS ADDITION END
 	AddComponent(/datum/component/gps, gps_name) // We let GPS be a system to let people know when it resets
 
 
@@ -319,6 +323,7 @@
 
 /obj/structure/ore_vent/ghost_mining/boss/handle_wave_conclusion()
 	node = new /mob/living/basic/node_drone(loc) //We're spawning the vent after the boss dies, so the player can just focus on the boss.
+	node.attached_vent = src // IRIS ADDITION
 	SSblackbox.record_feedback("tally", "ore_vent_mobs_killed", 1, summoned_boss)
 	COOLDOWN_RESET(src, wave_cooldown)
 	return ..()

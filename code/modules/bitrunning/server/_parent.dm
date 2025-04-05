@@ -30,6 +30,7 @@
 	var/multiplayer_bonus = 1.1
 	/// The amount of points in the system, used to purchase maps
 	var/points = 0
+	var/total_points = 0 /// IRIS ADDITION -- total amount of points that bitrunners have generated
 	/// Keeps track of the number of times someone has built a hololadder
 	var/retries_spent = 0
 	/// Changes how much info is available on the domain
@@ -58,14 +59,12 @@
 
 
 /obj/machinery/quantum_server/Destroy(force)
-	. = ..()
-
 	mutation_candidate_refs.Cut()
 	avatar_connection_refs.Cut()
 	spawned_threat_refs.Cut()
-	QDEL_NULL(exit_turfs)
+	exit_turfs.Cut()
 	QDEL_NULL(generated_domain)
-
+	return ..()
 
 /obj/machinery/quantum_server/examine(mob/user)
 	. = ..()

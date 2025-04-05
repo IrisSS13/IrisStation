@@ -1,3 +1,18 @@
+// COSTUMES
+/datum/loadout_item/suit/drfreeze_coat
+	name = "Doctor Freeze's Labcoat"
+	item_path = /obj/item/clothing/suit/costume/drfreeze_coat
+
+/datum/loadout_item/suit/nemes
+	name = "Pharoah Tunic"
+	item_path = /obj/item/clothing/suit/costume/nemes
+
+// JOBS
+/datum/loadout_item/suit/labcoat_paramedic
+	name = "Paramedic's Jacket"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/paramedic
+
+// NABBER ITEMS
 /datum/loadout_item/suit/nabberponcho
 	name = "Giant Poncho"
 	item_path = /obj/item/clothing/suit/costume/nabber_poncho
