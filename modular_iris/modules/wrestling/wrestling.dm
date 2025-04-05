@@ -50,9 +50,7 @@
 			set_combat_indicator(TRUE)
 
 /mob/living/carbon/human/proc/exit_wrestling_stance(involuntary = FALSE)
-	UnregisterSignal(src, COMSIG_MOVABLE_MOVED)
-	UnregisterSignal(src, COMSIG_LIVING_UPDATED_RESTING)
-	UnregisterSignal(src, COMSIG_MOB_LOGOUT)
+	UnregisterSignal(src, list(COMSIG_MOVABLE_MOVED, COMSIG_LIVING_UPDATED_RESTING, COMSIG_MOB_LOGOUT))
 
 	if(wrestle_tackling)
 		QDEL_NULL(wrestle_tackling)
