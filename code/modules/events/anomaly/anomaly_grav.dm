@@ -3,7 +3,7 @@
 	typepath = /datum/round_event/anomaly/anomaly_grav
 
 	max_occurrences = 5
-	weight = 25
+	weight = 0
 	description = "This anomaly throws things around."
 	min_wizard_trigger_potency = 1
 	max_wizard_trigger_potency = 3
@@ -16,7 +16,7 @@
 /datum/round_event_control/anomaly/anomaly_grav/high
 	name = "Anomaly: Gravitational (High Intensity)"
 	typepath = /datum/round_event/anomaly/anomaly_grav/high
-	weight = 15
+	weight = 0
 	max_occurrences = 1
 	earliest_start = 20 MINUTES
 	description = "This anomaly has an intense gravitational field, and can disable the gravity generator."

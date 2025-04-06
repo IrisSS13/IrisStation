@@ -4,7 +4,7 @@
 
 	min_players = 10
 	max_occurrences = 5
-	weight = 20
+	weight = 0
 	description = "This anomaly shocks and explodes."
 	min_wizard_trigger_potency = 1
 	max_wizard_trigger_potency = 4

@@ -4,7 +4,7 @@
 
 	min_players = 10
 	max_occurrences = 5
-	weight = 20
+	weight = 0
 	description = "This anomaly replaces the materials of the surrounding area."
 	min_wizard_trigger_potency = 0
 	max_wizard_trigger_potency = 2
