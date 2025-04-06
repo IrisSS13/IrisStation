@@ -47,11 +47,9 @@
 	max_occurrences = 1
 
 /datum/round_event_control/spacevine
-
 	weight = 10
 	tags = list(TAG_COMMUNAL, TAG_COMBAT, TAG_CHAOTIC)
 	min_players = 5
-
 
 /datum/round_event_control/portal_storm_syndicate
 	tags = list(TAG_COMBAT, TAG_CHAOTIC)
