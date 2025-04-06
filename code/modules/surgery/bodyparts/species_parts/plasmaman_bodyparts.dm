@@ -7,7 +7,7 @@
 	is_dimorphic = FALSE
 	should_draw_greyscale = FALSE
 	dmg_overlay_type = null
-	brute_modifier = 0.95 //Plasmemes are BONE!!!
+	brute_modifier = 1 //Plasmemes are BONE!!!
 	burn_modifier = 1.15 //Plasmemes are FLAMMABLE!!!
 	head_flags = HEAD_EYESPRITES
 	bodypart_flags = BODYPART_UNHUSKABLE
@@ -25,7 +25,7 @@
 	is_dimorphic = FALSE
 	should_draw_greyscale = FALSE
 	dmg_overlay_type = null
-	brute_modifier = 0.95 //Plasmemes are BONE!!!
+	brute_modifier = 1 //Plasmemes are BONE!!!
 	burn_modifier = 1.15 //Plasmemes are FLAMMABLE!!!
 	bodypart_flags = BODYPART_UNHUSKABLE
 	wing_types = null
@@ -45,7 +45,7 @@
 	limb_id = SPECIES_PLASMAMAN
 	should_draw_greyscale = FALSE
 	dmg_overlay_type = null
-	brute_modifier = 0.95 //Plasmemes are BONE!!!
+	brute_modifier = 1 //Plasmemes are BONE!!!
 	burn_modifier = 1.15 //Plasmemes are FLAMMABLE!!!
 	bodypart_flags = BODYPART_UNHUSKABLE
 
@@ -61,7 +61,7 @@
 	limb_id = SPECIES_PLASMAMAN
 	should_draw_greyscale = FALSE
 	dmg_overlay_type = null
-	brute_modifier = 0.95 //Plasmemes are BONE!!!
+	brute_modifier = 1 //Plasmemes are BONE!!!
 	burn_modifier = 1.15 //Plasmemes are FLAMMABLE!!!
 	bodypart_flags = BODYPART_UNHUSKABLE
 
@@ -77,7 +77,7 @@
 	limb_id = SPECIES_PLASMAMAN
 	should_draw_greyscale = FALSE
 	dmg_overlay_type = null
-	brute_modifier = 0.95 //Plasmemes are BONE!!!
+	brute_modifier = 1 //Plasmemes are BONE!!!
 	burn_modifier = 1.15 //Plasmemes are FLAMMABLE!!!
 	bodypart_flags = BODYPART_UNHUSKABLE
 
@@ -93,7 +93,7 @@
 	limb_id = SPECIES_PLASMAMAN
 	should_draw_greyscale = FALSE
 	dmg_overlay_type = null
-	brute_modifier = 0.95 //Plasmemes are BONE!!!
+	brute_modifier = 1 //Plasmemes are BONE!!!
 	burn_modifier = 1.15 //Plasmemes are FLAMMABLE!!!
 	bodypart_flags = BODYPART_UNHUSKABLE
 
