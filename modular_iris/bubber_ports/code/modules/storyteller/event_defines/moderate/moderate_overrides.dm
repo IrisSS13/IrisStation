@@ -4,6 +4,7 @@
 
 /datum/round_event_control/carp_migration
 	tags = list(TAG_COMMUNAL)
+	min_players = 12
 
 /datum/round_event_control/communications_blackout
 	tags = list(TAG_COMMUNAL, TAG_SPOOKY)
@@ -37,7 +38,7 @@
 	weight = 6 // Lower from original 15 because it KEEPS SPAWNING THEM
 	tags = list(TAG_COMMUNAL, TAG_DESTRUCTIVE)
 	min_players = 5
-	max_occurrences = 1
+	max_occurrences = 3
 
 /datum/round_event_control/anomaly_grav/high
 	weight = 6 // Lower from original 15 because it KEEPS SPAWNING THEM
