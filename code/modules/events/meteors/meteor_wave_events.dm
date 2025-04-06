@@ -59,7 +59,7 @@
 /datum/round_event_control/meteor_wave/threatening
 	name = "Meteor Wave: Threatening"
 	typepath = /datum/round_event/meteor_wave/threatening
-	weight = 5
+	weight = 0
 	min_players = 20
 	max_occurrences = 3
 	earliest_start = 35 MINUTES
@@ -71,7 +71,7 @@
 /datum/round_event_control/meteor_wave/catastrophic
 	name = "Meteor Wave: Catastrophic"
 	typepath = /datum/round_event/meteor_wave/catastrophic
-	weight = 7
+	weight = 0
 	min_players = 25
 	max_occurrences = 3
 	earliest_start = 45 MINUTES
@@ -83,7 +83,7 @@
 /datum/round_event_control/meteor_wave/meaty
 	name = "Meteor Wave: Meaty"
 	typepath = /datum/round_event/meteor_wave/meaty
-	weight = 2
+	weight = 0
 	max_occurrences = 1
 	description = "A meteor wave made of meat."
 
@@ -96,7 +96,7 @@
 /datum/round_event_control/meteor_wave/dust_storm
 	name = "Major Space Dust"
 	typepath = /datum/round_event/meteor_wave/dust_storm
-	weight = 14
+	weight = 0
 	description = "The station is pelted by sand."
 	earliest_start = 15 MINUTES
 	min_wizard_trigger_potency = 4
