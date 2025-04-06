@@ -63,6 +63,7 @@
 	tags = list(TAG_COMMUNAL, TAG_COMBAT, TAG_CHAOTIC)
 	track = EVENT_TRACK_MODERATE
 	weight = 5
+	max_occurrences = 1
 	min_players = 8
 
 /datum/round_event_control/obsessed
