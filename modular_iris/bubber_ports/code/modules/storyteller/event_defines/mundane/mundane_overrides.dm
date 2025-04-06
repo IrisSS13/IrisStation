@@ -1,7 +1,6 @@
 /datum/round_event_control/aurora_caelus
 	track = EVENT_TRACK_MUNDANE
 	tags = list(TAG_COMMUNAL, TAG_POSITIVE, TAG_SPACE)
-	max_occurrences = 0
 
 /datum/round_event_control/brain_trauma
 	track = EVENT_TRACK_MUNDANE
@@ -18,6 +17,7 @@
 /datum/round_event_control/grid_check
 	track = EVENT_TRACK_MUNDANE
 	tags = list(TAG_COMMUNAL, TAG_SPOOKY)
+	max_occurrences = 3
 
 /datum/round_event_control/disease_outbreak
 	track = EVENT_TRACK_MUNDANE
@@ -26,12 +26,13 @@
 /datum/round_event_control/space_dust
 	track = EVENT_TRACK_MUNDANE
 	tags = list(TAG_DESTRUCTIVE, TAG_SPACE)
-	max_occurrences = 2
+	max_occurrences = 4
 	weight = 10
 
 /datum/round_event_control/electrical_storm
 	track = EVENT_TRACK_MUNDANE
 	tags = list(TAG_SPOOKY)
+	max_occurrences = 2
 
 /datum/round_event_control/fake_virus
 	track = EVENT_TRACK_MUNDANE
@@ -70,7 +71,7 @@
 /datum/round_event_control/gravity_generator_blackout
 	track = EVENT_TRACK_MUNDANE
 	tags = list(TAG_COMMUNAL, TAG_SPACE)
-	max_occurrences = 1
+	max_occurrences = 2
 
 /datum/round_event_control/shuttle_insurance
 	track = EVENT_TRACK_MUNDANE
