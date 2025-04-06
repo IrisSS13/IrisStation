@@ -653,7 +653,7 @@
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 2
 	required_applicants = 2
-	weight = 4
+	weight = 0
 	cost = 7
 	minimum_players = 25
 	repeatable = TRUE
@@ -690,7 +690,7 @@
 	ruleset_category = parent_type::ruleset_category |  RULESET_CATEGORY_NO_WITTING_CREW_ANTAGONISTS
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
-	weight = 4
+	weight = 0
 	cost = 8
 	minimum_players = 30
 	repeatable = TRUE
@@ -732,7 +732,7 @@
 	required_type = /mob/dead/observer
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 0
-	weight = 3
+	weight = 0
 	cost = 8
 	minimum_players = 27
 	repeatable = TRUE
@@ -751,7 +751,7 @@
 	antag_flag = ROLE_REVENANT
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
-	weight = 4
+	weight = 0
 	cost = 5
 	minimum_players = 15
 	repeatable = TRUE
@@ -803,7 +803,7 @@
 	required_type = /mob/dead/observer
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 0
-	weight = 3
+	weight = 0
 	cost = 8
 	minimum_players = 20
 	repeatable = TRUE

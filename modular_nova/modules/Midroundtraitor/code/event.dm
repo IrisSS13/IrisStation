@@ -20,7 +20,7 @@
 							JOB_SCIENCE_GUARD,
 							)
 	required_candidates = 1
-	weight = 4 //Slightly less common than normal midround traitors.
+	weight = 0 //Slightly less common than normal midround traitors.
 	cost = 4 //But also slightly more costly.
 	minimum_players = 10
 	var/list/spawn_locs = list()
