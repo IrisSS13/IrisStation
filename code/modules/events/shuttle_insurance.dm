@@ -3,7 +3,7 @@
 /datum/round_event_control/shuttle_insurance
 	name = "Shuttle Insurance"
 	typepath = /datum/round_event/shuttle_insurance
-	max_occurrences = 1
+	max_occurrences = 0
 	category = EVENT_CATEGORY_BUREAUCRATIC
 	description = "A sketchy but legit insurance offer."
 

@@ -2,7 +2,7 @@
 	name = "Bureaucratic Error"
 	typepath = /datum/round_event/bureaucratic_error
 	max_occurrences = 1
-	weight = 5
+	weight = 0
 	category = EVENT_CATEGORY_BUREAUCRATIC
 	description = "Randomly opens and closes job slots, along with changing the overflow role."
 

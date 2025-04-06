@@ -1,7 +1,7 @@
 /datum/round_event_control/communications_blackout
 	name = "Communications Blackout"
 	typepath = /datum/round_event/communications_blackout
-	weight = 30
+	weight = 0
 	category = EVENT_CATEGORY_ENGINEERING
 	description = "Heavily EMPs all telecommunication machines, blocking all communication for a while."
 	min_wizard_trigger_potency = 0

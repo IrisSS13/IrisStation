@@ -3,7 +3,7 @@
 /datum/round_event_control/vent_clog
 	name = "Ventilation Clog: Minor"
 	typepath = /datum/round_event/vent_clog
-	weight = 25
+	weight = 0
 	earliest_start = 5 MINUTES
 	category = EVENT_CATEGORY_JANITORIAL
 	description = "Harmless mobs climb out of a vent."

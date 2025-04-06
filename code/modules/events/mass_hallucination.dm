@@ -2,7 +2,7 @@
 	name = "Mass Hallucination"
 	description = "All crewmembers start to hallucinate the same thing."
 	typepath = /datum/round_event/mass_hallucination
-	weight = 10
+	weight = 0
 	max_occurrences = 2
 	min_players = 1
 	category = EVENT_CATEGORY_HEALTH

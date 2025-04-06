@@ -10,7 +10,7 @@
 	min_players = 20
 	max_occurrences = 3
 	earliest_start = 35 MINUTES
-	weight = 7
+	weight = 0
 	min_wizard_trigger_potency = 3
 	max_wizard_trigger_potency = 7
 	map_flags = EVENT_PLANETARY_ONLY

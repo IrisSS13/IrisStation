@@ -27,7 +27,7 @@
 	name = "Supermatter Surge"
 	typepath = /datum/round_event/supermatter_surge
 	category = EVENT_CATEGORY_ENGINEERING
-	weight = 15
+	weight = 0
 	max_occurrences = 1
 	earliest_start = 20 MINUTES
 	description = "The supermatter will increase in power and heat by a random amount, and announce it."

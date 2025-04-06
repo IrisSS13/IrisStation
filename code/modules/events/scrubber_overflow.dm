@@ -1,8 +1,8 @@
 /datum/round_event_control/scrubber_overflow
 	name = "Scrubber Overflow: Normal"
 	typepath = /datum/round_event/scrubber_overflow
-	weight = 10
-	max_occurrences = 3
+	weight = 0
+	max_occurrences = 0
 	min_players = 10
 	category = EVENT_CATEGORY_JANITORIAL
 	description = "The scrubbers release a tide of mostly harmless froth."
@@ -127,7 +127,7 @@
 /datum/round_event_control/scrubber_overflow/threatening
 	name = "Scrubber Overflow: Threatening"
 	typepath = /datum/round_event/scrubber_overflow/threatening
-	weight = 4
+	weight = 0
 	min_players = 25
 	max_occurrences = 1
 	earliest_start = 35 MINUTES
@@ -142,7 +142,7 @@
 /datum/round_event_control/scrubber_overflow/catastrophic
 	name = "Scrubber Overflow: Catastrophic"
 	typepath = /datum/round_event/scrubber_overflow/catastrophic
-	weight = 2
+	weight = 0
 	min_players = 35
 	max_occurrences = 1
 	earliest_start = 45 MINUTES

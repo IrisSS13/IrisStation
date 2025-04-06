@@ -26,7 +26,7 @@
 /datum/round_event_control/disease_outbreak
 	name = "Disease Outbreak: Classic"
 	typepath = /datum/round_event/disease_outbreak
-	max_occurrences = 1
+	max_occurrences = 0
 	min_players = 10
 	weight = 5
 	category = EVENT_CATEGORY_HEALTH
@@ -170,7 +170,7 @@
 	name = "Disease Outbreak: Advanced"
 	typepath = /datum/round_event/disease_outbreak/advanced
 	category = EVENT_CATEGORY_HEALTH
-	weight = 15
+	weight = 0
 	min_players = 35 // To avoid shafting lowpop
 	earliest_start = 15 MINUTES // give the chemist a chance
 	description = "An 'advanced' disease will infect some members of the crew."

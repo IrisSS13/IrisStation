@@ -25,7 +25,7 @@ GLOBAL_LIST_INIT(high_priority_sentience, typecacheof(list(
 /datum/round_event_control/sentience
 	name = "Random Human-level Intelligence"
 	typepath = /datum/round_event/ghost_role/sentience
-	weight = 10
+	weight = 0
 	category = EVENT_CATEGORY_FRIENDLY
 	description = "An animal or robot becomes sentient!"
 	min_wizard_trigger_potency = 0

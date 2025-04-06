@@ -4,7 +4,7 @@
 	name = "Immovable Rod"
 	typepath = /datum/round_event/immovable_rod
 	min_players = 15
-	max_occurrences = 5
+	max_occurrences = 0
 	category = EVENT_CATEGORY_SPACE
 	description = "The station passes through an immovable rod."
 	min_wizard_trigger_potency = 6

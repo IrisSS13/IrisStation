@@ -6,7 +6,7 @@
 /datum/round_event_control/market_crash
 	name = "Market Crash"
 	typepath = /datum/round_event/market_crash
-	weight = 10
+	weight = 0
 	category = EVENT_CATEGORY_BUREAUCRATIC
 	description = "Temporarily increases the prices of vending machines."
 

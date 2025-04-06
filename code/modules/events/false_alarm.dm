@@ -1,7 +1,7 @@
 /datum/round_event_control/falsealarm
 	name = "False Alarm"
 	typepath = /datum/round_event/falsealarm
-	weight = 20
+	weight = 0
 	max_occurrences = 5
 	category = EVENT_CATEGORY_BUREAUCRATIC
 	description = "Fakes an event announcement."
