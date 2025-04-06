@@ -1,7 +1,7 @@
 /datum/round_event_control/cognomerge
 	name = "Monadic Cognomerge"
 	typepath = /datum/round_event/cognomerge
-	weight = 15
+	weight = 0
 	min_players = 5
 	max_occurrences = 3
 	category = EVENT_CATEGORY_HEALTH

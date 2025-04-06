@@ -77,12 +77,6 @@
 	track = EVENT_TRACK_MUNDANE
 	tags = list(TAG_COMMUNAL)
 
-/datum/round_event_control/tram_malfunction
-	track = EVENT_TRACK_MUNDANE
-	tags = list(TAG_TARGETED, TAG_SPOOKY)
-	weight = 0
-	max_occurrences = 0
-
 /datum/round_event_control/bitrunning_glitch
 	track = EVENT_TRACK_MUNDANE
 	tags = list(TAG_TARGETED)
@@ -91,6 +85,11 @@
 /datum/round_event_control/sentience
 	track = EVENT_TRACK_MUNDANE
 	tags = list(TAG_TARGETED, TAG_POSITIVE)
+
+/datum/round_event_control/cognomerge
+	track = EVENT_TRACK_MUNDANE
+	tags = list(TAG_COMMUNAL)
+	weight = 15
 
 /datum/round_event_control/easter
 	track = EVENT_TRACK_MUNDANE
@@ -116,3 +115,4 @@
 	weight = 0
 	max_occurrences = 0
 	tags = list(TAG_COMMUNAL, TAG_POSITIVE, TAG_SPOOKY)
+
