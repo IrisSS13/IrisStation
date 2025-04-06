@@ -35,3 +35,9 @@
 	tags = list(TAG_DESTRUCTIVE, TAG_CHAOTIC)
 	weight = 0
 	max_occurrences = 0
+
+/datum/round_event_control/tram_malfunction
+	track = EVENT_TRACK_MUNDANE
+	tags = list(TAG_TARGETED, TAG_SPOOKY)
+	weight = 0
+	max_occurrences = 0
