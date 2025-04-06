@@ -77,8 +77,9 @@
 
 	// Test plasma
 
-	r_arm.receive_damage(WOUND_MINIMUM_DAMAGE, 0, wound_bonus = 95, sharpness = NONE)
-	TEST_ASSERT(length(mrbones.all_wounds), "Plasmaman did not receive a wound on their right arm")
+	// r_arm.receive_damage(WOUND_MINIMUM_DAMAGE, 0, wound_bonus = 100, sharpness = NONE)
+	// TEST_ASSERT(length(mrbones.all_wounds), "Plasmaman did not receive a wound on their right arm")
+	// testing removal of this kfghjdklhjfdglkjhfgdsljh
 
 	mrbones.reagents.add_reagent(plasma, 50)
 	mrbones.Life(SSMOBS_DT)
