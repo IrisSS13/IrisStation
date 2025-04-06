@@ -862,7 +862,21 @@
 		return
 	if(stat != DEAD)
 		if(health <= HEALTH_THRESHOLD_DEAD && !HAS_TRAIT(src, TRAIT_NODEATH))
-			death()
+			//IRIS EDIT CHANGE BEGIN - SOMATIC_VOLATILITY_QUIRK
+			if(HAS_TRAIT(src, TRAIT_SOMATIC_VOLATILITY))
+				var/gib_pref = src.client?.prefs.read_preference(/datum/preference/choiced/somatic_volatility_gib_choice) || "Default"
+				switch(gib_pref)
+					if("Default")
+						gib(drop_bitflags = DROP_ITEMS)
+					if("Inflation")
+						inflate_gib(drop_bitflags = DROP_ITEMS | DROP_ORGANS)
+					if("Dust (to remains)")
+						dust(drop_items = TRUE)
+					if("Dust (to ashes)")
+						dust(drop_items = TRUE, just_ash = TRUE)
+			else
+				death()
+			//IRIS EDIT CHANGE END
 			return
 		if(HAS_TRAIT_FROM(src, TRAIT_DISSECTED, AUTOPSY_TRAIT))
 			REMOVE_TRAIT(src, TRAIT_DISSECTED, AUTOPSY_TRAIT)
