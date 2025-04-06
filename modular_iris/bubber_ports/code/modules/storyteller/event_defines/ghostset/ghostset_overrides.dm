@@ -13,6 +13,7 @@
 	tags = list(TAG_COMBAT)
 	weight = 4
 	min_players = 8
+	max_occurrences = 1
 
 /datum/round_event_control/changeling
 	track = EVENT_TRACK_GHOSTSET

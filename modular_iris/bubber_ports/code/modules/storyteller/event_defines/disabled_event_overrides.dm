@@ -41,3 +41,9 @@
 	tags = list(TAG_TARGETED, TAG_SPOOKY)
 	weight = 0
 	max_occurrences = 0
+
+/datum/round_event_control/portal_storm_syndicate
+	tags = list(TAG_COMBAT, TAG_CHAOTIC)
+
+/datum/round_event_control/portal_storm_narsie
+	tags = list(TAG_COMBAT, TAG_CHAOTIC)
