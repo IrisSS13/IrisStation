@@ -30,6 +30,9 @@
 //SALT_VULNERABILITY_QUIRK
 #define TRAIT_SALT_VULNERABILITY "salt_vulnerability"
 
+//SOMATIC_VOLATILITY_QUIRK
+#define TRAIT_SOMATIC_VOLATILITY "somatic_volatility"
+
 //Stowaway quirk taken from https://github.com/Monkestation/Monkestation2.0/pull/4642
 #define TRAIT_STOWAWAY "stowaway"
 
