@@ -11,6 +11,6 @@
 /datum/storyteller_data/tracks/default
 	threshold_mundane = 50
 	threshold_moderate = 60
-	threshold_major = 60
-	threshold_crewset = 7000
+	threshold_major = 40
+	threshold_crewset = 7200
 	threshold_ghostset = 6200
