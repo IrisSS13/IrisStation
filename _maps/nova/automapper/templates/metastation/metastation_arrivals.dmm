@@ -55,6 +55,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port)
 "bA" = (
+/obj/effect/turf_decal/stripes/corner,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
@@ -138,6 +139,17 @@
 /obj/effect/landmark/start/assistant,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/hallway/secondary/entry)
+"fu" = (
+/obj/machinery/door/firedoor,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/door/airlock/public/glass{
+	name = "Library"
+	},
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
 "fx" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -174,10 +186,8 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/hallway/secondary/entry)
 "gI" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/structure/chair/sofa/bench{
-	dir = 1
-	},
+/obj/machinery/vending/cigarette,
+/obj/effect/turf_decal/delivery,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "gL" = (
@@ -223,14 +233,14 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/machinery/door/airlock/public/glass{
+	name = "Library"
+	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 9
-	},
-/obj/machinery/door/airlock/public/glass{
-	name = "Arrivals"
 	},
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
@@ -412,29 +422,10 @@
 	},
 /turf/open/floor/iron/white/corner,
 /area/station/hallway/secondary/entry)
-"nC" = (
-/obj/structure/sign/poster/official/random/directional/east,
-/obj/effect/turf_decal/delivery,
-/obj/effect/turf_decal/stripes/line{
-	dir = 6
-	},
-/obj/machinery/vending/cigarette,
-/turf/open/floor/iron,
-/area/station/hallway/secondary/entry)
 "nN" = (
 /obj/structure/chair/sofa/bench/left,
 /obj/effect/landmark/start/hangover,
 /turf/open/floor/iron/dark/smooth_large,
-/area/station/hallway/secondary/entry)
-"nP" = (
-/obj/structure/sign/poster/official/random/directional/west,
-/obj/effect/turf_decal/delivery,
-/obj/effect/turf_decal/stripes/line{
-	dir = 10
-	},
-/obj/structure/closet/emcloset,
-/obj/effect/landmark/start/hangover/closet,
-/turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "nW" = (
 /obj/effect/turf_decal/stripes/corner,
@@ -650,13 +641,11 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port)
 "uZ" = (
-/obj/effect/turf_decal/delivery,
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/machinery/door/airlock/external{
+	name = "Arrival Airlock"
 	},
-/obj/structure/closet/emcloset,
-/obj/effect/landmark/start/hangover/closet,
-/turf/open/floor/iron,
+/turf/open/floor/plating,
 /area/station/hallway/secondary/entry)
 "vf" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
@@ -668,10 +657,8 @@
 /turf/open/floor/plating,
 /area/station/hallway/secondary/entry)
 "vn" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/structure/chair/sofa/bench/right{
-	dir = 1
-	},
+/obj/machinery/vending/coffee,
+/obj/effect/turf_decal/delivery,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "vq" = (
@@ -858,7 +845,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/door/airlock/public/glass{
-	name = "Arrivals"
+	name = "Library"
 	},
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
@@ -875,10 +862,8 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/hallway/secondary/entry)
 "Bs" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/structure/chair/sofa/bench/left{
-	dir = 1
-	},
+/obj/effect/turf_decal/delivery,
+/obj/item/kirbyplants/organic/plant21,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "Bx" = (
@@ -922,6 +907,9 @@
 /turf/open/floor/iron/white/corner,
 /area/station/hallway/secondary/entry)
 "Cr" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
@@ -931,14 +919,6 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron,
-/area/station/hallway/secondary/entry)
-"Cy" = (
-/obj/effect/turf_decal/delivery,
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/obj/machinery/vending/coffee,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "CR" = (
@@ -1212,10 +1192,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
-/turf/open/floor/iron,
-/area/station/hallway/secondary/entry)
-"JK" = (
-/obj/effect/turf_decal/stripes/corner,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "Kh" = (
@@ -1524,6 +1500,16 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
+"QL" = (
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external{
+	name = "Arrival Airlock";
+	space_dir = 2
+	},
+/turf/open/floor/plating,
+/area/station/hallway/secondary/entry)
 "QO" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
@@ -1554,7 +1540,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/public/glass{
-	name = "Arrivals"
+	name = "Library"
 	},
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
@@ -1868,11 +1854,6 @@
 	dir = 8
 	},
 /turf/open/floor/plating,
-/area/station/hallway/secondary/entry)
-"Zq" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/item/kirbyplants/random,
-/turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "Zw" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -2746,9 +2727,9 @@ FF
 (21,1,1) = {"
 ki
 zd
-bO
-bO
-bO
+aJ
+aJ
+aJ
 FF
 FF
 FF
@@ -2787,10 +2768,10 @@ FF
 "}
 (22,1,1) = {"
 Fc
-Yc
+zd
 uZ
-nP
-bO
+aG
+QL
 FF
 FF
 FF
@@ -2829,9 +2810,9 @@ FF
 "}
 (23,1,1) = {"
 sV
-NO
-NO
-Zq
+zd
+aJ
+aJ
 aJ
 FF
 FF
@@ -2871,8 +2852,8 @@ FF
 "}
 (24,1,1) = {"
 OZ
-NO
-NO
+Yc
+Kl
 Bs
 aJ
 FF
@@ -2914,8 +2895,8 @@ FF
 (25,1,1) = {"
 kC
 NO
-NO
-gI
+zd
+Oy
 aJ
 FF
 FF
@@ -2956,8 +2937,8 @@ FF
 (26,1,1) = {"
 kC
 NO
-NO
-gI
+zd
+Oy
 aJ
 FF
 FF
@@ -2998,7 +2979,7 @@ FF
 (27,1,1) = {"
 NT
 NO
-NO
+zd
 gI
 aJ
 FF
@@ -3011,7 +2992,7 @@ Oy
 sV
 NO
 Vq
-Vj
+fu
 zd
 bb
 bb
@@ -3053,7 +3034,7 @@ xW
 dq
 Rb
 Vq
-Vj
+fu
 Yc
 QB
 Hg
@@ -3081,9 +3062,9 @@ FF
 "}
 (29,1,1) = {"
 em
-NO
-NO
-Zq
+zd
+aJ
+aJ
 aJ
 FF
 FF
@@ -3111,7 +3092,7 @@ rs
 NO
 gO
 NO
-Vj
+fu
 NO
 RG
 bO
@@ -3123,10 +3104,10 @@ FF
 "}
 (30,1,1) = {"
 fx
-JK
-Cy
-nC
-bO
+zd
+uZ
+aG
+QL
 FF
 FF
 FF
@@ -3166,9 +3147,9 @@ FF
 (31,1,1) = {"
 fx
 zd
-bO
-bO
-bO
+aJ
+aJ
+aJ
 FF
 FF
 FF
