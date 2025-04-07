@@ -266,6 +266,11 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 			entry["is_robot"] = TRUE
 		// NOVA EDIT ADDITION END
 
+		// IRIS EDIT BEGIN: Add DNR status from Bubber
+		// If sensors are above living tracking, set DNR state
+		if (sensor_mode >= SENSOR_LIVING)
+			entry["is_dnr"] = tracked_human.get_dnr()
+
 		// Broken sensors show garbage data
 		if (uniform.has_sensor == BROKEN_SENSORS)
 			entry["life_status"] = rand(0,1)
