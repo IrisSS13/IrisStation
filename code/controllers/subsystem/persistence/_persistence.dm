@@ -51,6 +51,8 @@ SUBSYSTEM_DEF(persistence)
 	var/tram_hits_this_round = 0
 	var/tram_hits_last_round = 0
 
+	var/last_storyteller_type = "" // IRIS EDIT ADD: Storyteller votes from Bubber
+
 	/// A json database to data/message_bottles.json
 	var/datum/json_database/message_bottles_database
 	/// An index used to create unique ids for the message bottles database
