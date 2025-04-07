@@ -170,6 +170,9 @@ SUBSYSTEM_DEF(ticker)
 				//send2chat(new /datum/tgs_message_content("New round starting on [SSmapping.current_map.map_name]!"), channel_tag) // NOVA EDIT REMOVAL
 
 			current_state = GAME_STATE_PREGAME
+			// IRIS EDIT START - Storyteller from Bubber
+			SSvote.initiate_vote(/datum/vote/storyteller, "Storyteller Vote", forced = TRUE)
+			// IRIS EDIT END - Storyteller from Bubber
 			SStitle.change_title_screen() // NOVA EDIT ADDITION - Title screen
 			addtimer(CALLBACK(SStitle, TYPE_PROC_REF(/datum/controller/subsystem/title, change_title_screen)), 1 SECONDS) // NOVA EDIT ADDITION - Title screen
 			//Everyone who wants to be an observer is now spawned
@@ -246,7 +249,11 @@ SUBSYSTEM_DEF(ticker)
 	CHECK_TICK
 	//Configure mode and assign player to antagonists
 	var/can_continue = FALSE
-	can_continue = SSdynamic.pre_setup() //Choose antagonists
+	//can_continue = SSdynamic.pre_setup() //Choose antagonists - Disabled
+	//IRIS EDIT BEGIN - STORYTELLER from Bubber
+	SSgamemode.init_storyteller()
+	can_continue = SSgamemode.pre_setup()
+	//IRIS EDIT END - STORYTELLER from Bubber
 	CHECK_TICK
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_PRE_JOBS_ASSIGNED, src)
 	can_continue = can_continue && SSjob.divide_occupations() //Distribute jobs
