@@ -986,10 +986,7 @@
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/nova/des_two/service/lounge)
 "em" = (
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/hidden{
-	dir = 10
-	},
-/obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/smart/simple/cyan,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "ep" = (
@@ -1169,7 +1166,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/smart/simple/violet/hidden{
+/obj/machinery/atmospherics/pipe/smart/simple/purple/hidden/layer4{
 	dir = 9
 	},
 /turf/open/floor/plating,
@@ -1664,6 +1661,9 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
 	},
+/obj/machinery/meter{
+	target_layer = 4
+	},
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
 	dir = 4
 	},
@@ -1890,6 +1890,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/nova/des_two/service/dorms/fitness)
+"io" = (
+/obj/machinery/space_heater,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/nova/des_two/engineering)
 "ir" = (
 /obj/structure/chair/comfy/brown{
 	color = "#596479"
@@ -3199,24 +3203,24 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/smart/simple/violet/hidden,
-/obj/machinery/meter,
 /obj/machinery/airalarm/directional/west,
 /obj/effect/mapping_helpers/airalarm/syndicate_access,
+/obj/machinery/atmospherics/pipe/smart/simple/purple/hidden/layer4,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "nN" = (
-/obj/machinery/atmospherics/pipe/layer_manifold/supply/hidden{
-	dir = 4
-	},
-/obj/machinery/meter,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
 	},
-/obj/machinery/space_heater,
+/obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/simple/cyan{
+	dir = 10
+	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "nO" = (
@@ -3259,6 +3263,7 @@
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
 "od" = (
 /obj/machinery/atmospherics/components/unary/portables_connector/visible,
+/obj/machinery/portable_atmospherics/canister,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "of" = (
@@ -3288,10 +3293,10 @@
 /turf/open/floor/iron/half,
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
 "oi" = (
-/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
-/obj/machinery/atmospherics/pipe/smart/manifold/cyan/hidden{
-	dir = 1
+/obj/machinery/atmospherics/pipe/layer_manifold/cyan/hidden{
+	dir = 4
 	},
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "ok" = (
@@ -3378,7 +3383,8 @@
 /obj/machinery/button/door/directional/south{
 	id = "TESRedguard";
 	name = "Dorm Bolt Control";
-	specialfunctions = 4
+	specialfunctions = 4;
+	normaldoorcontrol = 1
 	},
 /turf/open/floor/wood/tile,
 /area/ruin/space/has_grav/nova/des_two/service/dorms)
@@ -4515,10 +4521,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/smart/simple/violet/hidden,
-/obj/machinery/atmospherics/pipe/bridge_pipe/cyan/hidden{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/smart/simple/purple/hidden/layer4,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "tP" = (
@@ -5630,7 +5633,9 @@
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "zy" = (
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
-	dir = 9
+	dir = 9;
+	pixel_x = 0;
+	pixel_y = 0
 	},
 /obj/machinery/light/warm/directional/east,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
@@ -6134,7 +6139,8 @@
 /obj/machinery/button/door/directional/north{
 	id = "TESBattlespire";
 	name = "Dorm Bolt Control";
-	specialfunctions = 4
+	specialfunctions = 4;
+	normaldoorcontrol = 1
 	},
 /obj/structure/closet/secure_closet/personal/cabinet,
 /turf/open/floor/wood/tile,
@@ -6645,7 +6651,8 @@
 /obj/machinery/button/door/directional/south{
 	id = "TESSkyrim";
 	name = "Restroom Bolt Control";
-	specialfunctions = 4
+	specialfunctions = 4;
+	normaldoorcontrol = 1
 	},
 /turf/open/floor/iron/white/small,
 /area/ruin/space/has_grav/nova/des_two/service/diner)
@@ -6784,8 +6791,8 @@
 /area/ruin/space/has_grav/nova/des_two/security/prison)
 "Fc" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
-/obj/machinery/atmospherics/pipe/smart/simple/violet/hidden{
-	dir = 8
+/obj/machinery/atmospherics/pipe/layer_manifold/purple/hidden{
+	dir = 4
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
@@ -7695,7 +7702,8 @@
 /obj/machinery/button/door/directional/north{
 	id = "TESArena";
 	name = "Dorm Bolt Control";
-	specialfunctions = 4
+	specialfunctions = 4;
+	normaldoorcontrol = 1
 	},
 /turf/open/floor/wood/tile,
 /area/ruin/space/has_grav/nova/des_two/service/dorms)
@@ -7929,13 +7937,6 @@
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/nova/des_two/bridge)
-"JY" = (
-/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/hidden{
-	dir = 5
-	},
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/nova/des_two/engineering)
 "JZ" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2
@@ -9411,7 +9412,10 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 9
 	},
-/obj/machinery/atmospherics/components/trinary/mixer/airmix/inverse{
+/obj/machinery/atmospherics/pipe/smart/simple/cyan{
+	dir = 4
+	},
+/obj/machinery/atmospherics/components/trinary/mixer/layer4{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -9744,8 +9748,8 @@
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "Si" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
-/obj/machinery/atmospherics/pipe/smart/simple/orange/hidden{
-	dir = 8
+/obj/machinery/atmospherics/pipe/layer_manifold/orange{
+	dir = 4
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
@@ -10105,7 +10109,6 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 8
 	},
-/obj/item/stack/sheet/iron/five,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/nova/des_two/engineering)
 "Ty" = (
@@ -12307,7 +12310,7 @@ Tt
 Tt
 Tt
 oi
-JY
+Jz
 Tt
 Fc
 Jz
@@ -12472,7 +12475,7 @@ Tt
 SI
 rb
 hn
-uD
+io
 uD
 od
 iS
