@@ -43,4 +43,9 @@
 		ANNOUNCER_NRI_RAIDERS = 'modular_nova/modules/encounters/sounds/morse.ogg',
 		ANNOUNCER_DEPARTMENTAL = 'modular_nova/modules/alerts/sound/alerts/alert3.ogg',
 		ANNOUNCER_SHUTTLE = 'modular_nova/modules/alerts/sound/alerts/alert3.ogg',
+		// IRIS EDIT BELOW
+		ANNOUNCER_SIRENDOOM = 'modular_iris/modules/alerts/sound/alerts/doomalarm.ogg',
+		ANNOUNCER_EPSILON = 'modular_iris/modules/alerts/sound/alerts/epsilonSoundLongerReal.ogg',
+		ANNOUNCER_SIRENLOCKDOWN = 'modular_iris/modules/alerts/sound/alerts/sirenlockdown.ogg',
+		ANNOUNCER_SIRENFULLALERT = 'modular_iris/modules/alerts/sound/alerts/sirenfullalert.ogg',
 		)
