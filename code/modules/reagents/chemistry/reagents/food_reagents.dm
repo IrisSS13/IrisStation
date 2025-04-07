@@ -480,6 +480,33 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	default_container = /obj/item/reagent_containers/condiment/saltshaker
 
+//IRIS EDIT ADDITION BEGIN - SALT_VULNERABILITY_QUIRK
+/datum/reagent/consumable/salt/on_mob_add(mob/living/affected_mob, amount)
+	. = ..()
+	if(HAS_TRAIT(affected_mob, TRAIT_SALT_VULNERABILITY))
+		to_chat(affected_mob, span_userdanger("[src]! It burns!!!"))
+		affected_mob.emote("scream")
+		affected_mob.adjustToxLoss(round(log(3, amount), 1)) //per unit damage scales down with volume
+		affected_mob.Paralyze(7 SECONDS)
+		var/initial_status_effect_duration = clamp(amount * (3 SECONDS), 1 SECONDS, 150 SECONDS)
+		affected_mob.set_slurring_if_lower(initial_status_effect_duration)
+		affected_mob.set_jitter_if_lower(initial_status_effect_duration)
+		affected_mob.set_confusion_if_lower(initial_status_effect_duration)
+		if(HAS_TRAIT(affected_mob, TRAIT_ANALGESIA))
+			affected_mob.visible_message(span_danger("[affected_mob] collapses, writhing as the [LOWER_TEXT(src)] enters [affected_mob.p_their()] body."))
+		else
+			affected_mob.visible_message(span_danger("[affected_mob] collapses, writhing in pain as the [LOWER_TEXT(src)] enters [affected_mob.p_their()] body."))
+
+/datum/reagent/consumable/salt/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+	. = ..()
+	if(HAS_TRAIT(affected_mob, TRAIT_SALT_VULNERABILITY))
+		affected_mob.add_mood_event(type = /datum/mood_event/salt_encounter)
+		affected_mob.adjustToxLoss(12 * REM)
+		affected_mob.adjust_slurring_up_to(3 SECONDS, 150 SECONDS)
+		affected_mob.adjust_jitter_up_to(3 SECONDS, 150 SECONDS)
+		affected_mob.adjust_confusion_up_to(3 SECONDS, 150 SECONDS)
+//IRIS EDIT ADDITION END
+
 /datum/reagent/consumable/salt/expose_turf(turf/exposed_turf, reac_volume) //Creates an umbra-blocking salt pile
 	. = ..()
 	if(!istype(exposed_turf) || (reac_volume < 1))
@@ -493,6 +520,10 @@
 	var/mob/living/carbon/carbies = exposed_mob
 	if(!(methods & (PATCH|TOUCH|VAPOR)))
 		return
+	//IRIS EDIT ADDITION BEGIN - SALT_VULNERABILITY_QUIRK - No benefit for snails or other salt-vulnerable entities
+	if(HAS_TRAIT(carbies, TRAIT_SALT_VULNERABILITY))
+		return
+	//IRIS EDIT ADDITION END
 	for(var/datum/wound/iter_wound as anything in carbies.all_wounds)
 		iter_wound.on_salt(reac_volume, carbies)
 
