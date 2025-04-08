@@ -74,12 +74,11 @@
 	track = EVENT_TRACK_MAJOR
 	tags = list(TAG_COMMUNAL, TAG_COMBAT)
 
-/datum/round_event_control/cortical_borer
-	track = EVENT_TRACK_MAJOR
-	tags = list(TAG_TARGETED, TAG_SPOOKY)
-	min_players = 20
-
 /datum/round_event_control/morph
 	track = EVENT_TRACK_MAJOR
 	tags = list(TAG_DESTRUCTIVE, TAG_SPOOKY)
 
+/datum/round_event_control/slaughter
+	track = EVENT_TRACK_MAJOR
+	tags = list(TAG_COMBAT, TAG_CHAOTIC)
+	min_players = 10

@@ -13,9 +13,6 @@
 /datum/round_event_control/processor_overload
 	tags = list(TAG_COMMUNAL)
 
-/datum/round_event_control/radiation_leak
-	tags = list(TAG_COMMUNAL)
-
 /datum/round_event_control/supermatter_surge
 	tags = list(TAG_TARGETED)
 
@@ -35,20 +32,19 @@
 
 /datum/round_event_control/spacevine
 	tags = list(TAG_COMMUNAL, TAG_COMBAT, TAG_CHAOTIC)
-
-/datum/round_event_control/portal_storm_syndicate
-	tags = list(TAG_COMBAT, TAG_CHAOTIC)
-
-/datum/round_event_control/portal_storm_narsie
-	tags = list(TAG_COMBAT, TAG_CHAOTIC)
+	max_occurrences = 2
+	min_players = 5
 
 /datum/round_event_control/mold
 	tags = list(TAG_COMMUNAL, TAG_COMBAT, TAG_CHAOTIC)
-	weight = 0
-	max_occurrences = 0
+	weight = 8
+	max_occurrences = 1
+	min_players = 7
 
 /datum/round_event_control/obsessed
 	tags = list(TAG_TARGETED)
+	max_occurrences = 1
+	min_players = 7
 
 /datum/round_event_control/santa
 	tags = list(TAG_COMMUNAL, TAG_POSITIVE)
@@ -60,3 +56,5 @@
 
 /datum/round_event_control/cognomerge
 	tags = list(TAG_COMMUNAL, TAG_CHAOTIC)
+	weight = 25
+	max_occurrences = 2
