@@ -2,7 +2,7 @@
 	name = "Scrubber Overflow: ICES"
 	typepath = /datum/round_event/scrubber_overflow/ices
 	weight = 10
-	max_occurrences = 2
+	max_occurrences = 0
 	earliest_start = 20 MINUTES
 	description = "The scrubbers release a tide of moderately harmless froth, custom reagent set."
 	min_wizard_trigger_potency = 0

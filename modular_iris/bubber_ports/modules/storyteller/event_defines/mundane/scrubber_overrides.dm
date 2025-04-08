@@ -1,6 +1,8 @@
 /datum/round_event_control/scrubber_overflow
 	track = EVENT_TRACK_MUNDANE
 	tags = list(TAG_COMMUNAL)
+	weight = 0
+	max_occurrences = 0
 
 /datum/round_event_control/scrubber_overflow/threatening
 	weight = 0
