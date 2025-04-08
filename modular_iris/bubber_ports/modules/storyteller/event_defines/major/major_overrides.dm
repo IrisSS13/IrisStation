@@ -11,6 +11,7 @@
 	track = EVENT_TRACK_MAJOR
 	tags = list(TAG_DESTRUCTIVE, TAG_COMBAT, TAG_CHAOTIC)
 	weight = 10
+	min_players = 8
 
 /datum/round_event_control/meteor_wave
 	track = EVENT_TRACK_MAJOR
@@ -24,22 +25,21 @@
 
 /datum/round_event_control/meteor_wave/threatening
 	weight = 3
+	max_occurrences = 1
 
 /datum/round_event_control/meteor_wave/catastrophic
 	weight = 0
 
-/datum/round_event_control/radiation_storm
-	track = EVENT_TRACK_MAJOR
-	tags = list(TAG_COMMUNAL)
-
 /datum/round_event_control/wormholes
 	track = EVENT_TRACK_MAJOR
 	tags = list(TAG_COMMUNAL)
+	max_occurrences = 1
 
 /datum/round_event_control/immovable_rod
 	track = EVENT_TRACK_MAJOR
 	tags = list(TAG_DESTRUCTIVE)
 	weight = 20
+	max_occurrences = 1
 
 /datum/round_event_control/anomaly/anomaly_vortex
 	track = EVENT_TRACK_MAJOR
@@ -50,7 +50,7 @@
 	tags = list(TAG_DESTRUCTIVE)
 
 /datum/round_event_control/revenant
-	min_players = 20
+	min_players = 10
 	track = EVENT_TRACK_MAJOR
 	tags = list(TAG_DESTRUCTIVE, TAG_SPOOKY)
 
