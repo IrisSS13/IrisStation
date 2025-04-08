@@ -5,9 +5,7 @@
 	antag_flag = ROLE_HERETIC
 	antag_datum = /datum/antagonist/heretic
 	weight = 3
-	min_players = 10
-
-	maximum_antags_global = 2
+	min_players = 8
 
 	tags = list(TAG_COMBAT, TAG_SPOOKY, TAG_CREW_ANTAG)
 
