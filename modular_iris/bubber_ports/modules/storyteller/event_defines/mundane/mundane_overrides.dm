@@ -63,13 +63,10 @@
 	track = EVENT_TRACK_MUNDANE
 	tags = list(TAG_COMMUNAL)
 
-/datum/round_event_control/grey_tide
-	track = EVENT_TRACK_MUNDANE
-	tags = list(TAG_DESTRUCTIVE, TAG_SPOOKY)
-
 /datum/round_event_control/gravity_generator_blackout
 	track = EVENT_TRACK_MUNDANE
 	tags = list(TAG_COMMUNAL, TAG_SPACE)
+	max_occurrences = 2
 
 /datum/round_event_control/shuttle_insurance
 	track = EVENT_TRACK_MUNDANE
