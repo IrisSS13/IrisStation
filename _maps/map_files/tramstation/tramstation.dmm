@@ -14838,9 +14838,6 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/table,
-/obj/item/book/manual/wiki/tcomms,
-/obj/item/radio/off,
 /turf/open/floor/iron,
 /area/station/tcommsat/computer)
 "eaT" = (
@@ -26807,13 +26804,13 @@
 /turf/open/floor/iron/dark,
 /area/station/engineering/supermatter/room)
 "iDB" = (
-/obj/structure/table,
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 9
 	},
-/obj/item/folder/blue,
-/obj/item/pen/blue,
-/obj/item/paper/fluff/jobs/engineering/frequencies,
+/obj/machinery/computer/telecomms/traffic{
+	network = "tcommsat";
+	dir = 4
+	},
 /turf/open/floor/iron,
 /area/station/tcommsat/computer)
 "iDQ" = (
@@ -28439,10 +28436,6 @@
 /obj/effect/mapping_helpers/airlock/access/all/science/xenobio,
 /turf/open/floor/engine,
 /area/station/science/xenobiology)
-"jgb" = (
-/obj/structure/chair/office,
-/turf/open/floor/iron,
-/area/station/tcommsat/computer)
 "jgn" = (
 /obj/structure/table/reinforced,
 /obj/structure/displaycase/forsale/kitchen{
@@ -37309,6 +37302,7 @@
 	},
 /obj/structure/transport/linear/tram,
 /obj/structure/thermoplastic,
+/obj/structure/sign/tram_plate/directional/south,
 /turf/open/openspace,
 /area/station/hallway/primary/tram/center)
 "may" = (
@@ -38619,6 +38613,9 @@
 	},
 /obj/item/paper_bin,
 /obj/machinery/light/directional/west,
+/obj/item/folder/blue,
+/obj/item/paper/fluff/jobs/engineering/frequencies,
+/obj/item/pen/blue,
 /turf/open/floor/iron,
 /area/station/tcommsat/computer)
 "mAb" = (
@@ -39735,12 +39732,6 @@
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /turf/open/floor/iron/white,
 /area/station/medical/surgery/fore)
-"mXi" = (
-/obj/structure/transport/linear/tram,
-/obj/structure/tram,
-/obj/structure/plaque/static_plaque/tram,
-/turf/open/openspace,
-/area/station/hallway/primary/tram/center)
 "mXo" = (
 /obj/structure/kitchenspike,
 /obj/effect/turf_decal/weather/snow,
@@ -40174,14 +40165,13 @@
 /turf/open/floor/iron/white,
 /area/station/medical/surgery/aft)
 "nfB" = (
+/obj/structure/table,
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 6
 	},
+/obj/item/book/manual/wiki/tcomms,
+/obj/item/radio/off,
 /obj/machinery/firealarm/directional/east,
-/obj/machinery/computer/telecomms/traffic{
-	dir = 1;
-	network = "tcommsat"
-	},
 /turf/open/floor/iron,
 /area/station/tcommsat/computer)
 "nfJ" = (
@@ -99409,7 +99399,7 @@ jIG
 uxj
 wnh
 wnh
-jgb
+wnh
 yeX
 dwR
 ney
@@ -170313,7 +170303,7 @@ oKm
 uzl
 xBS
 mar
-mXi
+oKm
 dhI
 lej
 fxs
