@@ -7,11 +7,11 @@
 	tag_multipliers = list(
 		TAG_DESTRUCTIVE = 1.5
 	)
-	population_min = 25
+	population_min = 30
 	antag_divisor = 10
 	storyteller_type = STORYTELLER_TYPE_INTENSE
 
 /datum/storyteller_data/tracks/bomb
-	threshold_mundane = 1800
-	threshold_moderate = 1400
-	threshold_major = 5500
+	threshold_mundane = 20
+	threshold_moderate = 20
+	threshold_major = 50

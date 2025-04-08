@@ -6,7 +6,7 @@
 	track_data = /datum/storyteller_data/tracks/fragile
 	votable = TRUE
 
-	population_min = 50
+	population_min = 30
 	storyteller_type = STORYTELLER_TYPE_INTENSE
 
 // All the weights are the same to the house
