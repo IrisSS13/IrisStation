@@ -25,6 +25,7 @@
 
 /datum/round_event_control/vent_clog
 	tags = list(TAG_COMMUNAL)
+	max_occurrences = 1
 
 /datum/round_event_control/anomaly
 	weight = 10 // Lower from original 15 because it KEEPS SPAWNING THEM
@@ -33,7 +34,7 @@
 /datum/round_event_control/spacevine
 	tags = list(TAG_COMMUNAL, TAG_COMBAT, TAG_CHAOTIC)
 	max_occurrences = 2
-	min_players = 5
+	min_players = 4
 
 /datum/round_event_control/mold
 	tags = list(TAG_COMMUNAL, TAG_COMBAT, TAG_CHAOTIC)
