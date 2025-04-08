@@ -1,7 +1,7 @@
 /datum/round_event_control/lone_infiltrator
 	name = "Spawn Lone Infiltrator"
 	typepath = /datum/round_event/ghost_role/lone_infiltrator
-	max_occurrences = 2
+	max_occurrences = 1
 	min_players = 10
 	dynamic_should_hijack = TRUE
 	category = EVENT_CATEGORY_ENTITIES

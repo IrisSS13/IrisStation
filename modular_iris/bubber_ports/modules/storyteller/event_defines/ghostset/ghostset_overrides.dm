@@ -28,3 +28,8 @@
 	track = EVENT_TRACK_GHOSTSET
 	tags = list(TAG_COMBAT, TAG_DESTRUCTIVE, TAG_CHAOTIC)
 	weight = 2
+
+/datum/round_event_control/wizard
+	track = EVENT_TRACK_GHOSTSET
+	tags = list(TAG_COMMUNAL, TAG_DESTRUCTIVE, TAG_CHAOTIC)
+	weight = 2

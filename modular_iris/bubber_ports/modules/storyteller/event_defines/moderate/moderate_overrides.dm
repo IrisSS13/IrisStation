@@ -57,3 +57,6 @@
 
 /datum/round_event_control/operative
 	track = EVENT_TRACK_MODERATE
+
+/datum/round_event_control/cognomerge
+	tags = list(TAG_COMMUNAL, TAG_CHAOTIC)

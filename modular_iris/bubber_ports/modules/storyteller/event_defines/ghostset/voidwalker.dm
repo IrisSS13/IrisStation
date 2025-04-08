@@ -6,7 +6,7 @@
 	max_occurrences = 1
 	weight = 3
 	earliest_start = 20 MINUTES
-	min_players = 30
+	min_players = 15
 	dynamic_should_hijack = TRUE
 	category = EVENT_CATEGORY_ENTITIES
 	description = "A Void Walker that drags people out of the station and into the abyss"
