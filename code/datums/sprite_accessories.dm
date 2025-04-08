@@ -1786,29 +1786,30 @@
 ///Used for fish-infused tails, which come in different flavors.
 /datum/sprite_accessory/tails/fish
 	icon = 'icons/mob/human/fish_features.dmi'
-	color_src = USE_ONE_COLOR
+	color_src = TRUE
 
 /datum/sprite_accessory/tails/fish/chonky
-	name = "Chonky Fish"
+	name = "Chonky"
 	icon_state = "chonky"
 	center = TRUE
 	dimension_x = 36
 
 /datum/sprite_accessory/tails/fish/crescent
-	name = "Crescent Fish"
+	name = "Crescent"
 	icon_state = "crescent"
 
 /datum/sprite_accessory/tails/fish/long
-	name = "Long Fish"
+	name = "Long"
 	icon_state = "long"
 	center = TRUE
 	dimension_x = 38
+
 /datum/sprite_accessory/tails/fish/simple
-	name = "Simple Fish"
+	name = "Simple"
 	icon_state = "simple"
 
 /datum/sprite_accessory/tails/fish/shark
-	name = "Shark Alt" // IRIS EDIT: Allows this to co-exist with the Akula shark tail
+	name = "Shark"
 	icon_state = "shark"
 
 

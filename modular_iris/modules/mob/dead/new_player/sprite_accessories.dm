@@ -234,6 +234,11 @@
 	icon_state = "centipede"
 	color_src = USE_MATRIXED_COLORS
 
+// temporary xeno tail fix till upstream does it bc synth said so
+/datum/sprite_accessory/tails/xeno
+	recommended_species = list(SPECIES_XENO)
+	feature_key_override = "tail_xeno"
+	color_src = USE_ONE_COLOR
 
 //teshari
 /datum/sprite_accessory/tails/mammal/teshari/iris
