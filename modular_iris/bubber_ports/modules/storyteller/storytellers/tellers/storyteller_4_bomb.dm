@@ -10,6 +10,7 @@
 	population_min = 30
 	antag_divisor = 10
 	storyteller_type = STORYTELLER_TYPE_INTENSE
+	votable = FALSE
 
 /datum/storyteller_data/tracks/bomb
 	threshold_mundane = 20
