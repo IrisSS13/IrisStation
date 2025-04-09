@@ -3,7 +3,7 @@
 /datum/round_event_control/vent_clog
 	name = "Ventilation Clog: Minor"
 	typepath = /datum/round_event/vent_clog
-	weight = 25
+	weight = 0
 	earliest_start = 5 MINUTES
 	category = EVENT_CATEGORY_JANITORIAL
 	description = "Harmless mobs climb out of a vent."
@@ -203,8 +203,8 @@
 /datum/round_event_control/vent_clog/major
 	name = "Ventilation Clog: Major"
 	typepath = /datum/round_event/vent_clog/major
-	weight = 12
-	max_occurrences = 5
+	weight = 0
+	max_occurrences = 0
 	earliest_start = 10 MINUTES
 	description = "Dangerous mobs climb out of a vent."
 	min_wizard_trigger_potency = 0
@@ -237,9 +237,9 @@
 /datum/round_event_control/vent_clog/critical
 	name = "Ventilation Clog: Critical"
 	typepath = /datum/round_event/vent_clog/critical
-	weight = 8
-	min_players = 15
-	max_occurrences = 3
+	weight = 0
+	min_players = 5
+	max_occurrences = 0
 	earliest_start = 25 MINUTES
 	description = "Really dangerous mobs climb out of a vent."
 	min_wizard_trigger_potency = 3
@@ -269,8 +269,8 @@
 /datum/round_event_control/vent_clog/strange
 	name = "Ventilation Clog: Strange"
 	typepath = /datum/round_event/vent_clog/strange
-	weight = 5
-	max_occurrences = 2
+	weight = 0
+	max_occurrences = 0
 	description = "Strange mobs climb out of a vent, harmfulness varies."
 	min_wizard_trigger_potency = 0
 	max_wizard_trigger_potency = 7
