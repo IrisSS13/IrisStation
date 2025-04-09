@@ -26,7 +26,7 @@
 		/datum/reagent/consumable/sugar = 2,
 	)
 	tastes = list("rice" = 1, "fish" = 1, "wastefulness" = 1)
-	foodtypes = GRAIN | SEAFOOD
+	foodtypes = GRAIN | BREAKFAST | SEAFOOD
 	w_class = WEIGHT_CLASS_SMALL
 
 /*
