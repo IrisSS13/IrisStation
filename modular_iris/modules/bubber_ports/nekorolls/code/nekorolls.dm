@@ -12,7 +12,7 @@
 		/datum/reagent/consumable/sugar = 1,
 	)
 	tastes = list("rice" = 1, "fish" = 1, "cuteness" = 1)
-	foodtypes = GRAIN | SEAFOOD
+	foodtypes = GRAIN | BREAKFAST | SEAFOOD
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/food/bignekoroll
