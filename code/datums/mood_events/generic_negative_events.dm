@@ -529,3 +529,15 @@
 	if(HAS_TRAIT(owner, TRAIT_SMOKER))
 		description = "Blowing smoke in my face, really?"
 		mood_change = 0
+
+//IRIS EDIT ADDITION BEGIN - SALT_VULNERABILITY_QUIRK - Same mood adjust as losing a limb, goes away when salt leaves the body completely
+#define MOOD_CATEGORY_SALT "salt"
+
+/datum/mood_event/salt_encounter //resisted the urge to call this 'assalted'
+	description = "I'M MELTING!!!"
+	mood_change = -10
+	category = MOOD_CATEGORY_SALT
+	timeout = 6 SECONDS
+
+#undef MOOD_CATEGORY_SALT
+//IRIS EDIT ADDITION END
