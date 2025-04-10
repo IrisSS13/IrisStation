@@ -42,3 +42,5 @@
 
 //Helps users examine items with custom text, part of https://github.com/DopplerShift13/DopplerShift/pull/345
 #define TRAIT_WORN_EXAMINE "worn_examine"
+
+#define TRAIT_MINING_ITEM "mining_item"
