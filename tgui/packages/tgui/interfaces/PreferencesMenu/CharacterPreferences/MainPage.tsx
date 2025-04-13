@@ -51,6 +51,8 @@ type CharacterControlsProps = {
   gender: Gender;
   setGender: (gender: Gender) => void;
   showGender: boolean;
+  canDeleteCharacter: boolean;
+  handleDeleteCharacter: () => void;
 };
 
 function CharacterControls(props: CharacterControlsProps) {
@@ -106,6 +108,17 @@ function CharacterControls(props: CharacterControlsProps) {
           tooltipPosition="top"
         />
         {/* NOVA EDIT ADDITION END */}
+      </Stack.Item>
+      <Stack.Item>
+        <Button
+          onClick={props.handleDeleteCharacter}
+          fontSize="22px"
+          icon="trash"
+          color="red"
+          tooltip="Delete Character"
+          tooltipPosition="top"
+          disabled={!props.canDeleteCharacter}
+        />
       </Stack.Item>
     </Stack>
   );
@@ -659,6 +672,12 @@ export function MainPage(props: MainPageProps) {
                   act('open_food');
                 }}
                 // NOVA EDIT ADDITION END
+                canDeleteCharacter={
+                  Object.values(data.character_profiles).filter(
+                    (name) => !!name,
+                  ).length > 1
+                }
+                handleDeleteCharacter={() => setDeleteCharacterPopupOpen(true)}
               />
             </Stack.Item>
 
