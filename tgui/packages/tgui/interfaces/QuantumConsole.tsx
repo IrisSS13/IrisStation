@@ -160,7 +160,7 @@ function AccessView(props) {
               </Tooltip>
               <Tooltip
                 content="Get a random domain for more rewards.
-                  Already played domains are unlikelly to appear again." //IRIS EDIT - REMOVES POINTS FOR RANDOM DOMAINS.
+                  Already played domains are unlikelly to appear again." // IRIS EDIT - REMOVES POINTS FOR RANDOM DOMAINS.
               >
                 <Button
                   disabled={
