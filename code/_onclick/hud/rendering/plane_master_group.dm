@@ -196,6 +196,18 @@
 /// If you wanna try someday feel free, but I can't manage it
 /datum/plane_master_group/popup
 
+// This code somehow prevents windows with byond stuff in them from crashing clients when closing said window
+// rebuild_plane_masters() is a must have here. Without it crash happen on live servers, but not locally
+/datum/plane_master_group/popup/attach_to(datum/hud/viewing_hud)
+	if(viewing_hud.master_groups[key])
+		stack_trace("Key [key] is already in use by a plane master group on the passed in hud, belonging to [viewing_hud.mymob].")
+		return
+
+	relay_loc = "SCREEN_SOUTHWEST"
+	rebuild_plane_masters()
+	set_hud(viewing_hud)
+	show_hud()
+
 /// Note do not use return ..() because it will cause client crush when screen gets deleted
 /// TOOD: Remove this entirely when 516 is stable
 /datum/plane_master_group/popup/attach_to(datum/hud/viewing_hud)
