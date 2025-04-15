@@ -1056,8 +1056,8 @@
 		cable.plugin(src, user)
 	else if(istype(C, /obj/item/airlock_painter))
 		change_paintjob(C, user)
-	else if(istype(C, /obj/item/card/id/fake_card)) //IRIS ADDITION: Fake ID as part of https://github.com/Monkestation/MonkeStation/pull/806
-		open_with_fake_card(C, user)
+//	else if(istype(C, /obj/item/card/id/fake_card)) //IRIS ADDITION: Fake ID as part of https://github.com/Monkestation/MonkeStation/pull/806
+		//open_with_fake_card(C, user)
 	else if(istype(C, /obj/item/door_seal)) //adding the seal
 		var/obj/item/door_seal/airlockseal = C
 		if(!density)
@@ -1252,7 +1252,7 @@
 	take_damage(AIRLOCK_PRY_DAMAGE, BRUTE, 0, 0) // Enough to sometimes spark
 	if(density && !open(BYPASS_DOOR_CHECKS))
 		to_chat(user, span_warning("Despite your attempts, [src] refuses to open."))
-
+	/*
 //IRIS ADDITION START: Fake ID interaction as part of https://github.com/Monkestation/MonkeStation/pull/806
 /obj/machinery/door/airlock/proc/open_with_fake_card(obj/card, mob/user)
 	add_fingerprint(user)
@@ -1274,6 +1274,7 @@
 	else
 		to_chat(user, "<span class='warning'>It's no good, this ID is so torn up it won't fit in another door.</span>")
 //IRIS ADDITION END
+*/
 
 /obj/machinery/door/airlock/open(forced = DEFAULT_DOOR_CHECKS)
 	if(cycle_pump && !operating && !welded && !seal && locked && density)
