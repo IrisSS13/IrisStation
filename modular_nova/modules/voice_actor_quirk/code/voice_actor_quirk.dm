@@ -1,4 +1,5 @@
-/* /datum/quirk/voice_actor
+/*
+/datum/quirk/voice_actor
 	name = "Voice Actor"
 	desc = "You are able to swap between two different TTS voices."
 	icon = FA_ICON_MICROPHONE_LINES
@@ -20,3 +21,4 @@
 	var/datum/action/action_to_remove = locate(/datum/action/innate/alter_voice) in quirk_holder.actions
 	if(action_to_remove)
 		qdel(action_to_remove)
+*/
