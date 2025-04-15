@@ -1,4 +1,4 @@
-/datum/quirk/voice_actor
+/* /datum/quirk/voice_actor
 	name = "Voice Actor"
 	desc = "You are able to swap between two different TTS voices."
 	icon = FA_ICON_MICROPHONE_LINES

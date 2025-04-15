@@ -1,5 +1,5 @@
 //Quirk taken from https://github.com/Monkestation/Monkestation2.0/pull/4642
-/datum/quirk/item_quirk/stowaway
+/* /datum/quirk/item_quirk/stowaway
 	name = "Stowaway"
 	desc = "You wake up inside a random locker with only a crude fake for an ID card. You are not a crewmember or on any Nanotrasen records. You also start with a toolbox in case you are stuck."
 	value = 0
