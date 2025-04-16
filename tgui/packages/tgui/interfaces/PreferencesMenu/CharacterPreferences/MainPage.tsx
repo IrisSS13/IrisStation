@@ -4,7 +4,6 @@ import { sendAct, useBackend } from 'tgui/backend';
 import {
   Box,
   Button,
-  Dropdown, // NOVA EDIT ADDITION
   Floating,
   Input,
   LabeledList,
