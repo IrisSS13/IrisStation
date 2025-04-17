@@ -155,6 +155,10 @@
 	. = ..()
 	if (!.)
 		return
+	// IRIS ADDITION START -- Makes AFK people not die
+	if(owner.ssd_indicator)
+		return FALSE
+	// IRIS ADDITION END
 
 	var/check_radius = 7
 	if (owner.is_blind())
