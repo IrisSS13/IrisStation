@@ -7,8 +7,8 @@
 	is_dimorphic = FALSE
 	should_draw_greyscale = FALSE
 	dmg_overlay_type = null
-	brute_modifier = 1.5 //Plasmemes are weak
-	burn_modifier = 1.5 //Plasmemes are weak
+	brute_modifier = 1 //Plasmemes are BONE!!! IRIS EDIT - changes 1.5 to 1
+	burn_modifier = 1.15 //Plasmemes are FLAMMABLE!!! IRIS EDIT - changes 1.5 to 1.15
 	head_flags = HEAD_EYESPRITES
 	bodypart_flags = BODYPART_UNHUSKABLE
 
@@ -25,8 +25,8 @@
 	is_dimorphic = FALSE
 	should_draw_greyscale = FALSE
 	dmg_overlay_type = null
-	brute_modifier = 1.5 //Plasmemes are weak
-	burn_modifier = 1.5 //Plasmemes are weak
+	brute_modifier = 1 //Plasmemes are BONE!!! IRIS EDIT - changes 1.5 to 1
+	burn_modifier = 1.15 //Plasmemes are FLAMMABLE!!! changes 1.5 to 1.15
 	bodypart_flags = BODYPART_UNHUSKABLE
 	wing_types = null
 
@@ -45,8 +45,8 @@
 	limb_id = SPECIES_PLASMAMAN
 	should_draw_greyscale = FALSE
 	dmg_overlay_type = null
-	brute_modifier = 1.5 //Plasmemes are weak
-	burn_modifier = 1.5 //Plasmemes are weak
+	brute_modifier = 1 //Plasmemes are BONE!!! IRIS EDIT - changes 1.5 to 1
+	burn_modifier = 1.15 //Plasmemes are FLAMMABLE!!! changes 1.5 to 1.15
 	bodypart_flags = BODYPART_UNHUSKABLE
 
 /obj/item/bodypart/arm/left/plasmaman/Initialize(mapload)
@@ -61,8 +61,8 @@
 	limb_id = SPECIES_PLASMAMAN
 	should_draw_greyscale = FALSE
 	dmg_overlay_type = null
-	brute_modifier = 1.5 //Plasmemes are weak
-	burn_modifier = 1.5 //Plasmemes are weak
+	brute_modifier = 1 //Plasmemes are BONE!!! IRIS EDIT - changes 1.5 to 1
+	burn_modifier = 1.15 //Plasmemes are FLAMMABLE!!! changes 1.5 to 1.15
 	bodypart_flags = BODYPART_UNHUSKABLE
 
 /obj/item/bodypart/arm/right/plasmaman/Initialize(mapload)
@@ -77,8 +77,8 @@
 	limb_id = SPECIES_PLASMAMAN
 	should_draw_greyscale = FALSE
 	dmg_overlay_type = null
-	brute_modifier = 1.5 //Plasmemes are weak
-	burn_modifier = 1.5 //Plasmemes are weak
+	brute_modifier = 1 //Plasmemes are BONE!!! IRIS EDIT - changes 1.5 to 1
+	burn_modifier = 1.15 //Plasmemes are FLAMMABLE!!! changes 1.5 to 1.15
 	bodypart_flags = BODYPART_UNHUSKABLE
 
 /obj/item/bodypart/leg/left/plasmaman/Initialize(mapload)
@@ -93,8 +93,8 @@
 	limb_id = SPECIES_PLASMAMAN
 	should_draw_greyscale = FALSE
 	dmg_overlay_type = null
-	brute_modifier = 1.5 //Plasmemes are weak
-	burn_modifier = 1.5 //Plasmemes are weak
+	brute_modifier = 1 //Plasmemes are BONE!!! IRIS EDIT - changes 1.5 to 1
+	burn_modifier = 1.15 //Plasmemes are FLAMMABLE!!! changes 1.5 to 1.15
 	bodypart_flags = BODYPART_UNHUSKABLE
 
 /obj/item/bodypart/leg/right/plasmaman/Initialize(mapload)
