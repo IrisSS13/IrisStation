@@ -429,3 +429,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/official/boombox, 32)
 	icon_state = "download_gun"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/official/download, 32)
+
+/obj/structure/sign/poster/official/dr_house
+	name = "Dr. House"
+	desc = "A poster about the well known physician, Gregory House."
+	icon_state = "dr_house"
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/official/dr_house, 32)
