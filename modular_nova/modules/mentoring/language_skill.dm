@@ -21,12 +21,9 @@
 	if(!length(learnable_languages)) // Once there are no more languages to learn, we make sure we stop running
 		return
 
-	var/language_amount = (new_level > 6 ? length(learnable_languages) : new_level) // If we're legendary, learn em all
+	var/language_amount = (new_level > 6 ? length(learnable_languages) : min(length(learnable_languages), new_level)) // If we're legendary, learn em all
 	var/learned_string = ""
 	for(var/index in 1 to language_amount)
-		if(!length(learnable_languages))
-			break
-
 		var/datum/language/language = pick_n_take(learnable_languages)
 		mind.current.grant_language(language, source = LANGUAGE_MIND)
 		if(index == 1)
