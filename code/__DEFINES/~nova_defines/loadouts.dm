@@ -31,8 +31,12 @@
 #define LOADOUT_OVERRIDE_BACKPACK "Move job to backpack"
 #define LOADOUT_OVERRIDE_CASE "Place all in case"
 
+// NOTE TO FUTURE CODERS: If you increase this to a huge number, please restrict the overall **amount** of items players can take,
+// if item count restrictions have been significantly increased. You will end up with massively bloated save sizes otherwise.
+#define LOADOUT_MAX_PRESETS 12
+#define LOADOUT_MAX_NAME_LENGTH 24
 
-// tab orders for loadout - tabs will show in the order that they're done ascending here.
+// tab orders for loadout - tabs will show in the order that they're done ascending here. IRIS EDIT
 #define LOADOUT_HEAD 1
 #define LOADOUT_FACE 3
 #define LOADOUT_GLASSES 2
@@ -50,4 +54,3 @@
 #define LOADOUT_TOYS 6
 #define LOADOUT_POCKET 7
 #define LOADOUT_DONATOR 8
-

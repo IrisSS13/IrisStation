@@ -1,13 +1,12 @@
-//Quirk taken from https://github.com/Monkestation/Monkestation2.0/pull/4642
-/datum/quirk/stowaway
+/datum/quirk/item_quirk/stowaway
 	name = "Stowaway"
-	desc = "You wake up inside a random locker with only a crude fake for an ID card."
-	value = -2
+	desc = "You wake up inside a random locker with only a crude fake for an ID card. You are not a crewmember or on any Nanotrasen records. You also start with a toolbox in case you are stuck."
+	value = 1984
 	quirk_flags = QUIRK_HUMAN_ONLY | QUIRK_HIDE_FROM_SCAN | QUIRK_EXCLUDES_GHOSTROLES
 	icon = FA_ICON_SUITCASE_ROLLING
 	medical_record_text = "Patient has a knack for turning up where they aren't supposed to."
 
-/datum/quirk/stowaway/add_unique()
+/datum/quirk/item_quirk/stowaway/add_unique()
 	var/mob/living/carbon/human/stowaway = quirk_holder
 	var/obj/item/card/id/trashed = stowaway.get_item_by_slot(ITEM_SLOT_ID) //No ID
 	qdel(trashed)
@@ -23,12 +22,14 @@
 		stowaway.forceMove(selected_closet) //Move in
 		stowaway.Sleeping(5 SECONDS)
 
+	give_item_to_holder(/obj/item/storage/toolbox/mechanical, list(LOCATION_HANDS = ITEM_SLOT_HANDS)) // gives them tools to break free if need be
 
-/datum/quirk/stowaway/post_add()
+
+/datum/quirk/item_quirk/stowaway/post_add()
 	to_chat(quirk_holder, span_boldnotice("You've awoken to find yourself inside [GLOB.station_name] without real identification!"))
 	addtimer(CALLBACK(src, .proc/datacore_deletion), 5 SECONDS)
 
-/datum/quirk/stowaway/proc/datacore_deletion()
+/datum/quirk/item_quirk/stowaway/proc/datacore_deletion()
 	var/mob/living/carbon/human/stowaway = quirk_holder
 	var/perpname = stowaway.name
 	var/stowaway_rank = quirk_holder.mind?.assigned_role.title

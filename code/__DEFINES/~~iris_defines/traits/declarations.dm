@@ -43,4 +43,7 @@
 //Helps users examine items with custom text, part of https://github.com/DopplerShift13/DopplerShift/pull/345
 #define TRAIT_WORN_EXAMINE "worn_examine"
 
+// makes it so held items float by their head, from https://github.com/Bubberstation/Bubberstation/pull/3133
+#define TRAIT_FLOATING_HELD "held_items_float"
+
 #define TRAIT_MINING_ITEM "mining_item"
