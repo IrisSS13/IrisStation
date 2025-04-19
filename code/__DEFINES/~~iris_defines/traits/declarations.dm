@@ -45,3 +45,5 @@
 
 // makes it so held items float by their head, from https://github.com/Bubberstation/Bubberstation/pull/3133
 #define TRAIT_FLOATING_HELD "held_items_float"
+
+#define TRAIT_MINING_ITEM "mining_item"
