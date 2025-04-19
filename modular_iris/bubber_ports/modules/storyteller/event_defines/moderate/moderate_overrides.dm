@@ -1,0 +1,110 @@
+/datum/round_event_control/brand_intelligence
+	tags = list(TAG_DESTRUCTIVE, TAG_COMMUNAL, TAG_CHAOTIC)
+
+/datum/round_event_control/carp_migration
+	tags = list(TAG_COMMUNAL)
+
+/datum/round_event_control/communications_blackout
+	tags = list(TAG_COMMUNAL, TAG_SPOOKY)
+
+/datum/round_event_control/ion_storm
+	tags = list(TAG_TARGETED)
+
+/datum/round_event_control/processor_overload
+	tags = list(TAG_COMMUNAL)
+
+/datum/round_event_control/supermatter_surge
+	tags = list(TAG_TARGETED)
+
+/datum/round_event_control/stray_meteor
+	tags = list(TAG_DESTRUCTIVE, TAG_SPACE)
+	weight = 25
+
+/datum/round_event_control/shuttle_catastrophe
+	tags = list(TAG_COMMUNAL)
+
+/datum/round_event_control/vent_clog
+	tags = list(TAG_COMMUNAL)
+	max_occurrences = 1
+
+/datum/round_event_control/anomaly
+	weight = 10 // Lower from original 15 because it KEEPS SPAWNING THEM
+	tags = list(TAG_COMMUNAL, TAG_DESTRUCTIVE)
+
+/datum/round_event_control/anomaly/anomaly_bioscrambler
+	weight = 10 // Lower from original 15 because it KEEPS SPAWNING THEM
+	tags = list(TAG_COMMUNAL, TAG_DESTRUCTIVE)
+	min_players = 10
+	max_occurrences = 1
+
+/datum/round_event_control/anomaly/anomaly_grav/high
+	weight = 10 // Lower from original 15 because it KEEPS SPAWNING THEM
+	tags = list(TAG_COMMUNAL, TAG_DESTRUCTIVE)
+	min_players = 10
+	max_occurrences = 1
+
+/datum/round_event_control/anomaly/anomaly_grav
+	weight = 10 // Lower from original 15 because it KEEPS SPAWNING THEM
+	tags = list(TAG_COMMUNAL, TAG_DESTRUCTIVE)
+	min_players = 5
+	max_occurrences = 1
+
+/datum/round_event_control/anomaly/anomaly_pyro
+	weight = 10 // Lower from original 15 because it KEEPS SPAWNING THEM
+	tags = list(TAG_COMMUNAL, TAG_DESTRUCTIVE)
+	min_players = 7
+	max_occurrences = 1
+
+/datum/round_event_control/anomaly/anomaly_bluespace
+	weight = 10 // Lower from original 15 because it KEEPS SPAWNING THEM
+	tags = list(TAG_COMMUNAL, TAG_DESTRUCTIVE)
+	min_players = 7
+	max_occurrences = 1
+
+/datum/round_event_control/anomaly/anomaly_hallucination
+	weight = 10 // Lower from original 15 because it KEEPS SPAWNING THEM
+	tags = list(TAG_COMMUNAL, TAG_DESTRUCTIVE)
+	min_players = 5
+	max_occurrences = 2
+
+/datum/round_event_control/anomaly/anomaly_flux
+	weight = 10 // Lower from original 15 because it KEEPS SPAWNING THEM
+	tags = list(TAG_COMMUNAL, TAG_DESTRUCTIVE)
+	min_players = 7
+	max_occurrences = 1
+
+/datum/round_event_control/anomaly/anomaly_dimensional
+	weight = 10 // Lower from original 15 because it KEEPS SPAWNING THEM
+	tags = list(TAG_COMMUNAL, TAG_DESTRUCTIVE)
+	min_players = 7
+	max_occurrences = 1
+
+/datum/round_event_control/spacevine
+	tags = list(TAG_COMMUNAL, TAG_COMBAT, TAG_CHAOTIC)
+	weight = 15
+	max_occurrences = 2
+	min_players = 4
+
+/datum/round_event_control/mold
+	tags = list(TAG_COMMUNAL, TAG_COMBAT, TAG_CHAOTIC)
+	weight = 8
+	max_occurrences = 1
+	min_players = 7
+
+/datum/round_event_control/obsessed
+	tags = list(TAG_TARGETED)
+	max_occurrences = 1
+	min_players = 7
+
+/datum/round_event_control/santa
+	tags = list(TAG_COMMUNAL, TAG_POSITIVE)
+	weight = 25
+	earliest_start = 45 MINUTES
+
+/datum/round_event_control/operative
+	track = EVENT_TRACK_MODERATE
+
+/datum/round_event_control/cognomerge
+	tags = list(TAG_COMMUNAL, TAG_CHAOTIC)
+	weight = 25
+	max_occurrences = 2
