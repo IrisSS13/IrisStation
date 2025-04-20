@@ -2,6 +2,7 @@
 	name = "bitrunning relay marker"
 
 /obj/machinery/telecomms/relay/preset/auto/bitrunning
+	circuit = null
 	freq_listening = list(FREQ_COMMON, FREQ_SUPPLY, FREQ_SCIENCE, FREQ_FACTION)
 	receiving = FALSE // Yes, receiving and not broadcasting, they are backwards
 
