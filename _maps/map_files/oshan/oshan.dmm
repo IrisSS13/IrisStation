@@ -2487,7 +2487,6 @@
 /turf/open/floor/iron/dark/herringbone,
 /area/station/security/prison)
 "bgk" = (
-/obj/structure/cable,
 /obj/structure/disposalpipe/segment,
 /obj/effect/spawner/random/trash/graffiti,
 /obj/structure/cable,
@@ -7972,7 +7971,12 @@
 /turf/open/floor/plating,
 /area/station/science/robotics)
 "dJB" = (
-/mob/living/basic/chicken,
+/mob/living/basic/chicken{
+	can_buckle = 1;
+	unique_name = 1;
+	real_name = "Chicken Jockey";
+	name = "Chicken Jockey"
+	},
 /turf/open/misc/hay,
 /area/station/service/theater_dressing)
 "dJU" = (
@@ -9820,7 +9824,6 @@
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/white/textured,
 /area/station/command/heads_quarters/cmo)
 "eCE" = (
@@ -13170,13 +13173,6 @@
 /obj/item/statuebust,
 /turf/open/floor/iron/vaporwave,
 /area/station/service/library)
-"fZe" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron/dark,
-/area/station/science/ordnance/office)
 "fZn" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -52216,11 +52212,6 @@
 /area/station/service/chapel/office)
 "xJb" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/poddoor/shutters/preopen{
-	dir = 8;
-	id = "westcommissary";
-	name = "Privacy Shutters"
-	},
 /obj/machinery/door/poddoor/shutters/preopen{
 	dir = 8;
 	id = "westcommissary";
@@ -94194,7 +94185,7 @@ oHw
 azP
 xRR
 xRR
-fZe
+xRR
 gpO
 gTB
 opS
