@@ -127,13 +127,13 @@
 			qdel(thing)
 			continue
 
-		// IRIS ADDITION
+		// IRIS ADDITION START
 		if(istype(thing, /obj/effect/landmark/bitrunning/bitrunning_relay))
 			if(telecomms_radio)
 				new /obj/machinery/telecomms/relay/preset/auto/bitrunning(thing.loc)
 			qdel(thing)
 			continue
-		// IRIS ADDITION
+		// IRIS ADDITION END
 		if(istype(thing, /obj/effect/landmark/bitrunning/permanent_exit))
 			var/turf/tile = get_turf(thing)
 			exit_turfs += tile

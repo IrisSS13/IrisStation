@@ -87,7 +87,6 @@
 		if("broadcast")
 			server.toggle_broadcast()
 			return TRUE
-
 		// IRIS ADDITION START
 		if("radio")
 			server.toggle_radio()
