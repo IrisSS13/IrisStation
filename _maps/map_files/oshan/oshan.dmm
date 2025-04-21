@@ -842,7 +842,6 @@
 	},
 /obj/machinery/door/window/left/directional/north{
 	base_state = "right";
-	icon_state = "right";
 	name = "Containment Pen #6";
 	req_access = list("xenobiology")
 	},
@@ -1274,11 +1273,6 @@
 /turf/open/floor/iron/dark/textured_half,
 /area/station/security/prison)
 "aFI" = (
-/obj/machinery/door/window/right/directional/south{
-	dir = 4;
-	name = "Surgical Supplies";
-	req_access = list("surgery")
-	},
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/structure/table/reinforced,
 /obj/item/stack/sticky_tape/surgical,
@@ -1291,6 +1285,10 @@
 /obj/item/clothing/gloves/latex/nitrile,
 /obj/item/clothing/gloves/latex/nitrile,
 /obj/item/book/manual/wiki/surgery,
+/obj/machinery/door/window/right/directional/east{
+	req_access = list("surgery");
+	name = "Surgical Supplies"
+	},
 /turf/open/floor/iron/white,
 /area/station/medical/surgery/theatre)
 "aFP" = (
@@ -2636,9 +2634,7 @@
 	pixel_x = -1;
 	pixel_y = 5
 	},
-/obj/structure/sign/poster/contraband/lusty_xenomorph{
-	pixel_x = -32
-	},
+/obj/structure/sign/poster/contraband/lusty_xenomorph/directional/west,
 /turf/open/floor/wood,
 /area/station/service/abandoned_gambling_den/gaming)
 "bkF" = (
@@ -3301,20 +3297,16 @@
 	pixel_x = 3;
 	pixel_y = 28
 	},
-/obj/machinery/door/window{
-	atom_integrity = 300;
-	base_state = "leftsecure";
-	dir = 8;
-	icon_state = "leftsecure";
-	name = "Primary AI Core Access";
-	req_access = list("ai_upload")
-	},
 /obj/machinery/door/poddoor/shutters/preopen{
 	dir = 8;
 	id = "AI Core shutters";
 	name = "AI Core Shutter"
 	},
 /obj/effect/turf_decal/delivery,
+/obj/machinery/door/window/right/directional/west{
+	name = "Primary AI Core Access";
+	req_access = list("ai_upload")
+	},
 /turf/open/floor/engine,
 /area/station/ai_monitored/turret_protected/ai)
 "bAZ" = (
@@ -7774,7 +7766,6 @@
 /turf/open/floor/carpet/blue,
 /area/station/security/checkpoint/customs)
 "dFj" = (
-/obj/effect/landmark/start/medical_doctor,
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -9020,12 +9011,11 @@
 	pixel_y = -3
 	},
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/right/directional/south{
-	dir = 8;
-	name = "First Aid Supplies";
-	req_access = list("medical")
-	},
 /obj/machinery/light/directional/east,
+/obj/machinery/door/window/right/directional/west{
+	req_access = list("medical");
+	name = "First Aid Supplies"
+	},
 /turf/open/floor/iron/white/textured,
 /area/station/medical/storage)
 "ejr" = (
@@ -10673,10 +10663,6 @@
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/hos)
 "eVV" = (
-/obj/machinery/door/window/brigdoor{
-	name = "Toilet";
-	dir = 4
-	},
 /turf/open/floor/iron/freezer,
 /area/station/service/abandoned_gambling_den/gaming)
 "eWH" = (
@@ -13230,7 +13216,6 @@
 "gaz" = (
 /obj/machinery/door/window/left/directional/north{
 	base_state = "right";
-	icon_state = "right";
 	name = "Containment Pen #6";
 	req_access = list("xenobiology")
 	},
@@ -14107,13 +14092,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/shower/directional/north,
 /obj/structure/curtain,
-/obj/structure/window/reinforced/spawner/directional/west,
-/obj/structure/window/reinforced/spawner/directional/east,
-/obj/machinery/door/window/left/directional/north{
-	name = "shower"
-	},
 /obj/structure/drain,
-/obj/structure/window/reinforced/spawner/directional/south,
 /turf/open/floor/noslip,
 /area/station/medical/medbay/central)
 "gzD" = (
@@ -15230,9 +15209,6 @@
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 9
 	},
-/obj/structure/sign/poster/official/ue_no{
-	pixel_y = 36
-	},
 /obj/item/book/manual/wiki/engineering_construction{
 	pixel_y = 7;
 	pixel_x = -10
@@ -15244,6 +15220,7 @@
 /obj/item/book/manual/wiki/engineering_hacking{
 	pixel_y = 7
 	},
+/obj/structure/sign/poster/official/ue_no/directional/north,
 /turf/open/floor/iron/dark/textured,
 /area/station/engineering/break_room)
 "har" = (
@@ -18137,12 +18114,10 @@
 /turf/open/floor/iron,
 /area/station/cargo/bitrunning/den)
 "iqc" = (
-/obj/structure/sign/poster/contraband/rebels_unite{
-	pixel_y = 36
-	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/vending/autodrobe,
+/obj/structure/sign/poster/contraband/rebels_unite/directional/north,
 /turf/open/floor/plating,
 /area/station/service/theater/abandoned)
 "iqf" = (
@@ -21009,12 +20984,11 @@
 /area/station/engineering/break_room)
 "jLV" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/door/window/right/directional/south{
-	dir = 8;
-	name = "Jim Norton's Quebecois Coffee";
-	req_one_access = list("service","maint_tunnels")
-	},
 /obj/effect/turf_decal/trimline/green/line,
+/obj/machinery/door/window/right/directional/west{
+	req_one_access = list("service","maint_tunnels");
+	name = "Jim Norton's Quebecois Coffee"
+	},
 /turf/open/floor/iron/dark,
 /area/station/service/cafeteria)
 "jLW" = (
@@ -21374,8 +21348,7 @@
 /obj/item/mod/module/plasma_stabilizer,
 /obj/item/mod/module/thermal_regulator,
 /obj/effect/turf_decal/tile/blue/full,
-/obj/machinery/door/window/right/directional/south{
-	dir = 1;
+/obj/machinery/door/window/right/directional/north{
 	name = "First Aid Supplies";
 	req_access = list("medical")
 	},
@@ -22038,19 +22011,8 @@
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/aft)
 "kjj" = (
-/obj/machinery/door/window/left/directional/north{
-	name = "Emergency Shower";
-	dir = 4
-	},
 /obj/structure/drain,
 /obj/machinery/shower/directional/east,
-/obj/structure/window/reinforced/tinted/frosted,
-/obj/structure/window/reinforced/tinted/frosted{
-	dir = 8
-	},
-/obj/structure/window/reinforced/tinted/frosted{
-	dir = 1
-	},
 /obj/effect/turf_decal/stripes/box,
 /obj/structure/curtain,
 /turf/open/floor/noslip,
@@ -22435,10 +22397,8 @@
 /area/station/commons/dorms)
 "ksq" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line,
-/obj/structure/sign/poster/traitor/random{
-	pixel_y = -28
-	},
 /obj/effect/turf_decal/trimline/yellow/filled/mid_joiner,
+/obj/structure/sign/poster/contraband/random/directional/south,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/commons/storage/emergency/starboard)
 "ksx" = (
@@ -25539,14 +25499,6 @@
 /turf/open/floor/iron/dark/textured,
 /area/station/security/office)
 "lHZ" = (
-/obj/machinery/door/window{
-	atom_integrity = 300;
-	base_state = "rightsecure";
-	dir = 4;
-	icon_state = "rightsecure";
-	name = "Primary AI Core Access";
-	req_access = list("ai_upload")
-	},
 /obj/machinery/door/poddoor/shutters/preopen{
 	dir = 4;
 	id = "AI Core shutters";
@@ -25555,6 +25507,10 @@
 /obj/effect/turf_decal/delivery,
 /obj/machinery/light_switch/directional/north{
 	pixel_x = 8
+	},
+/obj/machinery/door/window/right/directional/east{
+	name = "Primary AI Core Access";
+	req_access = list("ai_upload")
 	},
 /turf/open/floor/engine,
 /area/station/ai_monitored/turret_protected/ai)
@@ -28702,10 +28658,6 @@
 /obj/structure/curtain/cloth,
 /obj/structure/drain,
 /obj/machinery/shower/directional/north,
-/obj/machinery/door/window/brigdoor{
-	name = "Shower";
-	dir = 4
-	},
 /turf/open/floor/iron/freezer,
 /area/station/commons/dorms)
 "njU" = (
@@ -29795,9 +29747,6 @@
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos)
 "nKi" = (
-/obj/structure/sign/poster/official/cleanliness{
-	pixel_x = 32
-	},
 /obj/effect/turf_decal/bot,
 /obj/machinery/camera/directional/north{
 	c_tag = "Jim Norton's Quebecois Coffee"
@@ -29815,6 +29764,7 @@
 /obj/item/reagent_containers/condiment/soymilk,
 /obj/item/reagent_containers/condiment/milk,
 /obj/structure/closet/secure_closet/freezer/empty/open,
+/obj/structure/sign/poster/official/cleanliness/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/service/cafeteria)
 "nKk" = (
@@ -37681,13 +37631,8 @@
 	name = "Private Channel";
 	pixel_x = -8
 	},
-/obj/machinery/door/window{
-	atom_integrity = 300;
-	base_state = "rightsecure";
-	dir = 4;
-	icon_state = "rightsecure";
-	name = "Secondary AI Core Access";
-	pixel_x = 4;
+/obj/machinery/door/window/right/directional/east{
+	name = "Tertiary AI Core Access";
 	req_access = list("ai_upload")
 	},
 /turf/open/floor/circuit/red,
@@ -37897,10 +37842,8 @@
 "rnM" = (
 /obj/structure/chair/sofa/left,
 /obj/machinery/computer/security/telescreen/entertainment/directional/east,
-/obj/structure/sign/poster/contraband/pwr_game{
-	pixel_y = 36
-	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/sign/poster/contraband/pwr_game/directional/north,
 /turf/open/floor/wood,
 /area/station/service/abandoned_gambling_den/gaming)
 "rob" = (
@@ -38580,13 +38523,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/shower/directional/north,
-/obj/structure/window/reinforced/spawner/directional/west,
-/obj/structure/window/reinforced/spawner/directional/east,
-/obj/machinery/door/window/left/directional/north{
-	name = "shower"
-	},
 /obj/structure/drain,
-/obj/structure/window/reinforced/spawner/directional/south,
 /obj/structure/curtain,
 /turf/open/floor/noslip,
 /area/station/medical/medbay/central)
@@ -41481,13 +41418,8 @@
 	name = "Private Channel";
 	pixel_x = 8
 	},
-/obj/machinery/door/window{
-	atom_integrity = 300;
-	base_state = "leftsecure";
-	dir = 8;
-	icon_state = "leftsecure";
-	name = "Tertiary AI Core Access";
-	pixel_x = -3;
+/obj/machinery/door/window/right/directional/west{
+	name = "Secondary AI Core Access";
 	req_access = list("ai_upload")
 	},
 /turf/open/floor/circuit/red,
@@ -41911,11 +41843,9 @@
 /turf/open/floor/iron/dark,
 /area/station/medical/virology)
 "tet" = (
-/obj/structure/sign/poster/contraband/punch_shit{
-	pixel_y = 35
-	},
 /obj/machinery/light/very_dim/directional/north,
 /obj/structure/showcase/machinery/tv/broken,
+/obj/structure/sign/poster/contraband/punch_shit/directional/north,
 /turf/open/floor/iron,
 /area/station/service/theater/abandoned)
 "teK" = (
@@ -42891,9 +42821,7 @@
 /obj/machinery/vending/cart{
 	req_access = list("hop")
 	},
-/obj/structure/sign/poster/official/work_for_a_future{
-	pixel_y = 33
-	},
+/obj/structure/sign/poster/official/work_for_a_future/directional/north,
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/hop)
 "tGs" = (
@@ -45787,8 +45715,7 @@
 /area/station/maintenance/disposal/incinerator)
 "uTw" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/right/directional/south{
-	dir = 4;
+/obj/machinery/door/window/right/directional/east{
 	name = "Medical Reception Desk";
 	req_access = list("genetics")
 	},
@@ -46271,10 +46198,9 @@
 	pixel_y = -3
 	},
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/right/directional/south{
-	dir = 8;
-	name = "First Aid Supplies";
-	req_access = list("medical")
+/obj/machinery/door/window/right/directional/west{
+	req_access = list("medical");
+	name = "First Aid Supplies"
 	},
 /turf/open/floor/iron/white/textured,
 /area/station/medical/storage)
@@ -51760,10 +51686,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port/central)
 "xzj" = (
-/obj/structure/sign/poster/quirk/festive{
-	pixel_y = 5;
-	pixel_x = -32
-	},
+/obj/structure/sign/poster/official/enlist/directional/west,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/hop)
 "xzr" = (
