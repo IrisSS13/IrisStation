@@ -31,6 +31,7 @@ type Data =
       scanner_tier: number;
       broadcasting: BooleanLike;
       broadcasting_on_cd: BooleanLike;
+      telecomms_radio: BooleanLike; // IRIS ADDITION
     }
   | {
       connected: 0;
@@ -96,7 +97,8 @@ export function QuantumConsole(props) {
   const { data } = useBackend<Data>();
 
   return (
-    <Window title="Quantum Console" width={500} height={500}>
+    // IRIS EDIT -- down there, width from 500 to 600
+    <Window title="Quantum Console" width={600} height={500}>
       <Window.Content>
         {!!data.connected && !data.ready && <LoadingScreen />}
         <AccessView />
@@ -117,6 +119,7 @@ function AccessView(props) {
     available_domains = [],
     broadcasting,
     broadcasting_on_cd,
+    telecomms_radio, // IRIS ADDITION
     generated_domain,
     occupants,
     points,
@@ -158,6 +161,19 @@ function AccessView(props) {
                   Broadcast
                 </Button.Checkbox>
               </Tooltip>
+              {/* IRIS ADDITION START */}
+              <Tooltip
+                content="Toggles whether the bitrunning server
+                  broadcasts station's radio into the bitdomain."
+              >
+                <Button.Checkbox
+                  checked={telecomms_radio}
+                  onClick={() => act('radio')}
+                >
+                  Transmit Radio
+                </Button.Checkbox>
+              </Tooltip>
+              {/* IRIS ADDITION END */}
               <Tooltip
                 content="Get a random domain for more rewards.
                   Already played domains are unlikelly to appear again." // IRIS EDIT - REMOVES POINTS FOR RANDOM DOMAINS.
