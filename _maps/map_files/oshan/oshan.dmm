@@ -1395,13 +1395,6 @@
 	},
 /obj/effect/landmark/start/cyborg,
 /obj/machinery/light/small/directional/west,
-/obj/machinery/computer/security/telescreen{
-	desc = "Used for watching the ai_upload.";
-	dir = 4;
-	name = "AI Upload Monitor";
-	network = list("aiupload");
-	pixel_x = -29
-	},
 /obj/effect/turf_decal/tile/neutral/fourcorners{
 	color = "#009dc4"
 	},
@@ -1410,6 +1403,7 @@
 /obj/effect/turf_decal/trimline/dark_blue/filled/end{
 	dir = 8
 	},
+/obj/machinery/computer/security/telescreen/aiupload/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/turret_protected/ai_upload)
 "aJd" = (
@@ -8812,16 +8806,6 @@
 /obj/machinery/disposal/delivery_chute{
 	name = "Perma"
 	},
-/obj/machinery/door/window/brigdoor/security/cell{
-	id = "Cell 2";
-	name = "Perma Transfer"
-	},
-/obj/structure/window/reinforced/tinted/frosted{
-	dir = 4
-	},
-/obj/structure/window/reinforced/tinted/frosted{
-	dir = 8
-	},
 /obj/effect/turf_decal/trimline/red/filled/warning{
 	dir = 6
 	},
@@ -8833,6 +8817,11 @@
 	},
 /obj/effect/turf_decal/trimline/red/filled/warning{
 	dir = 5
+	},
+/obj/structure/window/reinforced/tinted/frosted/spawner/directional/west,
+/obj/structure/window/reinforced/tinted/frosted/spawner/directional/east,
+/obj/machinery/door/window/brigdoor/security/cell/right/directional/south{
+	name = "Perma Transfer"
 	},
 /turf/open/floor/iron/dark/textured,
 /area/station/security/brig)
@@ -18425,11 +18414,6 @@
 	req_access = list("xenobiology")
 	},
 /obj/structure/table/reinforced/plastitaniumglass,
-/obj/machinery/computer/security/telescreen{
-	name = "Test Chamber Monitor";
-	network = list("xeno");
-	pixel_y = 9
-	},
 /obj/item/radio/intercom/directional/north,
 /turf/open/floor/iron/dark/textured,
 /area/station/science/xenobiology)
@@ -20815,6 +20799,7 @@
 /obj/structure/railing{
 	dir = 5
 	},
+/obj/machinery/computer/security/telescreen/xeno/directional/north,
 /turf/open/floor/iron/dark/textured,
 /area/station/science/xenobiology)
 "jIQ" = (
@@ -39053,13 +39038,6 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/station/ai_monitored/security/armory)
 "rPw" = (
-/obj/machinery/computer/security/telescreen{
-	desc = "Used for monitoring medbay to ensure patient safety.";
-	dir = 4;
-	name = "Medbay Monitor";
-	network = list("medbay");
-	pixel_x = -32
-	},
 /obj/machinery/light_switch/directional/west{
 	pixel_x = -20
 	},
@@ -39068,6 +39046,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
+/obj/machinery/computer/security/telescreen/med_sec/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/hallway/secondary/exit/departure_lounge)
 "rPF" = (
@@ -46603,19 +46582,13 @@
 /turf/closed/wall,
 /area/station/maintenance/starboard/aft)
 "vpM" = (
-/obj/machinery/computer/security/telescreen{
-	desc = "Used for watching the turbine vent.";
-	dir = 8;
-	name = "turbine vent monitor";
-	network = list("turbine");
-	pixel_x = 29
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
 /obj/structure/cable,
 /obj/machinery/camera/autoname/directional/east,
+/obj/machinery/computer/security/telescreen/turbine/directional/east,
 /turf/open/floor/iron,
 /area/station/maintenance/disposal/incinerator)
 "vqk" = (
@@ -49302,10 +49275,8 @@
 /area/station/medical/medbay/lobby)
 "wAo" = (
 /obj/structure/table/reinforced,
-/obj/machinery/computer/security/telescreen/ce{
-	pixel_y = 27
-	},
 /obj/item/lighter,
+/obj/machinery/computer/security/telescreen/ce/directional/north,
 /turf/open/floor/carpet/orange,
 /area/station/command/heads_quarters/ce)
 "wAH" = (
