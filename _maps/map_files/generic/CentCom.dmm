@@ -244,7 +244,7 @@
 	name = "Door Bolt";
 	normaldoorcontrol = 1;
 	specialfunctions = 4;
-	id = "Office1"
+	id = "OfficeCran"
 	},
 /obj/structure/table/wood/fancy/black,
 /turf/open/floor/carpet/stellar,
@@ -653,6 +653,13 @@
 /obj/effect/turf_decal/tile/dark_blue/anticorner,
 /turf/open/floor/iron/white/textured_large,
 /area/centcom/central_command_areas/control)
+"dh" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/wood/large,
+/area/centcom/central_command_areas/hallway)
 "dj" = (
 /obj/effect/landmark/thunderdome/one,
 /obj/effect/turf_decal/stripes/line{
@@ -1087,6 +1094,11 @@
 /obj/machinery/door/firedoor/heavy,
 /turf/open/indestructible/plating,
 /area/centcom/central_command_areas/prison)
+"fy" = (
+/obj/effect/turf_decal/siding/wood,
+/obj/machinery/door/firedoor,
+/turf/open/floor/wood/large,
+/area/centcom/central_command_areas/hallway)
 "fz" = (
 /obj/structure/railing,
 /obj/effect/turf_decal/tile/dark/opposingcorners,
@@ -2816,6 +2828,10 @@
 /obj/effect/light_emitter/thunderdome,
 /turf/open/floor/iron,
 /area/centcom/tdome/arena)
+"pe" = (
+/obj/machinery/door/firedoor,
+/turf/open/floor/wood/large,
+/area/centcom/central_command_areas/garden)
 "ph" = (
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/wood/large,
@@ -3180,12 +3196,12 @@
 /turf/open/floor/wood/large,
 /area/centcom/central_command_areas/hallway)
 "ri" = (
-/obj/structure/chair/sofa/right/maroon{
-	dir = 1
-	},
-/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /obj/effect/turf_decal/siding/dark{
 	dir = 4
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
+/obj/structure/chair/sofa/right/maroon{
+	dir = 1
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/central_command_areas/admin)
@@ -3322,7 +3338,7 @@
 	name = "Door Bolt";
 	normaldoorcontrol = 1;
 	specialfunctions = 4;
-	id = "Office3"
+	id = "OfficeNNG"
 	},
 /turf/open/floor/carpet/executive,
 /area/centcom/central_command_areas/admin)
@@ -3543,12 +3559,13 @@
 	dir = 1
 	},
 /obj/structure/sign/warning/yes_smoking/circle/directional/north,
+/obj/machinery/door/firedoor,
 /turf/open/floor/wood/large,
 /area/centcom/central_command_areas/garden)
 "tv" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Cran's Office";
-	id_tag = "Office1"
+	id_tag = "OfficeCran"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/admin/general,
 /turf/open/floor/carpet/royalblack,
@@ -3746,7 +3763,10 @@
 /area/centcom/central_command_areas/medbay)
 "ux" = (
 /obj/effect/turf_decal/stripes/line,
-/obj/machinery/door/window/survival_pod,
+/obj/machinery/door/window/survival_pod{
+	req_access = list("cent_captain");
+	name = "Air Traffic Control"
+	},
 /turf/open/floor/iron/large,
 /area/centcom/central_command_areas/ferry)
 "uB" = (
@@ -4025,7 +4045,9 @@
 /turf/open/floor/grass,
 /area/centcom/central_command_areas/garden)
 "wu" = (
-/obj/machinery/door/window/survival_pod/left/directional/east,
+/obj/machinery/door/window/survival_pod/left/directional/east{
+	req_access = list("cent_captain")
+	},
 /turf/open/indestructible/vault,
 /area/centcom/central_command_areas/admin)
 "wA" = (
@@ -4677,6 +4699,7 @@
 "zS" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/sign/warning/yes_smoking/circle/directional/south,
+/obj/machinery/door/firedoor,
 /turf/open/floor/wood/large,
 /area/centcom/central_command_areas/garden)
 "zT" = (
@@ -5115,6 +5138,7 @@
 	name = "Thunderdome"
 	},
 /obj/effect/turf_decal/stripes/line,
+/obj/machinery/door/firedoor/heavy,
 /turf/open/floor/iron,
 /area/centcom/tdome/observation)
 "CA" = (
@@ -5409,17 +5433,26 @@
 /area/centcom/central_command_areas/supply)
 "DP" = (
 /obj/structure/table/reinforced,
-/obj/item/clipboard,
-/obj/item/folder/red,
+/obj/item/clipboard{
+	pixel_x = -6;
+	pixel_y = -2
+	},
+/obj/item/folder/red{
+	pixel_x = -5;
+	pixel_y = -3
+	},
 /obj/item/stamp/denied{
-	pixel_x = 6;
-	pixel_y = 6
+	pixel_x = 10;
+	pixel_y = 13
 	},
 /obj/item/stamp{
-	pixel_x = 3;
-	pixel_y = 3
+	pixel_x = 1;
+	pixel_y = 13
 	},
-/obj/item/stamp/centcom,
+/obj/item/stamp/centcom{
+	pixel_x = -9;
+	pixel_y = 13
+	},
 /obj/effect/turf_decal/siding/dark{
 	dir = 4
 	},
@@ -5498,6 +5531,7 @@
 	name = "CentCom Supply"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/admin/storage,
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/supply)
 "Ek" = (
@@ -5681,6 +5715,10 @@
 /obj/structure/hedge,
 /turf/open/floor/iron/dark/herringbone,
 /area/centcom/central_command_areas/bar)
+"EU" = (
+/obj/machinery/door/firedoor,
+/turf/open/floor/wood/large,
+/area/centcom/central_command_areas/hallway)
 "EV" = (
 /obj/structure/table/wood,
 /obj/machinery/microwave{
@@ -5899,10 +5937,10 @@
 /turf/open/floor/iron/white/smooth_half,
 /area/centcom/central_command_areas/hallway)
 "FP" = (
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /obj/structure/chair/sofa/left/maroon{
 	dir = 1
 	},
-/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/central_command_areas/admin)
 "FQ" = (
@@ -6036,6 +6074,21 @@
 /obj/machinery/chem_master/fullupgrade,
 /turf/open/floor/iron/dark/textured,
 /area/centcom/central_command_areas/medbay)
+"Gm" = (
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/machinery/light/small/directional/east,
+/obj/machinery/button/door/indestructible{
+	pixel_x = 23;
+	pixel_y = 15;
+	name = "Emergency Armory Release";
+	normaldoorcontrol = 1;
+	specialfunctions = 4;
+	id = "XCCertstore";
+	req_access = list("cent_captain");
+	silicon_access_disabled = 1
+	},
+/turf/open/floor/iron/dark,
+/area/centcom/central_command_areas/briefing)
 "Gn" = (
 /obj/effect/turf_decal/tile/purple/half{
 	dir = 8
@@ -7025,6 +7078,7 @@
 "Kg" = (
 /obj/item/radio/intercom/directional/north,
 /obj/structure/chair,
+/obj/machinery/firealarm/directional/west,
 /turf/open/floor/carpet/grimey,
 /area/centcom/tdome/administration)
 "Kh" = (
@@ -7039,9 +7093,10 @@
 "Ki" = (
 /obj/machinery/door/airlock/centcom{
 	name = "NoName's Office";
-	id_tag = "Office3"
+	id_tag = "OfficeNNG"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/admin/general,
+/obj/machinery/door/firedoor/heavy,
 /turf/open/floor/carpet/royalblack,
 /area/centcom/central_command_areas/admin)
 "Kj" = (
@@ -7307,7 +7362,7 @@
 	name = "Door Bolt";
 	normaldoorcontrol = 1;
 	specialfunctions = 4;
-	id = "Office2"
+	id = "OfficeBright"
 	},
 /obj/item/paper_bin/carbon,
 /obj/item/paper/carbon,
@@ -7807,7 +7862,7 @@
 /obj/effect/mapping_helpers/airlock/access/all/admin/general,
 /obj/machinery/door/airlock/centcom{
 	name = "Bright's Office";
-	id_tag = "Office2"
+	id_tag = "OfficeBright"
 	},
 /turf/open/floor/iron/dark/herringbone,
 /area/centcom/central_command_areas/admin)
@@ -8259,7 +8314,7 @@
 "PQ" = (
 /obj/machinery/telecomms/allinone/nuclear,
 /turf/open/indestructible/plating,
-/area/space)
+/area/centcom)
 "PS" = (
 /obj/machinery/light/directional/south,
 /obj/machinery/suit_storage_unit/centcom,
@@ -8355,10 +8410,10 @@
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/supplypod/loading/one)
 "Qq" = (
+/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /obj/structure/chair/sofa/middle/maroon{
 	dir = 1
 	},
-/obj/structure/window/reinforced/survival_pod/spawner/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
 /area/centcom/central_command_areas/admin)
 "Qr" = (
@@ -8547,6 +8602,11 @@
 /obj/machinery/light/floor,
 /turf/open/floor/iron,
 /area/centcom/tdome/administration)
+"Rd" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/turf/open/floor/plating,
+/area/centcom/central_command_areas/supply)
 "Re" = (
 /obj/machinery/light/floor,
 /turf/open/floor/iron/dark/smooth_large,
@@ -9511,6 +9571,11 @@
 	},
 /turf/open/floor/carpet/executive,
 /area/centcom/central_command_areas/admin)
+"VF" = (
+/obj/effect/turf_decal/tile/dark/opposingcorners,
+/obj/machinery/firealarm/directional/north,
+/turf/open/floor/iron/dark,
+/area/centcom/central_command_areas/hallway)
 "VI" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/effect/turf_decal/stripes/line,
@@ -10387,7 +10452,8 @@
 	id = "XCCertmech";
 	name = "ERT Mech Shutters";
 	pixel_y = 26;
-	pixel_x = 26
+	pixel_x = 26;
+	req_access = list("cent_captain")
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/armory)
@@ -47959,7 +48025,7 @@ GQ
 GQ
 GQ
 ts
-po
+pe
 zS
 GQ
 GQ
@@ -49744,9 +49810,9 @@ fB
 aa
 GQ
 GQ
-if
-Fm
-ph
+dh
+EU
+fy
 GQ
 GQ
 aa
@@ -55365,7 +55431,7 @@ aa
 aa
 gO
 kM
-Hc
+Gm
 RH
 RH
 RH
@@ -60820,7 +60886,7 @@ aa
 aa
 aa
 GQ
-wU
+VF
 if
 Ah
 Fm
@@ -62363,9 +62429,9 @@ XP
 XP
 GQ
 GQ
-if
-Fm
-ph
+dh
+EU
+fy
 GQ
 GQ
 XP
@@ -62851,10 +62917,10 @@ lG
 dM
 iF
 Ei
-iX
+Rd
 OK
 sX
-iX
+Rd
 iF
 aa
 aa
