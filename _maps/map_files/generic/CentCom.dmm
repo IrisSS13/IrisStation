@@ -4804,6 +4804,9 @@
 /obj/structure/table/reinforced,
 /obj/item/restraints/handcuffs,
 /obj/item/radio,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/armory)
 "Ax" = (
@@ -5391,7 +5394,6 @@
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/hallway)
 "DK" = (
-/obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/rack/gunrack,
 /obj/item/gun/energy/modular_laser_rifle{
 	pixel_x = -8;
@@ -5404,7 +5406,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
-/turf/open/floor/iron/dark,
+/turf/open/floor/iron,
 /area/centcom/central_command_areas/armory)
 "DL" = (
 /obj/structure/cable,
@@ -6078,14 +6080,11 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/machinery/light/small/directional/east,
 /obj/machinery/button/door/indestructible{
-	pixel_x = 23;
-	pixel_y = 15;
-	name = "Emergency Armory Release";
-	normaldoorcontrol = 1;
-	specialfunctions = 4;
 	id = "XCCertstore";
-	req_access = list("cent_captain");
-	silicon_access_disabled = 1
+	name = "Armory Release";
+	pixel_y = 15;
+	pixel_x = 24;
+	req_access = list("cent_captain")
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/briefing)
@@ -6357,7 +6356,6 @@
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/ferry/hallway)
 "Hy" = (
-/obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/rack/gunrack,
 /obj/item/gun/energy/modular_laser_rifle/carbine{
 	pixel_x = 0;
@@ -6370,7 +6368,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/turf/open/floor/iron/dark,
+/turf/open/floor/iron,
 /area/centcom/central_command_areas/armory)
 "HA" = (
 /obj/effect/turf_decal/siding/wood{
@@ -7117,9 +7115,7 @@
 /area/centcom/central_command_areas/admin)
 "Kp" = (
 /obj/structure/fans/tiny/forcefield,
-/obj/machinery/door/poddoor/ert{
-	id = "XCCferrydock"
-	},
+/obj/machinery/door/poddoor/shuttledock,
 /turf/open/indestructible/plating,
 /area/centcom/central_command_areas/ferry)
 "Kq" = (
@@ -7591,13 +7587,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/white,
 /area/centcom/central_command_areas/evacuation/ship)
-"LO" = (
-/obj/machinery/door/poddoor/ert{
-	id = "XCCferrydock"
-	},
-/obj/structure/fans/tiny/forcefield,
-/turf/open/indestructible/plating,
-/area/centcom/central_command_areas/ferry)
 "LP" = (
 /obj/effect/turf_decal/tile/neutral/full,
 /obj/effect/turf_decal/stripes/corner{
@@ -10336,7 +10325,6 @@
 /turf/open/floor/grass,
 /area/centcom/central_command_areas/garden)
 "Zc" = (
-/obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/rack/gunrack,
 /obj/item/gun/energy/pulse/carbine/loyalpin{
 	pixel_x = 0;
@@ -10349,7 +10337,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/turf/open/floor/iron/dark,
+/turf/open/floor/iron,
 /area/centcom/central_command_areas/armory)
 "Zf" = (
 /obj/effect/turf_decal/siding/wood/corner{
@@ -49251,7 +49239,7 @@ aa
 aa
 aa
 aa
-LO
+Kp
 ek
 ek
 ek
@@ -49508,7 +49496,7 @@ aa
 aa
 aa
 aa
-LO
+Kp
 ek
 ek
 WD
@@ -49765,7 +49753,7 @@ aa
 aa
 aa
 aa
-LO
+Kp
 ek
 WD
 pa
@@ -50022,7 +50010,7 @@ aa
 aa
 aa
 aa
-LO
+Kp
 WD
 pa
 Os
@@ -50279,7 +50267,7 @@ aa
 aa
 aa
 aa
-LO
+Kp
 QJ
 Os
 Os
@@ -50536,7 +50524,7 @@ aa
 aa
 aa
 aa
-LO
+Kp
 ek
 Os
 Os
@@ -50793,7 +50781,7 @@ aa
 aa
 aa
 aa
-LO
+Kp
 QJ
 Os
 Os
@@ -51050,7 +51038,7 @@ aa
 aa
 aa
 aa
-LO
+Kp
 Ku
 lj
 Os
@@ -51307,7 +51295,7 @@ aa
 aa
 aa
 aa
-LO
+Kp
 ek
 Ku
 lj
@@ -51564,7 +51552,7 @@ aa
 aa
 aa
 aa
-LO
+Kp
 ek
 ek
 Ku
