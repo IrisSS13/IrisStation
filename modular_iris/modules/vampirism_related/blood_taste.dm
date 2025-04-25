@@ -11,9 +11,9 @@
 
 	blood_taste_text += "[Q.Find(/datum/quirk/blooddeficiency) ? ". They are blood deficient":""]"
 
-	blood_taste_text += "[Q.Find(/datum/quirk/item_quirk/allergic) || data["quirks"].Find(/datum/quirk/item_quirk/food_allergic) ? ". They have some sort of an alergy":""]"
+	blood_taste_text += "[Q.Find(/datum/quirk/item_quirk/allergic) || Q.Find(/datum/quirk/item_quirk/food_allergic) ? ". They have some sort of an alergy":""]"
 
-	blood_taste_text += "[Q.Find(/datum/quirk/insanity) || data["quirks"].Find(/datum/quirk/item_quirk/addict/junkie) ? ". Their mind seems to be altered by something":""]"
+	blood_taste_text += "[Q.Find(/datum/quirk/insanity) || Q.Find(/datum/quirk/item_quirk/addict/junkie) ? ". Their mind seems to be altered by something":""]"
 
 	blood_taste_text += "[Q.Find(/datum/quirk/item_quirk/addict/alcoholic) || Q.Find(/datum/quirk/item_quirk/addict/junkie) ? ". They seem to be addicted to something":""]"
 
