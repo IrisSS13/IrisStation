@@ -28,7 +28,7 @@
 			QDEL_NULL(cyborg.particles)	// Removing left over particles
 
 
-/obj/item/robot_model/proc/update_dogborg()
+/obj/item/robot_model/proc/update_quadborg()
 	var/mob/living/silicon/robot/cyborg = robot || loc
 	if (!istype(robot))
 		return
@@ -41,18 +41,6 @@
 		cyborg.set_base_pixel_x(0)
 		remove_verb(cyborg, /mob/living/silicon/robot/proc/robot_lay_down)
 		remove_verb(cyborg, /mob/living/silicon/robot/proc/rest_style)
-
-//STANDARD
-/obj/item/robot_model/standard
-	name = "Standard"
-	borg_skins = list(
-		"Default" = list(SKIN_ICON_STATE = "robot", SKIN_FEATURES = list(TRAIT_R_SMALL)),
-		"Heavy" = list(SKIN_ICON_STATE = "heavysd", SKIN_ICON = CYBORG_ICON_STANDARD, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK)),
-		"Eyebot" = list(SKIN_ICON_STATE = "eyebotsd", SKIN_ICON = CYBORG_ICON_STANDARD, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK, TRAIT_R_SMALL)),
-		"Robot" = list(SKIN_ICON_STATE = "robot_old", SKIN_ICON = CYBORG_ICON_STANDARD, SKIN_FEATURES = list(TRAIT_R_UNIQUEWRECK)),
-		"Protectron" = list(SKIN_ICON_STATE = "protectron_standard", SKIN_ICON = CYBORG_ICON_STANDARD),
-		"Miss M" = list(SKIN_ICON_STATE = "missm_sd", SKIN_ICON = CYBORG_ICON_STANDARD)
-	)
 
 //SERVICE
 /obj/item/robot_model/service
