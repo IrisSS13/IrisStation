@@ -190,6 +190,12 @@
 #define ANNOUNCER_SHUTTLE "announcer_shuttle"
 //NOVA EDIT END
 
+//IRIS EDIT BEGIN
+#define ANNOUNCER_SIRENDOOM "announcer_sirendoom"
+#define ANNOUNCER_EPSILON "announcer_epsilon"
+#define ANNOUNCER_SIRENLOCKDOWN "announcer_sirenlockdown"
+#define ANNOUNCER_SIRENFULLALERT "announcer_sirenfullalert"
+//IRIS EDIT END
 
 /// Global list of all of our announcer keys.
 GLOBAL_LIST_INIT(announcer_keys, list(
@@ -233,6 +239,12 @@ GLOBAL_LIST_INIT(announcer_keys, list(
 	ANNOUNCER_NRI_RAIDERS,
 	ANNOUNCER_OUTBREAK6,
 	//NOVA EDIT END
+	//IRIS EDIT BEGIN
+	ANNOUNCER_SIRENDOOM,
+	ANNOUNCER_EPSILON,
+	ANNOUNCER_SIRENLOCKDOWN,
+	ANNOUNCER_SIRENFULLALERT,
+	//IRIS EDIT END
 ))
 
 /// List of all of our sound keys.
@@ -320,6 +332,11 @@ GLOBAL_LIST_INIT(announcer_keys, list(
 #define SFX_SUTURE_END "suture_end"
 #define SFX_SUTURE_PICKUP "suture_pickup"
 #define SFX_SUTURE_DROP "suture_drop"
+#define SFX_REGEN_MESH_BEGIN "regen_mesh_begin"
+#define SFX_REGEN_MESH_CONTINUOUS "regen_mesh_continuous"
+#define SFX_REGEN_MESH_END "regen_mesh_end"
+#define SFX_REGEN_MESH_PICKUP "regen_mesh_pickup"
+#define SFX_REGEN_MESH_DROP "regen_mesh_drop"
 
 // Standard is 44.1khz
 #define MIN_EMOTE_PITCH 40000

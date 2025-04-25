@@ -108,8 +108,6 @@
 	name = "core audiosomes"
 	zone = BODY_ZONE_CHEST
 	organ_flags = ORGAN_UNREMOVABLE
-	overrides_sprite_datum_organ_type = TRUE
-	bodypart_overlay = /datum/bodypart_overlay/mutant/ears
 
 /obj/item/organ/tongue/jelly
 	zone = BODY_ZONE_CHEST
@@ -149,6 +147,7 @@
 
 /obj/item/organ/brain/slime/Initialize(mapload, mob/living/carbon/organ_owner, list/examine_list)
 	. = ..()
+	AddComponent(/datum/component/bubble_icon_override, "slime", BUBBLE_ICON_PRIORITY_ORGAN)
 	colorize()
 
 /obj/item/organ/brain/slime/examine()
@@ -579,7 +578,7 @@
 
 /**
  * Alter Form is the ability of slimes to edit many of their character attributes at will
- * This covers most thing about their character, from body size or colour, to adding new wings, tails, ears, etc, to changing the presence of their genitalia
+ * This covers most thing about their character, from body size or colour, to adding new wings, tails, ears, etc
  * There are some balance concerns with some of these (looking at you, body size), but nobody has abused it Yet:tm:, and it would be exceedingly obvious if they did
  */
 /datum/action/innate/alter_form

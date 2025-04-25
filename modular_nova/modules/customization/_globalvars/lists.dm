@@ -1,9 +1,5 @@
 //DO NOT CHANGE THOSE LISTS UNLESS YOU KNOW WHAT YOURE DOING (will mess savefiles)
 
-
-
-
-
 GLOBAL_LIST_INIT(marking_zone_to_bitflag, list(
 	BODY_ZONE_HEAD = HEAD,
 	BODY_ZONE_CHEST = CHEST,

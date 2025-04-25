@@ -209,11 +209,14 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	mob_trait = TRAIT_FELINE
 	icon = FA_ICON_CAT
 
+//IRIS EDIT: Added HATED_BY_DOGS and CATLIKE_GRACE to bring this quirk in-line with the other feline-based species
 /datum/quirk/feline_aspect/add_unique(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/obj/item/organ/tongue/cat/new_tongue = new(get_turf(human_holder))
 
 	ADD_TRAIT(human_holder, TRAIT_WATER_HATER, QUIRK_TRAIT)
+	ADD_TRAIT(human_holder, TRAIT_HATED_BY_DOGS, SPECIES_TRAIT)
+	ADD_TRAIT(human_holder, TRAIT_CATLIKE_GRACE, SPECIES_TRAIT)
 
 	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
 	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
@@ -223,6 +226,8 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	var/obj/item/organ/tongue/new_tongue = new human_holder.dna.species.mutanttongue
 
 	REMOVE_TRAIT(human_holder, TRAIT_WATER_HATER, QUIRK_TRAIT)
+	REMOVE_TRAIT(human_holder, TRAIT_HATED_BY_DOGS, SPECIES_TRAIT)
+	REMOVE_TRAIT(human_holder, TRAIT_CATLIKE_GRACE, SPECIES_TRAIT)
 
 	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
 	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
@@ -237,6 +242,7 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	value = 0
 	medical_record_text = "Patient was seen digging through the trash can. Keep an eye on them."
 
+//IRIS EDIT: Added olfaction to lean further into the dog-like elements, and bring the quirk in-line with its feline counterpart
 /datum/quirk/canine_aspect/add_unique(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/obj/item/organ/tongue/dog/new_tongue = new(get_turf(human_holder))
@@ -244,12 +250,19 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
 	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
+	human_holder.dna.add_mutation(/datum/mutation/human/olfaction, MUT_NORMAL)
+	human_holder.dna.activate_mutation(/datum/mutation/human/olfaction)
+	for(var/datum/mutation/human/olfaction/sneef in human_holder.dna.mutations)
+		sneef.mutadone_proof = TRUE
+
 /datum/quirk/canine_aspect/remove()
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/obj/item/organ/tongue/new_tongue = new human_holder.dna.species.mutanttongue
 
 	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
 	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+
+	human_holder.dna.remove_mutation(/datum/mutation/human/olfaction)
 
 /datum/quirk/avian_aspect
 	name = "Avian Traits"
@@ -261,12 +274,14 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	value = 0
 	medical_record_text = "Patient exhibits avian-adjacent mannerisms."
 
+//IRIS EDIT: Makes avian-aspected characters have a chance to drop feathers upon being hit
 /datum/quirk/avian_aspect/add_unique(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/obj/item/organ/tongue/avian/new_tongue = new(get_turf(human_holder))
 
 	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
 	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+	human_holder.AddComponent(/datum/component/pinata, candy = list(/obj/item/feather))
 
 /datum/quirk/avian_aspect/remove()
 	var/mob/living/carbon/human/human_holder = quirk_holder
@@ -274,6 +289,8 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 
 	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
 	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+	var/datum/component/pinata/feathered_removal = quirk_holder.GetExactComponent(/datum/component/pinata)
+	feathered_removal.Destroy()
 
 #define SEVERITY_STUN 1
 #define SEVERITY_SNEEZE 2

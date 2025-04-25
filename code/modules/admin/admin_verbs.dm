@@ -13,7 +13,7 @@ ADMIN_VERB(hide_verbs, R_NONE, "Adminverbs - Hide All", "Hide most of your admin
 	to_chat(user, span_interface("Almost all of your adminverbs have been hidden."), confidential = TRUE)
 	BLACKBOX_LOG_ADMIN_VERB("Hide All Adminverbs")
 
-ADMIN_VERB(admin_ghost, R_ADMIN, "AGhost", "Become a ghost without DNR.", ADMIN_CATEGORY_GAME)
+ADMIN_VERB(admin_ghost, R_ADMIN|R_DEBUG, "AGhost", "Become a ghost without DNR.", ADMIN_CATEGORY_GAME)
 	. = TRUE
 	if(isobserver(user.mob))
 		//re-enter
@@ -92,7 +92,7 @@ ADMIN_VERB(unban_panel, R_BAN, "Unbanning Panel", "Unban players here.", ADMIN_C
 	user.holder.unban_panel()
 	BLACKBOX_LOG_ADMIN_VERB("Unbanning Panel")
 
-ADMIN_VERB(game_panel, R_ADMIN, "Game Panel", "Look at the state of the game.", ADMIN_CATEGORY_GAME)
+ADMIN_VERB(game_panel, R_ADMIN|R_DEBUG, "Game Panel", "Look at the state of the game.", ADMIN_CATEGORY_GAME) //IRIS EDIT
 	user.holder.Game()
 	BLACKBOX_LOG_ADMIN_VERB("Game Panel")
 
@@ -679,6 +679,33 @@ ADMIN_VERB(give_ai_controller, R_FUN, "Give AI Controller", ADMIN_VERB_NO_DESCRI
 	var/chosen_type = controllers_by_name[chosen]
 	var/datum/admin_ai_template/using_template = new chosen_type
 	using_template.apply(my_guy, user)
+
+ADMIN_VERB(clear_legacy_asset_cache, R_DEBUG, "Clear Legacy Asset Cache", "Clears the legacy asset cache, regenerating it immediately (may cause lag).", ADMIN_CATEGORY_DEBUG)
+	if(!CONFIG_GET(flag/cache_assets))
+		to_chat(user, span_warning("Asset caching is disabled in the config!"))
+		return
+	var/regenerated = 0
+	for(var/datum/asset/target_spritesheet as anything in subtypesof(/datum/asset))
+		if(!initial(target_spritesheet.cross_round_cachable))
+			continue
+		if(target_spritesheet == initial(target_spritesheet._abstract))
+			continue
+		var/datum/asset/asset_datum = GLOB.asset_datums[target_spritesheet]
+		asset_datum.regenerate()
+		regenerated++
+	to_chat(user, span_notice("Regenerated [regenerated] asset\s."))
+
+ADMIN_VERB(clear_smart_asset_cache, R_DEBUG, "Clear Smart Asset Cache", "Clear the smart asset cache, causing it to regenerate next round.", ADMIN_CATEGORY_DEBUG)
+	if(!CONFIG_GET(flag/smart_cache_assets))
+		to_chat(user, span_warning("Smart asset caching is disabled in the config!"))
+		return
+	var/cleared = 0
+	for(var/datum/asset/spritesheet_batched/target_spritesheet as anything in subtypesof(/datum/asset/spritesheet_batched))
+		if(target_spritesheet == initial(target_spritesheet._abstract))
+			continue
+		fdel("[ASSET_CROSS_ROUND_SMART_CACHE_DIRECTORY]/spritesheet_cache.[initial(target_spritesheet.name)].json")
+		cleared++
+	to_chat(user, span_notice("Cleared [cleared] asset\s."))
 
 ADMIN_VERB(give_ai_speech, R_FUN, "Give Random AI Speech", ADMIN_VERB_NO_DESCRIPTION, ADMIN_CATEGORY_HIDDEN, mob/living/my_guy)
 	if (isnull(my_guy.ai_controller))

@@ -26,7 +26,7 @@
 	response_harm_simple = "splat"
 	density = FALSE
 	faction = list(FACTION_HOSTILE, FACTION_MAINT_CREATURES)
-	attack_sound = null // NOVA EDIT - No more frog ear-rape - ORIGINAL: attack_sound = 'sound/mobs/non-humanoids/frog/reee.ogg'
+	attack_sound = 'sound/mobs/non-humanoids/frog/reee.ogg'
 	butcher_results = list(/obj/item/food/nugget = 1)
 	pass_flags = PASSTABLE | PASSGRILLE | PASSMOB
 	mob_size = MOB_SIZE_TINY
@@ -40,24 +40,31 @@
 
 	ai_controller = /datum/ai_controller/basic_controller/frog
 
-	var/stepped_sound = null // NOVA EDIT - No more frog ear-rape - ORIGINA: var/stepped_sound = 'sound/mobs/non-humanoids/frog/huuu.ogg'
+	var/stepped_sound = 'sound/mobs/non-humanoids/frog/huuu.ogg'
 	///How much of a reagent the mob injects on attack
 	var/poison_per_bite = 3
 	///What reagent the mob injects targets with
 	var/poison_type = /datum/reagent/drug/space_drugs
+	//IRIS EDIT ADDITION BEGIN - RARE_FROG_PET
+	///Chance of this frog being made rare upon spawning
+	var/rare_chance = 1
+	//IRIS EDIT ADDITION END
 
 /mob/living/basic/frog/Initialize(mapload)
 	. = ..()
 
 	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
 
-	if(prob(1))
+	//IRIS EDIT CHANGE BEGIN - RARE_FROG_PET
+	if(prob(rare_chance))
+	//IRIS EDIT CHANGE END
 		make_rare()
-
+	/* // NOVA EDIT REMOVAL START
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
+	*/ // NOVA EDIT REMOVAL END
 	AddElement(/datum/element/venomous, poison_type, poison_per_bite)
 	AddElement(/datum/element/ai_retaliate)
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_FROG, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 5)

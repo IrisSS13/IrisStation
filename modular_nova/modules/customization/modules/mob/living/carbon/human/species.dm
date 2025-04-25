@@ -3,8 +3,6 @@ GLOBAL_LIST_EMPTY(customizable_races)
 /datum/species
 	mutant_bodyparts = list()
 	digitigrade_customization = DIGITIGRADE_OPTIONAL // Doing this so that the legs preference actually works for everyone.
-	///Self explanatory
-	var/can_have_genitals = TRUE
 	/// Whether or not the gender shaping is disabled for this species
 	var/no_gender_shaping
 	///A list of actual body markings on the owner of the species. Associative lists with keys named by limbs defines, pointing to a list with names and colors for the marking to be rendered. This is also stored in the DNA
@@ -34,7 +32,9 @@ GLOBAL_LIST_EMPTY(customizable_races)
 
 /// Returns a list of the default mutant bodyparts, and whether or not they can be randomized or not
 /datum/species/proc/get_default_mutant_bodyparts()
-	return list()
+	return list(
+		"ears" = list("None", FALSE),
+	)
 
 /datum/species/proc/handle_mutant_bodyparts(mob/living/carbon/human/source, forced_colour)
 	return
@@ -86,12 +86,10 @@ GLOBAL_LIST_EMPTY(customizable_races)
 
 /datum/species/plasmaman
 	mutant_bodyparts = list()
-	can_have_genitals = FALSE
 	can_augment = FALSE
 
 /datum/species/ethereal
 	mutant_bodyparts = list()
-	can_have_genitals = FALSE
 	can_augment = FALSE
 
 /datum/species/pod

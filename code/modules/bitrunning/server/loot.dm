@@ -33,6 +33,7 @@
 	SEND_SIGNAL(src, COMSIG_BITRUNNER_DOMAIN_COMPLETE, cache, generated_domain.reward_points * 1.5) // NOVA EDIT CHANGE - Original : SEND_SIGNAL(src, COMSIG_BITRUNNER_DOMAIN_COMPLETE, cache, generated_domain.reward_points)
 
 	points += generated_domain.reward_points
+	total_points += generated_domain.reward_points // IRIS ADDITION
 	playsound(src, 'sound/machines/terminal/terminal_success.ogg', 30, vary = TRUE)
 
 	var/bonus = calculate_rewards()
@@ -44,6 +45,7 @@
 	certificate.add_raw_text(get_completion_certificate(time_difference, grade))
 	certificate.name = "certificate of domain completion"
 	certificate.update_appearance()
+	certificate.add_overlay(icon('modular_iris/modules/bitrunning/icons/domain_grades.dmi', grade)) // IRIS ADDITION
 
 	var/obj/structure/closet/crate/secure/bitrunning/decrypted/reward_cache = new(src, generated_domain, bonus)
 	reward_cache.manifest = certificate

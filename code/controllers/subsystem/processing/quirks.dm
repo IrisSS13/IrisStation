@@ -5,7 +5,7 @@
 // Shifted to glob so they are generated at world start instead of risking players doing preference stuff before the subsystem inits
 GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/item_quirk/blindness, /datum/quirk/item_quirk/nearsighted),
-	list(/datum/quirk/item_quirk/blindness, /datum/quirk/item_quirk/farsighted), //IRIS ADDITION
+	list(/datum/quirk/item_quirk/blindness, /datum/quirk/item_quirk/farsighted, /datum/quirk/echolocation), //IRIS ADDITION
 	list(/datum/quirk/item_quirk/blindness, /datum/quirk/item_quirk/scarred_eye),
 	list(/datum/quirk/item_quirk/blindness, /datum/quirk/item_quirk/fluoride_stare),
 	list(/datum/quirk/item_quirk/blindness, /datum/quirk/touchy),
@@ -41,8 +41,9 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/light_drinker, /datum/quirk/drunkhealing),
 	list(/datum/quirk/oversized, /datum/quirk/freerunning),
 	list(/datum/quirk/oversized, /datum/quirk/item_quirk/settler),
+	list(/datum/quirk/echolocation, /datum/quirk/monochromatic),
 	list(/datum/quirk/echolocation, /datum/quirk/item_quirk/blindness, /datum/quirk/item_quirk/nearsighted, /datum/quirk/item_quirk/deafness),
-	list(/datum/quirk/sensitive_hearing, /datum/quirk/item_quirk/blindness, /datum/quirk/item_quirk/deafness, /datum/quirk/echolocation),
+	list(/datum/quirk/sensitive_hearing, /datum/quirk/item_quirk/deafness, /datum/quirk/echolocation),
 	//NOVA EDIT ADDITION END
 	//IRIS EDIT ADDITION BEGIN
 	//ORBSTATION PORT: if you're illiterate, farsighted would just be free points
@@ -52,6 +53,8 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/handedness, /datum/quirk/clumsy),
 	//UNBLINKING_QUIRK
 	list(/datum/quirk/unblinking, /datum/quirk/item_quirk/fluoride_stare),
+	list(/datum/quirk/colorblind, /datum/quirk/monochromatic),
+	list(/datum/quirk/echolocation, /datum/quirk/item_quirk/blindness, /datum/quirk/tunnel_vision),
 	//IRIS EDIT ADDITION END
 ))
 
@@ -71,12 +74,12 @@ GLOBAL_LIST_INIT(quirk_string_blacklist, generate_quirk_string_blacklist())
 // - Quirk datums are stored and hold different effects, as well as being a vector for applying trait string
 PROCESSING_SUBSYSTEM_DEF(quirks)
 	name = "Quirks"
-	init_order = INIT_ORDER_QUIRKS
 	flags = SS_BACKGROUND
 	runlevels = RUNLEVEL_GAME
 	wait = 1 SECONDS
 
 	var/list/quirks = list() //Assoc. list of all roundstart quirk datum types; "name" = /path/
+	var/list/datum/quirk/quirk_prototypes = list()
 	var/list/quirk_points = list() //Assoc. list of quirk names and their "point cost"; positive numbers are good traits, and negative ones are bad
 	///An assoc list of quirks that can be obtained as a hardcore character, and their hardcore value.
 	var/list/hardcore_quirks = list()
@@ -106,6 +109,7 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 		if (initial(quirk_type.hidden_quirk))
 			continue
 
+		quirk_prototypes[type] = new type
 		quirks[initial(quirk_type.name)] = quirk_type
 		quirk_points[initial(quirk_type.name)] = initial(quirk_type.value)
 

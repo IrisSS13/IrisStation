@@ -86,13 +86,6 @@
 /// Cargo Loader trait
 #define TRAIT_TRASHMAN "trait_trashman"
 
-/// Trait source for xeno innate abilities
-#define TRAIT_XENO_INNATE "xeno_innate"
-/// Trait source for something added BY a xeno ability
-#define TRAIT_XENO_ABILITY_GIVEN "xeno_ability_given"
-/// Determines if something can receive healing from a xeno
-#define TRAIT_XENO_HEAL_AURA "trait_xeno_heal_aura"
-
 /// Trait that was granted by a reagent.
 #define TRAIT_REAGENT "reagent"
 
@@ -143,6 +136,9 @@
 #define TRAIT_R_SMALL "small_chassis"
 /// Any model that has a custom front panel
 #define TRAIT_R_UNIQUEPANEL "unique_openpanel"
+/// Any model that has extra rest options
+#define TRAIT_RESTING_ALTS "extra_resting_alts"
+
 
 /// If clothing can also be damaged by piercing wound checks, instead of JUST slashes and burns
 #define TRAIT_CLOTHES_DAMAGED_BY_PIERCING "clothing_damaged_by_piercing"

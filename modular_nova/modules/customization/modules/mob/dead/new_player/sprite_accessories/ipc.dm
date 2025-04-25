@@ -167,10 +167,10 @@
 		&& ((wearer.head && !(wearer.head.flags_inv & SHOWSPRITEEARS)) || (wearer.wear_mask && !(wearer.wear_mask?.flags_inv & SHOWSPRITEEARS))))
 		return TRUE
 
-/datum/sprite_accessory/antenna/none
-	name = SPRITE_ACCESSORY_NONE
-	icon_state = "None"
-	recommended_species = null
+//datum/sprite_accessory/antenna/none - moves this to modular_iris
+//	name = SPRITE_ACCESSORY_NONE
+//	icon_state = "None"
+//	recommended_species = null
 
 /datum/sprite_accessory/antenna/antennae
 	name = "Angled Antennae"

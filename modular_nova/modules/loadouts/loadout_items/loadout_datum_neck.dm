@@ -117,22 +117,6 @@
 	item_path = /obj/item/clothing/neck/tie/disco
 
 /*
-*	COLLARS
-*/
-
-/datum/loadout_item/neck/choker
-	name = "Choker"
-	item_path = /obj/item/clothing/neck/human_petcollar/choker
-
-/datum/loadout_item/neck/thinchoker
-	name = "Thin Choker"
-	item_path = /obj/item/clothing/neck/human_petcollar/thinchoker
-
-/datum/loadout_item/neck/spike
-	name = "Spiked Choker"
-	item_path = /obj/item/clothing/neck/human_petcollar/spike
-
-/*
 *	PONCHOS
 */
 
@@ -278,6 +262,11 @@
 /datum/loadout_item/neck/security_cape
 	name = "Security Cape"
 	item_path = /obj/item/clothing/neck/security_cape
+
+/datum/loadout_item/neck/security_gauntlet
+	name = "Security Gauntlet"
+	item_path = /obj/item/clothing/neck/security_cape/armplate
+	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
 
 /*
 *	DONATOR

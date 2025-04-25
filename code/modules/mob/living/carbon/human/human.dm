@@ -15,7 +15,9 @@
 	setup_human_dna()
 
 	create_carbon_reagents()
-	set_species(dna.species.type)
+	set_species(dna.species.type, icon_update = FALSE) //carbon/Initialize will call update_body()
+	//set species enables and disables the flag. Just to be sure, we re-enable it now until it's removed by the parent call.
+	living_flags |= STOP_OVERLAY_UPDATE_BODY_PARTS
 
 	prepare_huds() //Prevents a nasty runtime on human init
 
@@ -67,6 +69,13 @@
 
 	if (mob_mood)
 		QDEL_NULL(mob_mood)
+// ported from https://github.com/Bubberstation/Bubberstation/pull/3133 - IRIS EDITED
+	if(held_left)
+		held_left.UnregisterSignal(src, COMSIG_ATOM_DIR_CHANGE)
+		QDEL_NULL(held_left)
+	if(held_right)
+		held_right.UnregisterSignal(src, COMSIG_ATOM_DIR_CHANGE)
+		QDEL_NULL(held_right)
 
 	return ..()
 
@@ -440,7 +449,7 @@
 /mob/living/carbon/human/try_inject(mob/user, target_zone, injection_flags)
 	. = ..()
 	if(!. && (injection_flags & INJECT_TRY_SHOW_ERROR_MESSAGE) && user)
-		balloon_alert(user, "no exposed skin on [target_zone || check_zone(user.zone_selected)]!")
+		balloon_alert(user, "no exposed skin on [parse_zone(target_zone || check_zone(user.zone_selected))]!")
 
 /mob/living/carbon/human/get_butt_sprite()
 	var/obj/item/bodypart/chest/chest = get_bodypart(BODY_ZONE_CHEST)

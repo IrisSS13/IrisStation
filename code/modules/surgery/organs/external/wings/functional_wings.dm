@@ -50,12 +50,18 @@
 	QDEL_NULL(fly)
 	return ..()
 
+//iris winged quirk edit START
 /obj/item/organ/wings/functional/on_mob_insert(mob/living/carbon/receiver, special, movement_flags)
 	. = ..()
 
 	if(QDELETED(fly))
-		fly = new
+		var/action_path = get_action_path()
+		fly = new action_path
 	fly.Grant(receiver)
+
+/obj/item/organ/wings/functional/proc/get_action_path()
+	return /datum/action/innate/flight
+//iris winged quirk edit END
 
 /obj/item/organ/wings/functional/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
 	. = ..()
@@ -157,7 +163,9 @@
 	owner.update_body_parts()
 
 	if(isturf(owner?.loc))
-		var/turf/location = loc
+		//start iris edit change change "= loc" into get_turf(owner)
+		var/turf/location = get_turf(owner)
+		//end iris edit
 		location.Entered(src, NONE)
 
 	SEND_SIGNAL(src, COMSIG_WINGS_CLOSED, owner)

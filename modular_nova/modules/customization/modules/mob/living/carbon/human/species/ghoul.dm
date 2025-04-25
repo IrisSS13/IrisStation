@@ -2,7 +2,6 @@
 	name = "Ghoul"
 	id = SPECIES_GHOUL
 	examine_limb_id = SPECIES_GHOUL
-	can_have_genitals = FALSE //WHY WOULD YOU WANT TO FUCK ONE OF THESE THINGS?
 	mutant_bodyparts = list("ghoulcolor" = "Tan Necrotic")
 	mutanttongue = /obj/item/organ/tongue/ghoul
 	inherent_traits = list(
@@ -33,6 +32,7 @@
 
 /datum/species/ghoul/get_default_mutant_bodyparts()
 	return list(
+		"ears" = list("None", FALSE),
 		"tail" = list("None", FALSE),
 		"ears" = list("None", FALSE),
 		"legs" = list("Normal Legs", FALSE),

@@ -1,4 +1,4 @@
-ADMIN_VERB(jump_to_area, R_ADMIN, "Jump To Area", "Jumps to the specified area.", ADMIN_CATEGORY_GAME, area/target in get_sorted_areas())
+ADMIN_VERB(jump_to_area, R_ADMIN|R_DEBUG, "Jump To Area", "Jumps to the specified area.", ADMIN_CATEGORY_GAME, area/target in get_sorted_areas()) //IRIS EDIT
 	var/turf/drop_location
 	top_level:
 		for(var/list/zlevel_turfs as anything in target.get_zlevel_turf_lists())
@@ -17,19 +17,19 @@ ADMIN_VERB(jump_to_area, R_ADMIN, "Jump To Area", "Jumps to the specified area."
 	message_admins("[key_name_admin(user)] jumped to [AREACOORD(drop_location)]")
 	BLACKBOX_LOG_ADMIN_VERB("Jump To Area")
 
-ADMIN_VERB_AND_CONTEXT_MENU(jump_to_turf, R_ADMIN, "Jump To Turf", "Jump to any turf in the game. This will lag your client.", ADMIN_CATEGORY_GAME, turf/locale in world)
+ADMIN_VERB_AND_CONTEXT_MENU(jump_to_turf, R_ADMIN|R_DEBUG, "Jump To Turf", "Jump to any turf in the game. This will lag your client.", ADMIN_CATEGORY_GAME, turf/locale in world) //IRIS EDIT
 	log_admin("[key_name(user)] jumped to [AREACOORD(locale)]")
 	message_admins("[key_name_admin(user)] jumped to [AREACOORD(locale)]")
 	user.mob.abstract_move(locale)
 	BLACKBOX_LOG_ADMIN_VERB("Jump To Turf")
 
-ADMIN_VERB_AND_CONTEXT_MENU(jump_to_mob, R_ADMIN, "Jump To Mob", "Jump to any mob in the game.", ADMIN_CATEGORY_GAME, mob/target in world)
+ADMIN_VERB_AND_CONTEXT_MENU(jump_to_mob, R_ADMIN|R_DEBUG, "Jump To Mob", "Jump to any mob in the game.", ADMIN_CATEGORY_GAME, mob/target in world) //IRIS EDIT
 	user.mob.abstract_move(target.loc)
 	log_admin("[key_name(user)] jumped to [key_name(target)]")
 	message_admins("[key_name_admin(user)] jumped to [ADMIN_LOOKUPFLW(target)] at [AREACOORD(target)]")
 	BLACKBOX_LOG_ADMIN_VERB("Jump To Mob")
 
-ADMIN_VERB(jump_to_coord, R_ADMIN, "Jump To Coordinate", "Jump to a specific coordinate in the game world.", ADMIN_CATEGORY_GAME, cx as num, cy as num, cz as num)
+ADMIN_VERB(jump_to_coord, R_ADMIN|R_DEBUG, "Jump To Coordinate", "Jump to a specific coordinate in the game world.", ADMIN_CATEGORY_GAME, cx as num, cy as num, cz as num) //IRIS EDIT
 	var/turf/where_we_droppin = locate(cx, cy, cz)
 	if(isnull(where_we_droppin))
 		to_chat(user, span_warning("Invalid coordinates."))
@@ -39,7 +39,7 @@ ADMIN_VERB(jump_to_coord, R_ADMIN, "Jump To Coordinate", "Jump to a specific coo
 	message_admins("[key_name_admin(user)] jumped to coordinates [cx], [cy], [cz]")
 	BLACKBOX_LOG_ADMIN_VERB("Jump To Coordiate")
 
-ADMIN_VERB(jump_to_key, R_ADMIN, "Jump To Key", "Jump to a specific player.", ADMIN_CATEGORY_GAME)
+ADMIN_VERB(jump_to_key, R_ADMIN|R_DEBUG, "Jump To Key", "Jump to a specific player.", ADMIN_CATEGORY_GAME) //IRIS EDIT
 	if(!isobserver(user.mob))
 		SSadmin_verbs.dynamic_invoke_verb(user, /datum/admin_verb/admin_ghost)
 
@@ -56,7 +56,7 @@ ADMIN_VERB(jump_to_key, R_ADMIN, "Jump To Key", "Jump to a specific player.", AD
 	user.mob.abstract_move(M.loc)
 	BLACKBOX_LOG_ADMIN_VERB("Jump To Key")
 
-ADMIN_VERB_AND_CONTEXT_MENU(get_mob, R_ADMIN, "Get Mob", "Teleport a mob to your location.", ADMIN_CATEGORY_GAME, mob/target in world)
+ADMIN_VERB_AND_CONTEXT_MENU(get_mob, R_ADMIN|R_DEBUG, "Get Mob", "Teleport a mob to your location.", ADMIN_CATEGORY_GAME, mob/target in world) //IRIS EDIT
 	var/atom/loc = get_turf(user.mob)
 	target.admin_teleport(loc)
 	BLACKBOX_LOG_ADMIN_VERB("Get Mob")
@@ -78,7 +78,7 @@ ADMIN_VERB_AND_CONTEXT_MENU(get_mob, R_ADMIN, "Get Mob", "Teleport a mob to your
 	admin_ticket_log(src, msg)
 	return ..()
 
-ADMIN_VERB(get_key, R_ADMIN, "Get Key", "Teleport the player with the provided key to you.", ADMIN_CATEGORY_GAME)
+ADMIN_VERB(get_key, R_ADMIN|R_DEBUG, "Get Key", "Teleport the player with the provided key to you.", ADMIN_CATEGORY_GAME)
 	var/list/keys = list()
 	for(var/mob/M in GLOB.player_list)
 		keys += M.client
@@ -97,7 +97,7 @@ ADMIN_VERB(get_key, R_ADMIN, "Get Key", "Teleport the player with the provided k
 		M.forceMove(get_turf(user))
 		BLACKBOX_LOG_ADMIN_VERB("Get Key")
 
-ADMIN_VERB_AND_CONTEXT_MENU(send_mob, R_ADMIN, "Send Mob", "Teleport the specified mob to an area of your choosing.", ADMIN_CATEGORY_GAME, mob/jumper)
+ADMIN_VERB_AND_CONTEXT_MENU(send_mob, R_ADMIN|R_DEBUG, "Send Mob", "Teleport the specified mob to an area of your choosing.", ADMIN_CATEGORY_GAME, mob/jumper) //IRIS EDIT
 	var/list/sorted_areas = get_sorted_areas()
 	if(!length(sorted_areas))
 		to_chat(user, "No areas found.", confidential = TRUE)

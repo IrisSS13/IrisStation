@@ -2,6 +2,7 @@
 //Blurs the line between the victim's imagination and reality
 //Unlike regular traumas this can affect the victim's body and surroundings
 
+/* IRIS EDIT: reimplemented in modular_iris/master_files/code/datums/brain_damage/magic.dm as part of https://github.com/Monkestation/Monkestation2.0/pull/3730
 /datum/brain_trauma/magic
 	abstract_type = /datum/brain_trauma/magic
 	resilience = TRAUMA_RESILIENCE_LOBOTOMY
@@ -119,6 +120,8 @@
 			owner.stop_sound_channel(CHANNEL_HEARTBEAT)
 			close_stalker = FALSE
 	..()
+
+IRIS EDIT END */
 
 /obj/effect/client_image_holder/stalker_phantom
 	name = "???"

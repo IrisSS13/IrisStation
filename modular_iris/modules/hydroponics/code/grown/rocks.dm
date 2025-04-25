@@ -93,7 +93,6 @@
 /datum/reagent/consumable/nutriment/mineral
 	taste_description = "rocks and stones"
 
-
 //Rockfruits evolutions? OREFRUITS!//
 //Sand - Base tier breaks into 4 trees ('energy', Precious, Metal, Miscmats)
 /obj/item/seeds/sandfruit
@@ -103,7 +102,7 @@
 	icon_state = "seed-sandfruit"
 	species = "ore"
 	plantname = "Sandfruits"
-	product = /obj/item/food/grown/shell/sand
+	product = /obj/item/food/grown/shell
 	mutatelist = list(/obj/item/seeds/uraniberry,
 					/obj/item/seeds/agbergine,
 					/obj/item/seeds/ferrotuber,
@@ -115,7 +114,7 @@
 	growing_icon = 'modular_iris/modules/hydroponics/icons/growing_fruits.dmi'
 	genes = list(/datum/plant_gene/trait/chem_cooling)
 
-/obj/item/food/grown/shell/sand
+/obj/item/food/grown/shell
 	seed = /obj/item/seeds/sandfruit
 	name = "sandfruit"
 	desc = "A mutated variant of rockfruits; rough, course and now available everywhere. Just peel it for a core."

@@ -32,7 +32,9 @@
 	server_ref = WEAKREF(server)
 	server.avatar_connection_refs.Add(WEAKREF(src))
 
-	avatar.key = old_body.key
+	old_body.transfer_observers_to(avatar) // IRIS ADDITION
+
+	avatar.PossessByPlayer(old_body.key)
 	ADD_TRAIT(avatar, TRAIT_NO_MINDSWAP, REF(src)) // do not remove this one
 	ADD_TRAIT(old_body, TRAIT_MIND_TEMPORARILY_GONE, REF(src))
 
@@ -139,6 +141,8 @@
 		hosting_netpod = source
 
 	hosting_netpod?.disconnect_occupant(cause_damage)
+	var/mob/living/avatar = parent // IRIS ADDITION
+	avatar.transfer_observers_to(hosting_netpod.occupant) // IRIS ADDITION
 
 	var/obj/machinery/quantum_server/server = server_ref?.resolve()
 	server?.avatar_connection_refs.Remove(WEAKREF(src))
@@ -221,7 +225,7 @@
 
 
 //if your bitrunning avatar somehow manages to acquire and consume a red pill, they will be ejected from the Matrix
-/datum/component/avatar_connection/proc/disconnect_if_red_pill(datum/source, obj/item/reagent_containers/pill/pill, mob/feeder)
+/datum/component/avatar_connection/proc/disconnect_if_red_pill(datum/source, obj/item/reagent_containers/applicator/pill/pill, mob/feeder)
 	SIGNAL_HANDLER
 	if(pill.icon_state == "pill4")
 		full_avatar_disconnect()

@@ -30,6 +30,7 @@
 	var/multiplayer_bonus = 1.1
 	/// The amount of points in the system, used to purchase maps
 	var/points = 0
+	var/total_points = 0 /// IRIS ADDITION -- total amount of points that bitrunners have generated
 	/// Keeps track of the number of times someone has built a hololadder
 	var/retries_spent = 0
 	/// Changes how much info is available on the domain
@@ -49,20 +50,21 @@
 	/// Cooldown between being able to toggle broadcasting
 	COOLDOWN_DECLARE(broadcast_toggle_cd)
 
+
 /obj/machinery/quantum_server/post_machine_initialize()
 	. = ..()
 
 	RegisterSignals(src, list(COMSIG_MACHINERY_BROKEN, COMSIG_MACHINERY_POWER_LOST), PROC_REF(on_broken))
 	RegisterSignal(src, COMSIG_QDELETING, PROC_REF(on_delete))
 
-/obj/machinery/quantum_server/Destroy(force)
-	. = ..()
 
+/obj/machinery/quantum_server/Destroy(force)
 	mutation_candidate_refs.Cut()
 	avatar_connection_refs.Cut()
 	spawned_threat_refs.Cut()
-	QDEL_NULL(exit_turfs)
+	exit_turfs.Cut()
 	QDEL_NULL(generated_domain)
+	return ..()
 
 /obj/machinery/quantum_server/examine(mob/user)
 	. = ..()
@@ -88,6 +90,7 @@
 	if(isobserver(user) && (obj_flags & EMAGGED))
 		. += span_notice("Ominous warning lights are blinking red. This server has been tampered with.")
 
+
 /obj/machinery/quantum_server/emag_act(mob/user, obj/item/card/emag/emag_card)
 	. = ..()
 
@@ -102,6 +105,7 @@
 	balloon_alert(user, "system jailbroken...")
 	playsound(src, 'sound/effects/sparks/sparks1.ogg', 35, vary = TRUE)
 
+
 /obj/machinery/quantum_server/update_appearance(updates)
 	if(isnull(generated_domain) || !is_operational)
 		set_light(l_on = FALSE)
@@ -110,6 +114,7 @@
 	set_light(l_range = 2, l_power = 1.5, l_color = is_ready ? LIGHT_COLOR_BABY_BLUE : LIGHT_COLOR_FIRE, l_on = TRUE)
 	return ..()
 
+
 /obj/machinery/quantum_server/update_icon_state()
 	if(isnull(generated_domain) || !is_operational)
 		icon_state = base_icon_state
@@ -117,6 +122,7 @@
 
 	icon_state = "[base_icon_state]_[is_ready ? "on" : "off"]"
 	return ..()
+
 
 /obj/machinery/quantum_server/attackby(obj/item/weapon, mob/user, params)
 	. = ..()
@@ -128,6 +134,7 @@
 	glitch_chance = 0.5
 	capacitor_coefficient = 0.1
 	points = 100
+
 
 /obj/machinery/quantum_server/crowbar_act(mob/living/user, obj/item/crowbar)
 	. = ..()
@@ -142,6 +149,7 @@
 		return TRUE
 	return FALSE
 
+
 /obj/machinery/quantum_server/screwdriver_act(mob/living/user, obj/item/screwdriver)
 	. = ..()
 
@@ -151,6 +159,7 @@
 	if(default_deconstruction_screwdriver(user, "[base_icon_state]_panel", icon_state, screwdriver))
 		return TRUE
 	return FALSE
+
 
 /obj/machinery/quantum_server/RefreshParts()
 	var/capacitor_rating = 1.15

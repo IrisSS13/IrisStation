@@ -7,7 +7,7 @@
 	maximum_value_length = MAX_MESSAGE_LEN
 	/// Assoc list of ckeys and their link, used to cut down on chat spam
 	var/list/stored_link = list()
-	var/static/link_regex = regex("files.catbox.moe|images2.imgbox.com|i.gyazo.com") //IRIS EDIT: updates to use catbox instead of gyazo and byond files. still supports gyazo but i dont recommend it
+	var/static/link_regex = regex("files.catbox.moe|images2.imgbox.com|i.gyazo.com") //IRIS EDIT: updates to use catbox instead of byond files.
 	var/static/list/valid_extensions = list("jpg", "png", "jpeg") // Regex works fine, if you know how it works
 
 /datum/preference/text/headshot/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
@@ -36,7 +36,7 @@
 
 	find_index = findtext(value, link_regex)
 	if(find_index != 9)
-		to_chat(usr, span_warning("The image must be hosted on one of the following sites: 'Catbox (catbox.moe), Imgbox (images2.imgbox.com)'")) //IRIS EDIT - made it have catbox instead
+		to_chat(usr, span_warning("The image must be hosted on one of the following sites: 'Gyazo (i.gyazo.com), Catbox (catbox.moe), Imgbox (images2.imgbox.com)'")) //IRIS EDIT - made it have catbox instead
 		return
 
 	apply_headshot(value)

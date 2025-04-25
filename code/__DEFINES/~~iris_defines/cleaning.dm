@@ -1,0 +1,1 @@
+#define FOOTPRINT_SPRITE_SNAKE "snake"
