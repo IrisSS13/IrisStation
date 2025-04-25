@@ -2820,18 +2820,13 @@
 	pixel_y = 4
 	},
 /obj/structure/table/reinforced,
-/obj/machinery/requests_console/directional/north{
-	department = "Security";
-	name = "Security Requests Console";
-	assistance_requestable = 1;
-	supplies_requestable = 1
-	},
 /obj/machinery/light/directional/north,
 /obj/machinery/camera/directional/north{
 	c_tag = "Security Post - Medbay";
 	network = list("ss13","medbay")
 	},
 /obj/effect/turf_decal/tile/red/fourcorners,
+/obj/machinery/newscaster/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/hallway/secondary/exit/departure_lounge)
 "bot" = (
@@ -6892,12 +6887,6 @@
 /area/station/medical/medbay/central)
 "dhA" = (
 /obj/machinery/light/directional/north,
-/obj/machinery/requests_console/directional/north{
-	department = "Security";
-	name = "Security Requests Console";
-	assistance_requestable = 1;
-	supplies_requestable = 1
-	},
 /obj/machinery/camera/directional/north{
 	c_tag = "Customs Checkpoint"
 	},
@@ -6905,6 +6894,7 @@
 	dir = 1
 	},
 /obj/structure/closet/secure_closet/security/med,
+/obj/machinery/newscaster/directional/north,
 /turf/open/floor/iron,
 /area/station/security/checkpoint/science)
 "dhQ" = (
@@ -23413,6 +23403,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
+/obj/machinery/newscaster/directional/west,
 /turf/open/floor/iron/dark/herringbone,
 /area/station/security/execution/transfer)
 "kGz" = (
@@ -24801,19 +24792,14 @@
 "liP" = (
 /obj/structure/table,
 /obj/machinery/cell_charger,
-/obj/machinery/requests_console/directional/east{
-	announcementConsole = 1;
-	department = "Research Lab";
-	name = "Research Requests Console";
-	receive_ore_updates = 1;
-	assistance_requestable = 1;
-	anon_tips_receiver = 1
-	},
 /obj/effect/turf_decal/siding/purple{
 	dir = 5
 	},
 /obj/effect/turf_decal/tile/purple/opposingcorners,
 /obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/requests_console/auto_name/directional/east,
+/obj/effect/mapping_helpers/requests_console/assistance,
+/obj/effect/mapping_helpers/requests_console/ore_update,
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 8
 	},
@@ -28354,6 +28340,7 @@
 	dir = 8
 	},
 /obj/machinery/vending/security,
+/obj/machinery/newscaster/directional/west,
 /turf/open/floor/iron/dark/textured,
 /area/station/security/brig)
 "mUy" = (
@@ -31486,6 +31473,7 @@
 	dir = 1
 	},
 /obj/item/kirbyplants/random,
+/obj/machinery/newscaster/directional/north,
 /turf/open/floor/iron/dark/textured,
 /area/station/security/office)
 "opF" = (
@@ -32904,6 +32892,15 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos)
+"oXM" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 1
+	},
+/obj/structure/chair/stool/directional/south,
+/obj/machinery/newscaster/directional/north,
+/turf/open/floor/iron/dark/textured,
+/area/station/security/office)
 "oXQ" = (
 /obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/floor/grass,
@@ -44730,6 +44727,16 @@
 	},
 /turf/open/floor/iron/dark/textured,
 /area/station/hallway/primary/central)
+"ums" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 8
+	},
+/obj/machinery/newscaster/directional/west,
+/turf/open/floor/iron/dark/textured,
+/area/station/security/office)
 "umt" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Chapel Office Maintenance"
@@ -48314,6 +48321,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
+/obj/machinery/newscaster/directional/south,
 /turf/open/floor/stone,
 /area/station/command/heads_quarters/nt_rep)
 "vOP" = (
@@ -82419,7 +82427,7 @@ evR
 eMr
 wqB
 knv
-wAk
+oXM
 ozd
 kDg
 rTk
@@ -82687,7 +82695,7 @@ glJ
 glJ
 aKF
 ugJ
-ugJ
+ums
 nHZ
 ajQ
 cRO
