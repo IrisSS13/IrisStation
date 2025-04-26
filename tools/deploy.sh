@@ -26,17 +26,16 @@ fi
 # NOVA EDIT ADDITION START - Get all the .dmis and json configs from modular_nova
 mkdir -p \
 		$1/modular_nova \
-		$1/modular_nova/modules/GAGS/json_configs \
-		$1/modular_nova/modules/GAGS/nsfw/json_configs
+		$1/modular_nova/modules/GAGS/json_configs
 
 find modular_nova/ -name \*.dmi -exec cp --parents {} $1 \;
 find modular_nova/modules/GAGS/json_configs -name \*.json -exec cp --parents {} $1 \;
-# find modular_nova/modules/GAGS/nsfw/json_configs -name \*.json -exec cp --parents {} $1 \;
 # NOVA EDIT ADDITION END
 
 # IRIS EDIT ADDITION START
 mkdir -p \
-		$1/modular_iris
+		$1/modular_iris \
+		$1/modular_iris/modules/GAGS/json_configs
 
 find modular_iris/ -name \*.dmi -exec cp --parents {} $1 \;
 find modular_iris/modules/GAGS/json_configs -name \*.json -exec cp --parents {} $1 \;
