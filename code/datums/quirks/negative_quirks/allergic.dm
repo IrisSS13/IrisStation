@@ -66,9 +66,3 @@
 		if(SPT_PROB(10, seconds_per_tick))
 			carbon_quirk_holder.vomit(VOMIT_CATEGORY_DEFAULT)
 			carbon_quirk_holder.adjustOrganLoss(pick(ORGAN_SLOT_BRAIN,ORGAN_SLOT_APPENDIX,ORGAN_SLOT_LUNGS,ORGAN_SLOT_HEART,ORGAN_SLOT_LIVER,ORGAN_SLOT_STOMACH),10)
-
-/datum/quirk/item_quirk/allergic/is_species_appropriate(datum/species/mob_species)
-	var/datum/species_traits = GLOB.species_prototypes[mob_species].inherent_traits
-	if(TRAIT_SYNTHETIC in species_traits)
-		return FALSE
-	return ..()

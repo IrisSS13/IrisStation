@@ -49,9 +49,6 @@
 // makes it so held items float by their head, from https://github.com/Bubberstation/Bubberstation/pull/3133
 #define TRAIT_FLOATING_HELD "held_items_float"
 
-// Isolation trait for synths
-#define TRAIT_ORGANIC "trait_organic"
-
 // /obj/item
 /// Applied to a satchel that is being worn on the belt.
 #define TRAIT_BELT_SATCHEL "belt_satchel"
