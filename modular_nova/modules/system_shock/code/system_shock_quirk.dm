@@ -32,3 +32,9 @@
 
 /datum/quirk/system_shock/proc/knock_out(length)
 	quirk_holder.Sleeping(length)
+
+/datum/quirk/system_shock/is_species_appropriate(datum/species/mob_species)
+	var/datum/species_traits = GLOB.species_prototypes[mob_species].inherent_traits
+	if(TRAIT_ORGANIC in species_traits)
+		return FALSE
+	return ..()

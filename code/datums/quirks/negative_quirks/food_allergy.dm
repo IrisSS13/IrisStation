@@ -47,3 +47,9 @@ GLOBAL_LIST_INIT(possible_food_allergies, list(
 
 	var/obj/item/clothing/accessory/dogtag/allergy/dogtag = new(quirk_holder, what_are_we_actually_killed_by)
 	give_item_to_holder(dogtag, list(LOCATION_BACKPACK = ITEM_SLOT_BACKPACK, LOCATION_HANDS = ITEM_SLOT_HANDS), flavour_text = "Keep it close around the kitchen.")
+
+/datum/quirk/item_quirk/food_allergic/is_species_appropriate(datum/species/mob_species)
+	var/datum/species_traits = GLOB.species_prototypes[mob_species].inherent_traits
+	if(TRAIT_SYNTHETIC in species_traits)
+		return FALSE
+	return ..()
