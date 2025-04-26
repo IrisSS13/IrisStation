@@ -2,7 +2,7 @@
  *  Returns a list of lines containing silicon flavourtext, temporary flavourtext, ERP preferences and a link to "look closer" and open the examine panel.
  *  Intended to be appended at the end of examine() result.
  */
-/mob/living/silicon/proc/get_silicon_flavortext()
+/mob/living/silicon/proc/get_silicon_flavortext(mob/user)
 	. = list()
 	var/flavor_text_link
 	/// The first 1-FLAVOR_PREVIEW_LIMIT characters in the mob's client's silicon_flavor_text preference datum. FLAVOR_PREVIEW_LIMIT is defined in flavor_defines.dm.
