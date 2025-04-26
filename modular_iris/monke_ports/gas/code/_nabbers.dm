@@ -31,7 +31,7 @@
 		EYE_COLOR,
 		TRAIT_NO_UNDERWEAR,
 		TRAIT_NO_ZOMBIFY, //Breaks things majorly if they get zombified
-		TRAIT_NO_DNA_COPY //Cannot be cloned, body too big.
+		TRAIT_NO_DNA_COPY, //Cannot be cloned, body too big.
 	)
 	digitigrade_customization = DIGITIGRADE_NEVER
 	//blood_colours = "#30498f" //Haemolyph is typically a deep blue. we dont have blood colors here, leaving it if upstream adds it or w/e

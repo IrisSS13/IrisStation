@@ -1,4 +1,4 @@
-/datum/quirk/item_quirk/fluoride_stare
+/* /datum/quirk/item_quirk/fluoride_stare
 	name = "Fluoride Stare"
 	desc = "You have lost your eyelids in a horrible accident, or so you tell others. You need to manually wet your eyes with a saline solution every once in a while!"
 	icon = FA_ICON_EYE_DROPPER
