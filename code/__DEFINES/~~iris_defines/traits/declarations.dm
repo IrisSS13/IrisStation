@@ -30,6 +30,9 @@
 //SALT_VULNERABILITY_QUIRK
 #define TRAIT_SALT_VULNERABILITY "salt_vulnerability"
 
+//SOMATIC_VOLATILITY_QUIRK
+#define TRAIT_SOMATIC_VOLATILITY "somatic_volatility"
+
 //Stowaway quirk taken from https://github.com/Monkestation/Monkestation2.0/pull/4642
 #define TRAIT_STOWAWAY "stowaway"
 
@@ -45,5 +48,9 @@
 
 // makes it so held items float by their head, from https://github.com/Bubberstation/Bubberstation/pull/3133
 #define TRAIT_FLOATING_HELD "held_items_float"
+
+// /obj/item
+/// Applied to a satchel that is being worn on the belt.
+#define TRAIT_BELT_SATCHEL "belt_satchel"
 
 #define TRAIT_MINING_ITEM "mining_item"
