@@ -1490,8 +1490,4 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 /// Demolition modifier when hitting this object is inverted (ie, 1 / demolition)
 #define TRAIT_INVERTED_DEMOLITION "demolition_inverted"
 
-// /obj/item
-/// Applied to a satchel that is being worn on the belt. Iris addition.
-#define TRAIT_BELT_SATCHEL 			"belt_satchel"
-
 // END TRAIT DEFINES
