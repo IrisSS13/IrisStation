@@ -2722,6 +2722,9 @@
 	},
 /turf/open/floor/carpet/grimey,
 /area/centcom/central_command_areas/courtroom)
+"lZ" = (
+/turf/closed/indestructible/riveted,
+/area/space)
 "mc" = (
 /obj/effect/light_emitter/podbay,
 /turf/open/floor/iron,
@@ -2881,6 +2884,12 @@
 /obj/item/clipboard,
 /obj/item/folder/red,
 /obj/item/pen/red,
+/obj/machinery/button/door/indestructible{
+	id = "XCCsec3";
+	name = "XCC Shutter 3 Control";
+	pixel_x = -24;
+	pixel_y = 24
+	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
@@ -2890,6 +2899,12 @@
 "mT" = (
 /obj/structure/table/reinforced,
 /obj/machinery/recharger,
+/obj/machinery/button/door/indestructible{
+	id = "XCCsecdepartment";
+	name = "CC Security Checkpoint Control";
+	pixel_x = 24;
+	pixel_y = 24
+	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
@@ -3068,8 +3083,8 @@
 /area/centcom/central_command_areas/fore)
 "nM" = (
 /obj/machinery/door/poddoor/shutters{
-	id = "CCsec1";
-	name = "CC Security Checkpoint Shutters"
+	id = "XCCsecdepartment";
+	name = "XCC Security Checkpoint Shutters"
 	},
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/iron,
@@ -3962,11 +3977,11 @@
 	},
 /area/centcom/central_command_areas/fore)
 "rI" = (
-/obj/effect/turf_decal/delivery,
 /obj/machinery/door/poddoor/shutters{
-	id = "CCsec1";
-	name = "CC Checkpoint 1 Shutters"
+	id = "XCCsec3";
+	name = "XCC Checkpoint 3 Shutters"
 	},
+/obj/effect/turf_decal/delivery,
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/fore)
 "rJ" = (
@@ -4407,16 +4422,6 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/briefing)
-"tA" = (
-/obj/machinery/door/poddoor/shutters{
-	id = "CCFerry";
-	name = "CC Ferry Hangar"
-	},
-/obj/effect/turf_decal/loading_area{
-	dir = 4
-	},
-/turf/open/floor/iron,
-/area/centcom/central_command_areas/ferry)
 "tF" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Thunderdome Locker Room"
@@ -4914,12 +4919,12 @@
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/ferry)
 "vG" = (
+/obj/machinery/door/poddoor/shutters{
+	id = "XCCsec1";
+	name = "XCC Checkpoint 1 Shutters"
+	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
-	},
-/obj/machinery/door/poddoor/shutters{
-	id = "CCsec4";
-	name = "CC Checkpoint 4 Shutters"
 	},
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/control)
@@ -4936,12 +4941,12 @@
 /turf/open/floor/iron/dark/herringbone,
 /area/centcom/central_command_areas/evacuation/ship)
 "vP" = (
+/obj/machinery/door/poddoor/shutters{
+	id = "XCCcustoms2";
+	name = "XCC Customs 2 Shutters"
+	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
-	},
-/obj/machinery/door/poddoor/shutters{
-	id = "CCcustoms2";
-	name = "CC Customs 2 Shutters"
 	},
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/control)
@@ -4961,12 +4966,12 @@
 /turf/open/floor/circuit/green,
 /area/centcom/central_command_areas/armory)
 "vU" = (
+/obj/machinery/door/poddoor/shutters{
+	id = "XCCcustoms1";
+	name = "XCC Customs 1 Shutters"
+	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
-	},
-/obj/machinery/door/poddoor/shutters{
-	id = "CCcustoms1";
-	name = "CC Customs 1 Shutters"
 	},
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/evacuation)
@@ -5056,13 +5061,13 @@
 	dir = 1
 	},
 /obj/machinery/button/door/indestructible{
-	id = "CCcustoms1";
+	id = "XCCcustoms1";
 	name = "CC Customs 1 Control";
 	pixel_x = 8;
 	pixel_y = -24
 	},
 /obj/machinery/button/door/indestructible{
-	id = "CCcustoms2";
+	id = "XCCcustoms2";
 	name = "CC Customs 2 Control";
 	pixel_x = -8;
 	pixel_y = -24
@@ -5101,18 +5106,18 @@
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/ferry)
 "wv" = (
+/obj/machinery/door/poddoor/shutters{
+	id = "XCCFerry";
+	name = "XCC Ferry Hangar"
+	},
 /obj/effect/turf_decal/loading_area{
 	dir = 4
-	},
-/obj/machinery/door/poddoor/shutters{
-	id = "CCFerry";
-	name = "CC Ferry Hangar"
 	},
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/ferry)
 "ww" = (
 /obj/machinery/button/door/indestructible{
-	id = "CCFerry";
+	id = "XCCFerry";
 	name = "Hanger Bay Shutters";
 	pixel_y = 24;
 	req_access = list("cent_general")
@@ -5388,8 +5393,8 @@
 /area/centcom/central_command_areas/ferry)
 "xS" = (
 /obj/machinery/button/door/indestructible{
-	id = "CCsec4";
-	name = "CC Shutter 4 Control";
+	id = "XCCsec1";
+	name = "CC Shutter 1 Control";
 	pixel_y = -24
 	},
 /obj/effect/turf_decal/stripes/line{
@@ -6271,11 +6276,11 @@
 /turf/open/floor/iron/dark,
 /area/centcom/tdome/observation)
 "BE" = (
-/obj/effect/turf_decal/delivery,
 /obj/machinery/door/poddoor/shutters{
-	id = "CCsec3";
+	id = "XCCsec3";
 	name = "CC Main Access Shutters"
 	},
+/obj/effect/turf_decal/delivery,
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/control)
 "BF" = (
@@ -7061,14 +7066,6 @@
 /obj/structure/sign/warning/secure_area,
 /turf/closed/indestructible/riveted,
 /area/centcom/central_command_areas/control)
-"Fs" = (
-/obj/machinery/door/poddoor/shutters{
-	id = "CCsec1";
-	name = "CC Checkpoint 1 Shutters"
-	},
-/obj/effect/turf_decal/delivery,
-/turf/open/floor/iron,
-/area/centcom/central_command_areas/fore)
 "Fu" = (
 /obj/item/kirbyplants/organic/plant21,
 /obj/machinery/firealarm/directional/west,
@@ -7452,28 +7449,30 @@
 "HY" = (
 /obj/machinery/photocopier,
 /obj/machinery/button/door/indestructible{
-	id = "CCsec3";
-	name = "CC Shutter 3 Control";
+	id = "XCCFerry";
+	name = "Hanger Bay Shutters";
+	pixel_x = -8;
 	pixel_y = 24
 	},
 /obj/machinery/button/door/indestructible{
-	id = "CCcustoms2";
-	name = "CC Shutter 2 Control";
-	pixel_x = 9;
-	pixel_y = 32
+	id = "XCCsec3";
+	name = "CC Main Access Control";
+	pixel_x = 8;
+	pixel_y = 24
 	},
 /obj/machinery/button/door/indestructible{
-	id = "CCsec1";
+	id = "XCCsec1";
 	name = "CC Shutter 1 Control";
-	pixel_y = 40
+	pixel_x = 8;
+	pixel_y = 38
+	},
+/obj/machinery/button/door/indestructible{
+	id = "XCCsec3";
+	name = "XCC Shutter 3 Control";
+	pixel_x = -8;
+	pixel_y = 38
 	},
 /obj/effect/turf_decal/tile/neutral/fourcorners,
-/obj/machinery/button/door/indestructible{
-	id = "CCsec4";
-	name = "CC Shutter 4 Control";
-	pixel_x = -9;
-	pixel_y = 32
-	},
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/control)
 "HZ" = (
@@ -7728,26 +7727,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/centcom/tdome/observation)
-"Kq" = (
-/obj/machinery/door/poddoor/shutters{
-	id = "CCsec4";
-	name = "CC Checkpoint 4 Shutters"
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/turf/open/floor/iron,
-/area/centcom/central_command_areas/control)
-"Ku" = (
-/obj/machinery/door/poddoor/shutters{
-	id = "CCcustoms2";
-	name = "CC Customs 2 Shutters"
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/turf/open/floor/iron,
-/area/centcom/central_command_areas/control)
 "Kv" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/centcom{
@@ -7865,7 +7844,7 @@
 /obj/structure/table/reinforced,
 /obj/machinery/recharger,
 /obj/machinery/button/door/indestructible{
-	id = "CCFerry";
+	id = "XCCFerry";
 	name = "Hanger Bay Shutters";
 	pixel_y = -38
 	},
@@ -8065,16 +8044,6 @@
 /obj/structure/flora/bush/sparsegrass,
 /turf/open/floor/grass,
 /area/centcom/central_command_areas/evacuation/ship)
-"LH" = (
-/obj/machinery/door/poddoor/shutters{
-	id = "CCcustoms1";
-	name = "CC Customs 1 Shutters"
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/turf/open/floor/iron,
-/area/centcom/central_command_areas/evacuation)
 "LI" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 9
@@ -9090,7 +9059,7 @@
 "Qk" = (
 /obj/structure/table/reinforced,
 /obj/machinery/button/door/indestructible{
-	id = "CCsec3";
+	id = "XCCsec3";
 	name = "CC Main Access Control"
 	},
 /obj/machinery/airalarm/directional/south,
@@ -10345,7 +10314,7 @@
 	dir = 8
 	},
 /obj/machinery/button/door/indestructible{
-	id = "CCcustoms1";
+	id = "XCCcustoms1";
 	name = "CC Emergency Docks Control";
 	pixel_x = 24;
 	pixel_y = 24
@@ -10527,6 +10496,16 @@
 "WR" = (
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/briefing)
+"WS" = (
+/obj/machinery/button/door/indestructible{
+	id = "XCCsec3";
+	name = "XCC Shutter 3 Control";
+	pixel_x = 24;
+	pixel_y = -24
+	},
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/floor/iron/dark,
+/area/centcom/central_command_areas/supply)
 "WU" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Administrative Office"
@@ -47566,7 +47545,7 @@ Hz
 Hz
 aK
 mD
-tA
+wv
 wv
 wv
 mD
@@ -51645,7 +51624,7 @@ aa
 aa
 aa
 aa
-aa
+lZ
 iF
 iQ
 wa
@@ -51902,7 +51881,7 @@ aa
 aa
 aa
 aa
-aa
+lZ
 iG
 iR
 Ie
@@ -52159,7 +52138,7 @@ aa
 aa
 aa
 aa
-aa
+lZ
 iG
 iR
 Ie
@@ -52416,7 +52395,7 @@ aa
 aa
 aa
 aa
-aa
+lZ
 iF
 iR
 Ie
@@ -52448,7 +52427,7 @@ iF
 rK
 mQ
 io
-Kq
+vG
 vG
 vG
 vG
@@ -52673,7 +52652,7 @@ aa
 aa
 aa
 aa
-aa
+lZ
 iG
 iR
 Ie
@@ -52930,7 +52909,7 @@ aa
 aa
 aa
 aa
-aa
+lZ
 iG
 iR
 Ws
@@ -53187,7 +53166,7 @@ aa
 aa
 aa
 aa
-aa
+lZ
 iF
 iS
 iZ
@@ -53212,7 +53191,7 @@ ov
 oO
 do
 hz
-hz
+WS
 qS
 Nx
 ZX
@@ -54499,7 +54478,7 @@ Ox
 Ox
 qt
 Fv
-Fs
+rI
 NU
 tM
 Ab
@@ -54513,7 +54492,7 @@ iu
 Ab
 Ab
 qT
-SI
+BE
 NU
 wH
 Ab
@@ -56561,7 +56540,7 @@ iu
 MF
 io
 vP
-Ku
+vP
 vP
 vP
 vP
@@ -59131,7 +59110,7 @@ fm
 eK
 cg
 vU
-LH
+vU
 vU
 vU
 vU
