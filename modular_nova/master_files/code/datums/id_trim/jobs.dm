@@ -61,6 +61,8 @@
 		ACCESS_CHANGE_IDS,
 	)
 	job = /datum/job/blueshield
+	honorifics = list("Lieutenant", "Lt.")
+	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/job/nanotrasen_consultant
 	assignment = "Nanotrasen Consultant"
@@ -115,6 +117,8 @@
 		ACCESS_CHANGE_IDS,
 	)
 	job = /datum/job/nanotrasen_consultant
+	honorifics = list("Consultant", "Advisor")
+	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/job/corrections_officer
 	assignment = "Corrections Officer"
