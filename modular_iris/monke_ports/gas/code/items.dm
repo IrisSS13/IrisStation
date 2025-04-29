@@ -236,7 +236,11 @@
 //Blood stuff
 
 /obj/item/reagent_containers/blood/nabber
-	blood_type = "H"
+	blood_type = BLOOD_TYPE_NABBER
+
+/obj/item/reagent_containers/blood/nabber/examine()
+	. = ..()
+	. += span_notice("This deep blue blood is meant for Giant Armoured Serpentids.")
 
 /datum/design/organic_bloodbag_nabber
 	name = "H Blood Pack"
