@@ -9804,15 +9804,12 @@
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos)
 "eul" = (
-/obj/effect/mapping_helpers/airlock/access/all/security/court,
-/obj/machinery/door/airlock/security{
-	name = "Courtroom"
+/obj/machinery/door/window/brigdoor/left/directional/east{
+	name = "Courtroom";
+	req_access = list("brig")
 	},
 /obj/effect/turf_decal/trimline/red/filled/warning{
-	dir = 4
-	},
-/obj/effect/turf_decal/trimline/red/filled/warning{
-	dir = 8
+	dir = 6
 	},
 /turf/open/floor/iron/dark/textured,
 /area/station/security/courtroom)
@@ -14887,6 +14884,17 @@
 /obj/effect/spawner/random/structure/closet_maintenance,
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
+"gER" = (
+/obj/machinery/suit_storage_unit/standard_unit,
+/obj/effect/turf_decal/tile/blue/half/contrasted{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/machinery/light/directional/west,
+/turf/open/floor/iron,
+/area/station/ai_monitored/command/storage/eva)
 "gET" = (
 /obj/machinery/light/directional/south,
 /obj/structure/chair/sofa/corp/corner{
@@ -15171,6 +15179,7 @@
 	dir = 4
 	},
 /obj/item/radio/intercom/directional/east,
+/obj/machinery/light/directional/east,
 /turf/open/floor/iron,
 /area/station/command/teleporter)
 "gLH" = (
@@ -19108,6 +19117,17 @@
 	dir = 8
 	},
 /area/station/engineering/atmos/hfr_room)
+"izi" = (
+/obj/machinery/suit_storage_unit/standard_unit,
+/obj/effect/turf_decal/tile/blue/half/contrasted{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/machinery/light/directional/east,
+/turf/open/floor/iron,
+/area/station/ai_monitored/command/storage/eva)
 "izt" = (
 /obj/machinery/airalarm/directional/south,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -30851,12 +30871,6 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/textured,
 /area/station/hallway/primary/central)
-"nPJ" = (
-/obj/effect/turf_decal/trimline/red/filled/warning{
-	dir = 6
-	},
-/turf/open/floor/iron/dark/textured,
-/area/station/security/courtroom)
 "nQc" = (
 /obj/structure/window/spawner/directional/south,
 /obj/machinery/atmospherics/components/binary/pump{
@@ -31311,7 +31325,7 @@
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/machinery/door/window/brigdoor/left/directional/south{
 	name = "Crate Security Door";
-	req_access = list("shipping")
+	req_access = list("cargo")
 	},
 /turf/open/floor/iron/dark/textured,
 /area/station/cargo/storage)
@@ -38722,12 +38736,11 @@
 "riA" = (
 /obj/machinery/mineral/ore_redemption,
 /obj/machinery/door/window/brigdoor/left/directional/north{
-	name = "Cargo Security Window";
-	req_access = list("shipping")
+	name = "Cargo Security Window"
 	},
 /obj/machinery/door/window/brigdoor/left/directional/south{
 	name = "Cargo Security Window";
-	req_access = list("shipping")
+	req_access = list("cargo")
 	},
 /turf/open/floor/iron/dark/textured,
 /area/station/cargo/storage)
@@ -51725,7 +51738,6 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/station/commons/storage/emergency/starboard)
 "wWz" = (
-/obj/machinery/light/dim/directional/north,
 /obj/structure/railing,
 /obj/effect/turf_decal/tile/brown/half/contrasted{
 	dir = 1
@@ -51733,6 +51745,7 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 1
 	},
+/obj/machinery/light/directional/north,
 /turf/open/floor/iron/dark/textured,
 /area/station/cargo/miningoffice)
 "wWA" = (
@@ -79428,7 +79441,7 @@ tbT
 xeT
 dZk
 uHk
-uHk
+gER
 qjI
 uHk
 wxy
@@ -80713,7 +80726,7 @@ sFB
 xeT
 gPX
 oNm
-oNm
+izi
 eTQ
 dKw
 hJe
@@ -85353,7 +85366,7 @@ uDj
 xhu
 azo
 rbt
-nPJ
+onf
 aus
 wwc
 wQv
