@@ -63,3 +63,15 @@
 	if(TRAIT_NO_AUGMENTS in species_traits)
 		return FALSE
 	return ..()
+
+/datum/quirk/salt_vulnerability/is_species_appropriate(datum/species/mob_species) //synthetics can't process salt
+	var/datum/species_traits = GLOB.species_prototypes[mob_species].inherent_traits
+	if(TRAIT_SYNTHETIC in species_traits)
+		return FALSE
+	return ..()
+
+/datum/quirk/item_quirk/anosmia/is_species_appropriate(datum/species/mob_species) //synthetics can't smell shit to begin with
+	var/datum/species_traits = GLOB.species_prototypes[mob_species].inherent_traits
+	if(TRAIT_SYNTHETIC in species_traits)
+		return FALSE
+	return ..()
