@@ -1,12 +1,10 @@
-// The issue might be in how we're defining the possible values
-
 /datum/preference/choiced/handedness
-    category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
-    savefile_key = "handedness"
-    savefile_identifier = PREFERENCE_CHARACTER
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
+	savefile_key = "handedness"
+	savefile_identifier = PREFERENCE_CHARACTER
 
 /datum/preference/choiced/handedness/init_possible_values()
-    return list("Random", "Right Hand", "Left Hand")
+	return list("Random", "Right Hand", "Left Hand")
 
 /datum/preference/choiced/handedness/create_default_value()
 	return "Random"
