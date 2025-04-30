@@ -45,18 +45,27 @@
 	trim_state = "trim_ds2researcher"
 	sechud_icon_state = SECHUD_DS2_RESEARCHER
 	access = list(ACCESS_SYNDICATE, ACCESS_ROBOTICS)
+	// Iris edit
+	honorifics = list("Researcher")
+	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/syndicom/nova/ds2/enginetechnician
 	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
 	assignment = "DS-2 Engine Technician"
 	trim_state = "trim_ds2enginetech"
 	sechud_icon_state = SECHUD_DS2_ENGINETECH
+	// Iris edit
+	honorifics = list("Technician")
+	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/syndicom/nova/ds2/medicalofficer
 	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
 	assignment = "DS-2 Medical Officer"
 	trim_state = "trim_ds2medicalofficer"
 	sechud_icon_state = SECHUD_DS2_DOCTOR
+	// Iris edit
+	honorifics = list("Doctor")
+	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/syndicom/nova/ds2/masteratarms
 	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
@@ -64,6 +73,9 @@
 	trim_state = "trim_ds2masteratarms"
 	sechud_icon_state = SECHUD_DS2_MASTERATARMS
 	access = list(ACCESS_SYNDICATE, ACCESS_ROBOTICS, ACCESS_SYNDICATE_LEADER)
+	// Iris edit
+	honorifics = list("M.A.A")
+	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/syndicom/nova/ds2/brigofficer
 	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
@@ -71,6 +83,9 @@
 	trim_state = "trim_ds2brigofficer"
 	sechud_icon_state = SECHUD_DS2_BRIGOFFICER
 	access = list(ACCESS_SYNDICATE, ACCESS_ROBOTICS, ACCESS_SYNDICATE_LEADER)
+	// Iris edit
+	honorifics = list("Officer")
+	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/syndicom/nova/ds2/corporateliasion // DS2 HoP
 	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
@@ -78,6 +93,9 @@
 	trim_state = "trim_ds2corporateliaison"
 	sechud_icon_state = SECHUD_DS2_CORPLIAISON
 	access = list(ACCESS_SYNDICATE, ACCESS_ROBOTICS, ACCESS_SYNDICATE_LEADER)
+	// Iris edit
+	honorifics = list("Liaison")
+	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/syndicom/nova/ds2/stationadmiral
 	trim_icon = 'modular_nova/master_files/icons/obj/card.dmi'
@@ -85,6 +103,9 @@
 	trim_state = "trim_ds2admiral"
 	sechud_icon_state = SECHUD_DS2_ADMIRAL
 	access = list(ACCESS_SYNDICATE, ACCESS_ROBOTICS, ACCESS_SYNDICATE_LEADER)
+	// Iris edit
+	honorifics = list("Admiral")
+	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
 
 /// Interdyne
 
@@ -104,3 +125,6 @@
 	trim_state = "trim_deckofficer"
 	department_color = COLOR_VERY_DARK_LIME_GREEN
 	access = list(ACCESS_SYNDICATE, ACCESS_ROBOTICS, ACCESS_SYNDICATE_LEADER)
+	// Iris edit
+	honorifics = list("Deck Officer")
+	honorific_positions = HONORIFIC_POSITION_FIRST | HONORIFIC_POSITION_LAST | HONORIFIC_POSITION_FIRST_FULL | HONORIFIC_POSITION_NONE
