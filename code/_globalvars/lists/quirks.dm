@@ -124,10 +124,3 @@ GLOBAL_LIST_INIT(quirk_chipped_choice, list(
 	"Mast-Angl-Er" = /obj/item/skillchip/master_angler,
 	"Kommand" = /obj/item/skillchip/big_pointer,
 ))
-
-//IRIS EDIT ADDITION BEGIN - HANDEDNESS_QUIRK
-GLOBAL_LIST_INIT(side_choice_handedness, list(
-	"Dominant Left Hand",
-	"Dominant Right Hand",
-))
-//IRIS EDIT ADDITION END
