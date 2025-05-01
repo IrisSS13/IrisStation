@@ -34,7 +34,6 @@
 		TRAIT_NO_DNA_COPY //Cannot be cloned, body too big.
 	)
 	digitigrade_customization = DIGITIGRADE_NEVER
-	//blood_colours = "#30498f" //Haemolyph is typically a deep blue. we dont have blood colors here, leaving it if upstream adds it or w/e
 	no_equip_flags = ITEM_SLOT_FEET | ITEM_SLOT_OCLOTHING
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
 	mutanttongue = /obj/item/organ/tongue/nabber
@@ -46,7 +45,7 @@
 	outfit_important_for_life = /datum/outfit/nabber
 	species_language_holder = /datum/language_holder/nabber
 	species_cookie = /obj/item/food/meat/slab
-	exotic_bloodtype = "H"
+	exotic_bloodtype = BLOOD_TYPE_NABBER
 	mutantbrain = /obj/item/organ/brain/nabber
 	mutanteyes = /obj/item/organ/eyes/nabber
 	mutantlungs = /obj/item/organ/lungs/nabber

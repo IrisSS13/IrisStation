@@ -53,7 +53,7 @@
 /mob/living/basic/frog/Initialize(mapload)
 	. = ..()
 
-	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
+	add_traits(list(TRAIT_NODROWN, TRAIT_SWIMMER, TRAIT_VENTCRAWLER_ALWAYS), INNATE_TRAIT)
 
 	//IRIS EDIT CHANGE BEGIN - RARE_FROG_PET
 	if(prob(rare_chance))
