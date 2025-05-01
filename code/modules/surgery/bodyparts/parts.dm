@@ -405,7 +405,7 @@
 	/// Datum describing how to offset things worn on the foot of this leg, note that an x offset won't do anything here
 	var/datum/worn_feature_offset/worn_foot_offset
 	/// Used by the bloodysoles component to make footprints
-	var/footprint_sprite = FOOTPRINT_SPRITE_SHOES
+	var/footprint_sprite = FOOTPRINT_SPRITE_HUMAN //IRIS EDIT: OG- FOOTPRINT_SPRITE_SHOES
 	/// What does our footsteps (barefoot) sound like? Only BAREFOOT, CLAW, HEAVY, and SHOE (or null, I guess) are valid
 	var/footstep_type = FOOTSTEP_MOB_BAREFOOT
 	/// You can set this to a list of sounds to pick from when a footstep is played rather than use the footstep types

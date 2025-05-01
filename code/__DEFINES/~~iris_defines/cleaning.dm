@@ -1,1 +1,3 @@
 #define FOOTPRINT_SPRITE_SNAKE "snake"
+#define FOOTPRINT_SPRITE_HOOVES "hooves"
+#define FOOTPRINT_SPRITE_HUMAN "human"
