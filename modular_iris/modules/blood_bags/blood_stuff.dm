@@ -39,7 +39,7 @@
 
 /obj/item/reagent_containers/blood/insect/examine()
 	. = ..()
-	. += span_notice("This light blue blood is meant for Insects.")
+	. += span_notice("This purple blood is meant for Insects.")
 
 /datum/design/organic_bloodbag_insect
 	name = "I Blood Pack"
@@ -57,7 +57,7 @@
 
 /obj/item/reagent_containers/blood/skrell/examine()
 	. = ..()
-	. += span_notice("This light blue blood is meant for Skrell.")
+	. += span_notice("This copper colored blood is meant for Skrell.")
 
 /datum/design/organic_bloodbag_skrell
 	name = "SK Blood Pack"
