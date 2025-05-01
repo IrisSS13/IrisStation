@@ -5,7 +5,7 @@
 	savefile_key = "footprint_sprite"
 
 /datum/preference/choiced/footprint_sprite/init_possible_values()
-	return list("Default", "Paws", "Claws", "Snake Trail", "Hooves", "Shoes")
+	return list("Default", "Paws", "Claws", "Snake Trail", "Hooves")
 
 /datum/preference/choiced/footprint_sprite/create_default_value()
 	return "Default"
@@ -18,8 +18,7 @@
 		"Paws" = FOOTPRINT_SPRITE_PAWS,
 		"Claws" = FOOTPRINT_SPRITE_CLAWS,
 		"Snake Trail" = FOOTPRINT_SPRITE_SNAKE,
-		"Hooves" = FOOTPRINT_SPRITE_HOOVES,
-		"Shoes" = FOOTPRINT_SPRITE_SHOES
+		"Hooves" = FOOTPRINT_SPRITE_HOOVES
 	)
 	var/footprint_sprite = value_to_define[value]
 	var/obj/item/bodypart/leg/left_leg = target.get_bodypart(BODY_ZONE_L_LEG)

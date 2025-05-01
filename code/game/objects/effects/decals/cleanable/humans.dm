@@ -326,7 +326,7 @@
 	switch(footprint_sprite)
 		if(FOOTPRINT_SPRITE_CLAWS)
 			name = "clawprints"
-		if(FOOTPRINT_SPRITE_SHOES , FOOTPRINT_SPRITE_HUMAN)
+		if(FOOTPRINT_SPRITE_SHOES)
 			name = "footprints"
 		if(FOOTPRINT_SPRITE_PAWS)
 			name = "pawprints"
