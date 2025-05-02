@@ -11,12 +11,13 @@
 	customization_options = list(/datum/preference/choiced/handedness)
 
 /datum/quirk/handedness/add(client/client_source)
-	var/side_choice = GLOB.side_choice_handedness[client_source?.prefs?.read_preference(/datum/preference/choiced/handedness)]
-	if(isnull(side_choice))  // Client gone or they chose a random side
-		side_choice = GLOB.side_choice_handedness[pick(GLOB.side_choice_handedness)]
+	var/chosen_handedness = null
+
+	if(client_source?.prefs)
+		chosen_handedness = client_source.prefs.read_preference(/datum/preference/choiced/handedness)
 
 	var/mob/living/carbon/human/human_holder = quirk_holder
-	if(side_choice == "Dominant Left Hand")
+	if(chosen_handedness == "Left Hand")
 		gain_text = span_danger("You no longer feel able to accurately control your right hand.")
 		lose_text = span_notice("You feel able to control your right hand again.")
 		medical_record_text = "Patient demonstrates impaired adroitness when asked to use [human_holder.p_their()] right hand."
