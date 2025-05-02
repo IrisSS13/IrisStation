@@ -2,7 +2,7 @@
 
 /obj/item/ammo_casing/energy/cybersun_big_kill
 	projectile_type = /obj/projectile/beam/cybersun_laser
-	e_cost = LASER_SHOTS(10, STANDARD_CELL_CHARGE * 2) // less shots then a regular laser as it has literally so many other options avaliable
+	e_cost = LASER_SHOTS(18, STANDARD_CELL_CHARGE * 2) // ~~less shots then a regular laser as it has literally so many other options avaliable~~ edit: changing to an odd number for testing
 	select_name = "Kill"
 	fire_sound = 'modular_nova/modules/modular_weapons/sounds/laser_firing/laser.ogg'
 
