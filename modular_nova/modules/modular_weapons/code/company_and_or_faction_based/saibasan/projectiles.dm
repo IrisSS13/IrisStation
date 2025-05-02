@@ -26,11 +26,11 @@
 	icon_state = "sniper"
 	damage = 15
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/yellow_laser
-	speed = 2.5
+	speed = 3
 	light_range = 2
 	light_color = COLOR_VERY_SOFT_YELLOW
 	pass_flags = PASSTABLE | PASSGRILLE // HIS ASS DOES NOT PASS GLASS!!!!
-	wound_falloff_tile = 0.5 // gains power as it goes further, actually making it more like a SNIPER, bonus if you hit super far, terrible close up
+	wound_falloff_tile = 0.85 // gains power as it goes further, actually making it more like a SNIPER, bonus if you hit super far, terrible close up
 
 // Disabler machinegun for the big gun
 
