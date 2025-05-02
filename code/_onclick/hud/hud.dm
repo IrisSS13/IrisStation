@@ -131,8 +131,9 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	static_inventory += screentip_text
 
 	// IRIS ADDITION START
-	mapvote_hud = new(null, src, preferences)
-	infodisplay += mapvote_hud
+	if(preferences?.read_preference(/datum/preference/toggle/mapvote_hud))
+		mapvote_hud = new(null, src, preferences)
+		infodisplay += mapvote_hud
 	// IRIS ADDITION END
 	for(var/mytype in subtypesof(/atom/movable/plane_master_controller))
 		var/atom/movable/plane_master_controller/controller_instance = new mytype(null,src)
