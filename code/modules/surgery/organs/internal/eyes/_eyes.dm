@@ -41,7 +41,7 @@
 	var/eye_color_right = null // set to a hex code to override a mob's right eye color
 	var/eye_icon_state = "eyes"
 	/// Do these eyes have blinking animations
-	var/blink_animation = TRUE
+	var/blink_animation = FALSE //IRIS EDIT - DISABLING blinking
 	/// Icon state for iris overlays
 	var/iris_overlay = "eyes_iris"
 	/// Should our blinking be synchronized or can separate eyes have (slightly) separate blinking times
