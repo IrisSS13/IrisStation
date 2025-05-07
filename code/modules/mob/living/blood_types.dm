@@ -137,6 +137,7 @@
 
 /datum/blood_type/lizard
 	name = BLOOD_TYPE_LIZARD
+	color = BLOOD_COLOR_LIZARD
 	compatible_types = list(
 		/datum/blood_type/lizard,
 	)
@@ -147,13 +148,6 @@
 	lightness_mult = 1.255 // for more vibrant gatorade coloring
 	compatible_types = list(
 		/datum/blood_type/ethereal,
-	)
-
-/datum/blood_type/nabber // NABBER BLOOD - IRIS EDIT
-	name = BLOOD_TYPE_NABBER
-	color = BLOOD_COLOR_NABBER
-	compatible_types = list(
-		/datum/blood_type/nabber,
 	)
 
 /datum/blood_type/oil
