@@ -48,6 +48,8 @@ export const silicon_flavor_text: Feature<string> = {
 
 export const ooc_notes: Feature<string> = {
   name: 'OOC Notes',
+  description:
+    'Anything you want other players to know about you goes here, such as antag information, OOC triggers, etc.',
   component: FeatureTextInput,
 };
 

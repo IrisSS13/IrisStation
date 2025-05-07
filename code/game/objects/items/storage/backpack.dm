@@ -98,6 +98,7 @@
 	icon_state = "giftbag0"
 	inhand_icon_state = "giftbag"
 	w_class = WEIGHT_CLASS_BULKY
+	storage_type = /datum/storage/backpack/santabag
 
 /obj/item/storage/backpack/santabag/Initialize(mapload)
 	. = ..()
@@ -250,10 +251,7 @@
 	icon = 'icons/obj/storage/ethereal.dmi'
 	worn_icon = 'icons/mob/clothing/back/ethereal.dmi'
 	icon_state = "saddlepack"
-
-/obj/item/storage/backpack/saddlepack/Initialize(mapload)
-	. = ..()
-	atom_storage.max_total_storage = 26
+	storage_type = /datum/storage/backpack/saddle
 
 // MEAT MEAT MEAT MEAT MEAT
 
@@ -421,12 +419,11 @@
 	icon_state = "satchel-flat"
 	inhand_icon_state = "satchel-flat"
 	w_class = WEIGHT_CLASS_NORMAL //Can fit in backpacks itself.
+	storage_type = /datum/storage/backpack/satchel_flat
 
 /obj/item/storage/backpack/satchel/flat/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/undertile, TRAIT_T_RAY_VISIBLE, INVISIBILITY_MAXIMUM, use_anchor = TRUE) // NOVA EDIT - Ghosts can't see smuggler's satchels
-	atom_storage.max_total_storage = 15
-	atom_storage.set_holdable(cant_hold_list = /obj/item/storage/backpack/satchel/flat) //muh recursive backpacks
+	AddElement(/datum/element/undertile, TRAIT_T_RAY_VISIBLE, INVISIBILITY_MAXIMUM, use_anchor = TRUE) // NOVA EDIT CHANGE - Original: AddElement(/datum/element/undertile, TRAIT_T_RAY_VISIBLE, INVISIBILITY_OBSERVER, use_anchor = TRUE)
 	ADD_TRAIT(src, TRAIT_CONTRABAND_BLOCKER, INNATE_TRAIT)
 
 /obj/item/storage/backpack/satchel/flat/PopulateContents()

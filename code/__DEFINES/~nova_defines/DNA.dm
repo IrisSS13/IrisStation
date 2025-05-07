@@ -1,3 +1,10 @@
+/// Examine Panel headshot
+#define EXAMINE_DNA_HEADSHOT "headshot"
+/// Examine Panel flavor text
+#define EXAMINE_DNA_FLAVOR_TEXT "flavor_text"
+/// Examine Panel OOC notes
+#define EXAMINE_DNA_OOC_NOTES "ooc_notes"
+
 //We start from 30 to not interfere with TG species defines, should they add more
 /// We're using all three mutcolor features for our skin coloration
 #define MUTCOLOR_MATRIXED	30
@@ -74,7 +81,7 @@
 	"mcolor3" = "#FFFFBB",\
 	"ethcolor" = "#FFCCCC",\
 	"skin_color" = "#FFEEDD",\
-	"flavor_text" = "",\
+	EXAMINE_DNA_FLAVOR_TEXT = "",\
 	"body_size" = BODY_SIZE_NORMAL,\
 	"custom_species" = null,\
 )
