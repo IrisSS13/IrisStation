@@ -73,6 +73,13 @@
 		button.icon_state = "[user_preference]_button"
 		vis_contents += button
 
+	var/atom/movable/screen/mapvote_button/exit/button = new(src, hud)
+	button.pixel_y = (latest_vote_length + 1) * -32
+	RegisterSignal(button, COMSIG_VOTE_CHOICE_SELECTED, PROC_REF(handle_vote_click))
+	buttons += button
+	button.icon_state = "[user_preference]_exit"
+	vis_contents += button
+
 /atom/movable/screen/mapvote_hud/proc/hide()
 	SIGNAL_HANDLER
 
@@ -87,6 +94,10 @@
 
 /atom/movable/screen/mapvote_hud/proc/handle_vote_click(datum/source, mob/user, atom/movable/screen/mapvote_button/button, choice)
 	SIGNAL_HANDLER
+
+	if(isnull(choice))
+		hide()
+		return
 
 	button.color = COLOR_VERY_PALE_LIME_GREEN
 	if(latest_vote_count == VOTE_COUNT_METHOD_SINGLE)
@@ -111,10 +122,18 @@
 	maptext_x = 6
 	var/choice
 
-/atom/movable/screen/mapvote_button/Initialize(mapload, datum/hud/hud_owner, wanted_choice)
+/atom/movable/screen/mapvote_button/Initialize(mapload, datum/hud/hud_owner, wanted_choice = null)
 	. = ..()
+	if(isnull(wanted_choice))
+		return
+
 	choice = wanted_choice
 	maptext = MAPTEXT("<div align='center' valign='middle' style='position:relative;'><font color='cyan'>[choice]</font></div>")
 
 /atom/movable/screen/mapvote_button/Click(location, control, params)
 	SEND_SIGNAL(src, COMSIG_VOTE_CHOICE_SELECTED, usr, src, choice)
+
+/atom/movable/screen/mapvote_button/exit
+	name = "voting button"
+	icon = 'modular_iris/modules/mapvote_hud/icons/voting_thingy.dmi'
+	icon_state = "Glass_exit"
