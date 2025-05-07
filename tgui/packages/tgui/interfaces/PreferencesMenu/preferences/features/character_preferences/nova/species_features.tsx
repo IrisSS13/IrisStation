@@ -53,18 +53,6 @@ export const ooc_notes: Feature<string> = {
   component: FeatureTextInput,
 };
 
-export const attraction: FeatureChoiced = {
-  name: 'Character Attraction',
-  description: 'What your character is attracted to.',
-  component: FeatureDropdownInput,
-};
-
-export const display_gender: FeatureChoiced = {
-  name: 'Character Gender',
-  description: 'What classifies as the gender for your character.',
-  component: FeatureDropdownInput,
-};
-
 export const custom_species: Feature<string> = {
   name: 'Custom Species Name',
   description:
