@@ -150,13 +150,6 @@
 		/datum/blood_type/ethereal,
 	)
 
-/datum/blood_type/nabber // NABBER BLOOD - IRIS EDIT
-	name = BLOOD_TYPE_NABBER
-	color = BLOOD_COLOR_NABBER
-	compatible_types = list(
-		/datum/blood_type/nabber,
-	)
-
 /datum/blood_type/oil
 	name = BLOOD_TYPE_OIL
 	color = BLOOD_COLOR_OIL

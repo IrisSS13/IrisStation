@@ -222,7 +222,6 @@
 #define BLOOD_COLOR_XENO "#D5FF2C"
 #define BLOOD_COLOR_OIL "#262626"
 #define BLOOD_COLOR_BLACK "#2C0903"
-#define BLOOD_COLOR_NABBER "#30498f" //IRIS EDIT
 
 ///Main colors for UI themes
 #define COLOR_THEME_MIDNIGHT "#6086A0"
