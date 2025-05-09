@@ -80,6 +80,9 @@
 /// The trait that determines if someone has the oversized quirk.
 #define TRAIT_OVERSIZED "trait_oversized"
 
+/// The trait accompanying the "Heavyset" quirk.
+#define TRAIT_HEAVYSET "trait_heavyset"
+
 /// The trait that determines if someone has the system shock quirk.
 #define TRAIT_SYSTEM_SHOCK "trait_system_shock"
 
@@ -141,7 +144,6 @@
 #define TRAIT_R_UNIQUEPANEL "unique_openpanel"
 /// Any model that has extra rest options
 #define TRAIT_RESTING_ALTS "extra_resting_alts"
-
 
 /// If clothing can also be damaged by piercing wound checks, instead of JUST slashes and burns
 #define TRAIT_CLOTHES_DAMAGED_BY_PIERCING "clothing_damaged_by_piercing"
