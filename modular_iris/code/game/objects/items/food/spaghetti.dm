@@ -1,11 +1,14 @@
+/obj/item/food/spaghetti/copypasta
+	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 1)
+
 // This entire is ironically full of copypasta because the crafting system would otherwise break out pastas
 /obj/item/food/spaghetti/pastatomato/Initialize(mapload)
 	. = ..()
 	var/static/list/slapcraft_recipe_list = list(
-		/datum/crafting_recipe/food/triple,
-		/datum/crafting_recipe/food/tower,
-		/datum/crafting_recipe/food/spire,
-		/datum/crafting_recipe/food/babel,
+		/datum/crafting_recipe/food/pasta_triple,
+		/datum/crafting_recipe/food/pasta_tower,
+		/datum/crafting_recipe/food/pasta_spire,
+		/datum/crafting_recipe/food/pasta_babel,
 	)
 	AddElement(
 		/datum/element/slapcrafting,\
@@ -14,7 +17,7 @@
 
 /obj/item/food/spaghetti/copypasta/Initialize(mapload)
 	. = ..()
-	var/static/list/slapcraft_recipe_list = list(/datum/crafting_recipe/food/triple)
+	var/static/list/slapcraft_recipe_list = list(/datum/crafting_recipe/food/pasta_triple)
 	AddElement(
 		/datum/element/slapcrafting,\
 		slapcraft_recipes = slapcraft_recipe_list,\
@@ -26,18 +29,14 @@
 	icon = 'modular_iris/icons/obj/food/spaghetti.dmi'
 	icon_state = "triple"
 	bite_consumption = 4
-	food_reagents = list(
-		/datum/reagent/consumable/nutriment = 18,
-		/datum/reagent/consumable/tomatojuice = 30,
-		/datum/reagent/consumable/nutriment/vitamin = 12,
-	)
+	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("pasta" = 1, "tomato" = 1)
 	foodtypes = GRAIN | VEGETABLES
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/spaghetti/triple/Initialize(mapload)
 	. = ..()
-	var/static/list/slapcraft_recipe_list = list(/datum/crafting_recipe/food/tower)
+	var/static/list/slapcraft_recipe_list = list(/datum/crafting_recipe/food/pasta_tower)
 	AddElement(
 		/datum/element/slapcrafting,\
 		slapcraft_recipes = slapcraft_recipe_list,\
@@ -49,18 +48,14 @@
 	icon = 'modular_iris/icons/obj/food/spaghetti.dmi'
 	icon_state = "tower"
 	bite_consumption = 4
-	food_reagents = list(
-		/datum/reagent/consumable/nutriment = 24,
-		/datum/reagent/consumable/tomatojuice = 40,
-		/datum/reagent/consumable/nutriment/vitamin = 16,
-	)
+	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("pasta" = 1, "tomato" = 1)
 	foodtypes = GRAIN | VEGETABLES
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/spaghetti/tower/Initialize(mapload)
 	. = ..()
-	var/static/list/slapcraft_recipe_list = list(/datum/crafting_recipe/food/spire)
+	var/static/list/slapcraft_recipe_list = list(/datum/crafting_recipe/food/pasta_spire)
 	AddElement(
 		/datum/element/slapcrafting,\
 		slapcraft_recipes = slapcraft_recipe_list,\
@@ -72,18 +67,14 @@
 	icon = 'modular_iris/icons/obj/food/spaghetti.dmi'
 	icon_state = "spire"
 	bite_consumption = 4
-	food_reagents = list(
-		/datum/reagent/consumable/nutriment = 30,
-		/datum/reagent/consumable/tomatojuice = 50,
-		/datum/reagent/consumable/nutriment/vitamin = 20,
-	)
+	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("pasta" = 1, "tomato" = 1)
 	foodtypes = GRAIN | VEGETABLES
 	crafting_complexity = FOOD_COMPLEXITY_2
 
 /obj/item/food/spaghetti/spire/Initialize(mapload)
 	. = ..()
-	var/static/list/slapcraft_recipe_list = list(/datum/crafting_recipe/food/babel)
+	var/static/list/slapcraft_recipe_list = list(/datum/crafting_recipe/food/pasta_babel)
 	AddElement(
 		/datum/element/slapcrafting,\
 		slapcraft_recipes = slapcraft_recipe_list,\
@@ -95,11 +86,26 @@
 	icon = 'modular_iris/icons/obj/food/spaghetti.dmi'
 	icon_state = "babel"
 	bite_consumption = 4
-	food_reagents = list(
-		/datum/reagent/consumable/nutriment = 36,
-		/datum/reagent/consumable/tomatojuice = 60,
-		/datum/reagent/consumable/nutriment/vitamin = 24,
-	)
+	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("pasta" = 1, "tomato" = 1)
 	foodtypes = GRAIN | VEGETABLES
 	crafting_complexity = FOOD_COMPLEXITY_2
+
+/obj/item/food/spaghetti/singularity
+	name = "singu-pasta"
+	desc = "A large amount of pasta squeezed into a very tight space creating an illusion of a tiny pasta singularity."
+	icon = 'modular_iris/icons/obj/food/spaghetti.dmi'
+	icon_state = "singularity"
+	bite_consumption = 4
+	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 1)
+	tastes = list("infinity" = 1)
+	foodtypes = GRAIN | VEGETABLES
+	crafting_complexity = FOOD_COMPLEXITY_3
+
+/obj/item/food/spaghetti/singularity/Initialize(mapload)
+	. = ..()
+	var/static/list/slapcraft_recipe_list = list(/datum/crafting_recipe/food/expand_pasta_singularity)
+	AddElement(
+		/datum/element/slapcrafting,\
+		slapcraft_recipes = slapcraft_recipe_list,\
+	)
