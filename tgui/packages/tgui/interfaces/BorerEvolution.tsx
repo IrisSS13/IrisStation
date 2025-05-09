@@ -23,8 +23,8 @@ type Evolution = {
 };
 
 type EvolutionInfo = {
-  learnableEvolution: Evolution[];
-  learnedEvolution: Evolution[];
+  learnableEvolution: Evolution[] | undefined;
+  learnedEvolution: Evolution[] | undefined;
 };
 
 type Info = {
@@ -53,8 +53,8 @@ const PastEvolutions = (props) => {
     <Stack.Item grow>
       <Section title="Past Evolutions" fill scrollable>
         <Stack vertical>
-          {(!learnedEvolution.length && 'None!') ||
-            learnedEvolution.map((learned) => (
+          {(!learnedEvolution?.length && 'None!') ||
+            learnedEvolution?.map((learned) => (
               <Stack.Item key={learned.name}>
                 <Button
                   width="100%"
@@ -79,8 +79,8 @@ const EvolutionList = (props) => {
   return (
     <Stack.Item grow>
       <Section title="Possible Evolutions" fill scrollable>
-        {(!learnableEvolution.length && 'None!') ||
-          learnableEvolution.map((toLearn) => (
+        {(!learnableEvolution?.length && 'None!') ||
+          learnableEvolution?.map((toLearn) => (
             <Stack.Item key={toLearn.name} mb={1}>
               <Button
                 width="100%"
