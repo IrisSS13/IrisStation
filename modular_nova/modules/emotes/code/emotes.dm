@@ -126,14 +126,6 @@
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/nya.ogg'
 
-/datum/emote/living/weh
-	key = "weh"
-	key_third_person = "wehs"
-	message = "lets out a weh!"
-	emote_type = EMOTE_AUDIBLE
-	vary = TRUE
-	sound = 'modular_nova/modules/emotes/sound/voice/weh.ogg'
-
 /datum/emote/living/mothsqueak
 	key = "msqueak"
 	key_third_person = "lets out a tiny squeak"
@@ -149,14 +141,6 @@
 	emote_type = EMOTE_AUDIBLE
 	vary = TRUE
 	sound = 'sound/mobs/non-humanoids/mouse/mousesqueek.ogg'
-
-/datum/emote/living/merp
-	key = "merp"
-	key_third_person = "merps"
-	message = "merps!"
-	emote_type = EMOTE_AUDIBLE
-	vary = TRUE
-	sound = 'modular_nova/modules/emotes/sound/voice/merp.ogg'
 
 /datum/emote/living/bark
 	key = "bark"

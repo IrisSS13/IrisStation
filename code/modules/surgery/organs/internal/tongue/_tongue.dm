@@ -77,11 +77,9 @@
 	return list(
 		/datum/language/common,
 		/datum/language/uncommon,
-		/datum/language/spinwarder,
 		/datum/language/draconic,
 		/datum/language/codespeak,
 		/datum/language/monkey,
-		/datum/language/kobold, // Nova Edit Addition: KOBORS
 		/datum/language/narsie,
 		/datum/language/beachbum,
 		/datum/language/aphasia,
