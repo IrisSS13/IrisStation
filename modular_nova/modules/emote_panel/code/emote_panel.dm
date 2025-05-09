@@ -660,6 +660,11 @@
 	set category = "Emotes+"
 	usr.emote("nya", intentional = TRUE)
 
+/mob/living/proc/emote_weh()
+	set name = "> Weh"
+	set category = "Emotes+"
+	usr.emote("weh", intentional = TRUE)
+
 /mob/living/proc/emote_mothsqueak()
 	set name = "> Moth Squeak"
 	set category = "Emotes+"
@@ -669,6 +674,11 @@
 	set name = "> Mouse Squeak"
 	set category = "Emotes+"
 	usr.emote("squeak", intentional = TRUE)
+
+/mob/living/proc/emote_merp()
+	set name = "> Merp"
+	set category = "Emotes+"
+	usr.emote("merp", intentional = TRUE)
 
 /mob/living/proc/emote_bark()
 	set name = "> Bark"
