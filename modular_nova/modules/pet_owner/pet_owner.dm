@@ -88,8 +88,6 @@ GLOBAL_LIST_INIT(possible_player_pet, list(
 	//IRIS EDIT CHANGE BEGIN - RARE_FROG_PET
 	"Frog (green)" = /mob/living/basic/frog/common,
 	"Frog (purple)" = /mob/living/basic/frog/rare,
-	"Snail" = /mob/living/basic/snail
-	"Void Puppy" = /mob/living/basic/pet/dog/corgi/puppy/void,
 	//IRIS EDIT CHANGE END
 	"Giant ant" = /mob/living/basic/ant,
 	"Kitten" = /mob/living/basic/pet/cat/kitten,
@@ -104,10 +102,16 @@ GLOBAL_LIST_INIT(possible_player_pet, list(
 	"Rabbit" = /mob/living/basic/rabbit,
 	"Shorg" = /mob/living/basic/pet/dog/shorg,
 	"Sloth" = /mob/living/basic/sloth,
+	//IRIS EDIT CHANGE BEGIN
+	"Snail" = /mob/living/basic/snail
+	//IRIS EDIT CHANGE END
 	"Snake" = /mob/living/basic/snake,
 	"Spider" = /mob/living/basic/spider/maintenance,
 	"Tegu" = /mob/living/basic/lizard/tegu,
 	"Turtle" = /mob/living/basic/turtle,
+	//IRIS EDIT CHANGE BEGIN
+	"Void Puppy" = /mob/living/basic/pet/dog/corgi/puppy/void,
+	//IRIS EDIT CHANGE END
 )) //some of these are too big to be put back into the pet carrier once taken out, so I put a warning on the carrier.
 
 /datum/preference/choiced/pet_owner/init_possible_values()
