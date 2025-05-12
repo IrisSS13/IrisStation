@@ -103,7 +103,7 @@ GLOBAL_LIST_INIT(possible_player_pet, list(
 	"Tegu" = /mob/living/basic/lizard/tegu,
 	"Turtle" = /mob/living/basic/turtle,
 	//IRIS EDIT CHANGE BEGIN - RARE_FROG_PET
-	"Frog (green)" = /mob/living/basic/frog/common,
+	"Frog (green)" = /mob/living/basic/frog,
 	"Frog (purple)" = /mob/living/basic/frog/rare,
 	"Void Puppy" = /mob/living/basic/pet/dog/corgi/puppy/void,
 	"Snail" = /mob/living/basic/snail,
