@@ -60,7 +60,7 @@
 	//IRIS EDIT CHANGE BEGIN - RARE_FROG_PET
 	if(prob(rare_chance))
 	//IRIS EDIT CHANGE END
-			make_rare()
+		make_rare()
 
 	/* // NOVA EDIT REMOVAL START
 	var/static/list/loc_connections = list(
