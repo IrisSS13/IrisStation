@@ -59,12 +59,12 @@ const ScriptEditor = (props) => {
     <Box width="100%" height="100%">
       {user_name ? (
         <TextArea
-          noborder
-          scrollbar
+          style={{ border: 'none' }}
           value={stored_code}
           width="100%"
           height="100%"
-          onChange={(_, value) =>
+          expensive
+          onChange={(value) =>
             act('save_code', {
               saved_code: value,
             })
@@ -176,7 +176,8 @@ const ServerList = (props) => {
         <Input
           mb={1}
           value={network}
-          onChange={(_, value) =>
+          expensive
+          onChange={(value) =>
             act('set_network', {
               new_network: value,
             })
