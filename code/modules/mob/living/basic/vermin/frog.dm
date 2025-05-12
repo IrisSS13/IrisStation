@@ -47,20 +47,11 @@
 	var/poison_type = /datum/reagent/drug/space_drugs
 	///What type do we become if influenced by a regal rat?
 	var/minion_type = /mob/living/basic/frog/crazy
-	//IRIS EDIT ADDITION BEGIN - RARE_FROG_PET
-	///Chance of this frog being made rare upon spawning
-	var/rare_chance = 1
-	//IRIS EDIT ADDITION END
 
 /mob/living/basic/frog/Initialize(mapload)
 	. = ..()
 
 	add_traits(list(TRAIT_NODROWN, TRAIT_SWIMMER, TRAIT_VENTCRAWLER_ALWAYS), INNATE_TRAIT)
-
-	//IRIS EDIT CHANGE BEGIN - RARE_FROG_PET
-	if(prob(rare_chance))
-	//IRIS EDIT CHANGE END
-		make_rare()
 
 	/* // NOVA EDIT REMOVAL START
 	var/static/list/loc_connections = list(
