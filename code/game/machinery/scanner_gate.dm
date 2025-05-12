@@ -227,6 +227,8 @@
 				if(detect_species_id == SPECIES_MUTANT)
 					detected_thing = "Proto-Viral infection"
 					if(scanned_human.GetComponent(/datum/component/mutant_infection))
+						beep = TRUE
+				//IRIS EDIT ADDITION END - MUTANT SCANNER GATE
 		if(SCANGATE_GUNS)
 			detected_thing = "Weapons"
 			if(isgun(thing))
