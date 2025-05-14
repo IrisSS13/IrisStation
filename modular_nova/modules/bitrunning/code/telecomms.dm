@@ -1,8 +1,11 @@
-/obj/item/radio/headset/silicon/ai/faction // Gives the announcement system "faction" access used for bitrunner announcements.
+/*/obj/item/radio/headset/silicon/ai/faction // Gives the announcement system "faction" access used for bitrunner announcements.
 	keyslot = /obj/item/encryptionkey/headset_bitrunning // primary channels are all in keyslot2
 
 /obj/machinery/announcement_system
-	radio_type = /obj/item/radio/headset/silicon/ai/faction
+	radio_type = /obj/item/radio/headset/silicon/ai/faction*/
+
+/obj/machinery/announcement_system
+	radio_type = /obj/item/radio/headset/silicon/aas
 
 // Makes sure faction messages can actually be transmitted on the station. Added to whichever preset has existing supply comms.
 /obj/machinery/telecomms/server/presets/supply/Initialize(mapload)

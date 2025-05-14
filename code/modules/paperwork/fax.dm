@@ -401,6 +401,16 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 /obj/machinery/fax/proc/receive(obj/item/loaded, sender_name)
 	playsound(src, 'sound/machines/printer.ogg', 50, FALSE)
 	INVOKE_ASYNC(src, PROC_REF(animate_object_travel), loaded, "fax_receive", find_overlay_state(loaded, "receive"))
+	// Iris Addition
+	if (fax_name == "Unknown Syndicate Fax")
+		aas_config_announce(/datum/aas_config_entry/fax_received, list("SENDER" = sender_name, "FAX" = src.area.name), null, list(RADIO_CHANNEL_INTERDYNE))
+	else if (fax_name == "Interdyne S&R Ship Fax")
+		aas_config_announce(/datum/aas_config_entry/fax_received, list("SENDER" = sender_name, "FAX" = src.area.name), null, list(RADIO_CHANNEL_INTERDYNE))
+	else if (fax_name == "Interdyne Pharmaceuticals")
+		aas_config_announce(/datum/aas_config_entry/fax_received, list("SENDER" = sender_name, "FAX" = src.area.name), null, list(RADIO_CHANNEL_INTERDYNE))
+	else
+		aas_config_announce(/datum/aas_config_entry/fax_received, list("SENDER" = sender_name, "FAX" = src.area.name), null, list(RADIO_CHANNEL_COMMON))
+	// Addition End
 	say("Received correspondence from [sender_name].")
 	history_add("Receive", sender_name)
 	addtimer(CALLBACK(src, PROC_REF(vend_item), loaded), 1.9 SECONDS)
@@ -593,3 +603,13 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 	else
 		return FALSE
 	return TRUE
+
+// Iris Addition
+/datum/aas_config_entry/fax_received
+	name = "Fax Received Announcement"
+	announcement_lines_map = list(
+		"Message" = "A new fax has been recieved from %SENDER in %FAX!")
+	vars_and_tooltips_map = list(
+		"SENDER" = "will be replaced with the Sender's name",
+		"FAX" = "will be replaced with the Fax's name")
+// Addition End
