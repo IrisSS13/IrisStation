@@ -4,29 +4,22 @@
 	/// The screen containing the appearance of the mob
 	var/atom/movable/screen/map_view/examine_panel_screen/examine_panel_screen
 
-
 /datum/examine_panel/New(mob/holder_mob)
 	holder = holder_mob
 
-
 /datum/examine_panel/Destroy(force)
-	SStgui.close_uis(src)
 	holder = null
 	qdel(examine_panel_screen)
 	return ..()
 
-
 /datum/examine_panel/ui_state(mob/user)
 	return GLOB.always_state
-
 
 /datum/examine_panel/ui_close(mob/user)
 	user.client?.clear_map(examine_panel_screen.assigned_map)
 
-
 /atom/movable/screen/map_view/examine_panel_screen
 	name = "examine panel screen"
-
 
 /datum/examine_panel/ui_interact(mob/user, datum/tgui/ui)
 	if(!examine_panel_screen)
@@ -53,9 +46,7 @@
 		ui.open()
 		examine_panel_screen.display_to(user, ui.window)
 
-
 /datum/examine_panel/ui_data(mob/user)
-	var/list/data = list()
 
 	var/datum/preferences/preferences = holder.client?.prefs
 
@@ -68,6 +59,7 @@
 	var/current_antag_optin_status
 	var/headshot = ""
 
+	// OOC notes go first
 	if(preferences)
 		if(!CONFIG_GET(flag/disable_antag_opt_in_preferences))
 			var/antag_prefs = holder.mind?.ideal_opt_in_level
@@ -77,44 +69,47 @@
 			current_antag_optin_status = GLOB.antag_opt_in_strings[num2text(effective_opt_in_level)]
 			ideal_antag_optin_status = GLOB.antag_opt_in_strings[num2text(antag_prefs)]
 
-	// Now we handle silicon and/or human, order doesn't really matter
-	// If other variants of mob/living need to be handled at some point, put them here
+	// Now we handle silicon and/or human, order doesn't matter as both obviously can't fire.
+	// If other variants of mob/living need to be handled at some point, put them here.
 	if(issilicon(holder))
 		flavor_text = preferences.read_preference(/datum/preference/text/silicon_flavor_text)
 		custom_species = "Silicon"
-		custom_species_lore = "A cyborg unit."
+		custom_species_lore = "A silicon unit, like a cyborg or pAI."
 		ooc_notes += preferences.read_preference(/datum/preference/text/ooc_notes)
-		headshot += preferences.read_preference(/datum/preference/text/headshot)
+		headshot += preferences.read_preference(/datum/preference/text/headshot/silicon)
 
 	if(ishuman(holder))
 		var/mob/living/carbon/human/holder_human = holder
 		obscured = (holder_human.wear_mask && (holder_human.wear_mask.flags_inv & HIDEFACE)) || (holder_human.head && (holder_human.head.flags_inv & HIDEFACE))
 		custom_species = obscured ? "Obscured" : holder_human.dna.species.lore_protected ? holder_human.dna.species.name : holder_human.dna.features["custom_species"]
-		flavor_text = obscured ? "Obscured" :  holder_human.dna.features["flavor_text"]
+		flavor_text = obscured ? "Obscured" : holder_human.dna.features[EXAMINE_DNA_FLAVOR_TEXT]
 		custom_species_lore = obscured ? "Obscured" : holder_human.dna.species.lore_protected ? holder_human.dna.species.get_species_lore().Join("\n") : holder_human.dna.features["custom_species_lore"]
-		ooc_notes += holder_human.dna.features["ooc_notes"]
+		ooc_notes += holder_human.dna.features[EXAMINE_DNA_OOC_NOTES]
 		if(!obscured)
-			headshot += holder_human.dna.features["headshot"]
+			headshot += holder_human.dna.features[EXAMINE_DNA_HEADSHOT]
 
-	var/name = obscured ? "Unknown" : holder.name
-
-	data["obscured"] = obscured ? TRUE : FALSE
-	data["character_name"] = name
-	data["assigned_map"] = examine_panel_screen.assigned_map
-	data["flavor_text"] = flavor_text
-	data["ooc_notes"] = ooc_notes
-	data["custom_species"] = custom_species
-	data["custom_species_lore"] = custom_species_lore
-	data["headshot"] = headshot
-
-	data["ideal_antag_optin_status"] = ideal_antag_optin_status
-	data["current_antag_optin_status"] = current_antag_optin_status
+	var/list/data = list(
+		// Danger—do not touch
+		"assigned_map" = examine_panel_screen.assigned_map,
+		// Identity
+		"character_name" = obscured ? "Unknown" : holder.name,
+		"headshot" = headshot,
+		"obscured" = obscured ? TRUE : FALSE,
+		// Descriptions
+		"flavor_text" = flavor_text,
+		"ooc_notes" = ooc_notes,
+		"custom_species" = custom_species,
+		"custom_species_lore" = custom_species_lore,
+		// Antaggery
+		"ideal_antag_optin_status" = ideal_antag_optin_status, // Our opt-in status from prefs when we joined the game
+		"current_antag_optin_status" = current_antag_optin_status, // What it's being forced to if applicable
+	)
 	return data
 
 /datum/examine_panel/ui_static_data(mob/user)
-	var/list/data = list()
-
-	data["veteran_status"] = SSplayer_ranks.is_veteran(holder.client, admin_bypass = FALSE)
-	data["opt_in_colors"] = GLOB.antag_opt_in_colors
-
+	var/list/data = list(
+		"veteran_status" = SSplayer_ranks.is_veteran(holder.client, admin_bypass = FALSE),
+		"opt_in_colors" = GLOB.antag_opt_in_colors,
+	)
 	return data
+
