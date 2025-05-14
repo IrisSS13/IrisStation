@@ -402,14 +402,31 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 	playsound(src, 'sound/machines/printer.ogg', 50, FALSE)
 	INVOKE_ASYNC(src, PROC_REF(animate_object_travel), loaded, "fax_receive", find_overlay_state(loaded, "receive"))
 	// Iris Addition
-	if (fax_name == "Unknown Syndicate Fax")
-		aas_config_announce(/datum/aas_config_entry/fax_received, list("SENDER" = sender_name, "FAX" = src.area.name), null, list(RADIO_CHANNEL_INTERDYNE))
-	else if (fax_name == "Interdyne S&R Ship Fax")
-		aas_config_announce(/datum/aas_config_entry/fax_received, list("SENDER" = sender_name, "FAX" = src.area.name), null, list(RADIO_CHANNEL_INTERDYNE))
-	else if (fax_name == "Interdyne Pharmaceuticals")
-		aas_config_announce(/datum/aas_config_entry/fax_received, list("SENDER" = sender_name, "FAX" = src.area.name), null, list(RADIO_CHANNEL_INTERDYNE))
-	else
-		aas_config_announce(/datum/aas_config_entry/fax_received, list("SENDER" = sender_name, "FAX" = src.area.name), null, list(RADIO_CHANNEL_COMMON))
+	var/list/known_faxes = list("Unknown Syndicate Fax", "Interdyne S&R Ship Fax", "Interdyne Pharmaceuticals")
+	var/area/current_area = get_area(src)
+	var/area_name = current_area ? current_area.name : "Unknown Area"
+
+	var/channel = RADIO_CHANNEL_COMMON // Default Channel
+
+	if(fax_name in known_faxes)
+		channel = RADIO_CHANNEL_INTERDYNE
+	else if(current_area)
+		if(istype(current_area, /area/station/command))
+			channel = RADIO_CHANNEL_COMMAND
+		else if(istype(current_area, /area/station/cargo))
+			channel = RADIO_CHANNEL_SUPPLY
+		else if(istype(current_area, /area/station/engineering))
+			channel = RADIO_CHANNEL_ENGINEERING
+		else if(istype(current_area, /area/station/medical))
+			channel = RADIO_CHANNEL_MEDICAL
+		else if(istype(current_area, /area/station/science))
+			channel = RADIO_CHANNEL_SCIENCE
+		else if(istype(current_area, /area/station/security))
+			channel = RADIO_CHANNEL_SECURITY
+		else if(istype(current_area, /area/station/service))
+			channel = RADIO_CHANNEL_SERVICE
+
+	aas_config_announce(/datum/aas_config_entry/fax_received, list("SENDER" = sender_name, "FAX" = area_name), null, list(channel))
 	// Addition End
 	say("Received correspondence from [sender_name].")
 	history_add("Receive", sender_name)
@@ -608,8 +625,8 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 /datum/aas_config_entry/fax_received
 	name = "Fax Received Announcement"
 	announcement_lines_map = list(
-		"Message" = "A new fax has been recieved from %SENDER in %FAX!")
+		"Message" = "Fax received from %SENDER in %FAX!")
 	vars_and_tooltips_map = list(
 		"SENDER" = "will be replaced with the Sender's name",
-		"FAX" = "will be replaced with the Fax's name")
+		"FAX" = "will be replaced with the Fax location name")
 // Addition End
