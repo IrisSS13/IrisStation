@@ -51,6 +51,7 @@
 		SPECIES_PODPERSON,
 		SPECIES_GOLEM,
 		SPECIES_ZOMBIE,
+		SPECIES_MUTANT,
 	)
 	/// All scan modes available to the scanner
 	var/static/list/all_modes = list(
@@ -222,6 +223,12 @@
 					detected_thing = "Romerol infection"
 					if(scanned_human.get_organ_slot(ORGAN_SLOT_ZOMBIE))
 						beep = TRUE
+				//IRIS EDIT ADDITION BEGIN - MUTANT SCANNER GATE
+				if(detect_species_id == SPECIES_MUTANT)
+					detected_thing = "Proto-Viral infection"
+					if(scanned_human.GetComponent(/datum/component/mutant_infection))
+						beep = TRUE
+				//IRIS EDIT ADDITION END - MUTANT SCANNER GATE
 		if(SCANGATE_GUNS)
 			detected_thing = "Weapons"
 			if(isgun(thing))
