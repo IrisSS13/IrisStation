@@ -425,8 +425,11 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 			channel = RADIO_CHANNEL_SECURITY
 		else if(istype(current_area, /area/station/service))
 			channel = RADIO_CHANNEL_SERVICE
+		else if(istype(current_area, /area/centcom)) // Skip announcement for CentCom, aka admin printing a fax
+			channel = null
 
-	aas_config_announce(/datum/aas_config_entry/fax_received, list("SENDER" = sender_name, "FAX" = area_name), null, list(channel))
+	if(channel)
+		aas_config_announce(/datum/aas_config_entry/fax_received, list("SENDER" = sender_name, "FAX" = area_name), null, list(channel))
 	// Addition End
 	say("Received correspondence from [sender_name].")
 	history_add("Receive", sender_name)
