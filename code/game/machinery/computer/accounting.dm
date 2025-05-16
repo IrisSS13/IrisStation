@@ -25,7 +25,7 @@
 			"name" = current_bank_account.account_holder,
 			"job" = current_bank_account.account_job?.title || "No job", // because this can be null
 			"balance" = round(current_bank_account.account_balance),
-			"modifier" = round((current_bank_account.payday_modifier * 0.9), 0.1),
+			"modifier" = round((current_bank_account.payday_modifier), 0.1), //IRIS EDIT, WAS "modifier" = round((current_bank_account.payday_modifier * 0.9), 0.1
 		))
 	data["PlayerAccounts"] = player_accounts
 	data["AuditLog"] = audit_list

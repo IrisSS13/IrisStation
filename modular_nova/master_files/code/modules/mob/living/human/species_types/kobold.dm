@@ -34,7 +34,7 @@
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/kobold,
 	)
 	exotic_bloodtype = "L"
-	payday_modifier = 1.35
+	payday_modifier = 0.01 //no
 
 /datum/species/monkey/kobold/get_default_mutant_bodyparts()
 	return list(
