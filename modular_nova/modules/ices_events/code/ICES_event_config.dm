@@ -413,6 +413,18 @@
 	max_occurrences = 2
 	weight = MED_EVENT_FREQ
 
+//IRIS ADDITION START
+/datum/round_event_control/portal_storm_monkey
+	max_occurrences = 2
+	weight = MED_EVENT_FREQ
+
+/datum/round_event_control/portal_storm_kobold
+
+	max_occurrences = 3
+	weight = MED_EVENT_FREQ
+
+//IRIS ADDITION END
+
 /**
  * Radiation
  *
