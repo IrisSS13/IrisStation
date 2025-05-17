@@ -5256,14 +5256,11 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/starboard)
 "bHB" = (
-/obj/effect/turf_decal/tile/blue{
-	dir = 1
+/obj/structure/disposalpipe/segment{
+	dir = 5
 	},
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 5
 	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/fore)
@@ -16894,11 +16891,11 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/item/reagent_containers/syringe/contraband/krokodil,
 /obj/item/reagent_containers/cup/glass/bottle/vodka{
 	pixel_y = 25;
 	pixel_x = -10
 	},
+/obj/machinery/biogenerator/food_replicator,
 /turf/open/floor/carpet/grimey,
 /area/station/service/abandoned_gambling_den/gaming)
 "fgA" = (
@@ -17744,6 +17741,14 @@
 	dir = 4
 	},
 /obj/machinery/stove,
+/obj/item/reagent_containers/cup/soup_pot{
+	pixel_x = 8;
+	pixel_y = 14
+	},
+/obj/item/kitchen/spoon/soup_ladle{
+	pixel_x = -7;
+	pixel_y = 16
+	},
 /turf/open/floor/iron/dark,
 /area/station/service/kitchen)
 "ftM" = (
@@ -18103,6 +18108,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/random/food_or_drink/cake_ingredients,
 /obj/effect/turf_decal/tile/neutral/half/contrasted,
+/obj/item/knife/kitchen,
 /turf/open/floor/iron/dark,
 /area/station/service/kitchen)
 "fxQ" = (
@@ -28213,6 +28219,7 @@
 /obj/effect/turf_decal/tile/blue/anticorner/contrasted{
 	dir = 4
 	},
+/obj/machinery/biogenerator/medstation/directional/north,
 /turf/open/floor/iron/showroomfloor,
 /area/station/medical/treatment_center)
 "itR" = (
@@ -44279,6 +44286,24 @@
 	},
 /turf/open/floor/iron,
 /area/station/command/teleporter)
+"ntW" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 1
+	},
+/obj/structure/closet/crate/secure/engineering{
+	name = "surplus equipment crate"
+	},
+/obj/item/flatpacked_machine/thermomachine,
+/obj/item/flatpacked_machine/large_station_battery,
+/obj/item/flatpacked_machine/rtg,
+/obj/item/flatpacked_machine/fuel_generator,
+/obj/item/circuitboard/machine/thermoelectric_generator,
+/obj/item/circuitboard/machine/circulator,
+/obj/item/circuitboard/machine/circulator,
+/turf/open/floor/iron/dark,
+/area/station/maintenance/disposal/incinerator)
 "nuf" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -46443,6 +46468,7 @@
 	name = "rusty bench press"
 	},
 /obj/effect/decal/cleanable/cobweb/cobweb2,
+/obj/item/reagent_containers/syringe/contraband/krokodil,
 /turf/open/floor/carpet/grimey,
 /area/station/service/abandoned_gambling_den/gaming)
 "ofp" = (
@@ -48825,11 +48851,11 @@
 /area/station/tcommsat/server)
 "oTA" = (
 /obj/structure/table,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/machinery/duct,
 /obj/machinery/cell_charger,
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 4
+	},
 /turf/open/floor/iron/dark,
 /area/station/hallway/primary/central/fore)
 "oTD" = (
@@ -59688,6 +59714,9 @@
 /obj/item/radio/intercom/directional/north,
 /obj/effect/turf_decal/bot,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/book/manual/chef_recipes{
+	pixel_y = 2
+	},
 /turf/open/floor/iron,
 /area/station/service/kitchen)
 "sdm" = (
@@ -68532,9 +68561,6 @@
 	dir = 1
 	},
 /obj/structure/disposalpipe/segment,
-/obj/effect/turf_decal/tile/blue/half/contrasted{
-	dir = 8
-	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/fore)
 "uQN" = (
@@ -68550,18 +68576,9 @@
 "uQS" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/table,
-/obj/item/book/manual/chef_recipes{
-	pixel_y = 2
-	},
-/obj/item/book/manual/chef_recipes{
-	pixel_x = 2;
-	pixel_y = 6
-	},
-/obj/item/knife/kitchen,
 /obj/item/reagent_containers/cup/rag,
 /obj/effect/turf_decal/tile/neutral/half/contrasted,
-/obj/item/reagent_containers/cup/soup_pot,
-/obj/item/kitchen/spoon/soup_ladle,
+/obj/machinery/chem_dispenser/frontier_appliance,
 /turf/open/floor/iron/dark,
 /area/station/service/kitchen)
 "uQT" = (
@@ -76049,13 +76066,10 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/aft)
 "wWp" = (
-/obj/effect/turf_decal/tile/blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/blue/anticorner/contrasted{
-	dir = 1
-	},
-/turf/open/floor/iron,
+/obj/machinery/medipen_refiller,
+/obj/effect/turf_decal/box,
+/obj/effect/turf_decal/tile/neutral/anticorner/contrasted,
+/turf/open/floor/iron/dark,
 /area/station/hallway/primary/central/fore)
 "wWB" = (
 /obj/effect/turf_decal/stripes/line{
@@ -77520,6 +77534,8 @@
 /obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
 	dir = 1
 	},
+/obj/item/tank/internals/anesthetic,
+/obj/item/clothing/mask/muzzle/breath,
 /obj/item/healthanalyzer,
 /turf/open/floor/iron/dark,
 /area/station/science/robotics/lab)
@@ -104870,7 +104886,7 @@ aaa
 aaa
 acm
 oOW
-phF
+ntW
 aOW
 bzn
 bzn
