@@ -158,7 +158,7 @@
 
 /obj/item/clothing/head/soft/yankee
 	name = "fashionable baseball cap"
-	desc = "Rimmed and brimmed."
+	desc = "A one sick ass hat."
 	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "yankeesoft"
@@ -168,7 +168,7 @@
 
 /obj/item/clothing/head/soft/yankee/rimless
 	name = "rimless fashionable baseball cap"
-	desc = "Rimless for her pleasure."
+	desc = "A one sick ass hat. Someone removed the rim though."
 	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "yankeenobrimsoft"
