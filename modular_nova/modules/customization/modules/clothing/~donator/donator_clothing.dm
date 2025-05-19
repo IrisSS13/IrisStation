@@ -689,13 +689,6 @@
 	/// What treat item spawns inside the collar?
 	var/treat_path = /obj/item/food/cookie
 
-/obj/item/clothing/neck/inferno_collar/Initialize(mapload)
-	. = ..()
-	create_storage(storage_type = /datum/storage/pockets/small)
-	atom_storage.set_holdable(/obj/item/food/cookie)
-	if(treat_path)
-		new treat_path(src)
-
 /obj/item/clothing/neck/inferno_collar/attack_self(mob/user)
 	tagname = stripped_input(user, "Would you like to change the name on the tag?", "Name your new pet", "Kiara", MAX_NAME_LEN)
 	if(tagname)

@@ -321,6 +321,7 @@
 	update_appearance()
 	return ..()
 
+//IRIS EDIT START
 /obj/effect/decal/cleanable/blood/footprints/update_name(updates)
 	switch(footprint_sprite)
 		if(FOOTPRINT_SPRITE_CLAWS)
@@ -329,10 +330,13 @@
 			name = "footprints"
 		if(FOOTPRINT_SPRITE_PAWS)
 			name = "pawprints"
-		if(FOOTPRINT_SPRITE_SNAKE) //IRIS ADDITION
+		if(FOOTPRINT_SPRITE_SNAKE)
 			name = "trails"
+		if(FOOTPRINT_SPRITE_HOOVES)
+			name = "hoofprints"
 	dryname = "dried [name]"
 	return ..()
+//IRIS EDIT END
 
 /obj/effect/decal/cleanable/blood/footprints/update_desc(updates)
 	desc = "WHOSE [uppertext(name)] ARE THESE?"

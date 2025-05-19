@@ -48,19 +48,9 @@ export const silicon_flavor_text: Feature<string> = {
 
 export const ooc_notes: Feature<string> = {
   name: 'OOC Notes',
+  description:
+    'Anything you want other players to know about you goes here, such as antag information, OOC triggers, etc.',
   component: FeatureTextInput,
-};
-
-export const attraction: FeatureChoiced = {
-  name: 'Character Attraction',
-  description: 'What your character is attracted to.',
-  component: FeatureDropdownInput,
-};
-
-export const display_gender: FeatureChoiced = {
-  name: 'Character Gender',
-  description: 'What classifies as the gender for your character.',
-  component: FeatureDropdownInput,
 };
 
 export const custom_species: Feature<string> = {
