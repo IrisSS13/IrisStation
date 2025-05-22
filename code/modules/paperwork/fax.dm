@@ -402,31 +402,32 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 	playsound(src, 'sound/machines/printer.ogg', 50, FALSE)
 	INVOKE_ASYNC(src, PROC_REF(animate_object_travel), loaded, "fax_receive", find_overlay_state(loaded, "receive"))
 	// Iris Addition
-	var/list/known_faxes = list("Unknown Syndicate Fax", "Interdyne S&R Ship Fax", "Interdyne Pharmaceuticals")
 	var/area/current_area = get_area(src)
 	var/area_name = current_area ? current_area.name : "Unknown Area"
 
 	var/channel = RADIO_CHANNEL_COMMON // Default Channel
 
-	if(fax_name in known_faxes)
+	if(istype(current_area, /area/ruin/space/has_grav/nova/des_two) || istype(current_area, /area/ruin/interdyne_planetary_base))
 		channel = RADIO_CHANNEL_INTERDYNE
-	else if(current_area)
-		if(istype(current_area, /area/station/command))
-			channel = RADIO_CHANNEL_COMMAND
-		else if(istype(current_area, /area/station/cargo))
-			channel = RADIO_CHANNEL_SUPPLY
-		else if(istype(current_area, /area/station/engineering))
-			channel = RADIO_CHANNEL_ENGINEERING
-		else if(istype(current_area, /area/station/medical))
-			channel = RADIO_CHANNEL_MEDICAL
-		else if(istype(current_area, /area/station/science))
-			channel = RADIO_CHANNEL_SCIENCE
-		else if(istype(current_area, /area/station/security))
-			channel = RADIO_CHANNEL_SECURITY
-		else if(istype(current_area, /area/station/service))
-			channel = RADIO_CHANNEL_SERVICE
-		else if(istype(current_area, /area/centcom)) // Skip announcement for CentCom, aka admin printing a fax
-			channel = null
+	else if(istype(current_area, /area/ruin)) // Skip announcements for ruins
+		channel = null
+	// Check for station areas
+	else if(istype(current_area, /area/station/command))
+		channel = RADIO_CHANNEL_COMMAND
+	else if(istype(current_area, /area/station/cargo))
+		channel = RADIO_CHANNEL_SUPPLY
+	else if(istype(current_area, /area/station/engineering))
+		channel = RADIO_CHANNEL_ENGINEERING
+	else if(istype(current_area, /area/station/medical))
+		channel = RADIO_CHANNEL_MEDICAL
+	else if(istype(current_area, /area/station/science))
+		channel = RADIO_CHANNEL_SCIENCE
+	else if(istype(current_area, /area/station/security))
+		channel = RADIO_CHANNEL_SECURITY
+	else if(istype(current_area, /area/station/service))
+		channel = RADIO_CHANNEL_SERVICE
+	else if(istype(current_area, /area/centcom)) // Skip announcement for CentCom, aka admin printing a fax
+		channel = null
 
 	if(channel)
 		aas_config_announce(/datum/aas_config_entry/fax_received, list("SENDER" = sender_name, "FAX" = area_name), null, list(channel))
