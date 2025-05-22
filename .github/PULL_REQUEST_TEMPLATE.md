@@ -11,13 +11,8 @@
 
 ## Proof of Testing
 
-<!-- Include any screenshots/videos/debugging steps of the code functioning successfully, between the </summary> and </details> code blocks. -->
+<!-- Include any screenshots/videos/debugging steps of the code functioning successfully-->
 <!-- To our mappers and spriters: Posting screenshots of content INSIDE EDITORS (aseprite, PDN, SDMM, ect) is NOT valid proof of testing. Please make sure that you COMPILE the game and provide PROOF you tested your edits. -->
-
-<details>
-<summary>Screenshots/Videos</summary>
-
-</details>
 
 ## Changelog
 

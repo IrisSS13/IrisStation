@@ -150,6 +150,14 @@
 	name = "Ruby Long"
 	icon_state = "hair_rubylong"
 
+/datum/sprite_accessory/hair/iris/fluffy_longer // NoNameGiven
+	name = "Fluffy Longer"
+	icon_state = "hair_fluffylonger"
+
+/datum/sprite_accessory/hair/iris/fluffy_pony // NoNameGiven
+	name = "Fluffy Long Ponytail"
+	icon_state = "hair_fluffypony"
+
 // TAILS
 
 /datum/sprite_accessory/tails/mammal/iris

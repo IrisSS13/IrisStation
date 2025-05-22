@@ -68,7 +68,7 @@
 	icon = 'icons/obj/service/bureaucracy.dmi'
 
 /obj/item/stamp/centcom
-	icon_state = "stamp-cent"
+	icon_state = "stamp-centcom"
 
 /obj/item/ticket_machine_ticket
 	icon = 'modular_iris/paradise_ports/icons/obj/bureaucracy.dmi'
