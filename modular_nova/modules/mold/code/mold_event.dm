@@ -1,7 +1,7 @@
 #define MOLDIES_SPAWN_LOWPOP_MIN 1
 #define MOLDIES_SPAWN_LOWPOP_MAX 1
 #define MOLDIES_SPAWN_HIGHPOP_MIN 1
-#define MOLDIES_SPAWN_HIGHPOP_MAX 2
+#define MOLDIES_SPAWN_HIGHPOP_MAX 1
 
 /datum/round_event_control/mold
 	name = "Moldies"
