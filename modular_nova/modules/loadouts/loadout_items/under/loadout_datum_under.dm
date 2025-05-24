@@ -774,10 +774,6 @@
 	name = "Geisha Suit"
 	item_path = /obj/item/clothing/under/costume/geisha
 
-/datum/loadout_item/under/miscellaneous/jabroni
-	name = "Jabroni Outfit"
-	item_path = /obj/item/clothing/under/costume/jabroni
-
 //HALLOWEEN
 /datum/loadout_item/under/miscellaneous/pj_blood
 	name = "Blood-red Pajamas"

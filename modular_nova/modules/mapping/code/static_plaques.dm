@@ -8,12 +8,12 @@
 	icon_state = "commission_syndie"
 	desc = "IP Cabriole Sector Station\nModular Surfaceside Facility\nCommissioned 01/01/2550\n'Discovering Tomorrow'" // just so it doesn't look totally goofy if it breaks
 
- // Lavaland
+// Lavaland
 /obj/structure/plaque/static_plaque/golden/commission/interdyne_planetary_base/lavaland
 	desc = "IP Cabriole Sector Base 3c76928\nModular Surfaceside Facility\nCommissioned 11/19/2556\n'Tomorrow, from the Crucible of Today'"
 	// named after Skyrat commit 3c76928, which created lavaland_surface_syndicate_base1.dmm
 
- // Ice moon
+// Ice moon
 /obj/structure/plaque/static_plaque/golden/commission/interdyne_planetary_base/icemoon
 	desc = "IP Cabriole Sector Base 88172386\nModular Surfaceside Facility\nCommissioned 01/11/2561\n'Thawing out Progress'"
 	// named after Skyrat commit 88172386, which put lavaland_surface_syndicate_base1.dmm on icebox

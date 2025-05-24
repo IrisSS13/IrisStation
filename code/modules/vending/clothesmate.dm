@@ -210,7 +210,6 @@
 		/obj/item/clothing/under/costume/soviet = 3,
 		/obj/item/storage/belt/fannypack/black = 2,
 		/obj/item/clothing/suit/jacket/letterman_syndie = 3,
-		/obj/item/clothing/under/costume/jabroni = 3,
 		/obj/item/clothing/under/costume/geisha = 3,
 		/obj/item/clothing/under/rank/centcom/officer/replica = 2,
 		/obj/item/clothing/under/rank/centcom/officer_skirt/replica = 2,
