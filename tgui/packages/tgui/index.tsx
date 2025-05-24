@@ -59,7 +59,6 @@ function setupApp() {
     // In the future you could send a winget here to get mousepos/size from the map here if it's necessary
     verbParamsFn: (verb, key) => `${verb} "${key}" 0 0 0 0`,
   });
-  setupHotKeys();
   captureExternalLinks();
 
   store.subscribe(() => render(<App />));
