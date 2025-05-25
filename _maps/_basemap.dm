@@ -23,7 +23,6 @@
 		#include "map_files\Snowglobe\snowglobe.dmm"
 		// NOVA EDIT ADDITION END
 		// IRIS EDIT START
-		#include "map_files\biodome\biodome.dmm"
 		#include "map_files\KiloStation\KiloStation.dmm"
 		#include "map_files\Oshan\Oshan.dmm"
 		// IRIS EDIT END
