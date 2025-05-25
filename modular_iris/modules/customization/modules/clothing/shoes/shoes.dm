@@ -27,6 +27,7 @@
 	greyscale_config = null
 	greyscale_config_worn = null
 	greyscale_config_worn_digi = null
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
 
 /obj/item/clothing/shoes/sandal/kumi
 	name = "shrine keeper's sandals"

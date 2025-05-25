@@ -6,16 +6,18 @@
 /turf/closed/wall,
 /area/station/command/heads_quarters/nt_rep)
 "b" = (
+/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/template_noop,
-/area/template_noop)
+/turf/open/floor/iron/large,
+/area/station/hallway/primary/central)
 "c" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/wood,
+/obj/structure/cable,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/nt_rep)
 "d" = (
@@ -29,8 +31,11 @@
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/nt_rep)
 "f" = (
-/turf/template_noop,
-/area/template_noop)
+/turf/open/floor/iron/large,
+/area/station/hallway/primary/central)
+"g" = (
+/turf/open/floor/wood,
+/area/station/hallway/primary/central)
 "h" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin{
@@ -48,10 +53,9 @@
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/nt_rep)
 "n" = (
-/obj/machinery/door/airlock{
-	id_tag = "commissarydoor";
-	name = "Commissary"
-	},
+/obj/structure/cable,
+/obj/machinery/door/airlock/maintenance,
+/obj/effect/mapping_helpers/airlock/access/all/cent_com/rep_door,
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/nt_rep)
 "r" = (
@@ -92,6 +96,13 @@
 	},
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/nt_rep)
+"z" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/obj/item/radio/intercom/directional/north,
+/turf/open/floor/iron/large,
+/area/station/hallway/primary/central)
 "A" = (
 /obj/machinery/door/airlock/corporate{
 	name = "NT Consultant's Office"
@@ -119,11 +130,18 @@
 /obj/effect/landmark/start/nanotrasen_consultant,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
+"E" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/turf/open/floor/iron/large,
+/area/station/hallway/primary/central)
 "F" = (
 /obj/machinery/light_switch/directional/east,
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/nt_rep)
 "H" = (
@@ -131,6 +149,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/nt_rep)
 "I" = (
@@ -148,6 +167,14 @@
 "M" = (
 /turf/closed/wall,
 /area/station/command/heads_quarters/nt_rep)
+"P" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/machinery/ticket_machine/directional/north{
+	id = "ticket_machine_comissary"
+	},
+/obj/machinery/camera/autoname/directional/north,
+/turf/open/floor/wood,
+/area/station/hallway/primary/central)
 "Q" = (
 /obj/structure/table/wood,
 /obj/item/stamp{
@@ -174,6 +201,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/nt_rep)
 "Y" = (
@@ -200,7 +228,7 @@ a
 M
 M
 M
-f
+P
 "}
 (2,1,1) = {"
 M
@@ -209,7 +237,7 @@ w
 I
 Y
 y
-f
+g
 "}
 (3,1,1) = {"
 M
@@ -218,7 +246,7 @@ D
 h
 s
 y
-f
+E
 "}
 (4,1,1) = {"
 M
@@ -254,5 +282,5 @@ n
 M
 M
 M
-f
+z
 "}
