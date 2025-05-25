@@ -42,7 +42,7 @@
 	slowdown = 0
 
 /turf/open/floor/wood/stairs
-	icon = 'modular_iris/maps/biodome/floor.dmi'
+	icon = 'modular_iris/bubber_ports/code/modules/maps/biodome_graveyard/floor.dmi'
 	icon_state = "woodstairs_up"
 
 /turf/open/floor/wood/stairs/down

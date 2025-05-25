@@ -1,7 +1,7 @@
 /obj/machinery/vending/vendcation
 	name = "VendCation"
 	desc = "A vending machine for when you really wish you weren't at work right now."
-	icon = 'modular_iris/maps/biodome/vending.dmi'
+	icon = 'modular_iris//bubber_ports/code/modules/maps/biodome_graveyard/vending.dmi'
 	icon_state = "vacation"
 	icon_deny = "vacation-deny"
 	panel_type = "panel15"

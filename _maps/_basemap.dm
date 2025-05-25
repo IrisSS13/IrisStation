@@ -22,7 +22,6 @@
 		//#include "map_files\SerenityStation\SerenityStation.dmm"
 		// NOVA EDIT END
 		// IRIS EDIT START
-		#include "map_files\biodome\biodome.dmm"
 		#include "map_files\KiloStation\KiloStation.dmm"
 		#include "map_files\Snowglobe\snowglobe.dmm"
 		// IRIS EDIT END
