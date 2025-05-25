@@ -20,7 +20,7 @@
 	/// Ability to allow them to shapeshift their body around.
 	var/datum/action/innate/alter_form/alter_form
 	/// Ability to allow them to clean themselves and their stuff.
-	var/datum/action/cooldown/spell/slime_washing/slime_washing
+	//var/datum/action/cooldown/spell/slime_washing/slime_washing
 	/// Ability to allow them to resist the effects of water.
 	var/datum/action/cooldown/spell/slime_hydrophobia/slime_hydrophobia
 	/// Ability to allow them to turn their core's GPS on or off.
@@ -31,8 +31,8 @@
 	if(ishuman(new_jellyperson))
 		alter_form = new
 		alter_form.Grant(new_jellyperson)
-		slime_washing = new
-		slime_washing.Grant(new_jellyperson)
+		// slime_washing = new
+		// slime_washing.Grant(new_jellyperson)
 		slime_hydrophobia = new
 		slime_hydrophobia.Grant(new_jellyperson)
 		core_signal = new
@@ -42,8 +42,8 @@
 	. = ..()
 	if(alter_form)
 		alter_form.Remove(former_jellyperson)
-	if(slime_washing)
-		slime_washing.Remove(former_jellyperson)
+	// if(slime_washing)
+	//	slime_washing.Remove(former_jellyperson)
 	if(slime_hydrophobia)
 		slime_hydrophobia.Remove(former_jellyperson)
 	if(core_signal)
@@ -353,7 +353,7 @@
 * SLIME CLEANING ABILITY -
 * When toggled, slimes clean themselves and their equipment.
 */
-/datum/action/cooldown/spell/slime_washing
+/* /datum/action/cooldown/spell/slime_washing
 	name = "Toggle Slime Cleaning"
 	desc = "Filter grime through your outer membrane, cleaning yourself and your equipment for sustenance. Also cleans the floor, providing your feet are uncovered. For sustenance."
 	button_icon = 'icons/mob/actions/actions_silicon.dmi'
@@ -405,7 +405,7 @@
 
 /datum/status_effect/slime_washing/get_examine_text()
 	return span_notice("[owner.p_Their()] outer layer is pulling in grime, filth sinking inside of [owner.p_their()] body and vanishing.")
-
+*/
 /*
 * HYDROPHOBIA SPELL
 * Makes it so that slimes are waterproof, but slower, and they don't regenerate.
