@@ -25,6 +25,7 @@
 		// IRIS EDIT START
 		#include "map_files\biodome\biodome.dmm"
 		#include "map_files\KiloStation\KiloStation.dmm"
+		#include "map_files\Oshan\Oshan.dmm"
 		// IRIS EDIT END
 	#endif
 	#ifdef ALL_TEMPLATES
