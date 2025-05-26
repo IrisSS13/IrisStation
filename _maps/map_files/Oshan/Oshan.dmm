@@ -1512,7 +1512,7 @@
 "aIO" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/machinery/button/door/directional/north{
-	id = "rdrnd";
+	id = "rndlab2";
 	name = "Research and Development Containment Control";
 	pixel_x = -6;
 	req_access = list("rd")
@@ -6680,6 +6680,10 @@
 /obj/machinery/cell_charger,
 /obj/structure/table,
 /obj/machinery/light_switch/directional/south,
+/obj/machinery/button/door/directional/east{
+	name = "Research and Development Privacy Toggle";
+	id = "rndpriv"
+	},
 /turf/open/floor/iron/dark/textured,
 /area/station/science/robotics/lab)
 "cSw" = (
@@ -7452,6 +7456,11 @@
 /obj/structure/table/reinforced,
 /obj/structure/desk_bell{
 	pixel_x = 6
+	},
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 1;
+	id = "rndpriv";
+	name = "Research and Development Shutter"
 	},
 /turf/open/floor/plating,
 /area/station/science/robotics/lab)
@@ -15250,7 +15259,6 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/station/ai_monitored/security/armory)
 "gug" = (
-/obj/machinery/camera/autoname/directional/east,
 /obj/structure/flora/bush/ferny/style_random,
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/structure/flora/bush/flowers_pp/style_random,
@@ -17526,6 +17534,10 @@
 	},
 /obj/effect/turf_decal/delivery,
 /obj/machinery/light/directional/east,
+/obj/machinery/button/door/directional/east{
+	name = "Virology Privacy Shutters Toggle";
+	id = "virpriv"
+	},
 /turf/open/floor/iron/dark,
 /area/station/medical/virology)
 "hti" = (
@@ -19303,7 +19315,6 @@
 /turf/open/floor/iron/dark/textured,
 /area/station/hallway/primary/aft)
 "icy" = (
-/obj/machinery/light/directional/east,
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/structure/flora/bush/grassy/style_random,
 /obj/effect/turf_decal/weather/dirt{
@@ -25832,6 +25843,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
+/obj/item/storage/test_tube_rack/full,
 /turf/open/floor/iron/dark,
 /area/station/medical/virology)
 "kQs" = (
@@ -27625,6 +27637,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/extinguisher_cabinet/directional/east,
 /turf/open/floor/iron/showroomfloor,
 /area/station/medical/virology)
 "lzW" = (
@@ -28232,6 +28245,7 @@
 /mob/living/carbon/human/species/monkey,
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/effect/turf_decal/weather/dirt,
+/obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/grass,
 /area/station/medical/virology)
 "lKJ" = (
@@ -32113,6 +32127,15 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/textured,
 /area/station/cargo/storage)
+"nvX" = (
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 8;
+	id = "virpriv";
+	name = "Virology Privacy Shutter"
+	},
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/station/science/lobby)
 "nvY" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
@@ -32363,6 +32386,11 @@
 	name = "Research Division Access"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/science/general,
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 8;
+	id = "rndlab2";
+	name = "Secondary Research and Development Shutter"
+	},
 /turf/open/floor/iron/dark/textured,
 /area/station/science/lobby)
 "nBI" = (
@@ -34068,6 +34096,14 @@
 /obj/effect/landmark/start/hangover,
 /turf/open/floor/engine,
 /area/station/engineering/main)
+"omo" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "rndpriv";
+	name = "Research and Development Shutter"
+	},
+/turf/open/floor/plating,
+/area/station/science/robotics/lab)
 "omq" = (
 /turf/open/floor/plating,
 /area/station/service/chapel)
@@ -36401,6 +36437,15 @@
 /obj/structure/filingcabinet/filingcabinet,
 /turf/open/floor/wood/parquet,
 /area/station/medical/psychology)
+"pju" = (
+/obj/effect/spawner/structure/window/reinforced/plasma,
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 8;
+	id = "virpriv";
+	name = "Virology Privacy Shutter"
+	},
+/turf/open/floor/plating,
+/area/station/medical/virology)
 "pkj" = (
 /obj/machinery/light/directional/north,
 /obj/structure/safe/vault,
@@ -40426,10 +40471,11 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/structure/extinguisher_cabinet/directional/north,
 /obj/effect/turf_decal/tile/green/half/contrasted{
 	dir = 1
 	},
+/obj/machinery/chem_master,
+/obj/effect/turf_decal/box/red,
 /turf/open/floor/iron/showroomfloor,
 /area/station/medical/virology)
 "qON" = (
@@ -41209,11 +41255,11 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port/central)
 "reB" = (
-/obj/effect/spawner/structure/window/reinforced/plasma,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "rndlab2";
 	name = "Secondary Research and Development Shutter"
 	},
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/station/science/lobby)
 "rfc" = (
@@ -41524,6 +41570,7 @@
 /obj/effect/turf_decal/weather/dirt{
 	dir = 6
 	},
+/obj/machinery/light/directional/east,
 /turf/open/floor/grass,
 /area/station/medical/virology)
 "rjZ" = (
@@ -43275,6 +43322,9 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/bot,
+/obj/machinery/requests_console/auto_name/directional/south,
+/obj/effect/mapping_helpers/requests_console/ore_update,
+/obj/effect/mapping_helpers/requests_console/assistance,
 /turf/open/floor/iron/dark,
 /area/station/medical/virology)
 "rUG" = (
@@ -44938,6 +44988,15 @@
 /obj/effect/mapping_helpers/airlock/access/all/medical/psychology,
 /turf/open/floor/iron/dark,
 /area/station/medical/office)
+"sFz" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 1;
+	id = "rndpriv";
+	name = "Research and Development Shutter"
+	},
+/turf/open/floor/plating,
+/area/station/science/robotics/lab)
 "sFB" = (
 /obj/structure/displaycase/captain{
 	pixel_y = 5
@@ -51929,6 +51988,10 @@
 /obj/machinery/door/window/left/directional/north{
 	name = "Research Lab Desk";
 	req_access = list("science")
+	},
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "rndpriv";
+	name = "Research and Development Shutter"
 	},
 /turf/open/floor/plating,
 /area/station/science/robotics/lab)
@@ -86515,9 +86578,9 @@ qSI
 fgS
 bfx
 bfx
-bfx
-bfx
-bfx
+pju
+pju
+pju
 bfx
 bfx
 tAk
@@ -95543,13 +95606,13 @@ wdA
 qal
 cJK
 nIQ
-iBK
+sFz
 qZY
 ksD
 oPF
 aKy
 bYC
-iBK
+omo
 gdO
 bBP
 cUU
@@ -97600,7 +97663,7 @@ jRD
 nBy
 nBy
 pGv
-tGA
+nvX
 tGA
 tGA
 tGA
