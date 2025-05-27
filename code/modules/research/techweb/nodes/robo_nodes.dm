@@ -7,6 +7,7 @@
 		"botnavbeacon",
 		"mechfab",
 		"paicard",
+		"spraycan_roboticist", // Iris Addition
 	)
 
 /datum/techweb_node/exodrone
