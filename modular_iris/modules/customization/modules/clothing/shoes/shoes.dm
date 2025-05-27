@@ -1,11 +1,9 @@
 /obj/item/clothing/shoes/ballet_heels
 	name = "ballet heels"
 	desc = "Restrictive, knee-high heels. Unfathomably difficult to walk in."
-	icon_state = "ballet_heels"
-	post_init_icon_state = null
-	icon = 'modular_iris/modules/GAGS/icons/shoes/high_heels.dmi'
-	worn_icon = 'modular_iris/modules/GAGS/icons/shoes/high_heels_worn.dmi'
-	worn_icon_digi = 'modular_iris/modules/GAGS/icons/shoes/high_heels_digi.dmi'
+	icon = 'icons/map_icons/clothing/shoes.dmi'
+	icon_state = "/obj/item/clothing/shoes/ballet_heels"
+	post_init_icon_state = "ballet_heels"
 	greyscale_colors = "#e8e8e8"
 	greyscale_config = /datum/greyscale_config/ballet_heels
 	greyscale_config_worn = /datum/greyscale_config/ballet_heels/worn
@@ -38,4 +36,3 @@
 	worn_icon = 'modular_iris/icons/mob/clothing/feet/feet.dmi'
 	worn_icon_digi = 'modular_iris/icons/mob/clothing/feet/feet_digi.dmi'
 	icon_state = "sandals_kumi"
-	post_init_icon_state = null
