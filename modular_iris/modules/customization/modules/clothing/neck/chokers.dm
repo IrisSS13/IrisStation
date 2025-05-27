@@ -7,6 +7,7 @@
 	greyscale_colors = "#2d2d33"
 	greyscale_config = /datum/greyscale_config/thin_choker
 	greyscale_config_worn = /datum/greyscale_config/thin_choker/worn
+	post_init_icon_state = null
 	obj_flags = parent_type::obj_flags | UNIQUE_RENAME
 	body_parts_covered = NECK
 	slot_flags = ITEM_SLOT_NECK
@@ -19,6 +20,7 @@
 	icon = 'modular_iris/modules/GAGS/icons/chokers/choker.dmi'
 	worn_icon = 'modular_iris/modules/GAGS/icons/chokers/choker_worn.dmi'
 	icon_state = "cross_choker"
+	post_init_icon_state = null
 	greyscale_colors = "#2d2d33#dead39"
 	greyscale_config = /datum/greyscale_config/thin_choker/cross
 	greyscale_config_worn = /datum/greyscale_config/thin_choker/cross/worn
@@ -28,6 +30,7 @@
 	icon = 'modular_iris/modules/GAGS/icons/chokers/choker.dmi'
 	worn_icon = 'modular_iris/modules/GAGS/icons/chokers/choker_worn.dmi'
 	icon_state = "thick_choker"
+	post_init_icon_state = null
 	greyscale_config = /datum/greyscale_config/thick_choker
 	greyscale_config_worn = /datum/greyscale_config/thick_choker/worn
 
@@ -37,6 +40,7 @@
 	icon = 'modular_iris/modules/GAGS/icons/chokers/choker.dmi'
 	worn_icon = 'modular_iris/modules/GAGS/icons/chokers/choker_worn.dmi'
 	icon_state = "thick_cross_choker"
+	post_init_icon_state = null
 	greyscale_colors = /obj/item/clothing/neck/choker/cross::greyscale_colors
 	greyscale_config = /datum/greyscale_config/thick_choker/cross
 	greyscale_config_worn = /datum/greyscale_config/thick_choker/cross/worn
@@ -47,6 +51,7 @@
 	icon = 'modular_iris/modules/GAGS/icons/chokers/spiked_choker.dmi'
 	worn_icon = 'modular_iris/modules/GAGS/icons/chokers/spiked_choker_worn.dmi'
 	icon_state = "spike_choker"
+	post_init_icon_state = null
 	greyscale_colors = "#2d2d33#ffffff"
 	greyscale_config = /datum/greyscale_config/spike_choker
 	greyscale_config_worn = /datum/greyscale_config/spike_choker/worn

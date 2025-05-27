@@ -11,6 +11,7 @@
 	icon = 'modular_iris/modules/GAGS/icons/head/head.dmi'
 	worn_icon = 'modular_iris/modules/GAGS/icons/head/head_worn.dmi'
 	icon_state = "headband_thin"
+	post_init_icon_state = null
 	flags_1 = IS_PLAYER_COLORABLE_1
 	greyscale_colors = "#FFFFFF"
 	greyscale_config = /datum/greyscale_config/headband_thin

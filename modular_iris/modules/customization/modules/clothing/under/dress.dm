@@ -8,6 +8,7 @@
 	icon_state = "princess_dress"
 	greyscale_config = /datum/greyscale_config/princess_dress
 	greyscale_config_worn = /datum/greyscale_config/princess_dress/worn
+	post_init_icon_state = null
 	flags_1 = IS_PLAYER_COLORABLE_1
 	greyscale_colors = "#FFFFFF"
 	can_adjust = FALSE

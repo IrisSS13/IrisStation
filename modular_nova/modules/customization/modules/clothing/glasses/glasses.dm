@@ -50,6 +50,7 @@
 	worn_icon = 'modular_iris/modules/GAGS/icons/glasses/glasses_worn.dmi'
 	icon = 'modular_iris/modules/GAGS/icons/glasses/glasses.dmi'
 	icon_state = "glasses_transparent_regular_color"
+	post_init_icon_state = null
 	greyscale_config = /datum/greyscale_config/glasses_transparent_regular_color
 	greyscale_config_worn = /datum/greyscale_config/glasses_transparent_regular_color/worn
 	greyscale_colors = "#0d0d0d#9CCBFB"
@@ -59,6 +60,7 @@
 	worn_icon = 'modular_iris/modules/GAGS/icons/glasses/glasses_worn.dmi'
 	icon = 'modular_iris/modules/GAGS/icons/glasses/glasses.dmi'
 	icon_state = "glasses_transparent_circle_color"
+	post_init_icon_state = null
 	greyscale_config = /datum/greyscale_config/glasses_transparent_circle_color
 	greyscale_config_worn = /datum/greyscale_config/glasses_transparent_circle_color/worn
 	greyscale_colors = "#0d0d0d#9CCBFB"
@@ -68,6 +70,7 @@
 	worn_icon = 'modular_iris/modules/GAGS/icons/glasses/glasses_worn.dmi'
 	icon = 'modular_iris/modules/GAGS/icons/glasses/glasses.dmi'
 	icon_state = "glasses_transparent_thin_color"
+	post_init_icon_state = null
 	greyscale_config = /datum/greyscale_config/glasses_transparent_thin_color
 	greyscale_config_worn = /datum/greyscale_config/glasses_transparent_thin_color/worn
 	greyscale_colors = "#0d0d0d#9CCBFB"

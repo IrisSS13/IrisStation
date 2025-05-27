@@ -2,6 +2,7 @@
 	name = "ballet heels"
 	desc = "Restrictive, knee-high heels. Unfathomably difficult to walk in."
 	icon_state = "ballet_heels"
+	post_init_icon_state = null
 	icon = 'modular_iris/modules/GAGS/icons/shoes/high_heels.dmi'
 	worn_icon = 'modular_iris/modules/GAGS/icons/shoes/high_heels_worn.dmi'
 	worn_icon_digi = 'modular_iris/modules/GAGS/icons/shoes/high_heels_digi.dmi'
@@ -23,6 +24,7 @@
 	worn_icon = 'modular_iris/modules/GAGS/icons/shoes/high_heels_worn.dmi'
 	worn_icon_digi = 'modular_iris/modules/GAGS/icons/shoes/high_heels_digi.dmi'
 	icon_state = "boss_heels"
+	post_init_icon_state = null
 	greyscale_colors = null
 	greyscale_config = null
 	greyscale_config_worn = null
@@ -36,3 +38,4 @@
 	worn_icon = 'modular_iris/icons/mob/clothing/feet/feet.dmi'
 	worn_icon_digi = 'modular_iris/icons/mob/clothing/feet/feet_digi.dmi'
 	icon_state = "sandals_kumi"
+	post_init_icon_state = null
