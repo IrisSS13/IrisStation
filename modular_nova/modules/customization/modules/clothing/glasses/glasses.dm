@@ -37,9 +37,9 @@
 
 // GAGS variant of base prescription glasses, so we don't fuck up everything else
 /obj/item/clothing/glasses/regular/color
-	worn_icon = 'modular_iris/modules/GAGS/icons/glasses/glasses_worn.dmi'
-	icon = 'modular_iris/modules/GAGS/icons/glasses/glasses.dmi'
-	icon_state = "glasses_regular_color"
+	icon = 'icons/map_icons/clothing/_clothing.dmi'
+	icon_state = "/obj/item/clothing/glasses/regular/color"
+	post_init_icon_state = "glasses_regular_color"
 	greyscale_config = /datum/greyscale_config/glasses_regular_color
 	greyscale_config_worn = /datum/greyscale_config/glasses_regular_color/worn
 	greyscale_colors = "#0d0d0d#FFFFFF"
@@ -47,30 +47,27 @@
 
 // transparent variety of three prescription glasses
 /obj/item/clothing/glasses/regular/transparent
-	worn_icon = 'modular_iris/modules/GAGS/icons/glasses/glasses_worn.dmi'
-	icon = 'modular_iris/modules/GAGS/icons/glasses/glasses.dmi'
-	icon_state = "glasses_transparent_regular_color"
-	post_init_icon_state = null
+	icon = 'icons/map_icons/clothing/_clothing.dmi'
+	icon_state = "/obj/item/clothing/glasses/regular/transparent"
+	post_init_icon_state = "glasses_transparent_regular_color"
 	greyscale_config = /datum/greyscale_config/glasses_transparent_regular_color
 	greyscale_config_worn = /datum/greyscale_config/glasses_transparent_regular_color/worn
 	greyscale_colors = "#0d0d0d#9CCBFB"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/glasses/regular/circle/transparent
-	worn_icon = 'modular_iris/modules/GAGS/icons/glasses/glasses_worn.dmi'
-	icon = 'modular_iris/modules/GAGS/icons/glasses/glasses.dmi'
-	icon_state = "glasses_transparent_circle_color"
-	post_init_icon_state = null
+	icon = 'icons/map_icons/clothing/_clothing.dmi'
+	icon_state = "/obj/item/clothing/glasses/regular/circle/transparent"
+	post_init_icon_state = "glasses_transparent_circle_color"
 	greyscale_config = /datum/greyscale_config/glasses_transparent_circle_color
 	greyscale_config_worn = /datum/greyscale_config/glasses_transparent_circle_color/worn
 	greyscale_colors = "#0d0d0d#9CCBFB"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/glasses/regular/thin/transparent
-	worn_icon = 'modular_iris/modules/GAGS/icons/glasses/glasses_worn.dmi'
-	icon = 'modular_iris/modules/GAGS/icons/glasses/glasses.dmi'
-	icon_state = "glasses_transparent_thin_color"
-	post_init_icon_state = null
+	icon = 'icons/map_icons/clothing/_clothing.dmi'
+	icon_state = "/obj/item/clothing/glasses/regular/thin/transparent"
+	post_init_icon_state = "glasses_transparent_thin_color"
 	greyscale_config = /datum/greyscale_config/glasses_transparent_thin_color
 	greyscale_config_worn = /datum/greyscale_config/glasses_transparent_thin_color/worn
 	greyscale_colors = "#0d0d0d#9CCBFB"

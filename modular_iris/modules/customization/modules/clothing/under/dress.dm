@@ -5,10 +5,11 @@
 /obj/item/clothing/under/dress/iris/princess
 	name = "princess dress"
 	desc = "A luxurious dress, it makes you feel like you can sing to the animals and they would answer your call."
-	icon_state = "princess_dress"
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/iris/princess"
 	greyscale_config = /datum/greyscale_config/princess_dress
 	greyscale_config_worn = /datum/greyscale_config/princess_dress/worn
-	post_init_icon_state = null
+	post_init_icon_state = "princess_dress"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	greyscale_colors = "#FFFFFF"
 	can_adjust = FALSE

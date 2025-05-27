@@ -185,7 +185,6 @@
 /datum/greyscale_config/ballet_heels/worn/digi
 	name = "Ballet Heels (Worn, Digi)"
 	icon_file = 'modular_iris/modules/GAGS/icons/shoes/high_heels_digi.dmi'
-	json_config = 'modular_iris/modules/GAGS/json_configs/shoes/ballet_heels.json'
 
 /*
 *	ITEMS
