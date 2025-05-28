@@ -1,7 +1,8 @@
 // QUIRK PORTED FROM DOPPLER: https://github.com/DopplerShift13/DopplerShift/pull/596
 /datum/quirk/item_quirk/prescription
 	name = "Registered Prescription"
-	desc = "You have a medication registered with the pharmacy. Your medical records will be updated to reflect this, and medical staff will do their best to provide you with a supply for the shift."
+	desc = "You have a medication registered with the pharmacy. Your medical records will be updated to reflect this, and medical staff will do their best to provide you with a supply for the shift. \
+	DO NOT ABUSE THIS TO OBTAIN ILLICIT SUBSTANCES."
 	/// Name of prescribed reagent.
 	var/prescription_reagent_name
 	/// Amount of prescribed reagent per item.
