@@ -142,8 +142,11 @@ Doesn't work on other aliens/AI.*/
 		return FALSE
 
 	log_directed_talk(owner, chosen_recipient, to_whisper, LOG_SAY, tag = "alien whisper")
-	chosen_recipient.balloon_alert(chosen_recipient, "you hear a voice") // IRIS ADDITION: Adds balloon popup
+	if(chosen_recipient.client?.prefs.read_preference(/datum/preference/toggle/enable_runechat)) // IRIS EDIT: Makes xeno telepathy consistent with normal telepathy
+		chosen_recipient.create_chat_message(chosen_recipient, chosen_recipient.get_selected_language(), to_whisper, list("italics"))
 	to_chat(chosen_recipient, "[span_noticealien("You hear a strange, alien voice in your head...")][to_whisper]")
+	if(owner.client?.prefs.read_preference(/datum/preference/toggle/enable_runechat)) // IRIS EDIT: Makes xeno telepathy consistent with normal telepathy
+		owner.create_chat_message(owner, owner.get_selected_language(), to_whisper, list("italics"))
 	to_chat(owner, span_noticealien("You said: \"[to_whisper]\" to [chosen_recipient]"))
 	for(var/mob/dead_mob as anything in GLOB.dead_mob_list)
 		if(!isobserver(dead_mob))
