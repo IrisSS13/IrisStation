@@ -20,7 +20,7 @@
 	/// Ability to allow them to shapeshift their body around.
 	var/datum/action/innate/alter_form/alter_form
 	/// Ability to allow them to clean themselves and their stuff.
-	//var/datum/action/cooldown/spell/slime_washing/slime_washing
+	//var/datum/action/cooldown/spell/slime_washing/slime_washing - IRIS EDIT - Removal of slime washing. Too expensive.
 	/// Ability to allow them to resist the effects of water.
 	var/datum/action/cooldown/spell/slime_hydrophobia/slime_hydrophobia
 	/// Ability to allow them to turn their core's GPS on or off.
@@ -31,7 +31,7 @@
 	if(ishuman(new_jellyperson))
 		alter_form = new
 		alter_form.Grant(new_jellyperson)
-		// slime_washing = new
+		// slime_washing = new - IRIS EDIT - Removal of slime washing. Too expensive.
 		// slime_washing.Grant(new_jellyperson)
 		slime_hydrophobia = new
 		slime_hydrophobia.Grant(new_jellyperson)
@@ -42,7 +42,7 @@
 	. = ..()
 	if(alter_form)
 		alter_form.Remove(former_jellyperson)
-	// if(slime_washing)
+	// if(slime_washing) - IRIS EDIT - Removal of slime washing. Too expensive.
 	//	slime_washing.Remove(former_jellyperson)
 	if(slime_hydrophobia)
 		slime_hydrophobia.Remove(former_jellyperson)
@@ -351,7 +351,7 @@
 
 /**
 * SLIME CLEANING ABILITY -
-* When toggled, slimes clean themselves and their equipment.
+* When toggled, slimes clean themselves and their equipment. - IRIS EDIT - Removal of slime washing. Too expensive.
 */
 /* /datum/action/cooldown/spell/slime_washing
 	name = "Toggle Slime Cleaning"
