@@ -149,7 +149,7 @@
 
 /// Makes the owner afraid of being alone
 /datum/terror_handler/simple_source/monophobia
-	buildup_per_second = 2.5 // Pretty low, ~4 minutes to reach passive cap
+	buildup_per_second = 0.5 // IRIS EDIT: Made it scale 5x slower. ORIGINAL COMMENT: Pretty low, ~4 minutes to reach passive cap
 
 /datum/terror_handler/simple_source/monophobia/check_condition(seconds_per_tick, terror_buildup)
 	. = ..()
