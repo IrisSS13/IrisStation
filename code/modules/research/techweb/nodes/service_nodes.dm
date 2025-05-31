@@ -67,6 +67,7 @@
 		"automated_announcement",
 		"cargo",
 		"cargorequest",
+		"cargo_bounty", // IRIS ADDITION
 		"med_data",
 		"crewconsole",
 		"bankmachine",

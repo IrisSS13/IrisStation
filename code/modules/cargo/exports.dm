@@ -242,6 +242,7 @@ GLOBAL_LIST_EMPTY(exports_list)
 
 /// Called when the global exports_list is empty, and sets it up.
 /proc/setupExports()
+	GLOB.exports_list += new /datum/export/bounty // IRIS ADDITION
 	for(var/subtype in subtypesof(/datum/export))
 		var/datum/export/export_datum = new subtype
 		if(export_datum.export_types && export_datum.export_types.len) // Exports without a type are invalid/base types
