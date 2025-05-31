@@ -878,7 +878,7 @@ GLOBAL_LIST_EMPTY(vending_machines_to_restock)
 						var/burn = (damage_type == BURN ? damage : 0) * 0.5
 						carbon_target.take_bodypart_damage(brute, burn, check_armor = TRUE, wound_bonus = 5) // otherwise, deal it to 2 random limbs (or the same one) which will likely shatter something
 						carbon_target.take_bodypart_damage(brute, burn, check_armor = TRUE, wound_bonus = 5)
-					//carbon_target.AddElement(/datum/element/squish, 80 SECONDS) // NOVA EDIT REMOVAL
+					carbon_target.AddElement(/datum/element/squish, 80 SECONDS)
 				else
 					living_target.apply_damage(adjusted_damage, damage_type, blocked = blocked, forced = TRUE, attack_direction = crush_dir)
 

@@ -48,7 +48,9 @@
 	if (terror_buildup > TERROR_BUILDUP_TERROR || SPT_PROB(1 + FEAR_SCALING(4, TERROR_BUILDUP_FEAR, TERROR_BUILDUP_TERROR), seconds_per_tick))
 		owner.set_stutter_if_lower(10 SECONDS)
 
+/// IRIS REMOVAL: Fear will no longer cause your heart to give out, since that's lame in a lowpop setting
 /// Can randomly give you some oxyloss, and cause a heart attack past TERROR_BUILDUP_HEART_ATTACK
+/*
 /datum/terror_handler/heart_problems
 	handler_type = TERROR_HANDLER_EFFECT
 	default = TRUE
@@ -80,6 +82,7 @@
 	)
 	owner.apply_status_effect(/datum/status_effect/heart_attack)
 	owner.Unconscious(20 SECONDS)
+*/
 
 /// Low chance to vomit when terrified, increases significantly during panic attacks
 /datum/terror_handler/vomiting

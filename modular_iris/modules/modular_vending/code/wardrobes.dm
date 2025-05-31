@@ -30,3 +30,8 @@
 		/obj/item/clothing/suit/costume/nabber_poncho/science = 2,
 		/obj/item/clothing/suit/costume/nabber_poncho/fireresistant = 2,
 	)
+
+/obj/machinery/vending/wardrobe/gene_wardrobe
+	products_iris = list(
+		/obj/item/radio/headset/headset_medsci  = 2,
+	)
