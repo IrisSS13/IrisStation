@@ -510,6 +510,7 @@ Behavior that's still missing from this component that original food items had t
 	if(!owner.reagents.total_volume)
 		On_Consume(eater, feeder)
 
+//IRIS EDIT START
 	var/area/current_area = get_area(eater)
 	current_area.times_eaten_counter++
 	var/ate_in_service = (current_area.times_eaten_counter >= BREAK_ROOM_DESIGNATION)
@@ -534,6 +535,7 @@ Behavior that's still missing from this component that original food items had t
 			eater.add_mood_event("ate_utensils", /datum/mood_event/ate_event/no_utensils)
 		else
 			eater.add_mood_event("ate_utensils", /datum/mood_event/ate_event/utensils)
+//IRIS EDIT END
 	//Invoke our after eat callback if it is valid
 	after_eat?.Invoke(eater, feeder, bitecount)
 
