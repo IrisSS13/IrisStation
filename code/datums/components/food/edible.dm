@@ -510,6 +510,30 @@ Behavior that's still missing from this component that original food items had t
 	if(!owner.reagents.total_volume)
 		On_Consume(eater, feeder)
 
+	var/area/current_area = get_area(eater)
+	current_area.times_eaten_counter++
+	var/ate_in_service = (current_area.times_eaten_counter >= BREAK_ROOM_DESIGNATION)
+	var/ate_at_table = find_adjacent_tables(eater)
+	var/ate_with_chair = eater.buckled
+	var/ate_with_utensils = eater.is_holding_item_of_type(/obj/item/kitchen)
+
+	if(!ate_in_service)
+		eater.add_mood_event("ate_service", /datum/mood_event/ate_event/no_service)
+	else
+		eater.add_mood_event("ate_service", /datum/mood_event/ate_event/service)
+	if(!(food_flags & FOOD_FINGER_FOOD) || HAS_TRAIT(eater, TRAIT_SNOB))
+		if(!ate_with_chair)
+			eater.add_mood_event("ate_chair", /datum/mood_event/ate_event/no_chair)
+		else
+			eater.add_mood_event("ate_chair", /datum/mood_event/ate_event/chair)
+		if(!ate_at_table)
+			eater.add_mood_event("ate_table", /datum/mood_event/ate_event/no_table)
+		else
+			eater.add_mood_event("ate_table", /datum/mood_event/ate_event/table)
+		if(!ate_with_utensils)
+			eater.add_mood_event("ate_utensils", /datum/mood_event/ate_event/no_utensils)
+		else
+			eater.add_mood_event("ate_utensils", /datum/mood_event/ate_event/utensils)
 	//Invoke our after eat callback if it is valid
 	after_eat?.Invoke(eater, feeder, bitecount)
 
