@@ -2,19 +2,19 @@
 	timeout = 10 MINUTES
 
 /datum/mood_event/ate_event/no_table
-	description = span_warning("I had to eat a meal off the ground. Can't we get a table around here?")
+	description = "I had to eat a meal off the ground. Can't we get a table around here?"
 	mood_change = 0
 
 /datum/mood_event/ate_event/no_chair
-	description = span_warning("I had to eat a meal while standing. Can't we get some chairs around here?")
+	description = "I had to eat a meal while standing. Can't we get some chairs around here?"
 	mood_change = 0
 
 /datum/mood_event/ate_event/no_service
-	description = span_warning("I had to eat a meal in a place like this. I wish I was eating at the bar or diner!")
+	description = "I had to eat a meal in a place like this. I wish I was eating at the bar or diner!"
 	mood_change = 0
 
 /datum/mood_event/ate_event/no_utensils
-	description = span_warning("I had to eat a meal with my bare hands. Can't we get some forks around here?")
+	description = I had to eat a meal with my bare hands. Can't we get some forks around here?"
 	mood_change = 0
 
 /datum/mood_event/ate_event/table
