@@ -159,6 +159,10 @@
 	var/mob/living/carbon/new_avatar = generate_avatar(get_turf(entry_atom), netsuit, pref, include_loadout = load_loadout) // NOVA EDIT CHANGE - ORIGINAL: var/mob/living/carbon/new_avatar = generate_avatar(get_turf(entry_atom), netsuit)
 	stock_gear(new_avatar, neo, generated_domain)
 
+	// IRIS ADDITION START
+	if(telecomms_radio)
+		new /obj/item/radio/bitrunning(new_avatar)
+	// IRIS ADDITION END
 	// Cleanup for domains with one time use custom spawns
 	if(!length(generated_domain.custom_spawns))
 		return new_avatar

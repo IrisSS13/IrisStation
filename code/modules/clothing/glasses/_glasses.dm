@@ -255,6 +255,7 @@
 	inhand_icon_state = "headset" // lol
 	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
+	clothing_traits = list(TRAIT_NEARSIGHTED_CORRECTED)
 
 /obj/item/clothing/glasses/material
 	name = "optical material scanner"
@@ -340,9 +341,9 @@
 	name = "thin prescription glasses"
 	desc = "More expensive, more fragile and much less practical, but oh so fashionable."
 	//IRIS EDIT: GAGSifies prescription glasses
-	worn_icon = 'modular_iris/modules/GAGS/icons/glasses/glasses_worn.dmi'
-	icon = 'modular_iris/modules/GAGS/icons/glasses/glasses.dmi'
-	icon_state = "glasses_thin_color"
+	icon = 'icons/map_icons/clothing/_clothing.dmi'
+	icon_state = "/obj/item/clothing/glasses/regular/thin"
+	post_init_icon_state = "glasses_thin_color"
 	greyscale_config = /datum/greyscale_config/glasses_thin_color
 	greyscale_config_worn = /datum/greyscale_config/glasses_thin_color/worn
 	greyscale_colors = "#0d0d0d#FFFFFF"
@@ -352,9 +353,9 @@
 	name = "jamjar glasses"
 	desc = "Also known as Virginity Protectors."
 	//IRIS EDIT: GAGSifies prescription glasses
-	worn_icon = 'modular_iris/modules/GAGS/icons/glasses/glasses_worn.dmi'
-	icon = 'modular_iris/modules/GAGS/icons/glasses/glasses.dmi'
-	icon_state = "glasses_jamjar_color"
+	icon = 'icons/map_icons/clothing/_clothing.dmi'
+	icon_state = "/obj/item/clothing/glasses/regular/jamjar"
+	post_init_icon_state = "glasses_jamjar_color"
 	greyscale_config = /datum/greyscale_config/glasses_jamjar_color
 	greyscale_config_worn = /datum/greyscale_config/glasses_jamjar_color/worn
 	greyscale_colors = "#575757#FFFFFF"
@@ -365,9 +366,9 @@
 	name = "prescription glasses"
 	desc = "Made by Uncool. Co."
 	//IRIS EDIT: GAGSifies prescription glasses
-	worn_icon = 'modular_iris/modules/GAGS/icons/glasses/glasses_worn.dmi'
-	icon = 'modular_iris/modules/GAGS/icons/glasses/glasses.dmi'
-	icon_state = "glasses_hipster_color"
+	icon = 'icons/map_icons/clothing/_clothing.dmi'
+	icon_state = "/obj/item/clothing/glasses/regular/hipster"
+	post_init_icon_state = "glasses_hipster_color"
 	greyscale_config = /datum/greyscale_config/glasses_hipster_color
 	greyscale_config_worn = /datum/greyscale_config/glasses_hipster_color/worn
 	greyscale_colors = "#464646#FFFFFF"
@@ -378,9 +379,9 @@
 	name = "circle glasses"
 	desc = "Why would you wear something so controversial yet so brave?"
 	//IRIS EDIT: GAGSifies prescription glasses
-	worn_icon = 'modular_iris/modules/GAGS/icons/glasses/glasses_worn.dmi'
-	icon = 'modular_iris/modules/GAGS/icons/glasses/glasses.dmi'
-	icon_state = "glasses_circle_color"
+	icon = 'icons/map_icons/clothing/_clothing.dmi'
+	icon_state = "/obj/item/clothing/glasses/regular/circle"
+	post_init_icon_state = "glasses_circle_color"
 	greyscale_config = /datum/greyscale_config/glasses_circle_color
 	greyscale_config_worn = /datum/greyscale_config/glasses_circle_color/worn
 	greyscale_colors = "#0d0d0d#FFFFFF"

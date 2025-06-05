@@ -496,7 +496,7 @@
 /obj/structure/table/proc/table_place_act(mob/living/user, obj/item/tool, list/modifiers)
 	if(tool.item_flags & ABSTRACT)
 		return NONE
-	if(!user.transferItemToLoc(tool, drop_location(), silent = FALSE))
+	if(!user.dropItemToGround(to_drop = tool, silent = FALSE, newloc = get_turf(src)))
 		return ITEM_INTERACT_BLOCKING
 	// Items are centered by default, but we move them if click ICON_X and ICON_Y are available
 	if(LAZYACCESS(modifiers, ICON_X) && LAZYACCESS(modifiers, ICON_Y))
@@ -684,7 +684,7 @@
 /obj/structure/table/glass/proc/check_break(mob/living/M)
 	if(is_flipped)
 		return FALSE
-	if(M.has_gravity() && M.mob_size > MOB_SIZE_SMALL && !(M.movement_type & MOVETYPES_NOT_TOUCHING_GROUND) && (!isteshari(M))) //NOVA EDIT CHANGE - Original: if(M.has_gravity() && M.mob_size > MOB_SIZE_SMALL && !(M.movement_type & MOVETYPES_NOT_TOUCHING_GROUND))
+	if(M.has_gravity() && M.mob_size > MOB_SIZE_SMALL && !(M.movement_type & MOVETYPES_NOT_TOUCHING_GROUND) && (!isteshari(M)) && !HAS_TRAIT(M, TRAIT_PRONE)) //NOVA EDIT CHANGE - Original: if(M.has_gravity() && M.mob_size > MOB_SIZE_SMALL && !(M.movement_type & MOVETYPES_NOT_TOUCHING_GROUND))
 		table_shatter(M)
 
 /obj/structure/table/glass/proc/table_shatter(mob/living/victim)
@@ -743,6 +743,33 @@
 	max_integrity = 70
 	smoothing_groups = SMOOTH_GROUP_WOOD_TABLES //Don't smooth with SMOOTH_GROUP_TABLES
 	canSmoothWith = SMOOTH_GROUP_WOOD_TABLES
+
+/obj/structure/table/wood/table_living(datum/source, mob/living/shover, mob/living/target, shove_flags, obj/item/weapon)
+	. = ..()
+	if(prob(33))
+		wood_table_shatter(target)
+
+/obj/structure/table/wood/tablepush(mob/living/user, mob/living/pushed_mob)
+	. = ..()
+	if(!QDELETED(src) && prob(33))
+		wood_table_shatter(pushed_mob)
+
+/obj/structure/table/wood/tablelimbsmash(mob/living/user, mob/living/pushed_mob)
+	. = ..()
+	if(!QDELETED(src) && prob(33))
+		wood_table_shatter(pushed_mob)
+
+/obj/structure/table/wood/proc/wood_table_shatter(mob/living/victim)
+	visible_message(
+		span_warning("[src] smashes into bits!"),
+		blind_message = span_hear("You hear the loud cracking of wood being split."),
+	)
+
+	playsound(src, 'sound/effects/wounds/crack2.ogg', 50, TRUE)
+	victim.Knockdown(10 SECONDS)
+	victim.Paralyze(2 SECONDS)
+	victim.apply_damage(20, BRUTE)
+	deconstruct(FALSE)
 
 /obj/structure/table/wood/narsie_act(total_override = TRUE)
 	if(!total_override)

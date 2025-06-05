@@ -46,6 +46,7 @@
 	data["retries_left"] = length(server.exit_turfs) - server.retries_spent
 	data["broadcasting"] = server.broadcasting
 	data["broadcasting_on_cd"] = !COOLDOWN_FINISHED(server, broadcast_toggle_cd)
+	data["telecomms_radio"] = server.telecomms_radio // IRIS ADDITION
 
 	return data
 
@@ -86,6 +87,11 @@
 		if("broadcast")
 			server.toggle_broadcast()
 			return TRUE
+		// IRIS ADDITION START
+		if("radio")
+			server.toggle_radio()
+			return TRUE
+		// IRIS ADDITION END
 
 	return FALSE
 

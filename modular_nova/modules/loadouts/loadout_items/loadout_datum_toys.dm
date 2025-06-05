@@ -6,7 +6,6 @@
 	/// How many toys are allowed at maximum.
 	VAR_PRIVATE/max_allowed = 3
 
-
 /datum/loadout_category/toys/New()
 	. = ..()
 	category_info = "([max_allowed] allowed)"
@@ -27,8 +26,6 @@
 		manager.deselect_item(other_toys[1])
 	return TRUE
 
-
-
 /datum/loadout_item/toys
 	abstract_type = /datum/loadout_item/toys
 
@@ -39,92 +36,96 @@
 /datum/loadout_item/toys/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE)  // these go in the backpack
 	return FALSE
 
-/datum/loadout_item/toys/bee
+/datum/loadout_item/toys/plush
+	group = "Plushies"
+	abstract_type = /datum/loadout_item/toys/plush
+	can_be_named = TRUE
+
+/datum/loadout_item/toys/plush/bee
 	name = "Bee Plushie"
 	item_path = /obj/item/toy/plush/beeplushie
 
-/datum/loadout_item/toys/carp
+/datum/loadout_item/toys/plush/carp
 	name = "Carp Plushie"
 	item_path = /obj/item/toy/plush/carpplushie
 
-/datum/loadout_item/toys/shark
+/datum/loadout_item/toys/plush/shark
 	name = "Shark Plushie"
 	item_path = /obj/item/toy/plush/shark
 
-/datum/loadout_item/toys/lizard_greyscale
+/datum/loadout_item/toys/plush/lizard_greyscale
 	name = "Greyscale Lizard Plushie"
-	item_path = /obj/item/toy/plush/lizard_plushie
-	can_be_greyscale = TRUE
+	item_path = /obj/item/toy/plush/lizard_plushie/greyscale
 
-/datum/loadout_item/toys/moth
+/datum/loadout_item/toys/plush/moth
 	name = "Moth Plushie"
 	item_path = /obj/item/toy/plush/moth
 
-/datum/loadout_item/toys/narsie
+/datum/loadout_item/toys/plush/narsie
 	name = "Nar'sie Plushie"
 	item_path = /obj/item/toy/plush/narplush
 
-/datum/loadout_item/toys/nukie
+/datum/loadout_item/toys/plush/nukie
 	name = "Nukie Plushie"
 	item_path = /obj/item/toy/plush/nukeplushie
 
-/datum/loadout_item/toys/peacekeeper
+/datum/loadout_item/toys/plush/peacekeeper
 	name = "Peacekeeper Plushie"
 	item_path = /obj/item/toy/plush/pkplush
 
-/datum/loadout_item/toys/plasmaman
+/datum/loadout_item/toys/plush/plasmaman
 	name = "Plasmaman Plushie"
 	item_path = /obj/item/toy/plush/plasmamanplushie
 
-/datum/loadout_item/toys/ratvar
+/datum/loadout_item/toys/plush/ratvar
 	name = "Ratvar Plushie"
 	item_path = /obj/item/toy/plush/ratplush
 
-/datum/loadout_item/toys/rouny
+/datum/loadout_item/toys/plush/rouny
 	name = "Rouny Plushie"
 	item_path = /obj/item/toy/plush/rouny
 
-/datum/loadout_item/toys/snake
+/datum/loadout_item/toys/plush/snake
 	name = "Snake Plushie"
 	item_path = /obj/item/toy/plush/snakeplushie
 
-/datum/loadout_item/toys/slime
+/datum/loadout_item/toys/plush/slime
 	name = "Slime Plushie"
 	item_path = /obj/item/toy/plush/slimeplushie
 
-/datum/loadout_item/toys/bubble
+/datum/loadout_item/toys/plush/bubble
 	name = "Bubblegum Plushie"
 	item_path = /obj/item/toy/plush/bubbleplush
 
-/datum/loadout_item/toys/goat
+/datum/loadout_item/toys/plush/goat
 	name = "Strange Goat Plushie"
 	item_path = /obj/item/toy/plush/goatplushie
 
-/datum/loadout_item/toys/ianbastardman
+/datum/loadout_item/toys/plush/ianbastardman
 	name = "Ian Plushie"
 	item_path = /obj/item/toy/plush/nova/ian
 
-/datum/loadout_item/toys/corgiman
+/datum/loadout_item/toys/plush/corgiman
 	name = "Corgi Plushie"
 	item_path = /obj/item/toy/plush/nova/ian/small
 
-/datum/loadout_item/toys/corgiwoman
+/datum/loadout_item/toys/plush/corgiwoman
 	name = "Girly Corgi Plushie"
 	item_path = /obj/item/toy/plush/nova/ian/lisa
 
-/datum/loadout_item/toys/cat
+/datum/loadout_item/toys/plush/cat
 	name = "Cat Plushie"
 	item_path = /obj/item/toy/plush/nova/cat
 
-/datum/loadout_item/toys/tuxcat
+/datum/loadout_item/toys/plush/tuxcat
 	name = "Tux Cat Plushie"
 	item_path = /obj/item/toy/plush/nova/cat/tux
 
-/datum/loadout_item/toys/whitecat
+/datum/loadout_item/toys/plush/whitecat
 	name = "White Cat Plushie"
 	item_path = /obj/item/toy/plush/nova/cat/white
 
-/datum/loadout_item/toys/human
+/datum/loadout_item/toys/plush/human
 	name = "Human Plushie"
 	item_path = /obj/item/toy/plush/human
 
@@ -156,57 +157,70 @@
 *	DICE
 */
 
-/datum/loadout_item/toys/d1
+/datum/loadout_item/toys/dice
+	group = "Dice"
+	abstract_type = /datum/loadout_item/toys/dice
+
+/datum/loadout_item/toys/dice/dice_bag
+	name = "Dice Bag"
+	item_path = /obj/item/storage/dice
+
+/datum/loadout_item/toys/dice/d1
 	name = "D1"
 	item_path = /obj/item/dice/d1
 
-/datum/loadout_item/toys/d2
+/datum/loadout_item/toys/dice/d2
 	name = "D2"
 	item_path = /obj/item/dice/d2
 
-/datum/loadout_item/toys/d4
+/datum/loadout_item/toys/dice/d4
 	name = "D4"
 	item_path = /obj/item/dice/d4
 
-/datum/loadout_item/toys/d6
+/datum/loadout_item/toys/dice/d6
 	name = "D6"
 	item_path = /obj/item/dice/d6
 
-/datum/loadout_item/toys/d6_ebony
+/datum/loadout_item/toys/dice/d6_ebony
 	name = "D6 (Ebony)"
 	item_path = /obj/item/dice/d6/ebony
 
-/datum/loadout_item/toys/d6_space
+/datum/loadout_item/toys/dice/d6_space
 	name = "D6 (Space)"
 	item_path = /obj/item/dice/d6/space
 
-/datum/loadout_item/toys/d8
+/datum/loadout_item/toys/dice/d8
 	name = "D8"
 	item_path = /obj/item/dice/d8
 
-/datum/loadout_item/toys/d10
+/datum/loadout_item/toys/dice/d10
 	name = "D10"
 	item_path = /obj/item/dice/d10
 
-/datum/loadout_item/toys/d12
+/datum/loadout_item/toys/dice/d12
 	name = "D12"
 	item_path = /obj/item/dice/d12
 
-/datum/loadout_item/toys/d20
+/datum/loadout_item/toys/dice/d20
 	name = "D20"
 	item_path = /obj/item/dice/d20
 
-/datum/loadout_item/toys/d100
+/datum/loadout_item/toys/dice/d20_weighted_low
+	name = "D20 (Weighted, Low)"
+	item_path = /obj/item/dice/d20/nat1
+
+/datum/loadout_item/toys/dice/d20_weighted_high
+	name = "D20 (Weighted, High)"
+	item_path = /obj/item/dice/d20/nat20
+
+/datum/loadout_item/toys/dice/d100
 	name = "D100"
 	item_path = /obj/item/dice/d100
 
-/datum/loadout_item/toys/d00
+/datum/loadout_item/toys/dice/d00
 	name = "D00"
 	item_path = /obj/item/dice/d00
 
-/datum/loadout_item/toys/dice
-	name = "Dice Bag"
-	item_path = /obj/item/storage/dice
 
 /*
 *	TENNIS BALLS
@@ -279,3 +293,7 @@
 /datum/loadout_item/toys/purple_laser
 	name = "Purple Laser Pointer"
 	item_path = /obj/item/laser_pointer/limited/purple
+
+/datum/loadout_item/toys/dog_bone
+	name = "Jumbo Dog Bone"
+	item_path = /obj/item/dog_bone

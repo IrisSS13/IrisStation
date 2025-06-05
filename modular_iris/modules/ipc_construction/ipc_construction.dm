@@ -107,7 +107,7 @@
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
 		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 5,
 	)
-	build_path = /obj/item/organ/cyberimp/arm/power_cord/left_arm
+	build_path = /obj/item/organ/cyberimp/arm/toolkit/power_cord/left_arm
 	category = list(
 		RND_SUBCATEGORY_MECHFAB_ANDROID + RND_SUBCATEGORY_MECHFAB_ANDROID_CHASSIS,
 	)

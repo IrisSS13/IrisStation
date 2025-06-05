@@ -186,7 +186,7 @@
 	QDEL_NULL(particles)
 	if(used_tray)
 		QDEL_NULL(used_tray)
-	. = ..()
+	return ..()
 
 /obj/structure/reagent_forge/update_appearance(updates)
 	. = ..()

@@ -127,6 +127,13 @@
 			qdel(thing)
 			continue
 
+		// IRIS ADDITION START
+		if(istype(thing, /obj/effect/landmark/bitrunning/bitrunning_relay))
+			if(telecomms_radio)
+				new /obj/machinery/telecomms/relay/preset/auto/bitrunning(thing.loc)
+			qdel(thing)
+			continue
+		// IRIS ADDITION END
 		if(istype(thing, /obj/effect/landmark/bitrunning/permanent_exit))
 			var/turf/tile = get_turf(thing)
 			exit_turfs += tile
@@ -190,7 +197,7 @@
 		if(isnull(creature))
 			continue
 
-		creature.dust(just_ash = TRUE, force = TRUE) // sometimes mobs just don't die
+		qdel(creature)
 
 	generated_domain.secondary_loot_generated = 0
 
