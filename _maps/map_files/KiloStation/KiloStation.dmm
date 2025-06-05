@@ -10392,6 +10392,10 @@
 /obj/structure/cable,
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/kitchen/fork{
+	pixel_y = 12;
+	pixel_x = 12
+	},
 /turf/open/floor/iron/dark,
 /area/station/service/bar/atrium)
 "dhX" = (
@@ -17465,6 +17469,10 @@
 	pixel_y = 4
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/item/kitchen/fork{
+	pixel_x = 8;
+	pixel_y = 5
+	},
 /turf/open/floor/iron/dark,
 /area/station/service/bar/atrium)
 "fol" = (
@@ -31094,9 +31102,9 @@
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Kitchen Cold Room Maintenance"
 	},
-/obj/structure/fans/tiny,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/dark,
 /area/station/service/kitchen/coldroom)
 "jgC" = (
@@ -40636,7 +40644,6 @@
 /obj/effect/turf_decal/tile/neutral/half/contrasted,
 /obj/structure/table,
 /obj/item/storage/cans/sixbeer,
-/obj/effect/spawner/random/food_or_drink/donkpockets,
 /obj/effect/spawner/random/food_or_drink/donkpockets{
 	pixel_y = 5;
 	pixel_x = 4
@@ -53918,7 +53925,6 @@
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/aft)
 "qrg" = (
-/obj/structure/plasticflaps/opaque,
 /obj/effect/turf_decal/delivery,
 /obj/machinery/navbeacon{
 	codes_txt = "delivery;dir=1";
@@ -53928,6 +53934,7 @@
 	name = "Kitchen Delivery Access";
 	req_access = list("kitchen")
 	},
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/dark,
 /area/station/service/kitchen/coldroom)
 "qrk" = (
@@ -68747,7 +68754,9 @@
 /obj/structure/table,
 /obj/item/rag,
 /obj/effect/turf_decal/tile/neutral/half/contrasted,
-/obj/machinery/chem_dispenser/frontier_appliance,
+/obj/machinery/chem_dispenser/frontier_appliance{
+	anchored = 1
+	},
 /turf/open/floor/iron/dark,
 /area/station/service/kitchen)
 "uQT" = (
@@ -72181,7 +72190,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/service/kitchen,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
-/obj/structure/fans/tiny,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/dark,
 /area/station/service/kitchen/coldroom)
 "vMX" = (
