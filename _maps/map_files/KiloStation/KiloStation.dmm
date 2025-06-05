@@ -31102,9 +31102,9 @@
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Kitchen Cold Room Maintenance"
 	},
-/obj/structure/fans/tiny,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/dark,
 /area/station/service/kitchen/coldroom)
 "jgC" = (
@@ -53925,7 +53925,6 @@
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/aft)
 "qrg" = (
-/obj/structure/plasticflaps/opaque,
 /obj/effect/turf_decal/delivery,
 /obj/machinery/navbeacon{
 	codes_txt = "delivery;dir=1";
@@ -53935,6 +53934,7 @@
 	name = "Kitchen Delivery Access";
 	req_access = list("kitchen")
 	},
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/dark,
 /area/station/service/kitchen/coldroom)
 "qrk" = (
@@ -68754,7 +68754,9 @@
 /obj/structure/table,
 /obj/item/rag,
 /obj/effect/turf_decal/tile/neutral/half/contrasted,
-/obj/machinery/chem_dispenser/frontier_appliance,
+/obj/machinery/chem_dispenser/frontier_appliance{
+	anchored = 1
+	},
 /turf/open/floor/iron/dark,
 /area/station/service/kitchen)
 "uQT" = (
@@ -72188,7 +72190,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/service/kitchen,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
-/obj/structure/fans/tiny,
+/obj/structure/plasticflaps/kitchen,
 /turf/open/floor/iron/dark,
 /area/station/service/kitchen/coldroom)
 "vMX" = (

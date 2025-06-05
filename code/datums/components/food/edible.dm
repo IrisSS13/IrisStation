@@ -518,6 +518,9 @@ Behavior that's still missing from this component that original food items had t
 	var/ate_with_chair = eater.buckled
 	var/ate_with_utensils = eater.is_holding_item_of_type(/obj/item/kitchen)
 
+	if(HAS_TRAIT(eater, TRAIT_TABLE_EATING_ENJOYER) && !ate_at_table)
+		eater.add_mood_event("ate_table", /datum/mood_event/ate_event/no_table_quirk)
+
 	if(!ate_in_service)
 		eater.add_mood_event("ate_service", /datum/mood_event/ate_event/no_service)
 	else
@@ -527,10 +530,11 @@ Behavior that's still missing from this component that original food items had t
 			eater.add_mood_event("ate_chair", /datum/mood_event/ate_event/no_chair)
 		else
 			eater.add_mood_event("ate_chair", /datum/mood_event/ate_event/chair)
-		if(!ate_at_table)
-			eater.add_mood_event("ate_table", /datum/mood_event/ate_event/no_table)
-		else
-			eater.add_mood_event("ate_table", /datum/mood_event/ate_event/table)
+		if(!HAS_TRAIT(eater, TRAIT_TABLE_EATING_ENJOYER)) //you NEED a table to not be sad, won't get happy for having what you consider an important thing
+			if(!ate_at_table)
+				eater.add_mood_event("ate_table", /datum/mood_event/ate_event/no_table)
+			else
+				eater.add_mood_event("ate_table", /datum/mood_event/ate_event/table)
 		if(!ate_with_utensils)
 			eater.add_mood_event("ate_utensils", /datum/mood_event/ate_event/no_utensils)
 		else

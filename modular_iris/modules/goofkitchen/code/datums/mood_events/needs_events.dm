@@ -32,3 +32,8 @@
 /datum/mood_event/ate_event/utensils
 	description = "I ate with utensils. It's so nice not having to eat with my hands!"
 	mood_change = 2
+
+/datum/mood_event/ate_event/no_table_quirk
+	description = "I had to eat without a table, my dissapointment is immesurable and my day is ruined."
+	mood_change = -3
+	timeout = 20 MINUTES

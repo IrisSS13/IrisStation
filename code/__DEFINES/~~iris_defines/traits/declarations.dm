@@ -36,6 +36,9 @@
 //Stowaway quirk taken from https://github.com/Monkestation/Monkestation2.0/pull/4642
 #define TRAIT_STOWAWAY "stowaway"
 
+///Mob hates eating without a table, goofkitchen
+#define TRAIT_TABLE_EATING_ENJOYER "table_eating_enjoyer"
+
 //Trait sources
 
 //Special trait source for illiteracy granted by farsightedness, part of https://github.com/lizardqueenlexi/orbstation/pull/254
