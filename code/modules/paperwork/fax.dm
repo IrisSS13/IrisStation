@@ -184,7 +184,7 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 		fax_name = new_fax_name
 	return ITEM_INTERACT_SUCCESS
 
-/obj/machinery/fax/attackby(obj/item/item, mob/user, params)
+/obj/machinery/fax/attackby(obj/item/item, mob/user, list/modifiers)
 	if (jammed && clear_jam(item, user))
 		return
 	if (panel_open)
@@ -213,7 +213,7 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 		user.visible_message(span_notice("[user] cleans \the [src]."), span_notice("You clean \the [src]."))
 		jammed = FALSE
 		return TRUE
-	if (istype(item, /obj/item/soap) || istype(item, /obj/item/reagent_containers/cup/rag))
+	if (istype(item, /obj/item/soap) || istype(item, /obj/item/rag))
 		var/cleanspeed = 50
 		if (istype(item, /obj/item/soap))
 			var/obj/item/soap/used_soap = item
@@ -241,11 +241,11 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
  * This list expands if you snip a particular wire.
  */
 /obj/machinery/fax/proc/is_allowed_type(obj/item/item)
-	if (is_type_in_list(item, allowed_types))
-		return TRUE
-	if (!allow_exotic_faxes)
-		return FALSE
-	return is_type_in_list(item, exotic_types)
+	var/list/checked_list = allow_exotic_faxes ? (allowed_types | exotic_types) : allowed_types
+	for(var/atom/movable/thing in item.get_all_contents())
+		if(!is_type_in_list(thing, checked_list))
+			return FALSE
+	return TRUE
 
 /obj/machinery/fax/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -401,6 +401,37 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 /obj/machinery/fax/proc/receive(obj/item/loaded, sender_name)
 	playsound(src, 'sound/machines/printer.ogg', 50, FALSE)
 	INVOKE_ASYNC(src, PROC_REF(animate_object_travel), loaded, "fax_receive", find_overlay_state(loaded, "receive"))
+	// Iris Addition
+	var/area/current_area = get_area(src)
+	var/area_name = current_area ? current_area.name : "Unknown Area"
+
+	var/channel = RADIO_CHANNEL_COMMON // Default Channel
+
+	if(istype(current_area, /area/ruin/space/has_grav/nova/des_two) || istype(current_area, /area/ruin/interdyne_planetary_base))
+		channel = RADIO_CHANNEL_INTERDYNE
+	else if(istype(current_area, /area/ruin)) // Skip announcements for ruins
+		channel = null
+	// Check for station areas
+	else if(istype(current_area, /area/station/command))
+		channel = RADIO_CHANNEL_COMMAND
+	else if(istype(current_area, /area/station/cargo))
+		channel = RADIO_CHANNEL_SUPPLY
+	else if(istype(current_area, /area/station/engineering))
+		channel = RADIO_CHANNEL_ENGINEERING
+	else if(istype(current_area, /area/station/medical))
+		channel = RADIO_CHANNEL_MEDICAL
+	else if(istype(current_area, /area/station/science))
+		channel = RADIO_CHANNEL_SCIENCE
+	else if(istype(current_area, /area/station/security))
+		channel = RADIO_CHANNEL_SECURITY
+	else if(istype(current_area, /area/station/service))
+		channel = RADIO_CHANNEL_SERVICE
+	else if(istype(current_area, /area/centcom)) // Skip announcement for CentCom, aka admin printing a fax
+		channel = null
+
+	if(channel)
+		aas_config_announce(/datum/aas_config_entry/fax_received, list("SENDER" = sender_name, "FAX" = area_name), null, list(channel))
+	// Addition End
 	say("Received correspondence from [sender_name].")
 	history_add("Receive", sender_name)
 	addtimer(CALLBACK(src, PROC_REF(vend_item), loaded), 1.9 SECONDS)
@@ -551,7 +582,7 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 			context[SCREENTIP_CONTEXT_LMB] = "Manipulate wires"
 			return CONTEXTUAL_SCREENTIP_SET
 
-	if (jammed && is_type_in_list(held_item, list(/obj/item/reagent_containers/spray, /obj/item/soap, /obj/item/reagent_containers/cup/rag)))
+	if (jammed && is_type_in_list(held_item, list(/obj/item/reagent_containers/spray, /obj/item/soap, /obj/item/rag)))
 		context[SCREENTIP_CONTEXT_LMB] = "Clean output tray"
 		return CONTEXTUAL_SCREENTIP_SET
 
@@ -593,3 +624,13 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 	else
 		return FALSE
 	return TRUE
+
+// Iris Addition
+/datum/aas_config_entry/fax_received
+	name = "Fax Received Announcement"
+	announcement_lines_map = list(
+		"Message" = "Fax received from %SENDER in %FAX!")
+	vars_and_tooltips_map = list(
+		"SENDER" = "will be replaced with the Sender's name",
+		"FAX" = "will be replaced with the Fax location name")
+// Addition End

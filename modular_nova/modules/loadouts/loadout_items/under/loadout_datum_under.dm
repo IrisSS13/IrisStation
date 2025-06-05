@@ -43,12 +43,18 @@
 /datum/loadout_item/under/jumpsuit/random
 	name = "Random Jumpsuit"
 	item_path = /obj/item/clothing/under/color/random
-	additional_displayed_text = list(TOOLTIP_RANDOM_COLOR)
+
+/datum/loadout_item/under/jumpsuit/random/get_item_information()
+	. = ..()
+	.[FA_ICON_DICE] = TOOLTIP_RANDOM_COLOR
 
 /datum/loadout_item/under/jumpsuit/random_skirt
 	name = "Random Jumpskirt"
 	item_path = /obj/item/clothing/under/color/jumpskirt/random
-	additional_displayed_text = list(TOOLTIP_RANDOM_COLOR)
+
+/datum/loadout_item/under/jumpsuit/random_skirt/get_item_information()
+	. = ..()
+	.[FA_ICON_DICE] = TOOLTIP_RANDOM_COLOR
 
 /datum/loadout_item/under/jumpsuit/frontier
 	name = "Frontier Jumpsuit"
@@ -285,7 +291,7 @@
 
 /datum/loadout_item/under/jumpsuit/tarkon
 	name = "Tarkon Deck Jumpsuit"
-	item_path = /obj/item/clothing/under/tarkon
+	item_path = /obj/item/clothing/under/tarkon/general
 	blacklisted_roles = list(JOB_CAPTAIN, JOB_HEAD_OF_PERSONNEL, JOB_BLUESHIELD, JOB_HEAD_OF_SECURITY, JOB_RESEARCH_DIRECTOR, JOB_QUARTERMASTER, JOB_CHIEF_MEDICAL_OFFICER, JOB_CHIEF_ENGINEER, JOB_SECURITY_OFFICER, JOB_DETECTIVE, JOB_WARDEN, JOB_BLUESHIELD, JOB_CORRECTIONS_OFFICER)
 
 /datum/loadout_item/under/jumpsuit/tarkon/sci
@@ -305,7 +311,7 @@
 
 /datum/loadout_item/under/jumpsuit/tarkon/cargo
 	name = "Tarkon Cargo Jumpsuit"
-	item_path = /obj/item/clothing/under/tarkon/cargo
+	item_path = /obj/item/clothing/under/tarkon
 	blacklisted_roles = list(JOB_CAPTAIN, JOB_HEAD_OF_PERSONNEL, JOB_BLUESHIELD, JOB_HEAD_OF_SECURITY, JOB_RESEARCH_DIRECTOR, JOB_QUARTERMASTER, JOB_CHIEF_MEDICAL_OFFICER, JOB_CHIEF_ENGINEER, JOB_SECURITY_OFFICER, JOB_DETECTIVE, JOB_WARDEN, JOB_BLUESHIELD, JOB_CORRECTIONS_OFFICER)
 
 /datum/loadout_item/under/jumpsuit/tarkon/sec
@@ -700,10 +706,6 @@
 	name = "Shihakusho"
 	item_path = /obj/item/clothing/under/costume/nova/shihakusho
 
-/datum/loadout_item/under/miscellaneous/chaps
-	name = "Black Chaps"
-	item_path = /obj/item/clothing/under/pants/nova/chaps
-
 /datum/loadout_item/under/miscellaneous/tracky
 	name = "Blue Tracksuit"
 	item_path = /obj/item/clothing/under/misc/bluetracksuit
@@ -771,10 +773,6 @@
 /datum/loadout_item/under/miscellaneous/geisha_suit
 	name = "Geisha Suit"
 	item_path = /obj/item/clothing/under/costume/geisha
-
-/datum/loadout_item/under/miscellaneous/jabroni
-	name = "Jabroni Outfit"
-	item_path = /obj/item/clothing/under/costume/jabroni
 
 //HALLOWEEN
 /datum/loadout_item/under/miscellaneous/pj_blood
@@ -1152,8 +1150,8 @@
 	item_path = /obj/item/clothing/under/suit/nova/pencil/navy
 
 /datum/loadout_item/under/formal/pencil/burgandy
-	name = "Burgandy Pencilskirt"
-	item_path = /obj/item/clothing/under/suit/nova/pencil/burgandy
+	name = "Burgundy Pencilskirt"
+	item_path = /obj/item/clothing/under/suit/nova/pencil/burgundy
 
 /datum/loadout_item/under/formal/pencil/checkered
 	name = "Checkered Pencilskirt with Shirt"

@@ -12,11 +12,6 @@
 	else
 		icon = NOVA_BARSIGN_FILE
 
-/datum/barsign/nova/topmen
-	name = "Top Men"
-	icon_state = "topmen"
-	neon_color = "#C2AACA"
-
 /datum/barsign/nova/spaceballgrille
 	name = "Spaceball Grille"
 	icon_state = "spaceballgrille"

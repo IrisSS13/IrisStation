@@ -32,6 +32,8 @@
 	server_ref = WEAKREF(server)
 	server.avatar_connection_refs.Add(WEAKREF(src))
 
+	old_body.transfer_observers_to(avatar) // IRIS ADDITION
+
 	avatar.PossessByPlayer(old_body.key)
 	ADD_TRAIT(avatar, TRAIT_NO_MINDSWAP, REF(src)) // do not remove this one
 	ADD_TRAIT(old_body, TRAIT_MIND_TEMPORARILY_GONE, REF(src))
@@ -139,6 +141,8 @@
 		hosting_netpod = source
 
 	hosting_netpod?.disconnect_occupant(cause_damage)
+	var/mob/living/avatar = parent // IRIS ADDITION
+	avatar.transfer_observers_to(hosting_netpod.occupant) // IRIS ADDITION
 
 	var/obj/machinery/quantum_server/server = server_ref?.resolve()
 	server?.avatar_connection_refs.Remove(WEAKREF(src))

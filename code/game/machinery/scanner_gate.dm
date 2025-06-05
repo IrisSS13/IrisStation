@@ -51,6 +51,7 @@
 		SPECIES_PODPERSON,
 		SPECIES_GOLEM,
 		SPECIES_ZOMBIE,
+		SPECIES_MUTANT,
 	)
 	/// All scan modes available to the scanner
 	var/static/list/all_modes = list(
@@ -91,6 +92,7 @@
 		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
+	AddComponent(/datum/component/simple_rotation, ROTATION_IGNORE_ANCHORED|ROTATION_REQUIRE_WRENCH|ROTATION_NEEDS_UNBLOCKED)
 	register_context()
 
 /obj/machinery/scanner_gate/Destroy(force)
@@ -101,6 +103,10 @@
 	. = ..()
 	for(var/datum/stock_part/scanning_module/scanning_module in component_parts)
 		minus_false_beep = scanning_module.tier //The better are scanninning modules - the lower is chance of False Positives
+
+/obj/machinery/scanner_gate/setDir(newdir)
+	. = ..()
+	scanline?.setDir(newdir)
 
 /obj/machinery/scanner_gate/examine(mob/user)
 	. = ..()
@@ -144,7 +150,7 @@
 		return
 	set_scanline("passive")
 
-/obj/machinery/scanner_gate/attackby(obj/item/attacking_item, mob/user, params)
+/obj/machinery/scanner_gate/attackby(obj/item/attacking_item, mob/user, list/modifiers)
 	var/obj/item/card/id/card = attacking_item.GetID()
 	if(card)
 		if(locked)
@@ -217,6 +223,12 @@
 					detected_thing = "Romerol infection"
 					if(scanned_human.get_organ_slot(ORGAN_SLOT_ZOMBIE))
 						beep = TRUE
+				//IRIS EDIT ADDITION BEGIN - MUTANT SCANNER GATE
+				if(detect_species_id == SPECIES_MUTANT)
+					detected_thing = "Proto-Viral infection"
+					if(scanned_human.GetComponent(/datum/component/mutant_infection))
+						beep = TRUE
+				//IRIS EDIT ADDITION END - MUTANT SCANNER GATE
 		if(SCANGATE_GUNS)
 			detected_thing = "Weapons"
 			if(isgun(thing))

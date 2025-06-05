@@ -233,18 +233,3 @@
 	worn_icon_nabber = 'modular_iris/monke_ports/gas/icons/clothing.dmi'
 	species_exception = list(/datum/species/nabber)
 
-//Blood stuff
-
-/obj/item/reagent_containers/blood/nabber
-	blood_type = "H"
-
-/datum/design/organic_bloodbag_nabber
-	name = "H Blood Pack"
-	id = "organic_bloodbag_nabber"
-	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass = 100)
-	build_path = /obj/item/reagent_containers/blood/nabber
-	category = list(
-		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_DEFOREST_BLOOD,
-	)

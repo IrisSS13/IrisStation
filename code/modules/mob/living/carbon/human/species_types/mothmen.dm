@@ -3,14 +3,23 @@
 	plural_form = "Mothmen"
 	id = SPECIES_MOTH
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_BUG
-	mutant_bodyparts = list("moth_markings" = "None") // NOVA EDIT CHANGE - ORIGINAL: body_markings = list(/datum/bodypart_overlay/simple/body_marking/moth = "None")
-	//mutant_organs = list(/obj/item/organ/wings/moth = "Plain", /obj/item/organ/antennae = "Plain") // NOVA EDIT REMOVAL - Fixing moths
+	/* NOVA EDIT REMOVAL START - Customization
+	body_markings = list(
+		/datum/bodypart_overlay/simple/body_marking/moth = SPRITE_ACCESSORY_NONE,
+	)
+	mutant_organs = list(
+		/obj/item/organ/wings/moth = "Plain",
+		/obj/item/organ/antennae = "Plain",
+	)
+	*/ // NOVA EDIT REMOVAL END
+	mutant_bodyparts = list("moth_markings" = "None") // NOVA EDIT ADDITION - Customization
 	meat = /obj/item/food/meat/slab/human/mutant/moth
 	mutanttongue = /obj/item/organ/tongue/moth
 	mutanteyes = /obj/item/organ/eyes/moth
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	species_cookie = /obj/item/food/muffin/moffin
 	species_language_holder = /datum/language_holder/moth
+	exotic_bloodtype = BLOOD_TYPE_INSECT //IRIS EDIT
 	death_sound = 'sound/mobs/humanoids/moth/moth_death.ogg'
 	payday_modifier = 1.0
 	family_heirlooms = list(/obj/item/flashlight/lantern/heirloom_moth)

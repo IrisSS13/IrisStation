@@ -10,6 +10,12 @@
 		"gu", "ña", "ñe", "ñi", "ño", "ñu", "que", "qui", "cha", "che", "chi", "cho", "chu", "lla", "lle", "lli", "llo", "llu",
 		"tá", "vé", "sál", "fáb", "l'e", "seu", "deu", "meu", "vai", "ción", "tá"
 	)
+	space_chance = 0
+	sentence_chance = 0
+	between_word_sentence_chance = 10
+	between_word_space_chance = 10
+	additional_syllable_low = 0
+	additional_syllable_high = 0
 	icon_state = "gutter"
 	icon = 'modular_nova/master_files/icons/misc/language.dmi'
 	default_priority = 40
