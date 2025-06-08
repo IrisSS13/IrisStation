@@ -260,15 +260,14 @@
 	. = ..()
 	set_light(3)
 
-/obj/structure/slime_crystal/yellow/attacked_by(obj/item/I, mob/living/user)
-	if(istype(I, /obj/item/stock_parts/power_store/cell))
-		var/obj/item/stock_parts/power_store/cell/cell = I
+/obj/structure/slime_crystal/yellow/attacked_by(obj/item/stock_parts/power_store/cell, mob/living/user)
+	if(istype(cell))
 		//Punishment for greed
 		if(cell.charge == cell.maxcharge)
 			to_chat(span_danger(" You try to charge the cell, but it is already fully energized. You are not sure if this was a good idea..."))
 			cell.explode()
 			return
-		to_chat(user, span_notice("You charged the [I.name] on [name]!"))
+		to_chat(user, span_notice("You charged the [cell.name] on [name]!"))
 		cell.give(cell.maxcharge)
 		return
 	return ..()

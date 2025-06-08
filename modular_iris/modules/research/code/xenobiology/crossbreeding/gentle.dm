@@ -5,19 +5,23 @@
 	effect_desc = "Use to activate minor effect, Alt-click to activate major effect."
 	icon = 'modular_iris/modules/research/icons/slimecrossing.dmi'
 	icon_state = "gentle"
-	var/extract_type
-	var/obj/item/slime_extract/extract
+	var/extract_type = /obj/item/slime_extract/grey // If this is not replaced, it'll be very apparent to players
+	var/obj/item/slime_extract/extract = null
 	COOLDOWN_DECLARE(use_cooldown)
 
 /obj/item/slimecross/gentle/Initialize(mapload)
 	. = ..()
-	extract = new extract_type(src)
 	visible_message(span_notice("[src] glows and pulsates softly."))
+	extract = new extract_type(src)
 	extract.name = name
 	extract.desc = desc
 	extract.icon = icon
 	extract.icon_state = icon_state
 	extract.color = color
+
+/obj/item/slimecross/gentle/Destroy(force)
+	QDEL_NULL(extract) // We will ALWAYS have an extract unless we weren't initialized, in that case do runtime.
+	return ..()
 
 /obj/item/slimecross/gentle/attack_self(mob/living/carbon/user)
 	if(preactivate_core(user))
@@ -39,7 +43,6 @@
 	return TRUE
 
 /obj/item/slimecross/gentle/grey
-	extract_type = /obj/item/slime_extract/grey
 	colour = "grey"
 
 /obj/item/slimecross/gentle/orange
