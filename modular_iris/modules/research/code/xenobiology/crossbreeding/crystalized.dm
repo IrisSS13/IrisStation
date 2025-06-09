@@ -11,7 +11,7 @@
 	. = ..()
 
 	// Check before the progress bar so they don't wait for nothing
-	if(locate(/obj/structure/slime_crystal) in range(6,get_turf(user)))
+	if(locate(/obj/structure/slime_crystal) in range(6, get_turf(user)))
 		to_chat(user,span_notice("You can't build crystals that close to each other!"))
 		return
 
@@ -21,13 +21,12 @@
 		return
 
 	// check after in case someone placed a crystal in the meantime (im watching you aramix)
-	if(locate(/obj/structure/slime_crystal) in range(6,get_turf(user)))
+	if(locate(/obj/structure/slime_crystal) in range(6, get_turf(user)))
 		to_chat(user,span_notice("You can't build crystals that close to each other!"))
 		return
 
 	new crystal_type(user_turf)
 	qdel(src)
-
 
 /obj/structure/slime_crystal
 	name = "slimic pylon"
@@ -47,7 +46,7 @@
 
 /obj/structure/slime_crystal/New(loc, obj/structure/slime_crystal/master_crystal, ...)
 	. = ..()
-	if(master_crystal)
+	if(master_crystal) // This is for rainbow pylons if ya were wondering
 		invisibility = INVISIBILITY_MAXIMUM
 		max_integrity = 1000
 		atom_integrity = 1000
@@ -185,8 +184,7 @@
 
 /obj/structure/slime_crystal/purple
 	colour = "purple"
-
-	var/heal_amt = 2
+	var/heal_amount = 2
 
 /obj/structure/slime_crystal/purple/on_mob_effect(mob/living/affected_mob)
 	if(!istype(affected_mob, /mob/living/carbon))
@@ -198,18 +196,17 @@
 
 	switch(rand_dam_type)
 		if(0)
-			carbon_mob.adjustBruteLoss(-heal_amt)
+			carbon_mob.adjustBruteLoss(-heal_amount)
 		if(1)
-			carbon_mob.adjustFireLoss(-heal_amt)
+			carbon_mob.adjustFireLoss(-heal_amount)
 		if(2)
-			carbon_mob.adjustOxyLoss(-heal_amt)
+			carbon_mob.adjustOxyLoss(-heal_amount)
 		if(3)
-			carbon_mob.adjustToxLoss(-heal_amt, forced = TRUE)
+			carbon_mob.adjustToxLoss(-heal_amount, forced = TRUE)
 		if(5)
-			carbon_mob.adjustStaminaLoss(-heal_amt)
+			carbon_mob.adjustStaminaLoss(-heal_amount)
 		if(6 to 10)
-			carbon_mob.adjustOrganLoss(pick(ORGAN_SLOT_BRAIN,ORGAN_SLOT_HEART,ORGAN_SLOT_LIVER,ORGAN_SLOT_LUNGS), -heal_amt)
-
+			carbon_mob.adjustOrganLoss(pick(ORGAN_SLOT_BRAIN,ORGAN_SLOT_HEART,ORGAN_SLOT_LIVER,ORGAN_SLOT_LUNGS), -heal_amount)
 
 /obj/item/slimecross/crystalline/blue
 	crystal_type = /obj/structure/slime_crystal/blue
@@ -237,14 +234,13 @@
 
 /obj/structure/slime_crystal/metal
 	colour = "metal"
-
-	var/heal_amt = 3
+	var/heal_amount = 3
 
 /obj/structure/slime_crystal/metal/on_mob_effect(mob/living/affected_mob)
 	if(!iscyborg(affected_mob))
 		return
 	var/mob/living/silicon/borgo = affected_mob
-	borgo.adjustBruteLoss(-heal_amt)
+	borgo.adjustBruteLoss(-heal_amount)
 
 /obj/item/slimecross/crystalline/yellow
 	crystal_type = /obj/structure/slime_crystal/yellow
@@ -332,8 +328,8 @@
 	colour = "bluespace"
 	density = FALSE
 	uses_process = FALSE
-	///Is it in use?
 	var/static/list/slime_pylons = null
+	///Is it in use?
 	var/in_use = FALSE
 
 /obj/structure/slime_crystal/bluespace/Initialize(mapload)
@@ -347,7 +343,6 @@
 	return ..()
 
 /obj/structure/slime_crystal/bluespace/attack_hand(mob/user, list/modifiers)
-
 	if(in_use)
 		return
 
@@ -356,7 +351,7 @@
 	if(!LAZYLEN(local_bs_list))
 		return ..()
 
-	if(local_bs_list.len == 1)
+	if(length(local_bs_list) == 1)
 		do_teleport(user, local_bs_list[1])
 		return
 
@@ -464,7 +459,7 @@
 	if(stage > 3)
 		var/obj/item/cerulean_slime_crystal/crystal = new(get_turf(src))
 		if(stage == 5)
-			crystal.amt = rand(1, 3)
+			crystal.amount = rand(1, 3)
 	if(pylon)
 		var/obj/structure/slime_crystal/cerulean/C = pylon.resolve()
 		if(C)
@@ -479,7 +474,7 @@
 	desc = "Translucent and irregular, it can duplicate matter on a whim"
 	icon = 'modular_iris/modules/research/icons/slimecrossing.dmi'
 	icon_state = "cerulean_item_crystal"
-	var/amt = 1
+	var/amount = 1
 
 /obj/item/cerulean_slime_crystal/interact_with_atom(obj/item/stack/target, mob/living/user, list/modifiers)
 	if(!istype(target) || !istype(user, /mob/living/carbon))
@@ -492,7 +487,7 @@
 		qdel(src)
 		return ITEM_INTERACT_SUCCESS // I mean, technically
 
-	target.add(amt)
+	target.add(amount)
 	qdel(src)
 	return ITEM_INTERACT_SUCCESS
 
@@ -541,37 +536,44 @@
 
 /obj/structure/slime_crystal/red
 	colour = "red"
-
-	var/blood_amt = 0
-
-	var/max_blood_amt = 300
+	var/blood_amount = 0
+	var/max_blood_amount = 300
 
 /obj/structure/slime_crystal/red/examine(mob/user)
 	. = ..()
-	. += "It has [blood_amt] u of blood."
+	. += "It has [blood_amount] u of blood."
 
 /obj/structure/slime_crystal/red/process()
-	if(blood_amt == max_blood_amt)
+	if(blood_amount == max_blood_amount)
 		return
 
 	for(var/obj/effect/decal/cleanable/blood/blood_around_us in range(3, src))
-		if(blood_amt == max_blood_amt)
+		if(blood_amount == max_blood_amount)
 			return
 
-		blood_amt++
+		blood_amount++
 		new /obj/effect/temp_visual/cult/turf/floor(get_turf(blood_around_us))
 		qdel(blood_around_us)
 
 /obj/structure/slime_crystal/red/attack_hand(mob/user, list/modifiers)
-	if(blood_amt < 100)
+	if(blood_amount < 100)
 		return ..()
 
-	blood_amt -= 100
-	var/type = pick(/obj/item/food/meat/slab,/obj/item/organ/heart,/obj/item/organ/lungs,/obj/item/organ/liver,/obj/item/organ/eyes,/obj/item/organ/tongue,/obj/item/organ/stomach,/obj/item/organ/ears)
+	blood_amount -= 100
+	var/type = pick(list(
+		/obj/item/food/meat/slab,
+		/obj/item/organ/heart,
+		/obj/item/organ/lungs,
+		/obj/item/organ/liver,
+		/obj/item/organ/eyes,
+		/obj/item/organ/tongue,
+		/obj/item/organ/stomach,
+		/obj/item/organ/ears,
+	))
 	new type(get_turf(src))
 
 /obj/structure/slime_crystal/red/attacked_by(obj/item/I, mob/living/user)
-	if(blood_amt < 10)
+	if(blood_amount < 10)
 		return ..()
 
 	if(!istype(I, /obj/item/reagent_containers/cup/beaker))
@@ -581,8 +583,8 @@
 
 	if(!item_beaker.is_refillable() || (item_beaker.reagents.total_volume + 10 > item_beaker.reagents.maximum_volume))
 		return ..()
-	blood_amt -= 10
-	item_beaker.reagents.add_reagent(/datum/reagent/blood,10)
+	blood_amount -= 10
+	item_beaker.reagents.add_reagent(/datum/reagent/blood, 10)
 
 /obj/item/slimecross/crystalline/green // This may or may not work??? Mutations acted weird as hell on local
 	crystal_type = /obj/structure/slime_crystal/green
@@ -774,18 +776,15 @@
 	for(var/X in subtypesof(/obj/item/slimecross/crystalline) - /obj/item/slimecross/crystalline/rainbow)
 		inserted_cores[X] = FALSE
 
-/obj/structure/slime_crystal/rainbow/attacked_by(obj/item/I, mob/living/user)
+/obj/structure/slime_crystal/rainbow/attacked_by(obj/item/slimecross/crystalline/slimecross, mob/living/user)
 	. = ..()
-
-	if(!istype(I,/obj/item/slimecross/crystalline) || istype(I,/obj/item/slimecross/crystalline/rainbow))
+	if(!istype(slimecross) || istype(slimecross, /obj/item/slimecross/crystalline/rainbow))
 		return
-
-	var/obj/item/slimecross/crystalline/slimecross = I
 
 	if(inserted_cores[slimecross.type])
 		return
 
-	inserted_cores[slimecross.type] = new slimecross.crystal_type(get_turf(src),src)
+	inserted_cores[slimecross.type] = new slimecross.crystal_type(get_turf(src), src)
 	qdel(slimecross)
 
 /obj/structure/slime_crystal/rainbow/Destroy()
@@ -800,11 +799,11 @@
 		if(inserted_cores[X])
 			var/obj/structure/slime_crystal/SC = inserted_cores[X]
 			SC.attack_hand(user)
-	. = ..()
+	return ..()
 
 /obj/structure/slime_crystal/rainbow/attacked_by(obj/item/I, mob/living/user)
 	for(var/X in inserted_cores)
 		if(inserted_cores[X])
 			var/obj/structure/slime_crystal/SC = inserted_cores[X]
 			SC.attacked_by(user)
-	. = ..()
+	return ..()

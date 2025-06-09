@@ -73,7 +73,6 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 
 /obj/effect/warped_rune/proc/clean_rune()
 	SIGNAL_HANDLER
-
 	qdel(src)
 
 /// Using the extract on the floor will "draw" the rune.
@@ -248,12 +247,12 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 /obj/effect/warped_rune/cyanspace/do_effect(mob/user)
 	for(var/turf/open/T in RANGE_TURFS(1, src) - rune_turf)
 		T.MakeSlippery(TURF_WET_PERMAFROST, 1 MINUTES)
-	. = ..()
+	return ..()
 
 /obj/effect/warped_rune/cyanspace/on_entered(datum/source, atom/movable/AM, oldloc)
 	if(isliving(AM))
 		activated_on_step = TRUE
-	. = ..()
+	return ..()
 
 /obj/item/slimecross/warping/dark_blue
 	colour = "dark blue"
@@ -270,7 +269,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 		var/mob/living/L = AM
 		L.adjust_bodytemperature(-300)
 		activated_on_step = TRUE
-	. = ..()
+	return ..()
 
 /obj/item/slimecross/warping/metal
 	colour = "metal"
@@ -285,7 +284,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 /obj/effect/warped_rune/metalspace/do_effect(mob/user)
 	for(var/turf/open/T in RANGE_TURFS(1, src))
 		new /obj/effect/forcefield/mime(T, 150)
-	. = ..()
+	return ..()
 
 /obj/item/slimecross/warping/yellow
 	colour = "yellow"
@@ -364,7 +363,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 		var/mob/living/carbon/C = AM
 		C.reagents.add_reagent(/datum/reagent/consumable/nutriment, 100)
 		activated_on_step = TRUE
-	. = ..()
+	return ..()
 
 /obj/item/slimecross/warping/bluespace
 	colour = "bluespace"
@@ -383,7 +382,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 	blue_storage.loc = loc
 	blue_storage.atom_storage.refresh_views()
 	playsound(rune_turf, dir_sound, 20, TRUE)
-	. = ..()
+	return ..()
 
 /obj/item/storage/backpack/holding/bluespace
 	name = "warped rune"
@@ -415,7 +414,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 /obj/effect/warped_rune/sepiaspace/on_entered(datum/source, atom/movable/AM, oldloc)
 	new /obj/effect/timestop(rune_turf, null, null, null)
 	activated_on_step = TRUE
-	. = ..()
+	return ..()
 
 /obj/item/slimecross/warping/cerulean
 	colour = "cerulean"
@@ -517,7 +516,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 		AM.add_atom_colour(colour, WASHABLE_COLOUR_PRIORITY)
 		activated_on_step = TRUE
 		playsound(src, 'sound/items/bikehorn.ogg', 50, TRUE)
-	. = ..()
+	return ..()
 
 /obj/item/slimecross/warping/red
 	colour = "red"
@@ -551,7 +550,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 	if(ishuman(AM))
 		randomize_human(AM, TRUE)
 		activated_on_step = TRUE
-	. = ..()
+	return ..()
 
 /* pink rune, makes people slightly happier after walking on it*/
 /obj/item/slimecross/warping/pink
@@ -735,7 +734,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 		var/mob/living/carbon/C = AM
 		C.reagents.add_reagent(/datum/reagent/pax, 10)
 		activated_on_step = TRUE
-	. = ..()
+	return ..()
 
 /obj/item/slimecross/warping/adamantine
 	colour = "adamantine"
@@ -758,7 +757,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 		D.admin = TRUE
 		QDEL_IN(D, 5 MINUTES)
 	activated_on_step = TRUE
-	. = ..()
+	return ..()
 
 /* TEMPORARILY CUT
 
