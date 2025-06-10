@@ -10,7 +10,7 @@
 	if(length(holdables))
 		set_holdable(holdables)
 		return
-		
+
 	set_holdable(list(
 		/obj/item/gun/ballistic/automatic/pistol,
 		/obj/item/gun/ballistic/revolver,
@@ -29,6 +29,9 @@
 		/obj/item/ammo_box/strilka310,
 		/obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock,
 		// NOVA EDIT ADDITION END
+		// IRIS EDIT ADDITION START
+		/obj/item/universal_scanner
+		// IRIS EDIT ADDITION END
 	))
 
 ///Energy holster
