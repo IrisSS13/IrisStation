@@ -107,7 +107,7 @@
 	maxcharge = STANDARD_CELL_CHARGE * 10
 	custom_materials = list(/datum/material/glass=SMALL_MATERIAL_AMOUNT*0.6)
 	chargerate = STANDARD_CELL_RATE * 0.75
-	
+
 
 /obj/item/stock_parts/power_store/cell/high/empty
 	empty = TRUE
@@ -200,7 +200,7 @@
 /obj/item/stock_parts/power_store/cell/emproof/slime
 	name = "EMP-proof slime core"
 	desc = "A yellow slime core infused with plasma. Its organic nature makes it immune to EMPs."
-	icon = 'icons/mob/simple/slimes.dmi'
+	// icon = 'icons/mob/simple/slimes.dmi' - IRIS EDIT SPRITES OVERRIDEN IN ERIS_PORTS
 	icon_state = "yellow-core"
 	custom_materials = null
 	maxcharge = STANDARD_CELL_CHARGE * 5
