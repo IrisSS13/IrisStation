@@ -6,7 +6,7 @@
 */
 
 // Staff reward for Deadmon
-/obj/item/toy/plush/nova/melon
+/* /obj/item/toy/plush/nova/melon
 	name = "Melon Plushie"
 	desc = "Soft, yet bouncy. The eerily smiling melon made for the appreciation of melons"
 	icon = 'modular_nova/master_files/icons/obj/staff_plushies.dmi'
@@ -208,3 +208,4 @@
 		return
 	say(pick(responses))
 	COOLDOWN_START(src, skaag_cooldown, 3 SECONDS)
+*/
