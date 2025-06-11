@@ -206,7 +206,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 	effect_desc = "Draws a rune that may be activated to summon two random medical items."
 
 /obj/effect/warped_rune/purplespace
-	desc = "This can be activated to summon two random medical."
+	desc = "This can be activated to summon two random medical items."
 	icon_state = "rune_purple"
 
 /obj/effect/warped_rune/purplespace/do_effect(mob/user)
