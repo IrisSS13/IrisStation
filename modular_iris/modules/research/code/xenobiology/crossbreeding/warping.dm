@@ -55,7 +55,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 /// Runes can also be deleted by bluespace crystals relatively fast as an alternative to cleaning them.
 /obj/effect/warped_rune/attackby(obj/item/used_item, mob/user)
 	. = ..()
-	if(!istype(used_item,/obj/item/stack/ore/bluespace_crystal))
+	if(!istype(used_item, /obj/item/stack/ore/bluespace_crystal))
 		return
 
 	var/obj/item/stack/space_crystal = used_item
@@ -81,6 +81,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 		to_chat(user, span_warning("You start to safelly erase the [target]..."))
 		if(do_after(user, storing_time, target = target))
 			to_chat(user, span_warning("[target] erased."))
+			qdel(target)
 			return ITEM_INTERACT_SUCCESS
 		return ITEM_INTERACT_FAILURE
 
