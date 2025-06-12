@@ -378,7 +378,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 	var/static/obj/item/storage/backpack/holding/bluespace/blue_storage = null
 
 /obj/effect/warped_rune/bluespace/Destroy(force)
-	if(blue_storage.loc == src)
+	if(blue_storage?.loc == src)
 		blue_storage.moveToNullspace() // Do not touch the storage please
 	return ..()
 
