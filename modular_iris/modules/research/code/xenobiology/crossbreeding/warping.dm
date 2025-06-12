@@ -377,11 +377,19 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 	remove_on_activation = FALSE
 	var/static/obj/item/storage/backpack/holding/bluespace/blue_storage = null
 
-/obj/effect/warped_rune/bluespace/do_effect(mob/user)
+/obj/effect/warped_rune/bluespace/Initialize(mapload)
+	. = ..()
 	if(isnull(blue_storage))
 		blue_storage = new(loc)
+
+/obj/effect/warped_rune/bluespace/Destroy(force)
+	if(blue_storage.loc == src)
+		blue_storage.moveToNullspace() // Do not touch the storage please
+	return ..()
+
+/obj/effect/warped_rune/bluespace/do_effect(mob/user)
 	blue_storage.loc = loc
-	blue_storage.atom_storage.refresh_views()
+	blue_storage.atom_storage.open_storage(user)
 	playsound(rune_turf, dir_sound, 20, TRUE)
 	return ..()
 
