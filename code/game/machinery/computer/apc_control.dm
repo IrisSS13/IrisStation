@@ -28,11 +28,14 @@
 	if(machine_stat && active_apc)
 		disconnect_apc()
 
+// IRIS EDIT: Allows AIs to use the power flow control console
+/*
 /obj/machinery/computer/apc_control/attack_ai(mob/user)
 	if(!isAdminGhostAI(user))
 		to_chat(user,span_warning("[src] does not support AI control.")) //You already have APC access, cheater!
 		return
 	return ..()
+*/
 
 /obj/machinery/computer/apc_control/emag_act(mob/user, obj/item/card/emag/emag_card)
 	if(obj_flags & EMAGGED)
@@ -158,6 +161,14 @@
 				return
 			if(!istype(user))
 				return
+			//IRIS ADDITION START: Allows AIs to use the power flow control console
+			if(HAS_AI_ACCESS(user))
+				authenticated = TRUE
+				auth_id = "[user.name] (AI):"
+				log_activity("[auth_id] logged in to the terminal")
+				playsound(src, 'sound/machines/terminal/terminal_on.ogg', 50, FALSE)
+				return
+			//IRIS ADDITION END
 			var/obj/item/card/id/user_id_card = user.get_idcard(TRUE)
 			if(istype(user_id_card))
 				if(check_access(user_id_card))
