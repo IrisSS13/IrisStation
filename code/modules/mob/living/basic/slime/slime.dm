@@ -5,7 +5,7 @@
 
 /mob/living/basic/slime
 	name = "grey baby slime (123)"
-	icon = 'icons/mob/simple/slimes.dmi'
+	// icon = 'icons/mob/simple/slimes.dmi' - IRIS EDIT SPRITES OVERRIDEN IN ERIS_PORTS
 	icon_state = "grey-baby"
 	pass_flags = PASSTABLE | PASSGRILLE
 	gender = NEUTER
