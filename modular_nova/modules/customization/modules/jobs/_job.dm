@@ -174,7 +174,7 @@
 	required_languages = list(/datum/language/common = LANGUAGE_SPOKEN)
 
 /datum/job/customs_agent
-	banned_quirks = list(GUARD_RESTRICTED_QUIRKS)
+	banned_quirks = list(GUARD_RESTRICTED_QUIRKS_CARGO) //IRIS EDIT
 	required_languages = list(/datum/language/common = LANGUAGE_SPOKEN)
 
 /datum/job/bouncer
