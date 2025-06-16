@@ -263,7 +263,7 @@
 	desc = "A wooden bow that has yet to be strung."
 	icon_state = "nostring_bow"
 
-/obj/item/forging/incomplete_bow/attackby(obj/item/attacking_item, mob/user, params)
+/obj/item/forging/incomplete_bow/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(attacking_item, /obj/item/weaponcrafting/silkstring))
 		new /obj/item/gun/ballistic/bow/longbow(get_turf(src))
 		qdel(attacking_item)
@@ -284,7 +284,7 @@
 		new /obj/item/ammo_casing/arrow/(src_turf)
 	qdel(src)
 
-/obj/item/stock_parts/power_store/cell/attackby(obj/item/attacking_item, mob/user, params)
+/obj/item/stock_parts/power_store/cell/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(istype(attacking_item, /obj/item/forging/coil))
 		var/obj/item/stock_parts/power_store/cell/crank/new_crank = new(get_turf(src))
 		new_crank.maxcharge = maxcharge
