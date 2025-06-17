@@ -102,8 +102,16 @@
 		return FALSE
 
 	for(var/datum/bounty/cargo_bounty as anything in GLOB.cargo_bounties)
-		if(cargo_bounty.ship(exported_item))
+		if(cargo_bounty.applies_to(exported_item))
 			return TRUE
+
+/datum/export/bounty/sell_object(obj/sold_item, datum/export_report/report, dry_run = TRUE, apply_elastic = TRUE)
+	. = ..()
+	if(!dry_run)
+		for(var/datum/bounty/cargo_bounty as anything in GLOB.cargo_bounties)
+			if(cargo_bounty.ship(sold_item))
+				return EXPORT_SOLD
+		return EXPORT_NOT_SOLD
 
 /datum/export/bounty/total_printout(datum/export_report/ex, notes = TRUE)
 	return "" // We don't care
