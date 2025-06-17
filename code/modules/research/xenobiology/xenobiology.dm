@@ -3,7 +3,7 @@
 /obj/item/slime_extract
 	name = "slime extract"
 	desc = "Goo extracted from a slime. Legends claim these to have \"magical powers\"."
-	icon = 'icons/mob/simple/slimes.dmi'
+	// icon = 'icons/mob/simple/slimes.dmi' - IRIS EDIT SPRITES OVERRIDEN IN ERIS_PORTS
 	icon_state = "grey-core"
 	force = 0
 	w_class = WEIGHT_CLASS_TINY
