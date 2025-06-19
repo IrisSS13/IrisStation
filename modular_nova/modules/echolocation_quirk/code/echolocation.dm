@@ -39,7 +39,7 @@
 	//IRIS EDIT ADDITION END
 
 	//IRIS EDIT CHANGE BEGIN - SLOWER_ECHOLOCATION_PREF
-	human_holder.AddComponent(/datum/component/echolocation, blocking_trait = TRAIT_DEAF, echo_range = 5, echo_group = client_echo_group, images_are_static = FALSE, use_echo = client_use_echo, show_own_outline = TRUE, cooldown_time = client_echo_speed)
+	human_holder.AddComponent(/datum/component/echolocation, blocking_trait = TRAIT_DEAF, echo_range = 5, echo_group = client_echo_group, images_are_static = FALSE, blinding = TRUE, use_echo = client_use_echo, show_own_outline = TRUE, cooldown_time = client_echo_speed)
 	//IRIS EDIT CHANGE END
 	esp = human_holder.GetComponent(/datum/component/echolocation)
 
