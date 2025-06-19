@@ -110,7 +110,7 @@
 
 /obj/item/organ/liver/nabber/handle_chemical(mob/living/carbon/owner, datum/reagent/toxin/chem, seconds_per_tick, times_fired) //converts plasma tox damage to healing oxy damage
 	. = ..()
-	if(. & COMSIG_MOB_STOP_REAGENT_CHECK)
+	if(. & COMSIG_MOB_STOP_REAGENT_TICK)
 		return
 	if(chem.type == /datum/reagent/toxin/plasma || chem.type == /datum/reagent/toxin/hot_ice)
 		chem.toxpwr = 0
