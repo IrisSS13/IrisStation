@@ -61,7 +61,7 @@
 
 /obj/item/clothing/neck/jobcape/atmospherics
 	name = "cape of the Atmospherics Technician"
-	icon_state = "atmospheric-skillcape"
+	icon_state = "atmospherics-skillcape"
 
 /obj/item/clothing/neck/jobcape/atmospherics/trimmed
 	name = "trimmed cape of the Atmospherics Technician"
@@ -333,11 +333,11 @@
 /obj/item/clothing/neck/jobcape/cc // Not used in game
 	name = "cape of the CC Official"
 	desc = "You know you're fucked when your boss rolls in rocking this bad boy."
-	icon_state = "centcomm-skillcape"
+	icon_state = "centcom-skillcape"
 
 /obj/item/clothing/neck/jobcape/cc/trimmed // Not used in game
 	name = "trimmed cape of the CC Official"
-	icon_state = "centcomm-trimmed"
+	icon_state = "centcom-trimmed"
 
 /obj/item/clothing/neck/jobcape/ghost // Not used in game
 	name = "cape of the Ghost"
