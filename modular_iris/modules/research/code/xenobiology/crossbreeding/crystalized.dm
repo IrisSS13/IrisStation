@@ -56,45 +56,45 @@
 	name =  "[colour] slimic pylon"
 	var/itemcolor = "#FFFFFF"
 	switch(colour)
-		if("orange")
+		if(SLIME_TYPE_ORANGE)
 			itemcolor = "#FFA500"
-		if("purple")
+		if(SLIME_TYPE_PURPLE)
 			itemcolor = "#B19CD9"
-		if("blue")
+		if(SLIME_TYPE_BLUE)
 			itemcolor = "#ADD8E6"
-		if("metal")
+		if(SLIME_TYPE_METAL)
 			itemcolor = "#7E7E7E"
-		if("yellow")
+		if(SLIME_TYPE_YELLOW)
 			itemcolor = "#FFFF00"
-		if("dark purple")
+		if(SLIME_TYPE_DARK_PURPLE)
 			itemcolor = "#551A8B"
-		if("dark blue")
+		if(SLIME_TYPE_DARK_BLUE)
 			itemcolor = "#0000FF"
-		if("silver")
+		if(SLIME_TYPE_SILVER)
 			itemcolor = "#D3D3D3"
-		if("bluespace")
+		if(SLIME_TYPE_BLUESPACE)
 			itemcolor = "#32CD32"
-		if("sepia")
+		if(SLIME_TYPE_SEPIA)
 			itemcolor = "#704214"
-		if("cerulean")
+		if(SLIME_TYPE_CERULEAN)
 			itemcolor = "#2956B2"
-		if("pyrite")
+		if(SLIME_TYPE_PYRITE)
 			itemcolor = "#FAFAD2"
-		if("red")
+		if(SLIME_TYPE_RED)
 			itemcolor = "#FF0000"
-		if("green")
+		if(SLIME_TYPE_GREEN)
 			itemcolor = "#00FF00"
-		if("pink")
+		if(SLIME_TYPE_PINK)
 			itemcolor = "#FF69B4"
-		if("gold")
+		if(SLIME_TYPE_GOLD)
 			itemcolor = "#FFD700"
-		if("oil")
+		if(SLIME_TYPE_OIL)
 			itemcolor = "#505050"
-		if("black")
+		if(SLIME_TYPE_BLACK)
 			itemcolor = "#000000"
-		if("light pink")
+		if(SLIME_TYPE_LIGHT_PINK)
 			itemcolor = "#FFB6C1"
-		if("adamantine")
+		if(SLIME_TYPE_ADAMANTINE)
 			itemcolor = "#008B8B"
 
 	add_atom_colour(itemcolor, FIXED_COLOUR_PRIORITY)
@@ -139,10 +139,10 @@
 
 /obj/item/slimecross/crystalline/grey
 	crystal_type = /obj/structure/slime_crystal/grey
-	colour = "grey"
+	colour = SLIME_TYPE_GREY
 
 /obj/structure/slime_crystal/grey
-	colour = "grey"
+	colour = SLIME_TYPE_GREY
 
 /obj/structure/slime_crystal/grey/get_valid_targets()
 	return view(3, src)
@@ -154,10 +154,10 @@
 
 /obj/item/slimecross/crystalline/orange
 	crystal_type = /obj/structure/slime_crystal/orange
-	colour = "orange"
+	colour = SLIME_TYPE_ORANGE
 
 /obj/structure/slime_crystal/orange
-	colour = "orange"
+	colour = SLIME_TYPE_ORANGE
 
 /obj/structure/slime_crystal/orange/get_valid_targets()
 	return view(3, src)
@@ -180,10 +180,10 @@
 
 /obj/item/slimecross/crystalline/purple
 	crystal_type = /obj/structure/slime_crystal/purple
-	colour = "purple"
+	colour = SLIME_TYPE_PURPLE
 
 /obj/structure/slime_crystal/purple
-	colour = "purple"
+	colour = SLIME_TYPE_PURPLE
 	var/heal_amount = 2
 
 /obj/structure/slime_crystal/purple/on_mob_effect(mob/living/affected_mob)
@@ -210,10 +210,10 @@
 
 /obj/item/slimecross/crystalline/blue
 	crystal_type = /obj/structure/slime_crystal/blue
-	colour = "blue"
+	colour = SLIME_TYPE_BLUE
 
 /obj/structure/slime_crystal/blue
-	colour = "blue"
+	colour = SLIME_TYPE_BLUE
 
 /obj/structure/slime_crystal/blue/process()
 	for(var/turf/open/T in view(2, src))
@@ -230,10 +230,10 @@
 
 /obj/item/slimecross/crystalline/metal
 	crystal_type = /obj/structure/slime_crystal/metal
-	colour = "metal"
+	colour = SLIME_TYPE_METAL
 
 /obj/structure/slime_crystal/metal
-	colour = "metal"
+	colour = SLIME_TYPE_METAL
 	var/heal_amount = 3
 
 /obj/structure/slime_crystal/metal/on_mob_effect(mob/living/affected_mob)
@@ -244,10 +244,10 @@
 
 /obj/item/slimecross/crystalline/yellow
 	crystal_type = /obj/structure/slime_crystal/yellow
-	colour = "yellow"
+	colour = SLIME_TYPE_YELLOW
 
 /obj/structure/slime_crystal/yellow
-	colour = "yellow"
+	colour = SLIME_TYPE_YELLOW
 	light_color = LIGHT_COLOR_DIM_YELLOW //a good, sickly atmosphere
 	light_power = 0.75
 	uses_process = FALSE
@@ -270,10 +270,10 @@
 
 /obj/item/slimecross/crystalline/darkpurple
 	crystal_type = /obj/structure/slime_crystal/darkpurple
-	colour = "dark purple"
+	colour = SLIME_TYPE_DARK_PURPLE
 
 /obj/structure/slime_crystal/darkpurple
-	colour = "dark purple"
+	colour = SLIME_TYPE_DARK_PURPLE
 
 /obj/structure/slime_crystal/darkpurple/process()
 	var/turf/open/open_turf = get_turf(src)
@@ -291,10 +291,10 @@
 
 /obj/item/slimecross/crystalline/darkblue
 	crystal_type = /obj/structure/slime_crystal/darkblue
-	colour = "dark blue"
+	colour = SLIME_TYPE_DARK_BLUE
 
 /obj/structure/slime_crystal/darkblue
-	colour = "dark blue"
+	colour = SLIME_TYPE_DARK_BLUE
 
 /obj/structure/slime_crystal/darkblue/process(seconds_per_tick)
 	for(var/turf/open/T in RANGE_TURFS(5, src))
@@ -308,10 +308,10 @@
 
 /obj/item/slimecross/crystalline/silver
 	crystal_type = /obj/structure/slime_crystal/silver
-	colour = "silver"
+	colour = SLIME_TYPE_SILVER
 
 /obj/structure/slime_crystal/silver
-	colour = "silver"
+	colour = SLIME_TYPE_SILVER
 
 /obj/structure/slime_crystal/silver/process(seconds_per_tick)
 	for(var/obj/machinery/hydroponics/hydr in range(5, src))
@@ -322,10 +322,10 @@
 
 /obj/item/slimecross/crystalline/bluespace
 	crystal_type = /obj/structure/slime_crystal/bluespace
-	colour = "bluespace"
+	colour = SLIME_TYPE_BLUESPACE
 
 /obj/structure/slime_crystal/bluespace
-	colour = "bluespace"
+	colour = SLIME_TYPE_BLUESPACE
 	density = FALSE
 	uses_process = FALSE
 	var/static/list/slime_pylons = null
@@ -382,10 +382,10 @@
 
 /obj/item/slimecross/crystalline/sepia
 	crystal_type = /obj/structure/slime_crystal/sepia
-	colour = "sepia"
+	colour = SLIME_TYPE_SEPIA
 
 /obj/structure/slime_crystal/sepia
-	colour = "sepia"
+	colour = SLIME_TYPE_SEPIA
 
 /obj/structure/slime_crystal/sepia/on_mob_enter(mob/living/affected_mob)
 	affected_mob.add_traits(list(TRAIT_NOBREATH, TRAIT_NOCRITDAMAGE, TRAIT_RESISTLOWPRESSURE, TRAIT_RESISTHIGHPRESSURE, TRAIT_NOSOFTCRIT, TRAIT_NOHARDCRIT), type)
@@ -395,10 +395,10 @@
 
 /obj/item/slimecross/crystalline/cerulean
 	crystal_type = /obj/structure/slime_crystal/cerulean
-	colour = "cerulean"
+	colour = SLIME_TYPE_CERULEAN
 
 /obj/structure/slime_crystal/cerulean
-	colour = "cerulean"
+	colour = SLIME_TYPE_CERULEAN
 	uses_process = FALSE
 	var/crystals = 0
 
@@ -493,10 +493,10 @@
 
 /obj/item/slimecross/crystalline/pyrite
 	crystal_type = /obj/structure/slime_crystal/pyrite
-	colour = "pyrite"
+	colour = SLIME_TYPE_PYRITE
 
 /obj/structure/slime_crystal/pyrite
-	colour = "pyrite"
+	colour = SLIME_TYPE_PYRITE
 	uses_process = FALSE
 
 /obj/structure/slime_crystal/pyrite/Initialize(mapload)
@@ -532,10 +532,10 @@
 
 /obj/item/slimecross/crystalline/red
 	crystal_type = /obj/structure/slime_crystal/red
-	colour = "red"
+	colour = SLIME_TYPE_RED
 
 /obj/structure/slime_crystal/red
-	colour = "red"
+	colour = SLIME_TYPE_RED
 	var/blood_amount = 0
 	var/max_blood_amount = 300
 
@@ -588,10 +588,10 @@
 
 /obj/item/slimecross/crystalline/green // This may or may not work??? Mutations acted weird as hell on local
 	crystal_type = /obj/structure/slime_crystal/green
-	colour = "green"
+	colour = SLIME_TYPE_GREEN
 
 /obj/structure/slime_crystal/green
-	colour = "green"
+	colour = SLIME_TYPE_GREEN
 	var/datum/mutation/stored_mutation
 
 /obj/structure/slime_crystal/green/examine(mob/user)
@@ -640,10 +640,10 @@
 
 /obj/item/slimecross/crystalline/pink
 	crystal_type = /obj/structure/slime_crystal/pink
-	colour = "pink"
+	colour = SLIME_TYPE_PINK
 
 /obj/structure/slime_crystal/pink
-	colour = "pink"
+	colour = SLIME_TYPE_PINK
 
 /obj/structure/slime_crystal/pink/on_mob_enter(mob/living/affected_mob)
 	ADD_TRAIT(affected_mob, TRAIT_PACIFISM, type)
@@ -653,10 +653,10 @@
 
 /obj/item/slimecross/crystalline/gold
 	crystal_type = /obj/structure/slime_crystal/gold
-	colour = "gold"
+	colour = SLIME_TYPE_GOLD
 
 /obj/structure/slime_crystal/gold
-	colour = "gold"
+	colour = SLIME_TYPE_GOLD
 
 /obj/structure/slime_crystal/gold/process()
 	var/list/current_mobs = get_valid_targets()
@@ -692,10 +692,10 @@
 
 /obj/item/slimecross/crystalline/oil
 	crystal_type = /obj/structure/slime_crystal/oil
-	colour = "oil"
+	colour = SLIME_TYPE_OIL
 
 /obj/structure/slime_crystal/oil
-	colour = "oil"
+	colour = SLIME_TYPE_OIL
 
 /obj/structure/slime_crystal/oil/process()
 	for(var/turf/open/turf_in_range in RANGE_TURFS(3,src))
@@ -703,10 +703,10 @@
 
 /obj/item/slimecross/crystalline/black
 	crystal_type = /obj/structure/slime_crystal/black
-	colour = "black"
+	colour = SLIME_TYPE_BLACK
 
 /obj/structure/slime_crystal/black
-	colour = "black"
+	colour = SLIME_TYPE_BLACK
 
 /obj/structure/slime_crystal/black/on_mob_effect(mob/living/affected_mob)
 	if(!ishuman(affected_mob) || isjellyperson(affected_mob))
@@ -720,10 +720,10 @@
 
 /obj/item/slimecross/crystalline/lightpink
 	crystal_type = /obj/structure/slime_crystal/lightpink
-	colour = "light pink"
+	colour = SLIME_TYPE_LIGHT_PINK
 
 /obj/structure/slime_crystal/lightpink
-	colour = "light pink"
+	colour = SLIME_TYPE_LIGHT_PINK
 
 /mob/living/basic/lightgeist/slime
 	name = "crystalline lightgeist"
@@ -743,10 +743,10 @@
 
 /obj/item/slimecross/crystalline/adamantine
 	crystal_type = /obj/structure/slime_crystal/adamantine
-	colour = "adamantine"
+	colour = SLIME_TYPE_ADAMANTINE
 
 /obj/structure/slime_crystal/adamantine
-	colour = "adamantine"
+	colour = SLIME_TYPE_ADAMANTINE
 
 /obj/structure/slime_crystal/adamantine/on_mob_enter(mob/living/affected_mob)
 	if(!ishuman(affected_mob))
@@ -764,10 +764,10 @@
 
 /obj/item/slimecross/crystalline/rainbow
 	crystal_type = /obj/structure/slime_crystal/rainbow
-	colour = "rainbow"
+	colour = SLIME_TYPE_RAINBOW
 
 /obj/structure/slime_crystal/rainbow
-	colour = "rainbow"
+	colour = SLIME_TYPE_RAINBOW
 	uses_process = FALSE
 	var/list/inserted_cores = list()
 

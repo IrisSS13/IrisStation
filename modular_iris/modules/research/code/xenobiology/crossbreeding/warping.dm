@@ -140,7 +140,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 
 /obj/item/slimecross/warping/grey
 	name = "greyspace crossbreed"
-	colour = "grey"
+	colour = SLIME_TYPE_GREY
 	effect_desc = "Draws a rune. Extracts that are on the rune are absorbed, 8 extracts produces an adult slime of that color."
 	runepath = /obj/effect/warped_rune/greyspace
 
@@ -181,7 +181,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 			to_chat(user, span_warning("Requires a [extracttype ? "[extracttype] extracts" : "slime extract"]."))
 
 /obj/item/slimecross/warping/orange
-	colour = "orange"
+	colour = SLIME_TYPE_ORANGE
 	runepath = /obj/effect/warped_rune/orangespace
 	effect_desc = "Draws a rune that can summon a bonfire."
 
@@ -201,7 +201,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 	return TRUE
 
 /obj/item/slimecross/warping/purple
-	colour = "purple"
+	colour = SLIME_TYPE_PURPLE
 	runepath = /obj/effect/warped_rune/purplespace
 	effect_desc = "Draws a rune that may be activated to summon two random medical items."
 
@@ -233,7 +233,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 	return ..()
 
 /obj/item/slimecross/warping/blue
-	colour = "blue"
+	colour = SLIME_TYPE_BLUE
 	runepath = /obj/effect/warped_rune/cyanspace //we'll call the blue rune cyanspace to not mix it up with actual bluespace rune
 	effect_desc = "Draw a rune that is slippery like water and may be activated to cover all adjacent tiles in ice."
 
@@ -256,7 +256,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 	return ..()
 
 /obj/item/slimecross/warping/dark_blue
-	colour = "dark blue"
+	colour = SLIME_TYPE_DARK_BLUE
 	runepath = /obj/effect/warped_rune/darkcyanspace //we'll call the blue rune cyanspace to not mix it up with actual bluespace rune
 	effect_desc = "Draw a rune that can lower the temperature of whoever steps on it."
 
@@ -273,7 +273,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 	return ..()
 
 /obj/item/slimecross/warping/metal
-	colour = "metal"
+	colour = SLIME_TYPE_METAL
 	runepath = /obj/effect/warped_rune/metalspace
 	effect_desc = "Draws a rune that may be activated to create a 3x3 block of invisible walls."
 
@@ -288,7 +288,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 	return ..()
 
 /obj/item/slimecross/warping/yellow
-	colour = "yellow"
+	colour = SLIME_TYPE_YELLOW
 	runepath = /obj/effect/warped_rune/yellowspace
 	effect_desc = "Draw a rune that causes electrical interference."
 
@@ -313,7 +313,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 	return ..()
 
 /obj/item/slimecross/warping/darkpurple
-	colour = "dark purple"
+	colour = SLIME_TYPE_DARK_PURPLE
 	runepath = /obj/effect/warped_rune/darkpurplespace
 	effect_desc = "Draw a rune that can transmute plasma into any other material."
 
@@ -350,7 +350,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 		to_chat(user, span_warning("Requires plasma!"))
 
 /obj/item/slimecross/warping/silver
-	colour = "silver"
+	colour = SLIME_TYPE_SILVER
 	effect_desc = "Draw a rune that can feed whoever steps on it.."
 	runepath = /obj/effect/warped_rune/silverspace
 
@@ -367,7 +367,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 	return ..()
 
 /obj/item/slimecross/warping/bluespace
-	colour = "bluespace"
+	colour = SLIME_TYPE_BLUESPACE
 	runepath = /obj/effect/warped_rune/bluespace
 	effect_desc = "Draw a rune that serves as a bluespace container."
 
@@ -409,7 +409,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 	acid = 100
 
 /obj/item/slimecross/warping/sepia
-	colour = "sepia"
+	colour = SLIME_TYPE_SEPIA
 	runepath = /obj/effect/warped_rune/sepiaspace
 	effect_desc = "Rune activates automatically when stepped on, triggering a timestop around it."
 
@@ -424,7 +424,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 	return ..()
 
 /obj/item/slimecross/warping/cerulean
-	colour = "cerulean"
+	colour = SLIME_TYPE_CERULEAN
 	runepath = /obj/effect/warped_rune/ceruleanspace
 	effect_desc = "Draws a rune that creates a hologram of the first living thing that stepped on the tile."
 
@@ -504,7 +504,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 	return ..()
 
 /obj/item/slimecross/warping/pyrite
-	colour = "pyrite"
+	colour = SLIME_TYPE_PYRITE
 	runepath = /obj/effect/warped_rune/pyritespace
 	effect_desc = "draws a rune that will randomly color whatever steps on it."
 
@@ -526,7 +526,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 	return ..()
 
 /obj/item/slimecross/warping/red
-	colour = "red"
+	colour = SLIME_TYPE_RED
 	runepath = /obj/effect/warped_rune/redspace
 	effect_desc = "Draw a rune that covers with blood whoever steps on it."
 
@@ -544,7 +544,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 	return ..()
 
 /obj/item/slimecross/warping/green
-	colour = "green"
+	colour = SLIME_TYPE_GREEN
 	effect_desc = "Draw a rune that alters the DNA of those who step on it."
 	runepath = /obj/effect/warped_rune/greenspace
 
@@ -561,7 +561,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 
 /* pink rune, makes people slightly happier after walking on it*/
 /obj/item/slimecross/warping/pink
-	colour = "pink"
+	colour = SLIME_TYPE_PINK
 	effect_desc = "Draws a rune that makes people happier!"
 	runepath = /obj/effect/warped_rune/pinkspace
 
@@ -580,7 +580,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 	return ..()
 
 /obj/item/slimecross/warping/gold
-	colour = "gold"
+	colour = SLIME_TYPE_GOLD
 	runepath = /obj/effect/warped_rune/goldspace
 	effect_desc = "Draw a rune that exchanges objects of this dimension for objects of a parallel dimension."
 
@@ -667,7 +667,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 
 //oil
 /obj/item/slimecross/warping/oil
-	colour = "oil"
+	colour = SLIME_TYPE_OIL
 	runepath = /obj/effect/warped_rune/oilspace
 	effect_desc = "Draw a rune that can explode whoever steps on it."
 
@@ -683,7 +683,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 	return ..()
 
 /obj/item/slimecross/warping/black
-	colour = "black"
+	colour = SLIME_TYPE_BLACK
 	runepath = /obj/effect/warped_rune/blackspace
 	effect_desc = "Draw a rune that can transmute weapons with a starborne enchantment."
 
@@ -727,7 +727,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 	to_chat(user, span_notice("[I] glows with a brilliant light!"))
 
 /obj/item/slimecross/warping/lightpink
-	colour = "light pink"
+	colour = SLIME_TYPE_LIGHT_PINK
 	runepath = /obj/effect/warped_rune/lightpinkspace
 	effect_desc = "Draw a frog that makes whoever steps on it peaceful."
 
@@ -744,7 +744,7 @@ put up a rune with bluespace effects, lots of those runes are fluff or act as a 
 	return ..()
 
 /obj/item/slimecross/warping/adamantine
-	colour = "adamantine"
+	colour = SLIME_TYPE_ADAMANTINE
 	runepath = /obj/effect/warped_rune/adamantinespace
 	effect_desc = "Draw a rune that can summon reflective fields."
 
@@ -774,7 +774,7 @@ GLOBAL_DATUM(warped_room, /datum/map_template/warped_room)
 /* Used to teleport anything over it to a unique room similar to hilbert's hotel.*/
 
 /obj/item/slimecross/warping/rainbow
-	colour = "rainbow"
+	colour = SLIME_TYPE_RAINBOW
 	effect_desc = "Draws a rune that can be activated to teleport whoever is standing on it."
 	runepath = /obj/effect/warped_rune/rainbowspace
 
