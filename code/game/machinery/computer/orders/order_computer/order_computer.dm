@@ -189,8 +189,21 @@ GLOBAL_LIST_EMPTY(order_console_products)
 					stack_trace("[src] somehow delivered [item] which is not purchasable at this order console.")
 					grocery_list.Remove(item)
 					continue
+				// IRIS ADDITION START
+				if(istype(item, /datum/orderable_item/toys_drones/mining_drone))
+					var/true_amount = (grocery_list[item] + GLOB.minebot_amount)
+					if(true_amount > 10)
+						grocery_list[item] = (10 - GLOB.minebot_amount)
+					if(grocery_list[item] == 0)
+						grocery_list.Remove(item)
+						continue
+				// IRIS ADDITION END
 				for(var/amt in 1 to grocery_list[item])//every order amount
 					ordered_paths += item.purchase_path
+			// IRIS ADDITION START
+			if(!length(ordered_paths))
+				return
+			// IRIS ADDITION END
 			podspawn(list(
 				"target" = get_turf(living_user),
 				"style" = /datum/pod_style/advanced,

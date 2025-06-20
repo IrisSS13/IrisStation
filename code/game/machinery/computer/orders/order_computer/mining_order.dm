@@ -39,8 +39,21 @@
 /obj/machinery/computer/order_console/mining/order_groceries(mob/living/purchaser, obj/item/card/id/card, list/groceries)
 	var/list/things_to_order = list()
 	for(var/datum/orderable_item/item as anything in groceries)
+		// IRIS ADDITION START
+		if(istype(item, /datum/orderable_item/toys_drones/mining_drone))
+			var/true_amount = (groceries[item] + GLOB.minebot_amount)
+			if(true_amount > 10)
+				groceries[item] = (10 - GLOB.minebot_amount)
+			if(groceries[item] == 0)
+				groceries.Remove(item)
+				continue
+		// IRIS ADDITION END
 		things_to_order[item.purchase_path] = groceries[item]
 
+	// IRIS ADDITION START
+	if(!length(things_to_order))
+		return
+	// IRIS ADDITION END
 	var/datum/supply_pack/custom/mining_pack = new(
 		purchaser = purchaser, \
 		cost = get_total_cost(), \

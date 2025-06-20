@@ -90,6 +90,12 @@
 		/obj/item/borg/upgrade/modkit/minebot_passthrough,
 	)
 
+// IRIS ADDITION START
+/datum/voucher_set/mining/minebot_kit/spawn_set(atom/spawn_loc)
+	if(GLOB.minebot_amount == 10)
+		set_items -= /mob/living/basic/mining_drone
+	return ..()
+// IRIS ADDITION END
 /datum/voucher_set/mining/conscription_kit
 	name = "Mining Conscription Kit"
 	description = "Contains a whole new mining starter kit for one crewmember, consisting of a proto-kinetic accelerator, a survival knife, a seclite, an explorer's suit, mesons, an automatic mining scanner, a mining satchel, a gas mask, a mining radio key and a special ID card with a basic mining access."
