@@ -6,7 +6,7 @@
 	living_limit++
 	if(living_limit > 10)
 		var/obj/item/card/mining_point_card/card = new(loc)
-		card.points = floor(675 / cargo_cost_multiplier)
+		card.points = 438 // Roughly the cost of a minebot if ordered via shuttle
 		qdel(src)
 
 /mob/living/basic/mining_drone/Destroy(force)
