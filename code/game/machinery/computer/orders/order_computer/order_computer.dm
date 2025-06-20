@@ -194,7 +194,7 @@ GLOBAL_LIST_EMPTY(order_console_products)
 					var/true_amount = (grocery_list[item] + GLOB.minebot_amount)
 					if(true_amount > 10)
 						grocery_list[item] = (10 - GLOB.minebot_amount)
-					if(grocery_list[item] == 0)
+					if(grocery_list[item] <= 0)
 						grocery_list.Remove(item)
 						continue
 				// IRIS ADDITION END

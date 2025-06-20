@@ -44,7 +44,7 @@
 			var/true_amount = (groceries[item] + GLOB.minebot_amount)
 			if(true_amount > 10)
 				groceries[item] = (10 - GLOB.minebot_amount)
-			if(groceries[item] == 0)
+			if(groceries[item] <= 0)
 				groceries.Remove(item)
 				continue
 		// IRIS ADDITION END
