@@ -535,6 +535,11 @@
 		description = "Blowing smoke in my face, really?"
 		mood_change = 0
 
+/datum/mood_event/lost_control_of_life
+	description = "I've lost control of my life."
+	mood_change = -5
+	timeout = 5 MINUTES
+
 //IRIS EDIT ADDITION BEGIN - SALT_VULNERABILITY_QUIRK - Same mood adjust as losing a limb, goes away when salt leaves the body completely
 #define MOOD_CATEGORY_SALT "salt"
 
