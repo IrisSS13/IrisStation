@@ -28,6 +28,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	var/inventory_shown = FALSE //Equipped item inventory
 	var/hotkey_ui_hidden = FALSE //This is to hide the buttons that can be used via hotkeys. (hotkeybuttons list of buttons)
 
+	var/atom/movable/screen/mapvote_hud/mapvote_hud // IRIS ADDITION
 	var/atom/movable/screen/ammo_counter //NOVA EDIT ADDITION
 	var/atom/movable/screen/alien_plasma_display
 	var/atom/movable/screen/alien_queen_finder
@@ -36,9 +37,9 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	var/atom/movable/screen/zone_select
 	var/atom/movable/screen/pull_icon
 	var/atom/movable/screen/rest_icon
+	var/atom/movable/screen/sleep_icon
 	var/atom/movable/screen/throw_icon
 	var/atom/movable/screen/resist_icon
-	var/atom/movable/screen/module_store_icon
 	var/atom/movable/screen/floor_change
 
 	var/list/static_inventory = list() //the screen objects which are static
@@ -129,6 +130,11 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	screentip_text = new(null, src)
 	static_inventory += screentip_text
 
+	// IRIS ADDITION START
+	if(preferences?.read_preference(/datum/preference/toggle/mapvote_hud))
+		mapvote_hud = new(null, src, preferences)
+		infodisplay += mapvote_hud
+	// IRIS ADDITION END
 	for(var/mytype in subtypesof(/atom/movable/plane_master_controller))
 		var/atom/movable/plane_master_controller/controller_instance = new mytype(null,src)
 		plane_master_controllers[controller_instance.name] = controller_instance
@@ -222,7 +228,6 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	QDEL_NULL(listed_actions)
 	QDEL_LIST(floating_actions)
 
-	QDEL_NULL(module_store_icon)
 	QDEL_LIST(static_inventory)
 
 	// all already deleted by static inventory clear
@@ -251,6 +256,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	ammo_counter = null
 	wanted_lvl = null
 	// NOVA EDIT ADDITION END - NOVA HUD
+	mapvote_hud = null // IRIS ADDITION
 
 	QDEL_LIST_ASSOC_VAL(master_groups)
 	QDEL_LIST_ASSOC_VAL(plane_master_controllers)
@@ -426,12 +432,6 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 		return
 	var/mob/screenmob = viewmob || mymob
 	hidden_inventory_update(screenmob)
-
-/datum/hud/robot/show_hud(version = 0, mob/viewmob)
-	. = ..()
-	if(!.)
-		return
-	update_robot_modules_display()
 
 /datum/hud/new_player/show_hud(version = 0, mob/viewmob)
 	. = ..()

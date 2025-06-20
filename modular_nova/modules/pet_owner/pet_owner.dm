@@ -101,6 +101,7 @@ GLOBAL_LIST_INIT(possible_player_pet, list(
 	"Sloth" = /mob/living/basic/sloth,
 	"Snake" = /mob/living/basic/snake,
 	"Spider" = /mob/living/basic/spider/maintenance,
+	"Stoat" = /mob/living/basic/stoat,
 	"Tegu" = /mob/living/basic/lizard/tegu,
 	"Turtle" = /mob/living/basic/turtle,
 	//IRIS EDIT CHANGE BEGIN - RARE_FROG_PET

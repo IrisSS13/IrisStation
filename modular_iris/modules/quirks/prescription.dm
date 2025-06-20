@@ -15,6 +15,7 @@
 	lose_text = span_notice("You feel like you don't need a prescription anymore.")
 	medical_record_text = ""
 	value = 0
+	quirk_flags = QUIRK_HUMAN_ONLY | QUIRK_EXCLUDES_GHOSTROLES
 	icon = FA_ICON_PRESCRIPTION_BOTTLE_MEDICAL
 
 /datum/quirk/item_quirk/prescription/post_add()
