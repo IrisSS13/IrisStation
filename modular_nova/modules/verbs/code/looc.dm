@@ -87,11 +87,11 @@
 			// EMOTE is close enough. We don't want it to treat the raw message with languages.
 			// I wish it didn't include the asterisk but it's modular this way.
 			// IRIS EDIT: Adds runechat support for AI Cameras
-			for(var/mob/living/silicon/ai/ai as anything in GLOB.ai_list)
-				if(istype(usr, /mob/living/silicon/ai) && (ai.eyeobj in heard))
-					hearing.create_chat_message(ai.eyeobj, raw_message = "(LOOC: [msg])", runechat_flags = EMOTE_MESSAGE)
-				else
-					hearing.create_chat_message(mob, raw_message = "(LOOC: [msg])", runechat_flags = EMOTE_MESSAGE)
+			if(istype(usr, /mob/living/silicon/ai))
+				var/mob/living/silicon/ai/ai = mob
+				hearing.create_chat_message(ai.eyeobj, raw_message = "(LOOC: [msg])", runechat_flags = EMOTE_MESSAGE)
+			else
+				hearing.create_chat_message(mob, raw_message = "(LOOC: [msg])", runechat_flags = EMOTE_MESSAGE)
 
 		if (is_holder)
 			continue //admins are handled afterwards
