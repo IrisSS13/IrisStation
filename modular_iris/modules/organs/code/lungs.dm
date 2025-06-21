@@ -12,7 +12,7 @@
 /obj/item/organ/lungs/fish/no_overlay/Initialize(mapload)
 	. = ..()
 	RemoveElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/fish)
-	AddElement(AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/carp/akula))
+	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/carp/akula)
 
 //Subtype for use in augments
 /obj/item/organ/lungs/fish/amphibious/no_overlay
@@ -23,4 +23,4 @@
 /obj/item/organ/lungs/fish/amphibious/no_overlay/Initialize(mapload)
 	. = ..()
 	RemoveElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/fish)
-	AddElement(AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/carp/akula))
+	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/carp/akula)
