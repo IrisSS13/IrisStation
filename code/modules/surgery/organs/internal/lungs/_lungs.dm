@@ -610,6 +610,12 @@
 			for(var/datum/gas/gas as anything in breath.gases)
 				breath.gases[gas][MOLES] = 0 //cant filter gas out of the air unless wet
 	// NOVA EDIT ADDITION END
+	// IRIS EDIT ADDITION START - Covers breathing for aquatic species without tying it to the species itself, allowing other selected lung options to work as intended
+	if(breather.get_organ_by_type(/obj/item/organ/lungs/carp/akula))
+		if(!breather.has_status_effect(/datum/status_effect/fire_handler/wet_stacks))
+			for(var/datum/gas/gas as anything in breath.gases)
+				breath.gases[gas][MOLES] = 0 //cant filter gas out of the air unless wet
+	// IRIS EDIT ADDITION END
 	// Indicates if there are moles of gas in the breath.
 	var/has_moles = breath.total_moles() != 0
 
