@@ -42,7 +42,12 @@
 		if((ghost.client?.prefs.chat_toggles & CHAT_GHOSTSIGHT) && !(ghost in viewers))
 			ghost.show_message(span_emote(message_with_name))
 
+	// IRIS EDIT: Adds runechat support for AI Cameras
 	for(var/mob/receiver in viewers)
 		receiver.show_message(span_emote(message_with_name), alt_msg = span_emote(message_with_name))
+		var/mob/living/silicon/ai/ai = usr
 		if (receiver.client?.prefs.read_preference(/datum/preference/toggle/enable_runechat))
-			create_chat_message(usr, null, message, null, EMOTE_MESSAGE)
+			if(istype(usr, /mob/living/silicon/ai) && (ai.eyeobj in viewers))
+				create_chat_message(ai.eyeobj, null, message, null, EMOTE_MESSAGE)
+			else
+				create_chat_message(usr, null, message, null, EMOTE_MESSAGE)
