@@ -92,7 +92,7 @@
 
 // IRIS ADDITION START
 /datum/voucher_set/mining/minebot_kit/spawn_set(atom/spawn_loc)
-	if(GLOB.minebot_amount <= 10)
+	if(GLOB.minebot_amount >= 10)
 		set_items -= /mob/living/basic/mining_drone
 	return ..()
 // IRIS ADDITION END
