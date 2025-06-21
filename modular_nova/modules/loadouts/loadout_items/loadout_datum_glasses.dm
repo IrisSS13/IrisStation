@@ -29,6 +29,9 @@
  *	PRESCRIPTION GLASSES
  */
 
+/datum/loadout_item/glasses/kim
+	name = "Binoclard Glasses"
+
 /datum/loadout_item/glasses/prescription_glasses
 	name = "Glasses"
 	item_path = /obj/item/clothing/glasses/regular/color // IRIS EDIT: Makes Select Loadout Glasses Recolorable!
@@ -46,12 +49,13 @@
 	item_path = /obj/item/clothing/glasses/regular/jamjar
 
 /datum/loadout_item/glasses/prescription_glasses/thin
-	name = "Thin Glasses"
+	name = "Thin-Framed Glasses"
 	item_path = /obj/item/clothing/glasses/regular/thin
 
 /datum/loadout_item/glasses/better
 	name = "Modern Glasses"
 	item_path = /obj/item/clothing/glasses/regular/modern
+	can_be_reskinned = TRUE
 
 /*
 *	COSMETIC GLASSES
