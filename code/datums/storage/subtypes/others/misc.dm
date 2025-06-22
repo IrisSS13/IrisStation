@@ -183,6 +183,7 @@
 		can_hold_list = list(
 			// NOVA EDIT ADDITION BEGIN
 			/obj/item/gbp_punchcard,
+			/obj/item/disk/neuroware,
 			// NOVA EDIT ADDITION END
 			/obj/item/stack/spacecash,
 			/obj/item/holochip,
