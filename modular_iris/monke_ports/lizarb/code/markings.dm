@@ -1,3 +1,4 @@
+/*
 /datum/body_marking/other/light_belly_scale
 	name = "Light Belly (Scales)"
 	icon = 'modular_iris/monke_ports/lizarb/icons/markings.dmi'
@@ -13,3 +14,4 @@
 	default_color = "#ff0000"
 	affected_bodyparts = HEAD
 	gendered = FALSE
+*/
