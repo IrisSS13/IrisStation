@@ -526,6 +526,7 @@
 	static_data["default_pen_font"] = PEN_FONT
 	static_data["default_pen_color"] = COLOR_BLACK
 	static_data["signature_font"] = FOUNTAIN_PEN_FONT
+	static_data["station_name"] = station_name()
 
 	return static_data;
 

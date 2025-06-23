@@ -12,6 +12,7 @@ export type PaperContext = {
   sanitize_text: boolean;
   signature_font: string;
   user_name: string;
+  station_name?: string;
 
   // ui_data
   held_item_details?: WritingImplement;

@@ -303,6 +303,25 @@ export class PreviewView extends Component<PreviewViewProps> {
     return marked.parse(rawText, { async: false });
   };
 
+  // Helper to replace [sign], [station], and logo tags
+  replacePaperworkTags = (
+    html: string,
+    userName: string,
+    signatureFont: string,
+    stationName: string,
+  ): string => {
+    // Replace [sign] with the user's name in signature font, bold and italic
+    let result = html.replace(
+      /\[sign\]/gi,
+      `<span style="font-family: ${signatureFont}; font-style: italic; font-weight: bold;">${userName}</span>`,
+    );
+    // Replace [station] with the station name
+    result = result.replace(/\[station\]/gi, stationName);
+    // Replace logo tags ([ntlogo], [syndielogo], etc.)
+    result = replacePaperworkLogos(result);
+    return result;
+  };
+
   // Fully formats, sanitises and parses the provided raw text and wraps it
   // as necessary.
   formatAndProcessRawText = (
@@ -324,12 +343,19 @@ export class PreviewView extends Component<PreviewViewProps> {
     // Third, we sanitize the text of html
     const sanitizedText = sanitizeText(parsedText, advanced_html);
 
-    // IRIS EXTENSION: Insert paperwork logos ([ntlogo], [syndielogo]) as <img> tags
-    const logoedText = replacePaperworkLogos(sanitizedText);
+    // IRIS EXTENSION: Replace [sign], [station], and logo tags
+    const { user_name, signature_font, station_name } =
+      useBackend<PaperContext>().data;
+    const specialText = this.replacePaperworkTags(
+      sanitizedText,
+      user_name,
+      signature_font,
+      station_name || '',
+    );
 
     // Fourth we replace the [__] with fields
     const fieldedText = this.createFields(
-      logoedText,
+      specialText,
       font,
       12,
       color,
