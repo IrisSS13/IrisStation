@@ -32,10 +32,6 @@ function Get-Bun {
     $avx2Supported = (& $CoreInfoExe | Select-String "AVX2\s+\*") -ne $null
     $BunRelease= "$BunPlatform"
     $BunTag
-    if (-not $avx2Supported) {
-        $BunRelease = "$BunPlatform-baseline"
-        $BunTag = " (baseline)"
-    }
 
     $BunSource = "https://github.com/oven-sh/bun/releases/download/bun-v$BunVersion/$BunRelease.zip"
 
@@ -96,9 +92,6 @@ function Test-BunHash {
     )
     $Tries = $Tries + 1
     $BunRelease = $BunPlatform
-    if ($Baseline) {
-        $BunRelease = "$BunPlatform-baseline"
-    }
 
     Write-Output "Verifying Bun checksum"
     $FileHash = Get-FileHash $BunZip -Algorithm SHA256
