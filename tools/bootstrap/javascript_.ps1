@@ -42,7 +42,7 @@ function Get-Bun {
     Write-Output "Downloading Bun v$BunVersion$BunTag"
     New-Item $BunTargetDir -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
     try {
-        Start-BitsTransfer -Uri $BunSource -OutFile "$BunZip.downloading" -UseBasicParsing
+        Invoke-WebRequest -Uri $BunSource -OutFile "$BunZip.downloading" -UseBasicParsing
     } catch {
         Write-Error "Failed to download Bun from $BunSource. $_"
         exit 1
