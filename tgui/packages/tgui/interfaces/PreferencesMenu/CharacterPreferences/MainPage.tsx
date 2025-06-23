@@ -34,6 +34,7 @@ import { useRandomToggleState } from '../useRandomToggleState';
 import { useServerPrefs } from '../useServerPrefs';
 import { DeleteCharacterPopup } from './DeleteCharacterPopup';
 import { MultiNameInput, NameInput } from './names';
+import { VocalsInput, VoiceInput } from './vocals'; // NOVA EDIT ADDITION
 
 const CLOTHING_CELL_SIZE = 48;
 const CLOTHING_SIDEBAR_ROWS = 12.4; // NOVA EDIT CHANGE - ORIGINAL:  9 // IRIS EDIT CHANGE - 12.4 from Nova's 13.4
@@ -475,6 +476,7 @@ export function MainPage(props: MainPageProps) {
   const [deleteCharacterPopupOpen, setDeleteCharacterPopupOpen] =
     useState(false);
   const [multiNameInputOpen, setMultiNameInputOpen] = useState(false);
+  const [vocalsInputOpen, setVocalsInputOpen] = useState(false); // NOVA EDIT ADDITION
   const [randomToggleEnabled] = useRandomToggleState();
 
   // IRIS EDIT BEGIN: SWAPPABLE PREF MENUS - SKYRAT PORT
@@ -575,6 +577,14 @@ export function MainPage(props: MainPageProps) {
           names={data.character_preferences.names}
         />
       )}
+      {/* NOVA EDIT ADDITION START */}
+      {vocalsInputOpen && (
+        <VocalsInput
+          handleClose={() => setVocalsInputOpen(false)}
+          vocals={data.character_preferences.vocals}
+        />
+      )}
+      {/* NOVA EDIT ADDITION END */}
 
       {deleteCharacterPopupOpen && (
         <DeleteCharacterPopup
@@ -654,6 +664,15 @@ export function MainPage(props: MainPageProps) {
                 }}
               />
             </Stack.Item>
+            {/* NOVA EDIT ADDITION START */}
+            <Stack.Item position="relative">
+              <VoiceInput
+                openVocalsInput={() => {
+                  setVocalsInputOpen(true);
+                }}
+              />
+            </Stack.Item>
+            {/* NOVA EDIT ADDITION END */}
           </Stack>
         </Stack.Item>
 

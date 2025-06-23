@@ -2147,6 +2147,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	worn_icon_digi = 'modular_nova/master_files/icons/donator/mob/clothing/suit_digi.dmi'
 	icon_state = "seva_melon"
 	hoodtype = /obj/item/clothing/head/hooded/seva/melon
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	hood_up_affix = ""
 
 /obj/item/clothing/head/hooded/seva/melon
@@ -2268,6 +2269,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	worn_icon_digi = 'modular_nova/master_files/icons/donator/mob/clothing/suit_digi.dmi'
 	icon_state = "explorer_melon"
 	hoodtype = /obj/item/clothing/head/hooded/explorer/melon
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	hood_up_affix = ""
 
 /obj/item/clothing/head/hooded/explorer/melon

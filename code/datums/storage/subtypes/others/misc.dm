@@ -37,6 +37,7 @@
 		/obj/item/stack/sticky_tape/surgical,
 		/obj/item/surgical_drapes,
 		/obj/item/surgicaldrill,
+		/obj/item/blood_scanner,
 	))
 
 ///Organ box
@@ -182,6 +183,7 @@
 		can_hold_list = list(
 			// NOVA EDIT ADDITION BEGIN
 			/obj/item/gbp_punchcard,
+			/obj/item/disk/neuroware,
 			// NOVA EDIT ADDITION END
 			/obj/item/stack/spacecash,
 			/obj/item/holochip,
