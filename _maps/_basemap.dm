@@ -19,7 +19,7 @@
 		#include "map_files\VoidRaptor\VoidRaptor.dmm"
 		// #include "map_files\NSVBlueshift\Blueshift.dmm"
 		// #include "map_files\Ouroboros\Ouroboros.dmm"
-		// #include "map_files\SerenityStation\SerenityStation.dmm"
+		#include "map_files\SerenityStation\SerenityStation.dmm"
 		#include "map_files\Snowglobe\snowglobe.dmm"
 		// NOVA EDIT ADDITION END
 		// IRIS EDIT START
