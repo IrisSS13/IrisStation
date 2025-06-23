@@ -48,7 +48,7 @@ function Test-BunHash {
     Write-Output "Verifying Bun checksum"
     $FileHash = Get-FileHash $BunZip -Algorithm SHA256
     $ActualSha = $FileHash.Hash
-    $LoginResponse = Invoke-WebRequest "https://github.com/oven-sh/bun/releases/download/bun-v$BunVersion/SHASUMS256.txt"
+    $LoginResponse = Start-BitsTransfer "https://github.com/oven-sh/bun/releases/download/bun-v$BunVersion/SHASUMS256.txt"
     $ContentString = [System.Text.Encoding]::UTF8.GetString($LoginResponse.Content)
     $ShaArray = $ContentString -split "`n"
     foreach ($ShaArrayEntry in $ShaArray) {
