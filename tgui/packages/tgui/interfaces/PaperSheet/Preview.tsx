@@ -7,6 +7,7 @@ import { Box, Section } from 'tgui-core/components';
 import { useBackend, useLocalState } from '../../backend';
 import { sanitizeText } from '../../sanitize';
 import { tokenizer, walkTokens } from './helpers';
+import { replacePaperworkLogos } from './paperwork_logos';
 import { StampView } from './StampView';
 import { FieldInput, InteractionType, PaperContext } from './types';
 
@@ -323,9 +324,12 @@ export class PreviewView extends Component<PreviewViewProps> {
     // Third, we sanitize the text of html
     const sanitizedText = sanitizeText(parsedText, advanced_html);
 
+    // IRIS EXTENSION: Insert paperwork logos ([ntlogo], [syndielogo]) as <img> tags
+    const logoedText = replacePaperworkLogos(sanitizedText);
+
     // Fourth we replace the [__] with fields
     const fieldedText = this.createFields(
-      sanitizedText,
+      logoedText,
       font,
       12,
       color,
