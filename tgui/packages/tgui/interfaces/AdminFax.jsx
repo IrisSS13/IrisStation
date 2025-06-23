@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Box,
   Button,
@@ -16,10 +16,32 @@ import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export const AdminFax = (props) => {
+  // Dynamic window height state
+  const [windowHeight, setWindowHeight] = useState(600); // default height
+  const [stampSelected, setStampSelected] = useState(false);
+
+  // Listen for stamp selection changes from FaxMainPanel
+  const handleStampChange = (selected) => {
+    setStampSelected(!!selected);
+  };
+
+  useEffect(() => {
+    if (stampSelected) {
+      setWindowHeight(740); // expanded height when stamp is selected
+    } else {
+      setWindowHeight(610); // default height
+    }
+  }, [stampSelected]);
+
   return (
-    <Window title="Admin Fax Panel" width={400} height={675} theme="admin">
+    <Window
+      title="Admin Fax Panel"
+      width={400}
+      height={windowHeight}
+      theme="admin"
+    >
       <Window.Content>
-        <FaxMainPanel />
+        <FaxMainPanel onStampChange={handleStampChange} />
       </Window.Content>
     </Window>
   );
@@ -40,6 +62,14 @@ export const FaxMainPanel = (props) => {
   if (stamp && data.stamps[0] !== 'None') {
     data.stamps.unshift('None');
   }
+
+  // Notify parent when stamp changes
+  useEffect(() => {
+    if (props.onStampChange) {
+      props.onStampChange(stamp && stamp !== 'None');
+    }
+  }, [stamp]);
+
   return (
     <div className="faxmenu">
       <Section
@@ -142,6 +172,7 @@ export const FaxMainPanel = (props) => {
             height="200px"
             value={rawText}
             onChange={setRawText}
+            fluid
           />
         </Box>
         <Divider />
