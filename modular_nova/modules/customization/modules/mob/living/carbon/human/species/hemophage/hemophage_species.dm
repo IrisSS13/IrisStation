@@ -5,6 +5,7 @@
 /datum/species/hemophage
 	name = "Hemophage"
 	id = SPECIES_HEMOPHAGE
+	// IRIS EDIT: Hemophages now use mutant color instead of skin tone
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_CAN_STRIP,
@@ -14,7 +15,7 @@
 		TRAIT_VIRUSIMMUNE,
 		TRAIT_LITERATE,
 		TRAIT_DRINKS_BLOOD,
-		TRAIT_USES_SKINTONES,
+		TRAIT_MUTANT_COLORS,
 	)
 	inherent_biotypes = MOB_HUMANOID | MOB_ORGANIC
 	exotic_bloodtype = BLOOD_TYPE_UNIVERSAL
@@ -106,7 +107,7 @@
 
 
 /datum/species/hemophage/prepare_human_for_preview(mob/living/carbon/human/human)
-	human.skin_tone = "albino"
+	human.dna.features["mcolor"] = "#fff4e6" // IRIS EDIT: Hemophages now use mutant color instead of skin tone. Original CODE: human.skin_tone = "albino"
 	human.hair_color = "#1d1d1d"
 	human.hairstyle = "Pompadour (Big)"
 	regenerate_organs(human, src, visual_only = TRUE)
