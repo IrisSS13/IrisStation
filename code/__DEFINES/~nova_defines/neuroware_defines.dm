@@ -45,4 +45,4 @@
 
 ///Returns a random neuroware reagent type. Excludes aphrodisiac reagents.
 /proc/get_random_neuroware()
-	return GLOB.name2neuroware_safe[pick(GLOB.name2neuroware_safe)]
+	return GLOB.name2neuroware[pick(GLOB.name2neuroware)]
