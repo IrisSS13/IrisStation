@@ -66,7 +66,7 @@
 	var/mob/living/spawned_mob = new mob_type(get_turf(src)) //living mobs only
 	name_mob(spawned_mob, newname)
 	special(spawned_mob, mob_possessor)
-	equip(spawned_mob)
+	//equip(spawned_mob) IRIS REMOVAL: this is called before, useless and duplicates items
 	return spawned_mob
 
 // Anything that can potentially be overwritten by transferring prefs must go in this proc

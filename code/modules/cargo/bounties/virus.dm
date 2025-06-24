@@ -24,6 +24,10 @@
 	if(!istype(export, /obj/item/reagent_containers || !export.reagents || !export.reagents.reagent_list))
 		return FALSE
 	for(var/datum/reagent/reagent as anything in export.reagents.reagent_list)
+		// IRIS ADDITION START
+		if(!islist(reagent.data)) // Why are we a number and not a list? I dunno, ask someone else.
+			continue
+		// IRIS ADDITION END
 		for(var/datum/disease/advance/virus in reagent.data?["viruses"])
 			if(accepts_virus(virus))
 				return TRUE
