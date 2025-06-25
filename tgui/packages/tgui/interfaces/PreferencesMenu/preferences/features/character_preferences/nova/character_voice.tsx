@@ -45,11 +45,13 @@ export const voice_type: FeatureChoiced = {
   component: FeatureDropdownInput,
 };
 
+/*
 export const fallback_to_blooper: FeatureToggle = {
   name: 'Vocal Bark Fallback',
   description: 'If TTS is down, use vocal barks as a fallback option.',
   component: CheckboxInput,
 };
+*/
 
 export const blooper_pitch_range: FeatureNumeric = {
   name: 'Vocal Bark Range',

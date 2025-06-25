@@ -1,4 +1,5 @@
-
+//IRIS REMOVAL
+/*
 /datum/preference/choiced/voice
 	category = PREFERENCE_CATEGORY_VOCALS // Originally PREFERENCE_CATEGORY_NON_CONTEXTUAL, we are relocating it to the voice menu
 
@@ -33,3 +34,4 @@
 	target.voice = value == TTS_VOICE_NONE ? "" : value
 
 #undef TTS_VOICE_NONE
+*/
