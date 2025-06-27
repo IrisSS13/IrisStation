@@ -1,7 +1,5 @@
 #define VOICE_TYPE_NONE "None"
 
-//IRIS REMOVAL START
-/*
 /datum/preference/numeric/tts_voice_pitch
 	category = PREFERENCE_CATEGORY_VOCALS // Originally PREFERENCE_CATEGORY_NON_CONTEXTUAL, we are relocating it to the voice menu
 
@@ -9,8 +7,7 @@
 	if(!..(preferences))
 		return
 	return (preferences.read_preference(/datum/preference/choiced/vocals/voice_type) == VOICE_TYPE_TTS)
-*/
-//IRIS REMOVAL END
+
 /datum/preference/choiced/vocals
 	category = PREFERENCE_CATEGORY_VOCALS
 	savefile_identifier = PREFERENCE_CHARACTER
@@ -21,15 +18,14 @@
 	can_randomize = FALSE
 
 /datum/preference/choiced/vocals/voice_type/init_possible_values()
-	return list(VOICE_TYPE_BARK, VOICE_TYPE_NONE) //IRIS EDIT, OG: return list(VOICE_TYPE_TTS, VOICE_TYPE_BARK, VOICE_TYPE_NONE)
+	return list(VOICE_TYPE_TTS, VOICE_TYPE_BARK, VOICE_TYPE_NONE)
 
 /datum/preference/choiced/vocals/voice_type/create_default_value()
 	return VOICE_TYPE_NONE
 
 /datum/preference/choiced/vocals/voice_type/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return
-//IRIS REMOVAL START
-/*
+
 /datum/preference/toggle/fallback_to_blooper
 	category = PREFERENCE_CATEGORY_VOCALS
 	savefile_identifier = PREFERENCE_CHARACTER
@@ -46,8 +42,7 @@
 
 /datum/preference/toggle/fallback_to_blooper/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return
-*/
-//IRIS REMOVAL END
+
 /datum/preference/choiced/vocals/blooper
 	category = PREFERENCE_CATEGORY_VOCALS
 	savefile_key = "blooper_speech"
@@ -56,17 +51,15 @@
 	if(!..(preferences))
 		return
 	var/voice_type_pref = preferences.read_preference(/datum/preference/choiced/vocals/voice_type)
-	/*
 	var/datum/preference/toggle/fallback_to_blooper/fallback_pref = GLOB.preference_entries[/datum/preference/toggle/fallback_to_blooper]
-	*/
-	return (voice_type_pref == VOICE_TYPE_BARK) //IRIS EDIT, OG: return (voice_type_pref == VOICE_TYPE_BARK || (preferences.read_preference(/datum/preference/toggle/fallback_to_blooper) && fallback_pref.is_accessible(preferences)))
+	return (voice_type_pref == VOICE_TYPE_BARK || (preferences.read_preference(/datum/preference/toggle/fallback_to_blooper) && fallback_pref.is_accessible(preferences)))
 
 /datum/preference/choiced/vocals/blooper/init_possible_values()
 	return assoc_to_keys(GLOB.blooper_list)
 
 /datum/preference/choiced/vocals/blooper/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences) // don't apply this to people who don't have it enabled
 	var/voice_type_pref = preferences.read_preference(/datum/preference/choiced/vocals/voice_type)
-	if(voice_type_pref == VOICE_TYPE_BARK) //IRIS EDIT, OG: 	if(voice_type_pref == VOICE_TYPE_BARK || (preferences.read_preference(/datum/preference/toggle/fallback_to_blooper)))
+	if(voice_type_pref == VOICE_TYPE_BARK || (preferences.read_preference(/datum/preference/toggle/fallback_to_blooper)))
 		target.set_blooper(value)
 
 /datum/preference/numeric/blooper_speech_speed
@@ -81,12 +74,8 @@
 	if(!..(preferences))
 		return
 	var/voice_type_pref = preferences.read_preference(/datum/preference/choiced/vocals/voice_type)
-//IRIS REMOVAL START
-/*
 	var/datum/preference/toggle/fallback_to_blooper/fallback_pref = GLOB.preference_entries[/datum/preference/toggle/fallback_to_blooper]
-*/
-//IRIS REMOVAL END
-	return (voice_type_pref == VOICE_TYPE_BARK) //IRIS EDIT, OG: 	return (voice_type_pref == VOICE_TYPE_BARK || (preferences.read_preference(/datum/preference/toggle/fallback_to_blooper) && fallback_pref.is_accessible(preferences)))
+	return (voice_type_pref == VOICE_TYPE_BARK || (preferences.read_preference(/datum/preference/toggle/fallback_to_blooper) && fallback_pref.is_accessible(preferences)))
 
 /datum/preference/numeric/blooper_speech_speed/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	target.blooper_speed = value
@@ -106,12 +95,8 @@
 	if(!..(preferences))
 		return
 	var/voice_type_pref = preferences.read_preference(/datum/preference/choiced/vocals/voice_type)
-//IRIS REMOVAL START
-/*
 	var/datum/preference/toggle/fallback_to_blooper/fallback_pref = GLOB.preference_entries[/datum/preference/toggle/fallback_to_blooper]
-*/
-//IRIS REMOVAL END
-	return (voice_type_pref == VOICE_TYPE_BARK) //IRIS EDIT, OG: return (voice_type_pref == VOICE_TYPE_BARK || (preferences.read_preference(/datum/preference/toggle/fallback_to_blooper) && fallback_pref.is_accessible(preferences)))
+	return (voice_type_pref == VOICE_TYPE_BARK || (preferences.read_preference(/datum/preference/toggle/fallback_to_blooper) && fallback_pref.is_accessible(preferences)))
 
 /datum/preference/numeric/blooper_speech_pitch/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	target.blooper_pitch = value
@@ -131,12 +116,8 @@
 	if(!..(preferences))
 		return
 	var/voice_type_pref = preferences.read_preference(/datum/preference/choiced/vocals/voice_type)
-//IRIS REMOVAL START
-/*
-	var/datum/preference/toggle/fallback_to_blooper/fallback_pref = GLOB.preference_entries[/datum/preference/toggle/fallback_to_blooper] //IRIS EDIT, OG:
-*/
-//IRIS REMOVAL END
-	return (voice_type_pref == VOICE_TYPE_BARK) //IRIS EDIT, OG: return (voice_type_pref == VOICE_TYPE_BARK || (preferences.read_preference(/datum/preference/toggle/fallback_to_blooper) && fallback_pref.is_accessible(preferences)))
+	var/datum/preference/toggle/fallback_to_blooper/fallback_pref = GLOB.preference_entries[/datum/preference/toggle/fallback_to_blooper]
+	return (voice_type_pref == VOICE_TYPE_BARK || (preferences.read_preference(/datum/preference/toggle/fallback_to_blooper) && fallback_pref.is_accessible(preferences)))
 
 /datum/preference/numeric/blooper_pitch_range/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	target.blooper_pitch_range = value

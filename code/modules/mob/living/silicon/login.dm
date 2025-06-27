@@ -2,12 +2,9 @@
 	if(mind)
 		mind?.remove_antags_for_borging()
 	// NOVA EDIT ADDITION START
-	//IRIS REMOVAL
-/*
 	if(client?.prefs.read_preference(/datum/preference/choiced/vocals/voice_type) != VOICE_TYPE_TTS)
 		voice = TTS_VOICE_NONE
 		return ..()
-*/
 	// NOVA EDIT ADDITION END
 	if(SStts.tts_enabled)
 		var/voice_to_use = client?.prefs.read_preference(/datum/preference/choiced/voice)

@@ -24,11 +24,9 @@ type VocalFeature = {
 
 const vocalFeatures: VocalFeature[] = [
   { id: 'voice_type', label: 'Voice Type', type: 'string' },
-  /*
   { id: 'tts_voice', label: 'Voice', type: 'string' },
   { id: 'tts_voice_pitch', label: 'Voice Pitch Adjustments', type: 'number' },
   { id: 'fallback_to_blooper', label: 'Fallback to Blooper', type: 'boolean' },
-*/
   { id: 'blooper_speech', label: 'Blooper Speech', type: 'string' },
   { id: 'blooper_speech_speed', label: 'Blooper Speed', type: 'number' },
   { id: 'blooper_speech_pitch', label: 'Blooper Pitch', type: 'number' },

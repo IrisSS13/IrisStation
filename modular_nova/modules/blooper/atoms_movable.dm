@@ -81,15 +81,12 @@
 /// Sends speech from a living mob
 /mob/living/send_speech(message_raw, message_range = 6, obj/source = src, bubble_type = bubble_icon, list/spans, datum/language/message_language = null, list/message_mods = list(), forced = null, tts_message, list/tts_filter)
 	. = ..()
-//IRIS REMOVAL
-/*
-	var/voice_type_pref = client?.prefs.read_preference(/datum/preference/choiced/vocals/voice_type)
 
+	var/voice_type_pref = client?.prefs.read_preference(/datum/preference/choiced/vocals/voice_type)
 	if(voice_type_pref != VOICE_TYPE_BARK)
 		if((!SStts.tts_enabled && voice_type_pref == VOICE_TYPE_TTS) && client?.prefs.read_preference(/datum/preference/toggle/fallback_to_blooper))
 			play_bloopers(message_raw, message_range, source, message_mods) // if and only if we are using tts and fallback is enabled, we can bloop
 		return
-*/
 	play_bloopers(message_raw, message_range, source, message_mods)
 
 /// Plays the blooper sound effect based on the message provided
