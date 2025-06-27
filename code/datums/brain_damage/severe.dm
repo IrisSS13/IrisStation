@@ -168,7 +168,7 @@
 	if(owner.move_intent == MOVE_INTENT_RUN)
 		final_sleep_chance += sleep_chance_running
 	if(drowsy)
-		final_sleep_chance += sleep_chance_drowsy //stack drowsy ontop of base or running odds with the += operator	if(caffeinated)
+		final_sleep_chance += sleep_chance_drowsy //stack drowsy ontop of base or running odds with the += operator
 	if(caffeinated)
 		final_sleep_chance *= 0.5 //make it harder to fall asleep on caffeine
 
