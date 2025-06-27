@@ -49,6 +49,9 @@
 
 		post_transfer_prefs(spawned_human)
 
+		if (istype(spawned_human, /mob/living/carbon/human))
+			spawned_human.grant_language(/datum/language/common, source = LANGUAGE_SPAWNER)
+
 	if(load_prefs && loadout_enabled)
 		spawned_human?.equip_outfit_and_loadout(outfit, spawned_mob.client.prefs)
 	else if (!isnull(spawned_human))
@@ -66,7 +69,8 @@
 	var/mob/living/spawned_mob = new mob_type(get_turf(src)) //living mobs only
 	name_mob(spawned_mob, newname)
 	special(spawned_mob, mob_possessor)
-	//equip(spawned_mob) IRIS REMOVAL: this is called before, useless and duplicates items
+	if(!istype(src, /obj/effect/mob_spawn/ghost_role))
+		equip(spawned_mob)
 	return spawned_mob
 
 // Anything that can potentially be overwritten by transferring prefs must go in this proc
