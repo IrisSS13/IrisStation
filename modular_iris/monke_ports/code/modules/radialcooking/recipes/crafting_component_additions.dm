@@ -23,5 +23,4 @@
 		var/obj/item/item_result = result
 		item_result.do_drop_animation(chef)
 	chef.investigate_log("[key_name(chef)] crafted [recipe_to_use]", INVESTIGATE_CRAFTING)
-	recipe_to_use.on_craft_completion(chef, result)
 	return TRUE

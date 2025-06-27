@@ -59,8 +59,11 @@
 			if(!is_admin(client) && length_char(client?.prefs?.read_preference(/datum/preference/text/flavor_text)) < CONFIG_GET(number/flavor_text_character_requirement))
 				to_chat(src, span_notice("You need at least [CONFIG_GET(number/flavor_text_character_requirement)] characters of flavor text to ready up for the round. You have [length_char(client.prefs.read_preference(/datum/preference/text/flavor_text))] characters. If you need any help with writing flavor text, check out https://wiki.irisstation.lol/wiki/Roleplay_Guidelines#How_to_Write_A_Flavor_Text."))
 				return
-
 		ready = !ready
+		if(ready)
+			SSstatpanels.add_job_estimation(src)
+		else
+			SSstatpanels.remove_job_estimation(src)
 		client << output(ready, "title_browser:toggle_ready")
 		return
 

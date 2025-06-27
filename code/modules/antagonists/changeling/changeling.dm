@@ -11,7 +11,7 @@
 	hijack_speed = 0.5
 	ui_name = "AntagInfoChangeling"
 	suicide_cry = "FOR THE HIVE!!"
-	can_assign_self_objectives = FALSE // NOVA EDIT CHANGE - Too loose of a cannon, and doesn't have staff sign off - ORIGINAL: can_assign_self_objectives = TRUE
+	can_assign_self_objectives = TRUE
 	default_custom_objective = "Consume the station's most valuable genomes."
 	hardcore_random_bonus = TRUE
 	stinger_sound = 'sound/music/antag/ling_alert.ogg'
@@ -219,7 +219,8 @@
 	return ..()
 
 /datum/antagonist/changeling/farewell()
-	to_chat(owner.current, span_userdanger("You grow weak and lose your powers! You are no longer a changeling and are stuck in your current form!"))
+	if(owner.current)
+		to_chat(owner.current, span_userdanger("You grow weak and lose your powers! You are no longer a changeling and are stuck in your current form!"))
 
 /*
  * Instantiate the cellular emporium for the changeling.
@@ -555,13 +556,6 @@
 	new_profile.target_height = target.mob_height
 	new_profile.target_mob_size = target.mob_size
 	//NOVA EDIT ADDITION END
-
-	//IRIS EDIT - Voice Bark
-	new_profile.blooper_id = target.blooper_id
-	new_profile.blooper_pitch = target.blooper_pitch
-	new_profile.blooper_speed = target.blooper_speed
-	new_profile.blooper_pitch_range = target.blooper_pitch_range
-	//IRIS EDIT END
 
 	// Grab skillchips they have
 	new_profile.skillchips = target.clone_skillchip_list(TRUE)
@@ -938,7 +932,12 @@
 	user.updateappearance(mutcolor_update = TRUE, eyeorgancolor_update = TRUE)
 	user.regenerate_icons()
 	user.name = user.get_visible_name()
-	// NOVA EDIT END
+	user.blooper = null
+	user.blooper_id = chosen_profile.blooper_id
+	user.blooper_pitch = chosen_profile.blooper_pitch
+	user.blooper_speed = chosen_profile.blooper_speed
+	user.blooper_pitch_range = chosen_profile.blooper_pitch_range
+	// NOVA ADDITION END
 
 // Changeling profile themselves. Store a data to store what every DNA instance looked like.
 /datum/changeling_profile
