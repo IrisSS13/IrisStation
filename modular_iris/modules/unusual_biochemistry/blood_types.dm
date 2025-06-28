@@ -11,7 +11,7 @@
 /datum/blood_type/haemotoxin
 	name = "Haemotoxin"
 	color = "#614d7d"
-	desc = "Want your blood to have some zest to it? Your blood is VERY painful to others, as it contains toxins. Typically found in venomous animals, such as snakes and spiders."
+	desc = "Your blood can be restored with toxins. Typically found in venomous animals, such as snakes and spiders. It's also a cute purple colour."
 	restoration_chem = /datum/reagent/toxin
 	compatible_types = list(
 		/datum/blood_type/haemotoxin,
