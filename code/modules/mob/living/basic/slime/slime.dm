@@ -324,6 +324,11 @@
 
 		do_sparks(5, TRUE, carbon_target)
 		var/power = our_slime.powerlevel + rand(0,3)
+		// IRIS ADDITION START
+		if(transformative_effect == SLIME_TYPE_ORANGE)
+			carbon_target.adjust_fire_stacks(2)
+			carbon_target.ignite_mob()
+		// IRIS ADDITION END
 		carbon_target.Paralyze(2 SECONDS)
 		carbon_target.Knockdown(power * 2 SECONDS)
 		carbon_target.set_stutter_if_lower(power * 2 SECONDS)

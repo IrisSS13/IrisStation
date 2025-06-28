@@ -57,45 +57,45 @@
 	var/itemcolor = "#FFFFFF"
 	switch(colour)
 		if(SLIME_TYPE_ORANGE)
-			itemcolor = "#FFA500"
+			itemcolor = COLOR_SLIME_ORANGE
 		if(SLIME_TYPE_PURPLE)
-			itemcolor = "#B19CD9"
+			itemcolor = COLOR_SLIME_PURPLE
 		if(SLIME_TYPE_BLUE)
-			itemcolor = "#ADD8E6"
+			itemcolor = COLOR_SLIME_BLUE
 		if(SLIME_TYPE_METAL)
-			itemcolor = "#7E7E7E"
+			itemcolor = COLOR_SLIME_METAL
 		if(SLIME_TYPE_YELLOW)
-			itemcolor = "#FFFF00"
+			itemcolor = COLOR_SLIME_YELLOW
 		if(SLIME_TYPE_DARK_PURPLE)
-			itemcolor = "#551A8B"
+			itemcolor = COLOR_SLIME_DARK_PURPLE
 		if(SLIME_TYPE_DARK_BLUE)
-			itemcolor = "#0000FF"
+			itemcolor = COLOR_SLIME_DARK_BLUE
 		if(SLIME_TYPE_SILVER)
-			itemcolor = "#D3D3D3"
+			itemcolor = COLOR_SLIME_SILVER
 		if(SLIME_TYPE_BLUESPACE)
-			itemcolor = "#32CD32"
+			itemcolor = COLOR_SLIME_BLUESPACE
 		if(SLIME_TYPE_SEPIA)
-			itemcolor = "#704214"
+			itemcolor = COLOR_SLIME_SEPIA
 		if(SLIME_TYPE_CERULEAN)
-			itemcolor = "#2956B2"
+			itemcolor = COLOR_SLIME_CERULEAN
 		if(SLIME_TYPE_PYRITE)
-			itemcolor = "#FAFAD2"
+			itemcolor = COLOR_SLIME_PYRITE
 		if(SLIME_TYPE_RED)
-			itemcolor = "#FF0000"
+			itemcolor = COLOR_SLIME_RED
 		if(SLIME_TYPE_GREEN)
-			itemcolor = "#00FF00"
+			itemcolor = COLOR_SLIME_GREEN
 		if(SLIME_TYPE_PINK)
-			itemcolor = "#FF69B4"
+			itemcolor = COLOR_SLIME_PINK
 		if(SLIME_TYPE_GOLD)
-			itemcolor = "#FFD700"
+			itemcolor = COLOR_SLIME_GOLD
 		if(SLIME_TYPE_OIL)
-			itemcolor = "#505050"
+			itemcolor = COLOR_SLIME_OIL
 		if(SLIME_TYPE_BLACK)
-			itemcolor = "#000000"
+			itemcolor = COLOR_SLIME_BLACK
 		if(SLIME_TYPE_LIGHT_PINK)
-			itemcolor = "#FFB6C1"
+			itemcolor = COLOR_SLIME_LIGHT_PINK
 		if(SLIME_TYPE_ADAMANTINE)
-			itemcolor = "#008B8B"
+			itemcolor = COLOR_SLIME_ADAMANTINE
 
 	add_atom_colour(itemcolor, FIXED_COLOUR_PRIORITY)
 	if(uses_process)
