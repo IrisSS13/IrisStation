@@ -110,6 +110,10 @@
 			if(!hunger_disabled) // We do this so if you give a silver transformative extract to a pet slime, we dont override
 				hunger_disabled = 2
 
+		if(SLIME_TYPE_GREEN)
+			var/datum/action/luminescent_transformation/action = new(src)
+			action.Grant(src)
+
 /mob/living/basic/slime/proc/untransform()
 	switch(transformative_effect)
 		if(SLIME_TYPE_RED)
@@ -141,6 +145,10 @@
 		if(SLIME_TYPE_SILVER)
 			if(hunger_disabled == 2)
 				hunger_disabled = FALSE
+
+		if(SLIME_TYPE_GREEN)
+			var/datum/action/luminescent_transformation/action = locate(/datum/action/luminescent_transformation) in actions
+			qdel(action) // There is literally NOTHING that should touch it, so assume its there.
 
 ///Changes the slime's current life state
 /mob/living/basic/slime/set_life_stage(new_life_stage = SLIME_LIFE_STAGE_BABY)
@@ -204,7 +212,7 @@
 	. = ..()
 	if(transformative_effect)
 		var/mutable_appearance/transformative_overlay = mutable_appearance('modular_iris/modules/research/icons/slimecrossing.dmi', "warping", MOB_BELOW_PIGGYBACK_LAYER)
-		var/core_color = "#FFFFFF"
+		var/core_color = COLOR_SLIME_GREY
 		switch(transformative_effect)
 			if(SLIME_TYPE_ORANGE)
 				core_color = COLOR_SLIME_ORANGE
@@ -249,6 +257,40 @@
 
 		transformative_overlay.color = core_color
 		add_overlay(transformative_overlay)
+
+/datum/action/luminescent_transformation
+	name = "Luminescent Evolution"
+	desc = "Permanently transforms you into a luminescent."
+	button_icon = 'icons/hud/screen_alert.dmi'
+	button_icon_state = "slimed"
+
+/datum/action/luminescent_transformation/Trigger(trigger_flags, atom/target)
+	. = ..()
+	if(!.)
+		return FALSE
+
+	var/mob/living/basic/slime/slime = owner
+	var/mob/living/carbon/human/jelly = new(slime.loc)
+
+	jelly.name = slime.name
+	jelly.real_name = slime.real_name
+	jelly.dna.features["mcolor"] = slime.slime_type.rgb_code
+	jelly.dna.features["mcolor2"] = slime.slime_type.rgb_code
+	jelly.dna.features["mcolor3"] = slime.slime_type.rgb_code
+	jelly.underwear = "Nude"
+	jelly.undershirt = "Nude"
+	jelly.socks = "Nude"
+	jelly.set_species(/datum/species/jelly/luminescent)
+
+	// Specifically not checking them because if they are missing we have bigger issues and need those runtimes.
+	var/obj/item/slime_extract/extract = new slime.slime_type.core_type(src)
+	jelly.put_in_active_hand(extract)
+	var/datum/action/innate/integrate_extract/action = locate(/datum/action/innate/integrate_extract) in jelly.actions
+	action.Trigger()
+
+	if(slime.mind)
+		slime.mind.transfer_to(jelly)
+	qdel(slime)
 
 /**
  * transformative extracts:
@@ -333,11 +375,11 @@
 /obj/item/slimecross/transformative/red
 	colour = SLIME_TYPE_RED
 	effect_desc = "Slimes does 10% more damage when feeding and attacking."
-/*
+
 /obj/item/slimecross/transformative/green
 	colour = SLIME_TYPE_GREEN
-	effect_desc = "Grants sentient slimes the ability to become a luminescent at will, once."
-*/
+	effect_desc = "Grants sentient slimes the ability to become a luminescent at will."
+
 /obj/item/slimecross/transformative/pink
 	colour = SLIME_TYPE_PINK
 	effect_desc = "Slimes will speak in common rather than in slime."
