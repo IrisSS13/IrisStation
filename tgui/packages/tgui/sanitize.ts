@@ -376,6 +376,11 @@ const allowedFonts = [
   'verdana',
   'tahoma',
   'georgia',
+  'segoe script',
+  'segoe ui',
+  'comic sans ms',
+  'cursive',
+  'lucida console',
 ];
 
 // Cooldown for admin logs (in milliseconds)
