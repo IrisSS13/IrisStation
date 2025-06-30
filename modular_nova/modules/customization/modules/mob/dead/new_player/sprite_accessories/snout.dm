@@ -73,7 +73,8 @@
 	recommended_species = list(SPECIES_MAMMAL, SPECIES_TAJARAN, SPECIES_HUMANOID)
 
 /datum/sprite_accessory/snouts/mammal/akula
-	recommended_species = list(SPECIES_MAMMAL, SPECIES_AKULA, SPECIES_AQUATIC, SPECIES_HUMANOID)
+// IRIS EDIT: Aquatic Anthromorph compat
+	recommended_species = list(SPECIES_MAMMAL, SPECIES_AKULA, SPECIES_AQUATIC, SPECIES_HUMANOID, SPECIES_AQUAMORPH)
 
 /datum/sprite_accessory/snouts/mammal/bird
 	name = "Beak"
