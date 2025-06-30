@@ -630,7 +630,7 @@
 	name = "Produce Offspring"
 	cooldown_time = 1 MINUTES
 	button_icon_state = "reproduce"
-	chemical_cost = 100
+	chemical_cost = 250
 
 /datum/action/cooldown/borer/produce_offspring/Trigger(trigger_flags, atom/target)
 	. = ..()
