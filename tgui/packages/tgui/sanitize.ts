@@ -312,51 +312,7 @@ const forbiddenAttr = [
 ];
 
 // Performance optimization: Cache compiled regex patterns
-const compiledDangerousPatterns = [
-  /expression\s*\(/i, // CSS expressions
-  /javascript\s*:/i, // JavaScript URLs
-  /vbscript\s*:/i, // VBScript URLs
-  /data\s*:/i, // Data URLs
-  /url\s*\(\s*['"]?\s*javascript\s*:/i, // JavaScript in URLs
-  /url\s*\(\s*['"]?\s*vbscript\s*:/i, // VBScript in URLs
-  /url\s*\(\s*['"]?\s*data\s*:/i, // Data URLs
-  /behavior\s*:/i, // IE behaviors
-  /binding\s*:/i, // Mozilla bindings
-  /-moz-binding\s*:/i, // Mozilla bindings
-  /-webkit-binding\s*:/i, // WebKit bindings
-  /import\s+url\s*\(/i, // CSS imports
-  /@import/i, // CSS imports
-  /@charset/i, // Character set declarations
-  /@namespace/i, // Namespace declarations
-  /@media/i, // Media queries (can be used for timing attacks)
-  /@keyframes/i, // Keyframes (can be used for timing attacks)
-  /@supports/i, // Feature queries
-  /@document/i, // Document rules
-  /@page/i, // Page rules
-  /@font-face/i, // Font face rules
-  /@counter-style/i, // Counter style rules
-  /@font-feature-values/i, // Font feature values
-  /@property/i, // CSS custom properties
-  // External resource blocking
-  /url\s*\(\s*['"]?\s*https?:\/\//i, // External HTTP URLs
-  /url\s*\(\s*['"]?\s*file:\/\//i, // File URLs
-  /url\s*\(\s*['"]?\s*ftp:\/\//i, // FTP URLs
-  /url\s*\(\s*['"]?\s*tel:\/\//i, // Tel URLs
-  /url\s*\(\s*['"]?\s*mailto:\/\//i, // Mailto URLs
-  // Animation restrictions
-  /animation\s*:\s*[^;]*infinite/i, // Infinite animations
-  /animation-iteration-count\s*:\s*infinite/i, // Infinite animation iterations
-  // Layout constraints
-  /z-index\s*:\s*\d{4,}/i, // High z-index values (>999)
-  /position\s*:\s*fixed/i, // Fixed positioning
-  /position\s*:\s*absolute/i, // Absolute positioning
-  /width\s*:\s*\d{4,}px/i, // Very wide elements (>999px)
-  /height\s*:\s*\d{4,}px/i, // Very tall elements (>999px)
-  /min-width\s*:\s*\d{4,}px/i, // Very wide minimums
-  /min-height\s*:\s*\d{4,}px/i, // Very tall minimums
-  /max-width\s*:\s*\d{4,}px/i, // Very wide maximums
-  /max-height\s*:\s*\d{4,}px/i, // Very tall maximums
-];
+const compiledDangerousPatterns = new Set(dangerousCSSPatterns);
 
 // Performance optimization: Cache dangerous animations as Set for O(1) lookup
 const dangerousAnimationsSet = new Set(dangerousAnimations);
