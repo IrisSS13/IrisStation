@@ -15,10 +15,6 @@
 	INVOKE_ASYNC(src, PROC_REF(borerblast))
 
 /datum/station_trait/borereggs/proc/borerblast()
-    var/list/borerblast = list(
-            /obj/effect/mob_spawn/ghost_role/borer_egg,
-            /obj/effect/mob_spawn/ghost_role/borer_egg/empowered,
-    )
 
     for(var/i in 1 to 3)
         spawn_borer_egg()
