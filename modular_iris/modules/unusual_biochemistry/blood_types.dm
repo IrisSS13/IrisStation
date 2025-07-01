@@ -7,3 +7,12 @@
 		/datum/blood_type/haemoglobin,
 		/datum/blood_type/human/o_minus,
 	)
+
+/datum/blood_type/haemotoxin
+	name = "Haemotoxin"
+	color = "#614d7d"
+	desc = "Want some zest? Your blood can be restored with toxins. Typically found in venomous animals, such as snakes and spiders. It's also a cute purple colour."
+	restoration_chem = /datum/reagent/toxin
+	compatible_types = list(
+		/datum/blood_type/haemotoxin,
+	)
