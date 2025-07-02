@@ -292,9 +292,6 @@
 	if(locate(reagent_choice) in cortical_owner.blacklisted_chemicals)
 		owner.balloon_alert(owner, "chemical blacklisted")
 		return
-	if(!(reagent_choice.chemical_flags & REAGENT_CAN_BE_SYNTHESIZED))
-		owner.balloon_alert(owner, "cannot learn [initial(reagent_choice.name)]")
-		return
 	cortical_owner.chemical_evolution -= chemical_evo_points
 	cortical_owner.known_chemicals += reagent_choice.type
 	cortical_owner.blood_chems_learned++
