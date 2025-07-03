@@ -77,14 +77,6 @@
 	// At this point it means the attack was "successful", or at least unhandled, in some way
 	// This can mean nothing happened, this can mean the target took damage, etc.
 
-	if(user.client && isitem(target))
-		if(isnull(user.get_inactive_held_item()))
-			SStutorials.suggest_tutorial(user, /datum/tutorial/switch_hands, modifiers)
-		else
-			SStutorials.suggest_tutorial(user, /datum/tutorial/drop, modifiers)
-
-	return TRUE
-
 /// Called when the item is in the active hand, and clicked; alternately, there is an 'activate held object' verb or you can hit pagedown.
 /obj/item/proc/attack_self(mob/user, modifiers)
 	if(SEND_SIGNAL(src, COMSIG_ITEM_ATTACK_SELF, user) & COMPONENT_CANCEL_ATTACK_CHAIN)
