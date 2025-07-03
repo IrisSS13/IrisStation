@@ -196,9 +196,6 @@ GLOBAL_LIST_INIT(organ_process_order, list(
 	//end iris gizzard edit
 	))
 
-//Defines for Golem Species IDs
-#define SPECIES_GOLEM "golem"
-
 // Defines for used in creating "perks" for the species preference pages.
 /// A key that designates UI icon displayed on the perk.
 #define SPECIES_PERK_ICON "ui_icon"
