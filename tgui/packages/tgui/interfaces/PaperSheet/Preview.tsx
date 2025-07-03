@@ -322,7 +322,11 @@ export class PreviewView extends Component<PreviewViewProps> {
     const parsedText = this.runMarkedDefault(rawText);
 
     // Third, we sanitize the text of html
-    const sanitizedText = sanitizeText(parsedText, advanced_html);
+    const sanitizedResult = sanitizeText(parsedText, advanced_html);
+    const sanitizedText =
+      typeof sanitizedResult === 'object' && sanitizedResult !== null
+        ? sanitizedResult.sanitized
+        : sanitizedResult;
 
     // Fourth we replace the [__] with fields
     const fieldedText = this.createFields(

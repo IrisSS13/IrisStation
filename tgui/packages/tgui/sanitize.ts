@@ -339,96 +339,250 @@ const allowedFonts = [
   'lucida console',
 ];
 
-// Cooldown for admin logs (in milliseconds)
-const ADMIN_LOG_COOLDOWN = 5000; // 5 seconds
-// Per-player log cache: { [playerId]: { [message]: timestamp } }
-const recentAdminLogs: Record<string, Record<string, number>> = {};
-// Global log cache for system/global logs
-const recentGlobalAdminLogs: Record<string, number> = {};
+// Performance monitoring
+let sanitizationStats = {
+  totalSanitizations: 0,
+  blockedContent: 0,
+  errors: 0,
+  totalProcessingTime: 0,
+};
 
-// Admin logging function
-function logAdminMessage(
-  message: string,
-  level: 'info' | 'warn' | 'error' = 'info',
-  playerId?: string, // Optional per-player cooldown
-) {
-  try {
-    const now = Date.now();
-    const key = `${level}:${message}`;
-    if (playerId) {
-      // Per-player cooldown logic
-      if (!recentAdminLogs[playerId]) recentAdminLogs[playerId] = {};
-      if (
-        recentAdminLogs[playerId][key] &&
-        now - recentAdminLogs[playerId][key] < ADMIN_LOG_COOLDOWN
-      ) {
-        return; // Skip logging due to cooldown
-      }
-      recentAdminLogs[playerId][key] = now;
-    } else {
-      // Global cooldown logic for system/global logs
-      if (
-        recentGlobalAdminLogs[key] &&
-        now - recentGlobalAdminLogs[key] < ADMIN_LOG_COOLDOWN
-      ) {
-        return; // Skip logging due to cooldown
-      }
-      recentGlobalAdminLogs[key] = now;
-    }
-    // Send message to BYOND for admin logging using proper tgui message system
-    if (typeof Byond !== 'undefined' && Byond.sendMessage) {
-      // Use the proper tgui message system to communicate with DM side
-      Byond.sendMessage({
-        type: 'admin_log',
-        payload: {
-          message: `[HTML_SANITIZE] ${message}`,
-          level: level,
-        },
-      });
-    }
-    // Also log to console for development
-    if (process.env.NODE_ENV === 'development') {
-      console.log(`[HTML_SANITIZE] ${message}`);
-    }
-  } catch (error) {
-    // Fallback to console if BYOND logging fails
-    console.warn(`[HTML_SANITIZE] Failed to log admin message: ${error}`);
-  }
-}
-
-// Error handling wrapper
-function safeExecute<T>(fn: () => T, fallback: T, context: string): T {
-  try {
-    return fn();
-  } catch (error) {
-    sanitizationStats.errors++;
-    logAdminMessage(`Error in ${context}: ${error}`, 'error');
-    return fallback;
-  }
+/**
+ * Get sanitization statistics
+ * @returns Current sanitization statistics
+ */
+export function getSanitizationStats() {
+  return { ...sanitizationStats };
 }
 
 /**
- * Comprehensive error handling wrapper with detailed logging
- * @param fn - Function to execute
- * @param fallback - Fallback value if function fails
- * @param context - Context for error logging
- * @param input - Input data for context
- * @returns Result of function or fallback
+ * Reset sanitization statistics
  */
-function safeExecuteWithContext<T>(
-  fn: () => T,
-  fallback: T,
-  context: string,
-  input?: string,
-): T {
-  try {
-    return fn();
-  } catch (error) {
-    sanitizationStats.errors++;
-    const inputPreview = input ? ` (input: ${input.substring(0, 100)}...)` : '';
-    logAdminMessage(`Error in ${context}${inputPreview}: ${error}`, 'error');
-    return fallback;
+export function resetSanitizationStats() {
+  sanitizationStats = {
+    totalSanitizations: 0,
+    blockedContent: 0,
+    errors: 0,
+    totalProcessingTime: 0,
+  };
+}
+
+/**
+ * Update configuration at runtime
+ * @param newConfig - New configuration options
+ */
+export function updateSanitizeConfig(newConfig: Partial<SanitizeConfig>) {
+  Object.assign(defaultConfig, newConfig);
+}
+
+/**
+ * Feed it a string and it should spit out a sanitized version.
+ *
+ * @param input - Input HTML string to sanitize
+ * @param advHtml - Flag to enable/disable advanced HTML
+ * @param tags - List of allowed HTML tags
+ * @param forbidAttr - List of forbidden HTML attributes
+ * @param advTags - List of advanced HTML tags allowed for trusted sources
+ * @param config - Optional configuration overrides
+ */
+export function sanitizeText(
+  input: string,
+  advHtml = false,
+  tags = defTag,
+  forbidAttr = forbiddenAttr,
+  advTags = advTag,
+  config: Partial<SanitizeConfig> = {},
+) {
+  const startTime = performance.now();
+
+  let blockedItems: string[] = [];
+
+  for (const attr of forbidAttr) {
+    const regex = new RegExp(`${attr}\\s*=`, 'i');
+    if (regex.test(input)) {
+      blockedItems.push(`Blocked attribute: ${attr}`);
+    }
   }
+
+  return safeExecuteWithContext(
+    () => {
+      if (!isValidInput(input)) {
+        return { sanitized: '', blocked: false, blockedSummary: '' };
+      }
+      const finalConfig = { ...defaultConfig, ...config };
+      if (advHtml) {
+        tags = tags.concat(advTags);
+      }
+      const sanitized = DOMPurify.sanitize(input, {
+        ALLOWED_TAGS: tags,
+        ALLOWED_ATTR: safeAttr,
+        FORBID_ATTR: forbidAttr,
+      });
+      const finalResult = postProcessStyles(sanitized, blockedItems);
+      // Update statistics
+      sanitizationStats.totalSanitizations++;
+      const processingTime = performance.now() - startTime;
+      sanitizationStats.totalProcessingTime += processingTime;
+      if (finalConfig.enableLogging && input !== finalResult) {
+        const originalLength = input.length;
+        const finalLength = finalResult.length;
+        const removedLength = originalLength - finalLength;
+        if (removedLength > 0) {
+          sanitizationStats.blockedContent++;
+        }
+      }
+      // Log performance warnings for slow operations
+      if (processingTime > 100) {
+        // More than 100ms
+        blockedItems.push(
+          `Slow sanitization detected: ${processingTime.toFixed(2)}ms for ${input.length} chars`,
+        );
+      }
+      return {
+        sanitized: finalResult,
+        blocked: blockedItems.length > 0,
+        blockedSummary: blockedItems.join('; '),
+      };
+    },
+    { sanitized: '', blocked: false, blockedSummary: '' },
+    'sanitizeText',
+    input,
+  );
+}
+
+/**
+ * Validates if a CSS property is safe to use
+ * @param property - The CSS property name
+ * @returns true if the property is safe
+ */
+function isSafeCSSProperty(property: string): boolean {
+  return safeExecute(
+    () => {
+      if (!property || typeof property !== 'string') {
+        return false;
+      }
+      return safeCSSPropertiesSet.has(property.toLowerCase().trim());
+    },
+    false,
+    'isSafeCSSProperty',
+  );
+}
+
+/**
+ * Validates and sanitizes a style attribute
+ * @param style - The style attribute value
+ * @param blockedItems - Array to collect blocked CSS/font-family issues
+ * @returns sanitized style string or empty string if unsafe
+ *
+ * This function is responsible for parsing the style attribute,
+ * validating each property and value, and applying special rules
+ * (such as font-family restrictions). It is the single source of truth
+ * for what CSS is allowed in sanitized HTML.
+ */
+function validateAndSanitizeStyle(
+  style: string,
+  blockedItems: string[],
+): string {
+  return safeExecute(
+    () => {
+      if (!style || typeof style !== 'string') {
+        return '';
+      }
+      const stylePairs = style
+        .split(';')
+        .map((pair) => pair.trim())
+        .filter(Boolean);
+      const safePairs: string[] = [];
+      for (const pair of stylePairs) {
+        const [propertyRaw, ...valueParts] = pair.split(':');
+        if (!propertyRaw || valueParts.length === 0) continue;
+        const property = propertyRaw.trim().toLowerCase();
+        const value = valueParts.join(':').trim();
+        // Check full property: value pair for dangerous patterns
+        const fullPair = `${property}: ${value}`;
+        let dangerous = false;
+        for (const pattern of compiledDangerousPatterns) {
+          if (pattern.test(fullPair)) {
+            blockedItems.push(`Blocked CSS property: ${property}`);
+            dangerous = true;
+            break;
+          }
+        }
+        // Also check the value alone for dangerous patterns
+        if (!dangerous) {
+          for (const pattern of compiledDangerousPatterns) {
+            if (pattern.test(value)) {
+              blockedItems.push(`Blocked CSS value: ${property}: ${value}`);
+              dangerous = true;
+              break;
+            }
+          }
+        }
+        if (dangerous) continue;
+        if (property === 'font-family') {
+          const fonts = value.split(',').map((f) =>
+            f
+              .trim()
+              .replace(/^['"]|['"]$/g, '')
+              .toLowerCase(),
+          );
+          let allAllowed = true;
+          for (const font of fonts) {
+            if (!allowedFonts.includes(font)) {
+              allAllowed = false;
+            }
+          }
+          if (!allAllowed) {
+            blockedItems.push(`Blocked font-family: ${value}`);
+            continue; // skip this property
+          }
+        }
+        if (
+          property &&
+          value &&
+          isSafeCSSProperty(property) &&
+          isSafeCSSValue(value)
+        ) {
+          safePairs.push(`${property}: ${value}`);
+        } else {
+          blockedItems.push(`Blocked CSS property: ${property}`);
+        }
+      }
+      return safePairs.join('; ');
+    },
+    '',
+    'validateAndSanitizeStyle',
+  );
+}
+
+/**
+ * Post-processes HTML to validate style attributes
+ * @param html - The HTML string to process
+ * @param blockedItems - Array to collect blocked CSS/font-family issues
+ * @returns HTML with validated style attributes
+ */
+function postProcessStyles(html: string, blockedItems: string[]): string {
+  return safeExecute(
+    () => {
+      if (!html || typeof html !== 'string') {
+        return html;
+      }
+
+      // Simple regex to find and validate style attributes
+      return html.replace(
+        /style\s*=\s*["']([^"']*)["']/gi,
+        (match, styleContent) => {
+          const sanitizedStyle = validateAndSanitizeStyle(
+            styleContent,
+            blockedItems,
+          );
+          return sanitizedStyle ? `style="${sanitizedStyle}"` : '';
+        },
+      );
+    },
+    html,
+    'postProcessStyles',
+  );
 }
 
 /**
@@ -438,7 +592,6 @@ function safeExecuteWithContext<T>(
  */
 function isValidInput(input: unknown): input is string {
   if (typeof input !== 'string') {
-    logAdminMessage(`Invalid input type: ${typeof input}`, 'warn');
     return false;
   }
 
@@ -448,7 +601,6 @@ function isValidInput(input: unknown): input is string {
 
   if (input.length > 100000) {
     // 100KB limit
-    logAdminMessage(`Input too large: ${input.length} characters`, 'warn');
     return false;
   }
 
@@ -485,215 +637,9 @@ export function getSanitizationSummary() {
 }
 
 /**
- * Validates if a CSS property is safe to use
- * @param property - The CSS property name
- * @returns true if the property is safe
- */
-function isSafeCSSProperty(property: string): boolean {
-  return safeExecute(
-    () => {
-      if (!property || typeof property !== 'string') {
-        return false;
-      }
-      return safeCSSPropertiesSet.has(property.toLowerCase().trim());
-    },
-    false,
-    'isSafeCSSProperty',
-  );
-}
-
-/**
- * Validates and sanitizes a style attribute
- * @param style - The style attribute value
- * @returns sanitized style string or empty string if unsafe
- *
- * This function is responsible for parsing the style attribute,
- * validating each property and value, and applying special rules
- * (such as font-family restrictions). It is the single source of truth
- * for what CSS is allowed in sanitized HTML.
- */
-function validateAndSanitizeStyle(style: string): string {
-  return safeExecute(
-    () => {
-      if (!style || typeof style !== 'string') {
-        return '';
-      }
-      const stylePairs = style
-        .split(';')
-        .map((pair) => pair.trim())
-        .filter(Boolean);
-      const safePairs: string[] = [];
-      for (const pair of stylePairs) {
-        const [propertyRaw, ...valueParts] = pair.split(':');
-        if (!propertyRaw || valueParts.length === 0) continue;
-        const property = propertyRaw.trim().toLowerCase();
-        const value = valueParts.join(':').trim();
-        if (property === 'font-family') {
-          const fonts = value.split(',').map((f) =>
-            f
-              .trim()
-              .replace(/^['"]|['"]$/g, '')
-              .toLowerCase(),
-          );
-          let allAllowed = true;
-          for (const font of fonts) {
-            if (!allowedFonts.includes(font)) {
-              allAllowed = false;
-            }
-          }
-          if (!allAllowed) {
-            continue; // skip this property
-          }
-        }
-        if (
-          property &&
-          value &&
-          isSafeCSSProperty(property) &&
-          isSafeCSSValue(value)
-        ) {
-          safePairs.push(`${property}: ${value}`);
-        }
-      }
-      return safePairs.join('; ');
-    },
-    '',
-    'validateAndSanitizeStyle',
-  );
-}
-
-/**
- * Post-processes HTML to validate style attributes
- * @param html - The HTML string to process
- * @returns HTML with validated style attributes
- */
-function postProcessStyles(html: string): string {
-  return safeExecute(
-    () => {
-      if (!html || typeof html !== 'string') {
-        return html;
-      }
-
-      // Simple regex to find and validate style attributes
-      return html.replace(
-        /style\s*=\s*["']([^"']*)["']/gi,
-        (match, styleContent) => {
-          const sanitizedStyle = validateAndSanitizeStyle(styleContent);
-          return sanitizedStyle ? `style="${sanitizedStyle}"` : '';
-        },
-      );
-    },
-    html,
-    'postProcessStyles',
-  );
-}
-
-// Performance monitoring
-let sanitizationStats = {
-  totalSanitizations: 0,
-  blockedContent: 0,
-  errors: 0,
-  totalProcessingTime: 0,
-};
-
-/**
- * Get sanitization statistics
- * @returns Current sanitization statistics
- */
-export function getSanitizationStats() {
-  return { ...sanitizationStats };
-}
-
-/**
- * Reset sanitization statistics
- */
-export function resetSanitizationStats() {
-  sanitizationStats = {
-    totalSanitizations: 0,
-    blockedContent: 0,
-    errors: 0,
-    totalProcessingTime: 0,
-  };
-}
-
-/**
- * Update configuration at runtime
- * @param newConfig - New configuration options
- */
-export function updateSanitizeConfig(newConfig: Partial<SanitizeConfig>) {
-  Object.assign(defaultConfig, newConfig);
-  logAdminMessage(
-    `Updated sanitization config: ${JSON.stringify(newConfig)}`,
-    'info',
-  );
-}
-
-/**
- * Feed it a string and it should spit out a sanitized version.
- *
- * @param input - Input HTML string to sanitize
- * @param advHtml - Flag to enable/disable advanced HTML
- * @param tags - List of allowed HTML tags
- * @param forbidAttr - List of forbidden HTML attributes
- * @param advTags - List of advanced HTML tags allowed for trusted sources
- * @param config - Optional configuration overrides
- */
-export function sanitizeText(
-  input: string,
-  advHtml = false,
-  tags = defTag,
-  forbidAttr = forbiddenAttr,
-  advTags = advTag,
-  config: Partial<SanitizeConfig> = {},
-) {
-  const startTime = performance.now();
-  return safeExecuteWithContext(
-    () => {
-      if (!isValidInput(input)) {
-        return '';
-      }
-      const finalConfig = { ...defaultConfig, ...config };
-      if (advHtml) {
-        tags = tags.concat(advTags);
-      }
-      const sanitized = DOMPurify.sanitize(input, {
-        ALLOWED_TAGS: tags,
-        ALLOWED_ATTR: safeAttr,
-        FORBID_ATTR: forbidAttr,
-      });
-      const finalResult = postProcessStyles(sanitized);
-      // Update statistics
-      sanitizationStats.totalSanitizations++;
-      const processingTime = performance.now() - startTime;
-      sanitizationStats.totalProcessingTime += processingTime;
-      if (finalConfig.enableLogging && input !== finalResult) {
-        const originalLength = input.length;
-        const finalLength = finalResult.length;
-        const removedLength = originalLength - finalLength;
-        if (removedLength > 0) {
-          sanitizationStats.blockedContent++;
-        }
-      }
-      // Log performance warnings for slow operations (optional, can keep or remove)
-      // if (processingTime > 100) {
-      //   // More than 100ms
-      //   logAdminMessage(
-      //     `Slow sanitization detected: ${processingTime.toFixed(2)}ms for ${input.length} chars`,
-      //     'warn',
-      //   );
-      // }
-      return finalResult;
-    },
-    '',
-    'sanitizeText',
-    input,
-  );
-}
-
-/**
  * Validates if a CSS value is safe to use
  * @param value - The CSS property value
  * @returns true if the value is safe
- * Logging is handled at the summary level in validateAndSanitizeStyle.
  */
 function isSafeCSSValue(value: string): boolean {
   return safeExecute(
@@ -705,19 +651,16 @@ function isSafeCSSValue(value: string): boolean {
       // Check for dangerous patterns using compiled regex
       for (const pattern of compiledDangerousPatterns) {
         if (pattern.test(lowerValue)) {
-          // Logging handled at summary level in validateAndSanitizeStyle
           return false;
         }
       }
       // Block overly long values (potential DoS)
       if (value.length > defaultConfig.maxStyleLength) {
-        // Logging handled at summary level in validateAndSanitizeStyle
         return false;
       }
       // Check for dangerous animations using Set for O(1) lookup
       for (const animation of dangerousAnimationsSet) {
         if (lowerValue.includes(animation)) {
-          // Logging handled at summary level in validateAndSanitizeStyle
           return false;
         }
       }
@@ -744,7 +687,6 @@ function isSafeCSSValue(value: string): boolean {
  * Validates if a URL is safe to use
  * @param url - The URL string
  * @returns true if the URL is safe
- * Logging is handled at the summary level in validateAndSanitizeStyle.
  */
 function isSafeURL(url: string): boolean {
   return safeExecute(
@@ -752,7 +694,6 @@ function isSafeURL(url: string): boolean {
       // Extract URL from url() function
       const urlMatch = url.match(/url\s*\(\s*['"]?([^'"]*)['"]?\s*\)/i);
       if (!urlMatch) {
-        // Logging handled at summary level
         return false;
       }
       const actualUrl = urlMatch[1];
@@ -768,12 +709,10 @@ function isSafeURL(url: string): boolean {
       if (actualUrl.startsWith('data:image/')) {
         const safeTypes = ['png', 'jpg', 'jpeg', 'gif', 'webp', 'svg'];
         const isSafe = safeTypes.some((type) => actualUrl.includes(type));
-        // Logging handled at summary level
         return isSafe;
       }
       // Block all external URLs for maximum security
       if (actualUrl.startsWith('http://') || actualUrl.startsWith('https://')) {
-        // Logging handled at summary level
         return false;
       }
       // Block other URL schemes
@@ -783,7 +722,6 @@ function isSafeURL(url: string): boolean {
         actualUrl.startsWith('tel://') ||
         actualUrl.startsWith('mailto://')
       ) {
-        // Logging handled at summary level
         return false;
       }
       return true;
@@ -797,7 +735,6 @@ function isSafeURL(url: string): boolean {
  * Validates if a dimension value is safe
  * @param value - The dimension value
  * @returns true if the dimension is safe
- * Logging is handled at the summary level in validateAndSanitizeStyle.
  */
 function isSafeDimension(value: string): boolean {
   return safeExecute(
@@ -810,7 +747,6 @@ function isSafeDimension(value: string): boolean {
       const numericValue = parseFloat(match[1]);
       const isSafe =
         numericValue <= defaultConfig.maxDimension && numericValue >= 0;
-      // Logging handled at summary level
       return isSafe;
     },
     false,
@@ -822,7 +758,6 @@ function isSafeDimension(value: string): boolean {
  * Validates if a z-index value is safe
  * @param value - The z-index value
  * @returns true if the z-index is safe
- * Logging is handled at the summary level in validateAndSanitizeStyle.
  */
 function isSafeZIndex(value: string): boolean {
   return safeExecute(
@@ -835,10 +770,33 @@ function isSafeZIndex(value: string): boolean {
       const numericValue = parseInt(match[1], 10);
       const isSafe =
         numericValue <= defaultConfig.maxZIndex && numericValue >= 0;
-      // Logging handled at summary level
       return isSafe;
     },
     false,
     'isSafeZIndex',
   );
+}
+
+// Add back safeExecute and safeExecuteWithContext wrappers:
+function safeExecute<T>(fn: () => T, fallback: T, context: string): T {
+  try {
+    return fn();
+  } catch (error) {
+    sanitizationStats.errors++;
+    return fallback;
+  }
+}
+
+function safeExecuteWithContext<T>(
+  fn: () => T,
+  fallback: T,
+  context: string,
+  input?: string,
+): T {
+  try {
+    return fn();
+  } catch (error) {
+    sanitizationStats.errors++;
+    return fallback;
+  }
 }
