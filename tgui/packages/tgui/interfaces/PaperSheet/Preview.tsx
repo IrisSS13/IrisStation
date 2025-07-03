@@ -152,8 +152,8 @@ export class PreviewView extends Component<PreviewViewProps> {
 
   shouldComponentUpdate(nextProps: Readonly<PreviewViewProps>): boolean {
     return (
-      this.props.canEdit !== nextProps.canEdit
-      || this.props.textArea !== nextProps.textArea
+      this.props.canEdit !== nextProps.canEdit ||
+      this.props.textArea !== nextProps.textArea
     );
   }
 
