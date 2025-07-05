@@ -70,8 +70,16 @@
 
 		if(powerlevel < SLIME_MAX_POWER && SPT_PROB(30-powerlevel*2, seconds_per_tick))
 			powerlevel++
+			// IRIS ADDITION START
+			if(transformative_effect == SLIME_TYPE_YELLOW)
+				powerlevel = min(powerlevel + 2, SLIME_MAX_POWER)
+			// IRIS ADDITION END
 
 	else if (powerlevel < SLIME_MEDIUM_POWER && SLIME_HUNGER_NUTRITION <= nutrition && SPT_PROB(25-powerlevel*5, seconds_per_tick))
 		powerlevel++
+		// IRIS ADDITION START
+		if(transformative_effect == SLIME_TYPE_YELLOW)
+			powerlevel = min(powerlevel + 2, SLIME_MAX_POWER)
+		// IRIS ADDITION END
 
 	update_mob_action_buttons()
