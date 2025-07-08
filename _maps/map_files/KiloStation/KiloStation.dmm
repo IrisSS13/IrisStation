@@ -3338,8 +3338,11 @@
 /area/station/maintenance/starboard/aft)
 "baK" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/light/small/directional/east,
+/obj/effect/landmark/generic_maintenance_landmark,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/station/maintenance/port/greater)
 "baM" = (
@@ -20205,11 +20208,11 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
-/obj/structure/noticeboard/directional/east,
 /obj/machinery/camera/directional/east{
 	c_tag = "Detective's Office";
 	name = "detective camera"
 	},
+/obj/structure/detectiveboard/directional/east,
 /turf/open/floor/wood,
 /area/station/security/detectives_office)
 "gdY" = (
@@ -27646,14 +27649,6 @@
 /obj/structure/sign/poster/contraband/missing_gloves,
 /turf/closed/wall/rust,
 /area/station/maintenance/port/fore)
-"ikZ" = (
-/obj/effect/turf_decal/bot,
-/obj/structure/closet/crate{
-	icon_state = "crateopen"
-	},
-/obj/item/stock_parts/capacitor,
-/turf/open/floor/plating,
-/area/station/maintenance/port/greater)
 "ill" = (
 /obj/machinery/computer/teleporter{
 	dir = 8
@@ -28446,6 +28441,10 @@
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/plating,
 /area/station/maintenance/port/greater)
+"ivQ" = (
+/obj/structure/water_source/puddle,
+/turf/open/floor/grass,
+/area/station/service/hydroponics/garden)
 "ivU" = (
 /obj/structure/closet/emcloset,
 /turf/open/floor/plating,
@@ -33872,10 +33871,11 @@
 /area/station/maintenance/starboard)
 "kan" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 1
+/obj/structure/closet/crate{
+	icon_state = "crateopen"
 	},
-/obj/effect/landmark/generic_maintenance_landmark,
+/obj/item/stock_parts/capacitor,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/station/maintenance/port/greater)
 "kat" = (
@@ -45422,6 +45422,7 @@
 	},
 /obj/effect/turf_decal/tile/yellow/anticorner/contrasted,
 /obj/effect/turf_decal/tile/neutral,
+/obj/machinery/light/directional/south,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
 "nJF" = (
@@ -49930,12 +49931,6 @@
 	},
 /turf/open/misc/asteroid,
 /area/space/nearstation)
-"phV" = (
-/obj/machinery/light/directional/south,
-/obj/effect/turf_decal/tile/yellow/half/contrasted,
-/obj/effect/turf_decal/tile/neutral,
-/turf/open/floor/iron,
-/area/station/hallway/primary/central)
 "phX" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
@@ -70573,7 +70568,6 @@
 "vsq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating,
 /area/station/maintenance/port/greater)
@@ -78126,6 +78120,7 @@
 /obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
 	dir = 8
 	},
+/obj/machinery/fax/auto_name,
 /turf/open/floor/iron/dark,
 /area/station/hallway/secondary/service)
 "xBs" = (
@@ -92977,7 +92972,7 @@ vjh
 ycx
 iFI
 vjh
-ikZ
+vjh
 vsq
 vjh
 vjh
@@ -106313,7 +106308,7 @@ efG
 efG
 efG
 vrd
-dfD
+ivQ
 olv
 vGs
 aTb
@@ -113552,7 +113547,7 @@ tRL
 hfp
 mXI
 fNe
-phV
+jhz
 bax
 bax
 bax
