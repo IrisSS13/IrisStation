@@ -1,7 +1,7 @@
 /datum/quirk/item_quirk/stowaway
 	name = "Stowaway"
-	desc = "You wake up inside a random locker with only a crude fake for an ID card. You are not a crewmember or on any Nanotrasen records. You also start with a toolbox in case you are stuck."
-	value = 1984
+	desc = "You wake up inside a random locker with only a crude fake for an ID card. You are not on the crew manifest or on any Nanotrasen records. You also start with a toolbox in case you get stuck."
+	value = 2
 	quirk_flags = QUIRK_HUMAN_ONLY | QUIRK_HIDE_FROM_SCAN | QUIRK_EXCLUDES_GHOSTROLES
 	icon = FA_ICON_SUITCASE_ROLLING
 	medical_record_text = "Patient has a knack for turning up where they aren't supposed to."
