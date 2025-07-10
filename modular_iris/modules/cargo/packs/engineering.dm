@@ -6,4 +6,4 @@
 	contains = list(/obj/item/circuitboard/machine/circulator = 2,
 					/obj/item/circuitboard/machine/thermoelectric_generator,
 				)
-	crate_name= "bluespace artillery parts crate"
+	crate_name= "thermo-electric generator parts crate"
