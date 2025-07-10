@@ -17,7 +17,7 @@
 
 /datum/species/nabber
 	id = SPECIES_NABBER
-	name = "Giant Armored Serpentid"
+	name = "Nabber"
 	held_accessory = null
 	held_accessory_path = 'modular_iris/monke_ports/gas/icons/bodyparts/bodypart_overlays.dmi'
 	inherent_traits = list(
@@ -86,7 +86,7 @@
 	nabber.physiology.armor = nabber.physiology.armor.add_other_armor(/datum/armor/nabbers)
 
 /datum/species/nabber/get_species_description()
-	return "(PH) PUT IRIS LORE HERE IDK"
+	return "(WIP) Hailing from an utterly devastated tomb world littered with advanced technology, this species evolved to survive in absolutely freezing temperatures and the vaccum of space, combined with curious fascination with space construction and spacefaring makes them an unusual recent addition to the list of spacefaring species.",
 
 /datum/species/nabber/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only)
 	. = ..()
@@ -134,49 +134,56 @@
 		SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
 		SPECIES_PERK_ICON = "dna",
 		SPECIES_PERK_NAME = "Inhuman Proportions",
-		SPECIES_PERK_DESC = "Giant Armoured Serpentids are, unfortunately, too different to wear a majority of traditional armor, MODsuits and goggles!."
+		SPECIES_PERK_DESC = "Nabbers are, unfortunately, too different to wear a majority of traditional armor, MODsuits and goggles!."
 	))
 
 	perk_descriptions += list(list(
 		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 		SPECIES_PERK_ICON = "dna",
 		SPECIES_PERK_NAME = "Robust Chitin",
-		SPECIES_PERK_DESC = "Giant Armoured Serpentids have a robust external chitin layer that protects them from a majority of brute damage sources."
+		SPECIES_PERK_DESC = "Nabbers have a robust external chitin layer that protects them from a majority of brute damage sources."
 	))
 
 	perk_descriptions += list(list(
 		SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
 		SPECIES_PERK_ICON = "star-of-life",
 		SPECIES_PERK_NAME = "Chitin-Breather",
-		SPECIES_PERK_DESC = "Due to the fact Giant Armoured Serpentids (Nabbers) rely on spiracles beneath their chitin to breathe, when set on fire - they are unable to intake oxygen!"
+		SPECIES_PERK_DESC = "Due to the fact Nabbers rely on spiracles beneath their chitin to breathe, when set on fire - they are unable to intake oxygen!"
 	))
 
 	perk_descriptions += list(list(
 		SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
 		SPECIES_PERK_ICON = "star-of-life",
 		SPECIES_PERK_NAME = "Flammable Chitin",
-		SPECIES_PERK_DESC = "Due to the photoreflectivity and nature of their chitin, Giant Armoured Serpentids are known to be EXTREMELY burn weak, taking almost double damage from all sources, and combusting on exposure to open flame or hot enough atmospherics."
+		SPECIES_PERK_DESC = "Due to the photoreflectivity and nature of their chitin, Nabbers are known to be EXTREMELY burn weak, taking almost double damage from all sources, and combusting on exposure to open flame or hot enough atmospherics."
 	))
 
 	perk_descriptions += list(list(
 		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 		SPECIES_PERK_ICON = "user-plus",
 		SPECIES_PERK_NAME = "Nictating Membrane",
-		SPECIES_PERK_DESC = "Giant Armoured Serpentids have a secondary membrane in their eyes that allows them to shield their sensitive vision from bright lights."
+		SPECIES_PERK_DESC = "Nabbers have a secondary membrane in their eyes that allows them to shield their sensitive vision from bright lights."
 	))
 
 	perk_descriptions += list(list(
 		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 		SPECIES_PERK_ICON = "user-plus",
 		SPECIES_PERK_NAME = "Mantid Bladearms",
-		SPECIES_PERK_DESC = "Giant Armoured Serpentids have two sets of arms - with the upper Bladearms requiring a majority of their haemolyph to remain active and mobile. These are dangerous weapons, and are treated by Security as such!"
+		SPECIES_PERK_DESC = "Nabbers have two sets of arms - with the upper Bladearms requiring a majority of their haemolyph to remain active and mobile. These are dangerous weapons, and are treated by Security as such!"
 	))
 
 	perk_descriptions += list(list(
 		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 		SPECIES_PERK_ICON = "user-plus",
 		SPECIES_PERK_NAME = "Natural Electrochromic Chitin",
-		SPECIES_PERK_DESC = "Giant Armoured Serpentids have naturally-electrochromic chitin. Easily disrupted by grounding to any object they touch, they can remain mostly invisible, so long as they are not disturbed nor interact with their surroundings."
+		SPECIES_PERK_DESC = "Nabbers have naturally-electrochromic chitin. Easily disrupted by grounding to any object they touch, they can remain mostly invisible, so long as they are not disturbed nor interact with their surroundings."
+	))
+
+	perk_descriptions += list(list(
+		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+		SPECIES_PERK_ICON = "user-plus",
+		SPECIES_PERK_NAME = "Plasma Healer",
+		SPECIES_PERK_DESC = "Nabber lungs and blood were designed for processing plasma, they are immune taking damage from breathing it and heal from it's liquid form."
 	))
 
 	return perk_descriptions

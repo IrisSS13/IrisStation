@@ -32,7 +32,7 @@
 
 /obj/item/organ/eyes/nabber
 	name = "nictating eyes"
-	desc = "Small orange orbs. With pair welding shield linses."
+	desc = "Small orange orbs. With pair welding shield lenses."
 	icon = ORGAN_ICON_NABBER
 	icon_state = "eyes"
 	flash_protect = FLASH_PROTECTION_SENSITIVE
