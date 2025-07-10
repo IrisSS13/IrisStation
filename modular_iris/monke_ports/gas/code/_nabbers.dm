@@ -86,7 +86,8 @@
 	nabber.physiology.armor = nabber.physiology.armor.add_other_armor(/datum/armor/nabbers)
 
 /datum/species/nabber/get_species_description()
-	return "(WIP) Hailing from an utterly devastated tomb world littered with advanced technology, this species evolved to survive in absolutely freezing temperatures and the vaccum of space, combined with curious fascination with space construction and spacefaring makes them an unusual recent addition to the list of spacefaring species.",
+	return list("(WIP) Hailing from an utterly devastated tomb world littered with advanced technology, this species evolved to survive in absolutely freezing temperatures and the vaccum of space, combined with curious fascination with space construction and spacefaring makes them an unusual recent addition to the list of spacefaring species.",
+	)
 
 /datum/species/nabber/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only)
 	. = ..()
