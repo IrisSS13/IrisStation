@@ -9,9 +9,9 @@
 	/// Biotypes which cannot hallucinate.
 	var/barred_biotypes = NO_HALLUCINATION_BIOTYPES
 	/// The lower range of when the next hallucination will trigger after one occurs.
-	var/lower_tick_interval = 20 SECONDS
+	var/lower_tick_interval = 1 SECONDS
 	/// The upper range of when the next hallucination will trigger after one occurs.
-	var/upper_tick_interval = 80 SECONDS
+	var/upper_tick_interval = 1 SECONDS
 	/// The maximum hallucination tier that can be picked.
 	var/max_hallucination_tier = HALLUCINATION_TIER_COMMON
 	/// If TRUE, we only select hallucinations from the hallucination_tier.
@@ -28,10 +28,11 @@
 	return ..()
 
 /datum/status_effect/hallucination/on_apply()
-	if(owner.mob_biotypes & barred_biotypes)
-		return FALSE
-	if(HAS_TRAIT(owner, TRAIT_HALLUCINATION_IMMUNE))
-		return FALSE
+	if(!HAS_MIND_TRAIT(owner, TRAIT_INSANITY))
+		if(owner.mob_biotypes & barred_biotypes)
+			return FALSE
+		if(HAS_TRAIT(owner, TRAIT_HALLUCINATION_IMMUNE))
+			return FALSE
 
 	RegisterSignal(owner, COMSIG_LIVING_HEALTHSCAN,  PROC_REF(on_health_scan))
 	RegisterSignal(owner, SIGNAL_ADDTRAIT(TRAIT_HALLUCINATION_IMMUNE), PROC_REF(delete_self))
