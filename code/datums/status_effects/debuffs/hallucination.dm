@@ -9,9 +9,9 @@
 	/// Biotypes which cannot hallucinate.
 	var/barred_biotypes = NO_HALLUCINATION_BIOTYPES
 	/// The lower range of when the next hallucination will trigger after one occurs.
-	var/lower_tick_interval = 1 SECONDS
+	var/lower_tick_interval = 20 SECONDS
 	/// The upper range of when the next hallucination will trigger after one occurs.
-	var/upper_tick_interval = 1 SECONDS
+	var/upper_tick_interval = 80 SECONDS
 	/// The maximum hallucination tier that can be picked.
 	var/max_hallucination_tier = HALLUCINATION_TIER_COMMON
 	/// If TRUE, we only select hallucinations from the hallucination_tier.
@@ -28,7 +28,7 @@
 	return ..()
 
 /datum/status_effect/hallucination/on_apply()
-	if(!HAS_MIND_TRAIT(owner, TRAIT_INSANITY))
+	if(!HAS_MIND_TRAIT(owner, TRAIT_INSANITY)) //Lets synths have hallucinations if they have the RDS quirk.
 		if(owner.mob_biotypes & barred_biotypes)
 			return FALSE
 		if(HAS_TRAIT(owner, TRAIT_HALLUCINATION_IMMUNE))
