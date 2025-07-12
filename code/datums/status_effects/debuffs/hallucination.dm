@@ -28,7 +28,7 @@
 	return ..()
 
 /datum/status_effect/hallucination/on_apply()
-	if(!HAS_MIND_TRAIT(owner, TRAIT_INSANITY)) //Lets synths have hallucinations if they have the RDS quirk.
+	if(!HAS_MIND_TRAIT(owner, TRAIT_INSANITY)) //IRIS ADDITION: Lets synths have hallucinations if they have the RDS quirk.
 		if(owner.mob_biotypes & barred_biotypes)
 			return FALSE
 		if(HAS_TRAIT(owner, TRAIT_HALLUCINATION_IMMUNE))
