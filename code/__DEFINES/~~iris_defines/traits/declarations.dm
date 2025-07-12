@@ -39,7 +39,7 @@
 ///Mob hates eating without a table, goofkitchen
 #define TRAIT_TABLE_EATING_ENJOYER "table_eating_enjoyer"
 
-//Insanity trait for Reality Dissociation Syndrome (to make it easier to work with)
+///Insanity trait for Reality Dissociation Syndrome (to make it easier to work with)
 #define TRAIT_INSANITY "insanity"
 
 //Trait sources
