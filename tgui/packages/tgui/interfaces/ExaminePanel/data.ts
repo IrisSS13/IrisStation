@@ -20,5 +20,5 @@ export type ExaminePanelData = {
     color: string;
   };
   // Misc
-  veteran_status: boolean;
+  nova_star_status: boolean;
 };
