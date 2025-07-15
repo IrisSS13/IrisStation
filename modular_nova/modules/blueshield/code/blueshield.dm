@@ -39,7 +39,7 @@
 		/obj/item/clothing/head/collectable/captain = 4,
 	)
 
-	veteran_only = FALSE
+	nova_stars_only = FALSE // IRIS EDIT - everyone can use
 	job_flags = STATION_JOB_FLAGS | JOB_CANNOT_OPEN_SLOTS
 
 /datum/outfit/job/blueshield
