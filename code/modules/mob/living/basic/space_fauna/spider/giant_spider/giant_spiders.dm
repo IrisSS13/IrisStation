@@ -182,9 +182,10 @@
 	var/datum/atom_hud/datahud = GLOB.huds[health_hud]
 	datahud.show_to(src)
 
+//IRIS EDIT: Heals damage more
 	AddComponent(/datum/component/healing_touch,\
-		heal_brute = 20,\ //IRIS EDIT: Heals damage more
-		heal_burn = 20,\ //IRIS EDIT: Heals damage more
+		heal_brute = 20,\
+		heal_burn = 20,\
 		heal_time = 2.5 SECONDS,\
 		interaction_key = DOAFTER_SOURCE_SPIDER,\
 		valid_targets_typecache = typecacheof(list(/mob/living/basic/spider/giant)),\
