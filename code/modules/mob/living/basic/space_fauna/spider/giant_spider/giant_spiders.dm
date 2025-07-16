@@ -127,8 +127,8 @@
 	icon_state = "scout"
 	icon_living = "scout"
 	icon_dead = "scout_dead"
-	maxHealth = 65
-	health = 65
+	maxHealth = 80 // IRIS EDIT: Change health
+	health = 80 // IRIS EDIT: Change health
 	obj_damage = 10
 	melee_damage_lower = 5
 	melee_damage_upper = 10
@@ -160,8 +160,8 @@
 	icon_dead = "nurse_dead"
 	gender = FEMALE
 	butcher_results = list(/obj/item/food/meat/slab/spider = 2, /obj/item/food/spiderleg = 8, /obj/item/food/spidereggs = 4)
-	maxHealth = 40
-	health = 40
+	maxHealth = 80 // IRIS EDIT: Change health
+	health = 80 // IRIS EDIT: Change health
 	melee_damage_lower = 5
 	melee_damage_upper = 10
 	speed = 4
@@ -183,8 +183,8 @@
 	datahud.show_to(src)
 
 	AddComponent(/datum/component/healing_touch,\
-		heal_brute = 10,\
-		heal_burn = 10,\
+		heal_brute = 20,\ //IRIS EDIT: Heals damage more
+		heal_burn = 20,\ //IRIS EDIT: Heals damage more
 		heal_time = 2.5 SECONDS,\
 		interaction_key = DOAFTER_SOURCE_SPIDER,\
 		valid_targets_typecache = typecacheof(list(/mob/living/basic/spider/giant)),\
@@ -210,8 +210,8 @@
 	icon_dead = "tangle_dead"
 	gender = FEMALE
 	butcher_results = list(/obj/item/food/meat/slab/spider = 2, /obj/item/food/spiderleg = 8, /obj/item/food/spidereggs = 4)
-	maxHealth = 55
-	health = 55
+	maxHealth = 80 // IRIS EDIT: Change health
+	health = 80 // IRIS EDIT: Change health
 	melee_damage_lower = 1
 	melee_damage_upper = 1
 	poison_per_bite = 2.5
@@ -406,8 +406,8 @@
 	icon_state = "viper"
 	icon_living = "viper"
 	icon_dead = "viper_dead"
-	maxHealth = 55
-	health = 55
+	maxHealth = 70 // IRIS EDIT: Change health
+	health = 70 // IRIS EDIT: Change health
 	melee_damage_lower = 5
 	melee_damage_upper = 5
 	poison_per_bite = 5
