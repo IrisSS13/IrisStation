@@ -7,7 +7,7 @@ import { Box, Section } from 'tgui-core/components';
 import { useBackend, useLocalState } from '../../backend';
 import { sanitizeText } from '../../sanitize';
 import { tokenizer, walkTokens } from './helpers';
-import { replacePaperworkLogos } from './paperwork_logos';
+// import { replacePaperworkLogos } from './paperwork_logos';
 import { StampView } from './StampView';
 import { FieldInput, InteractionType, PaperContext } from './types';
 
@@ -318,7 +318,7 @@ export class PreviewView extends Component<PreviewViewProps> {
     // Replace [station] with the station name
     result = result.replace(/\[station\]/gi, stationName);
     // Replace logo tags ([ntlogo], [syndielogo], etc.)
-    result = replacePaperworkLogos(result);
+    // result = replacePaperworkLogos(result); Temp removed, needs revisiting
     return result;
   };
 
