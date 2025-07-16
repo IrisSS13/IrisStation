@@ -105,6 +105,7 @@
 	var/list/quirks = SSquirks.get_quirks()
 	var/datum/quirk/quirk = quirks[quirk_name]
 	if(initial(quirk.nova_stars_only) && !SSplayer_ranks.is_nova_star(preferences?.parent))
+	if(initial(quirk.nova_stars_only) && !SSplayer_ranks.is_nova_star(preferences?.parent))
 		return FALSE
 	//NOVA EDIT END
 
@@ -145,6 +146,7 @@
 		//NOVA EDIT ADDITION
 		var/list/quirks = SSquirks.get_quirks()
 		var/datum/quirk/quirk_datum = quirks[quirk]
+		if(initial(quirk_datum.nova_stars_only) && !SSplayer_ranks.is_nova_star(preferences?.parent))
 		if(initial(quirk_datum.nova_stars_only) && !SSplayer_ranks.is_nova_star(preferences?.parent))
 			preferences.all_quirks -= quirk
 			continue

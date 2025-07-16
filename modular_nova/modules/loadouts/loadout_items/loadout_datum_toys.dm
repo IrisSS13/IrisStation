@@ -1,5 +1,7 @@
 // LOADOUT ITEM DATUMS FOR TOY ITEMS, PLACED DIRECTLY INTO THE BACKPACK
 
+// LOADOUT ITEM DATUMS FOR TOY ITEMS, PLACED DIRECTLY INTO THE BACKPACK
+
 /datum/loadout_category/toys
 	category_name = "Toys"
 	category_ui_icon = FA_ICON_TROPHY
@@ -34,6 +36,9 @@
 /datum/loadout_item/toys/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE)  // these go in the backpack
 	return FALSE
 
+/*
+*	ITEMS BELOW HERE
+*/
 /*
 *	ITEMS BELOW HERE
 */
@@ -150,9 +155,11 @@
 
 /datum/loadout_item/toys/card_deck
 	name = "Card Deck"
+	name = "Card Deck"
 	item_path = /obj/item/toy/cards/deck
 
 /datum/loadout_item/toys/kotahi_deck
+	name = "Card Deck - Kotahi"
 	name = "Card Deck - Kotahi"
 	item_path = /obj/item/toy/cards/deck/kotahi
 
@@ -172,6 +179,12 @@
 	group = "Dice"
 	abstract_type = /datum/loadout_item/toys/dice
 
+/datum/loadout_item/toys/dice/d00
+	//Extra space forces "Dice" Group above "Plushies"
+	name = " D00"
+	item_path = /obj/item/dice/d00
+
+//I am NOT alphabetizing numbers dawg. It's not actually number order 11 comes before 2
 /datum/loadout_item/toys/dice/d00
 	//Extra space forces "Dice" Group above "Plushies"
 	name = " D00"
@@ -230,6 +243,9 @@
 	name = "D100"
 	item_path = /obj/item/dice/d100
 
+/datum/loadout_item/toys/dice/dice_bag
+	name = "Dice Bag"
+	item_path = /obj/item/storage/dice
 /datum/loadout_item/toys/dice/dice_bag
 	name = "Dice Bag"
 	item_path = /obj/item/storage/dice
