@@ -14,8 +14,12 @@ type Data = {
 export const ImplantPad = (props) => {
   const { act, data } = useBackend<Data>();
   const { has_case, has_implant, case_information } = data;
+  const sanitized = sanitizeText(case_information);
   const textHtml = {
-    __html: sanitizeText(case_information),
+    __html:
+      typeof sanitized === 'object' && sanitized !== null
+        ? sanitized.sanitized
+        : sanitized,
   };
   return (
     <Window width={300} height={case_information ? 300 : 200}>
