@@ -14,9 +14,9 @@
 	you_are_text = "You are a Cortical Borer."
 	flavour_text = "You are a cortical borer! You can fear someone to make them stop moving, but make sure to inhabit them! \
 					You only grow/heal/talk when inside a host!"
-	important_text = "As a borer, you have the option to be friendly or not. \
+	important_text = "As a borer, you have the option to help antagonists or not. \
 					Note that how you act will determine how a host responds. \
-					Do not wordlessly resort to mechanics within a host. \
+					Do not enter hosts with an intent to harm them. \
 					You can talk to other borers using ; and your host by just speaking normally. \
 					You are unable to speak outside of a host, but are able to emote."
 	///what the generation of the borer egg is
