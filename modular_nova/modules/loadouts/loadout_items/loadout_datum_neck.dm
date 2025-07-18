@@ -164,14 +164,7 @@
 
 /datum/loadout_item/neck/long_cape
 	name = "Cape - Long (Colorable)"
-	name = "Cape - Long (Colorable)"
 	item_path = /obj/item/clothing/neck/long_cape
-	group = "Cloaks and Shrouds"
-
-/datum/loadout_item/neck/robe_cape
-	name = "Cape - Robed (Colorable)"
-	item_path = /obj/item/clothing/neck/robe_cape
-	group = "Cloaks and Shrouds"
 	group = "Cloaks and Shrouds"
 
 /datum/loadout_item/neck/robe_cape
@@ -181,15 +174,9 @@
 
 /datum/loadout_item/neck/wide_cape
 	name = "Cape - Wide (Colorable)"
-	name = "Cape - Wide (Colorable)"
 	item_path = /obj/item/clothing/neck/wide_cape
 	group = "Cloaks and Shrouds"
-	group = "Cloaks and Shrouds"
 
-/datum/loadout_item/neck/gags_cloak
-	name = "Cloak (Colorable)"
-	item_path = /obj/item/clothing/neck/cloak/colourable
-	group = "Cloaks and Shrouds"
 /datum/loadout_item/neck/gags_cloak
 	name = "Cloak (Colorable)"
 	item_path = /obj/item/clothing/neck/cloak/colourable
@@ -199,15 +186,7 @@
 	name = "Colonial Cloak"
 	item_path = /obj/item/clothing/neck/cloak/colonial
 	group = "Cloaks and Shrouds"
-/datum/loadout_item/neck/colonial_cloak
-	name = "Colonial Cloak"
-	item_path = /obj/item/clothing/neck/cloak/colonial
-	group = "Cloaks and Shrouds"
 
-/datum/loadout_item/neck/imperial_police_cloak
-	name = "Colonial Cloak - Imperial Police"
-	item_path = /obj/item/clothing/neck/cloak/colonial/nri_police
-	group = "Cloaks and Shrouds"
 /datum/loadout_item/neck/imperial_police_cloak
 	name = "Colonial Cloak - Imperial Police"
 	item_path = /obj/item/clothing/neck/cloak/colonial/nri_police
@@ -227,7 +206,6 @@
 	name = "Mantle - Long (Colorable)"
 	item_path = /obj/item/clothing/neck/cloak/colourable/boat
 	group = "Cloaks and Shrouds"
-	group = "Cloaks and Shrouds"
 
 /datum/loadout_item/neck/gags_mantle
 	name = "Mantle (Colorable)"
@@ -241,9 +219,7 @@
 
 /datum/loadout_item/neck/tesharian_mantle
 	name = "Mantle - Tesharian"
-	name = "Mantle - Tesharian"
 	item_path = /obj/item/clothing/neck/tesharian_mantle
-	group = "Cloaks and Shrouds"
 	group = "Cloaks and Shrouds"
 
 /datum/loadout_item/neck/ponchocowboy
@@ -355,35 +331,10 @@
 	group = "Job-Locked"
 
 //MED
-	group = "Job-Locked"
-
-/datum/loadout_item/neck/mantle_chap
-	name = "Chaplain's Cloak"
-	item_path = /obj/item/clothing/neck/chaplain
-	restricted_roles = list(JOB_CHAPLAIN)
-	group = "Job-Locked"
-
-/datum/loadout_item/neck/mantle_bchap
-	name = "Chaplain's Cloak (Black)"
-	item_path = /obj/item/clothing/neck/chaplain/black
-	restricted_roles = list(JOB_CHAPLAIN)
-	group = "Job-Locked"
-
-//MED
 /datum/loadout_item/neck/mantle_cmo
 	name = "Chief Medical Officer's Mantle"
 	item_path = /obj/item/clothing/neck/mantle/cmomantle
 	restricted_roles = list(JOB_CHIEF_MEDICAL_OFFICER)
-	group = "Job-Locked"
-
-//ENGI
-/datum/loadout_item/neck/mantle_ce
-	name = "Chief Engineer's Mantle"
-	item_path = /obj/item/clothing/neck/mantle/cemantle
-	restricted_roles = list(JOB_CHIEF_ENGINEER)
-	group = "Job-Locked"
-
-//SCI
 	group = "Job-Locked"
 
 //ENGI
@@ -408,28 +359,16 @@
 	group = "Job-Locked"
 
 //SEC
-	group = "Job-Locked"
-
-//CARGO
-/datum/loadout_item/neck/mantle_qm
-	name = "Quartermaster's Mantle"
-	item_path = /obj/item/clothing/neck/mantle/qm
-	restricted_roles = list(JOB_QUARTERMASTER)
-	group = "Job-Locked"
-
-//SEC
 /datum/loadout_item/neck/mantle_hos
 	name = "Head of Security's Mantle"
 	item_path = /obj/item/clothing/neck/mantle/hosmantle
 	restricted_roles = list(JOB_HEAD_OF_SECURITY)
-	group = "Job-Locked"
 	group = "Job-Locked"
 
 /datum/loadout_item/neck/security_gauntlet
 	name = "Security Gauntlet"
 	item_path = /obj/item/clothing/neck/security_cape/armplate
 	restricted_roles = list(JOB_WARDEN, JOB_DETECTIVE, JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY, JOB_CORRECTIONS_OFFICER)
-	group = "Job-Locked"
 	group = "Job-Locked"
 
 /*
@@ -446,5 +385,4 @@
 /datum/loadout_item/donator/neck/donator/mantle/regal
 	name = "Regal Mantle"
 	item_path = /obj/item/clothing/neck/mantle/regal
-	group = "Cloaks and Shrouds"
 	group = "Cloaks and Shrouds"
