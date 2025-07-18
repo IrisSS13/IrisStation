@@ -1,7 +1,5 @@
 // LOADOUT ITEM DATUMS FOR TOY ITEMS, PLACED DIRECTLY INTO THE BACKPACK
 
-// LOADOUT ITEM DATUMS FOR TOY ITEMS, PLACED DIRECTLY INTO THE BACKPACK
-
 /datum/loadout_category/toys
 	category_name = "Toys"
 	category_ui_icon = FA_ICON_TROPHY
@@ -39,9 +37,6 @@
 /*
 *	ITEMS BELOW HERE
 */
-/*
-*	ITEMS BELOW HERE
-*/
 
 /datum/loadout_item/toys/crayons
 	//Extra space forces the "Toys" Group to the top
@@ -71,35 +66,6 @@
 /datum/loadout_item/toys/purple_laser
 	name = "Laser Pointer (Purple)"
 	item_path = /obj/item/laser_pointer/limited/purple
-
-/datum/loadout_item/toys/plush/ianbastardman
-	name = "Ian Plushie"
-	item_path = /obj/item/toy/plush/nova/ian
-
-/datum/loadout_item/toys/plush/corgiman
-	name = "Corgi Plushie"
-	item_path = /obj/item/toy/plush/nova/ian/small
-
-/datum/loadout_item/toys/plush/corgiwoman
-	name = "Girly Corgi Plushie"
-	item_path = /obj/item/toy/plush/nova/ian/lisa
-
-/datum/loadout_item/toys/plush/cat
-	name = "Cat Plushie"
-	item_path = /obj/item/toy/plush/nova/cat
-
-/datum/loadout_item/toys/plush/tuxcat
-	name = "Tux Cat Plushie"
-	item_path = /obj/item/toy/plush/nova/cat/tux
-
-
-/datum/loadout_item/toys/plush/whitecat
-	name = "White Cat Plushie"
-	item_path = /obj/item/toy/plush/nova/cat/white
-
-/datum/loadout_item/toys/plush/human
-	name = "Human Plushie"
-	item_path = /obj/item/toy/plush/human
 
 /datum/loadout_item/toys/eightball
 	name = "Magic Eightball"
@@ -155,11 +121,9 @@
 
 /datum/loadout_item/toys/card_deck
 	name = "Card Deck"
-	name = "Card Deck"
 	item_path = /obj/item/toy/cards/deck
 
 /datum/loadout_item/toys/kotahi_deck
-	name = "Card Deck - Kotahi"
 	name = "Card Deck - Kotahi"
 	item_path = /obj/item/toy/cards/deck/kotahi
 
@@ -179,12 +143,6 @@
 	group = "Dice"
 	abstract_type = /datum/loadout_item/toys/dice
 
-/datum/loadout_item/toys/dice/d00
-	//Extra space forces "Dice" Group above "Plushies"
-	name = " D00"
-	item_path = /obj/item/dice/d00
-
-//I am NOT alphabetizing numbers dawg. It's not actually number order 11 comes before 2
 /datum/loadout_item/toys/dice/d00
 	//Extra space forces "Dice" Group above "Plushies"
 	name = " D00"
@@ -243,9 +201,6 @@
 	name = "D100"
 	item_path = /obj/item/dice/d100
 
-/datum/loadout_item/toys/dice/dice_bag
-	name = "Dice Bag"
-	item_path = /obj/item/storage/dice
 /datum/loadout_item/toys/dice/dice_bag
 	name = "Dice Bag"
 	item_path = /obj/item/storage/dice
