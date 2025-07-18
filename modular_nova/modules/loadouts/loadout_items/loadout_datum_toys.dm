@@ -67,35 +67,6 @@
 	name = "Laser Pointer (Purple)"
 	item_path = /obj/item/laser_pointer/limited/purple
 
-/datum/loadout_item/toys/plush/ianbastardman
-	name = "Ian Plushie"
-	item_path = /obj/item/toy/plush/nova/ian
-
-/datum/loadout_item/toys/plush/corgiman
-	name = "Corgi Plushie"
-	item_path = /obj/item/toy/plush/nova/ian/small
-
-/datum/loadout_item/toys/plush/corgiwoman
-	name = "Girly Corgi Plushie"
-	item_path = /obj/item/toy/plush/nova/ian/lisa
-
-/datum/loadout_item/toys/plush/cat
-	name = "Cat Plushie"
-	item_path = /obj/item/toy/plush/nova/cat
-
-/datum/loadout_item/toys/plush/tuxcat
-	name = "Tux Cat Plushie"
-	item_path = /obj/item/toy/plush/nova/cat/tux
-
-
-/datum/loadout_item/toys/plush/whitecat
-	name = "White Cat Plushie"
-	item_path = /obj/item/toy/plush/nova/cat/white
-
-/datum/loadout_item/toys/plush/human
-	name = "Human Plushie"
-	item_path = /obj/item/toy/plush/human
-
 /datum/loadout_item/toys/eightball
 	name = "Magic Eightball"
 	item_path = /obj/item/toy/eightball
