@@ -1,5 +1,6 @@
 // LOADOUT ITEM DATUMS FOR THE NECK SLOT
 
+
 /datum/loadout_category/neck
 	tab_order = LOADOUT_NECK
 
@@ -206,11 +207,66 @@
 	item_path = /obj/item/clothing/neck/cloak/colourable/boat
 	group = "Cloaks and Shrouds"
 
+/datum/loadout_item/neck/gags_mantle
+	name = "Mantle (Colorable)"
+	item_path = /obj/item/clothing/neck/mantle/recolorable
+	group = "Cloaks and Shrouds"
+
+/datum/loadout_item/neck/gags_boat //This isn't actually a boatcloak (its way too short)
+	name = "Mantle - Long (Colorable)"
+	item_path = /obj/item/clothing/neck/cloak/colourable/boat
+	group = "Cloaks and Shrouds"
+
 /datum/loadout_item/neck/tesharian_mantle
 	name = "Mantle - Tesharian"
 	item_path = /obj/item/clothing/neck/tesharian_mantle
 	group = "Cloaks and Shrouds"
 
+/datum/loadout_item/neck/ponchocowboy
+	name = "Poncho - Cowboy"
+	item_path = /obj/item/clothing/neck/cowboylea
+	group = "Cloaks and Shrouds"
+
+/datum/loadout_item/neck/ranger_poncho_greyscale
+	name = "Poncho - Ranger (Colorable)"
+	item_path = /obj/item/clothing/neck/ranger_poncho
+	group = "Cloaks and Shrouds"
+
+/datum/loadout_item/neck/security_cape
+	name = "Security Cape"
+	item_path = /obj/item/clothing/neck/security_cape
+	group = "Cloaks and Shrouds"
+
+/datum/loadout_item/neck/gags_shroud
+	name = "Shroud (Colorable)"
+	item_path = /obj/item/clothing/neck/cloak/colourable/shroud
+	group = "Cloaks and Shrouds"
+
+/datum/loadout_item/neck/gags_veil
+	name = "Veil (Colorable)"
+	item_path = /obj/item/clothing/neck/cloak/colourable/veil
+	group = "Cloaks and Shrouds"
+
+/*
+*	JOB-LOCKED
+*/
+
+//COM
+/datum/loadout_item/neck/mantle_cap
+	name = "Captain's Mantle"
+	item_path = /obj/item/clothing/neck/mantle/capmantle
+	restricted_roles = list(JOB_CAPTAIN)
+	group = "Job-Locked"
+
+/datum/loadout_item/neck/mantle_bs
+	//Weird name, but the B in Blueshield alphabetically sorts and puts the Job-Locked group high in the loadout.
+	//So don't add any B items to this group. Please.
+	name = "Command Bodyguard's Mantle"
+	item_path = /obj/item/clothing/neck/mantle/bsmantle
+	restricted_roles = list(JOB_BLUESHIELD)
+	group = "Job-Locked"
+
+//SERV
 /datum/loadout_item/neck/ponchocowboy
 	name = "Poncho - Cowboy"
 	item_path = /obj/item/clothing/neck/cowboylea

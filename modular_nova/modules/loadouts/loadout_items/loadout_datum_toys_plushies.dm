@@ -108,11 +108,3 @@
 /datum/loadout_item/toys/plush/whitecat
 	name = "White Cat Plushie"
 	item_path = /obj/item/toy/plush/nova/cat/white
-
-/*
-*	DONATOR
-*/
-
-/*
-*	STAFF
-*/
