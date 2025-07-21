@@ -250,10 +250,8 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
 	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
-	human_holder.dna.add_mutation(/datum/mutation/human/olfaction, MUT_NORMAL)
-	human_holder.dna.activate_mutation(/datum/mutation/human/olfaction)
-	for(var/datum/mutation/human/olfaction/sneef in human_holder.dna.mutations)
-		sneef.mutadone_proof = TRUE
+	human_holder.dna.add_mutation(/datum/mutation/olfaction, MUTATION_SOURCE_ACTIVATED)
+	human_holder.dna.activate_mutation(/datum/mutation/olfaction)
 
 /datum/quirk/canine_aspect/remove()
 	var/mob/living/carbon/human/human_holder = quirk_holder
@@ -262,7 +260,7 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
 	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
-	human_holder.dna.remove_mutation(/datum/mutation/human/olfaction)
+	human_holder.dna.remove_mutation(/datum/mutation/olfaction)
 
 /datum/quirk/avian_aspect
 	name = "Avian Traits"
