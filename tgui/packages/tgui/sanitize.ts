@@ -118,6 +118,7 @@ const safeCSSProperties = [
   'border-right',
   'border-bottom',
   'border-left',
+  'border-spacing',
 
   // Background properties (limited)
   'background-color',
@@ -125,6 +126,8 @@ const safeCSSProperties = [
   'background-repeat',
   'background-position',
   'background-size',
+  'linear-gradient',
+  'repeating-linear-gradient',
 
   // Display properties
   'display',
