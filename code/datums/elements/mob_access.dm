@@ -13,7 +13,6 @@
 		stack_trace("attempted to assign an empty access list to a mob!")
 		return
 	my_access = accesses
-
 	RegisterSignal(target, COMSIG_MOB_TRIED_ACCESS, PROC_REF(attempt_access))
 
 /datum/element/mob_access/proc/attempt_access(datum/source, obj/door_attempt)

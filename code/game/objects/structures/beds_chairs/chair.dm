@@ -353,7 +353,7 @@
 	name = "stool"
 	desc = "Apply butt."
 	icon_state = "stool"
-	can_buckle = FALSE
+	can_buckle = TRUE //IRIS EDIT, was FALSE
 	buildstackamount = 1
 	item_chair = /obj/item/chair/stool
 	max_integrity = 300

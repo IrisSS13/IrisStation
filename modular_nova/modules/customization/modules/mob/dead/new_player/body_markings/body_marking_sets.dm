@@ -4,7 +4,8 @@
 	///List of the body markings in this set
 	var/body_marking_list
 	///Which species is this marking recommended to. Important for randomisations.
-	var/recommended_species = list(SPECIES_MAMMAL, SPECIES_TAJARAN, SPECIES_VULP, SPECIES_AQUATIC, SPECIES_AKULA)
+	// IRIS EDIT: Aquatic Anthromorph compat
+	var/recommended_species = list(SPECIES_MAMMAL, SPECIES_TAJARAN, SPECIES_VULP, SPECIES_AQUATIC, SPECIES_AKULA, SPECIES_AQUAMORPH)
 
 /datum/body_marking_set/none
 	name = SPRITE_ACCESSORY_NONE
