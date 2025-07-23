@@ -31,11 +31,7 @@ export const MarkdownRenderer = (props: MarkdownRendererProps) => {
 
   content = marked(content, { async: false });
   if (sanitize) {
-    const sanitized = sanitizeText(content, /* advHtml = */ false);
-    content =
-      typeof sanitized === 'object' && sanitized !== null
-        ? sanitized.sanitized
-        : sanitized;
+    content = sanitizeText(content, /* advHtml = */ false);
   }
 
   // eslint-disable-next-line react/no-danger

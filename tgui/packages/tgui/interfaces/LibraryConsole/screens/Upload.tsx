@@ -44,12 +44,8 @@ export function Upload(props) {
     return <NoticeBox>Scan in a book to upload.</NoticeBox>;
   }
 
-  const sanitized = sanitizeText(cache_content);
   const contentHtml = {
-    __html:
-      typeof sanitized === 'object' && sanitized !== null
-        ? sanitized.sanitized
-        : sanitized,
+    __html: sanitizeText(cache_content),
   };
 
   return (

@@ -593,12 +593,6 @@
 	if(.)
 		return
 
-	if(action == "admin_log")
-		var/message = params["message"]
-		message_admins("[key_name(usr)] [message]")
-		log_admin("[key_name(usr)] [message]")
-		return TRUE
-
 	var/mob/user = ui.user
 
 	switch(action)
@@ -636,9 +630,12 @@
 			return TRUE
 		if("add_text")
 			var/paper_input = params["text"]
-			var/blocked_summary = params["blocked_summary"]
-			if(blocked_summary && blocked_summary != "")
-				log_admin("[key_name(user)] had forbidden HTML/CSS sanitized from paper: [blocked_summary]")
+			var/this_input_length = length_char(paper_input)
+
+			if(this_input_length == 0)
+				to_chat(user, pick("Writing block strikes again!", "You forgot to write anything!"))
+				return TRUE
+
 			// If the paper is on an unwritable noticeboard, this usually shouldn't be possible.
 			if(istype(loc, /obj/structure/noticeboard))
 				var/obj/structure/noticeboard/noticeboard = loc
@@ -660,7 +657,7 @@
 				return TRUE
 
 			var/current_length = get_total_length()
-			var/new_length = current_length + length_char(paper_input)
+			var/new_length = current_length + this_input_length
 
 			// tgui should prevent this outcome.
 			if(new_length > MAX_PAPER_LENGTH)

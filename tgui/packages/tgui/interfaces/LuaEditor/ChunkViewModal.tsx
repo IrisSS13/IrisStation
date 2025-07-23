@@ -33,21 +33,14 @@ export const ChunkViewModal = (props: ChunkViewModalProps) => {
           </Button>
         }
       >
-        {(() => {
-          const sanitized = sanitizeText(viewedChunk);
-          const code =
-            typeof sanitized === 'object' && sanitized !== null
-              ? sanitized.sanitized
-              : sanitized;
-          return (
-            <Box
-              as="pre"
-              dangerouslySetInnerHTML={{
-                __html: hljs.highlight(code, { language: 'lua' }).value,
-              }}
-            />
-          );
-        })()}
+        <Box
+          as="pre"
+          dangerouslySetInnerHTML={{
+            __html: hljs.highlight(sanitizeText(viewedChunk), {
+              language: 'lua',
+            }).value,
+          }}
+        />
       </Section>
     </Modal>
   );

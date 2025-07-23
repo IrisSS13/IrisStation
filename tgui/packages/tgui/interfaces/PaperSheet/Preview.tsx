@@ -151,10 +151,9 @@ export class PreviewView extends Component<PreviewViewProps> {
   }
 
   shouldComponentUpdate(nextProps: Readonly<PreviewViewProps>): boolean {
-    return (
-      this.props.canEdit !== nextProps.canEdit ||
-      this.props.textArea !== nextProps.textArea
-    );
+    if (!this.props.canEdit) return true;
+
+    return this.props.canEdit !== nextProps.canEdit;
   }
 
   // Creates the partial inline HTML for previewing or reading the paper from
@@ -322,11 +321,7 @@ export class PreviewView extends Component<PreviewViewProps> {
     const parsedText = this.runMarkedDefault(rawText);
 
     // Third, we sanitize the text of html
-    const sanitizedResult = sanitizeText(parsedText, advanced_html);
-    const sanitizedText =
-      typeof sanitizedResult === 'object' && sanitizedResult !== null
-        ? sanitizedResult.sanitized
-        : sanitizedResult;
+    const sanitizedText = sanitizeText(parsedText, advanced_html);
 
     // Fourth we replace the [__] with fields
     const fieldedText = this.createFields(
