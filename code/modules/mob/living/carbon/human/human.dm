@@ -68,13 +68,6 @@
 
 	if (mob_mood)
 		QDEL_NULL(mob_mood)
-// ported from https://github.com/Bubberstation/Bubberstation/pull/3133 - IRIS EDITED
-	if(held_left)
-		held_left.UnregisterSignal(src, COMSIG_ATOM_DIR_CHANGE)
-		QDEL_NULL(held_left)
-	if(held_right)
-		held_right.UnregisterSignal(src, COMSIG_ATOM_DIR_CHANGE)
-		QDEL_NULL(held_right)
 
 	return ..()
 
