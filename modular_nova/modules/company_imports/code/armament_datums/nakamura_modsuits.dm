@@ -98,7 +98,7 @@
 // IRIS ADDITION START
 /datum/armament_entry/company_import/nakamura_modsuits/protection_modules/shield_nt
 	item_type = /obj/item/mod/module/energy_shield/nanotrasen
-	cost = PAYCHECK_COMMAND * 15
+	cost = PAYCHECK_COMMAND * 100
 // IRIS ADDITION END
 
 // Medical Mods
