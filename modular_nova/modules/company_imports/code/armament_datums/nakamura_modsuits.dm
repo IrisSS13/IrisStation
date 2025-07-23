@@ -95,6 +95,12 @@
 	item_type = /obj/item/mod/module/armor_booster/retractplates
 	cost = PAYCHECK_COMMAND * 3
 
+// IRIS ADDITION START
+/datum/armament_entry/company_import/nakamura_modsuits/protection_modules/shield_nt
+	item_type = /obj/item/mod/module/energy_shield/nanotrasen
+	cost = PAYCHECK_COMMAND * 15
+// IRIS ADDITION END
+
 // Medical Mods
 
 /datum/armament_entry/company_import/nakamura_modsuits/medical_modules
