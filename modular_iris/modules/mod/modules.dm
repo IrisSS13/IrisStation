@@ -30,6 +30,6 @@
 	device = /obj/item/gun/medbeam/mod/nanotrasen
 	cooldown_time = 1
 
-// NT version with half the range.
-/obj/item/gun/medbeam/mod/nanotrasen
+// Automated First Aid Device version with half the range.
+/obj/item/gun/medbeam/afad/mod
 	max_range = 4
