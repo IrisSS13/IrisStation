@@ -25,6 +25,9 @@
 
 // Same as nukie version but has double the complexity and triple the power cost.
 /obj/item/mod/module/medbeam/nanotrasen
+	desc = "A compact, integrated version of the Automated First Aid Device, \
+		a revolutionary device meant for fixing scrapes and bruises, and totally not a knockoff of the legendary medibeam. \
+		Due to it's compact design, it has a shorter range."
 	complexity = 2
 	active_power_cost = DEFAULT_CHARGE_DRAIN * 3
 	device = /obj/item/gun/medbeam/mod/nanotrasen
