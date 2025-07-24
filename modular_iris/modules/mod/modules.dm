@@ -30,7 +30,7 @@
 		Due to it's compact design, it has a shorter range."
 	complexity = 2
 	active_power_cost = DEFAULT_CHARGE_DRAIN * 3
-	device = /obj/item/gun/medbeam/mod/nanotrasen
+	device = /obj/item/gun/medbeam/afad/mod
 	cooldown_time = 1
 
 // Automated First Aid Device version with half the range.
