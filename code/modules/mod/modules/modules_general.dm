@@ -91,7 +91,7 @@
 	icon_state = "storage_large"
 	max_w_class = WEIGHT_CLASS_GIGANTIC
 	max_combined_w_class = 60
-	max_items = 21
+	max_items = 30 /// IRIS EDIT: Changed to be the same as BoH considering it's admin-only and to be above the nerfed version
 	big_nesting = TRUE
 
 ///Ion Jetpack - Lets the user fly freely through space using battery charge.
