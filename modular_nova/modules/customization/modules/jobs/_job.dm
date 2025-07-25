@@ -141,9 +141,6 @@
 	banned_augments = list(HEAD_RESTRICTED_AUGMENTS)
 	required_languages = list(/datum/language/common = LANGUAGE_SPOKEN)
 
-/datum/job/bridge_officer
-	required_languages = list(/datum/language/common = LANGUAGE_SPOKEN)
-
 //Silicon
 /datum/job/ai
 	loadout = FALSE
@@ -205,16 +202,20 @@
 // Nanotrasen Fleet
 /datum/job/fleetmaster
 	banned_quirks = list(HEAD_RESTRICTED_QUIRKS)
+	required_languages = list(/datum/language/common = LANGUAGE_SPOKEN)
 	banned_augments = list(HEAD_RESTRICTED_AUGMENTS)
 
 /datum/job/operations_inspector
 	banned_quirks = list(HEAD_RESTRICTED_QUIRKS)
+	required_languages = list(/datum/language/common = LANGUAGE_SPOKEN)
 	banned_augments = list(HEAD_RESTRICTED_AUGMENTS)
 
 /datum/job/deck_crew
 	banned_quirks = list(HEAD_RESTRICTED_QUIRKS)
+	required_languages = list(/datum/language/common = LANGUAGE_SPOKEN)
 	banned_augments = list(HEAD_RESTRICTED_AUGMENTS)
 
 /datum/job/bridge_officer
 	banned_quirks = list(HEAD_RESTRICTED_QUIRKS)
+	required_languages = list(/datum/language/common = LANGUAGE_SPOKEN)
 	banned_augments = list(HEAD_RESTRICTED_AUGMENTS)
