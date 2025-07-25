@@ -255,6 +255,9 @@
 	pixel_x = 0;
 	pixel_y = -11
 	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/armory)
 "be" = (
@@ -327,6 +330,9 @@
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/machinery/door/airlock/highsecurity{
 	name = "Emergency Suppression Gear"
+	},
+/obj/machinery/door/poddoor/shutters/indestructible{
+	id = "XCCadminstore"
 	},
 /turf/open/indestructible/vault,
 /area/centcom/central_command_areas/prison)
@@ -1069,6 +1075,9 @@
 	pixel_y = 8
 	},
 /obj/item/storage/lockbox/loyalty,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/armory)
 "eO" = (
@@ -1127,6 +1136,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood/tile,
 /area/centcom/central_command_areas/evacuation/ship)
+"eY" = (
+/obj/structure/fake_stairs/wood/directional/north,
+/turf/open/floor/iron/dark,
+/area/centcom/central_command_areas/armory)
 "eZ" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -1584,6 +1597,7 @@
 /obj/structure/flora/bush/flowers_pp/style_random,
 /obj/structure/flora/bush/style_random,
 /obj/machinery/light/floor,
+/mob/living/basic/rabbit,
 /turf/open/floor/grass,
 /area/centcom/central_command_areas/armory)
 "hb" = (
@@ -1595,6 +1609,14 @@
 /obj/machinery/light/floor,
 /turf/open/floor/grass,
 /area/centcom/central_command_areas/medbay)
+"hc" = (
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/structure/sign/nanotrasen{
+	pixel_y = 0;
+	pixel_x = 32
+	},
+/turf/open/floor/iron/dark,
+/area/centcom/central_command_areas/armory)
 "he" = (
 /obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
 	dir = 4
@@ -1645,10 +1667,7 @@
 /area/centcom/central_command_areas/garden)
 "hq" = (
 /obj/structure/rack,
-/obj/item/mod/control/pre_equipped/administrative,
-/obj/machinery/door/poddoor/shutters/indestructible{
-	id = "XCCadminstore"
-	},
+/obj/item/mod/control/pre_equipped/apocryphal/officer,
 /turf/open/indestructible/vault,
 /area/centcom/central_command_areas/prison)
 "hs" = (
@@ -2097,8 +2116,8 @@
 	pixel_y = 32
 	},
 /obj/structure/closet/secure_closet/ert_med,
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/turf/open/floor/iron/dark,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/iron,
 /area/centcom/central_command_areas/armory)
 "jM" = (
 /obj/effect/turf_decal/tile/dark/opposingcorners,
@@ -2328,6 +2347,11 @@
 /obj/structure/flora/bush/flowers_br/style_random,
 /turf/open/floor/grass,
 /area/centcom/central_command_areas/garden)
+"kS" = (
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/iron/dark,
+/area/centcom/central_command_areas/armory)
 "kW" = (
 /obj/effect/turf_decal/tile/blue/half{
 	dir = 8
@@ -3030,8 +3054,8 @@
 "oJ" = (
 /obj/structure/closet/secure_closet/ert_sec,
 /obj/structure/reagent_dispensers/wall/peppertank/directional/north,
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/turf/open/floor/iron/dark,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/iron,
 /area/centcom/central_command_areas/armory)
 "oL" = (
 /obj/effect/turf_decal/tile/dark/opposingcorners,
@@ -3193,6 +3217,13 @@
 	},
 /turf/open/floor/carpet/executive,
 /area/centcom/central_command_areas/admin)
+"py" = (
+/obj/structure/window/spawner/directional/west,
+/obj/structure/window/spawner/directional/north,
+/obj/structure/flora/bush/style_random,
+/obj/structure/flora/bush/flowers_pp/style_random,
+/turf/open/floor/grass,
+/area/centcom/central_command_areas/armory)
 "pz" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -3395,6 +3426,13 @@
 /obj/machinery/door/airlock/maintenance_hatch,
 /turf/open/floor/catwalk_floor,
 /area/centcom/central_command_areas/evacuation/ship)
+"qx" = (
+/obj/structure/hedge,
+/obj/structure/railing{
+	dir = 6
+	},
+/turf/open/floor/wood/large,
+/area/centcom/central_command_areas/armory)
 "qE" = (
 /obj/structure/railing,
 /obj/structure/railing{
@@ -3530,8 +3568,8 @@
 /obj/structure/sign/directions/engineering/directional/south{
 	pixel_y = 32
 	},
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/turf/open/floor/iron/dark,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/iron,
 /area/centcom/central_command_areas/armory)
 "rs" = (
 /obj/effect/landmark/prisonwarp,
@@ -3594,10 +3632,12 @@
 /area/centcom/central_command_areas/supply)
 "rJ" = (
 /obj/structure/window/spawner/directional/north,
-/obj/structure/window/spawner/directional/west,
-/obj/structure/window/spawner/directional/east,
 /obj/structure/flora/bush/style_random,
 /obj/structure/flora/bush/flowers_br/style_random,
+/obj/structure/flora/bush/flowers_pp/style_random,
+/obj/item/toy/plush/pkplush{
+	name = "NT-ERT Unit #999"
+	},
 /turf/open/floor/grass,
 /area/centcom/central_command_areas/armory)
 "rL" = (
@@ -3945,6 +3985,16 @@
 /obj/structure/table/wood/fancy/royalblack,
 /turf/open/floor/wood/large,
 /area/centcom/central_command_areas/bar)
+"tK" = (
+/obj/structure/window/spawner/directional/east,
+/obj/structure/window/spawner/directional/south,
+/obj/structure/flora/bush/style_random,
+/obj/structure/flora/bush/flowers_pp/style_random,
+/obj/item/toy/plush/pkplush{
+	name = "NT-ERT Unit #318"
+	},
+/turf/open/floor/grass,
+/area/centcom/central_command_areas/armory)
 "tO" = (
 /obj/machinery/computer/communications{
 	dir = 8
@@ -4163,6 +4213,14 @@
 /obj/machinery/light/floor,
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/evacuation/ship)
+"uR" = (
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/structure/sign/nanotrasen{
+	pixel_y = 0;
+	pixel_x = -32
+	},
+/turf/open/floor/iron/dark,
+/area/centcom/central_command_areas/armory)
 "uS" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Administrative Office 6";
@@ -4370,8 +4428,8 @@
 	},
 /obj/machinery/light/directional/west,
 /obj/structure/closet/secure_closet/ert_com,
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/turf/open/floor/iron/dark,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/iron,
 /area/centcom/central_command_areas/armory)
 "wm" = (
 /obj/effect/landmark/thunderdome/one,
@@ -4602,6 +4660,14 @@
 /obj/effect/light_emitter/fake_outdoors,
 /turf/open/floor/wood/large,
 /area/centcom/central_command_areas/garden)
+"xD" = (
+/obj/structure/window/spawner/directional/east,
+/obj/structure/window/spawner/directional/north,
+/obj/structure/flora/bush/style_random,
+/obj/structure/flora/bush/flowers_yw/style_random,
+/obj/structure/flora/bush/flowers_br/style_random,
+/turf/open/floor/grass,
+/area/centcom/central_command_areas/armory)
 "xF" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 4
@@ -4705,7 +4771,8 @@
 /obj/structure/railing{
 	dir = 4
 	},
-/turf/open/floor/iron,
+/obj/effect/turf_decal/siding/wood,
+/turf/open/floor/wood/large,
 /area/centcom/central_command_areas/armory)
 "yf" = (
 /obj/effect/turf_decal/siding/dark{
@@ -4754,12 +4821,10 @@
 /turf/open/floor/iron/large,
 /area/centcom/central_command_areas/supply)
 "yv" = (
-/obj/structure/sign/nanotrasen{
-	pixel_y = 32
-	},
 /obj/structure/closet/secure_closet/ert_med,
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/turf/open/floor/iron/dark,
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/vending/wallmed/directional/north,
+/turf/open/floor/iron,
 /area/centcom/central_command_areas/armory)
 "yx" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark{
@@ -5391,7 +5456,8 @@
 /obj/structure/railing{
 	dir = 8
 	},
-/turf/open/floor/iron,
+/obj/effect/turf_decal/siding/wood,
+/turf/open/floor/wood/large,
 /area/centcom/central_command_areas/armory)
 "Bw" = (
 /obj/effect/turf_decal/siding/wood,
@@ -5435,6 +5501,12 @@
 /obj/item/flashlight/lamp/green,
 /turf/open/floor/pod/dark,
 /area/centcom/central_command_areas/admin)
+"BV" = (
+/obj/effect/turf_decal/stripes/end{
+	dir = 8
+	},
+/turf/open/floor/iron/dark,
+/area/centcom/central_command_areas/armory)
 "BW" = (
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
@@ -6458,6 +6530,9 @@
 /obj/structure/window/spawner/directional/north,
 /obj/item/gun/energy/pulse/pistol,
 /obj/structure/table/reinforced/titaniumglass,
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/armory)
 "Fs" = (
@@ -6814,10 +6889,12 @@
 /turf/open/floor/carpet/royalblack,
 /area/centcom/central_command_areas/admin)
 "GA" = (
-/obj/structure/window/spawner/directional/west,
-/obj/structure/window/spawner/directional/east,
 /obj/structure/flora/bush/style_random,
 /obj/structure/flora/bush/flowers_yw/style_random,
+/obj/structure/window/spawner/directional/south,
+/obj/item/toy/plush/nukeplushie{
+	name = "Lost-The-Operation"
+	},
 /turf/open/floor/grass,
 /area/centcom/central_command_areas/armory)
 "GE" = (
@@ -8797,6 +8874,9 @@
 	pixel_x = 8;
 	pixel_y = -1
 	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/armory)
 "OA" = (
@@ -9150,6 +9230,13 @@
 /obj/machinery/light/directional/west,
 /turf/open/floor/grass,
 /area/centcom/central_command_areas/evacuation/ship)
+"Qa" = (
+/obj/structure/hedge,
+/obj/structure/railing{
+	dir = 10
+	},
+/turf/open/floor/wood/large,
+/area/centcom/central_command_areas/armory)
 "Qc" = (
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/structure/closet/crate/bin,
@@ -9443,9 +9530,6 @@
 /obj/item/gun/energy/pulse/destroyer{
 	name = "Chuckles Suppressor"
 	},
-/obj/machinery/door/poddoor/shutters/indestructible{
-	id = "XCCadminstore"
-	},
 /turf/open/indestructible/vault,
 /area/centcom/central_command_areas/prison)
 "Ru" = (
@@ -9507,6 +9591,16 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/briefing)
+"RI" = (
+/obj/structure/window/spawner/directional/west,
+/obj/structure/window/spawner/directional/south,
+/obj/structure/flora/bush/style_random,
+/obj/structure/flora/bush/flowers_br/style_random,
+/obj/item/toy/plush/pkplush{
+	name = "NT-ERT Unit #782"
+	},
+/turf/open/floor/grass,
+/area/centcom/central_command_areas/armory)
 "RJ" = (
 /obj/effect/decal/cleanable/fuel_pool,
 /turf/open/floor/grass,
@@ -9579,9 +9673,8 @@
 "RX" = (
 /obj/machinery/light/directional/east,
 /obj/structure/closet/secure_closet/ert_engi,
-/obj/machinery/vending/wallmed/directional/north,
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/turf/open/floor/iron/dark,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/iron,
 /area/centcom/central_command_areas/armory)
 "RY" = (
 /obj/effect/turf_decal/tile/neutral/fourcorners,
@@ -9631,6 +9724,12 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/centcom/tdome/administration)
+"Sh" = (
+/obj/effect/turf_decal/stripes/end{
+	dir = 4
+	},
+/turf/open/floor/iron/dark,
+/area/centcom/central_command_areas/armory)
 "Si" = (
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/supplypod/loading/two)
@@ -9666,6 +9765,13 @@
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/hallway)
+"Su" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/iron/dark,
+/area/centcom/central_command_areas/armory)
 "Sv" = (
 /obj/structure/table/reinforced,
 /obj/item/food/poppypretzel,
@@ -10156,12 +10262,9 @@
 /turf/open/indestructible/vault,
 /area/centcom/central_command_areas/prison)
 "UD" = (
-/obj/structure/window/spawner/directional/south,
-/obj/structure/window/spawner/directional/west,
-/obj/structure/window/spawner/directional/east,
-/obj/structure/flora/bush/style_random,
-/obj/structure/flora/bush/flowers_pp/style_random,
-/turf/open/floor/grass,
+/obj/structure/hedge,
+/obj/structure/railing,
+/turf/open/floor/wood/large,
 /area/centcom/central_command_areas/armory)
 "UF" = (
 /obj/effect/turf_decal/siding/wood{
@@ -10506,8 +10609,8 @@
 /obj/structure/sign/directions/security/directional/south{
 	pixel_y = 32
 	},
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/turf/open/floor/iron/dark,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/iron,
 /area/centcom/central_command_areas/armory)
 "Wg" = (
 /obj/effect/turf_decal/tile/dark/opposingcorners,
@@ -10553,6 +10656,9 @@
 /obj/item/storage/box/emps,
 /obj/item/gun/energy/ionrifle,
 /obj/machinery/airalarm/directional/east,
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/armory)
 "Wr" = (
@@ -11398,6 +11504,9 @@
 /obj/structure/window/spawner/directional/north,
 /obj/item/gun/energy/e_gun/nuclear/rainbow,
 /obj/structure/table/reinforced/titaniumglass,
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/armory)
 "ZP" = (
@@ -56817,7 +56926,7 @@ aa
 aa
 Ya
 wl
-sE
+uR
 ZK
 bd
 Oy
@@ -57077,8 +57186,8 @@ Wc
 sE
 sE
 sE
-sE
-sE
+kS
+eY
 sE
 DK
 Hy
@@ -57332,10 +57441,10 @@ aa
 Ya
 oJ
 sE
-sE
-sE
-sE
-sE
+BV
+py
+RI
+Qa
 sE
 Zc
 Xg
@@ -57589,7 +57698,7 @@ aa
 Ya
 jI
 sE
-sE
+Su
 rJ
 GA
 UD
@@ -57846,10 +57955,10 @@ aa
 Ya
 yv
 sE
-sE
-sE
-sE
-sE
+Sh
+xD
+tK
+qx
 sE
 pp
 GP
@@ -58105,8 +58214,8 @@ rp
 sE
 sE
 sE
-sE
-sE
+kS
+eY
 sE
 uD
 Aw
@@ -58359,7 +58468,7 @@ aa
 aa
 Ya
 RX
-sE
+hc
 Fr
 eM
 Wp
