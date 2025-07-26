@@ -219,3 +219,8 @@
 	banned_quirks = list(HEAD_RESTRICTED_QUIRKS)
 	required_languages = list(/datum/language/common = LANGUAGE_SPOKEN)
 	banned_augments = list(HEAD_RESTRICTED_AUGMENTS)
+
+/datum/job/bridge_assistant
+	banned_quirks = list(HEAD_RESTRICTED_QUIRKS)
+	required_languages = list(/datum/language/common = LANGUAGE_SPOKEN)
+	banned_augments = list(HEAD_RESTRICTED_AUGMENTS)
