@@ -61,8 +61,8 @@
 	owner.adjust_derpspeech_up_to(5 SECONDS * seconds_per_tick, 50 SECONDS)
 	if(SPT_PROB(1.5, seconds_per_tick))
 		owner.emote("drool")
-	else if(owner.stat == CONSCIOUS && SPT_PROB(1.5, seconds_per_tick))
-		owner.say(pick_list_replacements(BRAIN_DAMAGE_FILE, "brain_damage"), forced = "brain damage", filterproof = TRUE)
+	/*else if(owner.stat == CONSCIOUS && SPT_PROB(1.5, seconds_per_tick))
+		owner.say(pick_list_replacements(BRAIN_DAMAGE_FILE, "brain_damage"), forced = "brain damage", filterproof = TRUE)*/
 
 /datum/brain_trauma/mild/dumbness/on_lose()
 	REMOVE_TRAIT(owner, TRAIT_DUMB, TRAUMA_TRAIT)
