@@ -58,7 +58,7 @@
 	return ..()
 
 /datum/brain_trauma/mild/dumbness/on_life(seconds_per_tick, times_fired)
-	owner.adjust_derpspeech_up_to(5 SECONDS * seconds_per_tick, 50 SECONDS)
+	//owner.adjust_derpspeech_up_to(5 SECONDS * seconds_per_tick, 50 SECONDS) // Iris change - commented out.
 	if(SPT_PROB(1.5, seconds_per_tick))
 		owner.emote("drool")
 	/*else if(owner.stat == CONSCIOUS && SPT_PROB(1.5, seconds_per_tick)) // Iris change - commented out.
@@ -66,7 +66,7 @@
 
 /datum/brain_trauma/mild/dumbness/on_lose()
 	REMOVE_TRAIT(owner, TRAIT_DUMB, TRAUMA_TRAIT)
-	owner.remove_status_effect(/datum/status_effect/speech/stutter/derpspeech)
+	//owner.remove_status_effect(/datum/status_effect/speech/stutter/derpspeech) // Iris change - commented out.
 	owner.clear_mood_event("dumb")
 	return ..()
 
