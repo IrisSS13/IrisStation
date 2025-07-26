@@ -45,7 +45,7 @@
 	owner.remove_status_effect(/datum/status_effect/speech/stutter)
 	return ..()
 
-/datum/brain_trauma/mild/dumbness
+/*/datum/brain_trauma/mild/dumbness // IRIS EDIT: commented the trauma out
 	name = "Dumbness"
 	desc = "Patient has reduced brain activity, making them less intelligent."
 	scan_desc = "reduced brain activity"
@@ -58,17 +58,17 @@
 	return ..()
 
 /datum/brain_trauma/mild/dumbness/on_life(seconds_per_tick, times_fired)
-	//owner.adjust_derpspeech_up_to(5 SECONDS * seconds_per_tick, 50 SECONDS) // Iris change - commented out.
+	owner.adjust_derpspeech_up_to(5 SECONDS * seconds_per_tick, 50 SECONDS)
 	if(SPT_PROB(1.5, seconds_per_tick))
 		owner.emote("drool")
-	/*else if(owner.stat == CONSCIOUS && SPT_PROB(1.5, seconds_per_tick)) // Iris change - commented out.
-		owner.say(pick_list_replacements(BRAIN_DAMAGE_FILE, "brain_damage"), forced = "brain damage", filterproof = TRUE)*/
+	else if(owner.stat == CONSCIOUS && SPT_PROB(1.5, seconds_per_tick))
+		owner.say(pick_list_replacements(BRAIN_DAMAGE_FILE, "brain_damage"), forced = "brain damage", filterproof = TRUE)
 
 /datum/brain_trauma/mild/dumbness/on_lose()
 	REMOVE_TRAIT(owner, TRAIT_DUMB, TRAUMA_TRAIT)
-	//owner.remove_status_effect(/datum/status_effect/speech/stutter/derpspeech) // Iris change - commented out.
+	owner.remove_status_effect(/datum/status_effect/speech/stutter/derpspeech)
 	owner.clear_mood_event("dumb")
-	return ..()
+	return ..()*/
 
 /datum/brain_trauma/mild/speech_impediment
 	name = "Speech Impediment"
