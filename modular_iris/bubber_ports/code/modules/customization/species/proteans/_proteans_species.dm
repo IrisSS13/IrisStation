@@ -92,7 +92,7 @@
 	. = ..()
 	owner = gainer
 	equip_modsuit(gainer)
-	RegisterSignal(src, COMSIG_OUTFIT_EQUIP, PROC_REF(outfit_handling))
+	RegisterSignal(src, PROC_REF(outfit_handling))
 	var/obj/item/mod/core/protean/core = species_modsuit.core
 	core?.linked_species = src
 	var/static/protean_verbs = list(

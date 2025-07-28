@@ -69,12 +69,9 @@
 	if(isprotean(user))
 		return
 	if(slot == ITEM_SLOT_BACK && user)
-		RegisterSignal(user, COMSIG_OOC_ESCAPE, PROC_REF(ooc_escape))
 		if(modlocked)
 			ADD_TRAIT(src, TRAIT_NODROP, "protean")
 			to_chat(user, span_warning("The suit does not seem to be able to come off..."))
-	else
-		UnregisterSignal(user, COMSIG_OOC_ESCAPE)
 
 /obj/item/mod/control/pre_equipped/protean/choose_deploy(mob/user)
 	if(!isprotean(user) && modlocked && active)
@@ -294,7 +291,7 @@
 	return min(
 		ui_status_only_living(user, owner),
 		ui_status_user_has_free_hands(user, owner),
-		ui_status_user_is_adjacent(user, owner, allow_tk = FALSE, viewcheck = FALSE),
+		ui_status_user_is_adjacent(user, owner, allow_tk = FALSE),
 		HAS_TRAIT(user, TRAIT_CAN_STRIP) ? UI_INTERACTIVE : UI_UPDATE,
 		max(
 			ui_status_user_is_conscious_and_lying_down(user),

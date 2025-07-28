@@ -270,6 +270,12 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		// If sensors are above living tracking, set DNR state
 		if (sensor_mode >= SENSOR_LIVING)
 			entry["is_dnr"] = tracked_human.get_dnr()
+			if(!isprotean(tracked_human))
+				entry["life_status"] = tracked_living_mob.stat
+			else
+				// Check if protean is stuck in suit
+				var/obj/item/organ/brain/protean/brain = tracked_human.get_organ_slot(ORGAN_SLOT_BRAIN)
+				entry["life_status"] = brain?.dead ? DEAD : tracked_living_mob.stat // If brain not dead/no brain then handling as usual
 
 		// Broken sensors show garbage data
 		if (uniform.has_sensor == BROKEN_SENSORS)

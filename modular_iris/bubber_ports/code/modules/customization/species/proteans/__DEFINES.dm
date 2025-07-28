@@ -128,9 +128,6 @@ PROTEAN_BODYPART_DEFINE(/obj/item/bodypart/arm/right/mutant/protean, 40)
 	bodyshape = parent_type::bodyshape | BODYSHAPE_DIGITIGRADE
 	base_limb_id = BODYPART_ID_DIGITIGRADE
 
-/obj/item/bodypart/leg/right/mutant/protean/digitigrade/update_limb(dropping_limb = FALSE, is_creating = FALSE)
-	. = ..()
-	check_mutant_compatability()
 
 /obj/item/bodypart/leg/left/mutant/protean/digitigrade
 	icon_greyscale = BODYPART_ICON_MAMMAL
@@ -138,9 +135,6 @@ PROTEAN_BODYPART_DEFINE(/obj/item/bodypart/arm/right/mutant/protean, 40)
 	bodyshape = parent_type::bodyshape | BODYSHAPE_DIGITIGRADE
 	base_limb_id = BODYPART_ID_DIGITIGRADE
 
-/obj/item/bodypart/leg/left/mutant/protean/digitigrade/update_limb(dropping_limb = FALSE, is_creating = FALSE)
-	. = ..()
-	check_mutant_compatability()
 
 PROTEAN_DELIMB_DEFINE(/obj/item/bodypart/arm/left/mutant/protean)
 PROTEAN_DELIMB_DEFINE(/obj/item/bodypart/arm/right/mutant/protean)
