@@ -126,15 +126,6 @@
 	item_path = /obj/item/clothing/gloves/ring/silver
 
 /*
-*	erp_item
-*/
-
-/datum/loadout_item/gloves/latex
-	name = "Latex Gloves"
-	item_path = /obj/item/clothing/gloves/long_gloves
-	erp_item = TRUE
-
-/*
 *	DONATOR
 */
 
