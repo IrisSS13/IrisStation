@@ -455,6 +455,16 @@
 	dimension_y = 32
 	color_src = USE_MATRIXED_COLORS
 
+/datum/sprite_accessory/wings/wide
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/wings_wide.dmi'
+	relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER, BACK_LAYER)
+
+/datum/sprite_accessory/wings/wide/robotic/virtual
+	name = "Virtualized Wings"
+	icon_state = "virtualized"
+	dimension_x = 46
+	color_src = USE_MATRIXED_COLORS
+	center = TRUE
 
 //moth wings - apparently Nova uses /datum/sprite_accessory/wings/moth/ and not /datum/sprite_accessory/moth_wings/
 /datum/sprite_accessory/wings/moth/iris

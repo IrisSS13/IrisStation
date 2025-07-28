@@ -16,7 +16,7 @@
 	target_mobtypes = list(/mob/living/carbon/human)
 	possible_locs = list(BODY_ZONE_CHEST)
 	organ_to_manipulate = ORGAN_SLOT_HEART
-	requires_bodypart_type = BODYTYPE_ROBOTIC
+	requires_bodypart_type = BODYTYPE_ROBOTIC | BODYTYPE_NANO // IRIS BUBBER Edit - BODYTYPE_NANO
 	requires_organ_type = /obj/item/organ/heart/synth
 	requires_organ_flags = ORGAN_ROBOTIC
 	requires_organ_damage = 10
