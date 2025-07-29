@@ -1,10 +1,10 @@
-/obj/structure/ore_vent/starter_resources/snundra
-	name = "Active Spiral Borer"
-	desc = "This vent is draining a near resource rich area from quite literally everything, it won't last forever."
+/obj/structure/ore_vent/starter_resources/debug
+	name = "Debug Ore Vent"
+	desc = "Debug ore vent for getting free minerals"
 	icon_state = "ore_vent_ice"
 	icon_state_tapped = "ore_vent_ice_tapped"
 	boulder_size = BOULDER_SIZE_LARGE
-	mineral_breakdown = list(	//This is just for the event, don't get used to it lol, will make it a debug vent later.
+	mineral_breakdown = list(
 		/datum/material/iron = 1,
 		/datum/material/glass = 1,
 		/datum/material/plasma = 1,

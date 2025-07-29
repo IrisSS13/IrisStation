@@ -628,7 +628,7 @@
 
 /obj/effect/abstract/liquid_turf/immutable
 	immutable = TRUE
-	var/list/starting_mixture = list(/datum/reagent/water = INFINITY)
+	var/list/starting_mixture = list(/datum/reagent/water = 600)
 	var/starting_temp = T20C
 
 //STRICTLY FOR IMMUTABLES DESPITE NOT BEING /immutable
@@ -651,7 +651,7 @@
 	base_icon_state = "ocean"
 	layer = FLY_LAYER
 	plane = ABOVE_GAME_PLANE
-	starting_temp = T20C
+	starting_temp = T20C-150
 	no_effects = TRUE
 	vis_flags = NONE
 
