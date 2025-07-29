@@ -1,7 +1,7 @@
 /obj/item/mod/control/pre_equipped/protean
 	name = "protean hardsuit rig"
 	desc = "The hardsuit rig unit of a Protean, allowing them to retract into it, or to deploy a suit that protects against various environments."
-	theme = /datum/mod_theme // Standard theme. TODO: Can be changed with standard mod armors
+	theme = /datum/mod_theme/protean // Standard theme. TODO: Can be changed with standard mod armors
 
 	applied_core = /obj/item/mod/core/protean
 	applied_cell = null // Goes off stomach
@@ -13,6 +13,9 @@
 
 /datum/mod_theme/protean
 	name = "Protean"
+	inbuilt_modules = list(
+		/obj/item/mod/module/storage,
+	)
 
 /obj/item/mod/control/pre_equipped/protean/Initialize(mapload, datum/mod_theme/new_theme, new_skin, obj/item/mod/core/new_core)
 	. = ..()
