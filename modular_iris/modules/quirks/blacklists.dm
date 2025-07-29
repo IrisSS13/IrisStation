@@ -40,7 +40,7 @@
 		return FALSE
 	return ..()
 
-/datum/quirk/water_breathing/is_species_appropriate(datum/species/mob_species) //synthetics can already do this
+/datum/quirk/item_quirk/breather/water_breather/is_species_appropriate(datum/species/mob_species) //synthetics can already do this
 	var/datum/species_traits = GLOB.species_prototypes[mob_species].inherent_traits
 	if(TRAIT_SYNTHETIC in species_traits)
 		return FALSE
