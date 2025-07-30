@@ -59,9 +59,11 @@
 
 /datum/outfit/abductor/scientist
 	name = "Abductor Scientist"
+	suit = /obj/item/clothing/suit/armor/abductor/vest
 
 	backpack_contents = list(
-		/obj/item/abductor/gizmo = 1
+		/obj/item/abductor/gizmo = 1,
+		/datum/uplink_item/stealthy_tools/announcement
 		)
 
 /datum/outfit/abductor/scientist/post_equip(mob/living/carbon/human/user, visuals_only = FALSE)
