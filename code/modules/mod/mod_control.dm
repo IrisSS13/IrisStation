@@ -575,24 +575,24 @@
 			if(user && !silent) // Iris Bubber Edit: Silent arg
 				balloon_alert(user, "incompatible with [old_module]!")
 				playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
-			return
+			return FALSE //Iris Bubber Edit: Return False
 	var/complexity_with_module = complexity
 	complexity_with_module += new_module.complexity
 	if(complexity_with_module > complexity_max)
-		if(user)
+		if(user && !silent) // Iris Bubber Edit: Silent arg
 			balloon_alert(user, "above complexity max!")
 			playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
-		return
+		return FALSE //Iris Bubber Edit: Return False
 	if(!new_module.has_required_parts(mod_parts))
-		if(user)
+		if(user && !silent) // Iris Bubber Edit: Silent arg
 			balloon_alert(user, "lacking required parts!")
 			playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
-		return
+		return FALSE //Iris Bubber Edit: Return False
 	if(!new_module.can_install(src))
-		if(user)
+		if(user && !silent) // Iris Bubber Edit: Silent arg
 			balloon_alert(user, "can't install!")
 			playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
-		return
+		return FALSE //Iris Bubber Edit: Return False
 	new_module.forceMove(src)
 	modules += new_module
 	complexity += new_module.complexity
@@ -603,9 +603,10 @@
 	if(active && new_module.has_required_parts(mod_parts, need_active = TRUE))
 		new_module.on_part_activation()
 		new_module.part_activated = TRUE
-	if(user)
+	if(user && !silent) // Iris Bubber Edit: Silent arg
 		balloon_alert(user, "[new_module] added")
 		playsound(src, 'sound/machines/click.ogg', 50, TRUE, SILENCED_SOUND_EXTRARANGE)
+	return TRUE // Bubber Edit: Return True
 
 /obj/item/mod/control/proc/uninstall(obj/item/mod/module/old_module, deleting = FALSE)
 	modules -= old_module
