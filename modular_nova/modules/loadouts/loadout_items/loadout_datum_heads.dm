@@ -783,5 +783,3 @@
 /datum/loadout_item/head/donator/rainbow_bunch/get_item_information()
 	. = ..()
 	.[FA_ICON_DICE] = TOOLTIP_RANDOM_COLOR
-
-
