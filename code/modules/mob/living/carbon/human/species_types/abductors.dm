@@ -42,7 +42,6 @@
 		return
 	abductor.dna.add_mutation(/datum/mutation/telepathy, MUTATION_SOURCE_SPECIES_INNATE)
 	var/datum/mutation/telepathy/mutation = locate() in abductor.dna.mutations
-	mutation.instability = 0
 	// IRIS EDIT END - ADDS TELEPATHY
 
 /datum/species/abductor/on_species_loss(mob/living/carbon/C)
