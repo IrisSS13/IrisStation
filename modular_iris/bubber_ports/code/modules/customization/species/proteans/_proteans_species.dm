@@ -158,7 +158,12 @@
 
 /datum/species/protean/get_default_mutant_bodyparts()
 	return list(
-		"legs" = list("Normal Legs", FALSE)
+		"legs" = list("Normal Legs", FALSE),
+		"wings" = list("Virtualized Wings", TRUE),
+		"tail" = list("None", FALSE),
+		"snout" = list("None", FALSE),
+		"horns" = list("None", FALSE),
+		"ears" = list("None", FALSE),
 	)
 
 /datum/species/protean/allows_food_preferences()
@@ -170,3 +175,12 @@
 			Proteans are unkillable. Instead, they shunt themselves away into their core when catastrophic losses to their swarm occur. Their cores also mimic the functions of a modsuit and can even assimilate more functional suits to use. \
 			Proteans only have a few vital organs, which can only be replaced via cargo. Their refactory is a miniature factory, and without it, they will face slow, agonizing degradation. Their Orchestrator is a miniature processor required for ease of movement. \
 			Proteans are an extremely fragile species, weak in combat, but a powerful aid, or a puppeteer pulling the strings.")
+
+/datum/species/protean/prepare_human_for_preview(mob/living/carbon/human/protean)
+	var/main_color = "#212121"
+	var/secondary_color = "#6e6e6e"
+	protean.dna.features["mcolor"] = main_color
+	protean.dna.features["mcolor2"] = secondary_color
+	protean.dna.mutant_bodyparts["wings"] = list(MUTANT_INDEX_NAME = "Virtualized Wings", MUTANT_INDEX_COLOR_LIST = list(main_color, secondary_color))
+	regenerate_organs(protean, src, visual_only = TRUE)
+	protean.update_body(is_creating = TRUE)
