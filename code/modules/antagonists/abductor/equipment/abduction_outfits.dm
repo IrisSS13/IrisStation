@@ -63,7 +63,7 @@
 
 	backpack_contents = list(
 		/obj/item/abductor/gizmo = 1,
-		/datum/uplink_item/stealthy_tools/announcement
+		/obj/item/device/traitor_announcer = 1
 		)
 
 /datum/outfit/abductor/scientist/post_equip(mob/living/carbon/human/user, visuals_only = FALSE)
