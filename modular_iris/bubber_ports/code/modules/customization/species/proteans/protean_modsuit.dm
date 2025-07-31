@@ -83,7 +83,6 @@
 		if(modlocked)
 			ADD_TRAIT(src, TRAIT_NODROP, "protean")
 			to_chat(user, span_warning("The suit does not seem to be able to come off..."))
-	else
 
 /obj/item/mod/control/pre_equipped/protean/choose_deploy(mob/user)
 	if(!isprotean(user) && modlocked && active)
