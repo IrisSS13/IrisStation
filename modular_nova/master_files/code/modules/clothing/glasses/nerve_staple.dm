@@ -10,8 +10,8 @@
 
 /obj/item/clothing/glasses/nerve_staple/Initialize(mapload)
 	. = ..()
-	if (prob(20))
-		worn_icon_state = "[initial(worn_icon_state)]_r"
+/*	if (prob(20))
+		worn_icon_state = "[initial(worn_icon_state)]_r" */ // IRIS EDIT - IT'S CHOICE NOW
 
 /obj/item/clothing/glasses/nerve_staple/equipped(mob/user, slot)
 	. = ..()
@@ -23,3 +23,6 @@
 /obj/item/clothing/glasses/nerve_staple/dropped(mob/user)
 	. = ..()
 	REMOVE_TRAIT(src, TRAIT_NODROP, CLOTHING_TRAIT)
+
+/obj/item/clothing/glasses/nerve_staple/right // IRIS EDIT - adds a right eye variant
+	icon_state = "nerve_staple_r"
