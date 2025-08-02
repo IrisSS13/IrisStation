@@ -25,3 +25,12 @@
 	compatible_types = list(
 		/datum/blood_type/skrell,
 	)
+
+// For Proteans
+/datum/blood_type/nanite_slurry
+	name = BLOOD_TYPE_NANITE_SLURRY
+	dna_string = "Nanite Slurry"
+	reagent_type = /datum/reagent/medicine/nanite_slurry
+	color = BLOOD_COLOR_NANITE_SLURRY
+	restoration_chem = null
+
