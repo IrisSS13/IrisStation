@@ -6,7 +6,7 @@
 	lose_text = span_notice("You think you can defend yourself again.")
 	medical_record_text = "Patient is nerve stapled and is unable to harm others."
 	icon = FA_ICON_FACE_ANGRY
-	forced_items = list(/obj/item/clothing/glasses/nerve_staple = list(ITEM_SLOT_EYES))
+	// forced_items = list(/obj/item/clothing/glasses/nerve_staple = list(ITEM_SLOT_EYES))
 	/// The nerve staple attached to the quirk
 	var/obj/item/clothing/glasses/nerve_staple/staple
 
@@ -40,14 +40,11 @@
 	return "Nerve Stapled" in preferences.all_quirks
 
 /datum/preference/choiced/nerve_staple_choice/init_possible_values()
-	var/list/values = list("Random", "Right Eye", "Left Eye")
+	var/list/values = list("Right Eye", "Left Eye")
 	return values
 
 /datum/preference/choiced/nerve_staple_choice/apply_to_human(mob/living/carbon/human/target, value)
 	return
-
-/datum/preference/choiced/nerve_staple_choice/create_default_value()
-	return "Random"
 
 GLOBAL_LIST_INIT(nerve_staple_choice, list(
 	"Left Eye" = /obj/item/clothing/glasses/nerve_staple,

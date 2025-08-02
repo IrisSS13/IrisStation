@@ -25,4 +25,5 @@
 	REMOVE_TRAIT(src, TRAIT_NODROP, CLOTHING_TRAIT)
 
 /obj/item/clothing/glasses/nerve_staple/right // IRIS EDIT - adds a right eye variant
-	icon_state = "nerve_staple_r"
+
+	worn_icon_state = "nerve_staple_r"
