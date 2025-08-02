@@ -36,11 +36,23 @@
 	. = ..()
 	var/datum/atom_hud/abductor_hud = GLOB.huds[DATA_HUD_ABDUCTOR]
 	abductor_hud.show_to(C)
+	// IRIS EDIT START - ADDS TELEPATHY
+	var/mob/living/carbon/human/abductor = C
+	if(!istype(abductor))
+		return
+	abductor.dna.add_mutation(/datum/mutation/telepathy, MUTATION_SOURCE_SPECIES_INNATE)
+	// IRIS EDIT END - ADDS TELEPATHY
 
 /datum/species/abductor/on_species_loss(mob/living/carbon/C)
 	. = ..()
 	var/datum/atom_hud/abductor_hud = GLOB.huds[DATA_HUD_ABDUCTOR]
 	abductor_hud.hide_from(C)
+	// IRIS EDIT START - REMOVES TELEPATHY
+	var/mob/living/carbon/human/abductor = C
+	if(!istype(abductor))
+		return
+	abductor.dna.remove_mutation(/datum/mutation/telepathy, MUTATION_SOURCE_SPECIES_INNATE)
+	// IRIS EDIT END - REMOVES TELEPATHY
 
 /datum/species/abductor/get_species_description()
 	return "Abductors, colloquially known as \"Greys\" (or \"Grays\"), \
