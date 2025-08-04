@@ -128,7 +128,8 @@
 		balloon_alert(user, "it's been used up!")
 		return
 	var/obj/item/organ/brain/owner_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
-	if(isnull(owner_brain) || !(owner_brain.organ_flags & ORGAN_ROBOTIC))
+	var/obj/item/organ/cyberimp/brain/nif/is_nif_user = target.get_organ_by_type(/obj/item/organ/cyberimp/brain/nif)
+	if(isnull(owner_brain) || !(owner_brain.organ_flags & ORGAN_ROBOTIC || is_nif_user))
 		balloon_alert(user, "synthetic brain required!")
 		return
 
