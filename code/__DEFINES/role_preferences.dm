@@ -49,6 +49,9 @@
 #define ROLE_CLOCK_CULTIST "Clock Cultist"
 // NOVA EDIT ADDITION END
 #define ROLE_VOIDWALKER "Voidwalker"
+//IRIS EDIT START
+#define ROLE_AGENT "Agent"
+//IRIS EDIT END
 
 // Latejoin roles
 #define ROLE_HERETIC_SMUGGLER "Heretic Smuggler"
