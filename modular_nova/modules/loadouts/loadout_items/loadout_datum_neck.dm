@@ -25,10 +25,6 @@
 	name = "Face Scarf (Colorable)"
 	item_path = /obj/item/clothing/neck/face_scarf
 
-/datum/loadout_item/neck/maid
-	name = "Maid Neck Cover"
-	item_path = /obj/item/clothing/neck/maid
-
 /datum/loadout_item/neck/maid_neck_cover
 	name = "Maid Neck Cover (Colorable)"
 	item_path = /obj/item/clothing/neck/maid_neck_cover
