@@ -17,6 +17,7 @@
 		/datum/blood_type/haemotoxin,
 	)
 
+//Not making this one printable cause it wouldn't make sense
 /datum/blood_type/nanoblood
 	name = "Nanomachine Infused Blood"
 	color = "#FF7F33"
