@@ -1545,65 +1545,40 @@
 	description = "Long-lasting sleep suppressant that very slightly reduces stun and knockdown times. Overdosing has horrendous side effects and deals lethal oxygen damage, will knock you unconscious if not dealt with."
 	color = "#BEF7D8" // palish blue white
 	metabolization_rate = 0.1 * REAGENTS_METABOLISM
-	overdose_threshold = 20 // with the random effects this might be awesome or might kill you at less than 10u (extensively tested)
+	overdose_threshold = 15 // with the random effects this might be awesome or might kill you at less than 10u (extensively tested) - IRIS EDIT moves down the overdose to 15, since it's no longer random
 	taste_description = "salt" // it actually does taste salty
-	var/overdose_progress = 0 // to track overdose progress
+	// var/overdose_progress = 0 // to track overdose progress - IRIS EDIT - removes random OD for modafinil
 	ph = 7.89
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	metabolized_traits = list(TRAIT_SLEEPIMMUNE)
 
+// IRIS EDIT - GIVES MODAFINIL A STATIC OVERDOSE UNIT
 /datum/reagent/medicine/modafinil/on_mob_life(mob/living/carbon/metabolizer, seconds_per_tick, times_fired)
 	. = ..()
-	if(overdosed) // We do not want any effects on OD
+	/* if(overdosed) // We do not want any effects on OD
 		return
-	overdose_threshold = overdose_threshold + ((rand(-10, 10) / 10) * REM * seconds_per_tick) // for extra fun
+	// overdose_threshold = overdose_threshold + ((rand(-10, 10) / 10) * REM * seconds_per_tick) // for extra fun
+	*/
 	metabolizer.AdjustAllImmobility(-5 * REM * seconds_per_tick)
 	metabolizer.adjustStaminaLoss(-3 * REM * seconds_per_tick, updating_stamina = FALSE, required_biotype = affected_biotype)
 	metabolizer.set_jitter_if_lower(1 SECONDS * REM * seconds_per_tick)
 	metabolization_rate = 0.005 * REAGENTS_METABOLISM * rand(5, 20) // randomizes metabolism between 0.02 and 0.08 per second
 	return UPDATE_MOB_HEALTH
 
-/datum/reagent/medicine/modafinil/overdose_start(mob/living/affected_mob)
+/* /datum/reagent/medicine/modafinil/overdose_start(mob/living/affected_mob)
 	. = ..()
 	to_chat(affected_mob, span_userdanger("You feel awfully out of breath and jittery!"))
 	metabolization_rate = 0.025 * REAGENTS_METABOLISM // sets metabolism to 0.005 per second on overdose
+*/
 
 /datum/reagent/medicine/modafinil/overdose_process(mob/living/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
-	overdose_progress++
-	var/need_mob_update
-	switch(overdose_progress)
-		if(1 to 40)
-			affected_mob.adjust_jitter_up_to(2 SECONDS * REM * seconds_per_tick, 20 SECONDS)
-			affected_mob.adjust_stutter_up_to(2 SECONDS * REM * seconds_per_tick, 20 SECONDS)
-			affected_mob.set_dizzy_if_lower(10 SECONDS * REM * seconds_per_tick)
-			if(SPT_PROB(30, seconds_per_tick))
-				affected_mob.losebreath++
-				need_mob_update = TRUE
-		if(41 to 80)
-			need_mob_update = affected_mob.adjustOxyLoss(0.1 * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
-			need_mob_update += affected_mob.adjustStaminaLoss(0.1 * REM * seconds_per_tick, updating_stamina = FALSE, required_biotype = affected_biotype)
-			affected_mob.adjust_jitter_up_to(2 SECONDS * REM * seconds_per_tick, 40 SECONDS)
-			affected_mob.adjust_stutter_up_to(2 SECONDS * REM * seconds_per_tick, 40 SECONDS)
-			affected_mob.set_dizzy_if_lower(20 SECONDS * REM * seconds_per_tick)
-			if(SPT_PROB(30, seconds_per_tick))
-				affected_mob.losebreath++
-				need_mob_update = TRUE
-			if(SPT_PROB(10, seconds_per_tick))
-				to_chat(affected_mob, span_userdanger("You have a sudden fit!"))
-				affected_mob.emote("moan")
-				affected_mob.Paralyze(20) // you should be in a bad spot at this point unless epipen has been used
-		if(81)
-			to_chat(affected_mob, span_userdanger("You feel too exhausted to continue!")) // at this point you will eventually die unless you get charcoal
-			need_mob_update = affected_mob.adjustOxyLoss(0.1 * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
-			need_mob_update += affected_mob.adjustStaminaLoss(0.1 * REM * seconds_per_tick, updating_stamina = FALSE, required_biotype = affected_biotype)
-		if(82 to INFINITY)
-			REMOVE_TRAIT(affected_mob, TRAIT_SLEEPIMMUNE, type)
-			affected_mob.Sleeping(100 * REM * seconds_per_tick)
-			need_mob_update += affected_mob.adjustOxyLoss(1.5 * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
-			need_mob_update += affected_mob.adjustStaminaLoss(1.5 * REM * seconds_per_tick, updating_stamina = FALSE, required_biotype = affected_biotype)
-	if(need_mob_update)
-		return UPDATE_MOB_HEALTH
+	affected_mob.adjust_jitter_up_to(2 SECONDS * REM * seconds_per_tick, 20 SECONDS)
+	affected_mob.adjust_stutter_up_to(2 SECONDS * REM * seconds_per_tick, 20 SECONDS)
+	affected_mob.set_dizzy_if_lower(10 SECONDS * REM * seconds_per_tick)
+	affected_mob.losebreath++
+
+// IRIS EDIT END
 
 /datum/reagent/medicine/psicodine
 	name = "Psicodine"

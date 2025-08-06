@@ -45,7 +45,7 @@
 
 /datum/augment_item/implant/l_arm/bureaucracy
 	name = "Left Bureaucrat's 'Jacent' Toolset Implant (4-colour Pen + Small Paper Bin + Approve/Deny Stamps)"
-	cost = 4
+	cost = 0 // IRIS EDIT - it's pens
 	path = /obj/item/organ/cyberimp/arm/toolkit/bureaucracy/left_arm
 
 /datum/augment_item/implant/l_arm/cargo
@@ -108,7 +108,7 @@
 
 /datum/augment_item/implant/r_arm/bureaucracy
 	name = "Right Bureaucrat's 'Jacent' Toolset Implant (4-colour Pen + Small Paper Bin + Approve/Deny Stamps)"
-	cost = 4
+	cost = 0 // IRIS EDIT - it's pens
 	path = /obj/item/organ/cyberimp/arm/toolkit/bureaucracy/right_arm
 
 /datum/augment_item/implant/r_arm/cargo
