@@ -24,8 +24,9 @@
 	if(!msg)
 		return
 
+//IRIS EDIT START: mentors can use looc while ghosting, rest can when round is over
 	if(!holder)
-		if(!GLOB.looc_allowed)
+		if(!GLOB.looc_allowed && SSticker.current_state < GAME_STATE_FINISHED && !mentor_datum)
 			to_chat(src, span_danger("LOOC is globally muted."))
 			return
 		if(handle_spam_prevention(msg, MUTE_OOC))
@@ -40,12 +41,13 @@
 		if(is_banned_from(ckey, BAN_LOOC))
 			to_chat(src, span_warning("You are LOOC banned!"))
 			return
-		if(mob.stat == DEAD)
+		if(mob.stat == DEAD && SSticker.current_state < GAME_STATE_FINISHED && !mentor_datum)
 			to_chat(src, span_danger("You cannot use LOOC while dead."))
 			return
-		if(istype(mob, /mob/dead))
+		if(istype(mob, /mob/dead) && SSticker.current_state < GAME_STATE_FINISHED && !mentor_datum)
 			to_chat(src, span_danger("You cannot use LOOC while ghosting."))
 			return
+//IRIS EDIT END
 
 	msg = emoji_parse(msg)
 
