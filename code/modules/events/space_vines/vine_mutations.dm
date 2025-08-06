@@ -53,9 +53,6 @@
 /datum/spacevine_mutation/proc/on_spread(obj/structure/spacevine/holder, turf/target)
 	return
 
-/datum/spacevine_mutation/proc/on_buckle(obj/structure/spacevine/holder, mob/living/buckled)
-	return
-
 /datum/spacevine_mutation/proc/on_explosion(severity, target, obj/structure/spacevine/holder)
 	return FALSE
 
