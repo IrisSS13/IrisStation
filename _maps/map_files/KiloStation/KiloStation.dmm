@@ -23133,7 +23133,6 @@
 /obj/item/folder,
 /obj/item/pen,
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
-/obj/machinery/fax/auto_name,
 /turf/open/floor/iron/dark,
 /area/station/maintenance/port/greater)
 "hat" = (
@@ -43284,7 +43283,10 @@
 /area/station/maintenance/aft)
 "nbu" = (
 /obj/structure/table,
-/obj/machinery/recharger,
+/obj/machinery/recharger{
+	pixel_x = 6;
+	pixel_y = 0
+	},
 /obj/machinery/status_display/ai/directional/east,
 /obj/machinery/camera/directional/east{
 	c_tag = "Bridge Starboard";
@@ -43295,6 +43297,10 @@
 	},
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
+	},
+/obj/machinery/recharger{
+	pixel_x = -6;
+	pixel_y = 0
 	},
 /turf/open/floor/iron,
 /area/station/command/bridge)
@@ -52708,13 +52714,16 @@
 /area/station/cargo/storage)
 "pXt" = (
 /obj/structure/table,
-/obj/machinery/recharger,
 /obj/machinery/light/directional/east,
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
+	},
+/obj/machinery/fax{
+	fax_name = "Bridge";
+	name = "Bridge Fax Machine"
 	},
 /turf/open/floor/iron,
 /area/station/command/bridge)
