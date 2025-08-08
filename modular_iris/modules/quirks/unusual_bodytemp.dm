@@ -30,7 +30,7 @@
 	return 20
 
 /datum/preference/numeric/bodytemp_customization/difference
-	savefile_key = "unusual_bodytemp"
+	savefile_key = "bodytemp"
 
 /datum/quirk/unusual_bodytemp/post_add()
 	. = ..()
