@@ -81,8 +81,11 @@
 			admin_seen[hearing_client] = TRUE
 			// dont continue here, still need to show runechat
 
-		if (isobserver(hearing) && !mentor_datum && !is_holder)
+//IRIS REMOVAL
+/*
+		if (isobserver(hearing) && !is_holder)
 			continue //ghosts dont hear looc, apparantly
+*/
 
 		// do the runetext here so admins can still get the runetext
 		if(mob.runechat_prefs_check(hearing) && hearing.client?.prefs.read_preference(/datum/preference/toggle/enable_looc_runechat))
