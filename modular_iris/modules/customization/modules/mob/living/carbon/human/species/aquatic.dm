@@ -190,3 +190,14 @@
 
 /mob/living/carbon/human/species/aquamorph
 	race = /datum/species/aquamorph
+
+/datum/species/aquamorph/prepare_human_for_preview(mob/living/carbon/human/aquamorph)
+	var/main_color = "#5ea9e3"
+	var/secondary_color = "#ededed"
+	aquamorph.dna.features["mcolor"] = main_color
+	aquamorph.dna.features["mcolor2"] = secondary_color
+	aquamorph.dna.mutant_bodyparts["snout"] = list(MUTANT_INDEX_NAME = "Shark", MUTANT_INDEX_COLOR_LIST = list(main_color, secondary_color))
+	aquamorph.dna.mutant_bodyparts["tail"] = list(MUTANT_INDEX_NAME = "Shark", MUTANT_INDEX_COLOR_LIST = list(main_color, secondary_color))
+	aquamorph.dna.mutant_bodyparts["ears"] = list(MUTANT_INDEX_NAME = "Hammerhead", MUTANT_INDEX_COLOR_LIST = list(main_color, secondary_color))
+	regenerate_organs(aquamorph, src, visual_only = TRUE)
+	aquamorph.update_body(is_creating = TRUE)
