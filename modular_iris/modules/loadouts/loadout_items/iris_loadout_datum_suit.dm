@@ -12,6 +12,10 @@
 	name = "Paramedic's Jacket"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/paramedic
 
+/datum/loadout_item/suit/transform_wintercoat
+	name = "Transformative Wintercoat (briefcase-only)"
+	item_path = /obj/item/transformative_wintercoat
+
 // NABBER ITEMS
 /datum/loadout_item/suit/nabberponcho
 	name = "Giant Poncho"
