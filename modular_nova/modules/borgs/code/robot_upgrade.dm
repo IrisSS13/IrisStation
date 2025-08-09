@@ -336,3 +336,44 @@
 /obj/item/borg/upgrade/transform/syndicatejack/action(mob/living/silicon/robot/cyborg, user = usr) // Only usable on emagged cyborgs. In exchange. makes you unable to get locked down or detonated.
 	if(cyborg.emagged)
 		return ..()
+
+/obj/item/borg/upgrade/cargo_papermanipulator
+	name = "Cargo Cyborg Paper Manipulator"
+	desc = "An upgrade to the service model cyborg, to help handle foods and paper."
+	icon_state = "module_miner"
+	require_model = TRUE
+	model_type = list(/obj/item/robot_model/cargo)
+	model_flags = BORG_MODEL_CARGO
+
+	items_to_add = list(/obj/item/borg/apparatus/cargo_papermanipulator)
+
+/obj/item/borg/apparatus/cargo_papermanipulator
+	name = "Cargo apparatus"
+	desc = "A not so special apparatus designed for the most tedious of tasks, holding paper..."
+	icon_state = "borg_service_apparatus"
+	storable = list(
+		/obj/item/paper,
+	)
+
+/obj/item/borg/apparatus/cargo_papermanipulator/Initialize(mapload)
+	update_appearance()
+	return ..()
+
+/obj/item/borg/apparatus/cargo_papermanipulator/update_overlays()
+	. = ..()
+	var/mutable_appearance/arm = mutable_appearance(icon, "borg_hardware_apparatus_arm1")
+	if(stored)
+		stored.pixel_w = -3
+		stored.pixel_z = 0
+		var/mutable_appearance/stored_copy = new /mutable_appearance(stored)
+		stored_copy.layer = FLOAT_LAYER
+		stored_copy.plane = FLOAT_PLANE
+		. += stored_copy
+	. += arm
+
+/obj/item/borg/apparatus/cargo_papermanipulator/examine()
+	. = ..()
+	if(stored)
+		. += "The apparatus currently has [stored] secured."
+	. += span_notice("<i>Alt-click</i> will drop the currently secured item.")
+
