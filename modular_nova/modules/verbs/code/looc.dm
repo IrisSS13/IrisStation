@@ -81,7 +81,7 @@
 			admin_seen[hearing_client] = TRUE
 			// dont continue here, still need to show runechat
 
-		if (isobserver(hearing) && !mentor_datum && !is_holder )
+		if (isobserver(hearing) && !mentor_datum && !is_holder)
 			continue //ghosts dont hear looc, apparantly
 
 		// do the runetext here so admins can still get the runetext
