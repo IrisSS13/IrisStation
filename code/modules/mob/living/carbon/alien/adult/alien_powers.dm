@@ -137,11 +137,16 @@ Doesn't work on other aliens/AI.*/
 	if(QDELETED(chosen_recipient) || QDELETED(src) || QDELETED(owner) || !IsAvailable(feedback = TRUE) || !to_whisper)
 		return FALSE
 	if(chosen_recipient.can_block_magic(MAGIC_RESISTANCE_MIND, charge_cost = 0))
+		owner.balloon_alert(owner, "foiled!") // IRIS ADDITION: Adds balloon popup
 		to_chat(owner, span_warning("As you reach into [chosen_recipient]'s mind, you are stopped by a mental blockage. It seems you've been foiled."))
 		return FALSE
 
 	log_directed_talk(owner, chosen_recipient, to_whisper, LOG_SAY, tag = "alien whisper")
+	if(chosen_recipient.client?.prefs.read_preference(/datum/preference/toggle/enable_runechat)) // IRIS EDIT: Makes xeno telepathy consistent with normal telepathy
+		chosen_recipient.create_chat_message(chosen_recipient, chosen_recipient.get_selected_language(), to_whisper, list("italics"))
 	to_chat(chosen_recipient, "[span_noticealien("You hear a strange, alien voice in your head...")][to_whisper]")
+	if(owner.client?.prefs.read_preference(/datum/preference/toggle/enable_runechat)) // IRIS EDIT: Makes xeno telepathy consistent with normal telepathy
+		owner.create_chat_message(owner, owner.get_selected_language(), to_whisper, list("italics"))
 	to_chat(owner, span_noticealien("You said: \"[to_whisper]\" to [chosen_recipient]"))
 	for(var/mob/dead_mob as anything in GLOB.dead_mob_list)
 		if(!isobserver(dead_mob))
@@ -179,6 +184,7 @@ Doesn't work on other aliens/AI.*/
 		return FALSE
 
 	if(get_dist(owner, donation_target) > 1)
+		owner.balloon_alert(owner, "too far away") // IRIS ADDITION: Adds balloon popup
 		to_chat(owner, span_noticealien("You need to be closer!"))
 		return FALSE
 
