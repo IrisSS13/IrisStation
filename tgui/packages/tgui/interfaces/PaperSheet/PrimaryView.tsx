@@ -1,11 +1,12 @@
-import { Component, createRef, RefObject } from 'react';
+import { Component, createRef, type RefObject } from 'react';
 import { Box, Button, Flex, Section, TextArea } from 'tgui-core/components';
 
 import { useBackend, useLocalState } from '../../backend';
+import { sanitizeText } from '../../sanitize';
 import { TEXTAREA_INPUT_HEIGHT } from './constants';
 import { PreviewView } from './Preview';
 import { PaperSheetStamper } from './Stamper';
-import { InteractionType, PaperContext, PaperInput } from './types';
+import { InteractionType, type PaperContext, type PaperInput } from './types';
 
 // Overarching component that holds the primary view for papercode.
 export class PrimaryView extends Component {
@@ -110,10 +111,16 @@ export class PrimaryView extends Component {
                       disabled={!savableData || tooManyCharacters}
                       color="good"
                       onClick={() => {
-                        if (textAreaText.length) {
-                          act('add_text', { text: textAreaText });
-                          setTextAreaText('');
+                        const result = sanitizeText(textAreaText, false);
+                        if (typeof result === 'object' && result !== null) {
+                          act('add_text', {
+                            text: result.sanitized,
+                            blocked_summary: result.blockedSummary,
+                          });
+                        } else {
+                          act('add_text', { text: result });
                         }
+                        setTextAreaText('');
                         if (Object.keys(inputFieldData).length) {
                           act('fill_input_field', {
                             field_data: inputFieldData,
@@ -140,7 +147,7 @@ export class PrimaryView extends Component {
                     setTextAreaText(value);
 
                     if (this.scrollableRef.current) {
-                      let thisDistFromBottom =
+                      const thisDistFromBottom =
                         this.scrollableRef.current.scrollHeight -
                         this.scrollableRef.current.scrollTop;
                       this.scrollableRef.current.scrollTop +=

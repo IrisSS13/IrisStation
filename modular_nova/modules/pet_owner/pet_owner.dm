@@ -4,7 +4,7 @@
 	icon = FA_ICON_HORSE
 	value = 0 //IRIS EDIT: 4 to 0, no reason to make it cost anything
 	mob_trait = TRAIT_PET_OWNER
-	veteran_only = FALSE
+	nova_stars_only = FALSE // IRIS EDIT - everyone can use
 	gain_text = span_notice("You brought your pet with you to work.")
 	lose_text = span_danger("You feel lonely, as if leaving somebody behind...")
 	medical_record_text = "Patient mentions their fondness for their pet."
@@ -48,6 +48,7 @@
 			LOCATION_HANDS,
 		),
 		flavour_text = "Looks tightly packed - you might not be able to put the pet back in once they're out.",
+		notify_player = TRUE,
 	)
 	//Nanotrasen
 	give_item_to_holder(

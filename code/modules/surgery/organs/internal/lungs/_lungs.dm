@@ -612,6 +612,12 @@
 			for(var/datum/gas/gas as anything in breath.gases)
 				breath.gases[gas][MOLES] = 0 //cant filter gas out of the air unless wet
 	// NOVA EDIT ADDITION END
+	// IRIS EDIT ADDITION START - Covers breathing for aquatic species without tying it to the species itself, allowing other selected lung options to work as intended
+	if(breather.get_organ_by_type(/obj/item/organ/lungs/carp/akula))
+		if(!breather.has_status_effect(/datum/status_effect/fire_handler/wet_stacks))
+			for(var/datum/gas/gas as anything in breath.gases)
+				breath.gases[gas][MOLES] = 0 //cant filter gas out of the air unless wet
+	// IRIS EDIT ADDITION END
 	// Indicates if there are moles of gas in the breath.
 	var/has_moles = breath.total_moles() != 0
 
@@ -977,6 +983,13 @@
 
 /obj/item/organ/lungs/cybernetic/surplus/hear_breath_noise(mob/living/hearer)
 	return span_danger("[owner.p_Their()] lungs emit [breath_noise].")
+
+/obj/item/organ/lungs/ghost
+	name = "ghost lungs"
+	desc = "No one knows what this is even supposed to breathe."
+	icon_state = "lungs-ghost"
+	movement_type = PHASING
+	organ_flags = parent_type::organ_flags | ORGAN_GHOST
 
 /obj/item/organ/lungs/lavaland
 	name = "blackened frilled lungs" // blackened from necropolis exposure

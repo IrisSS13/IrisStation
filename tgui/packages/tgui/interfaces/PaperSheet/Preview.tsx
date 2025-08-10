@@ -1,14 +1,14 @@
 import { marked } from 'marked';
 import { baseUrl } from 'marked-base-url';
 import { markedSmartypants } from 'marked-smartypants';
-import { Component, RefObject } from 'react';
+import { Component, type RefObject } from 'react';
 import { Box, Section } from 'tgui-core/components';
 
 import { useBackend, useLocalState } from '../../backend';
 import { sanitizeText } from '../../sanitize';
 import { tokenizer, walkTokens } from './helpers';
 import { StampView } from './StampView';
-import { FieldInput, InteractionType, PaperContext } from './types';
+import { type FieldInput, InteractionType, type PaperContext } from './types';
 
 type PreviewViewProps = {
   scrollableRef: RefObject<HTMLDivElement | null>;
@@ -151,9 +151,10 @@ export class PreviewView extends Component<PreviewViewProps> {
   }
 
   shouldComponentUpdate(nextProps: Readonly<PreviewViewProps>): boolean {
-    if (!this.props.canEdit) return true;
-
-    return this.props.canEdit !== nextProps.canEdit;
+    return (
+      this.props.canEdit !== nextProps.canEdit ||
+      this.props.textArea !== nextProps.textArea
+    );
   }
 
   // Creates the partial inline HTML for previewing or reading the paper from
@@ -187,7 +188,7 @@ export class PreviewView extends Component<PreviewViewProps> {
     this.lastReadOnly = readOnly;
 
     raw_text_input?.forEach((value) => {
-      let rawText = value.raw_text.trim();
+      const rawText = value.raw_text.trim();
       if (!rawText.length) {
         return;
       }
@@ -197,7 +198,7 @@ export class PreviewView extends Component<PreviewViewProps> {
       const fontBold = value.bold || false;
       const advancedHtml = value.advanced_html || false;
 
-      let processingOutput = this.formatAndProcessRawText(
+      const processingOutput = this.formatAndProcessRawText(
         rawText,
         fontFace,
         fontColor,
@@ -244,7 +245,7 @@ export class PreviewView extends Component<PreviewViewProps> {
     const fontFace = held_item_details?.font || default_pen_font;
     const fontBold = held_item_details?.use_bold || false;
 
-    let processingOutput = this.formatAndProcessRawText(
+    const processingOutput = this.formatAndProcessRawText(
       textArea,
       fontFace,
       fontColor,
@@ -321,7 +322,11 @@ export class PreviewView extends Component<PreviewViewProps> {
     const parsedText = this.runMarkedDefault(rawText);
 
     // Third, we sanitize the text of html
-    const sanitizedText = sanitizeText(parsedText, advanced_html);
+    const sanitizedResult = sanitizeText(parsedText, advanced_html);
+    const sanitizedText =
+      typeof sanitizedResult === 'object' && sanitizedResult !== null
+        ? sanitizedResult.sanitized
+        : sanitizedResult;
 
     // Fourth we replace the [__] with fields
     const fieldedText = this.createFields(
@@ -480,7 +485,7 @@ export class PreviewView extends Component<PreviewViewProps> {
 
     const fieldData = field.field_data;
 
-    let input = document.createElement('input');
+    const input = document.createElement('input');
     input.setAttribute('type', 'text');
 
     input.style.fontSize = field.is_signature ? '15px' : `${fontSize}px`;

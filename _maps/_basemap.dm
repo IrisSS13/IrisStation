@@ -4,7 +4,6 @@
 
 #ifndef LOWMEMORYMODE
 	#ifdef ALL_MAPS
-		#include "map_files\Birdshot\birdshot.dmm"
 		#include "map_files\debug\multiz.dmm"
 		#include "map_files\debug\runtimestation.dmm"
 		#include "map_files\Deltastation\DeltaStation2.dmm"
@@ -19,7 +18,7 @@
 		#include "map_files\VoidRaptor\VoidRaptor.dmm"
 		// #include "map_files\NSVBlueshift\Blueshift.dmm"
 		// #include "map_files\Ouroboros\Ouroboros.dmm"
-		// #include "map_files\SerenityStation\SerenityStation.dmm"
+		#include "map_files\SerenityStation\SerenityStation.dmm"
 		#include "map_files\Snowglobe\snowglobe.dmm"
 		// NOVA EDIT ADDITION END
 		// IRIS EDIT START

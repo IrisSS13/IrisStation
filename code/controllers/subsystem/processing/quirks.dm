@@ -44,6 +44,8 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/echolocation, /datum/quirk/monochromatic),
 	list(/datum/quirk/echolocation, /datum/quirk/item_quirk/blindness, /datum/quirk/item_quirk/nearsighted, /datum/quirk/item_quirk/deafness),
 	list(/datum/quirk/sensitive_hearing, /datum/quirk/item_quirk/deafness, /datum/quirk/echolocation),
+	list(/datum/quirk/visitor, /datum/quirk/item_quirk/underworld_connections),
+	list(/datum/quirk/adapted_lungs, /datum/quirk/item_quirk/breather/water_breather, /datum/quirk/item_quirk/breather/nitrogen_breather, /datum/quirk/item_quirk/breather/plasma_breather),
 	//NOVA EDIT ADDITION END
 	//IRIS EDIT ADDITION BEGIN
 	//ORBSTATION PORT: if you're illiterate, farsighted would just be free points
@@ -57,6 +59,7 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/echolocation, /datum/quirk/item_quirk/blindness, /datum/quirk/tunnel_vision),
 	list(/datum/quirk/complexdna, /datum/quirk/telepathic),
 	list(/datum/quirk/complexdna, /datum/quirk/genetic_mutation),
+	list(/datum/quirk/item_quirk/stowaway, /datum/quirk/visitor),
 	//IRIS EDIT ADDITION END
 ))
 
@@ -126,7 +129,7 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 	for(var/quirk_name in applied_client.prefs.all_quirks)
 		var/datum/quirk/quirk_type = quirks[quirk_name]
 		if(ispath(quirk_type))
-			if(user.add_quirk(quirk_type, override_client = applied_client))
+			if(user.add_quirk(quirk_type, override_client = applied_client, announce = FALSE))
 				SSblackbox.record_feedback("tally", "quirks_taken", 1, "[quirk_name]")
 		else
 			stack_trace("Invalid quirk \"[quirk_name]\" in client [applied_client.ckey] preferences")

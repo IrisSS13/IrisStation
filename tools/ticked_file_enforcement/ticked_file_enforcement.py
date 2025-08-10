@@ -60,7 +60,12 @@ with open(file_reference, 'r') as file:
             continue
         elif line == "// NOVA EDIT END":
             continue
-        # NOVA EDIT END
+        # IRIS EDIT END
+        elif line == "// IRIS EDIT START":
+            continue
+        elif line == "// IRIS EDIT END":
+            continue
+
 
         lines.append(line)
 

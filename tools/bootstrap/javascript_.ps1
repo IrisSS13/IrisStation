@@ -29,12 +29,17 @@ function Get-Bun {
     # https://bun.sh/docs/installation#cpu-requirements-and-baseline-builds
     Get-CoreInfo
     Write-Output "Checking CPU for AVX2 support"
-    $avx2Supported = (& $CoreInfoExe -accepteula | Select-String "AVX2\s+\*") -ne $null
+    $avx2Supported = (& $CoreInfoExe -accepteula -f | Select-String "AVX2\s+\*") -ne $null
     $BunRelease= "$BunPlatform"
     $BunTag
     if (-not $avx2Supported) {
         $BunRelease = "$BunPlatform-baseline"
         $BunTag = " (baseline)"
+    }
+
+    if (Test-Path $BunTargetDir -PathType Container) {
+        Write-Output "Bun target directory exists but bun.exe is missing. Re-downloading."
+        Remove-Item $BunTargetDir -Recurse -Force
     }
 
     $BunSource = "https://github.com/oven-sh/bun/releases/download/bun-v$BunVersion/$BunRelease.zip"

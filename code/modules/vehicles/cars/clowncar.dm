@@ -114,6 +114,8 @@
 
 /obj/vehicle/sealed/car/clowncar/Bump(atom/bumped)
 	. = ..()
+	if(!(car_traits & CAN_KIDNAP))
+		return
 	if(isclosedturf(bumped))
 		visible_message(span_warning("[src] rams into [bumped] and crashes!"))
 		playsound(src, pick(
