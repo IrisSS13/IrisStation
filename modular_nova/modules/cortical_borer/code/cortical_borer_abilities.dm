@@ -292,9 +292,6 @@
 	if(locate(reagent_choice) in cortical_owner.blacklisted_chemicals)
 		owner.balloon_alert(owner, "chemical blacklisted")
 		return
-	if(!(reagent_choice.chemical_flags & REAGENT_CAN_BE_SYNTHESIZED))
-		owner.balloon_alert(owner, "cannot learn [initial(reagent_choice.name)]")
-		return
 	cortical_owner.chemical_evolution -= chemical_evo_points
 	cortical_owner.known_chemicals += reagent_choice.type
 	cortical_owner.blood_chems_learned++
@@ -630,7 +627,7 @@
 	name = "Produce Offspring"
 	cooldown_time = 1 MINUTES
 	button_icon_state = "reproduce"
-	chemical_cost = 100
+	chemical_cost = 250
 
 /datum/action/cooldown/borer/produce_offspring/Trigger(trigger_flags, atom/target)
 	. = ..()
@@ -650,7 +647,7 @@
 	if(victim_brain)
 		cortical_owner.human_host.adjustOrganLoss(ORGAN_SLOT_BRAIN, 25 * cortical_owner.host_harm_multiplier)
 		var/eggroll = rand(1,100)
-		if(eggroll <= 75)
+		if(eggroll <= 71)
 			switch(eggroll)
 				if(1 to 34)
 					cortical_owner.human_host.gain_trauma_type(BRAIN_TRAUMA_MILD, TRAUMA_RESILIENCE_BASIC)
@@ -658,8 +655,6 @@
 					cortical_owner.human_host.gain_trauma_type(BRAIN_TRAUMA_MILD, TRAUMA_RESILIENCE_SURGERY)
 				if(61 to 71)
 					cortical_owner.human_host.gain_trauma_type(BRAIN_TRAUMA_SEVERE, TRAUMA_RESILIENCE_SURGERY)
-				if(72 to 75)
-					cortical_owner.human_host.gain_trauma_type(BRAIN_TRAUMA_SEVERE, TRAUMA_RESILIENCE_LOBOTOMY)
 	to_chat(cortical_owner.human_host, span_warning("Your brain begins to hurt..."))
 	var/turf/borer_turf = get_turf(cortical_owner)
 	new /obj/effect/decal/cleanable/vomit(borer_turf)
