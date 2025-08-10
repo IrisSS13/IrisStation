@@ -197,7 +197,7 @@ class ChatRenderer {
   }
 
   assignStyle(style = {}) {
-    for (let key of Object.keys(style)) {
+    for (const key of Object.keys(style)) {
       this.rootNode.style.setProperty(key, style[key]);
     }
   }
@@ -236,7 +236,7 @@ class ChatRenderer {
       if (lines.length === 0) {
         return;
       }
-      let regexExpressions = [];
+      const regexExpressions = [];
       // Organize each highlight entry into regex expressions and words
       for (let line of lines) {
         // Regex expression syntax is /[exp]/
@@ -308,7 +308,7 @@ class ChatRenderer {
     // Re-add message nodes
     const fragment = document.createDocumentFragment();
     let node;
-    for (let message of this.messages) {
+    for (const message of this.messages) {
       if (canPageAcceptType(page, message.type)) {
         node = message.node;
         fragment.appendChild(node);
@@ -369,7 +369,7 @@ class ChatRenderer {
     const len = this.visibleMessages.length;
     const from = len - 1;
     const to = Math.max(0, len - COMBINE_MAX_MESSAGES);
-    for (let payload of batch) {
+    for (const payload of batch) {
       const message = createMessage(payload);
       // Combine messages
       const combinable = this.getCombinableMessage(message, now, from, to);
@@ -406,7 +406,7 @@ class ChatRenderer {
           const childNode = nodes[i];
           const targetName = childNode.getAttribute('data-component');
           // Let's pull out the attibute info we need
-          let outputProps = {};
+          const outputProps = {};
           for (let j = 0; j < childNode.attributes.length; j++) {
             const attribute = childNode.attributes[j];
 
@@ -566,7 +566,7 @@ class ChatRenderer {
     );
     const messages = this.messages.slice(fromIndex);
     // Remove existing nodes
-    for (let message of messages) {
+    for (const message of messages) {
       message.node = undefined;
     }
     // Fast clear of the root node
@@ -618,7 +618,7 @@ class ChatRenderer {
     cssText += 'body, html { background-color: #141414 }\n';
     // Compile chat log as HTML text
     let messagesHtml = '';
-    for (let message of this.visibleMessages) {
+    for (const message of this.visibleMessages) {
       if (message.node) {
         messagesHtml += message.node.outerHTML + '\n';
       }
