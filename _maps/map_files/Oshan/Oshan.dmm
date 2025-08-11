@@ -107,6 +107,7 @@
 "abD" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/chair/stool/directional/south,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
 "acc" = (
@@ -4156,6 +4157,8 @@
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/effect/landmark/start/hangover,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
 "bzm" = (
@@ -6733,6 +6736,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/start/hangover,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
 "csZ" = (
@@ -14699,6 +14703,7 @@
 	name = "disposal conveyor"
 	},
 /obj/machinery/camera/autoname/directional/north,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
 "fcm" = (
@@ -16361,6 +16366,8 @@
 /area/station/hallway/primary/aft)
 "fEU" = (
 /obj/effect/spawner/random/trash,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
 "fFg" = (
@@ -21723,6 +21730,7 @@
 "hAw" = (
 /obj/structure/cable,
 /obj/machinery/light/directional/east,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
 "hAy" = (
@@ -24004,6 +24012,10 @@
 "inf" = (
 /obj/machinery/disposal/delivery_chute,
 /obj/structure/disposalpipe/trunk,
+/obj/machinery/conveyor/auto/inverted{
+	dir = 1;
+	id = "garbage"
+	},
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
 "ins" = (
@@ -25625,9 +25637,6 @@
 "iSp" = (
 /turf/open/floor/iron/showroomfloor,
 /area/station/security/prison/safe)
-"iSu" = (
-/turf/open/misc/asteroid/forest,
-/area/forestplanet/outdoors/unexplored)
 "iSB" = (
 /obj/machinery/holopad,
 /turf/open/floor/iron/dark/textured,
@@ -34702,6 +34711,8 @@
 	dir = 8
 	},
 /obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
 "lZU" = (
@@ -35144,6 +35155,7 @@
 /area/station/hallway/primary/starboard)
 "miu" = (
 /obj/effect/landmark/generic_maintenance_landmark,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
 "miA" = (
@@ -35989,6 +36001,14 @@
 /obj/effect/turf_decal/stripes/full,
 /turf/open/floor/engine,
 /area/station/hallway/primary/central/fore)
+"mxQ" = (
+/obj/machinery/disposal/delivery_chute,
+/obj/structure/disposalpipe/trunk,
+/obj/machinery/conveyor/auto/inverted{
+	id = "garbage"
+	},
+/turf/open/floor/plating,
+/area/station/maintenance/disposal)
 "myg" = (
 /obj/machinery/holopad,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -36537,10 +36557,6 @@
 /obj/structure/extinguisher_cabinet/directional/north,
 /turf/open/floor/iron/white/textured,
 /area/station/medical/pharmacy)
-"mJF" = (
-/obj/structure/flora/grass/jungle/b/style_random,
-/turf/open/misc/asteroid/forest,
-/area/forestplanet/outdoors/unexplored)
 "mJW" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 8
@@ -43610,10 +43626,6 @@
 	},
 /turf/open/floor/iron/dark/textured,
 /area/station/commons/dorms)
-"pdf" = (
-/obj/structure/flora/grass/jungle,
-/turf/open/misc/asteroid/forest,
-/area/forestplanet/outdoors/unexplored)
 "pds" = (
 /obj/structure/chair/sofa/right,
 /obj/machinery/light/dim/directional/north,
@@ -51562,10 +51574,6 @@
 	},
 /turf/open/floor/iron/dark/diagonal,
 /area/station/cargo/lobby)
-"rOa" = (
-/obj/structure/flora/tree/jungle/style_random,
-/turf/open/misc/asteroid/forest,
-/area/forestplanet/outdoors/unexplored)
 "rOb" = (
 /obj/effect/turf_decal/stripes{
 	dir = 8
@@ -87041,9 +87049,9 @@ meJ
 meJ
 meJ
 meJ
-iSu
-iSu
-iSu
+cgU
+cgU
+cgU
 meJ
 meJ
 meJ
@@ -87295,13 +87303,13 @@ meJ
 meJ
 meJ
 meJ
-iSu
-mJF
-mJF
-pdf
-pdf
-rOa
-iSu
+cgU
+uXi
+uXi
+xsg
+xsg
+nEC
+cgU
 meJ
 meJ
 meJ
@@ -87551,14 +87559,14 @@ meJ
 meJ
 meJ
 meJ
-iSu
-mJF
-mJF
-pdf
-mJF
-pdf
-iSu
-iSu
+cgU
+uXi
+uXi
+xsg
+uXi
+xsg
+cgU
+cgU
 meJ
 meJ
 meJ
@@ -89621,7 +89629,7 @@ mNc
 kxz
 usj
 vro
-iSu
+cgU
 meJ
 sLS
 meJ
@@ -89878,8 +89886,8 @@ vro
 wTx
 vro
 vro
-iSu
-iSu
+cgU
+cgU
 meJ
 meJ
 meJ
@@ -90135,8 +90143,8 @@ uaH
 lHN
 iBd
 tQX
-mJF
-pdf
+uXi
+xsg
 meJ
 meJ
 meJ
@@ -90392,9 +90400,9 @@ vlL
 vlL
 eAw
 tQX
-mJF
-mJF
-iSu
+uXi
+uXi
+cgU
 meJ
 meJ
 meJ
@@ -90649,9 +90657,9 @@ twd
 cIw
 hPW
 tQX
-iSu
-pdf
-rOa
+cgU
+xsg
+nEC
 meJ
 meJ
 meJ
@@ -90906,9 +90914,9 @@ tUl
 mQU
 tUl
 tUl
-pdf
-iSu
-iSu
+xsg
+cgU
+cgU
 meJ
 meJ
 meJ
@@ -91631,7 +91639,7 @@ szq
 dZn
 fDn
 cFQ
-inf
+mxQ
 iKK
 erb
 erb
