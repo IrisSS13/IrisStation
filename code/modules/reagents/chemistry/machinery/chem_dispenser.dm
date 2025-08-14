@@ -57,6 +57,7 @@
 	var/customTransferAmount
 	// NOVA EDIT ADDITION END
 
+	//IRIS EDIT - silver
 	/// The default list of dispensable_reagents
 	var/static/list/default_dispensable_reagents = list(
 		/datum/reagent/aluminium,
@@ -75,6 +76,7 @@
 		/datum/reagent/oxygen,
 		/datum/reagent/phosphorus,
 		/datum/reagent/potassium,
+		/datum/reagent/silver,
 		/datum/reagent/uranium/radium,
 		/datum/reagent/silicon,
 		/datum/reagent/sodium,

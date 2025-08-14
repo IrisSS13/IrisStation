@@ -854,7 +854,7 @@
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_CHEMICAL
 
 /datum/chemical_reaction/silver_solidification
-	required_reagents = list(/datum/reagent/silver = 20, /datum/reagent/carbon = 10)
+	required_reagents = list(/datum/reagent/consumable/frostoil = 5, /datum/reagent/silver = 20, /datum/reagent/carbon = 5) //IRIS EDIT: nerf silver solidification
 	required_temp = 630
 	mob_react = FALSE
 	reaction_flags = REACTION_INSTANT
