@@ -11,6 +11,7 @@
 	var/static/list/possible_amounts = list(0, 1, 2, 3, 4, 5)
 	///The reagent we are producing. We are a typepath, but are also typecast because there's several occations where we need to use initial.
 	var/datum/reagent/reagent_id = null
+	//IRIS EDIT - silver
 	///straight up copied from chem dispenser. Being a subtype would be extremely tedious and making it global would restrict potential subtypes using different dispensable_reagents
 	var/static/list/default_reagents = list(
 		/datum/reagent/aluminium,
@@ -29,6 +30,7 @@
 		/datum/reagent/oxygen,
 		/datum/reagent/phosphorus,
 		/datum/reagent/potassium,
+		/datum/reagent/silver,
 		/datum/reagent/uranium/radium,
 		/datum/reagent/silicon,
 		/datum/reagent/sodium,
