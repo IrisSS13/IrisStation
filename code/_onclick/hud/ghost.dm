@@ -29,6 +29,7 @@
 	var/mob/dead/observer/G = usr
 	G.reenter_corpse()
 
+//IRIS EDIT: dnr sprite overriden in modular_iris/code/_onclick/hud/ghost.dm
 /atom/movable/screen/ghost/dnr
 	name = "Do Not Resuscitate"
 	icon_state = "dnr"
