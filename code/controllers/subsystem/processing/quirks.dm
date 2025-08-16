@@ -60,6 +60,7 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/complexdna, /datum/quirk/telepathic),
 	list(/datum/quirk/complexdna, /datum/quirk/genetic_mutation),
 	list(/datum/quirk/item_quirk/stowaway, /datum/quirk/visitor),
+	list(/datum/quirk/badback, /datum/quirk/equipping/entombed)
 	//IRIS EDIT ADDITION END
 ))
 

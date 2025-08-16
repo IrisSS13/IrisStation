@@ -2,18 +2,24 @@
 	evo_type = BORER_EVOLUTION_SYMBIOTE
 
 // T1
-/datum/borer_evolution/symbiote/willing_host
-	name = "Willing Host"
-	desc = "Ask a host if they are willing, furthering your objectives."
-	gain_text = "Some of the monkeys we gave the worms seemed far more... willing than others to be a host. I could've sworn one let them climb up their arm."
+/datum/borer_evolution/symbiote/minor_chemicals
+	name = "Minor Chemicals"
+	desc = "Gain some minor benficial chemicals."
+	gain_text = "Some of the monkeys we gave the worms seemed far more... intoxicated than others."
 	tier = 1
 	unlocked_evolutions = list(/datum/borer_evolution/symbiote/chem_per_level)
 	evo_cost = 1
 
-/datum/borer_evolution/symbiote/willing_host/on_evolve(mob/living/basic/cortical_borer/cortical_owner)
+	var/static/list/added_chemicals = list(
+		/datum/reagent/medicine/coagulant,
+		/datum/reagent/medicine/psicodine,
+		/datum/reagent/medicine/granibitaluri,
+		/datum/reagent/consumable/ethanol,
+	)
+
+/datum/borer_evolution/symbiote/minor_chemicals/on_evolve(mob/living/basic/cortical_borer/cortical_owner)
 	. = ..()
-	var/datum/action/cooldown/borer/willing_host/attack_action = new(cortical_owner)
-	attack_action.Grant(cortical_owner)
+	cortical_owner.potential_chemicals |= added_chemicals
 
 // T2
 /datum/borer_evolution/symbiote/chem_per_level
@@ -34,7 +40,7 @@
 	name = "Expanded Chemical List"
 	desc = "Gain access to a new list of helpful chemicals to the unlockable list."
 	gain_text = "The chemicals the worms seem capable of synthesizing are truly remarkable, their hosts are able to get up from amazing amounts of harm."
-	mutually_exclusive = TRUE
+	mutually_exclusive = FALSE
 	tier = 3
 	unlocked_evolutions = list(
 		/datum/borer_evolution/symbiote/harm_decrease,
