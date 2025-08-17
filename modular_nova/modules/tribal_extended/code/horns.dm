@@ -10,8 +10,9 @@
 	desc = "A crude instrument fashioned from a beast’s horn, once used to rally kin during goblin raids — or so the stories go."
 	icon = 'modular_nova/modules/tribal_extended/icons/items_and_weapons.dmi'
 	icon_state = "blow_horn"
+	worn_icon_state = "horn"
 	resistance_flags = FLAMMABLE
-	slot_flags = ITEM_SLOT_SUITSTORE
+	slot_flags = ITEM_SLOT_NECK | ITEM_SLOT_SUITSTORE
 	///List of tunes that can be selected when using the item.
 	var/list/tune_patterns = list("short short long", "long short", "short long short", "long long", "short short short")
 	///Currently selected tune in the previous list.
@@ -28,10 +29,6 @@
 		return
 	context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Switch tune"
 	return CONTEXTUAL_SCREENTIP_SET
-
-/obj/item/blowing_horn/examine(mob/user)
-	. = ..()
-	. += span_notice("Switch tune with [EXAMINE_HINT("Shift+Ctrl+Click")].")
 
 /// Switch horn tune on ctrl+shift click
 /obj/item/blowing_horn/click_ctrl_shift(mob/user)
