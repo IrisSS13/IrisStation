@@ -7,6 +7,10 @@
 	name = "Yellow Performer's Outfit"
 	item_path = /obj/item/clothing/under/costume/singer/yellow
 
+/datum/loadout_item/under/miscellaneous/bunnysuit //Bunny stuff, sprites from MonkeStation
+	name = "Colorable Bunny Suit"
+	item_path = /obj/item/clothing/under/costume/playbunny
+
 // MISC
 /datum/loadout_item/under/miscellaneous/mechanic_overalls
 	name = "Mechanic's Overalls"

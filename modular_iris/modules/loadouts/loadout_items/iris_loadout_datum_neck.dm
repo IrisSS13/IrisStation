@@ -6,6 +6,10 @@
 	name = "Feathered Serenity Cloak (Alt)"
 	item_path = /obj/item/clothing/neck/padded/alt
 
+/datum/loadout_item/neck/bowtie_collar //Bunny stuff, sprites from MonkeStation
+	name = "Colorable Bowtie Collar"
+	item_path = /obj/item/clothing/neck/tie/bunnytie/tied
+
 /datum/loadout_item/neck/choker
 	name = "Thin Choker"
 	item_path = /obj/item/clothing/neck/choker

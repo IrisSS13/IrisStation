@@ -12,6 +12,18 @@
 	icon_file = 'modular_iris/modules/GAGS/icons/head/head_worn.dmi'
 	json_config = 'modular_iris/modules/GAGS/json_configs/head/headband_thin_worn.json'
 
+//Bunny stuff, sprites from MonkeStation
+
+/datum/greyscale_config/playbunnyears
+	name = "Playbunny Ears"
+	icon_file = 'modular_iris/monke_ports/icons/obj/clothing/head/hats.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/bunny_stuff/playbunny_ears.json'
+
+/datum/greyscale_config/playbunnyears/worn
+	name = "Playbunny Ears (Worn)"
+	icon_file = 'modular_iris/monke_ports/icons/mob/clothing/head/bunnyears.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/bunny_stuff/playbunny_ears_worn.json'
+
 /*
 *	EYES
 */
@@ -151,10 +163,50 @@
 	icon_file = 'modular_iris/modules/GAGS/icons/chokers/spiked_choker_worn.dmi'
 	json_config = 'modular_iris/modules/GAGS/json_configs/neck/spike_worn.json'
 
+//Bunny stuff, sprites from MonkeStation
+
+/datum/greyscale_config/bowtie_collar
+	name = "Bowtie Collar"
+	icon_file = 'modular_iris/monke_ports/icons/obj/clothing/neck/neck.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/bunny_stuff/bowtie_collar.json'
+
+/datum/greyscale_config/bowtie_collar/worn
+	name = "Bowtie Collar (worn)"
+	icon_file = 'modular_iris/monke_ports/icons/mob/clothing/neck/neck.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/bunny_stuff/bowtie_collar_worn.json'
+
 /*
 *	SUITS
 */
+//Bunny stuff, sprites from MonkeStation
 
+/datum/greyscale_config/tailcoat
+	name = "Tailcoat"
+	icon_file = 'modular_iris/monke_ports/icons/obj/clothing/suits/jacket.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/bunny_stuff/tailcoat.json'
+
+/datum/greyscale_config/tailcoat/worn
+	name = "Worn Tailcoat"
+	icon_file = 'modular_iris/monke_ports/icons/mob/clothing/suits/jacket.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/bunny_stuff/tailcoat_worn.json'
+
+/datum/greyscale_config/tailcoat/worn/digi
+	name = "Worn Tailcoat - Digitigrade"
+	icon_file = 'modular_iris/monke_ports/icons/mob/clothing/suits/jacket_digi.dmi'
+
+/datum/greyscale_config/tailcoat_bar
+	name = "Bartender's Tailcoat"
+	icon_file = 'modular_iris/monke_ports/icons/obj/clothing/suits/jacket.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/bunny_stuff/tailcoat_bar.json'
+
+/datum/greyscale_config/tailcoat_bar/worn
+	name = "Worn Bartender's Tailcoat"
+	icon_file = 'modular_iris/monke_ports/icons/mob/clothing/suits/jacket.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/bunny_stuff/tailcoat_bar_worn.json'
+
+/datum/greyscale_config/tailcoat_bar/worn/digi
+	name = "Worn Bartender's Tailcoat - Digitigrade"
+	icon_file = 'modular_iris/monke_ports/icons/mob/clothing/suits/jacket_digi.dmi'
 
 /*
 *	UNDER
@@ -167,6 +219,22 @@
 /datum/greyscale_config/princess_dress/worn
 	name = "Princess Dress (Worn)"
 	icon_file = 'modular_iris/icons/mob/clothing/under/dress.dmi'
+
+//Bunny stuff, sprites from MonkeStation
+
+/datum/greyscale_config/bunnysuit
+	name = "Bunny Suit"
+	icon_file = 'modular_iris/monke_ports/icons/obj/clothing/under/costume.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/bunny_stuff/bunnysuit.json'
+
+/datum/greyscale_config/bunnysuit/worn
+	name = "Bunny Suit (Worn)"
+	icon_file = 'modular_iris/monke_ports/icons/mob/clothing/under/costume.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/bunny_stuff/bunnysuit_worn.json'
+
+/datum/greyscale_config/bunnysuit/worn/digi
+	name = "Bunny Suit (Worn, Digi)"
+	icon_file = 'modular_iris/monke_ports/icons/mob/clothing/under/costume_digi.dmi'
 
 /*
 *	SHOES

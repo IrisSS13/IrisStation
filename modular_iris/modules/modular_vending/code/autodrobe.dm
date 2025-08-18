@@ -20,4 +20,21 @@
 				/obj/item/clothing/suit/patho/tragedian = 2 // PROVENANCE_COSTUMES END
 			),
 		),
+		list(
+			"name" = "Fancy",
+			"icon" = "user-tie",
+			"products" = list(
+				/obj/item/clothing/shoes/high_heels = 2
+			),
+		),
+		list(
+			"name" = "Service",
+			"icon" = "kitchen-set",
+			"products" = list(
+				/obj/item/clothing/under/costume/playbunny = 2, // MONKESTATION EDIT ADDITION
+				/obj/item/clothing/neck/tie/bunnytie = 2, // MONKESTATION EDIT ADDITION
+				/obj/item/clothing/head/playbunnyears = 2, // MONKESTATION EDIT ADDITION
+				/obj/item/clothing/suit/jacket/tailcoat = 2 // MONKESTATION EDIT ADDITION
+			),
+		),
 	)

@@ -1,4 +1,8 @@
 // COSTUMES
+/datum/loadout_item/head/bunnyears //Bunny stuff, sprites from MonkeStation
+	name = "Colorable Bunny Ears"
+	item_path = /obj/item/clothing/head/playbunnyears
+
 /datum/loadout_item/head/nemes
 	name = "Headdress Of Nemes"
 	item_path = /obj/item/clothing/head/costume/nemes

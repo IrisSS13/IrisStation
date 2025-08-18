@@ -1,3 +1,11 @@
+/obj/machinery/vending/wardrobe/bar_wardrobe // MONKESTATION EDIT ADDITION
+	products_iris = list(
+		/obj/item/clothing/suit/jacket/tailcoat/bartender = 2,
+		/obj/item/clothing/neck/tie/bunnytie = 2,
+		/obj/item/clothing/head/playbunnyears = 2,
+		/obj/item/clothing/under/costume/playbunny = 2,
+	)
+
 /obj/machinery/vending/wardrobe/chef_wardrobe
 	products_iris = list(
 		/obj/item/clothing/gloves/latex = 2,
@@ -31,7 +39,10 @@
 		/obj/item/clothing/suit/costume/nabber_poncho/fireresistant = 2,
 	)
 
-/obj/machinery/vending/wardrobe/gene_wardrobe
+/obj/machinery/vending/magivend // MONKESTATION EDIT ADDITION
 	products_iris = list(
-		/obj/item/radio/headset/headset_medsci  = 2,
+		/obj/item/clothing/neck/tie/bunnytie/magician = 3,
+		/obj/item/clothing/under/costume/playbunny/magician = 3,
+		/obj/item/clothing/suit/wizrobe/magician = 3,
+		/obj/item/clothing/shoes/fancy_heels/magician = 3,
 	)

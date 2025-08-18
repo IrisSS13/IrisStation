@@ -7,6 +7,10 @@
 	name = "Pharoah Tunic"
 	item_path = /obj/item/clothing/suit/costume/nemes
 
+/datum/loadout_item/suit/tailcoat //Bunny stuff, sprites from MonkeStation
+	name = "Recolorable Tailcoat"
+	item_path = /obj/item/clothing/suit/jacket/tailcoat
+
 // JOBS
 /datum/loadout_item/suit/labcoat_paramedic
 	name = "Paramedic's Jacket"
