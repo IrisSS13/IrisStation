@@ -390,7 +390,7 @@ GLOBAL_DATUM_INIT(steal_item_handler, /datum/objective_item_handler, new())
 /datum/objective_item/steal/handtele
 	name = "a hand teleporter"
 	targetitem = /obj/item/hand_tele
-	excludefromjob = list(JOB_CAPTAIN, JOB_RESEARCH_DIRECTOR, JOB_HEAD_OF_PERSONNEL, JOB_EXPLORER) // IRIS EDIT - Explorer excluded because, on certain maps, the tele is easily accessible to them
+	excludefromjob = list(JOB_CAPTAIN, JOB_RESEARCH_DIRECTOR, JOB_HEAD_OF_PERSONNEL)
 	item_owner = list(JOB_CAPTAIN, JOB_RESEARCH_DIRECTOR)
 	exists_on_map = TRUE
 	difficulty = 3
