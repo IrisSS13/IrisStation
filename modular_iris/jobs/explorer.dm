@@ -129,3 +129,7 @@
 	)
 
 	return selectable_gun_types
+
+/obj/effect/landmark/start/explorer
+	name = "Explorer"
+	icon_state = "Explorer"
