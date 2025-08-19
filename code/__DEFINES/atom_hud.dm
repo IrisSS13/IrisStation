@@ -106,7 +106,6 @@
 #define SECHUD_CORONER "hudcoroner"
 #define SECHUD_CURATOR "hudcurator"
 #define SECHUD_DETECTIVE "huddetective"
-#define SECHUD_EXPLORER "hudexplorer" //IRIS EDIT ADDITION
 #define SECHUD_GENETICIST "hudgeneticist"
 #define SECHUD_HEAD_OF_PERSONNEL "hudheadofpersonnel"
 #define SECHUD_HEAD_OF_SECURITY "hudheadofsecurity"
