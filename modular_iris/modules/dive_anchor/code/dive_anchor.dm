@@ -25,6 +25,27 @@ GLOBAL_LIST_EMPTY(anchors)
 	if(do_after(user, 3.5 SECONDS, src))
 		perform_teleportation(destination_anchor.loc)
 
+/obj/machinery/dive_anchor/multitool_act(mob/living/user, obj/item/tool)
+	. = ..()
+	var/obj/item/multitool/multitool = tool
+	if(multitool.buffer && istype(multitool.buffer, /obj/machinery/dive_anchor))
+		var/obj/machinery/dive_anchor/buffered_anchor = multitool.buffer
+		target_designation = buffered_anchor.designation
+		multitool.buffer = null
+		balloon_alert(user, "destination anchor set, buffer cleared")
+		return ITEM_INTERACT_SUCCESS
+	multitool.set_buffer(src)
+	balloon_alert(user, "anchor saved to multitool buffer")
+	return ITEM_INTERACT_SUCCESS
+
+/obj/machinery/dive_anchor/multitool_act_secondary(mob/living/user, obj/item/tool)
+	. = ..()
+	var/new_designation = tgui_input_text(user, "Rename this anchor to:", title, designation, 25)
+	if(new_designation != designation)
+		GLOB.anchors -= GLOB.anchors[designation]
+		GLOB.anchors[new_designation] = src
+		balloon_alert(user, "new designation set!")
+
 /obj/machinery/dive_anchor/proc/perform_teleportation(target_loc)
 	if(!target_loc)
 		return
