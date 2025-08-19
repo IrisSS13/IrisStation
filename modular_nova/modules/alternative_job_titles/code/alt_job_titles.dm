@@ -261,6 +261,8 @@
 		"Explorer",
 		"Surveyor",
 		"Pioneer",
+		"Navigator",
+		"Frontiersperson"
 		"Apprentice Explorer",
 	)
 
