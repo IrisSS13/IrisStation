@@ -8,7 +8,9 @@
 	. = ..()
 	if(length(safe_code) != 5)
 		CRASH("[src] spawned with invalid code - code must be a string exactly five digits long.")
-	//regex check here
+
+	var/regex/invalid_characters = regex(@"[^\d]")
+	if(invalid_characters.Find(safe_code))
 		CRASH("[src] spawned with invalid code - code must only contain numeric characters.")
 
 	for(var/item in stored_items)
