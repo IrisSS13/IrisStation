@@ -17,6 +17,13 @@ GLOBAL_LIST_EMPTY(anchors)
 
 /obj/machinery/dive_anchor/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
+	var/obj/machinery/dive_anchor/destination_anchor = GLOB.anchors[target_designation]
+	if(!destination_anchor)
+		audible_message(span_warning("Teleporation prevented: destination anchor unset or undetected!"))
+		visible_message(span_warning("A red light blinks on the [src]."))
+		return
+	if(do_after(user, 3.5 SECONDS, src))
+		perform_teleportation(destination_anchor.loc)
 
 /obj/machinery/dive_anchor/proc/perform_teleportation(target_loc)
 	if(!target_loc)
@@ -30,6 +37,8 @@ GLOBAL_LIST_EMPTY(anchors)
 			safe_landing_turfs += possible_landing_turf
 
 	if(!safe_landing_turfs)
+		audible_message(span_warning("Teleportation prevented: all disembarkation angles blocked!"))
+		visible_message(span_warning("A red light blinks on the [src]."))
 		return
 
 	var/datum/effect_system/spark_spread/quantum/quantum_sparks = new
