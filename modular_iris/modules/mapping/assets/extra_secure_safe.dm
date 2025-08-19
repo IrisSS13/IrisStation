@@ -9,7 +9,7 @@
 	if(length(safe_code) != 5)
 		CRASH("[src] spawned with invalid code - code must be a string exactly five digits long.")
 	//regex check here
-		CRASH("[src] spawned with invalid code - code must be a string exactly five digits long.")
+		CRASH("[src] spawned with invalid code - code must only contain numeric characters.")
 
 	for(var/item in stored_items)
 		atom_storage.set_holdable(item)
