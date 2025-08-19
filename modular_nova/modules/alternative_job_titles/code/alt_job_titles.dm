@@ -262,7 +262,7 @@
 		"Surveyor",
 		"Pioneer",
 		"Navigator",
-		"Frontiersperson"
+		"Frontiersperson",
 		"Apprentice Explorer",
 	)
 
