@@ -15,6 +15,11 @@ GLOBAL_LIST_EMPTY(anchors)
 	. = ..()
 	GLOB.anchors[designation] = src
 
+/obj/machinery/dive_anchor/examine(mob/user)
+	. = ..()
+	. + = span_notice("Its designation is <b>[designation]</b>.")
+	. + = span_notice("The designation of its target anchor is <b>[target_designation]</b>.")
+
 /obj/machinery/dive_anchor/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
 	var/obj/machinery/dive_anchor/destination_anchor = GLOB.anchors[target_designation]
