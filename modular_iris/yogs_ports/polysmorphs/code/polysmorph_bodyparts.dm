@@ -5,7 +5,7 @@
 /obj/item/bodypart/head/polysmorph
 	icon_greyscale = BODYPART_ICON_POLYSMORPH
 	limb_id = SPECIES_POLYSMORPH
-	head_flags = NO_EYES
+	head_flags = HEAD_LIPS|HEAD_DEBRAIN
 	damage_overlay_color = COLOR_DARK_MODERATE_LIME_GREEN
 	teeth_count = 72
 
