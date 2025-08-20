@@ -483,7 +483,7 @@
 	minimal_access = list(
 		ACCESS_KITCHEN,
 		ACCESS_MINERAL_STOREROOM,
-		//ACCESS_MORGUE, // IRIS EDIT - commented out because just no.
+		ACCESS_MORGUE,
 		ACCESS_SERVICE,
 		)
 	extra_access = list(
