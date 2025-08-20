@@ -4,7 +4,7 @@ GLOBAL_LIST_EMPTY(anchors)
 	name = "dive anchor"
 	desc = "They've been working on a unified theory."
 	icon = 'icons/obj/machines/satellite.dmi'
-	icon_state = "sat_inactive"
+	icon_state = "sat_active"
 	density = TRUE
 	use_power = NO_POWER_USE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
