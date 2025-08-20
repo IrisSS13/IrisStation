@@ -39,6 +39,11 @@
 		/obj/item/clothing/suit/costume/nabber_poncho/fireresistant = 2,
 	)
 
+/obj/machinery/vending/wardrobe/gene_wardrobe
+	products_iris = list(
+		/obj/item/radio/headset/headset_medsci  = 2,
+	)
+
 /obj/machinery/vending/magivend // MONKESTATION EDIT ADDITION
 	products_iris = list(
 		/obj/item/clothing/neck/tie/bunnytie/magician = 3,
