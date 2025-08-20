@@ -24,7 +24,7 @@
 	department_for_prefs = /datum/job_department/medical
 	departments_list = list(
 		/datum/job_department/medical,
-		/datum/job_department/service,
+		///datum/job_department/service, // IRIS EDIT - Coroner is no longer part of service
 	)
 
 	mail_goodies = list(
