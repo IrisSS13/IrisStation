@@ -17,8 +17,9 @@ GLOBAL_LIST_EMPTY(anchors)
 
 /obj/machinery/dive_anchor/examine(mob/user)
 	. = ..()
-	. + = span_notice("Its designation is <b>[designation]</b>.")
-	. + = span_notice("The designation of its target anchor is <b>[target_designation]</b>.")
+	. += span_notice("Its designation is <b>[designation]</b>.")
+	if(target_designation)
+		. += span_notice("The designation of its target anchor is <b>[target_designation]</b>.")
 
 /obj/machinery/dive_anchor/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
@@ -45,11 +46,31 @@ GLOBAL_LIST_EMPTY(anchors)
 
 /obj/machinery/dive_anchor/multitool_act_secondary(mob/living/user, obj/item/tool)
 	. = ..()
-	var/new_designation = tgui_input_text(user, "Rename this anchor to:", title, designation, 25)
+	var/new_designation = tgui_input_text(user, "Rename this anchor to:", "Input Designation", designation, 25)
 	if(new_designation != designation)
 		GLOB.anchors -= GLOB.anchors[designation]
 		GLOB.anchors[new_designation] = src
 		balloon_alert(user, "new designation set!")
+
+/obj/machinery/dive_anchor/emag_act(mob/user, obj/item/card/emag/emag_card)
+	. = ..()
+	if(target_designation && GLOB.anchors[target_designation])
+		if(user)
+			user.log_message("emagged [src].", LOG_ATTACK, color="red")
+			balloon_alert(user, "system overloaded")
+		playsound(src, SFX_SPARKS, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+		var/obj/machinery/dive_anchor/target_anchor = GLOB.anchors[target_designation]
+		//emagging one anchor zaps from the other
+		target_anchor.supermatter_zap(power_level = 75 KILO WATTS)
+		//and breaks the link between the two
+		target_anchor.target_designation = null
+		target_anchor.visible_message(span_warning("A red light blinks on the [target_anchor]."))
+		target_designation = null
+		visible_message(span_warning("A red light blinks on the [src]."))
+		return TRUE
+	if(user)
+		balloon_alert(user, "system overload failed")
+	return FALSE
 
 /obj/machinery/dive_anchor/proc/perform_teleportation(target_loc)
 	if(!target_loc)
@@ -69,7 +90,11 @@ GLOBAL_LIST_EMPTY(anchors)
 
 	var/datum/effect_system/spark_spread/quantum/quantum_sparks = new
 
-	for(var/atom/movable/teleportable in gather_teleportables_in_range())
+	var/list/teleportables = list()
+	for(var/turf/target_turf in circle_range_turfs(radius = 1))
+		teleportables += target_turf.get_all_contents_type(/mob/living)
+
+	for(var/atom/movable/teleportable in teleportables)
 		//pre-tp sparks
 		quantum_sparks.set_up(rand(4, 8), FALSE, teleportable)
 		quantum_sparks.attach(teleportable)
@@ -82,14 +107,6 @@ GLOBAL_LIST_EMPTY(anchors)
 			teleported_carbon.Knockdown(3 SECONDS)
 		//post tp sparks
 		quantum_sparks.start()
-
-/obj/machinery/dive_anchor/proc/gather_teleportables_in_range()
-	var/list/teleportables = list()
-
-	for(var/turf/target_turf in circle_range_turfs(radius = 1))
-		teleportables += target_turf.get_all_contents_type(/mob/living)
-
-	return teleportables
 
 /obj/machinery/dive_anchor/stationary
 	designation = "Space Station 13"
