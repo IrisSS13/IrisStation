@@ -3,6 +3,8 @@ GLOBAL_LIST_EMPTY(anchors)
 /obj/machinery/dive_anchor
 	name = "dive anchor"
 	desc = "They've been working on a unified theory."
+	icon = 'icons/obj/machines/satellite.dmi'
+	icon_state = "sat_inactive"
 	density = TRUE
 	use_power = NO_POWER_USE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
@@ -113,5 +115,7 @@ GLOBAL_LIST_EMPTY(anchors)
 		quantum_sparks.start()
 
 /obj/machinery/dive_anchor/stationary
+	name = "stationary dive anchor"
+	icon_state = "sat_inactive"
 	designation = "Space Station 13"
 	target_designation = "Ad Astra"
