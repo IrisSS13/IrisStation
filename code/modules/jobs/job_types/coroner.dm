@@ -57,7 +57,7 @@
 	)
 
 	belt = /obj/item/modular_computer/pda/coroner
-	ears = /obj/item/radio/headset/headset_srvmed
+	ears = /obj/item/radio/headset/headset_med // IRIS EDIT - Coroner is no longer part of service
 	gloves = /obj/item/clothing/gloves/latex/coroner
 	head = /obj/item/clothing/head/utility/surgerycap/black
 	l_pocket = /obj/item/clipboard //good for storing autopsy reports and taking notes
