@@ -51,6 +51,7 @@ GLOBAL_LIST_EMPTY(anchors)
 		GLOB.anchors -= GLOB.anchors[designation]
 		GLOB.anchors[new_designation] = src
 		balloon_alert(user, "new designation set!")
+	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/dive_anchor/emag_act(mob/user, obj/item/card/emag/emag_card)
 	. = ..()
