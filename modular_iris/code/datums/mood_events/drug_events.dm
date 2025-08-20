@@ -3,4 +3,4 @@
 	timeout = 5 MINUTES
 
 /datum/mood_event/overdose_hidden/add_effects(drug_name)
-	description = "Think I took way too much of that!"
+	description = "Man, I feel like shit!"
