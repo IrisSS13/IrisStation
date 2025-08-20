@@ -1,5 +1,6 @@
 /datum/id_trim/job/explorer
 	assignment = JOB_EXPLORER
+	trim_icon = 'modular_iris/master_files/icons/obj/card.dmi'
 	trim_state = "trim_explorer"
 	department_color = COLOR_CARGO_BROWN
 	subdepartment_color = COLOR_CARGO_BROWN
@@ -63,6 +64,7 @@
 	gloves = /obj/item/clothing/gloves/fingerless
 	shoes = /obj/item/clothing/shoes/jackboots/frontier_colonist
 	head = /obj/item/clothing/head/soft/black
+	suit = /obj/item/clothing/suit/frontier_colonist_flak
 	l_pocket = /obj/item/reagent_containers/hypospray/medipen/survival
 	r_pocket = /obj/item/gps/explorer
 	belt = /obj/item/modular_computer/pda/explorer
@@ -85,7 +87,7 @@
 	greyscale_colors = "#8b4c31#8b4c31#333333"
 
 /obj/item/storage/box/survival/mining/explorer // Just a more fitting mask
-	mask_type = /obj/item/clothing/mask/gas/atmos/frontier_colonist
+	mask_type = /obj/item/clothing/mask/gas/alt
 
 /obj/item/radio/headset/headset_cargo/explorer
 	name = "explorer radio headset"
@@ -98,6 +100,7 @@
 	subspace_transmission = FALSE // Comms without a relay
 
 /obj/item/gps/explorer
+	icon = 'modular_iris/master_files/icons/obj/devices/tracker.dmi'
 	icon_state = "gps-x"
 	gpstag = "EXP0"
 	desc = "An essential tool for space exploration. Used to locate one's position in the void and find certain points of interests easier."
@@ -132,4 +135,5 @@
 
 /obj/effect/landmark/start/explorer
 	name = "Explorer"
+	icon = 'modular_iris/master_files/icons/mob/landmarks.dmi'
 	icon_state = "Explorer"
