@@ -31,10 +31,10 @@
 			"name" = "Service",
 			"icon" = "kitchen-set",
 			"products" = list(
-				/obj/item/clothing/under/costume/playbunny = 2, // MONKESTATION EDIT ADDITION
-				/obj/item/clothing/neck/tie/bunnytie = 2, // MONKESTATION EDIT ADDITION
-				/obj/item/clothing/head/playbunnyears = 2, // MONKESTATION EDIT ADDITION
-				/obj/item/clothing/suit/jacket/tailcoat = 2 // MONKESTATION EDIT ADDITION
+				/obj/item/clothing/under/costume/playbunny = 1, // MONKESTATION EDIT ADDITION
+				/obj/item/clothing/neck/tie/bunnytie = 1, // MONKESTATION EDIT ADDITION
+				/obj/item/clothing/head/playbunnyears = 1, // MONKESTATION EDIT ADDITION
+				/obj/item/clothing/suit/jacket/tailcoat = 1 // MONKESTATION EDIT ADDITION
 			),
 		),
 	)

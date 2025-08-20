@@ -20,6 +20,12 @@
 	name = "Transformative Wintercoat (briefcase-only)"
 	item_path = /obj/item/transformative_wintercoat
 
+/datum/loadout_item/suit/tailcoat_bar //Bunny stuff, sprites from MonkeStation
+	name = "Bartender's Tailcoat"
+	item_path = /obj/item/clothing/suit/jacket/tailcoat/bartender
+	restricted_roles = list(JOB_BARTENDER)
+	group = "Job-Locked"
+
 // NABBER ITEMS
 /datum/loadout_item/suit/nabberponcho
 	name = "Giant Poncho"

@@ -11,6 +11,7 @@
 	greyscale_colors = "#39393f"
 	greyscale_config = /datum/greyscale_config/tailcoat
 	greyscale_config_worn = /datum/greyscale_config/tailcoat/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/tailcoat/worn/digi
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/suit/jacket/tailcoat/bartender
@@ -21,6 +22,7 @@
 	greyscale_colors = "#39393f#ffffff"
 	greyscale_config = /datum/greyscale_config/tailcoat_bar
 	greyscale_config_worn = /datum/greyscale_config/tailcoat_bar/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/tailcoat_bar/worn/digi
 	armor_type = /datum/armor/suit_armor
 
 
@@ -52,6 +54,7 @@
 	armor_type = /datum/armor/armor_centcom_formal_nt_consultant
 	greyscale_config = null
 	greyscale_config_worn = null
+	greyscale_config_worn_digi = null
 	greyscale_colors = null
 
 
@@ -62,6 +65,7 @@
 	post_init_icon_state = "tailcoat_brit"
 	greyscale_config = null
 	greyscale_config_worn = null
+	greyscale_config_worn_digi = null
 	greyscale_colors = null
 
 
@@ -72,6 +76,7 @@
 	post_init_icon_state = "tailcoat_communist"
 	greyscale_config = null
 	greyscale_config_worn = null
+	greyscale_config_worn_digi = null
 	greyscale_colors = null
 
 /obj/item/clothing/suit/jacket/tailcoat/usa
@@ -81,6 +86,7 @@
 	post_init_icon_state = "tailcoat_stars"
 	greyscale_config = null
 	greyscale_config_worn = null
+	greyscale_config_worn_digi = null
 	greyscale_colors = null
 
 //BUNNY STUFF END, SPRITES BY DimWhat OF MONKE STATION

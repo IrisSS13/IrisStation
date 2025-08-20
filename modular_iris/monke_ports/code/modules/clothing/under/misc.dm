@@ -11,6 +11,7 @@
 	greyscale_colors = "#39393f#39393f#ffffff#87502e"
 	greyscale_config = /datum/greyscale_config/bunnysuit
 	greyscale_config_worn = /datum/greyscale_config/bunnysuit/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/bunnysuit/worn/digi
 	flags_1 = IS_PLAYER_COLORABLE_1
 	body_parts_covered = CHEST|GROIN|LEGS
 	alt_covers_chest = TRUE
@@ -27,6 +28,7 @@
 	post_init_icon_state = "playbunny_wiz"
 	greyscale_config = null
 	greyscale_config_worn = null
+	greyscale_config_worn_digi = null
 	greyscale_colors = null
 
 /obj/item/clothing/under/costume/playbunny/magician/Initialize(mapload)
@@ -49,6 +51,7 @@
 	post_init_icon_state = "playbunny_centcom"
 	greyscale_config = null
 	greyscale_config_worn = null
+	greyscale_config_worn_digi = null
 	greyscale_colors = null
 
 /obj/item/clothing/under/costume/playbunny/british
@@ -58,6 +61,7 @@
 	post_init_icon_state = "playbunny_brit"
 	greyscale_config = null
 	greyscale_config_worn = null
+	greyscale_config_worn_digi = null
 	greyscale_colors = null
 
 /obj/item/clothing/under/costume/playbunny/communist
@@ -67,6 +71,7 @@
 	post_init_icon_state = "playbunny_communist"
 	greyscale_config = null
 	greyscale_config_worn = null
+	greyscale_config_worn_digi = null
 	greyscale_colors = null
 
 /obj/item/clothing/under/costume/playbunny/usa
@@ -76,6 +81,7 @@
 	post_init_icon_state = "playbunny_usa"
 	greyscale_config = null
 	greyscale_config_worn = null
+	greyscale_config_worn_digi = null
 	greyscale_colors = null
 
 //BUNNY STUFF END, SPRITES BY DimWhat OF MONKE STATION
