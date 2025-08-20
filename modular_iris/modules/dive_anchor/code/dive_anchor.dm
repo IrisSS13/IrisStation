@@ -10,9 +10,12 @@ GLOBAL_LIST_EMPTY(anchors)
 	var/designation = "Ad Astra"
 	///Name of linked anchor
 	var/target_designation = "Space Station 13"
+	///Original location of this anchor, used in the return home function of the anchor controller
+	var/home_location
 
 /obj/machinery/dive_anchor/Initialize(mapload)
 	. = ..()
+	home_location = loc
 	GLOB.anchors[designation] = src
 
 /obj/machinery/dive_anchor/examine(mob/user)
