@@ -86,8 +86,8 @@
 	greyscale_config = /datum/greyscale_config/tablet/stripe_split
 	greyscale_colors = "#8b4c31#8b4c31#333333"
 
-/obj/item/storage/box/survival/mining/explorer // Just a more fitting mask
-	mask_type = /obj/item/clothing/mask/gas/alt
+/obj/item/storage/box/survival/mining/explorer
+	mask_type = /obj/item/clothing/mask/gas/atmos/frontier_colonist
 
 /obj/item/radio/headset/headset_cargo/explorer
 	name = "explorer radio headset"
