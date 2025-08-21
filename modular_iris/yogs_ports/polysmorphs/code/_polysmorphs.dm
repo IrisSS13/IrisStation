@@ -1,3 +1,12 @@
+//TODO: RACIAL BANEFITS/DRAWBACKS, their own organs, language, names
+
+//Instead of just slapping a pure damage reduction I'm giving them armor instead, difference is that it can be pierced by weapons and stuff
+/datum/armor/polysmorph
+	melee = 15
+	bullet = 10
+	wound = 25 //strong bones
+	acid = 80 //their blood is literally acid
+
 /mob/living/carbon/human/species/polysmorph
 	race = /datum/species/polysmorph
 
@@ -9,10 +18,16 @@
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_CAN_STRIP,
 		TRAIT_LITERATE,
+		TRAIT_MINOR_NIGHT_VISION,
+		TRAIT_RESISTLOWPRESSURE,
 	)
 
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
+
+	coldmod = 0.75
+	heatmod = 1.5
+	exotic_bloodtype = BLOOD_TYPE_POLYSMORPH
 
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
 	bodypart_overrides = list(
@@ -31,7 +46,10 @@
 	mutantliver = /obj/item/organ/liver/xeno_hybrid
 	mutantstomach = /obj/item/organ/stomach/xeno_hybrid
 	mutantappendix = null
-
+	mutant_organs = list(
+		/obj/item/organ/alien/plasmavessel/roundstart,
+		/obj/item/organ/alien/resinspinner/roundstart,
+		) //TODO ROUNDSTART HIVENODE WITHOUT HIVEMIND
 /datum/species/polysmorph/get_species_description()
 	return "https://web.archive.org/web/20250430125713/https://wiki.yogstation.net/wiki/Polysmorph, why yes I AM putting a link to waybackmachine, how can you tell? :chad:"
 
@@ -41,6 +59,14 @@
 		"xenodorsal" = list("None", TRUE),
 		"xenohead" = list("None", TRUE),
 	)
+
+/datum/species/polysmorph/on_species_gain(mob/living/carbon/human/polysmorph, datum/species/old_species, pref_load, regenerate_icons = TRUE)
+	. = ..()
+	polysmorph.physiology.armor = polysmorph.physiology.armor.add_other_armor(/datum/armor/polysmorph)
+
+/datum/species/polysmorph/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)
+	. = ..()
+	C.physiology.armor = C.physiology.armor.subtract_other_armor(/datum/armor/polysmorph)
 
 /datum/species/polysmorph/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
 	human_for_preview.dna.features["mcolor"] = "#444466"
