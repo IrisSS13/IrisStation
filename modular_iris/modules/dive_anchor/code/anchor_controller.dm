@@ -4,6 +4,24 @@
 	icon_screen = "teleport"
 	icon_keyboard = "mining_key"
 	circuit = /obj/item/circuitboard/computer/anchor_controller
+	///dive anchor linked to this controller, connected using a multitool
+	var/obj/machinery/dive_anchor/anchor
+
+/obj/machinery/dive_anchor/multitool_act(mob/living/user, obj/item/tool)
+	. = ..()
+	var/obj/item/multitool/multitool = tool
+	if(!(multitool.buffer))
+		balloon_alert(user, "buffer is empty")
+		return ITEM_INTERACT_SUCCESS
+	if(!(istype(multitool.buffer, /obj/machinery/dive_anchor)))
+		balloon_alert(user, "buffered machine data is incompatible")
+		return ITEM_INTERACT_SUCCESS
+	if(istype(multitool.buffer, /obj/machinery/dive_anchor/stationary))
+		balloon_alert(user, "the [src] refuses the stationary anchor")
+		return ITEM_INTERACT_SUCCESS
+	anchor = multitool.buffer
+	balloon_alert(user, "anchor linked successfully")
+	return ITEM_INTERACT_SUCCESS
 
 /obj/item/circuitboard/computer/anchor_controller
 	name = "Anchor Controller"
