@@ -10,8 +10,10 @@
 	desc = "A crude instrument fashioned from a beast’s horn, once used to rally kin during goblin raids — or so the stories go."
 	icon = 'modular_nova/modules/tribal_extended/icons/items_and_weapons.dmi'
 	icon_state = "blow_horn"
+	/// IRIS EDIT: Gives horns worn icons; START OF EDIT.
 	worn_icon_state = "horn"
 	resistance_flags = FLAMMABLE
+	/// IRIS EDIT: Adds slot_flag for the neck.
 	slot_flags = ITEM_SLOT_NECK | ITEM_SLOT_SUITSTORE
 	///List of tunes that can be selected when using the item.
 	var/list/tune_patterns = list("short short long", "long short", "short long short", "long long", "short short short")
@@ -29,6 +31,7 @@
 		return
 	context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Switch tune"
 	return CONTEXTUAL_SCREENTIP_SET
+/// IRIS EDIT: Removed additional notice for Switch Tune, as it is unnecessary. END OF EDIT.
 
 /// Switch horn tune on ctrl+shift click
 /obj/item/blowing_horn/click_ctrl_shift(mob/user)
