@@ -62,7 +62,7 @@ const findNearestScrollableParent = (startingNode) => {
 const createHighlightNode = (text, color) => {
   const node = document.createElement('span');
   node.className = 'Chat__highlight';
-  node.setAttribute('style', 'background-color:' + color);
+  node.setAttribute('style', `background-color:${color}`);
   node.textContent = text;
   return node;
 };
@@ -93,7 +93,7 @@ const handleImageError = (e) => {
     }
     const src = node.src;
     node.src = null;
-    node.src = src + '#' + attempts;
+    node.src = `${src}#${attempts}`;
     node.setAttribute('data-reload-n', attempts + 1);
   }, IMAGE_RETRY_DELAY);
 };
@@ -259,13 +259,13 @@ class ChatRenderer {
         }
       }
       const regexStr = regexExpressions.join('|');
-      const flags = 'g' + (matchCase ? '' : 'i');
+      const flags = `g${matchCase ? '' : 'i'}`;
       // We wrap this in a try-catch to ensure that broken regex doesn't break
       // the entire chat.
       try {
         // setting regex overrides matchword
         if (regexStr) {
-          highlightRegex = new RegExp('(' + regexStr + ')', flags);
+          highlightRegex = new RegExp(`(${regexStr})`, flags);
         } else {
           const pattern = `${matchWord ? '\\b' : ''}(${highlightWords.join(
             '|',
@@ -364,11 +364,6 @@ class ChatRenderer {
     const fragment = document.createDocumentFragment();
     const countByType = {};
     let node;
-
-    // IRIS EDIT
-    const len = this.visibleMessages.length;
-    const from = len - 1;
-    const to = Math.max(0, len - COMBINE_MAX_MESSAGES);
     for (const payload of batch) {
       const message = createMessage(payload);
       // Combine messages
@@ -611,7 +606,7 @@ class ChatRenderer {
       for (let i = 0; i < cssRules.length; i++) {
         const rule = cssRules[i];
         if (rule && typeof rule.cssText === 'string') {
-          cssText += rule.cssText + '\n';
+          cssText += `${rule.cssText}\n`;
         }
       }
     }
@@ -620,7 +615,7 @@ class ChatRenderer {
     let messagesHtml = '';
     for (const message of this.visibleMessages) {
       if (message.node) {
-        messagesHtml += message.node.outerHTML + '\n';
+        messagesHtml += `${message.node.outerHTML}\n`;
       }
     }
     // Create a page
