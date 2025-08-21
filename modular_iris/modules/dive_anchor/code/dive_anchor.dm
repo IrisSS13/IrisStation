@@ -66,9 +66,10 @@ GLOBAL_LIST_EMPTY(anchors)
 /obj/machinery/dive_anchor/multitool_act_secondary(mob/living/user, obj/item/tool)
 	. = ..()
 	var/new_designation = tgui_input_text(user, "Rename this anchor to:", "Input Designation", designation, 25)
-	if(new_designation != designation)
+	if(new_designation && (new_designation != designation))
 		GLOB.anchors -= GLOB.anchors[designation]
-		GLOB.anchors[new_designation] = src
+		designation = new_designation
+		GLOB.anchors[designation] = src
 		balloon_alert(user, "new designation set!")
 	return ITEM_INTERACT_SUCCESS
 
