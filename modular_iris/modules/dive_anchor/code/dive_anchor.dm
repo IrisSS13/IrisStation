@@ -40,14 +40,15 @@ GLOBAL_LIST_EMPTY(anchors)
 
 /obj/machinery/dive_anchor/attacked_by(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
 	. = ..()
-	if(istype(attacking_item, /obj/item/stack/impure_telecrystal))
-		if(istype(src, /obj/machinery/dive_anchor/stationary))
-			balloon_alert(user, "[src] lacks a fuel port")
-			return
-		var/obj/item/stack/impure_telecrystal/crystals = attacking_item
-		fuel_charges += crystals.amount
-		balloon_alert(user, "you fuel the [src] with the [crystals]")
-		qdel(crystals)
+	if(!(istype(attacking_item, /obj/item/stack/impure_telecrystal)))
+		return
+	if(istype(src, /obj/machinery/dive_anchor/stationary))
+		balloon_alert(user, "[src] lacks a fuel port")
+		return
+	var/obj/item/stack/impure_telecrystal/crystals = attacking_item
+	fuel_charges += crystals.amount
+	balloon_alert(user, "you fuel the [src] with the [crystals]")
+	qdel(crystals)
 
 /obj/machinery/dive_anchor/multitool_act(mob/living/user, obj/item/tool)
 	. = ..()
