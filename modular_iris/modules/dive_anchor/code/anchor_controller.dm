@@ -7,7 +7,7 @@
 	///dive anchor linked to this controller, connected using a multitool
 	var/obj/machinery/dive_anchor/anchor
 
-/obj/machinery/dive_anchor/multitool_act(mob/living/user, obj/item/tool)
+/obj/machinery/computer/anchor_controller/multitool_act(mob/living/user, obj/item/tool)
 	. = ..()
 	var/obj/item/multitool/multitool = tool
 	if(!(multitool.buffer))
