@@ -43,7 +43,7 @@
 
 	mutantbrain = /obj/item/organ/brain/xeno_hybrid
 	mutanttongue = /obj/item/organ/tongue/xeno_hybrid
-	mutantliver = /obj/item/organ/liver/xeno_hybrid
+	mutantliver = /obj/item/organ/liver/polysmorph
 	mutantstomach = /obj/item/organ/stomach/xeno_hybrid
 	mutantappendix = null
 	mutant_organs = list(
