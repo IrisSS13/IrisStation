@@ -1,3 +1,8 @@
+/obj/machinery/vending/wardrobe/bar_wardrobe // MONKESTATION EDIT ADDITION
+	products_iris = list(
+		/obj/item/clothing/suit/jacket/tailcoat/bartender = 2,
+	)
+
 /obj/machinery/vending/wardrobe/chef_wardrobe
 	products_iris = list(
 		/obj/item/clothing/gloves/latex = 2,
@@ -34,4 +39,10 @@
 /obj/machinery/vending/wardrobe/gene_wardrobe
 	products_iris = list(
 		/obj/item/radio/headset/headset_medsci  = 2,
+	)
+
+/obj/machinery/vending/magivend // MONKESTATION EDIT ADDITION
+	products_iris = list(
+		/obj/item/clothing/suit/wizrobe/magician = 3,
+		/obj/item/clothing/shoes/fancy_heels/magician = 3,
 	)
