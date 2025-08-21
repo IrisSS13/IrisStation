@@ -2,7 +2,7 @@
 
 /obj/item/clothing/suit/jacket/tailcoat //parent type
 	name = "tailcoat"
-	desc = "A coat usually worn by bunny themed waiters and the like."
+	desc = "A knee-length coat characterised by a rear section of the skirt, with the front of the skirt cut away."
 	worn_icon = 'modular_iris/monke_ports/icons/mob/clothing/suits/jacket.dmi'
 	worn_icon_digi = 'modular_iris/monke_ports/icons/mob/clothing/suits/jacket_digi.dmi'
 	icon = 'modular_iris/monke_ports/icons/obj/clothing/suits/jacket.dmi'
@@ -16,7 +16,7 @@
 
 /obj/item/clothing/suit/jacket/tailcoat/bartender
 	name = "bartender's tailcoat"
-	desc = "A coat usually worn by bunny themed bartenders. It has an interior holster for firearms and some extra padding for minor protection."
+	desc = "A knee-length coat characterised by a rear section of the skirt, with the front of the skirt cut away. It has an interior holster for firearms and some extra padding for minor protection."
 	icon_state = "TailcoatBar"
 	post_init_icon_state = "TailcoatBar"
 	greyscale_colors = "#39393f#ffffff"
@@ -48,7 +48,7 @@
 
 /obj/item/clothing/suit/jacket/tailcoat/centcom
 	name = "Centcom tailcoat"
-	desc = "An official coat usually worn by bunny themed executives. The inside is lined with comfortable yet tasteful bunny fluff."
+	desc = "An official coat usually worn by executives."
 	icon_state = "TailcoatCentcom"
 	post_init_icon_state = "TailcoatCentcom"
 	armor_type = /datum/armor/armor_centcom_formal_nt_consultant
@@ -71,7 +71,7 @@
 
 /obj/item/clothing/suit/jacket/tailcoat/communist
 	name = "really red tailcoat"
-	desc = "A red tailcoat emblazoned with a golden star. The official uniform of the Bunny Waiter Union."
+	desc = "A red tailcoat emblazoned with a golden star."
 	icon_state = "TailcoatCommunist"
 	post_init_icon_state = "TailcoatCommunist"
 	greyscale_config = null
@@ -81,7 +81,7 @@
 
 /obj/item/clothing/suit/jacket/tailcoat/usa
 	name = "stars tailcoat"
-	desc = "A vintage coat worn by the 5th bunny battalion during the Revolutionary War. Smooth-bore musket not included."
+	desc = "A vintage coat worn by the 5th battalion during the Revolutionary War. Smooth-bore musket not included."
 	icon_state = "TailcoatStars"
 	post_init_icon_state = "TailcoatStars"
 	greyscale_config = null
