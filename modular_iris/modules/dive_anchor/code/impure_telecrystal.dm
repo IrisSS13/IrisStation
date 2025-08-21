@@ -10,3 +10,9 @@
 	merge_type = /obj/item/stack/impure_telecrystal
 	novariants = FALSE
 
+/datum/supply_pack/misc/impure_telecrystal
+	name = "Impure Telecrystal"
+	desc = "Fuel for mobile dive anchors."
+	cost = CARGO_CRATE_VALUE * 25
+	contains = list(/obj/item/stack/impure_telecrystal)
+	crate_name = "dive anchor fuel crate"
