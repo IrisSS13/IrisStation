@@ -14,6 +14,8 @@ GLOBAL_LIST_EMPTY(anchors)
 	var/target_designation = "Space Station 13"
 	///Original location of this anchor, used in the return home function of the anchor controller
 	var/home_location
+	///How many times can this anchor move before it needs to be refuelled
+	var/fuel_charges = 0
 
 /obj/machinery/dive_anchor/Initialize(mapload)
 	. = ..()
@@ -35,6 +37,17 @@ GLOBAL_LIST_EMPTY(anchors)
 		return
 	if(do_after(user, 3.5 SECONDS, src))
 		perform_teleportation(destination_anchor.loc)
+
+/obj/machinery/dive_anchor/attacked_by(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
+	. = ..()
+	if(istype(attacking_item, /obj/item/stack/impure_telecrystal))
+		if(istype(src, /obj/machinery/dive_anchor/stationary))
+			balloon_alert(user, "[src] lacks a fuel port")
+			return
+		var/obj/item/stack/impure_telecrystal/crystals = attacking_item
+		fuel_charges += crystals.amount
+		balloon_alert(user, "you fuel the [src] with the [crystals]")
+		qdel(crystals)
 
 /obj/machinery/dive_anchor/multitool_act(mob/living/user, obj/item/tool)
 	. = ..()
