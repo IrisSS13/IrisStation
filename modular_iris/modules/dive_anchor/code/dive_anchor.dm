@@ -129,6 +129,25 @@ GLOBAL_LIST_EMPTY(anchors)
 		//post tp sparks
 		quantum_sparks.start()
 
+/obj/machinery/dive_anchor/proc/trigger_relocate(target_loc, expend_fuel = TRUE)
+	if(!target_loc)
+		return
+
+	apply_wibbly_filters(src)
+	INVOKE_ASYNC(src, PROC_REF(relocate))
+
+	if(expend_fuel)
+		fuel_charges--
+
+/obj/machinery/dive_anchor/proc/relocate(target_loc)
+	if(!target_loc)
+		return
+
+	sleep(4 SECONDS)
+
+	forceMove(target_loc)
+	remove_wibbly_filters(src)
+
 /obj/machinery/dive_anchor/stationary
 	name = "stationary dive anchor"
 	icon_state = "sat_inactive"
