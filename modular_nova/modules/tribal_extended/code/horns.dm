@@ -31,8 +31,11 @@
 		return
 	context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Switch tune"
 	return CONTEXTUAL_SCREENTIP_SET
-/// IRIS EDIT: Removed additional notice for Switch Tune, as it is unnecessary. END OF EDIT.
-
+/* IRIS EDIT: Removed additional notice for Switch Tune, as it is unnecessary.
+/obj/item/blowing_horn/examine(mob/user)
+	. = ..()
+	. += span_notice("Switch tune with [EXAMINE_HINT("Shift+Ctrl+Click")].")
+	END OF EDIT */
 /// Switch horn tune on ctrl+shift click
 /obj/item/blowing_horn/click_ctrl_shift(mob/user)
 	switch_tune(user)
