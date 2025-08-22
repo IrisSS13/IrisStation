@@ -92,7 +92,7 @@ GLOBAL_LIST_EMPTY(anchors)
 		for(var/mob/living/mob in circle_range(target_anchor, 7))
 			Beam(mob, icon_state = "lightning[rand(1,12)]", time = 0.5 SECONDS)
 			playsound(get_turf(mob), 'sound/effects/magic/lightningshock.ogg', 50, TRUE, -1)
-			mob.electrocute_act(30, "electricity arc", flags = SHOCK_NOGLOVES)
+			mob.electrocute_act(80, "electricity arc", flags = SHOCK_NOGLOVES)
 		//and breaks the link between the two
 		target_anchor.target_designation = null
 		target_anchor.visible_message(span_warning("A red light blinks on [target_anchor]."))
