@@ -42,7 +42,7 @@ GLOBAL_LIST_EMPTY(anchors)
 
 /obj/machinery/dive_anchor/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	. = ..()
-	if(!(istype(tool, /obj/item/stack/impure_telecrystal)))
+	if(!istype(tool, /obj/item/stack/impure_telecrystal))
 		return NONE
 	if(istype(src, /obj/machinery/dive_anchor/stationary))
 		balloon_alert(user, "[src] lacks a fuel port")
@@ -56,14 +56,17 @@ GLOBAL_LIST_EMPTY(anchors)
 /obj/machinery/dive_anchor/multitool_act(mob/living/user, obj/item/tool)
 	. = ..()
 	var/obj/item/multitool/multitool = tool
-	if(multitool.buffer && istype(multitool.buffer, /obj/machinery/dive_anchor))
-		var/obj/machinery/dive_anchor/buffered_anchor = multitool.buffer
-		target_designation = buffered_anchor.designation
-		multitool.buffer = null
-		balloon_alert(user, "destination anchor set, buffer cleared")
+	if(!(multitool.buffer))
+		multitool.set_buffer(src)
+		balloon_alert(user, "anchor saved to multitool buffer")
 		return ITEM_INTERACT_SUCCESS
-	multitool.set_buffer(src)
-	balloon_alert(user, "anchor saved to multitool buffer")
+	if(!istype(multitool.buffer, /obj/machinery/dive_anchor))
+		balloon_alert(user, "requires buffered anchor")
+		return ITEM_INTERACT_BLOCKING
+	var/obj/machinery/dive_anchor/buffered_anchor = multitool.buffer
+	target_designation = buffered_anchor.designation
+	multitool.buffer = null
+	balloon_alert(user, "destination anchor set, buffer cleared")
 	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/dive_anchor/multitool_act_secondary(mob/living/user, obj/item/tool)
