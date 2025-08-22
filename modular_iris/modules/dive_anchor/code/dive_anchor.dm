@@ -134,19 +134,14 @@ GLOBAL_LIST_EMPTY(anchors)
 		return
 
 	apply_wibbly_filters(src)
-	INVOKE_ASYNC(src, PROC_REF(relocate))
+	addtimer(CALLBACK(src, PROC_REF(relocate), list(target_loc, expend_fuel)), 4 SECONDS, TIMER_UNIQUE | TIMER_DELETE_ME)
+
+/obj/machinery/dive_anchor/proc/relocate(target_loc, expend_fuel)
+	forceMove(target_loc)
+	remove_wibbly_filters(src)
 
 	if(expend_fuel)
 		fuel_charges--
-
-/obj/machinery/dive_anchor/proc/relocate(target_loc)
-	if(!target_loc)
-		return
-
-	sleep(4 SECONDS)
-
-	forceMove(target_loc)
-	remove_wibbly_filters(src)
 
 /obj/machinery/dive_anchor/stationary
 	name = "stationary dive anchor"
