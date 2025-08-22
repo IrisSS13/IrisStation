@@ -3,7 +3,7 @@
 	trim_icon = 'modular_iris/master_files/icons/obj/card.dmi'
 	trim_state = "trim_explorer"
 	department_color = COLOR_CARGO_BROWN
-	subdepartment_color = COLOR_CARGO_BROWN
+	subdepartment_color = COLOR_PRISONER_BLACK // I KNOW this says "prisoner" but it's just a define for black
 	sechud_icon_state = SECHUD_EXPLORER
 	minimal_access = list(
 		ACCESS_CARGO,
