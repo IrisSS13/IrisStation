@@ -17,7 +17,7 @@
 		balloon_alert(user, "buffered machine data is incompatible")
 		return ITEM_INTERACT_SUCCESS
 	if(istype(multitool.buffer, /obj/machinery/dive_anchor/stationary))
-		balloon_alert(user, "the [src] refuses the stationary anchor")
+		balloon_alert(user, "[src] refuses the stationary anchor")
 		return ITEM_INTERACT_SUCCESS
 	anchor = multitool.buffer
 	balloon_alert(user, "anchor linked successfully")

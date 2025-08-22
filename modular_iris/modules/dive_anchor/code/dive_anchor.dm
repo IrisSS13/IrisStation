@@ -33,7 +33,7 @@ GLOBAL_LIST_EMPTY(anchors)
 	var/obj/machinery/dive_anchor/destination_anchor = GLOB.anchors[target_designation]
 	if(!destination_anchor)
 		audible_message(span_warning("Teleporation prevented: destination anchor unset or undetected!"))
-		visible_message(span_warning("A red light blinks on the [src]."))
+		visible_message(span_warning("A red light blinks on [src]."))
 		return
 	if(do_after(user, 3.5 SECONDS, src))
 		perform_teleportation(destination_anchor.loc)
@@ -85,9 +85,9 @@ GLOBAL_LIST_EMPTY(anchors)
 		target_anchor.supermatter_zap(power_level = 75 KILO WATTS)
 		//and breaks the link between the two
 		target_anchor.target_designation = null
-		target_anchor.visible_message(span_warning("A red light blinks on the [target_anchor]."))
+		target_anchor.visible_message(span_warning("A red light blinks on [target_anchor]."))
 		target_designation = null
-		visible_message(span_warning("A red light blinks on the [src]."))
+		visible_message(span_warning("A red light blinks on [src]."))
 		return TRUE
 	if(user)
 		balloon_alert(user, "system overload failed")
@@ -106,7 +106,7 @@ GLOBAL_LIST_EMPTY(anchors)
 
 	if(!safe_landing_turfs)
 		audible_message(span_warning("Teleportation prevented: all disembarkation angles blocked!"))
-		visible_message(span_warning("A red light blinks on the [src]."))
+		visible_message(span_warning("A red light blinks on [src]."))
 		return
 
 	var/datum/effect_system/spark_spread/quantum/quantum_sparks = new
