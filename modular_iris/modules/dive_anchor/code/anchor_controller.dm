@@ -36,15 +36,28 @@
 /obj/machinery/computer/anchor_controller/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	switch(action)
-		if("home")
+		if("send-home")
 			if(!anchor)
+				//no anchor message
 				return
 			if(!anchor.home_location)
+				//no anchor home location message - space god issue
 				return
 			var/turf/home_turf = anchor.home_location
 			if(home_turf.is_blocked_turf())
+				//home location is blocked message
 				return
 			anchor.relocate(home_location, FALSE)
+			//successfully sent message
+			return TRUE
+		if("launch-to-coords")
+			if(!anchor)
+				//no anchor message
+				return
+			if(anchor.fuel_charges <= 0)
+				//insufficient fuel message
+				return
+			//successfully sent message
 			return TRUE
 
 /obj/item/circuitboard/computer/anchor_controller

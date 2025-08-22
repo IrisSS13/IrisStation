@@ -153,7 +153,7 @@ GLOBAL_LIST_EMPTY(anchors)
 	forceMove(target_loc)
 	remove_wibbly_filters(src)
 
-	if(expend_fuel)
+	if(expend_fuel && fuel_charges > 0)
 		fuel_charges--
 
 /obj/machinery/dive_anchor/stationary
