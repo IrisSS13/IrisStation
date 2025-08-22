@@ -92,7 +92,7 @@
 /obj/item/storage/box/survival/explorer/PopulateContents()
 	..()
 	new /obj/effect/spawner/random/decoration/glowstick(src)
-	new /obj/item/healthanalyzer/simple(src)
+	new /obj/item/healthanalyzer/simple/explorer(src)
 
 /obj/item/radio/headset/headset_cargo/explorer
 	name = "explorer radio headset"
@@ -109,6 +109,12 @@
 	icon_state = "gps-x"
 	gpstag = "EXP0"
 	desc = "An essential tool for space exploration. Used to locate one's position in the void and find certain points of interests easier."
+
+/obj/item/healthanalyzer/simple/explorer
+	name = "explorer wound analyzer"
+	icon = 'modular_iris/master_files/icons/obj/devices/scanner.dmi'
+	icon_state = "explorer_aid"
+	desc = "A repainted mining wound analyzer made by MeLo-Tech and used to diagnose injuries and recommend treatment for serious wounds. While it might not sound very informative for it to be able to tell you if you have a gaping hole in your body or not, it applies a temporary holoimage near the wound with information that is guaranteed to double the efficacy and speed of treatment. Just like with the mining one, the antenna is just for aesthetic and doesn't actually do anything!"
 
 /* Weapon variants with the /explorer firing pin; Can't use them on station's z-level */
 
