@@ -47,7 +47,7 @@ GLOBAL_LIST_EMPTY(anchors)
 		return
 	var/obj/item/stack/impure_telecrystal/crystals = attacking_item
 	fuel_charges += crystals.amount
-	balloon_alert(user, "you fuel the [src] with the [crystals]")
+	balloon_alert(user, "fueled [src] with [crystals]")
 	qdel(crystals)
 
 /obj/machinery/dive_anchor/multitool_act(mob/living/user, obj/item/tool)
