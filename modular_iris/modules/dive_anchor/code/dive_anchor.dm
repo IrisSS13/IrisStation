@@ -88,8 +88,11 @@ GLOBAL_LIST_EMPTY(anchors)
 			balloon_alert(user, "system overloaded")
 		playsound(src, SFX_SPARKS, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		var/obj/machinery/dive_anchor/target_anchor = GLOB.anchors[target_designation]
-		//emagging one anchor zaps from the other
-		target_anchor.supermatter_zap(power_level = 75 KILO WATTS)
+		//emagging one anchor zaps mobs in an area around the other
+		for(var/mob/living/mob in circle_range(target_anchor, 7))
+			Beam(mob, icon_state = "lightning[rand(1,12)]", time = 0.5 SECONDS)
+			playsound(get_turf(mob), 'sound/effects/magic/lightningshock.ogg', 50, TRUE, -1)
+			mob.electrocute_act(bolt_energy, "electricity arc", flags = SHOCK_NOGLOVES)
 		//and breaks the link between the two
 		target_anchor.target_designation = null
 		target_anchor.visible_message(span_warning("A red light blinks on [target_anchor]."))
@@ -105,7 +108,7 @@ GLOBAL_LIST_EMPTY(anchors)
 		return
 
 	var/list/safe_landing_turfs = list()
-	for(var/turf/open/possible_landing_turf in circle_range_turfs(target_loc, radius = 1))
+	for(var/turf/open/possible_landing_turf in circle_range_turfs(target_loc, 1))
 		if(istype(possible_landing_turf, /turf/open/lava) || istype(possible_landing_turf, /turf/open/chasm))
 			continue
 		if(!(possible_landing_turf.is_blocked_turf(exclude_mobs = TRUE)))
