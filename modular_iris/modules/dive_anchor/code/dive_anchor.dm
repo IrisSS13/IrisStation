@@ -40,17 +40,18 @@ GLOBAL_LIST_EMPTY(anchors)
 	if(do_after(user, 3.5 SECONDS, src))
 		perform_teleportation(destination_anchor.loc)
 
-/obj/machinery/dive_anchor/attacked_by(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
+/obj/machinery/dive_anchor/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	. = ..()
-	if(!(istype(attacking_item, /obj/item/stack/impure_telecrystal)))
-		return
+	if(!(istype(tool, /obj/item/stack/impure_telecrystal)))
+		return NONE
 	if(istype(src, /obj/machinery/dive_anchor/stationary))
 		balloon_alert(user, "[src] lacks a fuel port")
-		return
-	var/obj/item/stack/impure_telecrystal/crystals = attacking_item
+		return ITEM_INTERACT_BLOCKING
+	var/obj/item/stack/impure_telecrystal/crystals = tool
 	fuel_charges += crystals.amount
 	balloon_alert(user, "fueled [src] with [crystals]")
 	qdel(crystals)
+	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/dive_anchor/multitool_act(mob/living/user, obj/item/tool)
 	. = ..()
@@ -68,14 +69,15 @@ GLOBAL_LIST_EMPTY(anchors)
 /obj/machinery/dive_anchor/multitool_act_secondary(mob/living/user, obj/item/tool)
 	. = ..()
 	var/new_designation = tgui_input_text(user, "Rename this anchor to:", "Input Designation", designation, 25)
-	if(new_designation && (new_designation != designation))
-		if(GLOB.anchors[new_designation])
-			balloon_alert(user, "anchor name '[new_designation]' already in use")
-			return ITEM_INTERACT_SUCCESS
-		GLOB.anchors -= designation
-		designation = new_designation
-		GLOB.anchors[designation] = src
-		balloon_alert(user, "new designation set!")
+	if(!new_designation || new_designation == designation)
+		return ITEM_INTERACT_BLOCKING
+	if(GLOB.anchors[new_designation])
+		balloon_alert(user, "anchor name '[new_designation]' already in use")
+		return ITEM_INTERACT_BLOCKING
+	GLOB.anchors -= designation
+	designation = new_designation
+	GLOB.anchors[designation] = src
+	balloon_alert(user, "new designation set!")
 	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/dive_anchor/emag_act(mob/user, obj/item/card/emag/emag_card)

@@ -12,13 +12,13 @@
 	var/obj/item/multitool/multitool = tool
 	if(!(multitool.buffer))
 		balloon_alert(user, "buffer is empty")
-		return ITEM_INTERACT_SUCCESS
+		return ITEM_INTERACT_BLOCKING
 	if(!(istype(multitool.buffer, /obj/machinery/dive_anchor)))
 		balloon_alert(user, "buffered machine data is incompatible")
-		return ITEM_INTERACT_SUCCESS
+		return ITEM_INTERACT_BLOCKING
 	if(istype(multitool.buffer, /obj/machinery/dive_anchor/stationary))
 		balloon_alert(user, "[src] refuses the stationary anchor")
-		return ITEM_INTERACT_SUCCESS
+		return ITEM_INTERACT_BLOCKING
 	anchor = multitool.buffer
 	balloon_alert(user, "anchor linked successfully")
 	return ITEM_INTERACT_SUCCESS
