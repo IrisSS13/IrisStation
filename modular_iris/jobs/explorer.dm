@@ -76,7 +76,7 @@
 	duffelbag = /obj/item/storage/backpack/duffelbag
 	messenger = /obj/item/storage/backpack/industrial/frontier_colonist/messenger
 
-	box = /obj/item/storage/box/survival/mining/explorer
+	box = /obj/item/storage/box/survival/explorer
 
 /* Job's unique equipment. */
 
@@ -86,8 +86,13 @@
 	greyscale_config = /datum/greyscale_config/tablet/stripe_split
 	greyscale_colors = "#8b4c31#8b4c31#333333"
 
-/obj/item/storage/box/survival/mining/explorer
+/obj/item/storage/box/survival/explorer
 	mask_type = /obj/item/clothing/mask/gas/atmos/frontier_colonist
+
+/obj/item/storage/box/survival/explorer/PopulateContents()
+	..()
+	new /obj/effect/spawner/random/decoration/glowstick(src)
+	new /obj/item/healthanalyzer/simple(src)
 
 /obj/item/radio/headset/headset_cargo/explorer
 	name = "explorer radio headset"
