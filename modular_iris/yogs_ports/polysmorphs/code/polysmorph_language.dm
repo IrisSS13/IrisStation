@@ -16,4 +16,10 @@
 	if(force_use_syllables)
 		return ..()
 
+	if(gender != MALE && gender != FEMALE)
+		gender = pick(MALE, FEMALE)
+
+	if(gender == MALE)
+		return "[pick(GLOB.polysmorph_names)]"
+
 	return "[pick(GLOB.polysmorph_names)]"
