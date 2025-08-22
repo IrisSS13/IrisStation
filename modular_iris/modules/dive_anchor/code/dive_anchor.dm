@@ -134,7 +134,7 @@ GLOBAL_LIST_EMPTY(anchors)
 		return
 
 	apply_wibbly_filters(src)
-	addtimer(CALLBACK(src, PROC_REF(relocate), list(target_loc, expend_fuel)), 4 SECONDS, TIMER_UNIQUE | TIMER_DELETE_ME)
+	addtimer(CALLBACK(src, PROC_REF(relocate), target_loc, expend_fuel), 4 SECONDS, TIMER_UNIQUE | TIMER_DELETE_ME)
 
 /obj/machinery/dive_anchor/proc/relocate(target_loc, expend_fuel)
 	forceMove(target_loc)
