@@ -20,6 +20,8 @@ GLOBAL_LIST_EMPTY(anchors)
 /obj/machinery/dive_anchor/Initialize(mapload)
 	. = ..()
 	home_location = loc
+	if(GLOB.anchors[designation])
+		designation += " (duplicate)"
 	GLOB.anchors[designation] = src
 
 /obj/machinery/dive_anchor/examine(mob/user)
@@ -67,6 +69,9 @@ GLOBAL_LIST_EMPTY(anchors)
 	. = ..()
 	var/new_designation = tgui_input_text(user, "Rename this anchor to:", "Input Designation", designation, 25)
 	if(new_designation && (new_designation != designation))
+		if(GLOB.anchors[new_designation])
+			balloon_alert(user, "anchor name '[new_designation]' already in use")
+			return ITEM_INTERACT_SUCCESS
 		GLOB.anchors -= designation
 		designation = new_designation
 		GLOB.anchors[designation] = src
