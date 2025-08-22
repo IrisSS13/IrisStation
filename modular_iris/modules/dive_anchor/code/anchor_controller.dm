@@ -47,7 +47,7 @@
 			if(!anchor.home_location)
 				message = "Error: linked anchor has no home location - divine intervention required."
 				return
-			var/turf/home_turf = anchor.home_location
+			var/turf/home_turf = get_turf(anchor.home_location)
 			if(home_turf.is_blocked_turf())
 				message = "Error: home location obstructed - remove obstruction and try again."
 				return
