@@ -35,6 +35,17 @@
 
 /obj/machinery/computer/anchor_controller/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
+	switch(action)
+		if("home")
+			if(!anchor)
+				return
+			if(!anchor.home_location)
+				return
+			var/turf/home_turf = anchor.home_location
+			if(home_turf.is_blocked_turf())
+				return
+			anchor.relocate(home_location, FALSE)
+			return TRUE
 
 /obj/item/circuitboard/computer/anchor_controller
 	name = "Anchor Controller"
