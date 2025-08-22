@@ -4,8 +4,10 @@
 	icon_screen = "teleport"
 	icon_keyboard = "mining_key"
 	circuit = /obj/item/circuitboard/computer/anchor_controller
-	///dive anchor linked to this controller, connected using a multitool
+	///Dive anchor linked to this controller, connected using a multitool
 	var/obj/machinery/dive_anchor/anchor
+	///Message shown in the UI after a successful or unsuccessful action
+	var/message = ""
 
 /obj/machinery/computer/anchor_controller/multitool_act(mob/living/user, obj/item/tool)
 	. = ..()
@@ -31,33 +33,35 @@
 		ui.open()
 
 /obj/machinery/computer/anchor_controller/ui_data(mob/user)
-	. = ..()
+	var/list/data = list()
+	data["message"] = message
+	return data
 
 /obj/machinery/computer/anchor_controller/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	switch(action)
 		if("send-home")
 			if(!anchor)
-				//no anchor message
+				message = "Error: no anchor linked - link one to proceed."
 				return
 			if(!anchor.home_location)
-				//no anchor home location message - space god issue
+				message = "Error: linked anchor has no home location - divine intervention required."
 				return
 			var/turf/home_turf = anchor.home_location
 			if(home_turf.is_blocked_turf())
-				//home location is blocked message
+				message = "Error: home location obstructed - remove obstruction and try again."
 				return
 			anchor.relocate(home_location, FALSE)
-			//successfully sent message
+			message = "Success: anchor moved to home location."
 			return TRUE
 		if("launch-to-coords")
 			if(!anchor)
-				//no anchor message
+				message = "Error: no anchor linked - link one to proceed."
 				return
 			if(anchor.fuel_charges <= 0)
-				//insufficient fuel message
+				message = "Error: insufficient fuel for journey - refuel anchor."
 				return
-			//successfully sent message
+			message = "Success: anchor moved to input coordinates."
 			return TRUE
 
 /obj/item/circuitboard/computer/anchor_controller
