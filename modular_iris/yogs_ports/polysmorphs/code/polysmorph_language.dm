@@ -6,6 +6,8 @@
 	default_priority = 50
 	icon_state = "xeno"
 
+//commented out until i figure out why it breaks in tests
+/*
 /datum/language/polysmorph/get_random_name(
 	gender = NEUTER,
 	name_count = default_name_count,
@@ -16,10 +18,5 @@
 	if(force_use_syllables)
 		return ..()
 
-	if(gender != MALE && gender != FEMALE)
-		gender = pick(MALE, FEMALE)
-
-	if(gender == MALE)
-		return "[pick(GLOB.polysmorph_names)]"
-
 	return "[pick(GLOB.polysmorph_names)]"
+*/
