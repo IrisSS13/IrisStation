@@ -90,7 +90,7 @@ GLOBAL_LIST_EMPTY(anchors)
 		var/obj/machinery/dive_anchor/target_anchor = GLOB.anchors[target_designation]
 		//emagging one anchor zaps mobs in an area around the other
 		for(var/mob/living/mob in circle_range(target_anchor, 7))
-			Beam(mob, icon_state = "lightning[rand(1,12)]", time = 0.5 SECONDS)
+			target_anchor.Beam(mob, icon_state = "lightning[rand(1,12)]", time = 0.5 SECONDS)
 			playsound(get_turf(mob), 'sound/effects/magic/lightningshock.ogg', 50, TRUE, -1)
 			mob.electrocute_act(80, "electricity arc", flags = SHOCK_NOGLOVES)
 		//and breaks the link between the two
