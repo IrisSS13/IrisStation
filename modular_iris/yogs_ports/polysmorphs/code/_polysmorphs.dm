@@ -27,6 +27,7 @@
 
 	coldmod = 0.75
 	heatmod = 1.5
+	species_language_holder = /datum/language_holder/polysmorph
 	exotic_bloodtype = BLOOD_TYPE_POLYSMORPH
 
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
