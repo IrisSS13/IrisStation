@@ -15,7 +15,7 @@ GLOBAL_LIST_EMPTY(anchors)
 	///Original location of this anchor, used in the return home function of the anchor controller
 	var/home_location
 	///How many times can this anchor move before it needs to be refuelled
-	var/fuel_charges = 0
+	var/fuel_charges = 1
 
 /obj/machinery/dive_anchor/Initialize(mapload)
 	. = ..()
