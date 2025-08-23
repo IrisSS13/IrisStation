@@ -88,7 +88,16 @@
 "adu" = (
 /obj/structure/table/wood,
 /obj/item/folder/blue{
-	pixel_x = -7
+	pixel_x = -7;
+	pixel_y = 3
+	},
+/obj/item/paper_bin{
+	pixel_x = 6;
+	pixel_y = 3
+	},
+/obj/item/pen/fourcolor{
+	pixel_x = 6;
+	pixel_y = 4
 	},
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
@@ -1104,7 +1113,9 @@
 /area/centcom/interlink)
 "aqO" = (
 /obj/machinery/light/directional/south,
-/obj/machinery/photocopier/gratis,
+/obj/machinery/photocopier/gratis/prebuilt{
+	starting_toner = /obj/item/toner/extreme
+	},
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
 "aqP" = (
@@ -3283,7 +3294,6 @@
 /area/centcom/holding/cafe)
 "aPC" = (
 /obj/structure/railing{
-	invisibility = 100;
 	dir = 8
 	},
 /obj/effect/turf_decal/weather/dirt{
@@ -4190,6 +4200,10 @@
 /obj/item/toy/crayon/spraycan/infinite,
 /obj/item/toy/crayon/spraycan/infinite,
 /obj/item/toy/crayon/spraycan/infinite,
+/obj/item/pen/fourcolor{
+	pixel_x = 6;
+	pixel_y = 1
+	},
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
 "aZK" = (
@@ -4647,6 +4661,12 @@
 	},
 /turf/open/indestructible/plating,
 /area/centcom/holding/cafepark)
+"bOv" = (
+/obj/structure/table/wood,
+/obj/item/paper_bin,
+/obj/item/pen/fourcolor,
+/turf/open/indestructible/hotelwood,
+/area/centcom/holding/cafe)
 "bON" = (
 /obj/structure/chair/sofa/bench/corner{
 	dir = 1
@@ -5991,7 +6011,6 @@
 /area/centcom/interlink)
 "eon" = (
 /obj/structure/railing{
-	invisibility = 100;
 	dir = 8
 	},
 /obj/effect/turf_decal/weather/dirt{
@@ -9138,6 +9157,7 @@
 "jYf" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin,
+/obj/item/pen/fourcolor,
 /turf/open/indestructible/carpet,
 /area/centcom/holding/cafe)
 "jYy" = (
@@ -10249,9 +10269,7 @@
 /area/centcom/interlink)
 "lHD" = (
 /obj/effect/turf_decal/tile/blue/half/contrasted,
-/obj/structure/chair{
-	dir = 1
-	},
+/obj/structure/closet/crate/freezer/blood,
 /turf/open/floor/iron/white,
 /area/centcom/holding/cafe)
 "lIt" = (
@@ -13634,6 +13652,10 @@
 /obj/structure/window/spawner/directional/south,
 /turf/open/floor/carpet/black,
 /area/centcom/holding/cafe)
+"qPs" = (
+/obj/structure/chair/sofa/bench/left,
+/turf/open/misc/dirt/planet,
+/area/centcom/holding/cafepark)
 "qPy" = (
 /obj/structure/chair/sofa/corp{
 	dir = 8
@@ -15067,6 +15089,15 @@
 	icon_state = "floor"
 	},
 /area/centcom/holding/cafepark)
+"sVh" = (
+/obj/effect/turf_decal/tile/blue/half/contrasted{
+	dir = 8
+	},
+/obj/structure/chair{
+	dir = 4
+	},
+/turf/open/floor/iron/white,
+/area/centcom/holding/cafe)
 "sVL" = (
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/iron/white,
@@ -15117,11 +15148,6 @@
 	dir = 4
 	},
 /turf/open/floor/iron/white,
-/area/centcom/holding/cafe)
-"tci" = (
-/obj/structure/table/wood,
-/obj/item/paper_bin,
-/turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
 "tct" = (
 /obj/effect/turf_decal/delivery,
@@ -16822,12 +16848,6 @@
 /obj/structure/chair/sofa/left/brown,
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
-"vUv" = (
-/obj/structure/chair/sofa/bench/left{
-	dir = 1
-	},
-/turf/open/misc/grass/planet,
-/area/centcom/holding/cafepark)
 "vUI" = (
 /obj/effect/turf_decal/tile/purple/anticorner/contrasted{
 	dir = 8
@@ -17668,6 +17688,10 @@
 /obj/effect/turf_decal/siding/wood,
 /turf/open/indestructible/hotelwood,
 /area/centcom/holding/cafe)
+"xoW" = (
+/obj/structure/chair/sofa/bench/right,
+/turf/open/misc/dirt/planet,
+/area/centcom/holding/cafepark)
 "xpH" = (
 /obj/structure/table/wood,
 /obj/machinery/chem_dispenser/drinks/beer/fullupgrade{
@@ -17853,12 +17877,6 @@
 	},
 /obj/effect/turf_decal/siding/wood,
 /turf/open/misc/dirt/planet,
-/area/centcom/holding/cafepark)
-"xFE" = (
-/obj/structure/chair/sofa/bench/right{
-	dir = 1
-	},
-/turf/open/misc/grass/planet,
 /area/centcom/holding/cafepark)
 "xFU" = (
 /obj/effect/turf_decal/sand,
@@ -62707,11 +62725,11 @@ bcb
 bcb
 pej
 aqf
-ayI
+xoW
 ayI
 ayI
 kWr
-vUv
+aFP
 aqf
 aUo
 aUo
@@ -62964,11 +62982,11 @@ bcb
 bcb
 pej
 aqf
-ayI
+qPs
 ayI
 ayI
 aFP
-xFE
+aFP
 aqf
 aHM
 aUo
@@ -63195,7 +63213,7 @@ aid
 ntJ
 aOr
 aUo
-tci
+bOv
 wDG
 aUo
 aUo
@@ -66301,7 +66319,7 @@ aCR
 aqf
 vTT
 pqy
-bwG
+bOv
 aUo
 vTT
 atF
@@ -67592,7 +67610,7 @@ akS
 nxR
 qWv
 rjk
-rjk
+sVh
 rjk
 lhK
 vTT
@@ -68067,7 +68085,7 @@ aPf
 aPf
 ayI
 ajj
-aFP
+amk
 aFP
 aFP
 agU
@@ -70124,7 +70142,7 @@ ayI
 aPf
 ajj
 ajj
-aFP
+amk
 aFP
 agU
 qze
