@@ -73,6 +73,11 @@
 			if(anchor.fuel_charges <= 0)
 				message = "Error: insufficient fuel for journey - refuel anchor."
 				return
+			var/turf/target_turf = locate(ui_x, ui_y, ui_z)
+			if(!istype(target_turf, /turf/open/space) || target_turf.is_blocked_turf())
+				message = "Error: target location obstructed - try alternative location."
+				return
+			anchor.relocate(target_turf.loc)
 			message = "Success: anchor moved to input coordinates."
 			return TRUE
 
