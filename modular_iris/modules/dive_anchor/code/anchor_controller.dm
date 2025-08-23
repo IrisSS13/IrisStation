@@ -7,7 +7,7 @@
 	///Dive anchor linked to this controller, connected using a multitool
 	var/obj/machinery/dive_anchor/anchor
 	///Message shown in the UI after a successful or unsuccessful action
-	var/message = ""
+	var/message = "Nothing to report."
 	///Coordinate values used in the UI
 	var/ui_x = 1
 	var/ui_y = 1
