@@ -8,6 +8,10 @@
 	var/obj/machinery/dive_anchor/anchor
 	///Message shown in the UI after a successful or unsuccessful action
 	var/message = ""
+	///Coordinate values used in the UI
+	var/ui_x = 1
+	var/ui_y = 1
+	var/ui_z = 1
 
 /obj/machinery/computer/anchor_controller/multitool_act(mob/living/user, obj/item/tool)
 	. = ..()
@@ -22,6 +26,9 @@
 		balloon_alert(user, "[src] refuses the stationary anchor")
 		return ITEM_INTERACT_BLOCKING
 	anchor = multitool.buffer
+	ui_x = anchor.x
+	ui_y = anchor.y
+	ui_z = anchor.z
 	balloon_alert(user, "anchor linked successfully")
 	return ITEM_INTERACT_SUCCESS
 
@@ -34,6 +41,11 @@
 
 /obj/machinery/computer/anchor_controller/ui_data(mob/user)
 	var/list/data = list()
+	data["anchor"] = anchor.designation
+	data["fuel"] = anchor.fuel_charges
+	data["x_coord"] = ui_x
+	data["y_coord"] = ui_y
+	data["z_coord"] = ui_z
 	data["message"] = message
 	return data
 
@@ -51,7 +63,7 @@
 			if(home_turf.is_blocked_turf())
 				message = "Error: home location obstructed - remove obstruction and try again."
 				return
-			anchor.relocate(home_location, FALSE)
+			anchor.relocate(anchor.home_location, FALSE)
 			message = "Success: anchor moved to home location."
 			return TRUE
 		if("launch-to-coords")
