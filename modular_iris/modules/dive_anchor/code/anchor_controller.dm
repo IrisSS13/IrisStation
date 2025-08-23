@@ -41,8 +41,11 @@
 
 /obj/machinery/computer/anchor_controller/ui_data(mob/user)
 	var/list/data = list()
-	data["anchor"] = anchor.designation
-	data["fuel"] = anchor.fuel_charges
+	data["anchor"] = "none connected"
+	data["fuel"] = "unknown"
+	if(anchor)
+		data["anchor"] = anchor.designation
+		data["fuel"] = anchor.fuel_charges
 	data["x_coord"] = ui_x
 	data["y_coord"] = ui_y
 	data["z_coord"] = ui_z
