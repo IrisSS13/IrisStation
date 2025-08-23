@@ -156,6 +156,10 @@ GLOBAL_LIST_EMPTY(anchors)
 	if(expend_fuel && fuel_charges > 0)
 		fuel_charges--
 
+/obj/machinery/dive_anchor/debug
+	name = "debug anchor"
+	fuel_charges = INFINITY
+
 /obj/machinery/dive_anchor/stationary
 	name = "stationary dive anchor"
 	icon_state = "sat_inactive"
