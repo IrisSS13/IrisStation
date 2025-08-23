@@ -41,6 +41,7 @@
 		"Emergency Fire Technician",
 		"Firefighter",
 		"Life Support Technician",
+		"Apprentice Atmospheric Technician",
 	)
 
 /datum/job/barber

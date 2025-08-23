@@ -131,11 +131,11 @@
 	required_count = 3
 	wanted_types = list(/obj/item/food/kebab = TRUE)
 
-/datum/bounty/item/chef/soylentgreen
-	name = "Soylent Green"
-	description = "CentCom has heard wonderful things about the product 'Soylent Green', and would love to try some. If you indulge them, expect a pleasant bonus."
+/datum/bounty/item/chef/soylenviridians // IRIS EDIT - replaced soylent green with soylent viridians
+	name = "Soylent Viridians"
+	description = "CentCom has heard wonderful things about the product 'Soylent Viridians', and would love to try some. If you indulge them, expect a pleasant bonus."
 	reward = CARGO_CRATE_VALUE * 10
-	wanted_types = list(/obj/item/food/soylentgreen = TRUE)
+	wanted_types = list(/obj/item/food/soylenviridians = TRUE)
 
 /datum/bounty/item/chef/pancakes
 	name = "Pancakes"

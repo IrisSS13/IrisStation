@@ -66,10 +66,18 @@
 	///If this paper can be selected as a candidate for a future message in a bottle when spawned outside of mapload. Doesn't affect manually doing that.
 	var/can_become_message_in_bottle = TRUE
 
+	//IRIS EDIT ADDITION BEGIN - STATIONARY_PAPER
+	///If TRUE, do not randomise pixel_x and pixel_y values of this object
+	var/keep_offsets = FALSE
+	//IRIS EDIT ADDITION END
+
 /obj/item/paper/Initialize(mapload)
 	. = ..()
-	pixel_x = base_pixel_x + rand(-9, 9)
-	pixel_y = base_pixel_y + rand(-8, 8)
+	//IRIS EDIT CHANGE BEGIN - STATIONARY_PAPER
+	if(!(keep_offsets))
+		pixel_x = base_pixel_x + rand(-9, 9)
+		pixel_y = base_pixel_y + rand(-8, 8)
+	//IRIS EDIT CHANGE END
 
 	if(default_raw_text)
 		add_raw_text(default_raw_text)
