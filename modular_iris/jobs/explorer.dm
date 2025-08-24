@@ -11,6 +11,7 @@
 		ACCESS_EVA,
 		ACCESS_GATEWAY,
 		ACCESS_WEAPONS,
+		ACCESS_EXTERNAL_AIRLOCKS,
 		ACCESS_MAINT_TUNNELS // Many airlocks are in maints
 		)
 	extra_access = list(
@@ -57,7 +58,7 @@
 		/obj/item/flashlight/flare = 15,
 		/obj/item/tank/internals/emergency_oxygen = 5,
 		/obj/item/gas_filter = 5,
-		/obj/item/reagent_containers/hypospray/medipen/survival = 1
+		/obj/item/reagent_containers/hypospray/medipen/deforest/morpital = 1
 	)
 
 /datum/outfit/job/explorer
@@ -75,7 +76,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots/frontier_colonist
 	head = /obj/item/clothing/head/soft/black
 	suit = /obj/item/clothing/suit/frontier_colonist_flak
-	l_pocket = /obj/item/reagent_containers/hypospray/medipen/survival
+	l_pocket = /obj/item/reagent_containers/hypospray/medipen/deforest/morpital
 	r_pocket = /obj/item/gps/explorer
 	belt = /obj/item/modular_computer/pda/explorer
 
