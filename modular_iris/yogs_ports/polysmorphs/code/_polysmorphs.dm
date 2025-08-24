@@ -53,6 +53,7 @@
 	mutanttongue = /obj/item/organ/tongue/polysmorph
 	mutantliver = /obj/item/organ/liver/polysmorph
 	mutantstomach = /obj/item/organ/stomach/xeno_hybrid
+	mutantlungs = /obj/item/organ/lungs/polysmorph
 	mutantappendix = null
 	mutant_organs = list(
 		/obj/item/organ/alien/plasmavessel/roundstart,

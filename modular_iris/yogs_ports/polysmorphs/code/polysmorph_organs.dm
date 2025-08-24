@@ -19,8 +19,8 @@
 
 /obj/item/organ/tongue/polysmorph
 	name = "Polysmorph Tongue"
-	icon_state = "tongue-x"
 	icon = ORGAN_ICON_POLYSMORPH
+	icon_state = "tongue-x"
 	say_mod = "hisses"
 	taste_sensitivity = 10
 	modifies_speech = TRUE
@@ -37,5 +37,11 @@
 /obj/item/organ/tongue/polysmorph/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/speechmod, replacements = speech_replacements, should_modify_speech = CALLBACK(src, PROC_REF(should_modify_speech)))
+
+/obj/item/organ/lungs/polysmorph
+	name = "Polysmorph Lungs"
+	icon_state = "lungs-x"
+	icon = ORGAN_ICON_POLYSMORPH
+	safe_plasma_max = 0
 
 #undef ORGAN_ICON_POLYSMORPH
