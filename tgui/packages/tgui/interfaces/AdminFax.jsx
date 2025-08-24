@@ -99,9 +99,9 @@ export const FaxMainPanel = (props) => {
             icon="n"
             mr="7px"
             width="49%"
-            onClick={() => setPaperName('Nanotrasen Official Report')}
+            onClick={() => setPaperName('CentCom Official Report')} // IRIS EDIT: Changed from "Nanotrasen Official Report"
           >
-            Nanotrasen
+            Central Command
           </Button>
           <Button
             icon="s"
@@ -127,9 +127,9 @@ export const FaxMainPanel = (props) => {
             icon="n"
             mr="7px"
             width="49%"
-            onClick={() => setFromWho('Nanotrasen')}
+            onClick={() => setFromWho('Central Command')} // IRIS EDIT: Changed from "Nanotrasen"
           >
-            Nanotrasen
+            Central Command
           </Button>
           <Button icon="s" width="49%" onClick={() => setFromWho('Syndicate')}>
             Syndicate

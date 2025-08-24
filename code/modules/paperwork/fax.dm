@@ -1,4 +1,4 @@
-GLOBAL_VAR_INIT(nt_fax_department, pick("NT HR Department", "NT Legal Department", "NT Complaint Department", "NT Customer Relations", "Nanotrasen Tech Support", "NT Internal Affairs Dept"))
+GLOBAL_VAR_INIT(nt_fax_department, pick("Central Command")) // IRIS EDIT Original: "NT HR Department", "NT Legal Department", "NT Complaint Department", "NT Customer Relations", "Nanotrasen Tech Support", "NT Internal Affairs Dept"
 GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 
 /obj/machinery/fax
@@ -57,7 +57,7 @@ GLOBAL_VAR_INIT(fax_autoprinting, FALSE)
 	)
 	/// List with a fake-networks(not a fax actually), for request manager.
 	var/list/special_networks = list(
-		nanotrasen = list(fax_name = "NT HR Department", fax_id = "central_command", color = "teal", emag_needed = FALSE),
+		nanotrasen = list(fax_name = "NT HR Department", fax_id = "central_command", color = "green", emag_needed = FALSE),
 		syndicate = list(fax_name = "Sabotage Department", fax_id = "syndicate", color = "red", emag_needed = TRUE),
 	)
 
