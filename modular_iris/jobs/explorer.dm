@@ -50,9 +50,15 @@
 		/datum/job_department/cargo,
 		)
 
-	family_heirlooms = list(/obj/item/gps, /obj/item/flashlight/seclite)
+	family_heirlooms = list(/obj/item/weldingtool/mini, /obj/item/flashlight/lantern, /obj/item/camera)
 	rpg_title = "Wanderer"
 	job_flags = STATION_JOB_FLAGS
+	mail_goodies = list(
+		/obj/item/flashlight/flare = 15,
+		/obj/item/tank/internals/emergency_oxygen = 5,
+		/obj/item/gas_filter = 5,
+		/obj/item/reagent_containers/hypospray/medipen/survival = 1
+	)
 
 /datum/outfit/job/explorer
 	name = "Explorer"
