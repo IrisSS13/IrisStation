@@ -10,9 +10,13 @@
 		ACCESS_MINERAL_STOREROOM,
 		ACCESS_EVA,
 		ACCESS_GATEWAY,
-		ACCESS_WEAPONS
+		ACCESS_WEAPONS,
+		ACCESS_MAINT_TUNNELS // Many airlocks are in maints
 		)
-	extra_access = list()
+	extra_access = list(
+		ACCESS_MINING,
+		ACCESS_MINING_STATION,
+		)
 	template_access = list(
 		ACCESS_CAPTAIN,
 		ACCESS_CHANGE_IDS,
