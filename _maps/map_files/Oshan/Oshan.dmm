@@ -3117,6 +3117,20 @@
 /obj/effect/landmark/navigate_destination,
 /turf/open/floor/iron/dark/textured,
 /area/station/science/lobby)
+"bcw" = (
+/obj/machinery/door/poddoor/shutters{
+	id = "mechbay";
+	name = "Mech Bay Shutters"
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/turf_decal/tile/purple/opposingcorners{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2
+	},
+/turf/open/floor/plastic,
+/area/station/science/robotics)
 "bcD" = (
 /obj/machinery/disposal/bin,
 /obj/machinery/camera/directional/south{
@@ -6545,6 +6559,13 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark/small,
 /area/station/engineering/lobby)
+"chw" = (
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/turf/open/floor/iron/dark,
+/area/station/science/robotics)
 "chx" = (
 /obj/effect/turf_decal/delivery,
 /obj/machinery/door/window/left/directional/north{
@@ -21678,6 +21699,9 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 2
+	},
 /turf/open/floor/iron/dark/small,
 /area/station/science/robotics)
 "hhH" = (
@@ -24474,6 +24498,12 @@
 	},
 /turf/open/floor/iron/dark/small,
 /area/station/security/checkpoint/engineering)
+"ibC" = (
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/science/robotics)
 "ibT" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4;
@@ -26379,6 +26409,12 @@
 /obj/machinery/airalarm/directional/north,
 /turf/open/floor/iron,
 /area/station/security/prison)
+"iJx" = (
+/obj/structure/disposalpipe/segment{
+	dir = 2
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/science/robotics)
 "iJB" = (
 /obj/effect/turf_decal/tile/green/fourcorners,
 /turf/open/floor/iron/dark/textured,
@@ -26396,6 +26432,13 @@
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /turf/open/floor/iron/dark/textured,
 /area/station/maintenance/port/central)
+"iJS" = (
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/turf/open/floor/iron/dark,
+/area/station/science/robotics)
 "iJV" = (
 /obj/effect/mapping_helpers/airlock/access/any/medical/maintenance,
 /obj/effect/mapping_helpers/airlock/abandoned,
@@ -27050,6 +27093,7 @@
 /obj/effect/turf_decal/trimline/white/filled/line{
 	color = "#009dc4"
 	},
+/obj/machinery/vending/games,
 /turf/open/floor/iron/dark,
 /area/station/commons/dorms)
 "iWL" = (
@@ -32239,8 +32283,14 @@
 /area/station/medical/office)
 "kKt" = (
 /obj/effect/turf_decal/delivery,
-/obj/machinery/door/window/brigdoor/left/directional/east,
-/obj/machinery/door/window/brigdoor/left/directional/west,
+/obj/machinery/door/window/brigdoor/left/directional/east{
+	req_access = list("xenobiology");
+	name = "Maximum Security Test Chamber"
+	},
+/obj/machinery/door/window/brigdoor/left/directional/west{
+	req_access = list("xenobiology");
+	name = "Maximum Security Test Chamber"
+	},
 /obj/structure/plasticflaps/kitchen,
 /obj/machinery/door/poddoor/preopen{
 	id = "Xenolab";
@@ -33962,6 +34012,9 @@
 /area/station/service/theater_dressing)
 "liq" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
 /turf/open/floor/iron/dark/small,
 /area/station/science/robotics)
 "lis" = (
@@ -36539,6 +36592,9 @@
 /area/station/maintenance/starboard/central)
 "mcx" = (
 /mob/living/basic/pet/dog/corgi/borgi,
+/obj/structure/disposalpipe/segment{
+	dir = 2
+	},
 /turf/open/floor/iron/dark/small,
 /area/station/science/robotics)
 "mcB" = (
@@ -37081,6 +37137,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/carpet/lone/star,
 /area/station/service/chapel)
+"mob" = (
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/turf/open/floor/iron/dark,
+/area/station/science/robotics)
 "mog" = (
 /obj/structure/closet/emcloset,
 /obj/effect/turf_decal/delivery,
@@ -43091,6 +43154,15 @@
 /obj/effect/turf_decal/trimline/red/filled/line,
 /turf/open/floor/iron/dark/textured,
 /area/station/security/courtroom)
+"oni" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/trimline/purple/warning,
+/obj/structure/disposalpipe/segment{
+	dir = 2
+	},
+/turf/open/floor/iron/dark/textured,
+/area/station/hallway/primary/central)
 "onl" = (
 /obj/effect/turf_decal/tile/purple/opposingcorners{
 	dir = 1
@@ -45540,6 +45612,9 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 2
+	},
 /turf/open/floor/iron/dark/small,
 /area/station/science/robotics)
 "oZZ" = (
@@ -47793,6 +47868,11 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/machinery/disposal/bin/tagger,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/obj/effect/turf_decal/box/red,
 /turf/open/floor/iron/dark,
 /area/station/science/robotics)
 "pJk" = (
@@ -47868,7 +47948,7 @@
 /area/station/science/xenobiology)
 "pKe" = (
 /obj/structure/cable,
-/obj/structure/disposalpipe/segment{
+/obj/structure/disposalpipe/junction/flip{
 	dir = 4
 	},
 /turf/open/floor/iron/dark/textured,
@@ -59792,6 +59872,9 @@
 "tGa" = (
 /obj/effect/spawner/random/engineering/tracking_beacon,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
 /turf/open/floor/iron/dark,
 /area/station/science/robotics)
 "tGi" = (
@@ -63685,6 +63768,24 @@
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
+"uSJ" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/purple/opposingcorners{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/turf/open/floor/iron/dark,
+/area/station/science/robotics)
 "uSL" = (
 /obj/structure/sign/poster/quirk/service_logo,
 /turf/closed/wall,
@@ -111321,13 +111422,13 @@ qgv
 oZD
 lia
 rRG
-rRG
+ibC
 hhB
 mcx
 oZR
-rRG
-lqw
-xcy
+iJx
+bcw
+oni
 pKe
 vna
 pIk
@@ -111835,7 +111936,7 @@ dDN
 fLc
 eNr
 uBj
-eNr
+uSJ
 rbR
 xKt
 oUJ
@@ -112092,7 +112193,7 @@ sZj
 sZj
 tcv
 qQZ
-rZi
+chw
 hnR
 woZ
 woZ
@@ -112349,7 +112450,7 @@ sZj
 azK
 rZi
 apl
-rZi
+chw
 uTx
 woZ
 ham
@@ -112863,8 +112964,8 @@ sZj
 aOC
 ddf
 iGc
-rZi
-rZi
+mob
+iJS
 woZ
 dDb
 bpU
