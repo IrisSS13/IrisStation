@@ -1,12 +1,18 @@
-//TODO: RACIAL BANEFITS/DRAWBACKS, their own organs, language, names
+//TODO: RACIAL BANEFITS/DRAWBACKS, their own organs, names
 
 //Instead of just slapping a pure damage reduction I'm giving them armor instead, difference is that it can be pierced by weapons and stuff
 /datum/armor/polysmorph
 	melee = 15
 	bullet = 10
-	wound = 25 //strong bones
+	wound = 25 //strong bones, not giving them full blunt immunity
 	acid = 80 //their blood is literally acid
 
+//Stronger legs, or something like that
+/datum/movespeed_modifier/polysmorph
+	movetypes = GROUND
+	multiplicative_slowdown = -0.1 //10% faster
+
+//ACTUAL SPECIES CODE HERE
 /mob/living/carbon/human/species/polysmorph
 	race = /datum/species/polysmorph
 
@@ -31,7 +37,7 @@
 	species_language_holder = /datum/language_holder/polysmorph
 	exotic_bloodtype = BLOOD_TYPE_POLYSMORPH
 
-	digitigrade_customization = DIGITIGRADE_OPTIONAL
+	digitigrade_customization = DIGITIGRADE_OPTIONAL //'technically' optional, both types are digi
 	bodypart_overrides = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/polysmorph,
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/polysmorph,
@@ -65,10 +71,12 @@
 /datum/species/polysmorph/on_species_gain(mob/living/carbon/human/polysmorph, datum/species/old_species, pref_load, regenerate_icons = TRUE)
 	. = ..()
 	polysmorph.physiology.armor = polysmorph.physiology.armor.add_other_armor(/datum/armor/polysmorph)
+	polysmorph.add_movespeed_modifier(/datum/movespeed_modifier/polysmorph)
 
-/datum/species/polysmorph/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)
+/datum/species/polysmorph/on_species_loss(mob/living/carbon/human/polysmorph, datum/species/new_species, pref_load)
 	. = ..()
-	C.physiology.armor = C.physiology.armor.subtract_other_armor(/datum/armor/polysmorph)
+	polysmorph.physiology.armor = polysmorph.physiology.armor.subtract_other_armor(/datum/armor/polysmorph)
+	polysmorph.remove_movespeed_modifier(/datum/movespeed_modifier/polysmorph)
 
 /datum/species/polysmorph/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
 	human_for_preview.dna.features["mcolor"] = "#444466"
