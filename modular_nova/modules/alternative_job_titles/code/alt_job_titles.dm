@@ -269,7 +269,7 @@
 		"Crew Supervisor",
 		"Employment Officer",
 		"Executive Officer",
-		"Sapient Resources Agent", // IRIS EDIT - moved from Lawyer
+		"Senior Sapient Resources Agent", // IRIS EDIT - new title
 	)
 
 /datum/job/head_of_security
@@ -298,7 +298,7 @@
 		"Lawyer",
 		"Barrister",
 		"Defense Attorney",
-		//"Human Resources Agent", // IRIS EDIT - moved to HoP
+		"Sapient Resources Agent", // IRIS EDIT - it's "Sapient" now
 		"Internal Affairs Agent",
 		"Legal Clerk",
 		"Prosecutor",
