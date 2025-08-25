@@ -345,7 +345,7 @@ Return to step 11 of normal process."}
 		if(BATON_STUN)
 			txt = "stunning"
 		if(BATON_SLEEP)
-			txt = "sleep inducement"
+			txt = "paralysis inducement" //IRIS EDIT: txt = "sleep inducement"
 		if(BATON_CUFF)
 			txt = "restraining"
 		if(BATON_PROBE)
@@ -418,10 +418,18 @@ Return to step 11 of normal process."}
 			span_userdanger("You feel a strange wave of heavy drowsiness wash over you!"))
 			target.adjust_drowsiness(4 SECONDS)
 			return
-		target.visible_message(span_danger("[user] induces sleep in [target] with [src]!"), \
+//IRIS EDIT START
+		target.visible_message(span_danger("[user] paralyzes [target] with [src]!"), \
 		span_userdanger("You suddenly feel very drowsy!"))
-		target.Sleeping(sleep_time)
-		log_combat(user, target, "put to sleep")
+		target.Paralyze(20 SECONDS)
+		log_combat(user, target, "paralyzed")
+/*
+		target.visible_message(span_danger("[user] paralyzes [target] with [src]!"), \
+		span_userdanger("You suddenly feel very drowsy!"))
+		target.Paralyze(20 SECONDS)
+		log_combat(user, target, "paralyzed")
+*/
+//IRIS EDIT END
 	else
 		if(target.can_block_magic(MAGIC_RESISTANCE_MIND, charge_cost = 0))
 			to_chat(user, span_warning("The specimen has some kind of mental protection that is completely blocking our sleep inducement methods! It seems you've been foiled."))
@@ -505,7 +513,7 @@ Return to step 11 of normal process."}
 			if(BATON_STUN)
 				. += span_warning("The baton is in stun mode.")
 			if(BATON_SLEEP)
-				. += span_warning("The baton is in sleep inducement mode.")
+				. += span_warning("The baton is in paralysis inducement mode.") //IRIS EDIT: 				. += span_warning("The baton is in sleep inducement mode.")
 			if(BATON_CUFF)
 				. += span_warning("The baton is in restraining mode.")
 			if(BATON_PROBE)
