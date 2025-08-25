@@ -269,6 +269,7 @@
 		"Crew Supervisor",
 		"Employment Officer",
 		"Executive Officer",
+		"Senior Sapient Resources Agent", // IRIS EDIT - new title
 	)
 
 /datum/job/head_of_security
@@ -297,7 +298,7 @@
 		"Lawyer",
 		"Barrister",
 		"Defense Attorney",
-		"Human Resources Agent",
+		"Sapient Resources Agent", // IRIS EDIT - it's "Sapient" now
 		"Internal Affairs Agent",
 		"Legal Clerk",
 		"Prosecutor",
