@@ -1,4 +1,11 @@
-import { Box, Button, LabeledList, Section, Stack } from 'tgui-core/components';
+import {
+  Box,
+  Button,
+  Divider,
+  LabeledList,
+  Section,
+  Stack,
+} from 'tgui-core/components';
 
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
@@ -43,6 +50,7 @@ export const AnchorController = (props) => {
                   {data.z_coord}
                 </LabeledList.Item>
               </LabeledList>
+              <Divider />
               <Button
                 textAlign="center"
                 width="100%"
