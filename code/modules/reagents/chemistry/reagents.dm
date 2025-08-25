@@ -246,9 +246,16 @@ Primarily used in reagents/reaction_agents
 
 /// Called when an overdose starts. Returning UPDATE_MOB_HEALTH will cause updatehealth() to be called on the holder mob by /datum/reagents/proc/metabolize.
 /datum/reagent/proc/overdose_start(mob/living/affected_mob)
-	to_chat(affected_mob, span_userdanger("You feel like you took too much of [name]!"))
-	affected_mob.add_mood_event("[type]_overdose", /datum/mood_event/overdose, name)
-	return
+//IRIS EDIT START
+	if(HAS_TRAIT(affected_mob, TRAIT_SELF_AWARE))
+		to_chat(affected_mob, span_userdanger("You feel like you took too much of [name]!"))
+		affected_mob.add_mood_event("[type]_overdose", /datum/mood_event/overdose, name)
+		return
+	else
+		to_chat(affected_mob, span_userdanger("You feel sick!"))
+		affected_mob.add_mood_event("[type]_overdose", /datum/mood_event/overdose_hidden, name)
+		return
+//IRIS EDIT END
 
 /**
  * Called when this chemical is processed in a hydroponics tray.
