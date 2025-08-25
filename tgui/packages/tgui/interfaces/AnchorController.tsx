@@ -33,17 +33,28 @@ export const AnchorController = (props) => {
           <Stack.Item>
             <Section textAlign="center" title="Controls">
               <LabeledList>
-                <LabeledList.Item label="X Coordinate" />
-                <LabeledList.Item label="Y Coordinate" />
-                <LabeledList.Item label="Z Coordinate" />
+                <LabeledList.Item label="X Coordinate">
+                  {data.x_coord}
+                </LabeledList.Item>
+                <LabeledList.Item label="Y Coordinate">
+                  {data.y_coord}
+                </LabeledList.Item>
+                <LabeledList.Item label="Z Coordinate">
+                  {data.z_coord}
+                </LabeledList.Item>
               </LabeledList>
               <Button
                 textAlign="center"
+                width="100%"
                 onClick={() => act('launch-to-coords')}
               >
                 Launch to Coordinates
               </Button>
-              <Button textAlign="center" onClick={() => act('send-home')}>
+              <Button
+                textAlign="center"
+                width="100%"
+                onClick={() => act('send-home')}
+              >
                 Send Home
               </Button>
             </Section>

@@ -11,7 +11,7 @@
 	///Coordinate values used in the UI
 	var/ui_x = 1
 	var/ui_y = 1
-	var/ui_z = 1
+	var/ui_z = 4
 
 /obj/machinery/computer/anchor_controller/multitool_act(mob/living/user, obj/item/tool)
 	. = ..()
@@ -46,9 +46,9 @@
 	if(anchor)
 		data["anchor"] = anchor.designation
 		data["fuel"] = anchor.fuel_charges
-	data["x_coord"] = ui_x
-	data["y_coord"] = ui_y
-	data["z_coord"] = ui_z
+	data["x_coord"] = clamp(ui_x, 1, 255)
+	data["y_coord"] = clamp(ui_y, 1, 255)
+	data["z_coord"] = clamp(ui_z, 4, 11) //unreserved z-levels only
 	data["message"] = message
 	return data
 
