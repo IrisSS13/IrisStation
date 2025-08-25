@@ -11,7 +11,7 @@
 	///Coordinate values used in the UI
 	var/ui_x = 1
 	var/ui_y = 1
-	var/ui_z = 4
+	var/ui_z = 5
 
 /obj/machinery/computer/anchor_controller/multitool_act(mob/living/user, obj/item/tool)
 	. = ..()
@@ -48,7 +48,7 @@
 		data["fuel"] = anchor.fuel_charges
 	data["x_coord"] = clamp(ui_x, 1, 255)
 	data["y_coord"] = clamp(ui_y, 1, 255)
-	data["z_coord"] = clamp(ui_z, 4, 11) //unreserved z-levels only
+	data["z_coord"] = clamp(ui_z, 5, 11) //unreserved z-levels only
 	data["message"] = message
 	return data
 
@@ -77,6 +77,9 @@
 				message = "Error: insufficient fuel for journey - refuel anchor."
 				return
 			var/turf/target_turf = locate(ui_x, ui_y, ui_z)
+			if(!is_spaceruins_level(target_turf.z))
+				message = "Error: strange energy detected - try alternative Z coordinate."
+				return
 			if(!istype(target_turf, /turf/open/space) || target_turf.is_blocked_turf())
 				message = "Error: target location obstructed - try alternative location."
 				return
