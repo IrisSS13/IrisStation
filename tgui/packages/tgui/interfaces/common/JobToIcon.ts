@@ -195,8 +195,8 @@ const ALTTITLES = {
   Concierge: BASEICONS['Janitor'],
   Maid: BASEICONS['Janitor'],
   // Lawyer - gavel
-  'Internal Affairs Agent': BASEICONS['Lawyer'],
-  'Human Resources Agent': BASEICONS['Lawyer'],
+  'Internal Affairs Agent': BASEICONS['Lawyer'], // IRIS EDIT - Human Resources -> Sapient Resources
+  'Sapient Resources Agent': BASEICONS['Lawyer'],
   'Defence Attorney': BASEICONS['Lawyer'],
   'Public Defender': BASEICONS['Lawyer'],
   Barrister: BASEICONS['Lawyer'],

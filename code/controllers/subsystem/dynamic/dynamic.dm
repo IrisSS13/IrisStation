@@ -1007,9 +1007,9 @@ SUBSYSTEM_DEF(dynamic)
 			var/reopened_job_report_positions
 			for(var/dead_dudes_job in reopened_jobs)
 				reopened_job_report_positions = "[reopened_job_report_positions ? "[reopened_job_report_positions]\n":""][dead_dudes_job]"
-
+//														IRIS EDIT - Human Resources -> Sapient Resources
 			var/suicide_command_report = {"
-				<font size = 3><b>[command_name()] Human Resources Board</b><br>
+				<font size = 3><b>[command_name()] Sapient Resources Board</b><br>
 				Notice of Personnel Change</font><hr>
 				To personnel management staff aboard [station_name()]:<br><br>
 				Our medical staff have detected a series of anomalies in the vital sensors
