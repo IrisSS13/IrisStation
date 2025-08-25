@@ -249,6 +249,7 @@
 		JOB_PRISONER,
 		JOB_SECURITY_OFFICER,
 		JOB_WARDEN,
+		JOB_EXPLORER, // IRIS EDIT - EXPLORER
 	)
 	restricted_roles = list(
 		JOB_AI,
@@ -476,6 +477,7 @@
 		JOB_PRISONER,
 		JOB_SECURITY_OFFICER,
 		JOB_WARDEN,
+		JOB_EXPLORER, // IRIS EDIT - EXPLORER
 	)
 	restricted_roles = list(
 		JOB_AI,

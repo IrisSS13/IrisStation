@@ -256,6 +256,16 @@
 
 /datum/job/engineering_guard //see orderly
 
+/datum/job/explorer // IRIS EDIT - EXPLORER JOB
+	alt_titles = list(
+		"Explorer",
+		"Surveyor",
+		"Pioneer",
+		"Navigator",
+		"Frontiersperson",
+		"Apprentice Explorer",
+	)
+
 /datum/job/geneticist
 	alt_titles = list(
 		"Geneticist",
