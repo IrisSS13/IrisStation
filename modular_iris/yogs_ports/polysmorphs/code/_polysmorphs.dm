@@ -1,4 +1,4 @@
-//TODO: RACIAL BANEFITS/DRAWBACKS, fix names
+//TODO: RACIAL BANEFITS/DRAWBACKS/done...needs to be listed now, fix names
 
 //Instead of just slapping a pure damage reduction I'm giving them armor instead, difference is that it can be pierced by weapons and stuff
 /datum/armor/polysmorph
@@ -11,6 +11,9 @@
 /datum/movespeed_modifier/polysmorph
 	movetypes = GROUND
 	multiplicative_slowdown = -0.1 //10% faster
+
+/datum/actionspeed_modifier/polysmorph
+	multiplicative_slowdown = 0.1 //10% slower
 
 //ACTUAL SPECIES CODE HERE
 /mob/living/carbon/human/species/polysmorph
@@ -75,11 +78,13 @@
 	. = ..()
 	polysmorph.physiology.armor = polysmorph.physiology.armor.add_other_armor(/datum/armor/polysmorph)
 	polysmorph.add_movespeed_modifier(/datum/movespeed_modifier/polysmorph)
+	polysmorph.add_actionspeed_modifier(/datum/actionspeed_modifier/polysmorph)
 
 /datum/species/polysmorph/on_species_loss(mob/living/carbon/human/polysmorph, datum/species/new_species, pref_load)
 	. = ..()
 	polysmorph.physiology.armor = polysmorph.physiology.armor.subtract_other_armor(/datum/armor/polysmorph)
 	polysmorph.remove_movespeed_modifier(/datum/movespeed_modifier/polysmorph)
+	polysmorph.remove_actionspeed_modifier(/datum/actionspeed_modifier/polysmorph)
 
 /datum/species/polysmorph/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
 	human_for_preview.dna.features["mcolor"] = "#444466"
