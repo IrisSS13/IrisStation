@@ -1,4 +1,4 @@
-import { Box, LabeledList, Section, Stack } from 'tgui-core/components';
+import { Box, Button, LabeledList, Section, Stack } from 'tgui-core/components';
 
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
@@ -37,6 +37,15 @@ export const AnchorController = (props) => {
                 <LabeledList.Item label="Y Coordinate" />
                 <LabeledList.Item label="Z Coordinate" />
               </LabeledList>
+              <Button
+                textAlign="center"
+                onClick={() => act('launch-to-coords')}
+              >
+                Launch to Coordinates
+              </Button>
+              <Button textAlign="center" onClick={() => act('send-home')}>
+                Send Home
+              </Button>
             </Section>
           </Stack.Item>
           <Stack.Item>
