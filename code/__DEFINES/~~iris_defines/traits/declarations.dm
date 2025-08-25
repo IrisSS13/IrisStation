@@ -39,6 +39,9 @@
 ///Mob hates eating without a table, goofkitchen
 #define TRAIT_TABLE_EATING_ENJOYER "table_eating_enjoyer"
 
+///Mob isn't burnt when injecting/ingesting sulfuric acid
+#define TRAIT_ACIDBLOOD "acid_blood"
+
 //Trait sources
 
 //Special trait source for illiteracy granted by farsightedness, part of https://github.com/lizardqueenlexi/orbstation/pull/254
