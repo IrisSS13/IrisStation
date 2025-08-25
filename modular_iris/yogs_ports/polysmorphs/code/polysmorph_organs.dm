@@ -56,6 +56,15 @@
 	AddComponent(/datum/component/bubble_icon_override, "alien", BUBBLE_ICON_PRIORITY_ORGAN)
 
 
+/obj/item/organ/alien/hivenode_polysmorph
+	name = "Polysmorph Hive Node"
+	icon_state = "hivenode"
+	icon = ORGAN_ICON_POLYSMORPH
+	zone = BODY_ZONE_HEAD
+	slot = ORGAN_SLOT_XENO_HIVENODE
+	w_class = WEIGHT_CLASS_TINY
+	organ_traits = list(TRAIT_XENO_IMMUNE)
+
 //Just reskins atm
 /obj/item/organ/stomach/polysmorph
 	name = "Polysmorph Stomach"

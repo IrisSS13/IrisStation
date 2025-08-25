@@ -59,7 +59,8 @@
 	mutant_organs = list(
 		/obj/item/organ/alien/plasmavessel/roundstart,
 		/obj/item/organ/alien/resinspinner/roundstart,
-		) //TODO ROUNDSTART HIVENODE WITHOUT HIVEMIND
+		/obj/item/organ/alien/hivenode_polysmorph,
+		)
 /datum/species/polysmorph/get_species_description()
 	return "https://web.archive.org/web/20250430125713/https://wiki.yogstation.net/wiki/Polysmorph, why yes I AM putting a link to waybackmachine, how can you tell? :chad:"
 

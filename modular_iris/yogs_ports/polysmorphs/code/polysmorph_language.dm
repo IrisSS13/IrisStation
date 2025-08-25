@@ -6,6 +6,16 @@
 	default_priority = 50
 	icon_state = "xeno"
 
+	mutual_understanding = list(
+		/datum/language/xenocommon = 20,
+	)
+
+/datum/language/xenocommon //needs hivemind connection to be propely understood without special training (curator)
+	mutual_understanding = list(
+		/datum/language/polysmorph = 20,
+	)
+
+
 //commented out until i figure out why it breaks in tests
 /*
 /datum/language/polysmorph/get_random_name(
