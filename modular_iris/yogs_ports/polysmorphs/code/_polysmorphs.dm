@@ -1,4 +1,4 @@
-//TODO: RACIAL BANEFITS/DRAWBACKS, their own organs, names
+//TODO: RACIAL BANEFITS/DRAWBACKS, fix names
 
 //Instead of just slapping a pure damage reduction I'm giving them armor instead, difference is that it can be pierced by weapons and stuff
 /datum/armor/polysmorph
@@ -49,11 +49,12 @@
 
 
 
-	mutantbrain = /obj/item/organ/brain/xeno_hybrid
+	mutantbrain = /obj/item/organ/brain/polysmorph
 	mutanttongue = /obj/item/organ/tongue/polysmorph
 	mutantliver = /obj/item/organ/liver/polysmorph
-	mutantstomach = /obj/item/organ/stomach/xeno_hybrid
+	mutantstomach = /obj/item/organ/stomach/polysmorph
 	mutantlungs = /obj/item/organ/lungs/polysmorph
+	mutantheart = /obj/item/organ/heart/polysmorph
 	mutantappendix = null
 	mutant_organs = list(
 		/obj/item/organ/alien/plasmavessel/roundstart,

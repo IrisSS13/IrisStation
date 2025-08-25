@@ -1,5 +1,7 @@
 #define ORGAN_ICON_POLYSMORPH 'modular_iris/yogs_ports/polysmorphs/icons/poly_organs.dmi'
 
+//TODO: organ descriptions, cybernetic plasma vessel?
+
 /obj/item/organ/liver/polysmorph
 	name = "Polysmorph Liver"
 	icon_state = "liver-x"
@@ -19,8 +21,8 @@
 
 /obj/item/organ/tongue/polysmorph
 	name = "Polysmorph Tongue"
-	icon = ORGAN_ICON_POLYSMORPH
 	icon_state = "tongue-x"
+	icon = ORGAN_ICON_POLYSMORPH
 	say_mod = "hisses"
 	taste_sensitivity = 10
 	modifies_speech = TRUE
@@ -43,5 +45,34 @@
 	icon_state = "lungs-x"
 	icon = ORGAN_ICON_POLYSMORPH
 	safe_plasma_max = 0
+
+/obj/item/organ/brain/polysmorph
+	name = "Polysmorph Brain"
+	icon_state = "brain-x-d" //lol xD
+	icon = ORGAN_ICON_POLYSMORPH
+
+/obj/item/organ/brain/polysmorph/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/bubble_icon_override, "alien", BUBBLE_ICON_PRIORITY_ORGAN)
+
+
+//Just reskins atm
+/obj/item/organ/stomach/polysmorph
+	name = "Polysmorph Stomach"
+	icon_state = "stomach-x"
+	icon = ORGAN_ICON_POLYSMORPH
+
+/obj/item/organ/heart/polysmorph
+	name = "Polysmorph Heart"
+	icon_state = "heart-x"
+	icon = ORGAN_ICON_POLYSMORPH
+
+/obj/item/organ/alien/plasmavessel/roundstart
+	icon_state = "plasma_small" //it's a worse version, ofc it will be small
+	icon = ORGAN_ICON_POLYSMORPH
+
+/obj/item/organ/alien/resinspinner/roundstart
+	icon_state = "acid"
+	icon = ORGAN_ICON_POLYSMORPH
 
 #undef ORGAN_ICON_POLYSMORPH
