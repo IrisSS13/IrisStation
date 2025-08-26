@@ -1,6 +1,6 @@
 /mob/living/basic/trooper/cin_soldier
 	name = "Coalition Operative"
-	desc = "Death to SolFed."
+	desc = "Death to SolGov."
 	melee_damage_lower = 15
 	melee_damage_upper = 20
 	ai_controller = /datum/ai_controller/basic_controller/trooper/calls_reinforcements/ancient_milsim

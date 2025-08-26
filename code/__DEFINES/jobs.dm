@@ -145,8 +145,8 @@
 #define JOB_NAVAL_FLEET_ADMIRAL "Fleet Admiral"
 // Off-Station
 #define JOB_SPACE_POLICE "Space Police"
-#define JOB_SOLFED "SolFed"
-#define JOB_SOLFED_LIASON "SolFed Liason"
+#define JOB_SOLFED "SolGov"
+#define JOB_SOLFED_LIASON "SolGov Liason"
 // NOVA EDIT ADDITION END
 
 //Lost crew

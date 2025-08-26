@@ -231,22 +231,22 @@ export function PageMain(props) {
               disabled={!importantActionReady}
               onClick={() => act('messagethefeds')}
             >
-              Send message to the Sol Federation Regional Command
+              Send message to the Sol Goverment Regional Command
             </Button>
           )}
           {!!canMakeAnnouncement && (
             <Button icon="bullhorn" onClick={() => act('callThePolice')}>
-              Call Sol Federation 911: Marshals Response
+              Call Sol Goverment 911: Marshals Response
             </Button>
           )}
           {!!canMakeAnnouncement && (
             <Button icon="bullhorn" onClick={() => act('callTheCatmos')}>
-              Call Sol Federation 811: Advanced Atmospherics Response
+              Call Sol Goverment 811: Advanced Atmospherics Response
             </Button>
           )}
           {!!canMakeAnnouncement && (
             <Button icon="bullhorn" onClick={() => act('callTheParameds')}>
-              Call Sol Federation 911: Medical Response
+              Call Sol Goverment 911: Medical Response
             </Button>
           )}
           {!!emagged && (
