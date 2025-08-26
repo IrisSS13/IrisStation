@@ -7,7 +7,7 @@
 	anchored = FALSE
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	max_integrity = 400
-	var/obj/machinery/dive_anchor/target_type = /obj/machinery/dive_anchor
+	var/target_type = /obj/machinery/dive_anchor
 
 /obj/structure/anchor_assembly/examine(mob/user)
 	. = ..()
@@ -16,7 +16,7 @@
 
 /obj/structure/anchor_assembly/screwdriver_act(mob/living/user, obj/item/tool)
 	. = ..()
-	if(istype(target_type, /obj/machinery/dive_anchor))
+	if(target_type == /obj/machinery/dive_anchor)
 		name = "stationary dive anchor assembly"
 		desc = "An unfinished stationary dive anchor."
 		icon_state = "sat_inactive"
@@ -31,10 +31,10 @@
 /obj/structure/anchor_assembly/wrench_act(mob/living/user, obj/item/tool)
 	. = ..()
 	var/turf/current_turf = get_turf(loc)
-	if(istype(target_type, /obj/machinery/dive_anchor/stationary) && istype(current_turf, /turf/open/space))
+	if(target_type == /obj/machinery/dive_anchor/stationary && istype(current_turf, /turf/open/space))
 		to_chat(user, span_warning("[src] can only be finished on a solid surface."))
 		return ITEM_INTERACT_BLOCKING
-	if(istype(target_type, /obj/machinery/dive_anchor) && !istype(current_turf, /turf/open/space))
+	if(target_type == /obj/machinery/dive_anchor && !istype(current_turf, /turf/open/space))
 		to_chat(user, span_warning("[src] can only be finished in space."))
 		return ITEM_INTERACT_BLOCKING
 	new target_type(loc)
