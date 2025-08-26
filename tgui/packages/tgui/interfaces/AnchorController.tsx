@@ -23,7 +23,7 @@ type Data = {
 export const AnchorController = (props) => {
   const { act, data } = useBackend<Data>();
   return (
-    <Window width={300} height={360}>
+    <Window width={300} height={400}>
       <Window.Content>
         <Stack vertical fill>
           <Stack.Item>
