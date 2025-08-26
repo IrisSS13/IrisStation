@@ -9,8 +9,6 @@ GLOBAL_LIST_EMPTY(anchors)
 	use_power = NO_POWER_USE
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	max_integrity = 400
-	light_system = COMPLEX_LIGHT
-	light_power = 1
 	light_range = 3.5
 	///Unique name for this anchor
 	var/designation = "Ad Astra"
