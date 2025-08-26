@@ -74,7 +74,7 @@
 			if(home_turf.is_blocked_turf())
 				message = "Error: home location obstructed - remove obstruction and try again."
 				return
-			anchor.trigger_relocate(anchor.home_location, FALSE)
+			anchor.trigger_relocate(home_turf, FALSE)
 			message = "Success: anchor moved to home location."
 			return TRUE
 		if("launch-to-coords")
@@ -91,7 +91,7 @@
 			if(!istype(target_turf, /turf/open/space) || target_turf.is_blocked_turf())
 				message = "Error: target location obstructed - try alternative location."
 				return
-			anchor.trigger_relocate(target_turf.loc)
+			anchor.trigger_relocate(target_turf)
 			message = "Success: anchor moved to input coordinates."
 			return TRUE
 
