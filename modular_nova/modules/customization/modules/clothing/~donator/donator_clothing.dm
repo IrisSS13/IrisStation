@@ -1568,10 +1568,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 /obj/item/coin/donator/marsoc
 	name = "MARSOC Challenge Coin"
 	desc = "This is a challenge coin given to all MARSOC members upon honorable separation from the Corps. \
-			The coin has the insignia of the Marine Special Operations Command on one side, and the Sol Federation Marine Corps logo on the other. \
+			The coin has the insignia of the Marine Special Operations Command on one side, and the Sol Goverment Marine Corps logo on the other. \
 			This one has an engraving on the Marine Corps logo side, etched in a circle around it: \
 			\"To Staff Sargent Henry Rockwell, for his exemplary service to the Special Operations community and his outstanding moral fiber \
-			and shining example to the core values of the Sol Federation Marine Corps.\""
+			and shining example to the core values of the Sol Goverment Marine Corps.\""
 	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
 	sideslist = list("MARSOC", "SFMC")
 
@@ -2139,7 +2139,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 // donation reward for deadmon
 /obj/item/clothing/suit/hooded/seva/melon
 	name = "sundowner SEVA suit"
-	desc = "A SEVA suit originally designed for SolFed's Army Corps of Engineers to be used in CBRN environments. This suit seems to have had its typical armor plating and anti-radiation lining removed in favor of movement. "
+	desc = "A SEVA suit originally designed for SolGov's Army Corps of Engineers to be used in CBRN environments. This suit seems to have had its typical armor plating and anti-radiation lining removed in favor of movement. "
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
 	worn_icon_digi = 'modular_nova/master_files/icons/donator/mob/clothing/suit_digi.dmi'
@@ -2150,7 +2150,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/clothing/head/hooded/seva/melon
 	name = "sundowner hood"
-	desc = "Designed for the SolFed Army Corps of Engineers, the original version came with armor plates and a hardened glass faceplate. This one has been scaled down, unfortunately."
+	desc = "Designed for the SolGov Army Corps of Engineers, the original version came with armor plates and a hardened glass faceplate. This one has been scaled down, unfortunately."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/hats.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
 	worn_icon_muzzled = 'modular_nova/master_files/icons/donator/mob/clothing/head_muzzled.dmi'
@@ -2261,7 +2261,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/clothing/suit/hooded/explorer/melon
 	name = "anomalous materials protection suit"
-	desc = "A suit originally designed for the SolFed Army to be used in CBRN environments. This suit still has it's protective plates installed. It's clear that this suit has been patched up over many years."
+	desc = "A suit originally designed for the SolGov Army to be used in CBRN environments. This suit still has it's protective plates installed. It's clear that this suit has been patched up over many years."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
 	worn_icon_digi = 'modular_nova/master_files/icons/donator/mob/clothing/suit_digi.dmi'

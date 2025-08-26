@@ -8,7 +8,7 @@
 #define EMERGENCY_RESPONSE_ATMOS "DISCO INFERNO"
 #define EMERGENCY_RESPONSE_EMT "AAAAAUGH, I'M DYING, I NEEEEEEEEEED A MEDIC BAG"
 #define EMERGENCY_RESPONSE_EMAG "AYO THE PIZZA HERE"
-#define MESSAGE_SOLFED "Sol Federation"
+#define MESSAGE_SOLFED "Sol Goverment"
 
 GLOBAL_VAR(caller_of_911)
 GLOBAL_VAR(call_911_msg)
@@ -253,14 +253,14 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 /// Does the final checks if a player is messaging solfed, providing final considerations and what consequences may come.
 /obj/machinery/computer/communications/proc/finalizing_solfedmessage(mob/user)
 	/// Notifies admins in case player is considering messaging solfed.
-	message_admins("[ADMIN_LOOKUPFLW(user)] is considering contacting the Sol Federation Regional Command.")
+	message_admins("[ADMIN_LOOKUPFLW(user)] is considering contacting the Sol Goverment Regional Command.")
 	/// First Question
-	var/call_solfed_check1 = "Are you sure you want to message the Sol Federation? Un-necessary communications may result in a \
+	var/call_solfed_check1 = "Are you sure you want to message the Sol Goverment? Un-necessary communications may result in a \
 		large fine or 25 years in federal prison."
 	/// Boolean for Solfed message
 	if(tgui_input_list(user, call_solfed_check1, "Call 911", list("Yes", "No")) != "Yes")
 		return
-	message_admins("[ADMIN_LOOKUPFLW(user)] has acknowledged the faulty SolFed call consequences.")
+	message_admins("[ADMIN_LOOKUPFLW(user)] has acknowledged the faulty SolGov call consequences.")
 	/// Variable for reason in calling the feeds
 	var/reason_to_call_da_feds = stripped_input(user, "What do you wish to call the Federation for?", "Call the Federation", null, MAX_MESSAGE_LEN)
 	if(!reason_to_call_da_feds)
@@ -275,10 +275,10 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 			SEND_SOUND(staff, sound('sound/misc/server-ready.ogg'))
 	to_chat(GLOB.admins, reason_to_call_da_feds, type = MESSAGE_TYPE_PRAYER, confidential = TRUE)
 
-	log_game("[key_name(user)] has called the Sol Federation for the following reason:\n[GLOB.fedmessage]")
-	deadchat_broadcast(" has called the Sol Federation for the following reason:\n[GLOB.fedmessage]", span_name("[user.real_name]"), user, message_type = DEADCHAT_ANNOUNCEMENT)
+	log_game("[key_name(user)] has called the Sol Goverment for the following reason:\n[GLOB.fedmessage]")
+	deadchat_broadcast(" has called the Sol Goverment for the following reason:\n[GLOB.fedmessage]", span_name("[user.real_name]"), user, message_type = DEADCHAT_ANNOUNCEMENT)
 
-	to_chat(user, span_notice("Authorization confirmed. SolFed Intervention request sent, standby for official instructions."))
+	to_chat(user, span_notice("Authorization confirmed. SolGov Intervention request sent, standby for official instructions."))
 	playsound(src, 'sound/machines/terminal/terminal_prompt_confirm.ogg', 50, FALSE)
 
 /obj/machinery/computer/communications/proc/calling_911(mob/user, called_group_pretty = "EMTs", called_group = EMERGENCY_RESPONSE_EMT)
@@ -591,7 +591,7 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	greeted_mob.playsound_local(greeted_mob, 'sound/effects/families_police.ogg', 100, FALSE, pressure_affected = FALSE, use_reverb = FALSE)
 
 /datum/outfit/request_911/treason_destroyer
-	name = "911 Response: SolFed Military"
+	name = "911 Response: SolGov Military"
 
 	uniform = /obj/item/clothing/under/solfed/marines
 	head = /obj/item/clothing/head/helmet/solfed

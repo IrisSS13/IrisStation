@@ -13,7 +13,7 @@
 
 /datum/opposing_force_equipment/ranged/infanteria
 	name = "Carwo-Cawil Battle Rifle"
-	description = "A heavy battle rifle, this one seems to be painted tacticool black. Accepts any standard SolFed rifle magazine."
+	description = "A heavy battle rifle, this one seems to be painted tacticool black. Accepts any standard SolGov rifle magazine."
 	item_type = /obj/item/storage/toolbox/guncase/nova/opfor/infanteria
 
 /obj/item/storage/toolbox/guncase/nova/opfor/infanteria/PopulateContents()
@@ -183,7 +183,7 @@
 
 /datum/opposing_force_equipment/ranged_stealth/wespe
 	name = "Wespe Pistol"
-	description = "The standard issue service pistol of SolFed's various military branches. Comes with attached light."
+	description = "The standard issue service pistol of SolGov's various military branches. Comes with attached light."
 	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/wespe
 
 /obj/item/storage/toolbox/guncase/nova/pistol/opfor/wespe/PopulateContents()

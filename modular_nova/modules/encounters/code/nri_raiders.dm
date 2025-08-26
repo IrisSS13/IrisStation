@@ -84,7 +84,7 @@ GLOBAL_VAR(first_officer)
 	var/wrong_pick = pick(
 		"inadequate support of the local producer",
 		"unregulated production of Gauss weaponry aboard this installation",
-		"SolFed-backed stationary military formation on the surface of Indecipheres",
+		"SolGov-backed stationary military formation on the surface of Indecipheres",
 		"AUTOMATED REGULATORY VIOLATION DETECTION SYSTEM CRITICAL FAILURE. PLEASE CONTACT AND INFORM THE DISPATCHED AUTHORITIES TO RESOLVE THE ISSUE. \
 		ANY POSSIBLE INDENTURE HAS BEEN CLEARED. WE APOLOGIZE FOR THE INCONVENIENCE",
 	)

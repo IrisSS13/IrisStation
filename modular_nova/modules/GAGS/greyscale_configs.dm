@@ -2279,49 +2279,49 @@ TREK
 // Solfed Uniform
 
 /datum/greyscale_config/solfedcamo
-	name = "SolFed Camo"
+	name = "SolGov Camo"
 	icon_file = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/maincamo.json'
 
 /datum/greyscale_config/solfedcamo/worn
-	name = "SolFed Camo (Worn)"
+	name = "SolGov Camo (Worn)"
 	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
 
 /datum/greyscale_config/solfedcamo/worn/digi
-	name = "SolFed Camo (Worn, Digi)"
+	name = "SolGov Camo (Worn, Digi)"
 	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms_digi.dmi'
 
 /datum/greyscale_config/vestcam
-	name = "SolFed Vest Camo"
+	name = "SolGov Vest Camo"
 	icon_file = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/milvest.json'
 
 /datum/greyscale_config/vestcam/worn
-	name = "SolFed Vest Camo (Worn)"
+	name = "SolGov Vest Camo (Worn)"
 	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
 
 /datum/greyscale_config/vestcam/worn/digi
-	name = "SolFed Vest Camo (Worn, Digi)"
+	name = "SolGov Vest Camo (Worn, Digi)"
 	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms_digi.dmi'
 
 // Solfed Accessories
 /datum/greyscale_config/solfedribbons
-	name = "SolFed Ribbons"
+	name = "SolGov Ribbons"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/sfranks.json'
 
 /datum/greyscale_config/solfedribbons/worn
-	name = "SolFed Ribbons (Worn)"
+	name = "SolGov Ribbons (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 
 // Solfed Goggles Code
 /datum/greyscale_config/solfed_goggles
-	name = "SolFed Goggles"
+	name = "SolGov Goggles"
 	icon_file = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/gogglefed.json'
 
 /datum/greyscale_config/solfed_goggles/worn
-	name = "SolFed Goggles (Worn)"
+	name = "SolGov Goggles (Worn)"
 	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
 
 /// Content of PR #5835
