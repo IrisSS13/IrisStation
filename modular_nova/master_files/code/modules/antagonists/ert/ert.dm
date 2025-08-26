@@ -14,7 +14,7 @@
 	role = "Officer"
 
 /datum/antagonist/ert/solfed
-	name = "SolFed Auditor"
+	name = "SolGov Auditor"
 	outfit = /datum/outfit/solfed/lowrank
 	role = "Auditor"
 	suicide_cry = "FOR THE FEDERATION!!!!"
@@ -28,13 +28,13 @@
 	role = "Civil Services Worker"
 
 /datum/antagonist/ert/solfed/leader
-	name = "Lead SolFed Auditor"
+	name = "Lead SolGov Auditor"
 	outfit = /datum/outfit/solfed
 	role = "Lead Auditor"
 	leader = TRUE
 
 /datum/antagonist/ert/solfed/espatier
-	name = "SolFed Espatier"
+	name = "SolGov Espatier"
 	outfit = /datum/outfit/solfed/espatier
 	role = "Rifleman"
 
@@ -43,30 +43,30 @@
 	name_source = GLOB.last_names
 
 /datum/antagonist/ert/solfed/espatier/engineer
-	name = "SolFed Espatier Engineer"
+	name = "SolGov Espatier Engineer"
 	outfit = /datum/outfit/solfed/espatier/engineer
 	role = "Engineer"
 
 /datum/antagonist/ert/solfed/espatier/corpsman
-	name = "SolFed Espatier Corpsman"
+	name = "SolGov Espatier Corpsman"
 	outfit = /datum/outfit/solfed/espatier/corpsman
 	role = "Corpsman"
 
 /datum/antagonist/ert/solfed/espatier/leader
-	name = "SolFed Espatier Squad Leader"
+	name = "SolGov Espatier Squad Leader"
 	outfit = /datum/outfit/solfed/espatier/squadleader
 	role = "Squad Leader"
 	leader = TRUE
 
 /datum/antagonist/ert/solfed/espatier/greet()
 	var/missiondesc =  ""
-	missiondesc += "<B><font size=5 color=red>You are NOT a Nanotrasen Employee. You serve the Sol Federation as the [name].</font></B>"
+	missiondesc += "<B><font size=5 color=red>You are NOT a Nanotrasen Employee. You serve the Sol Goverment as the [name].</font></B>"
 	if(leader) //If Squad Leader
 		missiondesc += "<BR><B>Lead your squad to ensure the completion of the mission. Board the shuttle when your team is ready.</B>"
 	if(!leader)
 		missiondesc += "<BR><B><font size=2 color=yellow>Follow orders given to you by your squad leader.</font></B>"
 	missiondesc += "<BR><B>Your Duties</B>:"
-	missiondesc += "<BR> <B>1.</B> Contact the Sol Federation Ground Teams and the First Responders via your headset to get the situation from them."
+	missiondesc += "<BR> <B>1.</B> Contact the Sol Goverment Ground Teams and the First Responders via your headset to get the situation from them."
 	missiondesc += "<BR> <B>2.</B> Locate Survivors and Assume Control of the station, and prepare to initiate evacuation procedures should the situation call for it."
 	missiondesc += "<BR> <B>3.</B> Should all else fail, evacuating the civilians becomes your top priority."
 	missiondesc += "<BR> <B>4.</B> Lethal force is authorized, however identify before you shoot and watch who you're shooting, civilian casualties by Federation hands are NOT TOLERATED."
@@ -76,30 +76,30 @@
 
 /// Grand Response variant
 /datum/antagonist/ert/solfed/grand_espatier/engineer
-	name = "SolFed Espatier Engineer"
+	name = "SolGov Espatier Engineer"
 	outfit = /datum/outfit/solfed/grand_espatier/engineer
 	role = "Engineer"
 
 /datum/antagonist/ert/solfed/grand_espatier/corpsman
-	name = "SolFed Espatier Corpsman"
+	name = "SolGov Espatier Corpsman"
 	outfit = /datum/outfit/solfed/grand_espatier/corpsman
 	role = "Corpsman"
 
 /datum/antagonist/ert/solfed/grand_espatier/leader
-	name = "SolFed Espatier Squad Leader"
+	name = "SolGov Espatier Squad Leader"
 	outfit = /datum/outfit/solfed/grand_espatier/squadleader
 	role = "Squad Leader"
 	leader = TRUE
 
 /datum/antagonist/ert/solfed/grand_espatier/greet()
 	var/missiondesc =  ""
-	missiondesc += "<B><font size=5 color=red>You are NOT a Nanotrasen Employee. You serve the Sol Federation as the [name].</font></B>"
+	missiondesc += "<B><font size=5 color=red>You are NOT a Nanotrasen Employee. You serve the Sol Goverment as the [name].</font></B>"
 	if(leader) //If Squad Leader
 		missiondesc += "<BR><B>Lead your squad to ensure the completion of the mission. Board the shuttle when your team is ready.</B>"
 	if(!leader)
 		missiondesc += "<BR><B><font size=2 color=yellow>Follow orders given to you by your squad leader.</font></B>"
 	missiondesc += "<BR><B>Your Duties</B>:"
-	missiondesc += "<BR> <B>1.</B> Contact the Sol Federation Ground Teams and the First Responders via your headset to get the situation from them."
+	missiondesc += "<BR> <B>1.</B> Contact the Sol Goverment Ground Teams and the First Responders via your headset to get the situation from them."
 	missiondesc += "<BR> <B>2.</B> Locate Survivors and Assume Control of the station, and prepare to initiate evacuation procedures should the situation call for it."
 	missiondesc += "<BR> <B>3.</B> Should all else fail, evacuating the civilians becomes your top priority."
 	missiondesc += "<BR> <B>4.</B> Lethal force is authorized, however identify before you shoot and watch who you're shooting, civilian casualties by Federation hands are NOT TOLERATED."

@@ -1,5 +1,5 @@
 /datum/outfit/solfed
-	name = "SolFed Official"
+	name = "SolGov Official"
 	uniform = /obj/item/clothing/under/solfed/officer
 	gloves = /obj/item/clothing/gloves/combat
 	shoes = /obj/item/clothing/shoes/jackboots
@@ -31,16 +31,16 @@
 	..()
 
 /datum/outfit/solfed/lowrank
-	name = "SolFed Official (Low Rank)"
+	name = "SolGov Official (Low Rank)"
 	uniform = /obj/item/clothing/under/solfed/officer_lowrnk
 	accessory = /obj/item/clothing/accessory/nova/acc_medal/neckpin/solfed/official
 
 /datum/outfit/solfed/civil
-	name = "SolFed Official (Civil Services)"
+	name = "SolGov Official (Civil Services)"
 	uniform = /obj/item/clothing/under/solfed/official_civil
 	accessory = /obj/item/clothing/accessory/nova/acc_medal/neckpin/solfed/official
 
 /datum/outfit/solfed/social
-	name = "SolFed Official (Social Services)"
+	name = "SolGov Official (Social Services)"
 	uniform = /obj/item/clothing/under/solfed/official_social
 	accessory = /obj/item/clothing/accessory/nova/acc_medal/neckpin/solfed/official
