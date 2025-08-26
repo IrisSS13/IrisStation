@@ -43,6 +43,7 @@
 
 /datum/crafting_recipe/anchor_assembly
 	name = "Dive Anchor Assembly"
+	desc = "An unfinished dive anchor, can also be turned into a stationary dive anchor."
 	result = /obj/structure/anchor_assembly
 	reqs = list(
 		/obj/item/stack/sheet/mineral/plastitanium = 10,
