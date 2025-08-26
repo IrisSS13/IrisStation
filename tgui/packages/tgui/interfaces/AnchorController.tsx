@@ -3,6 +3,7 @@ import {
   Button,
   Divider,
   LabeledList,
+  NumberInput,
   Section,
   Stack,
 } from 'tgui-core/components';
@@ -41,13 +42,43 @@ export const AnchorController = (props) => {
             <Section textAlign="center" title="Controls">
               <LabeledList>
                 <LabeledList.Item label="X Coordinate">
-                  {data.x_coord}
+                  <NumberInput
+                    value={data.x_coord}
+                    step={1}
+                    minValue={1}
+                    maxValue={255}
+                    onChange={(value) =>
+                      act('adjust-x', {
+                        new_x: value,
+                      })
+                    }
+                  />
                 </LabeledList.Item>
                 <LabeledList.Item label="Y Coordinate">
-                  {data.y_coord}
+                  <NumberInput
+                    value={data.y_coord}
+                    step={1}
+                    minValue={1}
+                    maxValue={255}
+                    onChange={(value) =>
+                      act('adjust-y', {
+                        new_y: value,
+                      })
+                    }
+                  />
                 </LabeledList.Item>
                 <LabeledList.Item label="Z Coordinate">
-                  {data.z_coord}
+                  <NumberInput
+                    value={data.z_coord}
+                    step={1}
+                    minValue={5}
+                    maxValue={11}
+                    onChange={(value) =>
+                      act('adjust-z', {
+                        new_z: value,
+                      })
+                    }
+                  />
                 </LabeledList.Item>
               </LabeledList>
               <Divider />

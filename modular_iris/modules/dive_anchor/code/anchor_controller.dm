@@ -3,6 +3,7 @@
 	desc = "Used to reposition dive anchors."
 	icon_screen = "teleport"
 	icon_keyboard = "mining_key"
+	light_color = LIGHT_COLOR_BABY_BLUE
 	circuit = /obj/item/circuitboard/computer/anchor_controller
 	///Dive anchor linked to this controller, connected using a multitool
 	var/obj/machinery/dive_anchor/anchor
@@ -46,15 +47,21 @@
 	if(anchor)
 		data["anchor"] = anchor.designation
 		data["fuel"] = anchor.fuel_charges
-	data["x_coord"] = clamp(ui_x, 1, 255)
-	data["y_coord"] = clamp(ui_y, 1, 255)
-	data["z_coord"] = clamp(ui_z, 5, 11) //unreserved z-levels only
+	data["x_coord"] = ui_x
+	data["y_coord"] = ui_y
+	data["z_coord"] = ui_z
 	data["message"] = message
 	return data
 
 /obj/machinery/computer/anchor_controller/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	switch(action)
+		if("adjust-x")
+			ui_x = clamp(new_x, 1, 255)
+		if("adjust-y")
+			ui_y = clamp(new_y, 1, 255)
+		if("adjust-z")
+			ui_z = clamp(new_z, 5, 11) //unreserved z-levels only
 		if("send-home")
 			if(!anchor)
 				message = "Error: no anchor linked - link one to proceed."
