@@ -94,6 +94,7 @@
 #define JOB_SHAFT_MINER "Shaft Miner"
 #define JOB_BITRUNNER "Bitrunner"
 #define JOB_CUSTOMS_AGENT "Customs Agent" // NOVA EDIT ADDITION
+#define JOB_EXPLORER "Explorer" // IRIS EDIT ADDITION
 //Service
 #define JOB_BARTENDER "Bartender"
 #define JOB_BOTANIST "Botanist"

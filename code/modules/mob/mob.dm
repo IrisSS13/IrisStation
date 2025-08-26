@@ -191,7 +191,7 @@
 			hud_list[hud] = list()
 
 		else
-			var/image/I = image('modular_nova/master_files/icons/mob/huds/hud.dmi', src, "")	//NOVA EDIT: original filepath 'icons/mob/huds/hud.dmi'
+			var/image/I = image('modular_iris/master_files/icons/mob/huds/hud.dmi', src, "")	// IRIS EDIT: nova filepath 'modular_nova/master_files/icons/mob/huds/hud.dmi'; original filepath 'icons/mob/huds/hud.dmi'
 			I.appearance_flags = RESET_COLOR|PIXEL_SCALE|KEEP_APART
 			hud_list[hud] = I
 		set_hud_image_active(hud, update_huds = FALSE) //by default everything is active. but dont add it to huds to keep control.
