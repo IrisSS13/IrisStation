@@ -1,5 +1,5 @@
 /obj/item/stack/impure_telecrystal
-	name = "impure telecrystal"
+	name = "impure telecrystals"
 	desc = "A crystal humming with energy, the dim, ruby light pulsing within is partly obscured by a matrix of impurities."
 	singular_name = "impure telecrystal"
 	icon = 'icons/obj/stack_objects.dmi'

@@ -51,7 +51,7 @@ GLOBAL_LIST_EMPTY(anchors)
 	var/obj/item/stack/impure_telecrystal/crystals = tool
 	fuel_charges += crystals.amount
 	balloon_alert(user, "fueled")
-	user.visible_message("[user] fuels [src] with \the [crystals].")
+	user.visible_message("[user] fuels [src] with [crystals].")
 	qdel(crystals)
 	return ITEM_INTERACT_SUCCESS
 
