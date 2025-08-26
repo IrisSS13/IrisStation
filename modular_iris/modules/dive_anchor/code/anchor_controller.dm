@@ -27,9 +27,6 @@
 		balloon_alert(user, "[src] refuses the stationary anchor")
 		return ITEM_INTERACT_BLOCKING
 	anchor = multitool.buffer
-	ui_x = anchor.x
-	ui_y = anchor.y
-	ui_z = clamp(params[anchor.z], 5, 11) //other values should naturally fall within acceptable range
 	balloon_alert(user, "anchor linked successfully")
 	return ITEM_INTERACT_SUCCESS
 
@@ -76,7 +73,7 @@
 			if(home_turf.is_blocked_turf())
 				message = "Error: home location obstructed - remove obstruction and try again."
 				return
-			anchor.relocate(anchor.home_location, FALSE)
+			anchor.trigger_relocate(anchor.home_location, FALSE)
 			message = "Success: anchor moved to home location."
 			return TRUE
 		if("launch-to-coords")
@@ -93,7 +90,7 @@
 			if(!istype(target_turf, /turf/open/space) || target_turf.is_blocked_turf())
 				message = "Error: target location obstructed - try alternative location."
 				return
-			anchor.relocate(target_turf.loc)
+			anchor.trigger_relocate(target_turf.loc)
 			message = "Success: anchor moved to input coordinates."
 			return TRUE
 
