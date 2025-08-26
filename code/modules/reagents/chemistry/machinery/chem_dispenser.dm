@@ -227,15 +227,14 @@
 		. += beaker_overlay
 
 /obj/machinery/chem_dispenser/emag_act(mob/user, obj/item/card/emag/emag_card)
-	//IRIS EDIT CHANGE BEGIN - QUANTUM_UPGRADE_CHEMS - Don't try calling balloon alert on user unless we know we have one
 	if(obj_flags & EMAGGED)
-		if(user)
-			balloon_alert(user, "already emagged!")
+		balloon_alert(user, "already emagged!")
 		return FALSE
-	if(user)
-		balloon_alert(user, "safeties shorted out")
+	balloon_alert(user, "safeties shorted out")
+	//IRIS EDIT CHANGE BEGIN - QUANTUM_UPGRADE_CHEMS - Don't add the reagents to the list if they're already present
+	if(!(emagged_reagents in dispensable_reagents))
+		dispensable_reagents |= emagged_reagents//add the emagged reagents to the dispensable ones
 	//IRIS EDIT CHANGE END
-	dispensable_reagents |= emagged_reagents//add the emagged reagents to the dispensable ones
 	obj_flags |= EMAGGED
 	return TRUE
 
@@ -552,9 +551,12 @@
 		else
 			dispensable_reagents -= upgrade3_reagents
 		//NOVA EDIT END
-		//IRIS EDIT ADDITION BEGIN - QUANTUM_UPGRADE_CHEMS - Adding a quantum servo emags the chem dispenser, unlocking those chems for use
-		if(servo.tier > 4)
-			emag_act()
+		//IRIS EDIT ADDITION BEGIN - QUANTUM_UPGRADE_CHEMS - Adding a quantum servo adds reagents normally only unlocked by emagging
+		if(!(obj_flags & EMAGGED))
+			if(servo.tier > 4)
+				dispensable_reagents |= emagged_reagents
+			else
+				dispensable_reagents -= emagged_reagents
 		//IRIS EDIT ADDITION END
 		parts_rating += servo.tier
 	power_cost = max(new_power_cost, 0.1 KILO WATTS)
