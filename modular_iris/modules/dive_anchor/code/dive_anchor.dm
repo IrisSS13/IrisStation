@@ -7,7 +7,8 @@ GLOBAL_LIST_EMPTY(anchors)
 	icon_state = "sat_active"
 	density = TRUE
 	use_power = NO_POWER_USE
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
+	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
+	max_integrity = 400
 	///Unique name for this anchor
 	var/designation = "Ad Astra"
 	///Name of linked anchor

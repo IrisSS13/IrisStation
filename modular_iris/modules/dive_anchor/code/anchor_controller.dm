@@ -3,7 +3,6 @@
 	desc = "Used to reposition dive anchors."
 	icon_screen = "teleport"
 	icon_keyboard = "mining_key"
-	light_color = LIGHT_COLOR_BABY_BLUE
 	circuit = /obj/item/circuitboard/computer/anchor_controller
 	///Dive anchor linked to this controller, connected using a multitool
 	var/obj/machinery/dive_anchor/anchor
