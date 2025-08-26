@@ -28,6 +28,7 @@ GLOBAL_LIST_EMPTY(anchors)
 		designation += " (duplicate)"
 	GLOB.anchors[designation] = src
 	AddComponent(/datum/component/gps, "Dive Anchor")
+	set_light_on(TRUE)
 
 /obj/machinery/dive_anchor/examine(mob/user)
 	. = ..()

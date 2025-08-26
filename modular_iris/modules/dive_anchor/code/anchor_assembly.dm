@@ -7,7 +7,7 @@
 	anchored = FALSE
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	max_integrity = 400
-	var/target_type = /obj/machinery/dive_anchor
+	var/obj/machinery/dive_anchor/target_type = /obj/machinery/dive_anchor
 
 /obj/structure/anchor_assembly/examine(mob/user)
 	. = ..()
@@ -30,11 +30,11 @@
 
 /obj/structure/anchor_assembly/wrench_act(mob/living/user, obj/item/tool)
 	. = ..()
-	if(istype(target_type, /obj/machinery/dive_anchor) && !istype(get_turf(loc), /turf/open/space))
-		to_chat(user, span_warning("[src] can only be finished in space."))
-		return ITEM_INTERACT_BLOCKING
 	if(istype(target_type, /obj/machinery/dive_anchor/stationary) && istype(get_turf(loc), /turf/open/space))
 		to_chat(user, span_warning("[src] can only be finished on a solid surface."))
+		return ITEM_INTERACT_BLOCKING
+	if(istype(target_type, /obj/machinery/dive_anchor) && !istype(get_turf(loc), /turf/open/space))
+		to_chat(user, span_warning("[src] can only be finished in space."))
 		return ITEM_INTERACT_BLOCKING
 	new target_type(loc)
 	qdel(src)
