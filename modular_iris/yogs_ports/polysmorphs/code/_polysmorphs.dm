@@ -1,4 +1,4 @@
-//TODO: RACIAL BANEFITS/DRAWBACKS/done...needs to be listed now, fix names
+//TODO: fix names
 
 //Instead of just slapping a pure damage reduction I'm giving them armor instead, difference is that it can be pierced by weapons and stuff
 /datum/armor/polysmorph
@@ -64,8 +64,6 @@
 		/obj/item/organ/alien/resinspinner/roundstart,
 		/obj/item/organ/alien/hivenode_polysmorph,
 		)
-/datum/species/polysmorph/get_species_description()
-	return "https://web.archive.org/web/20250430125713/https://wiki.yogstation.net/wiki/Polysmorph, why yes I AM putting a link to waybackmachine, how can you tell? :chad:"
 
 /datum/species/polysmorph/get_default_mutant_bodyparts()
 	return list(
@@ -93,3 +91,80 @@
 	human_for_preview.dna.mutant_bodyparts["xenohead"] = list(MUTANT_INDEX_NAME = "Polysmorph Queen", MUTANT_INDEX_COLOR_LIST = list("#444466", "#FFFFFF", "#FFFFFF"))
 	regenerate_organs(human_for_preview)
 	human_for_preview.update_body(is_creating = TRUE)
+
+/datum/species/polysmorph/get_species_description()
+	return "https://web.archive.org/web/20250430125713/https://wiki.yogstation.net/wiki/Polysmorph"
+
+/datum/species/polysmorph/get_species_lore()
+	return list(
+		"The final failures in the attempts at creating xenomorphs hybrids to access the alien hivemind, polysmorphs were spawned \
+		in now-abandoned planetary and space colonies where they were studied. After it was discovered that the hybrids had their \
+		link to the hivemind cut, the project that birthed them was abandoned.",
+
+		"While deprived of the link to the hivemind, polysmorphs still retain an instinctual tendency toward certain roles \
+		depending on their dome. Drones tend to be workers, sentinels lean toward military and law enforcement, praetorians \
+		generally take care of logistics and management, and queens are drawn to scientific research.",
+
+		"As of today, the polysmorphs are scattered across the stars, working along other species. Those who couldn't \
+		adapt have been relegated to menial jobs in remote locations and their situation is mostly unknown.",
+	)
+
+/datum/species/polysmorph/create_pref_unique_perks()
+	var/list/perk_descriptions = list()
+
+	perk_descriptions += list(list(
+		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+		SPECIES_PERK_ICON = "running",
+		SPECIES_PERK_NAME = "Predator Genes",
+		SPECIES_PERK_DESC = "Polysmorphs keep a fraction of the agility found in their xenomorph ancestors. \
+							Their movement speed is slightly faster than most races.",
+	))
+
+	perk_descriptions += list(list(
+		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+		SPECIES_PERK_ICON = "low-vision",
+		SPECIES_PERK_NAME = "Darkvision",
+		SPECIES_PERK_DESC = "Polysmorphs have an advanced set of eyes hidden inside their domed head. \
+							These eyes can see much better in the darkness than the average crewmember.",
+	))
+
+	perk_descriptions += list(list(
+		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+		SPECIES_PERK_ICON = "lungs",
+		SPECIES_PERK_NAME = "Devolved Vessels",
+		SPECIES_PERK_DESC = "Polysmorphs have a set of plasma vessels, degraded and fused with human lungs through the spawning process. \
+							This mutated organ lets polysmorphs breathe both plasma and oxygen safely, but is easily hurt from breathing in hot air.",
+	))
+
+	perk_descriptions += list(list(
+		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+		SPECIES_PERK_ICON = "bone",
+		SPECIES_PERK_NAME = "Exoskeletal",
+		SPECIES_PERK_DESC = "Polysmorphs have a rigid exoskeleton lining their bodies, making them harder to wound.",
+	))
+
+	perk_descriptions += list(list(
+		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+		SPECIES_PERK_ICON = "filter",
+		SPECIES_PERK_NAME = "Reckless Filtration",
+		SPECIES_PERK_DESC = "Polysmorphs have alien livers capable of filtering out toxins much faster than most races. \
+							Despite this, it's not very tough, and takes more damage from processing too many toxins at once.",
+	))
+
+	perk_descriptions += list(list(
+		SPECIES_PERK_TYPE = SPECIES_NEUTRAL_PERK,
+		SPECIES_PERK_ICON = "commenting",
+		SPECIES_PERK_NAME = "Alien Ssssspeech",
+		SPECIES_PERK_DESC = "Polysmorphs have a mouthed tongue similar to xenomorphs, but without the teeth. \
+							They have a tendency to hisssss when ssssspeaking.",
+	))
+
+	perk_descriptions += list(list(
+		SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
+		SPECIES_PERK_ICON = "wrench",
+		SPECIES_PERK_NAME = "Indextrous",
+		SPECIES_PERK_DESC = "Polysmorphs have large claw-like fingers built for slicing rather than quick or precise motions. \
+							They use tools and items a bit slower than most races.",
+	))
+
+	return perk_descriptions

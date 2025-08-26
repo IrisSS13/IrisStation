@@ -21,6 +21,9 @@
 	burn_modifier = POLYSMORPH_BURN_MODIFIER
 	bodypart_traits = list(TRAIT_NO_UNDERWEAR) //Their legs dont fit
 
+/obj/item/bodypart/chest/polysmorph/get_butt_sprite()
+	return icon('icons/mob/butts.dmi', BUTT_SPRITE_XENOMORPH) //this is very important
+
 /obj/item/bodypart/arm/left/polysmorph
 	icon_greyscale = BODYPART_ICON_POLYSMORPH
 	limb_id = SPECIES_POLYSMORPH
