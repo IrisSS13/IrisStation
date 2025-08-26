@@ -29,7 +29,7 @@
 	anchor = multitool.buffer
 	ui_x = anchor.x
 	ui_y = anchor.y
-	ui_z = anchor.z
+	ui_z = clamp(params[anchor.z], 5, 11) //other values should naturally fall within acceptable range
 	balloon_alert(user, "anchor linked successfully")
 	return ITEM_INTERACT_SUCCESS
 
@@ -57,11 +57,14 @@
 	. = ..()
 	switch(action)
 		if("adjust-x")
-			ui_x = clamp(new_x, 1, 255)
+			ui_x = clamp(params["new_x"], 1, 255)
+			return TRUE
 		if("adjust-y")
-			ui_y = clamp(new_y, 1, 255)
+			ui_y = clamp(params["new_y"], 1, 255)
+			return TRUE
 		if("adjust-z")
-			ui_z = clamp(new_z, 5, 11) //unreserved z-levels only
+			ui_z = clamp(params["new_z"], 5, 11) //unreserved z-levels only
+			return TRUE
 		if("send-home")
 			if(!anchor)
 				message = "Error: no anchor linked - link one to proceed."
