@@ -30,10 +30,11 @@
 
 /obj/structure/anchor_assembly/wrench_act(mob/living/user, obj/item/tool)
 	. = ..()
-	if(istype(target_type, /obj/machinery/dive_anchor/stationary) && istype(get_turf(loc), /turf/open/space))
+	var/turf/current_turf = get_turf(loc)
+	if(istype(target_type, /obj/machinery/dive_anchor/stationary) && istype(current_turf, /turf/open/space))
 		to_chat(user, span_warning("[src] can only be finished on a solid surface."))
 		return ITEM_INTERACT_BLOCKING
-	if(istype(target_type, /obj/machinery/dive_anchor) && !istype(get_turf(loc), /turf/open/space))
+	if(istype(target_type, /obj/machinery/dive_anchor) && !istype(current_turf, /turf/open/space))
 		to_chat(user, span_warning("[src] can only be finished in space."))
 		return ITEM_INTERACT_BLOCKING
 	new target_type(loc)
