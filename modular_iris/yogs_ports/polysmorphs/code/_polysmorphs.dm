@@ -38,6 +38,10 @@
 	heatmod = 1.5
 	species_language_holder = /datum/language_holder/polysmorph
 	exotic_bloodtype = BLOOD_TYPE_POLYSMORPH
+	meat = /obj/item/food/meat/slab/xeno
+	skinned_type = /obj/item/stack/sheet/animalhide/xeno
+	gib_anim = "gibbed-a"
+	species_cookie = /obj/item/food/meat/slab
 
 	digitigrade_customization = DIGITIGRADE_OPTIONAL //'technically' optional, both types are digi
 	bodypart_overrides = list(
