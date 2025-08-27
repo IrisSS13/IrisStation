@@ -17,7 +17,7 @@ GLOBAL_LIST_EMPTY(anchors)
 	///Original location of this anchor, used in the return home function of the anchor controller
 	var/home_location
 	///How many times can this anchor move before it needs to be refuelled
-	var/fuel_charges = 1
+	var/fuel_charges = 0
 
 /obj/machinery/dive_anchor/Initialize(mapload)
 	. = ..()
@@ -165,5 +165,6 @@ GLOBAL_LIST_EMPTY(anchors)
 /obj/machinery/dive_anchor/stationary
 	name = "stationary dive anchor"
 	icon_state = "sat_inactive"
+	light_range = 0
 	designation = "Space Station 13"
 	target_designation = "Ad Astra"
