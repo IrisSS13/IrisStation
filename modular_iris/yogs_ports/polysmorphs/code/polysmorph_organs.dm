@@ -1,7 +1,5 @@
 #define ORGAN_ICON_POLYSMORPH 'modular_iris/yogs_ports/polysmorphs/icons/poly_organs.dmi'
 
-//TODO: cybernetic plasma vessel?
-
 /obj/item/organ/liver/polysmorph
 	name = "Polysmorph Liver"
 	desc = "A liver that used to belong to a close relative of a killer alien, who knows what it used to eat...actually we know."
@@ -64,6 +62,18 @@
 	. = ..()
 	AddComponent(/datum/component/bubble_icon_override, "alien", BUBBLE_ICON_PRIORITY_ORGAN)
 
+/obj/item/organ/eyes/polysmorph
+	name = "Polysmorph Eyes"
+	desc = "These are supposed to be not visible to the outside."
+
+/obj/item/organ/eyes/polysmorph/on_mob_insert(mob/living/carbon/eye_owner)
+	. = ..()
+	ADD_TRAIT(eye_owner, TRAIT_MEDIUM_NIGHT_VISION, ORGAN_TRAIT)
+
+/obj/item/organ/eyes/polysmorph/on_mob_remove(mob/living/carbon/eye_owner)
+	. = ..()
+	REMOVE_TRAIT(eye_owner, TRAIT_MEDIUM_NIGHT_VISION, ORGAN_TRAIT)
+
 
 /obj/item/organ/alien/hivenode_polysmorph
 	name = "Devolved Hive Node"
@@ -95,5 +105,26 @@
 /obj/item/organ/alien/resinspinner/roundstart
 	icon_state = "acid"
 	icon = ORGAN_ICON_POLYSMORPH
+
+
+//unused for now until i figure out where to put it
+/obj/item/organ/alien/plasmavessel/cybernetic
+	name = "Cybernetic Plasma Vessel"
+	desc = "Cybernetic attempt at recreating xenomorph plasma vessel, it's still worse than the normal one but it's a start."
+	icon_state = "plasma-c"
+	icon = ORGAN_ICON_POLYSMORPH
+	stored_plasma = 60
+	max_plasma = 120
+	heal_rate = 2 //worse than normal one
+	plasma_rate = 5 //same rate as default one, but you can print this so...
+	organ_flags = ORGAN_ROBOTIC
+
+/obj/item/organ/alien/plasmavessel/cybernetic/emp_act(severity)
+	. = ..()
+	if(. & EMP_PROTECT_SELF)
+		return
+	if(!COOLDOWN_FINISHED(src, severe_cooldown))
+		owner.adjustPlasma(-120)
+		COOLDOWN_START(src, severe_cooldown, 30 SECONDS)
 
 #undef ORGAN_ICON_POLYSMORPH

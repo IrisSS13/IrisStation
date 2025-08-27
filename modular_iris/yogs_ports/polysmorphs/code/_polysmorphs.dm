@@ -27,7 +27,6 @@
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_CAN_STRIP,
 		TRAIT_LITERATE,
-		TRAIT_MINOR_NIGHT_VISION,
 		TRAIT_RESISTLOWPRESSURE,
 		TRAIT_ACIDBLOOD,
 	)
@@ -53,6 +52,7 @@
 
 
 	mutantbrain = /obj/item/organ/brain/polysmorph
+	mutanteyes = /obj/item/organ/eyes/polysmorph
 	mutanttongue = /obj/item/organ/tongue/polysmorph
 	mutantliver = /obj/item/organ/liver/polysmorph
 	mutantstomach = /obj/item/organ/stomach/polysmorph
