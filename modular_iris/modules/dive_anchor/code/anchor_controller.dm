@@ -26,7 +26,6 @@
 		balloon_alert(user, "[src] refuses the stationary anchor")
 		return ITEM_INTERACT_BLOCKING
 	anchor = multitool.buffer
-	multitool.buffer = null
 	balloon_alert(user, "anchor linked successfully")
 	return ITEM_INTERACT_SUCCESS
 

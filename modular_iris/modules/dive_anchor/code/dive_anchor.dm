@@ -61,17 +61,14 @@ GLOBAL_LIST_EMPTY(anchors)
 /obj/machinery/dive_anchor/multitool_act(mob/living/user, obj/item/tool)
 	. = ..()
 	var/obj/item/multitool/multitool = tool
-	if(!(multitool.buffer))
-		multitool.set_buffer(src)
-		balloon_alert(user, "anchor saved to multitool buffer")
-		return ITEM_INTERACT_SUCCESS
-	if(!istype(multitool.buffer, /obj/machinery/dive_anchor))
-		balloon_alert(user, "requires buffered anchor")
-		return ITEM_INTERACT_BLOCKING
-	var/obj/machinery/dive_anchor/buffered_anchor = multitool.buffer
-	target_designation = buffered_anchor.designation
-	multitool.buffer = null
-	balloon_alert(user, "destination anchor set, buffer cleared")
+	if(multitool.buffer && istype(multitool.buffer, /obj/machinery/dive_anchor))
+		var/obj/machinery/dive_anchor/buffered_anchor = multitool.buffer
+		if(target_designation != buffered_anchor.designation && buffered_anchor.designation != designation)
+			target_designation = buffered_anchor.designation
+			balloon_alert(user, "destination anchor set")
+			return ITEM_INTERACT_SUCCESS
+	multitool.set_buffer(src)
+	balloon_alert(user, "anchor saved to multitool buffer")
 	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/dive_anchor/multitool_act_secondary(mob/living/user, obj/item/tool)
