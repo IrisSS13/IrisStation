@@ -26,7 +26,7 @@
 	item_type = /obj/item/gun/ballistic/automatic/sol_rifle/machinegun
 	max_purchase = 1
 	cost = 14
-	magazine = /obj/item/ammo_box/magazine/c40sol_rifle/drum
+	magazine = /obj/item/ammo_box/magazine/c40sol_rifle
 
 /datum/armament_entry/hecu/primary/assaultrifle/infanteria
 	item_type = /obj/item/gun/ballistic/automatic/sol_rifle
@@ -46,7 +46,7 @@
 	cost = 5
 
 /datum/armament_entry/hecu/primary/shotgun/autoshotgun_pump
-	item_type = /obj/item/gun/ballistic/shotgun/automatic/as2
+	item_type = /obj/item/gun/ballistic/shotgun/automatic/combat
 	max_purchase = 1
 	cost = 7
 

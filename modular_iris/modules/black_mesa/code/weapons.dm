@@ -1,7 +1,7 @@
 /obj/item/crowbar/freeman
 	name = "blood soaked crowbar"
 	desc = "A heavy handed crowbar, it drips with blood."
-	icon = 'modular_nova/modules/awaymissions_nova/icons/freeman.dmi'
+	icon = 'modular_iris/modules/black_mesa/icons/freeman.dmi'
 	icon_state = "crowbar"
 	force = 35
 	throwforce = 45
@@ -41,12 +41,6 @@
 	attack_verb_simple = list("shove", "bash")
 	transparent = TRUE
 	max_integrity = 150
-	repairable_by = /obj/item/stack/sheet/iron //what to repair the shield with
-
-
-/obj/item/shield/riot/pointman/hecu/shatter(mob/living/carbon/human/owner)
-	playsound(owner, 'sound/effects/glassbr3.ogg', 100)
-	new /obj/item/ballistic_broken((get_turf(src)))
 
 /obj/item/ballistic_broken
 	name = "broken ballistic shield"

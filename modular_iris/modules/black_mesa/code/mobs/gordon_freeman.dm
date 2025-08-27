@@ -8,7 +8,7 @@
 
 
 /mob/living/simple_animal/hostile/blackmesa/xen/headcrab_zombie/gordon_freeman
-	name = "\improper Gordon Freeman"
+	name = "/improper Gordon Freeman"
 	desc = "Gordon Freeman in the flesh. Or in the zombified form, it seems."
 	icon_state = "gordon_freeman"
 	speed = -2
@@ -43,7 +43,7 @@
 /obj/machinery/door/puzzle/keycard/xen/freeman_boss_entry
 	name = "entry door"
 	desc = "Complete the puzzle to open this door."
-	icon = 'modular_nova/modules/black_mesa/icons/xen_door.dmi'
+	icon = 'modular_iris/modules/black_mesa/icons/xen_door.dmi'
 	icon_state = "resin"
 	puzzle_id = "freeman_entry"
 
@@ -55,12 +55,12 @@
 /obj/machinery/door/puzzle/keycard/xen/freeman_boss_exit
 	name = "exit door"
 	desc = "You must defeat him."
-	icon = 'modular_nova/modules/black_mesa/icons/xen_door.dmi'
+	icon = 'modular_iris/modules/black_mesa/icons/xen_door.dmi'
 	icon_state = "resin"
 	puzzle_id = "freeman_exit"
 
 /obj/item/keycard/freeman_boss_exit
-	name = "\improper Freeman's ID card"
+	name = "/improper Freeman's ID card"
 	desc = "How could you do it? HOW?!!"
 	color = "#fffb00"
 	puzzle_id = "freeman_exit"

@@ -1,7 +1,7 @@
 /mob/living/simple_animal/hostile/blackmesa/xen/houndeye
 	name = "houndeye"
 	desc = "Some highly aggressive alien creature. Thrives in toxic environments."
-	icon = 'modular_nova/modules/black_mesa/icons/mobs.dmi'
+	icon = 'modular_iris/modules/black_mesa/icons/mobs.dmi'
 	icon_state = "houndeye"
 	icon_living = "houndeye"
 	icon_dead = "houndeye_dead"
@@ -20,7 +20,7 @@
 	harm_intent_damage = 10
 	melee_damage_lower = 20
 	melee_damage_upper = 20
-	attack_sound = 'sound/weapons/bite.ogg'
+	attack_sound = 'sound/items/weapons/bite.ogg'
 	gold_core_spawnable = HOSTILE_SPAWN
 	//Since those can survive on Xen, I'm pretty sure they can thrive on any atmosphere
 
@@ -28,11 +28,11 @@
 	maxbodytemp = 1500
 	loot = list(/obj/item/stack/sheet/bluespace_crystal)
 	alert_sounds = list(
-		'modular_nova/modules/black_mesa/sound/mobs/houndeye/he_alert1.ogg',
-		'modular_nova/modules/black_mesa/sound/mobs/houndeye/he_alert2.ogg',
-		'modular_nova/modules/black_mesa/sound/mobs/houndeye/he_alert3.ogg',
-		'modular_nova/modules/black_mesa/sound/mobs/houndeye/he_alert4.ogg',
-		'modular_nova/modules/black_mesa/sound/mobs/houndeye/he_alert5.ogg'
+		'modular_iris/modules/black_mesa/sound/mobs/houndeye/he_alert1.ogg',
+		'modular_iris/modules/black_mesa/sound/mobs/houndeye/he_alert2.ogg',
+		'modular_iris/modules/black_mesa/sound/mobs/houndeye/he_alert3.ogg',
+		'modular_iris/modules/black_mesa/sound/mobs/houndeye/he_alert4.ogg',
+		'modular_iris/modules/black_mesa/sound/mobs/houndeye/he_alert5.ogg'
 	)
 	/// Charging ability
 	var/datum/action/cooldown/mob_cooldown/charge/basic_charge/charge

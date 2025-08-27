@@ -5,7 +5,7 @@
 
 /mob/living/simple_animal/hostile/blackmesa/xen
 	faction = list(FACTION_XEN)
-	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
+	atmos_requirements = null
 	minbodytemp = 0
 	maxbodytemp = 1500
 
@@ -20,7 +20,7 @@
 
 /obj/effect/random_mob_placer
 	name = "mob placer"
-	icon = 'modular_nova/modules/black_mesa/icons/mapping_helpers.dmi'
+	icon = 'modular_iris/modules/black_mesa/icons/mapping_helpers.dmi'
 	icon_state = "mobspawner"
 	var/list/possible_mobs = list(/mob/living/simple_animal/hostile/blackmesa/xen/headcrab)
 
@@ -102,7 +102,7 @@
 	uniform = /obj/item/clothing/under/rank/security/officer/hecu
 	head = /obj/item/clothing/head/helmet
 	suit = /obj/item/clothing/suit/armor/vest
-	mask = /obj/item/clothing/mask/gas/hecu2
+	mask = /obj/item/clothing/mask/gas/hecu
 	gloves = /obj/item/clothing/gloves/combat
 	belt = /obj/item/storage/belt/military/assault/hecu
 	shoes = /obj/item/clothing/shoes/combat

@@ -13,7 +13,7 @@
 	cost = 1
 
 /datum/armament_entry/hecu/misc/rollie
-	item_type = /obj/item/clothing/mask/cigarette/rollie/cannabis
+	item_type = /obj/item/clothing/mask/cigarette
 	max_purchase = 8
 	cost = 1
 
@@ -48,7 +48,7 @@
 	cost = 1
 
 /datum/armament_entry/hecu/misc/balaclava
-	item_type = /obj/item/clothing/mask/balaclavaadjust
+	item_type = /obj/item/clothing/mask/balaclava/adjustable
 	max_purchase = 6
 	cost = 1
 

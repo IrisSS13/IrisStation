@@ -139,7 +139,7 @@
 /datum/outfit/hecu
 	name = "HECU Grunt"
 	uniform = /obj/item/clothing/under/rank/security/officer/hecu
-	mask = /obj/item/clothing/mask/gas/hecu2
+	mask = /obj/item/clothing/mask/gas/hecu
 	gloves = /obj/item/clothing/gloves/combat
 	belt = /obj/item/storage/belt/military/assault/hecu
 	ears = /obj/item/radio/headset/headset_faction
@@ -189,7 +189,7 @@
 	name = "HECU Captain"
 	uniform = /obj/item/clothing/under/rank/security/officer/hecu
 	head = /obj/item/clothing/head/beret/sec
-	mask = /obj/item/clothing/mask/gas/hecu2
+	mask = /obj/item/clothing/mask/gas/hecu
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	belt = /obj/item/storage/belt/military/assault/hecu
 	ears = /obj/item/radio/headset/headset_faction/bowman/captain
