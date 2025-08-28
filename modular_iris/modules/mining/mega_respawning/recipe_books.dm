@@ -1,0 +1,23 @@
+/obj/item/book/granter/crafting_recipe/summoning_flute
+	name = "Fauna Summoning Crafts (Generic)"
+	desc = "A guide book that teaches you how to resummon defeated Lavaland fauna. This one teaches you the means to resummon a Mega Arachnid."
+	icon_state = "cooking_learning_sandwich"
+	remarks = list(
+		"So that is how icing is made!",
+		"Placing fruit on top? How simple...",
+		"Huh layering cake seems harder then this...",
+		"This book smells like candy",
+		"A clown must have made this page, or they forgot to spell check it before printing...",
+		"Wait, a way to cook slime to be safe?",
+	)
+	crafting_recipe_types = list(/obj/item/summoning_flute)
+
+/obj/item/book/granter/crafting_recipe/summoning_flute/drake
+	name = "Fauna Summoning Crafts (Ash Drake)"
+	desc = "A guide book that teaches you how to resummon defeated Lavaland fauna. This one teaches you the means to resummon an Ash Drake."
+	crafting_recipe_types = list()
+
+/obj/item/book/granter/crafting_recipe/summoning_flute/bubblegum
+	name = "Fauna Summoning Crafts (Bubblegum)"
+	desc = "A guide book that teaches you how to resummon defeated Lavaland fauna. This one teaches you the means to resummon Bubblegum."
+	crafting_recipe_types = list()
