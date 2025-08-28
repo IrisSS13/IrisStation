@@ -1,5 +1,5 @@
 /obj/item/summoning_flute
-	name = "Summoning Flute (Mega Arachnid)"
+	name = "summoning flute (Mega Arachnid)"
 	desc = "A flute which calls out to the spirit of a vanquished fauna when played. The tune of this one will attract a Mega Arachnid."
 	icon = 'icons/obj/art/musician.dmi'
 	icon_state = "recorder"
@@ -16,16 +16,16 @@
 		var/obj/effect/temp_visual/dragon_swoop/spawn_telegraph = new(spawn_location)
 		sleep(2 SECONDS)
 		new summoned_mega(spawn_location)
-		qdel(spawn_telegraph)
+		qdel(spawn_te)
 		to_chat(user, span_warning("With its magic spent, [src] crumbles into dust."))
 		qdel(src)
 
 /obj/item/summoning_flute/drake
-	name = "Summoning Flute (Ash Drake)"
+	name = "summoning flute (Ash Drake)"
 	desc = "A flute which calls out to the spirit of a vanquished fauna when played. The tune of this one will attract an Ash Drake."
 	summoned_mega = /mob/living/simple_animal/hostile/megafauna/dragon
 
 /obj/item/summoning_flute/bubblegum
-	name = "Summoning Flute (Bubblegum)"
+	name = "summoning flute (Bubblegum)"
 	desc = "A flute which calls out to the spirit of a vanquished fauna when played. The tune of this one will attract Bubblegum."
 	summoned_mega = /mob/living/simple_animal/hostile/megafauna/bubblegum
