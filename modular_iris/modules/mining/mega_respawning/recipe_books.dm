@@ -1,7 +1,7 @@
 /obj/item/book/granter/crafting_recipe/dusting/summoning_flute
 	name = "Fauna Summoning Crafts (Mega Arachnid)"
 	desc = "A guide book that teaches you how to resummon defeated fauna. This one teaches you the means to resummon a Mega Arachnid."
-	icon_state = "cooking_learning_sandwich"
+	icon_state = "demonomicon"
 	remarks = list(
 		"So that is how icing is made!",
 		"Placing fruit on top? How simple...",
