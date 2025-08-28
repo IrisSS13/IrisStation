@@ -1,136 +1,303 @@
-/mob/living/simple_animal/hostile/blackmesa/xen/headcrab
+/**
+ * Headcrab (/mob/living/basic/hostile/blackmesa/xen/headcrab)
+ * Parasitic alien that jumps at targets and can zombify humans.
+ *
+ * A classic Half-Life enemy that uses jumping attacks and can turn humans into zombies.
+ * - Jumps at targets from range
+ * - Can zombify unprotected humans on headshot
+ * - Detaches from zombies on death with a chance to survive
+ */
+/mob/living/basic/hostile/blackmesa/xen/headcrab
 	name = "headcrab"
 	desc = "Don't let it latch onto your hea-... hey, that's kinda cool."
 	icon = 'modular_iris/modules/black_mesa/icons/mobs.dmi'
 	icon_state = "headcrab"
 	icon_living = "headcrab"
 	icon_dead = "headcrab_dead"
-	icon_gib = null
-	mob_biotypes = list(MOB_ORGANIC, MOB_BEAST)
-	speak_chance = 1
-	speak_emote = list("growls")
-	speed = 1
-	emote_taunt = list("growls", "snarls", "grumbles")
-	ranged_message = "jumps"
-	taunt_chance = 100
-	turns_per_move = 7
+	base_icon_state = "headcrab"
+
+	// Health and combat
 	maxHealth = 50
 	health = 50
+	melee_damage_lower = 0  // No melee attacks, only jump attacks
+	melee_damage_upper = 0
+	combat_mode = TRUE
+
+	// Mob traits
+	mob_biotypes = MOB_ORGANIC | MOB_BEAST
+	basic_mob_flags = DEL_ON_DEATH
+	ai_controller = /datum/ai_controller/basic_controller/headcrab
+
+	// Movement
 	speed = 3
-	ranged = TRUE
-	dodging = TRUE
-	ranged_cooldown_time = 4 SECONDS
-	harm_intent_damage = 15
-	melee_damage_lower = 5
-	melee_damage_upper = 5
-	retreat_distance = 5
-	minimum_distance = 5
-	attack_sound = 'sound/items/weapons/bite.ogg'
+	move_force = MOVE_FORCE_WEAK
+	move_resist = MOVE_FORCE_WEAK
+	pull_force = MOVE_FORCE_WEAK
+	pixel_x = -8
+	base_pixel_x = -8
+	faction = list(FACTION_XEN) // Friendly to other Xen creatures
+
+	// Spawning and loot
 	gold_core_spawnable = HOSTILE_SPAWN
-	loot = list(/obj/item/stack/sheet/bone)
-	alert_sounds = list(
-		'modular_iris/modules/black_mesa/sound/mobs/headcrab/alert1.ogg'
+	butcher_results = list(
+		/obj/item/stack/sheet/bone = 1
 	)
-	var/is_zombie = FALSE
-	var/mob/living/carbon/human/oldguy
-	/// Charging ability
-	var/datum/action/cooldown/mob_cooldown/charge/basic_charge/charge
+
+	/// Maximum distance this headcrab can jump in tiles
 	var/throw_at_range = 10
+
+	/// Base speed at which this headcrab jumps (actual speed varies with distance)
 	var/throw_at_speed = 2
 
-/mob/living/simple_animal/hostile/blackmesa/xen/headcrab/Initialize(mapload)
-	. = ..()
-	charge = new(src)
-	charge.Grant(src)
-	charge.cooldown_time = 0
+	/// Track if we've attached to a human, to prevent multiple zombifications
+	var/is_zombie = FALSE
 
-/mob/living/simple_animal/hostile/blackmesa/xen/headcrab/Shoot(atom/targeted_atom)
-	throw_at(targeted_atom, throw_at_range, throw_at_speed)
-	playsound(
-		src,
-		pick('modular_iris/modules/black_mesa/sound/mobs/headcrab/attack1.ogg', 'modular_iris/modules/black_mesa/sound/mobs/headcrab/attack2.ogg', 'modular_iris/modules/black_mesa/sound/mobs/headcrab/attack3.ogg'),
-		100
-		)
-
-/mob/living/simple_animal/hostile/blackmesa/xen/headcrab/death(gibbed)
+/mob/living/basic/hostile/blackmesa/xen/headcrab/Initialize(mapload)
 	. = ..()
-	playsound(src, pick(list(
-		'modular_iris/modules/black_mesa/sound/mobs/headcrab/die1.ogg',
-		'modular_iris/modules/black_mesa/sound/mobs/headcrab/die2.ogg'
-	)), 100)
+	RegisterSignal(src, COMSIG_AI_BLACKBOARD_KEY_SET(BB_BASIC_MOB_CURRENT_TARGET), PROC_REF(alert_sound))
+	RegisterSignal(src, COMSIG_MOVABLE_IMPACT, PROC_REF(handle_impact))
+	AddElement(/datum/element/ai_retaliate)
+	ai_controller.set_blackboard_key(BB_TARGET_MINIMUM_STAT, HARD_CRIT) // Allow targeting unconscious people
 
-/mob/living/simple_animal/hostile/blackmesa/xen/headcrab/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
-	. = ..()
+/// Play a sound when spotting an enemy
+/mob/living/basic/hostile/blackmesa/xen/headcrab/proc/alert_sound(datum/source, key, value)
+	SIGNAL_HANDLER
+	playsound(src, 'modular_iris/modules/black_mesa/sound/mobs/headcrab/alert1.ogg', 100, FALSE, 4)
+
+/// Execute the jump after the telegraph
+/datum/ai_planning_subtree/headcrab_hunt/proc/execute_jump(mob/living/basic/hostile/blackmesa/xen/headcrab/jumper, atom/target, distance, speed)
+	if(QDELETED(jumper) || QDELETED(target))
+		return
+
+	// Make it spin during the jump! The faster the jump, the faster the spin
+	var/spin_speed = speed * 2
+	jumper.throw_at(target, distance, speed, jumper, TRUE, TRUE, null, 0.1, FALSE, spin_speed)
+
+/// Handle leap impacts
+/mob/living/basic/hostile/blackmesa/xen/headcrab/proc/handle_impact(datum/source, atom/hit_atom, datum/thrownthing/throwingdatum)
+	SIGNAL_HANDLER
 	if(!hit_atom || stat == DEAD)
 		return
 	if(!isliving(hit_atom))
 		return
-	playsound(src, 'modular_iris/modules/black_mesa/sound/mobs/headcrab/headbite.ogg', 100)
+
+	playsound(src, 'modular_iris/modules/black_mesa/sound/mobs/headcrab/attack1.ogg', 100, FALSE)
 	var/mob/living/hit_mob = hit_atom
-	hit_mob.apply_damage(melee_damage_upper, BRUTE)
+
+	// More damage if we hit them at high speed
+	var/damage = 15
+	if(throwingdatum.speed >= 3)
+		damage = 20
+
+	hit_mob.apply_damage(damage, BRUTE)
+
 	if(!ishuman(hit_atom))
 		return
-	var/mob/living/carbon/human/human_to_dunk = hit_atom
-	if(!human_to_dunk.get_item_by_slot(ITEM_SLOT_HEAD) && prob(50) && zombify(human_to_dunk))
-		to_chat(human_to_dunk, span_userdanger("[src] latches onto your head as it pierces your skull, instantly killing you!"))
-		human_to_dunk.investigate_log("was headcrab latched by [src].", INVESTIGATE_DEATHS)
-		human_to_dunk.death(FALSE)
 
-/mob/living/simple_animal/hostile/blackmesa/xen/headcrab/proc/zombify(mob/living/carbon/human/zombified_human)
-	if(is_zombie)
-		return FALSE
-	is_zombie = TRUE
-	if(zombified_human.wear_suit)
-		var/obj/item/clothing/suit/armor/zombie_suit = zombified_human.wear_suit
-		maxHealth += zombie_suit.get_armor_rating(MELEE) //That zombie's got armor, I want armor!
-	maxHealth += 40
-	health = maxHealth
-	name = "zombie"
-	desc = "A shambling corpse animated by a headcrab!"
-	mob_biotypes |= MOB_HUMANOID
-	melee_damage_lower += 8
-	melee_damage_upper += 11
-	obj_damage = 21 //now that it has a corpse to puppet, it can properly attack structures
-	ranged = FALSE
-	dodging = FALSE
-	retreat_distance = 0
-	minimum_distance = 0
-	AddElement(/datum/element/wall_smasher, strength_flag = ENVIRONMENT_SMASH_STRUCTURES)
-	movement_type = GROUND
-	icon_state = ""
-	zombified_human.set_hairstyle(null, update = FALSE)
-	zombified_human.update_body_parts()
-	zombified_human.forceMove(src)
-	oldguy = zombified_human
-	update_appearance()
-	visible_message(span_warning("The corpse of [zombified_human.name] suddenly rises!"))
-	return TRUE
+	var/mob/living/carbon/human/human_target = hit_atom
 
-/mob/living/simple_animal/hostile/blackmesa/xen/headcrab/Destroy()
-	if(oldguy)
-		oldguy.forceMove(get_turf(src))
-		oldguy = null
+	// Regular damage if the target is conscious
+	if(human_target.stat < UNCONSCIOUS)
+		human_target.apply_damage(damage, BRUTE, BODY_ZONE_HEAD)
+		return
+
+	// Check for head protection on unconscious targets
+	var/obj/item/clothing/head/head_protection = human_target.get_item_by_slot(ITEM_SLOT_HEAD)
+	if(head_protection)
+		head_protection.take_damage(25)
+		return
+
+	// Zombify unprotected unconscious targets
+	if(zombify(human_target))
+		// Visual and sound feedback
+		playsound(src, 'modular_iris/modules/black_mesa/sound/mobs/headcrab/attack1.ogg', 100, FALSE)
+		do_sparks(3, TRUE, human_target)
+
+		// Log the zombification
+		human_target.investigate_log("was zombified by [src] while unconscious.", INVESTIGATE_DEATHS)
+		human_target.death(FALSE)
+
+/mob/living/basic/hostile/blackmesa/xen/headcrab/death(gibbed)
+	// Handle death sound if not gibbed
+	if(!gibbed)
+		playsound(src, pick(list(
+			'modular_iris/modules/black_mesa/sound/mobs/headcrab/die1.ogg',
+			'modular_iris/modules/black_mesa/sound/mobs/headcrab/die2.ogg'
+		)), 100)
 	return ..()
 
-/mob/living/simple_animal/hostile/blackmesa/xen/headcrab/death(gibbed)
-	. = ..()
-	if(oldguy)
-		oldguy.forceMove(loc)
-		oldguy = null
-	if(is_zombie)
-		if(prob(30))
-			new /mob/living/simple_animal/hostile/blackmesa/xen/headcrab(loc) //OOOO it unlached!
-			qdel(src)
-			return
-		cut_overlays()
-		update_appearance()
+/**
+ * Headcrab Zombie (/mob/living/basic/hostile/blackmesa/xen/headcrab_zombie)
+ * A zombified human controlled by a headcrab.
+ */
+/mob/living/basic/hostile/blackmesa/xen/headcrab_zombie
+	name = "zombie"
+	desc = "A shambling corpse animated by a headcrab!"
+	icon = 'modular_iris/modules/black_mesa/icons/mobs.dmi'
+	icon_state = "headcrab_zombie"
+	base_icon_state = "headcrab_zombie"
 
-/mob/living/simple_animal/hostile/blackmesa/xen/headcrab/update_overlays()
-	. = ..()
-	if(is_zombie)
-		copy_overlays(oldguy, TRUE)
-		var/mutable_appearance/blob_head_overlay = mutable_appearance('modular_iris/modules/black_mesa/icons/mobs.dmi', "headcrab_zombie")
-		add_overlay(blob_head_overlay)
+	// Health and combat
+	maxHealth = 100
+	health = 100
+	melee_damage_lower = 15
+	melee_damage_upper = 20
+	obj_damage = 21
+	combat_mode = TRUE  // Always aggressive
 
-/mob/living/simple_animal/hostile/blackmesa/xen/headcrab/fast
+	// Movement and behavior
+	speed = 2
+	move_force = MOVE_FORCE_STRONG  // Stronger than headcrabs
+	move_resist = MOVE_FORCE_STRONG
+	pull_force = MOVE_FORCE_STRONG
+
+	// Mob traits
+	mob_biotypes = MOB_ORGANIC | MOB_HUMANOID
+	basic_mob_flags = DEL_ON_DEATH
+	faction = list(FACTION_XEN)
+	ai_controller = /datum/ai_controller/basic_controller/headcrab_zombie
+
+	/// The human that was zombified
+	var/mob/living/carbon/human/zombified_human = null
+
+/mob/living/basic/hostile/blackmesa/xen/headcrab_zombie/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/wall_smasher, strength_flag = ENVIRONMENT_SMASH_STRUCTURES)
+
+/// Transforms a human into a headcrab zombie
+/mob/living/basic/hostile/blackmesa/xen/headcrab/proc/zombify(mob/living/carbon/human/target_human)
+	// Sanity checks
+	if(is_zombie || !target_human)
+		return FALSE
+
+	// Create the zombie at our location
+	var/mob/living/basic/hostile/blackmesa/xen/headcrab_zombie/new_zombie = new(get_turf(src))
+	new_zombie.name = "[target_human.name] zombie"
+	new_zombie.zombified_human = target_human
+
+	// Copy the human's appearance
+	target_human.set_hairstyle(null, update = FALSE)
+	target_human.update_body_parts()
+	new_zombie.copy_overlays(target_human)
+
+	// Add the headcrab overlay
+	var/mutable_appearance/blob_head_overlay = mutable_appearance('modular_iris/modules/black_mesa/icons/mobs.dmi', "headcrab_zombie")
+	new_zombie.add_overlay(blob_head_overlay)
+
+	// Store the human inside the zombie
+	target_human.forceMove(new_zombie)
+
+	// If they have armor, apply it to the zombie
+	var/obj/item/clothing/suit/armor/zombie_suit = target_human.wear_suit
+	if(istype(zombie_suit))
+		new_zombie.maxHealth += zombie_suit.get_armor_rating(MELEE) //That zombie's got armor, I want armor!
+		new_zombie.health = new_zombie.maxHealth
+
+	// Visual and sound feedback for zombie creation
+	playsound(new_zombie, 'modular_iris/modules/black_mesa/sound/mobs/headcrab/attack1.ogg', 100, FALSE)
+	visible_message(span_warning("The corpse of [target_human.name] suddenly rises, a headcrab controlling its lifeless body!"))
+
+	// Delete the original headcrab
+	qdel(src)
+	return TRUE
+
+/mob/living/basic/hostile/blackmesa/xen/headcrab_zombie/death(gibbed)
+	if(!gibbed && prob(30))
+		new /mob/living/basic/hostile/blackmesa/xen/headcrab(loc) // Headcrab detaches and survives!
+	if(zombified_human)
+		zombified_human.forceMove(get_turf(src))
+		zombified_human = null
+	return ..()
+
+/mob/living/basic/hostile/blackmesa/xen/headcrab_zombie/Destroy()
+	if(zombified_human)
+		zombified_human.forceMove(get_turf(src))
+		zombified_human = null
+	return ..()
+
+/datum/ai_controller/basic_controller/headcrab
+	blackboard = list(
+		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic/allow_items,
+		BB_BASIC_MOB_CURRENT_TARGET = null,
+		BB_BASIC_MOB_MELEE_ATTACK_RANGE = 0,  // No melee attacks
+		BB_BASIC_MOB_CURRENT_TARGET_HIDING = FALSE,
+		BB_TARGET_MINIMUM_STAT = HARD_CRIT  // Allow targeting of unconscious people
+	)
+
+	ai_movement = /datum/ai_movement/basic_avoidance
+	idle_behavior = /datum/idle_behavior/idle_random_walk
+	planning_subtrees = list(
+		/datum/ai_planning_subtree/target_retaliate,
+		/datum/ai_planning_subtree/simple_find_target,
+		/datum/ai_planning_subtree/headcrab_hunt
+	)
+
+/datum/ai_controller/basic_controller/headcrab_zombie
+	blackboard = list(
+		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
+		BB_BASIC_MOB_CURRENT_TARGET = null,
+		BB_BASIC_MOB_CURRENT_TARGET_HIDING = FALSE,
+		BB_TARGET_MINIMUM_STAT = HARD_CRIT
+	)
+
+	ai_movement = /datum/ai_movement/basic_avoidance
+	idle_behavior = /datum/idle_behavior/idle_random_walk
+	planning_subtrees = list(
+		/datum/ai_planning_subtree/simple_find_target,
+		/datum/ai_planning_subtree/basic_melee_attack_subtree,
+		/datum/ai_planning_subtree/target_retaliate
+	)
+
+/// Handles the headcrab's hunting behavior, trying to leap at targets when in range
+/datum/ai_planning_subtree/headcrab_hunt
+	/// Time between jump attempts
+	var/jump_cooldown_time = 1 SECONDS  // Reduced cooldown for more frequent jumps
+	COOLDOWN_DECLARE(jump_cooldown)
+
+	/// Preferred range to start jumping
+	var/preferred_jump_range = 4
+	/// Maximum range at which we can leap
+	var/max_jump_range = 10  // Increased range for better mobility
+
+/datum/ai_planning_subtree/headcrab_hunt/SelectBehaviors(datum/ai_controller/controller, delta_time)
+	. = ..()
+	var/atom/target = controller.blackboard[BB_BASIC_MOB_CURRENT_TARGET]
+	if(!target)
+		return
+
+	var/mob/living/living_pawn = controller.pawn
+	if(QDELETED(living_pawn))
+		return
+
+	if(!COOLDOWN_FINISHED(src, jump_cooldown))
+		return
+
+	var/distance = get_dist(living_pawn, target)
+
+	// Always jump at target if in range
+	if(distance <= max_jump_range)
+		COOLDOWN_START(src, jump_cooldown, jump_cooldown_time)
+		// Telegraph the jump with sound
+		playsound(living_pawn, 'modular_iris/modules/black_mesa/sound/mobs/headcrab/attack2.ogg', 50, TRUE)
+
+		// Calculate jump speed based on distance - faster at close range for better accuracy
+		var/jump_speed = 3
+		if(distance <= 3)
+			jump_speed = 4 // Faster at close range
+		else if(distance >= 7)
+			jump_speed = 2 // Slower at long range
+
+		addtimer(CALLBACK(src, PROC_REF(execute_jump), living_pawn, target, distance, jump_speed), 0.3 SECONDS)
+
+/**
+ * Fast Headcrab (/mob/living/basic/hostile/blackmesa/xen/headcrab/fast)
+ * A variant of the standard headcrab that moves significantly faster.
+ *
+ * This version appears in later stages of Half-Life and represents a more dangerous variant.
+ * - Moves much quicker than standard headcrabs
+ * - Same jumping and zombification mechanics
+ * - More dangerous due to increased mobility
+ */
+/mob/living/basic/hostile/blackmesa/xen/headcrab/fast
 	speed = -2
+	desc = "Don't let it latch onto your hea-... hey, that's kinda cool. This one looks faster than usual."
