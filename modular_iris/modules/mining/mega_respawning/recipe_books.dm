@@ -1,5 +1,5 @@
 /obj/item/book/granter/crafting_recipe/summoning_flute
-	name = "Fauna Summoning Crafts (Generic)"
+	name = "Fauna Summoning Crafts (Mega Arachnid)"
 	desc = "A guide book that teaches you how to resummon defeated Lavaland fauna. This one teaches you the means to resummon a Mega Arachnid."
 	icon_state = "cooking_learning_sandwich"
 	remarks = list(
