@@ -50,6 +50,9 @@
 // NOVA EDIT ADDITION END
 #define ROLE_VOIDWALKER "Voidwalker"
 #define ROLE_SUNWALKER "Sunwalker"
+//IRIS EDIT START
+#define ROLE_AGENT "Agent"
+//IRIS EDIT END
 
 // Latejoin roles
 #define ROLE_HERETIC_SMUGGLER "Heretic Smuggler"
@@ -189,6 +192,11 @@ GLOBAL_LIST_INIT(special_roles, list(
 	ROLE_MUTANT = 0,
 	// NOVA EDIT ADDITION END
 	ROLE_VOIDWALKER = 0,
+
+	// IRIS EDIT START
+	ROLE_AGENT = 0,
+	// IRIS EDIT END
+
 
 	// Latejoin
 	ROLE_HERETIC_SMUGGLER = 0,
