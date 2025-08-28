@@ -1126,10 +1126,12 @@
 		return
 	reac_volume = round(reac_volume,0.1)
 	if(methods & (INGEST|INHALE))
-		exposed_carbon.adjustBruteLoss(min(6*toxpwr, reac_volume * toxpwr), required_bodytype = affected_bodytype)
+		if(!HAS_TRAIT(exposed_carbon, TRAIT_ACIDBLOOD)) //IRIS ADDITION
+			exposed_carbon.adjustBruteLoss(min(6*toxpwr, reac_volume * toxpwr), required_bodytype = affected_bodytype)
 		return
 	if(methods & INJECT)
-		exposed_carbon.adjustBruteLoss(1.5 * min(6*toxpwr, reac_volume * toxpwr), required_bodytype = affected_bodytype)
+		if(!HAS_TRAIT(exposed_carbon, TRAIT_ACIDBLOOD)) //IRIS ADDITION
+			exposed_carbon.adjustBruteLoss(1.5 * min(6*toxpwr, reac_volume * toxpwr), required_bodytype = affected_bodytype)
 		return
 	exposed_carbon.acid_act(acidpwr, reac_volume)
 
