@@ -25,3 +25,8 @@
 	compatible_types = list(
 		/datum/blood_type/skrell,
 	)
+
+/datum/blood_type/polysmorph
+	name = BLOOD_TYPE_POLYSMORPH
+	color = /datum/reagent/toxin/acid::color
+	reagent_type = /datum/reagent/toxin/acid

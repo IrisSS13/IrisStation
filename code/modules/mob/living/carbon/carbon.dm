@@ -526,6 +526,13 @@
 	if (HAS_TRAIT(src, TRAIT_MINOR_NIGHT_VISION))
 		lighting_cutoff = max(lighting_cutoff, LIGHTING_CUTOFF_LOW)
 
+//IRIS ADDITION START
+
+	if (HAS_TRAIT(src, TRAIT_MEDIUM_NIGHT_VISION))
+		lighting_cutoff = max(lighting_cutoff, LIGHTING_CUTOFF_MEDIUM)
+
+//IRIS ADDITION END
+
 	if(HAS_TRAIT(src, TRAIT_XRAY_VISION))
 		new_sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
 
