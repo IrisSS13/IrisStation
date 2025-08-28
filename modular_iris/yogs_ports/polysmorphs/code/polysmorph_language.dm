@@ -15,9 +15,9 @@
 		/datum/language/polysmorph = 20,
 	)
 
-/proc/polysmorph_name()
-	return pick(GLOB.polysmorph_names)
 
+//commented out until i figure out why it breaks in tests
+/*
 /datum/language/polysmorph/get_random_name(
 	gender = NEUTER,
 	name_count = default_name_count,
@@ -25,10 +25,8 @@
 	syllable_max = default_name_syllable_max,
 	force_use_syllables = FALSE,
 )
-
 	if(force_use_syllables)
 		return ..()
 
-	var/randname = polysmorph_name()
-
-	return randname
+	return "[pick(GLOB.polysmorph_names)]"
+*/
