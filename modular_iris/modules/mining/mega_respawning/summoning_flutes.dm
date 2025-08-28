@@ -15,7 +15,9 @@
 		var/spawn_location = loc
 		var/obj/effect/temp_visual/dragon_swoop/spawn_telegraph = new(spawn_location)
 		sleep(2 SECONDS)
-		new summoned_mega(spawn_location)
+		var/mob/living/our_mega = new summoned_mega(spawn_location)
+		message_admins("[our_mega] respawned at [ADMIN_VERBOSEJMP(spawn_location)] by [ADMIN_LOOKUPFLW(user)].")
+		log_game("[our_mega] respawned at [AREACOORD(spawn_location)] by [user] / [user.ckey].")
 		qdel(spawn_telegraph)
 		to_chat(user, span_warning("With its magic spent, [src] crumbles into dust."))
 		qdel(src)
@@ -29,3 +31,8 @@
 	name = "summoning flute (Bubblegum)"
 	desc = "A flute which calls out to the spirit of a vanquished fauna when played. The tune of this one will attract Bubblegum."
 	summoned_mega = /mob/living/simple_animal/hostile/megafauna/bubblegum
+
+/obj/item/summoning_flute/hierophant
+	name = "summoning flute (Hierophant)"
+	desc = "A flute which calls out to the spirit of a vanquished fauna when played. The tune of this one will attract the Hierophant."
+	summoned_mega = /mob/living/simple_animal/hostile/megafauna/hierophant

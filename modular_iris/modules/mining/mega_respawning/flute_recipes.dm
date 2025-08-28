@@ -16,3 +16,7 @@
 /datum/crafting_recipe/summoning_flute/bubblegum
 	name = "Summoning Flute (Bubblegum)"
 	result = /obj/item/summoning_flute/bubblegum
+
+/datum/crafting_recipe/summoning_flute/hierophant
+	name = "Summoning Flute (Hierophant)"
+	result = /obj/item/summoning_flute/hierophant
