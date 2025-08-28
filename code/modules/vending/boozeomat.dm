@@ -37,6 +37,7 @@
 				/obj/item/reagent_containers/cup/glass/bottle/shochu = 5,
 				/obj/item/reagent_containers/cup/soda_cans/beer = 10,
 				/obj/item/reagent_containers/cup/soda_cans/beer/rice = 10,
+				/obj/item/reagent_containers/cup/soda_cans/nova/kortara = 10,
 			),
 		),
 
@@ -56,6 +57,7 @@
 				/obj/item/reagent_containers/cup/soda_cans/tonic = 8,
 				/obj/item/reagent_containers/cup/glass/bottle/hakka_mate = 5,
 				/obj/item/reagent_containers/cup/soda_cans/melon_soda = 5,
+				/obj/item/reagent_containers/cup/glass/waterbottle/tea/mushroom = 8,
 			),
 		),
 
