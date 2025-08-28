@@ -1,5 +1,5 @@
 /obj/machinery/vending/boozeomat
-	product_categories = list(
+	product_categories_iris = list(
 		list(
 			"name" = "Imported",
 			"icon" = "dragon",
