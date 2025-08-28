@@ -16,7 +16,7 @@
 		var/obj/effect/temp_visual/dragon_swoop/spawn_telegraph = new(spawn_location)
 		sleep(2 SECONDS)
 		new summoned_mega(spawn_location)
-		qdel(spawn_te)
+		qdel(spawn_telegraph)
 		to_chat(user, span_warning("With its magic spent, [src] crumbles into dust."))
 		qdel(src)
 
