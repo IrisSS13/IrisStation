@@ -15,9 +15,6 @@
 		/datum/language/polysmorph = 20,
 	)
 
-
-//commented out until i figure out why it breaks in tests
-/*
 /datum/language/polysmorph/get_random_name(
 	gender = NEUTER,
 	name_count = default_name_count,
@@ -29,4 +26,3 @@
 		return ..()
 
 	return "[pick(GLOB.polysmorph_names)]"
-*/
