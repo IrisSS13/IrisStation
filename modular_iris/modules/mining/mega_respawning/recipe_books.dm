@@ -1,4 +1,4 @@
-/obj/item/book/granter/crafting_recipe/summoning_flute
+/obj/item/book/granter/crafting_recipe/dusting/summoning_flute
 	name = "Fauna Summoning Crafts (Mega Arachnid)"
 	desc = "A guide book that teaches you how to resummon defeated Lavaland fauna. This one teaches you the means to resummon a Mega Arachnid."
 	icon_state = "cooking_learning_sandwich"
@@ -12,12 +12,12 @@
 	)
 	crafting_recipe_types = list(/obj/item/summoning_flute)
 
-/obj/item/book/granter/crafting_recipe/summoning_flute/drake
+/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/drake
 	name = "Fauna Summoning Crafts (Ash Drake)"
 	desc = "A guide book that teaches you how to resummon defeated Lavaland fauna. This one teaches you the means to resummon an Ash Drake."
 	crafting_recipe_types = list()
 
-/obj/item/book/granter/crafting_recipe/summoning_flute/bubblegum
+/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/bubblegum
 	name = "Fauna Summoning Crafts (Bubblegum)"
 	desc = "A guide book that teaches you how to resummon defeated Lavaland fauna. This one teaches you the means to resummon Bubblegum."
 	crafting_recipe_types = list()
