@@ -21,7 +21,12 @@
 	speed = 3.5 //dont make this any faster PLEASE
 	gps_name = "L-4 Biohazard Beacon"
 	ai_controller = /datum/ai_controller/basic_controller/thing_boss
-	loot = list(/obj/item/keycard/thing_boss)
+	//IRIS EDIT CHANGE BEGIN - MEGAFAUNA_RESPAWNS
+	loot = list(
+		/obj/item/keycard/thing_boss,
+		/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/the_thing
+	)
+	//IRIS EDIT CHANGE END
 	crusher_loot = list(/obj/item/keycard/thing_boss, /obj/item/crusher_trophy/flesh_glob)
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	achievement_type = /datum/award/achievement/boss/thething_kill

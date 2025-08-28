@@ -59,7 +59,12 @@ Difficulty: Hard
 	ranged = TRUE
 	ranged_cooldown_time = 4 SECONDS
 	aggro_vision_range = 21 //so it can see to one side of the arena to the other
-	loot = list(/obj/item/hierophant_club)
+	//IRIS EDIT CHANGE BEGIN - MEGAFAUNA_RESPAWNS
+	loot = list(
+		/obj/item/hierophant_club,
+		/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/hierophant
+	)
+	//IRIS EDIT CHANGE END
 	crusher_loot = list(/obj/item/hierophant_club, /obj/item/crusher_trophy/vortex_talisman)
 	wander = FALSE
 	gps_name = "Zealous Signal"

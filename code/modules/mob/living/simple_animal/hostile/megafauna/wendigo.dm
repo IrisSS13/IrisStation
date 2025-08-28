@@ -32,7 +32,9 @@ Difficulty: Hard
 	pixel_x = -16
 	base_pixel_x = -16
 	gps_name = "Berserk Signal"
-	loot = list()
+	//IRIS EDIT CHANGE BEGIN - MEGAFAUNA_RESPAWNS
+	loot = list(/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/wendigo)
+	//IRIS EDIT CHANGE END
 	butcher_results = list()
 	guaranteed_butcher_results = list(/obj/item/wendigo_blood = 1, /obj/item/wendigo_skull = 1)
 	crusher_loot = list(/obj/item/crusher_trophy/wendigo_horn)

@@ -45,7 +45,12 @@
 	maxHealth = 4000 //for contrast, bubblegum and the colossus both have 2500 health
 	movement_type = GROUND
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
-	loot = list(/obj/structure/closet/crate/necropolis/gladiator)
+	//IRIS EDIT CHANGE BEGIN - MEGAFAUNA_RESPAWNS
+	loot = list(
+		/obj/structure/closet/crate/necropolis/gladiator,
+		/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/the_marked_one
+	)
+	//IRIS EDIT CHANGE END
 	crusher_loot = list(/obj/structure/closet/crate/necropolis/gladiator/crusher)
 	/// Boss phase, from 1 to 3
 	var/phase = MARKED_ONE_FIRST_PHASE

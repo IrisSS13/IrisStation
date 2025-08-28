@@ -38,7 +38,13 @@ Difficulty: Medium
 	pixel_x = -16
 	base_pixel_x = -16
 	crusher_loot = list(/obj/item/melee/cleaving_saw, /obj/item/gun/energy/recharge/kinetic_accelerator, /obj/item/crusher_trophy/miner_eye, /obj/item/knife/hunting/wildhunter)
-	loot = list(/obj/item/melee/cleaving_saw, /obj/item/gun/energy/recharge/kinetic_accelerator)
+	//IRIS EDIT CHANGE BEGIN - MEGAFAUNA_RESPAWNS
+	loot = list(
+		/obj/item/melee/cleaving_saw,
+		/obj/item/gun/energy/recharge/kinetic_accelerator,
+		/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/blood_drunk_miner
+	)
+	//IRIS EDIT CHANGE END
 	wander = FALSE
 	del_on_death = TRUE
 	blood_volume = BLOOD_VOLUME_NORMAL
