@@ -20,3 +20,10 @@
 /datum/crafting_recipe/summoning_flute/hierophant
 	name = "Summoning Flute (Hierophant)"
 	result = /obj/item/summoning_flute/hierophant
+
+/datum/crafting_recipe/summoning_flute/ice
+	reqs = list(
+		/obj/item/stack/sheet/bone = 2,
+		/obj/item/stack/sheet/sinew/wolf = 1,
+		/obj/item/stack/sheet/animalhide/bear = 1
+	)
