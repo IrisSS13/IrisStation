@@ -50,3 +50,23 @@
 	name = "Fauna Summoning Crafts (The Marked One)"
 	desc = "A guide book that teaches you how to resummon defeated Lavaland fauna. This one teaches you the means to resummon The Marked One."
 	crafting_recipe_types = list(/datum/crafting_recipe/summoning_flute/the_marked_one)
+
+/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/wendigo
+	name = "Fauna Summoning Crafts (Wendigo)"
+	desc = "A guide book that teaches you how to resummon defeated Icemoon fauna. This one teaches you the means to resummon a Wendigo."
+	crafting_recipe_types = list(/datum/crafting_recipe/summoning_flute/ice/wendigo)
+
+/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/clockwork_defender
+	name = "Fauna Summoning Crafts (Clockwork Defender)"
+	desc = "A guide book that teaches you how to resummon defeated Icemoon fauna. This one teaches you the means to resummon a Clockwork Defender."
+	crafting_recipe_types = list(/datum/crafting_recipe/summoning_flute/ice/clockwork_defender)
+
+/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/demonic_frost_miner
+	name = "Fauna Summoning Crafts (Demonic-Frost Miner)"
+	desc = "A guide book that teaches you how to resummon defeated Icemoon fauna. This one teaches you the means to resummon the Demonic-Frost Miner."
+	crafting_recipe_types = list(/datum/crafting_recipe/summoning_flute/ice/demonic_frost_miner)
+
+/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/the_thing
+	name = "Fauna Summoning Crafts (The Thing)"
+	desc = "A guide book that teaches you how to resummon defeated Icemoon fauna. This one teaches you the means to resummon The Thing."
+	crafting_recipe_types = list(/datum/crafting_recipe/summoning_flute/ice/the_thing)

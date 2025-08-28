@@ -63,3 +63,23 @@
 	name = "summoning flute (The Marked One)"
 	desc = "A flute which calls out to the spirit of a vanquished fauna when played. The tune of this one will attract The Marked One."
 	summoned_mega = /mob/living/simple_animal/hostile/megafauna/gladiator
+
+/obj/item/summoning_flute/wendigo
+	name = "summoning flute (Wendigo)"
+	desc = "A flute which calls out to the spirit of a vanquished fauna when played. The tune of this one will attract a Wendigo."
+	summoned_mega = /mob/living/simple_animal/hostile/megafauna/wendigo
+
+/obj/item/summoning_flute/clockwork_defender
+	name = "summoning flute (Clockwork Defender)"
+	desc = "A flute which calls out to the spirit of a vanquished fauna when played. The tune of this one will attract a Clockwork Defender."
+	summoned_mega = /mob/living/simple_animal/hostile/megafauna/clockwork_defender
+
+/obj/item/summoning_flute/demonic_frost_miner
+	name = "summoning flute (Demonic-Frost Miner)"
+	desc = "A flute which calls out to the spirit of a vanquished fauna when played. The tune of this one will attract the Demonic-Frost Miner."
+	summoned_mega = /mob/living/simple_animal/hostile/megafauna/demonic_frost_miner
+
+/obj/item/summoning_flute/the_thing
+	name = "summoning flute (The Thing)"
+	desc = "A flute which calls out to the spirit of a vanquished fauna when played. The tune of this one will attract The Thing."
+	summoned_mega = /mob/living/basic/boss/thing

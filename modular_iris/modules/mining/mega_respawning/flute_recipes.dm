@@ -47,3 +47,19 @@
 /datum/crafting_recipe/summoning_flute/ice/drake
 	name = "Summoning Flute (Ash Drake)"
 	result = /obj/item/summoning_flute/drake
+
+/datum/crafting_recipe/summoning_flute/ice/wendigo
+	name = "Summoning Flute (Wendigo)"
+	result = /obj/item/summoning_flute/wendigo
+
+/datum/crafting_recipe/summoning_flute/ice/clockwork_defender
+	name = "Summoning Flute (Clockwork Defender)"
+	result = /obj/item/summoning_flute/clockwork_defender
+
+/datum/crafting_recipe/summoning_flute/ice/demonic_frost_miner
+	name = "Summoning Flute (Demonic-Frost Miner)"
+	result = /obj/item/summoning_flute/demonic_frost_miner
+
+/datum/crafting_recipe/summoning_flute/ice/the_thing
+	name = "Summoning Flute (The Thing)"
+	result = /obj/item/summoning_flute/the_thing
