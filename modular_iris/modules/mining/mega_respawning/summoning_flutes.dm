@@ -12,7 +12,7 @@
 			to_chat(user, span_warning("In this environment, the flute produces no sound."))
 			return
 		to_chat(user, span_userdanger("A terrifying rumbling portends the arrival of the summoned one..."))
-		var/spawn_location = loc
+		var/turf/spawn_location = get_turf(src)
 		var/obj/effect/temp_visual/dragon_swoop/spawn_telegraph = new(spawn_location)
 		sleep(2 SECONDS)
 		var/mob/living/our_mega = new summoned_mega(spawn_location)
