@@ -25,7 +25,7 @@
 				/obj/item/reagent_containers/cup/glass/bottle/amaretto = 5,
 				/obj/item/reagent_containers/cup/glass/bottle/ale = 6,
 				/obj/item/reagent_containers/cup/glass/bottle/grappa = 5,
-				///obj/item/reagent_containers/cup/glass/bottle/navy_rum = 5, // IRIS EDIT - moved to the "imported" category
+				///obj/item/reagent_containers/cup/glass/bottle/navy_rum = 5, // IRIS EDIT - moved to the "imported" category in \modular_iris\modules\modular_vending\code\boozeomat.dm
 				/obj/item/reagent_containers/cup/glass/bottle/maltliquor = 6,
 				/obj/item/reagent_containers/cup/glass/bottle/kahlua = 5,
 				/obj/item/reagent_containers/cup/glass/bottle/sake = 5,
@@ -58,27 +58,7 @@
 				/obj/item/reagent_containers/cup/soda_cans/melon_soda = 5,
 			),
 		),
-/* IRIS EDIT START */
-		list(
-			"name" = "Imported",
-			"icon" = "dragon",
-			"products" = list(
-				// Tiziran
-				/obj/item/reagent_containers/cup/glass/waterbottle/tea/mushroom = 8,
-				/obj/item/reagent_containers/cup/soda_cans/nova/kortara = 10,
-				// Mothic
-				/obj/item/reagent_containers/cup/soda_cans/nova/ginger_beer = 10,
-				/obj/item/reagent_containers/cup/soda_cans/nova/soda_water_moth = 10,
-				/obj/item/reagent_containers/cup/soda_cans/nova/navy_rum = 5,
-				/obj/item/reagent_containers/cup/soda_cans/nova/lemonade = 8,
-				// Eastern
-				/obj/item/reagent_containers/cup/glass/waterbottle/tea/nip = 8,
-				/obj/item/reagent_containers/cup/glass/waterbottle/tea/strawberry = 8,
-				/obj/item/reagent_containers/cup/glass/waterbottle/tea/astra = 8,
-				/obj/item/reagent_containers/cup/glass/waterbottle/tea = 8,
-			),
-		),
-/* IRIS EDIT END */
+
 		list(
 			"name" = "Glassware",
 			"icon" = "wine-glass",
