@@ -8,7 +8,7 @@
 /obj/item/summoning_flute/attack_self(mob/user, modifiers)
 	. = ..()
 	if(do_after(user, 3 SECONDS, src))
-		if(!is_mining_level(z))
+		if(!is_mining_level(user.z))
 			to_chat(user, span_warning("In this environment, the flute produces no sound."))
 			return
 		to_chat(user, span_userdanger("A terrifying rumbling portends the arrival of the summoned one..."))
