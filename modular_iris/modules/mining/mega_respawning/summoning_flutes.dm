@@ -43,3 +43,23 @@
 	name = "summoning flute (Hierophant)"
 	desc = "A flute which calls out to the spirit of a vanquished fauna when played. The tune of this one will attract the Hierophant."
 	summoned_mega = /mob/living/simple_animal/hostile/megafauna/hierophant
+
+/obj/item/summoning_flute/colossus
+	name = "summoning flute (Colossus)"
+	desc = "A flute which calls out to the spirit of a vanquished fauna when played. The tune of this one will attract a Colossus."
+	summoned_mega = /mob/living/simple_animal/hostile/megafauna/colossus
+
+/obj/item/summoning_flute/blood_drunk_miner
+	name = "summoning flute (Blood-Drunk Miner)"
+	desc = "A flute which calls out to the spirit of a vanquished fauna when played. The tune of this one will attract the Blood-Drunk Miner."
+	summoned_mega = /mob/living/simple_animal/hostile/megafauna/blood_drunk_miner
+
+/obj/item/summoning_flute/legion
+	name = "summoning flute (Legion)"
+	desc = "A flute which calls out to the spirit of a vanquished fauna when played. The tune of this one will attract Legion."
+	summoned_mega = /mob/living/simple_animal/hostile/megafauna/legion
+
+/obj/item/summoning_flute/the_marked_one
+	name = "summoning flute (The Marked One)"
+	desc = "A flute which calls out to the spirit of a vanquished fauna when played. The tune of this one will attract The Marked One."
+	summoned_mega = /mob/living/simple_animal/hostile/megafauna/gladiator

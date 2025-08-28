@@ -15,8 +15,11 @@
 
 /obj/item/book/granter/crafting_recipe/dusting/summoning_flute/drake
 	name = "Fauna Summoning Crafts (Ash Drake)"
-	desc = "A guide book that teaches you how to resummon defeated Lavaland fauna. This one teaches you the means to resummon an Ash Drake."
-	crafting_recipe_types = list(/datum/crafting_recipe/summoning_flute/drake)
+	desc = "A guide book that teaches you how to resummon defeated fauna. This one teaches you the means to resummon an Ash Drake."
+	crafting_recipe_types = list(
+		/datum/crafting_recipe/summoning_flute/drake,
+		/datum/crafting_recipe/summoning_flute/ice/drake
+	)
 
 /obj/item/book/granter/crafting_recipe/dusting/summoning_flute/bubblegum
 	name = "Fauna Summoning Crafts (Bubblegum)"
@@ -27,3 +30,23 @@
 	name = "Fauna Summoning Crafts (Hierophant)"
 	desc = "A guide book that teaches you how to resummon defeated Lavaland fauna. This one teaches you the means to resummon the Hierophant."
 	crafting_recipe_types = list(/datum/crafting_recipe/summoning_flute/hierophant)
+
+/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/colossus
+	name = "Fauna Summoning Crafts (Colossus)"
+	desc = "A guide book that teaches you how to resummon defeated Lavaland fauna. This one teaches you the means to resummon a Colossus."
+	crafting_recipe_types = list(/datum/crafting_recipe/summoning_flute/colossus)
+
+/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/blood_drunk_miner
+	name = "Fauna Summoning Crafts (Blood-Drunk Miner)"
+	desc = "A guide book that teaches you how to resummon defeated Lavaland fauna. This one teaches you the means to resummon the Blood-Drunk Miner."
+	crafting_recipe_types = list(/datum/crafting_recipe/summoning_flute/blood_drunk_miner)
+
+/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/legion
+	name = "Fauna Summoning Crafts (Legion)"
+	desc = "A guide book that teaches you how to resummon defeated Lavaland fauna. This one teaches you the means to resummon Legion."
+	crafting_recipe_types = list(/datum/crafting_recipe/summoning_flute/legion)
+
+/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/the_marked_one
+	name = "Fauna Summoning Crafts (The Marked One)"
+	desc = "A guide book that teaches you how to resummon defeated Lavaland fauna. This one teaches you the means to resummon The Marked One."
+	crafting_recipe_types = list(/datum/crafting_recipe/summoning_flute/the_marked_one)

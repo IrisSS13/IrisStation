@@ -21,9 +21,29 @@
 	name = "Summoning Flute (Hierophant)"
 	result = /obj/item/summoning_flute/hierophant
 
+/datum/crafting_recipe/summoning_flute/colossus
+	name = "Summoning Flute (Colossus)"
+	result = /obj/item/summoning_flute/colossus
+
+/datum/crafting_recipe/summoning_flute/blood_drunk_miner
+	name = "Summoning Flute (Blood-Drunk Miner)"
+	result = /obj/item/summoning_flute/blood_drunk_miner
+
+/datum/crafting_recipe/summoning_flute/legion
+	name = "Summoning Flute (Legion)"
+	result = /obj/item/summoning_flute/legion
+
+/datum/crafting_recipe/summoning_flute/the_marked_one
+	name = "Summoning Flute (The Marked One)"
+	result = /obj/item/summoning_flute/the_marked_one
+
 /datum/crafting_recipe/summoning_flute/ice
 	reqs = list(
 		/obj/item/stack/sheet/bone = 2,
 		/obj/item/stack/sheet/sinew/wolf = 1,
 		/obj/item/stack/sheet/animalhide/bear = 1
 	)
+
+/datum/crafting_recipe/summoning_flute/ice/drake
+	name = "Summoning Flute (Ash Drake)"
+	result = /obj/item/summoning_flute/drake
