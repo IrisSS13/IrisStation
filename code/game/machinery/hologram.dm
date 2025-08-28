@@ -914,7 +914,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	// Let's GLOW BROTHER! (Doing it like this is the most robust option compared to duped overlays)
 	glow = new(null, src)
 	// We need to counteract the pixel offset to ensure we don't double offset (I hate byond)
-	glow.pixel_x = 0 	// IRIS EDIT: Changed from 32 to 0 - curently obsolite, causes the exact oposite of what comment above declares.
+	glow.pixel_x = 0 	// IRIS EDIT: Changed from 32 to 0 - curently obsolete, causes the exact oposite of what comment above declares.
 	glow.pixel_y = 0
 	add_overlay(glow)
 	LAZYADD(update_overlays_on_z, glow)
