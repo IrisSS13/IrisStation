@@ -1,6 +1,8 @@
 /obj/item/summoning_flute
 	name = "Summoning Flute (Mega Arachnid)"
 	desc = "A flute which calls out to the spirit of a vanquished fauna when played. The tune of this one will attract a Mega Arachnid."
+	icon = 'icons/obj/art/musician.dmi'
+	icon_state = "recorder"
 	var/summoned_mega = /mob/living/basic/mega_arachnid
 
 /obj/item/summoning_flute/drake
