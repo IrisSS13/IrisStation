@@ -485,7 +485,7 @@
 	should_draw_greyscale = FALSE
 	dmg_overlay_type = null
 	head_flags = NONE
-	// too hard to drill through
+	// too hard to drill through IRIS EDIT: You wish
 	teeth_count = 32
 
 /obj/item/bodypart/head/golem/Initialize(mapload)
