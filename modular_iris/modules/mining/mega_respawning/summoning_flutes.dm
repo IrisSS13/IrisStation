@@ -25,14 +25,12 @@
 			return
 		to_chat(user, span_userdanger("A terrifying rumbling portends the arrival of the summoned one..."))
 		var/turf/spawn_location = get_turf(src)
-		var/obj/effect/temp_visual/dragon_swoop/spawn_telegraph = new(spawn_location)
+		new /obj/effect/temp_visual/dragon_swoop/spawn_marker(spawn_location)
 		sleep(2 SECONDS)
 		var/mob/living/our_mega = new summoned_mega(spawn_location)
 		our_mega.visible_message(span_userdanger("From a swirling, warping, vortex of spacetime, [our_mega] emerges, born anew!"))
 		message_admins("[our_mega] respawned at [ADMIN_VERBOSEJMP(spawn_location)] by [ADMIN_LOOKUPFLW(user)].")
 		log_game("[our_mega] respawned at [AREACOORD(spawn_location)] by [user] / [user.ckey].")
-		sleep(1 SECONDS)
-		qdel(spawn_telegraph)
 		to_chat(user, span_warning("With its magic spent, [src] crumbles into dust."))
 		qdel(src)
 
