@@ -14,11 +14,6 @@
 /datum/armament_entry/hecu
 	var/mags_to_spawn = 5
 
-/datum/armament_entry/hecu/New()
-	. = ..()
-	SSarmaments.entries[category][CATEGORY_ENTRY][subcategory] += src
-	SSarmaments.entries[category][CATEGORY_LIMIT] = max(SSarmaments.entries[category][CATEGORY_LIMIT], category_item_limit)
-
 /datum/armament_entry/hecu/after_equip(turf/safe_drop_location, obj/item/item_to_equip)
 	if(istype(item_to_equip, /obj/item/gun/ballistic))
 		var/obj/item/gun/ballistic/spawned_ballistic_gun = item_to_equip
