@@ -1,37 +1,31 @@
-/mob/living/simple_animal/hostile/blackmesa/xen/vortigaunt
+/**
+ * Vortigaunt - Allied alien being capable of ranged attacks
+ *
+ * A friendly alien that uses beam attacks and maintains distance from enemies.
+ * Uses ranged skirmish AI to maintain optimal distance while attacking.
+ */
+/mob/living/basic/hostile/blackmesa/xen/vortigaunt
 	name = "vortigaunt"
 	desc = "There is no distance between us. No false veils of time or space may intervene."
 	icon = 'modular_iris/modules/black_mesa/icons/mobs.dmi'
 	icon_state = "vortigaunt"
 	icon_living = "vortigaunt"
 	icon_dead = "vortigaunt_dead"
-	icon_gib = null
 	gender = MALE
 	faction = list(FACTION_STATION, FACTION_NEUTRAL)
 	mob_biotypes = list(MOB_ORGANIC, MOB_BEAST)
-	speak_chance = 1
-	speak_emote = list("galungs")
-	speed = 1
-	emote_taunt = list("galalungas", "galungas", "gungs")
-	projectiletype = /obj/projectile/beam/emitter/hitscan
-	projectilesound = 'modular_iris/modules/black_mesa/sound/mobs/vortigaunt/attack_shoot4.ogg'
-	ranged_cooldown_time = 5 SECONDS
-	ranged_message = "fires"
-	taunt_chance = 100
-	turns_per_move = 7
+
 	maxHealth = 130
 	health = 130
-	speed = 3
-	ranged = TRUE
-	dodging = TRUE
-	harm_intent_damage = 15
 	melee_damage_lower = 10
 	melee_damage_upper = 10
-	retreat_distance = 5
-	minimum_distance = 5
 	attack_sound = 'sound/items/weapons/bite.ogg'
+	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, CLONE = 1, STAMINA = 0, OXY = 1)
+
+	ai_controller = /datum/ai_controller/basic_controller/vortigaunt
 	gold_core_spawnable = FRIENDLY_SPAWN
-	loot = list(/obj/item/stack/sheet/bone)
+
+	/// Sounds played when spotting enemies
 	alert_sounds = list(
 		'modular_iris/modules/black_mesa/sound/mobs/vortigaunt/alert01.ogg',
 		'modular_iris/modules/black_mesa/sound/mobs/vortigaunt/alert01b.ogg',
@@ -41,23 +35,47 @@
 		'modular_iris/modules/black_mesa/sound/mobs/vortigaunt/alert05.ogg',
 		'modular_iris/modules/black_mesa/sound/mobs/vortigaunt/alert06.ogg',
 	)
-	/// SOunds we play when asked to follow/unfollow.
-	var/list/follow_sounds = list(
-		'modular_iris/modules/black_mesa/sound/mobs/vortigaunt/village_argue01.ogg',
-		'modular_iris/modules/black_mesa/sound/mobs/vortigaunt/village_argue02.ogg',
-		'modular_iris/modules/black_mesa/sound/mobs/vortigaunt/village_argue03.ogg',
-		'modular_iris/modules/black_mesa/sound/mobs/vortigaunt/village_argue04.ogg',
-		'modular_iris/modules/black_mesa/sound/mobs/vortigaunt/village_argue05.ogg',
-		'modular_iris/modules/black_mesa/sound/mobs/vortigaunt/village_argue05a.ogg',
-	)
-	var/follow_speed = 1
-	var/follow_distance = 2
 
-/mob/living/simple_animal/hostile/blackmesa/xen/vortigaunt/Initialize(mapload)
+/**
+ * Initialize the vortigaunt with ranged attack capabilities
+ */
+/mob/living/basic/hostile/blackmesa/xen/vortigaunt/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/follow, follow_sounds, follow_sounds, follow_distance, follow_speed)
+	// Add ranged attack component
+	AddComponent(\
+		/datum/component/ranged_attacks,\
+		projectile_type = /obj/projectile/beam/emitter/hitscan,\
+		projectile_sound = 'modular_iris/modules/black_mesa/sound/mobs/vortigaunt/attack_shoot4.ogg',\
+		cooldown_time = 5 SECONDS,\
+		burst_shots = 1\
+	)
 
-/mob/living/simple_animal/hostile/blackmesa/xen/vortigaunt/slave
+/**
+ * AI controller for vortigaunt mobs
+ *
+ * Handles ranged combat behavior and targeting
+ */
+/datum/ai_controller/basic_controller/vortigaunt
+	blackboard = list(
+		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
+		BB_TARGET_MINIMUM_STAT = HARD_CRIT,
+		BB_RANGED_SKIRMISH_MIN_DISTANCE = 3,
+		BB_RANGED_SKIRMISH_MAX_DISTANCE = 6
+	)
+
+	ai_movement = /datum/ai_movement/basic_avoidance
+	idle_behavior = /datum/idle_behavior/idle_random_walk
+	planning_subtrees = list(
+		/datum/ai_planning_subtree/simple_find_target,
+		/datum/ai_planning_subtree/ranged_skirmish,
+		/datum/ai_planning_subtree/basic_ranged_attack_subtree/trooper,
+		/datum/ai_planning_subtree/target_retaliate
+	)
+
+/**
+ * Slave Vortigaunt - Hostile variant that fights for the Xen forces
+ */
+/mob/living/basic/hostile/blackmesa/xen/vortigaunt/slave
 	name = "slave vortigaunt"
 	desc = "Bound by the shackles of a sinister force. He does not want to hurt you."
 	icon_state = "vortigaunt_slave"

@@ -28,6 +28,11 @@
 	unsuitable_heat_damage = 15
 	habitable_atmos = null  // Can survive in any atmos
 
+	/// Track if we're shielded by pylons
+	var/shielded = FALSE
+	/// Number of pylons shielding us
+	var/shield_count = 0
+
 #define MOB_PLACER_RANGE 16 // One more tile than the biggest viewrange we have.
 
 /obj/effect/random_mob_placer
@@ -60,7 +65,7 @@
 	icon_state = "spawn_xen"
 	possible_mobs = list(
 		/mob/living/basic/hostile/blackmesa/xen/headcrab,
-		// /mob/living/simple_animal/hostile/blackmesa/xen/houndeye,
+		/mob/living/basic/hostile/blackmesa/xen/houndeye,
 		/mob/living/basic/hostile/blackmesa/xen/bullsquid,
 	)
 
@@ -72,14 +77,13 @@
 		/mob/living/basic/hostile/blackmesa/xen/headcrab_zombie/hecu,
 	)
 
-/*
 /obj/effect/random_mob_placer/blackops
 	icon_state = "spawn_blackops"
 	possible_mobs = list(
-		/mob/living/basic/hostile/blackmesa/blackops,
-		/mob/living/basic/hostile/blackmesa/blackops/ranged,
+		/mob/living/basic/hostile/blackmesa/human/blackops,
+		/mob/living/basic/hostile/blackmesa/human/blackops/ranged,
 	)
-*/
+
 /obj/effect/random_mob_placer/hev_zombie
 	icon_state = "spawn_hev"
 	possible_mobs = list(/mob/living/basic/hostile/blackmesa/xen/headcrab_zombie/hev)
@@ -92,10 +96,9 @@
 	icon_state = "spawn_zombiesec"
 	possible_mobs = list(/mob/living/basic/hostile/blackmesa/xen/headcrab_zombie/guard)
 
-/*
 /obj/effect/random_mob_placer/security_guard
 	icon_state = "spawn_guard"
-	possible_mobs = list(/mob/living/basic/hostile/blackmesa/sec, /mob/living/basic/hostile/blackmesa/sec/ranged)
+	possible_mobs = list(/mob/living/basic/hostile/blackmesa/human/sec, /mob/living/basic/hostile/blackmesa/human/sec/ranged,)
 
 /obj/effect/random_mob_placer/vortigaunt_hostile
 	icon_state = "spawn_vortigaunt_slave"
@@ -104,7 +107,6 @@
 /obj/effect/random_mob_placer/vortigaunt
 	icon_state = "spawn_vortigaunt"
 	possible_mobs = list(/mob/living/basic/hostile/blackmesa/xen/vortigaunt)
-*/
 
 /obj/effect/mob_spawn/corpse/human/hecu_zombie
 	name = "HECU"

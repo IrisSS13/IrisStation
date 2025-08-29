@@ -18,10 +18,10 @@
 	/// Are we currently following? Used for playing sounds.
 	var/following = FALSE
 	/// Our parent mob.
-	var/mob/living/simple_animal/hostile/parent_mob
+	var/mob/living/basic/hostile/parent_mob
 
 /datum/component/follow/Initialize(_follow_sounds, _unfollow_sounds, _follow_distance = 1, _follow_speed = 2)
-	if(!ishostile(parent))
+	if(!istype(parent, /mob/living/basic/hostile))
 		return COMPONENT_INCOMPATIBLE
 	if(_follow_sounds)
 		follow_sounds = _follow_sounds
@@ -55,12 +55,19 @@
 		if(follow_sounds)
 			playsound(parent_mob, pick(follow_sounds), 100)
 		INVOKE_ASYNC(parent_mob, TYPE_PROC_REF(/atom/movable, say), "Following you!")
-		parent_mob.Goto(living_user, follow_speed, follow_distance)
+		parent_mob.befriend(living_user)
+		if(parent_mob.ai_controller)
+			parent_mob.ai_controller.set_movement_target(living_user)
+			parent_mob.ai_controller.set_blackboard_key(BB_TARGETING_STRATEGY, /datum/targeting_strategy/basic/not_friends)
+			parent_mob.ai_controller.set_blackboard_key(BB_FOLLOW_TARGET, living_user)
+			parent_mob.ai_controller.set_blackboard_key(BB_ATTACK_TARGET, null)
 	else
 		if(unfollow_sounds)
 			playsound(parent_mob, pick(unfollow_sounds), 100)
 		INVOKE_ASYNC(parent_mob, TYPE_PROC_REF(/atom/movable, say), "No longer following!")
-		parent_mob.LoseTarget()
-
-/datum/component/follow/proc/on_examine(datum/source, mob/examiner, list/examine_text)
+		if(parent_mob.ai_controller)
+			parent_mob.ai_controller.clear_movement_target()
+			parent_mob.ai_controller.set_blackboard_key(BB_TARGETING_STRATEGY, /datum/targeting_strategy/basic)
+			parent_mob.ai_controller.set_blackboard_key(BB_FOLLOW_TARGET, null)
+			parent_mob.ai_controller.set_blackboard_key(BB_ATTACK_TARGET, null)/datum/component/follow/proc/on_examine(datum/source, mob/examiner, list/examine_text)
 	examine_text += "Alt-click to make them follow you!"

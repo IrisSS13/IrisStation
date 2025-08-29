@@ -29,8 +29,8 @@
 	if(harvested)
 		return
 	to_chat(user, span_notice("You harvest [src]!"))
-	// var/obj/item/grenade/xen_crystal/nade = new (get_turf(src))
-	// nade.color = color
+	var/obj/item/grenade/xen_crystal/nade = new (get_turf(src))
+	nade.color = color
 	harvested = TRUE
 	update_appearance()
 
@@ -41,8 +41,7 @@
 	else
 		icon_state = "crystal"
 
-/*
-obj/item/grenade/xen_crystal
+/obj/item/grenade/xen_crystal
 	name = "xen crystal"
 	desc = "A crystal with anomalous properties."
 	icon = 'modular_iris/modules/black_mesa/icons/plants.dmi'
@@ -53,8 +52,8 @@ obj/item/grenade/xen_crystal
 	var/factions = list(FACTION_STATION, "neutral")
 	/// Mobs in this list will not be affected by this grenade.
 	var/list/blacklisted_mobs = list(
-		/mob/living/simple_animal/hostile/blackmesa/xen/headcrab_zombie/gordon_freeman,
-		/mob/living/simple_animal/hostile/blackmesa/xen/nihilanth,
+		/mob/living/basic/hostile/blackmesa/xen/gordon_freeman,
+		// /mob/living/simple_animal/hostile/blackmesa/xen/nihilanth,
 	)
 
 /obj/item/grenade/xen_crystal/detonate(mob/living/lanced_by)
@@ -71,4 +70,3 @@ obj/item/grenade/xen_crystal
 	unit_name = "anomalous crystal sample"
 	export_types = list(/obj/item/grenade/xen_crystal)
 	include_subtypes = FALSE
-*/
