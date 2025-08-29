@@ -12,3 +12,7 @@
 	. = ..()
 	visible_message(span_notice("[src] shatters into pieces!"))
 	qdel(src)
+
+/datum/orderable_item/mining/scrimshaw_knife
+	purchase_path = /obj/item/knife/scrimshaw_knife
+	cost_per_order = 5000
