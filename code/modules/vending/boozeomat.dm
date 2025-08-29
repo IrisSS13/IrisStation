@@ -25,7 +25,7 @@
 				/obj/item/reagent_containers/cup/glass/bottle/amaretto = 5,
 				/obj/item/reagent_containers/cup/glass/bottle/ale = 6,
 				/obj/item/reagent_containers/cup/glass/bottle/grappa = 5,
-				/obj/item/reagent_containers/cup/glass/bottle/navy_rum = 5,
+				///obj/item/reagent_containers/cup/glass/bottle/navy_rum = 5, // IRIS EDIT - moved to the "imported" category in \modular_iris\modules\modular_vending\code\boozeomat.dm
 				/obj/item/reagent_containers/cup/glass/bottle/maltliquor = 6,
 				/obj/item/reagent_containers/cup/glass/bottle/kahlua = 5,
 				/obj/item/reagent_containers/cup/glass/bottle/sake = 5,
