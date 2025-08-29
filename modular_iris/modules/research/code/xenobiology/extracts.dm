@@ -142,18 +142,18 @@
 	)
 
 /datum/chemical_reaction/slime/plantfood
-	results = list(/datum/reagent/plantnutriment/slime_plantnutriment = 10)
+	results = list(/datum/reagent/plantnutriment/slime_nutriment = 10)
 	required_reagents = list(/datum/reagent/water = 1)
 	required_container = /obj/item/slime_extract/unique/lightgreen
 
-/datum/reagent/plantnutriment/slime_plantnutriment
+/datum/reagent/plantnutriment/slime_nutriment
 	name = "Slime Isotope P+"
 	description = "Rare fertilizer produced by a specific variety of slime, \
 		shares similarities with both EZ-nutrient and Robust Harvest \
 		yet the chemical composition is too costly to artificially produce leaving many botanists dissapointed."
 	color = LIGHT_COLOR_SLIME_LAMP
 
-/datum/reagent/plantnutriment/slime_plantnutriment/on_hydroponics_apply(obj/machinery/hydroponics/mytray, mob/user)
+/datum/reagent/plantnutriment/slime_nutriment/on_hydroponics_apply(obj/machinery/hydroponics/mytray, mob/user)
 	var/obj/item/seeds/myseed = mytray.myseed
 	if(myseed)
 		myseed.adjust_potency(floor(volume * 0.4)) // This is straight up just both of them combined, quite good.
@@ -173,7 +173,7 @@
 		and severe damage to the plant in the process."
 	color = LIGHT_COLOR_SLIME_LAMP
 
-/datum/reagent/plantnutriment/slimenutriment/on_hydroponics_apply(obj/machinery/hydroponics/mytray, mob/user)
+/datum/reagent/plantnutriment/slime_planttoxin/on_hydroponics_apply(obj/machinery/hydroponics/mytray, mob/user)
 	mytray.adjust_weedlevel(-2)
 	mytray.adjust_pestlevel(-2)
 	mytray.adjust_plant_health(-floor(volume * 0.5))
