@@ -11,24 +11,36 @@
 	icon = 'modular_iris/modules/black_mesa/icons/nihilanth.dmi'
 	icon_state = "nihilanth"
 	icon_living = "nihilanth"
-	SET_BASE_PIXEL(-32, -32)
+	pixel_x = -32
 	base_pixel_x = -32
-	base_pixel_y = -32
-	bound_height = 64
-	bound_width = 64
-	bound_x = -16  // Center the 64-pixel hitbox
-	bound_y = -16
+	pixel_y = -16  // Adjusted to move hitbox to bottom
+	base_pixel_y = -16  // Adjusted to move hitbox to bottom
 	density = TRUE
-	move_resist = INFINITY  // Can't be pushed or pulled
+	move_force = MOVE_FORCE_OVERPOWERING
+	move_resist = MOVE_FORCE_OVERPOWERING
+	pull_force = MOVE_FORCE_OVERPOWERING
+	mob_size = MOB_SIZE_LARGE
+	layer = LARGE_MOB_LAYER
+	maptext_height = 96
+	maptext_width = 96 //Keeps it above walls and structures
+	mouse_opacity = MOUSE_OPACITY_OPAQUE // Easier to click on
 	icon_dead = "bullsquid_dead"
+	appearance_flags = TILE_BOUND | PIXEL_SCALE | KEEP_TOGETHER
 	maxHealth = 3000
 	health = 3000
+	obj_damage = 400
 	melee_damage_lower = 30
 	melee_damage_upper = 40
+	armour_penetration = 40
 	attack_verb_continuous = "lathes"
 	attack_verb_simple = "lathe"
 	attack_sound = 'sound/items/weapons/punch1.ogg'
 	status_flags = NONE
+	lighting_cutoff_red = 25
+	lighting_cutoff_green = 15
+	lighting_cutoff_blue = 35
+	mob_biotypes = MOB_ORGANIC|MOB_SPECIAL|MOB_MINING
+	flags_1 = PREVENT_CONTENTS_EXPLOSION_1
 	basic_mob_flags = DEL_ON_DEATH
 	ai_controller = /datum/ai_controller/basic_controller/nihilanth
 
@@ -57,6 +69,8 @@
 
 /mob/living/basic/hostile/blackmesa/xen/nihilanth/Initialize(mapload)
 	. = ..()
+	ADD_TRAIT(src, TRAIT_IMMOBILIZED, INNATE_TRAIT) // Prevent unnecessary movement processing
+	ADD_TRAIT(src, TRAIT_NO_FLOATING_ANIM, INNATE_TRAIT) // Prevent unnecessary animation processing
 	AddElement(/datum/element/death_drops, death_loot)
 	AddElement(/datum/element/simple_flying)
 	RegisterSignal(src, COMSIG_LIVING_DEATH, PROC_REF(on_death), override = TRUE)
@@ -65,8 +79,9 @@
 		projectile_type = /obj/projectile/nihilanth,\
 		projectile_sound = 'sound/items/weapons/lasercannonfire.ogg',\
 		cooldown_time = 3 SECONDS,\
-		burst_shots = 1\
+		burst_shots = 3\
 	)
+	update_appearance(UPDATE_ICON)
 
 /// Called when nihilanth dies - play death sound
 /mob/living/basic/hostile/blackmesa/xen/nihilanth/proc/on_death(datum/source)
@@ -76,32 +91,36 @@
 		'modular_iris/modules/black_mesa/sound/mobs/nihilanth/nihilanth_freeeemmaan01.ogg'
 	)), 100)
 
-/mob/living/basic/hostile/blackmesa/xen/nihilanth/play_attack_sound(damage_amount, damage_type, damage_flag)
-	if(COOLDOWN_FINISHED(src, voice_cooldown))
-		var/sound_to_play
-		switch(health)
-			if(0 to 999)
-				sound_to_play = pick(list(
-					'modular_iris/modules/black_mesa/sound/mobs/nihilanth/nihilanth_pain01.ogg',
-					'modular_iris/modules/black_mesa/sound/mobs/nihilanth/nihilanth_freeeemmaan01.ogg'
-				))
-			if(1000 to 2999)
-				sound_to_play = pick(list(
-					'modular_iris/modules/black_mesa/sound/mobs/nihilanth/nihilanth_youalldie01.ogg',
-					'modular_iris/modules/black_mesa/sound/mobs/nihilanth/nihilanth_foryouhewaits01.ogg'
-				))
-			if(3000 to 6000)
-				sound_to_play = pick(list(
-					'modular_iris/modules/black_mesa/sound/mobs/nihilanth/nihilanth_whathavedone01.ogg',
-					'modular_iris/modules/black_mesa/sound/mobs/nihilanth/nihilanth_deceiveyou01.ogg'
-				))
-			else
-				sound_to_play = pick(list(
-					'modular_iris/modules/black_mesa/sound/mobs/nihilanth/nihilanth_thetruth01.ogg',
-					'modular_iris/modules/black_mesa/sound/mobs/nihilanth/nihilanth_iamthelast01.ogg'
-				))
-		playsound(src, sound_to_play, 100)
-		COOLDOWN_START(src, voice_cooldown, 3 SECONDS)
+/mob/living/basic/hostile/blackmesa/xen/nihilanth/adjustBruteLoss(amount, updating_health = TRUE, forced = FALSE, required_bodytype)
+	. = ..()
+	if(amount <= 0 || !COOLDOWN_FINISHED(src, voice_cooldown))  // Don't play sounds for healing or during cooldown
+		return
+	var/list/sound_options
+	switch(maxHealth - health)  // Use remaining health instead of current health
+		if(2001 to INFINITY)  // 0-33% health remaining
+			sound_options = list(
+				'modular_iris/modules/black_mesa/sound/mobs/nihilanth/nihilanth_pain01.ogg',
+				'modular_iris/modules/black_mesa/sound/mobs/nihilanth/nihilanth_freeeemmaan01.ogg'
+			)
+		if(1001 to 2000)  // 33-66% health remaining
+			sound_options = list(
+				'modular_iris/modules/black_mesa/sound/mobs/nihilanth/nihilanth_youalldie01.ogg',
+				'modular_iris/modules/black_mesa/sound/mobs/nihilanth/nihilanth_foryouhewaits01.ogg'
+			)
+		if(1 to 1000)  // 66-99% health remaining
+			sound_options = list(
+				'modular_iris/modules/black_mesa/sound/mobs/nihilanth/nihilanth_whathavedone01.ogg',
+				'modular_iris/modules/black_mesa/sound/mobs/nihilanth/nihilanth_deceiveyou01.ogg'
+			)
+		else  // Full health
+			sound_options = list(
+				'modular_iris/modules/black_mesa/sound/mobs/nihilanth/nihilanth_thetruth01.ogg',
+				'modular_iris/modules/black_mesa/sound/mobs/nihilanth/nihilanth_iamthelast01.ogg'
+			)
+	var/sound_to_play = pick(sound_options)
+	var/sound_length = SSsounds.get_sound_length(sound_to_play)
+	playsound(src, sound_to_play, 100)
+	COOLDOWN_START(src, voice_cooldown, sound_length + 1 SECONDS)
 
 /**
  * AI controller for the Nihilanth boss mob
