@@ -311,6 +311,7 @@
 	required_experiments = list(/datum/experiment/scanning/points/xenoarch)
 	announce_channels = list(RADIO_CHANNEL_SCIENCE)
 
+// IRIS EDIT - XENOARCH EXPERIMENTS
 /datum/experiment/scanning/points/xenoarch
 	name = "Advanced Xenoarchaeology Tools"
 	description = "It is possible to create even more advanced tools for xenoarchaeoloy."
@@ -319,3 +320,68 @@
 		/obj/item/xenoarch/useless_relic = 1,
 		/obj/item/xenoarch/broken_item = 2,
 	)
+	///Further experiments added to the techweb when this one is completed.
+	var/list/next_experiments = list(/datum/experiment/scanning/points/xenoarch/survey, /datum/experiment/scanning/points/xenoarch/artifact)
+
+/// FIX ME:  PUT A LOOP AROUND THE LIST or something
+/// FIX ME:  FIND A WAY TO COPY scanned INTO next_experiments
+/datum/experiment/scanning/points/xenoarch/finish_experiment(datum/component/experiment_handler/experiment_handler, ...)
+	. = ..()
+	if(next_experiments)
+		experiment_handler.linked_web.add_experiments(next_experiments)
+		var/datum/experiment/next_in_line = locate(next_experiments[1]) in experiment_handler.linked_web.available_experiments
+		experiment_handler.link_experiment(next_in_line)
+
+/datum/experiment/scanning/points/xenoarch/survey
+	name = "Xenoarchaeology Survey 1"
+	description = "There is much to learn from relics of the past."
+	points_reward = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_5_POINTS )
+	required_points = 25
+	required_atoms = list(
+		/obj/item/xenoarch/useless_relic = 1,
+		/obj/item/xenoarch/broken_item = 2,
+	)
+	next_experiments = list(/datum/experiment/scanning/points/xenoarch/survey/second)
+
+/datum/experiment/scanning/points/xenoarch/survey/second
+	name = "Xenoarchaeology Survey 2"
+	description = "There is much to learn from relics of the past."
+	points_reward = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_5_POINTS )
+	required_points = 50
+	required_atoms = list(
+		/obj/item/xenoarch/useless_relic = 1,
+		/obj/item/xenoarch/broken_item = 2,
+	)
+	next_experiments = list(/datum/experiment/scanning/points/xenoarch/survey/third)
+
+/datum/experiment/scanning/points/xenoarch/survey/third
+	name = "Xenoarchaeology Survey 3"
+	description = "There is much to learn from relics of the past."
+	points_reward = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_5_POINTS )
+	required_points = 100
+	required_atoms = list(
+		/obj/item/xenoarch/useless_relic = 1,
+		/obj/item/xenoarch/broken_item = 2,
+	)
+
+/datum/experiment/scanning/points/xenoarch/artifact
+	name = "Xenoarchaeology Artifact Scan 1"
+	description = "Scan the powerful ancient artifacts exhumed from Lavaland's surface."
+	points_reward = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_5_POINTS )
+	required_atoms = list(/obj/machinery/artifact = 1)
+	next_experiments = list(/datum/experiment/scanning/points/xenoarch/artifact/second)
+
+/datum/experiment/scanning/points/xenoarch/artifact/second
+	name = "Xenoarchaeology Artifact Scan 2"
+	description = "Scan the powerful ancient artifacts exhumed from Lavaland's surface."
+	points_reward = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_5_POINTS )
+	required_atoms = list(/obj/machinery/artifact = 2)
+	next_experiments = list(/datum/experiment/scanning/points/xenoarch/artifact/third)
+
+/datum/experiment/scanning/points/xenoarch/artifact/third
+	name = "Xenoarchaeology Artifact Scan 3"
+	description = "Scan the powerful ancient artifacts exhumed from Lavaland's surface."
+	points_reward = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_5_POINTS )
+	required_atoms = list(/obj/machinery/artifact = 3)
+
+// IRIS EDIT END
