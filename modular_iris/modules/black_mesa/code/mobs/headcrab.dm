@@ -52,17 +52,14 @@
 	/// Track if we've attached to a human, to prevent multiple zombifications
 	var/is_zombie = FALSE
 
+/mob/living/basic/hostile/blackmesa/xen/headcrab
+	alert_sounds = list('modular_iris/modules/black_mesa/sound/mobs/headcrab/alert1.ogg')
+
 /mob/living/basic/hostile/blackmesa/xen/headcrab/Initialize(mapload)
 	. = ..()
-	RegisterSignal(src, COMSIG_AI_BLACKBOARD_KEY_SET(BB_BASIC_MOB_CURRENT_TARGET), PROC_REF(alert_sound))
 	RegisterSignal(src, COMSIG_MOVABLE_IMPACT, PROC_REF(handle_impact))
 	AddElement(/datum/element/ai_retaliate)
 	ai_controller.set_blackboard_key(BB_TARGET_MINIMUM_STAT, HARD_CRIT) // Allow targeting unconscious people
-
-/// Play a sound when spotting an enemy
-/mob/living/basic/hostile/blackmesa/xen/headcrab/proc/alert_sound(datum/source, key, value)
-	SIGNAL_HANDLER
-	playsound(src, 'modular_iris/modules/black_mesa/sound/mobs/headcrab/alert1.ogg', 100, FALSE, 4)
 
 /// Execute the jump after the telegraph
 /datum/ai_planning_subtree/headcrab_hunt/proc/execute_jump(mob/living/basic/hostile/blackmesa/xen/headcrab/jumper, atom/target, distance, speed)
@@ -127,10 +124,10 @@
 	return ..()
 
 /**
- * Headcrab Zombie (/mob/living/basic/hostile/blackmesa/xen/headcrab_zombie)
+ * Headcrab Zombie (/mob/living/basic/hostile/blackmesa/xen/zombie_headcrab)
  * A zombified human controlled by a headcrab.
  */
-/mob/living/basic/hostile/blackmesa/xen/headcrab_zombie
+/mob/living/basic/hostile/blackmesa/xen/zombie_headcrab
 	name = "zombie"
 	desc = "A shambling corpse animated by a headcrab!"
 	icon = 'modular_iris/modules/black_mesa/icons/mobs.dmi'
@@ -155,12 +152,12 @@
 	mob_biotypes = MOB_ORGANIC | MOB_HUMANOID
 	basic_mob_flags = DEL_ON_DEATH
 	faction = list(FACTION_XEN)
-	ai_controller = /datum/ai_controller/basic_controller/headcrab_zombie
+	ai_controller = /datum/ai_controller/basic_controller/zombie_headcrab
 
 	/// The human that was zombified
 	var/mob/living/carbon/human/zombified_human = null
 
-/mob/living/basic/hostile/blackmesa/xen/headcrab_zombie/Initialize(mapload)
+/mob/living/basic/hostile/blackmesa/xen/zombie_headcrab/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/wall_smasher, strength_flag = ENVIRONMENT_SMASH_STRUCTURES)
 
@@ -171,7 +168,7 @@
 		return FALSE
 
 	// Create the zombie at our location
-	var/mob/living/basic/hostile/blackmesa/xen/headcrab_zombie/new_zombie = new(get_turf(src))
+	var/mob/living/basic/hostile/blackmesa/xen/zombie_headcrab/new_zombie = new(get_turf(src))
 	new_zombie.name = "[target_human.name] zombie"
 	new_zombie.zombified_human = target_human
 
@@ -201,7 +198,7 @@
 	qdel(src)
 	return TRUE
 
-/mob/living/basic/hostile/blackmesa/xen/headcrab_zombie/death(gibbed)
+/mob/living/basic/hostile/blackmesa/xen/zombie_headcrab/death(gibbed)
 	if(!gibbed && prob(30))
 		new /mob/living/basic/hostile/blackmesa/xen/headcrab(loc) // Headcrab detaches and survives!
 	if(zombified_human)
@@ -209,7 +206,7 @@
 		zombified_human = null
 	return ..()
 
-/mob/living/basic/hostile/blackmesa/xen/headcrab_zombie/Destroy()
+/mob/living/basic/hostile/blackmesa/xen/zombie_headcrab/Destroy()
 	if(zombified_human)
 		zombified_human.forceMove(get_turf(src))
 		zombified_human = null
@@ -232,7 +229,7 @@
 		/datum/ai_planning_subtree/headcrab_hunt
 	)
 
-/datum/ai_controller/basic_controller/headcrab_zombie
+/datum/ai_controller/basic_controller/zombie_headcrab
 	blackboard = list(
 		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
 		BB_BASIC_MOB_CURRENT_TARGET = null,

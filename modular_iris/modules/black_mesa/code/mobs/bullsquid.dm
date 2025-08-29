@@ -40,8 +40,7 @@
 	gold_core_spawnable = HOSTILE_SPAWN
 	faction = list("bullsquid") // Each bullsquid is its own faction to make them fight each other
 
-	/// Sounds to play when we spot an enemy (detect1-3.ogg)
-	var/list/alert_sounds = list(
+	alert_sounds = list(
 		'modular_iris/modules/black_mesa/sound/mobs/bullsquid/detect1.ogg',
 		'modular_iris/modules/black_mesa/sound/mobs/bullsquid/detect2.ogg',
 		'modular_iris/modules/black_mesa/sound/mobs/bullsquid/detect3.ogg'
@@ -51,16 +50,10 @@
 	. = ..()
 	AddComponent(/datum/component/ai_listen_to_weather)
 	AddElement(/datum/element/ai_retaliate)
-	// Play alert sound when acquiring a target
-	RegisterSignal(src, COMSIG_AI_BLACKBOARD_KEY_SET(BB_BASIC_MOB_CURRENT_TARGET), PROC_REF(alert_sound))
 	// Add ranged attack component with proper targeting
 	AddComponent(/datum/component/ranged_attacks, projectile_type = /obj/projectile/bullsquid, projectile_sound = 'modular_iris/modules/black_mesa/sound/mobs/bullsquid/goo_attack3.ogg', cooldown_time = 3 SECONDS)
 	// Make each bullsquid unique to fight each other
 	faction = list("[REF(src)]")
-
-/mob/living/basic/hostile/blackmesa/xen/bullsquid/proc/alert_sound(datum/source, key, value)
-	SIGNAL_HANDLER
-	playsound(src, pick(alert_sounds), 100, FALSE, 4)
 
 /datum/ai_controller/basic_controller/bullsquid
 	blackboard = list(

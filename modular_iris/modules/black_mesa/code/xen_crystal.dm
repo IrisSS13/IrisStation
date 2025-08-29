@@ -29,8 +29,8 @@
 	if(harvested)
 		return
 	to_chat(user, span_notice("You harvest [src]!"))
-	var/obj/item/grenade/xen_crystal/nade = new (get_turf(src))
-	nade.color = color
+	// var/obj/item/grenade/xen_crystal/nade = new (get_turf(src))
+	// nade.color = color
 	harvested = TRUE
 	update_appearance()
 
@@ -41,7 +41,8 @@
 	else
 		icon_state = "crystal"
 
-/obj/item/grenade/xen_crystal
+/*
+obj/item/grenade/xen_crystal
 	name = "xen crystal"
 	desc = "A crystal with anomalous properties."
 	icon = 'modular_iris/modules/black_mesa/icons/plants.dmi'
@@ -70,3 +71,4 @@
 	unit_name = "anomalous crystal sample"
 	export_types = list(/obj/item/grenade/xen_crystal)
 	include_subtypes = FALSE
+*/

@@ -1,72 +1,124 @@
-/mob/living/simple_animal/hostile/blackmesa/xen/headcrab_zombie
+/**
+ * Headcrab Zombies
+ * Various types of zombies created by headcrabs latching onto different personnel.
+ *
+ * Base zombie type with common behaviors and properties.
+ * Each variant (scientist, guard, HECU, HEV) has different health values and corpses.
+ */
+/mob/living/basic/hostile/blackmesa/xen/headcrab_zombie
 	name = "headcrab zombie"
 	desc = "This unlucky person has had a headcrab latch onto their head. Ouch."
 	icon = 'modular_iris/modules/black_mesa/icons/mobs.dmi'
 	icon_state = "zombie"
-	icon_living = "zombie"
+	base_icon_state = "zombie"
+	icon_dead = "zombie_dead"
+
+	// Health and combat
 	maxHealth = 110
 	health = 110
-	icon_gib = null
-	icon_dead = "zombie_dead"
-	speak_chance = 1
-	speak_emote = list("growls")
-	speed = 1
-	emote_taunt = list("growls", "snarls", "grumbles")
-	taunt_chance = 100
 	melee_damage_lower = 21
 	melee_damage_upper = 21
 	attack_sound = 'modular_iris/modules/black_mesa/sound/mobs/zombies/claw_strike.ogg'
+	obj_damage = 21
+	combat_mode = TRUE
+
+	// Movement and behavior
+	speed = 1
+	move_force = MOVE_FORCE_STRONG
+	move_resist = MOVE_FORCE_STRONG
+	pull_force = MOVE_FORCE_STRONG
+
+	// Mob traits
+	mob_biotypes = MOB_ORGANIC | MOB_HUMANOID
+	basic_mob_flags = DEL_ON_DEATH
+	faction = list(FACTION_XEN)
+	ai_controller = /datum/ai_controller/basic_controller/headcrab_zombie
 	gold_core_spawnable = HOSTILE_SPAWN
-	alert_cooldown_time = 8 SECONDS
+
+	/// What type of corpse to spawn when this zombie dies
+	var/corpse_type = null
+	// Alert Sound System - Inherited from /mob/living/basic/hostile/blackmesa
 	alert_sounds = list(
 		'modular_iris/modules/black_mesa/sound/mobs/zombies/alert1.ogg',
 		'modular_iris/modules/black_mesa/sound/mobs/zombies/alert2.ogg',
 		'modular_iris/modules/black_mesa/sound/mobs/zombies/alert3.ogg',
 		'modular_iris/modules/black_mesa/sound/mobs/zombies/alert4.ogg',
 		'modular_iris/modules/black_mesa/sound/mobs/zombies/alert5.ogg',
-		'modular_iris/modules/black_mesa/sound/mobs/zombies/alert6.ogg',
+		'modular_iris/modules/black_mesa/sound/mobs/zombies/alert6.ogg'
 	)
 
-/mob/living/simple_animal/hostile/blackmesa/xen/headcrab_zombie/death(gibbed)
+/mob/living/basic/hostile/blackmesa/xen/headcrab_zombie/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/wall_smasher, strength_flag = ENVIRONMENT_SMASH_STRUCTURES)
+
+/mob/living/basic/hostile/blackmesa/xen/headcrab_zombie/death(gibbed)
 	new /obj/effect/gibspawner/human(get_turf(src))
+	if(corpse_type)
+		new corpse_type(get_turf(src))
 	return ..()
 
-/mob/living/simple_animal/hostile/blackmesa/xen/headcrab_zombie/scientist
+/**
+ * AI Controller
+ * Handles the zombie's behavior and targeting
+ */
+/datum/ai_controller/basic_controller/headcrab_zombie
+	blackboard = list(
+		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
+		BB_BASIC_MOB_CURRENT_TARGET = null,
+		BB_BASIC_MOB_CURRENT_TARGET_HIDING = FALSE,
+		BB_TARGET_MINIMUM_STAT = HARD_CRIT
+	)
+
+	ai_movement = /datum/ai_movement/basic_avoidance
+	idle_behavior = /datum/idle_behavior/idle_random_walk
+	planning_subtrees = list(
+		/datum/ai_planning_subtree/simple_find_target,
+		/datum/ai_planning_subtree/basic_melee_attack_subtree,
+		/datum/ai_planning_subtree/target_retaliate
+	)
+
+/**
+ * Zombie Variants
+ * Different types of zombies with varying stats and corpses.
+ */
+
+/// Scientist zombie - baseline zombie with standard stats
+/mob/living/basic/hostile/blackmesa/xen/headcrab_zombie/scientist
 	name = "zombified scientist"
 	desc = "Even after death, I still have to wear this horrible tie!"
 	icon_state = "scientist_zombie"
-	icon_living = "scientist_zombie"
-	loot = list(/obj/effect/mob_spawn/corpse/human/scientist_zombie)
-	del_on_death = 1
+	base_icon_state = "scientist_zombie"
+	corpse_type = /obj/effect/mob_spawn/corpse/human/scientist_zombie
 
-
-/mob/living/simple_animal/hostile/blackmesa/xen/headcrab_zombie/guard
+/// Security guard zombie - medium armor
+/mob/living/basic/hostile/blackmesa/xen/headcrab_zombie/guard
 	name = "zombified guard"
 	desc = "About that brain I owed ya!"
 	icon_state = "security_zombie"
-	icon_living = "security_zombie"
-	maxHealth = 140 // Armor!
+	base_icon_state = "security_zombie"
+	maxHealth = 140
 	health = 140
-	loot = list(/obj/effect/mob_spawn/corpse/human/guard_zombie)
-	del_on_death = 1
+	corpse_type = /obj/effect/mob_spawn/corpse/human/guard_zombie
 
-/mob/living/simple_animal/hostile/blackmesa/xen/headcrab_zombie/hecu
+/// HECU Marine zombie - heavy armor
+/mob/living/basic/hostile/blackmesa/xen/headcrab_zombie/hecu
 	name = "zombified marine"
 	desc = "MY. ASS. IS. DEAD."
 	icon_state = "hecu_zombie"
-	icon_living = "hecu_zombie"
-	maxHealth = 190 // More armor!
+	base_icon_state = "hecu_zombie"
+	maxHealth = 190
 	health = 190
-	loot = list(/obj/effect/mob_spawn/corpse/human/hecu_zombie)
-	del_on_death = 1
+	corpse_type = /obj/effect/mob_spawn/corpse/human/hecu_zombie
 
-/mob/living/simple_animal/hostile/blackmesa/xen/headcrab_zombie/hev
+/// HEV zombie - extremely tough due to the HEV suit
+/mob/living/basic/hostile/blackmesa/xen/headcrab_zombie/hev
 	name = "zombified hazardous environment specialist"
 	desc = "User death... surpassed."
 	icon_state = "hev_zombie"
-	icon_living = "hev_zombie"
+	base_icon_state = "hev_zombie"
 	maxHealth = 250
 	health = 250
+
 	alert_sounds = list(
 		'modular_iris/modules/black_mesa/sound/mobs/zombies/hzv1.ogg',
 		'modular_iris/modules/black_mesa/sound/mobs/zombies/hzv2.ogg',
@@ -81,9 +133,5 @@
 		'modular_iris/modules/black_mesa/sound/mobs/zombies/hzv11.ogg',
 		'modular_iris/modules/black_mesa/sound/mobs/zombies/hzv12.ogg',
 		'modular_iris/modules/black_mesa/sound/mobs/zombies/hzv13.ogg',
-		'modular_iris/modules/black_mesa/sound/mobs/zombies/hzv14.ogg',
+		'modular_iris/modules/black_mesa/sound/mobs/zombies/hzv14.ogg'
 	)
-
-
-
-
