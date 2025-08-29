@@ -311,7 +311,7 @@
 	required_experiments = list(/datum/experiment/scanning/points/xenoarch)
 	announce_channels = list(RADIO_CHANNEL_SCIENCE)
 
-// IRIS MOVE - /datum/experiment/scanning/points/xenoarch moved to xenoarch_experiments.dm
+// IRIS EDIT - /datum/experiment/scanning/points/xenoarch  moved to  modular_iris/modules/xenoarch/xenoarch_experiments.dm
 // /datum/experiment/scanning/points/xenoarch
 //	name = "Advanced Xenoarchaeology Tools"
 //	description = "It is possible to create even more advanced tools for xenoarchaeoloy."
