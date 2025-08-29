@@ -58,8 +58,11 @@ Difficulty: Hard
 	maptext_height = 96
 	maptext_width = 96
 	del_on_death = TRUE
-	crusher_loot = list(/obj/structure/closet/crate/necropolis/bubblegum/crusher)
 	//IRIS EDIT CHANGE BEGIN - MEGAFAUNA_RESPAWNS
+	crusher_loot = list(
+		/obj/structure/closet/crate/necropolis/bubblegum/crusher,
+		/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/bubblegum
+	)
 	loot = list(
 		/obj/structure/closet/crate/necropolis/bubblegum,
 		/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/bubblegum

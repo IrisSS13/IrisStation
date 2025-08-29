@@ -51,8 +51,11 @@
 	achievement_type = /datum/award/achievement/boss/colossus_kill
 	crusher_achievement_type = /datum/award/achievement/boss/colossus_crusher
 	score_achievement_type = /datum/award/score/colussus_score
-	crusher_loot = list(/obj/structure/closet/crate/necropolis/colossus/crusher)
 	//IRIS EDIT CHANGE BEGIN - MEGAFAUNA_RESPAWNS
+	crusher_loot = list(
+		/obj/structure/closet/crate/necropolis/colossus/crusher,
+		/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/colossus
+	)
 	loot = list(
 		/obj/structure/closet/crate/necropolis/colossus,
 		/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/colossus

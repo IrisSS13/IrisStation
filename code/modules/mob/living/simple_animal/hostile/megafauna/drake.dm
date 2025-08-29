@@ -56,8 +56,11 @@
 	base_pixel_x = -32
 	maptext_height = 64
 	maptext_width = 64
-	crusher_loot = list(/obj/structure/closet/crate/necropolis/dragon/crusher)
 	//IRIS EDIT CHANGE BEGIN - MEGAFAUNA_RESPAWNS
+	crusher_loot = list(
+		/obj/structure/closet/crate/necropolis/dragon/crusher,
+		/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/drake
+	)
 	loot = list(
 		/obj/structure/closet/crate/necropolis/dragon,
 		/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/drake

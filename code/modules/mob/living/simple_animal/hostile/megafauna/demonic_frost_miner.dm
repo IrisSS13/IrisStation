@@ -32,8 +32,13 @@ Difficulty: Extremely Hard
 	move_to_delay = 20
 	gps_name = "Bloodchilling Signal"
 	ranged = TRUE
-	crusher_loot = list(/obj/effect/decal/remains/plasma, /obj/item/crusher_trophy/ice_block_talisman, /obj/item/ice_energy_crystal)
 	//IRIS EDIT CHANGE BEGIN - MEGAFAUNA_RESPAWNS
+	crusher_loot = list(
+		/obj/effect/decal/remains/plasma,
+		/obj/item/crusher_trophy/ice_block_talisman,
+		/obj/item/ice_energy_crystal,
+		/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/demonic_frost_miner
+	)
 	loot = list(
 		/obj/effect/decal/remains/plasma,
 		/obj/item/ice_energy_crystal,

@@ -26,8 +26,12 @@
 		/obj/item/keycard/thing_boss,
 		/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/the_thing
 	)
+	crusher_loot = list(
+		/obj/item/keycard/thing_boss,
+		/obj/item/crusher_trophy/flesh_glob,
+		/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/the_thing
+	)
 	//IRIS EDIT CHANGE END
-	crusher_loot = list(/obj/item/keycard/thing_boss, /obj/item/crusher_trophy/flesh_glob)
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	achievement_type = /datum/award/achievement/boss/thething_kill
 	crusher_achievement_type = /datum/award/achievement/boss/thething_crusher

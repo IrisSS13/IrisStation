@@ -64,8 +64,12 @@ Difficulty: Hard
 		/obj/item/hierophant_club,
 		/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/hierophant
 	)
+	crusher_loot = list(
+		/obj/item/hierophant_club,
+		/obj/item/crusher_trophy/vortex_talisman,
+		/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/hierophant
+	)
 	//IRIS EDIT CHANGE END
-	crusher_loot = list(/obj/item/hierophant_club, /obj/item/crusher_trophy/vortex_talisman)
 	wander = FALSE
 	gps_name = "Zealous Signal"
 	achievement_type = /datum/award/achievement/boss/hierophant_kill

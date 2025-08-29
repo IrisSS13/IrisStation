@@ -50,8 +50,11 @@
 		/obj/structure/closet/crate/necropolis/gladiator,
 		/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/the_marked_one
 	)
+	crusher_loot = list(
+		/obj/structure/closet/crate/necropolis/gladiator/crusher,
+		/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/the_marked_one
+	)
 	//IRIS EDIT CHANGE END
-	crusher_loot = list(/obj/structure/closet/crate/necropolis/gladiator/crusher)
 	/// Boss phase, from 1 to 3
 	var/phase = MARKED_ONE_FIRST_PHASE
 	/// People we have introduced ourselves to - WEAKREF list
