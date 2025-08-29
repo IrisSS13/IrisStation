@@ -24,7 +24,7 @@
 		/datum/slime_type/unique/cobalt = 1,
 	)
 	rgb_code = COLOR_NAVY
-	mutation_message = "shudders under the intense gravity, flecks of blue swirling in their golden membrane as they turn a deep blue!"
+	mutation_message = "Shudders under the intense gravity, flecks of blue swirling in their golden membrane as they turn a deep blue!"
 
 /datum/slime_type/unique/darkgrey
 	colour = SLIME_TYPE_DARK_GREY
@@ -33,7 +33,7 @@
 		/datum/slime_type/unique/darkgrey = 1,
 	)
 	rgb_code = COLOR_DARK
-	mutation_message = "the legion skull quickly dissolves into the black slime as it turns a strange shade of grey!"
+	mutation_message = "The legion skull quickly dissolves into the black slime as it turns a strange shade of grey!"
 
 /datum/slime_type/unique/crimson
 	colour = SLIME_TYPE_CRIMSON
@@ -43,3 +43,13 @@
 	)
 	rgb_code = LIGHT_COLOR_BLOOD_MAGIC
 	mutation_message = "The slime absorbs the surrounding flames turning a deep crimson!"
+
+/datum/slime_type/unique/lightgreen
+	colour = SLIME_TYPE_LIGHT_GREEN
+	transparent = TRUE
+	core_type = /obj/item/slime_extract/unique/lightgreen
+	mutations = list(
+		/datum/slime_type/unique/lightgreen = 1,
+	)
+	rgb_code = LIGHT_COLOR_SLIME_LAMP
+	mutation_message = "The slime slowly turns a lighter shade of green."

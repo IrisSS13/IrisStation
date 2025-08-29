@@ -132,3 +132,49 @@
 	turf.air_update_turf(FALSE, FALSE)
 	turf.visible_message(span_userdanger("The slime extract quickly bursts outwards with tritium, oh god!"))
 	return ..()
+
+/obj/item/slime_extract/unique/lightgreen
+	name = "light green slime extract"
+	icon_state = "light-green-core"
+	activate_reagents = list(
+		/datum/reagent/water,
+		/datum/reagent/blood,
+	)
+
+/datum/chemical_reaction/slime/plantfood
+	results = list(/datum/reagent/plantnutriment/slime_plantnutriment = 10)
+	required_reagents = list(/datum/reagent/water = 1)
+	required_container = /obj/item/slime_extract/unique/lightgreen
+
+/datum/reagent/plantnutriment/slime_plantnutriment
+	name = "Slime Isotope P+"
+	description = "Rare fertilizer produced by a specific variety of slime, \
+		shares similarities with both EZ-nutrient and Robust Harvest \
+		yet the chemical composition is too costly to artificially produce leaving many botanists dissapointed."
+	color = LIGHT_COLOR_SLIME_LAMP
+
+/datum/reagent/plantnutriment/slime_plantnutriment/on_hydroponics_apply(obj/machinery/hydroponics/mytray, mob/user)
+	var/obj/item/seeds/myseed = mytray.myseed
+	if(myseed)
+		myseed.adjust_potency(floor(volume * 0.4)) // This is straight up just both of them combined, quite good.
+		myseed.adjust_yield(floor(volume * 0.3))
+		myseed.adjust_instability(-0.05)
+
+/datum/chemical_reaction/slime/planttoxin
+	results = list(/datum/reagent/plantnutriment/slime_planttoxin = 5)
+	required_reagents = list(/datum/reagent/blood = 1)
+	required_container = /obj/item/slime_extract/unique/lightgreen
+
+/datum/reagent/plantnutriment/slime_planttoxin
+	name = "Slime Isotope Anti-P"
+	description = "A strong neurotoxin that very effectivelly kills small animals and plantlife, \
+		after extensive research it was found to not cause any major reactions inside of creatures larger than a newborn puppy. \
+		It is highly advised to be carefull with the dose applied to cultivated plants as it causes rapid genetic instability \
+		and severe damage to the plant in the process."
+	color = LIGHT_COLOR_SLIME_LAMP
+
+/datum/reagent/plantnutriment/slimenutriment/on_hydroponics_apply(obj/machinery/hydroponics/mytray, mob/user)
+	mytray.adjust_weedlevel(-2)
+	mytray.adjust_pestlevel(-2)
+	mytray.adjust_plant_health(-floor(volume * 0.5))
+	mytray.myseed?.adjust_instability(floor(volume))
