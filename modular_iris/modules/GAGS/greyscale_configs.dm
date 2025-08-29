@@ -155,6 +155,34 @@
 *	SUITS
 */
 
+//Tailcoats, sprites from MonkeStation
+/datum/greyscale_config/tailcoat
+	name = "Tailcoat"
+	icon_file = 'modular_iris/monke_ports/icons/obj/clothing/suits/jacket.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/suits/tailcoat.json'
+
+/datum/greyscale_config/tailcoat/worn
+	name = "Worn Tailcoat"
+	icon_file = 'modular_iris/monke_ports/icons/mob/clothing/suits/jacket.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/suits/tailcoat_worn.json'
+
+/datum/greyscale_config/tailcoat/worn/digi
+	name = "Worn Tailcoat - Digitigrade"
+	icon_file = 'modular_iris/monke_ports/icons/mob/clothing/suits/jacket_digi.dmi'
+
+/datum/greyscale_config/tailcoat_bar
+	name = "Bartender's Tailcoat"
+	icon_file = 'modular_iris/monke_ports/icons/obj/clothing/suits/jacket.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/suits/tailcoat_bar.json'
+
+/datum/greyscale_config/tailcoat_bar/worn
+	name = "Worn Bartender's Tailcoat"
+	icon_file = 'modular_iris/monke_ports/icons/mob/clothing/suits/jacket.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/suits/tailcoat_bar_worn.json'
+
+/datum/greyscale_config/tailcoat_bar/worn/digi
+	name = "Worn Bartender's Tailcoat - Digitigrade"
+	icon_file = 'modular_iris/monke_ports/icons/mob/clothing/suits/jacket_digi.dmi'
 
 /*
 *	UNDER

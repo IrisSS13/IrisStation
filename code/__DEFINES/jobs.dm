@@ -94,6 +94,7 @@
 #define JOB_SHAFT_MINER "Shaft Miner"
 #define JOB_BITRUNNER "Bitrunner"
 #define JOB_CUSTOMS_AGENT "Customs Agent" // NOVA EDIT ADDITION
+#define JOB_EXPLORER "Explorer" // IRIS EDIT ADDITION
 //Service
 #define JOB_BARTENDER "Bartender"
 #define JOB_BOTANIST "Botanist"
@@ -145,8 +146,8 @@
 #define JOB_NAVAL_FLEET_ADMIRAL "Fleet Admiral"
 // Off-Station
 #define JOB_SPACE_POLICE "Space Police"
-#define JOB_SOLFED "SolFed"
-#define JOB_SOLFED_LIASON "SolFed Liason"
+#define JOB_SOLFED "SolGov"
+#define JOB_SOLFED_LIASON "SolGov Liason"
 // NOVA EDIT ADDITION END
 
 //Lost crew

@@ -256,6 +256,16 @@
 
 /datum/job/engineering_guard //see orderly
 
+/datum/job/explorer // IRIS EDIT - EXPLORER JOB
+	alt_titles = list(
+		"Explorer",
+		"Surveyor",
+		"Pioneer",
+		"Navigator",
+		"Frontiersperson",
+		"Apprentice Explorer",
+	)
+
 /datum/job/geneticist
 	alt_titles = list(
 		"Geneticist",
@@ -269,6 +279,7 @@
 		"Crew Supervisor",
 		"Employment Officer",
 		"Executive Officer",
+		"Senior Sapient Resources Agent", // IRIS EDIT - new title
 	)
 
 /datum/job/head_of_security
@@ -297,7 +308,7 @@
 		"Lawyer",
 		"Barrister",
 		"Defense Attorney",
-		"Human Resources Agent",
+		"Sapient Resources Agent", // IRIS EDIT - it's "Sapient" now
 		"Internal Affairs Agent",
 		"Legal Clerk",
 		"Prosecutor",

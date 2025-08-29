@@ -18,6 +18,7 @@ GLOBAL_VAR_INIT(revolutionary_win, FALSE)
 		JOB_PRISONER,
 		JOB_SECURITY_OFFICER,
 		JOB_WARDEN,
+		JOB_EXPLORER, // IRIS EDIT - EXPLORER
 	)
 	restricted_roles = list(
 		JOB_AI,
@@ -106,6 +107,7 @@ GLOBAL_VAR_INIT(revolutionary_win, FALSE)
 		JOB_PRISONER,
 		JOB_SECURITY_OFFICER,
 		JOB_WARDEN,
+		JOB_EXPLORER, // IRIS EDIT - EXPLORER
 	)
 	restricted_roles = list(
 		JOB_AI,
@@ -156,6 +158,7 @@ GLOBAL_VAR_INIT(revolutionary_win, FALSE)
 		JOB_PRISONER,
 		JOB_SECURITY_OFFICER,
 		JOB_WARDEN,
+		JOB_EXPLORER, // IRIS EDIT - EXPLORER
 	)
 	restricted_roles = list(
 		JOB_AI,
@@ -204,6 +207,7 @@ GLOBAL_VAR_INIT(revolutionary_win, FALSE)
 		JOB_PRISONER,
 		JOB_SECURITY_OFFICER,
 		JOB_WARDEN,
+		JOB_EXPLORER, // IRIS EDIT - EXPLORER
 	)
 	restricted_roles = list(
 		JOB_AI,
@@ -329,6 +333,7 @@ GLOBAL_VAR_INIT(revolutionary_win, FALSE)
 		JOB_PRISONER,
 		JOB_SECURITY_OFFICER,
 		JOB_WARDEN,
+		JOB_EXPLORER, // IRIS EDIT - EXPLORER
 	)
 	required_candidates = 2
 	weight = 3
@@ -512,6 +517,7 @@ GLOBAL_VAR_INIT(revolutionary_win, FALSE)
 		JOB_RESEARCH_DIRECTOR,
 		JOB_SECURITY_OFFICER,
 		JOB_WARDEN,
+		JOB_EXPLORER, // IRIS EDIT - EXPLORER
 	)
 	required_candidates = 3
 	weight = 3
@@ -715,6 +721,7 @@ GLOBAL_VAR_INIT(revolutionary_win, FALSE)
 		JOB_PRISONER,
 		JOB_SECURITY_OFFICER,
 		JOB_WARDEN,
+		JOB_EXPLORER, // IRIS EDIT - EXPLORER
 	)
 	restricted_roles = list(
 		JOB_AI,

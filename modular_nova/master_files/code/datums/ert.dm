@@ -20,11 +20,11 @@
 	opendoors = FALSE
 	ert_template = /datum/map_template/shuttle/ert/solfed/official
 
-	rename_team = "SolFed Officials"
+	rename_team = "SolGov Officials"
 	teamsize = 5
 	code = "FEDERAL"
 	mission = "Audit the station, write reports, and look for any violations of Federal regulations."
-	polldesc = "a Sol Federation Official"
+	polldesc = "a Sol Goverment Official"
 
 /datum/ert/solfed/espatier
 	roles = list(/datum/antagonist/ert/solfed/espatier, /datum/antagonist/ert/solfed/espatier/corpsman, /datum/antagonist/ert/solfed/espatier/engineer)
@@ -33,11 +33,11 @@
 	ert_template = /datum/map_template/shuttle/ert/solfed
 
 	notify_players = TRUE
-	rename_team = "SolFed Espatier Detachment"
+	rename_team = "SolGov Espatier Detachment"
 	teamsize = 6
 	code = "FEDERAL"
 	mission = "Rescue survivors, and bring order to chaos. Glory to the Federation."
-	polldesc = "a Sol Federation Espatier"
+	polldesc = "a Sol Goverment Espatier"
 
 
 /// A variant of spawning, they spawn with a smaller more assaultlike ship, with no compartments (no medical compartment, engineering, atmos, just what they have on their back)
@@ -47,12 +47,12 @@
 /// Corpsman only spawn
 /datum/ert/solfed/espatier/assault/corpsman_only
 	roles = list(/datum/antagonist/ert/solfed/espatier)
-	polldesc = "a Sol Federation Truama Team"
+	polldesc = "a Sol Goverment Truama Team"
 
 /// Rifleman only spawn
 /datum/ert/solfed/espatier/assault/rifleman_only
 	roles = list(/datum/antagonist/ert/solfed/espatier/corpsman)
-	polldesc = "a Sol Federation Rifleman"
+	polldesc = "a Sol Goverment Rifleman"
 
 /// Engineering only spawn
 /datum/ert/solfed/espatier/assault/engineering_only
@@ -97,11 +97,11 @@ GRAND RESPONSE VARIANTS OF ESPATIERS, USE ONLY IF SOMEONE ROYALLY FUCKED UP
 	ert_template = /datum/map_template/shuttle/ert/solfed
 
 	notify_players = TRUE
-	rename_team = "SolFed Espatier Detachment"
+	rename_team = "SolGov Espatier Detachment"
 	teamsize = 6
 	code = "FEDERAL"
 	mission = "Rescue survivors, and bring order to chaos. Glory to the Federation."
-	polldesc = "a Sol Federation Grand Response Espatier"
+	polldesc = "a Sol Goverment Grand Response Espatier"
 
 
 /// A variant of spawning, they spawn with a smaller more assaultlike ship, with no compartments (no medical compartment, engineering, atmos, just what they have on their back)
@@ -111,12 +111,12 @@ GRAND RESPONSE VARIANTS OF ESPATIERS, USE ONLY IF SOMEONE ROYALLY FUCKED UP
 /// Corpsman only spawn
 /datum/ert/solfed/grand_espatier/assault/corpsman_only
 	roles = list(/datum/antagonist/ert/solfed/grand_espatier)
-	polldesc = "a Sol Federation Truama Team"
+	polldesc = "a Sol Goverment Truama Team"
 
 /// Rifleman only spawn
 /datum/ert/solfed/grand_espatier/assault/rifleman_only
 	roles = list(/datum/antagonist/ert/solfed/grand_espatier/corpsman)
-	polldesc = "a Sol Federation Rifleman"
+	polldesc = "a Sol Goverment Rifleman"
 
 /// Engineering only spawn
 /datum/ert/solfed/grand_espatier/assault/engineering_only

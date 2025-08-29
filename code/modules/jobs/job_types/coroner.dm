@@ -6,7 +6,7 @@
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the Head of Personnel and the Chief Medical Officer"
+	supervisors = SUPERVISOR_CMO
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "CORONER"
 
@@ -24,7 +24,7 @@
 	department_for_prefs = /datum/job_department/medical
 	departments_list = list(
 		/datum/job_department/medical,
-		/datum/job_department/service,
+		///datum/job_department/service, // IRIS EDIT - Coroner is no longer part of service
 	)
 
 	mail_goodies = list(
@@ -57,7 +57,7 @@
 	)
 
 	belt = /obj/item/modular_computer/pda/coroner
-	ears = /obj/item/radio/headset/headset_srvmed
+	ears = /obj/item/radio/headset/headset_med // IRIS EDIT - Coroner is no longer part of service
 	gloves = /obj/item/clothing/gloves/latex/coroner
 	head = /obj/item/clothing/head/utility/surgerycap/black
 	l_pocket = /obj/item/clipboard //good for storing autopsy reports and taking notes
