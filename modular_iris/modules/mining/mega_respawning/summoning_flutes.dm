@@ -5,6 +5,11 @@
 	icon_state = "recorder"
 	var/summoned_mega = /mob/living/basic/mega_arachnid
 
+/obj/item/summoning_flute/examine(mob/user)
+	. = ..()
+	if(HAS_TRAIT(user, TRAIT_NOBREATH))
+		. += span_notice("You seem to be able to play it without breathing, how neat!")
+
 /obj/item/summoning_flute/attack_self(mob/user, modifiers)
 	. = ..()
 	if(do_after(user, 3 SECONDS, src))
@@ -23,8 +28,10 @@
 		var/obj/effect/temp_visual/dragon_swoop/spawn_telegraph = new(spawn_location)
 		sleep(2 SECONDS)
 		var/mob/living/our_mega = new summoned_mega(spawn_location)
+		our_mega.visible_message(span_userdanger("From a swirling, warping, vortex of spacetime, [our_mega] emerges, born anew!"))
 		message_admins("[our_mega] respawned at [ADMIN_VERBOSEJMP(spawn_location)] by [ADMIN_LOOKUPFLW(user)].")
 		log_game("[our_mega] respawned at [AREACOORD(spawn_location)] by [user] / [user.ckey].")
+		sleep(1 SECONDS)
 		qdel(spawn_telegraph)
 		to_chat(user, span_warning("With its magic spent, [src] crumbles into dust."))
 		qdel(src)
