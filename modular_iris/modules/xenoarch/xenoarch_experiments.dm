@@ -1,6 +1,10 @@
 ///a superlist containing relics and artifacts shared between the several xenoarch scanning experiments for each techweb.
 GLOBAL_LIST_EMPTY(scanned_xenoarch_by_techweb)
 
+/**
+ * Xenoarch experiments to unlock advanced tools and acquire research points.
+ * Based on the fish scanning experiment code.
+ */
 /datum/experiment/scanning/points/xenoarch
 	name = "Advanced Xenoarchaeology Tools"
 	description = "It is possible to create even more advanced tools for xenoarchaeoloy."
@@ -12,6 +16,10 @@ GLOBAL_LIST_EMPTY(scanned_xenoarch_by_techweb)
 	///Further experiments added to the techweb when this one is completed.
 	var/list/next_experiments = list(/datum/experiment/scanning/points/xenoarch/survey, /datum/experiment/scanning/points/xenoarch/artifact)
 
+/**
+ * We make sure the scanned list is shared between all xenoarch scanning experiments for this techweb,
+ * since we want each experiment to count items seperately, this prevents items from counting for multiple experiments.
+ */
 /datum/experiment/scanning/points/xenoarch/New(datum/techweb/techweb)
 	. = ..()
 	if(isnull(techweb))
@@ -25,6 +33,10 @@ GLOBAL_LIST_EMPTY(scanned_xenoarch_by_techweb)
 		LAZYINITLIST(scanned_xenoarch[atom_type])
 	scanned = scanned_xenoarch
 
+/**
+ * After a xenoarch scanning experiment is done, more may be unlocked. If so, add them to the techweb
+ * and automatically link the handler to the next experiment in the list as a bit of qol.
+ */
 /datum/experiment/scanning/points/xenoarch/finish_experiment(datum/component/experiment_handler/experiment_handler, ...)
 	. = ..()
 	if(next_experiments)
