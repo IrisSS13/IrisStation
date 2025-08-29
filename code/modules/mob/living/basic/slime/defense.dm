@@ -30,6 +30,12 @@
 		use_sheet(attacking_item, user)
 		return
 
+	// IRIS ADDITION START -- UNIQUE SLIMES
+	if(istype(attacking_item, /obj/item/crusher_trophy/legion_skull))
+		unique_mutate(SLIME_TYPE_BLACK, /datum/slime_type/unique/darkgrey, attacking_item)
+		return
+	// IRIS ADDITION END
+
 	//Checks if the item passes through the slime first. Safe items can be used simply
 	if(check_item_passthrough(attacking_item, user))
 		return
