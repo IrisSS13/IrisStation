@@ -58,16 +58,8 @@ Difficulty: Hard
 	maptext_height = 96
 	maptext_width = 96
 	del_on_death = TRUE
-	//IRIS EDIT CHANGE BEGIN - MEGAFAUNA_RESPAWNS
-	crusher_loot = list(
-		/obj/structure/closet/crate/necropolis/bubblegum/crusher,
-		/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/bubblegum
-	)
-	loot = list(
-		/obj/structure/closet/crate/necropolis/bubblegum,
-		/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/bubblegum
-	)
-	//IRIS EDIT CHANGE END
+	crusher_loot = list(/obj/structure/closet/crate/necropolis/bubblegum/crusher)
+	loot = list(/obj/structure/closet/crate/necropolis/bubblegum)
 	blood_volume = BLOOD_VOLUME_MAXIMUM //BLEED FOR ME
 	gps_name = "Bloody Signal"
 	achievement_type = /datum/award/achievement/boss/bubblegum_kill

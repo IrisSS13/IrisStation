@@ -32,16 +32,8 @@ I'd rather there be something than the clockwork ruin be entirely empty though s
 	melee_queue_distance = 20
 	ranged = TRUE
 	gps_name = "Clockwork Signal"
-	//IRIS EDIT CHANGE BEGIN - MEGAFAUNA_RESPAWNS
-	loot = list(
-		/obj/item/clockwork_alloy,
-		/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/clockwork_defender
-	)
-	crusher_loot = list(
-		/obj/item/clockwork_alloy,
-		/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/clockwork_defender
-	)
-	//IRIS EDIT CHANGE END
+	loot = list(/obj/item/clockwork_alloy)
+	crusher_loot = list(/obj/item/clockwork_alloy)
 	wander = FALSE
 	del_on_death = TRUE
 	death_message = "falls, quickly decaying into centuries old dust."

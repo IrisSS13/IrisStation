@@ -56,16 +56,8 @@
 	base_pixel_x = -32
 	maptext_height = 64
 	maptext_width = 64
-	//IRIS EDIT CHANGE BEGIN - MEGAFAUNA_RESPAWNS
-	crusher_loot = list(
-		/obj/structure/closet/crate/necropolis/dragon/crusher,
-		/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/drake
-	)
-	loot = list(
-		/obj/structure/closet/crate/necropolis/dragon,
-		/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/drake
-	)
-	//IRIS EDIT CHANGE END
+	crusher_loot = list(/obj/structure/closet/crate/necropolis/dragon/crusher)
+	loot = list(/obj/structure/closet/crate/necropolis/dragon)
 	butcher_results = list(/obj/item/stack/ore/diamond = 5, /obj/item/stack/sheet/sinew = 5, /obj/item/stack/sheet/bone = 30)
 	guaranteed_butcher_results = list(/obj/item/stack/sheet/animalhide/ashdrake = 10)
 	initial_language_holder = /datum/language_holder/lizard/hear_common

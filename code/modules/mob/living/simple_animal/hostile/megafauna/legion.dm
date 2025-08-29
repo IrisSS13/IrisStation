@@ -165,12 +165,7 @@
 			last_legion = FALSE
 			break
 	if(last_legion)
-		//IRIS EDIT CHANGE BEGIN - MEGAFAUNA_RESPAWNS
-		loot = list(
-			/obj/item/storm_staff,
-			/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/legion
-		)
-		//IRIS EDIT CHANGE END
+		loot = list(/obj/item/storm_staff)
 		elimination = FALSE
 	else if(prob(20)) //20% chance for sick lootz.
 //		loot = list(/obj/structure/closet/crate/necropolis/tendril) // IRIS EDIT OLD

@@ -51,16 +51,8 @@
 	achievement_type = /datum/award/achievement/boss/colossus_kill
 	crusher_achievement_type = /datum/award/achievement/boss/colossus_crusher
 	score_achievement_type = /datum/award/score/colussus_score
-	//IRIS EDIT CHANGE BEGIN - MEGAFAUNA_RESPAWNS
-	crusher_loot = list(
-		/obj/structure/closet/crate/necropolis/colossus/crusher,
-		/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/colossus
-	)
-	loot = list(
-		/obj/structure/closet/crate/necropolis/colossus,
-		/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/colossus
-	)
-	//IRIS EDIT CHANGE END
+	crusher_loot = list(/obj/structure/closet/crate/necropolis/colossus/crusher)
+	loot = list(/obj/structure/closet/crate/necropolis/colossus)
 	death_message = "disintegrates, leaving a glowing core in its wake."
 	death_sound = 'sound/effects/magic/demon_dies.ogg'
 	summon_line = "Your trial begins now."
