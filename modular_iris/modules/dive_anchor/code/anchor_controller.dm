@@ -115,4 +115,4 @@
 	prereq_ids = list(TECHWEB_NODE_CONSOLES)
 	design_ids = list("anchor_controller")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
-	announce_channels = list(RADIO_CHANNEL_CARGO)
+	announce_channels = list(RADIO_CHANNEL_SUPPLY)
