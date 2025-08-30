@@ -53,7 +53,7 @@
 
 	family_heirlooms = list(/obj/item/weldingtool/mini, /obj/item/flashlight/lantern, /obj/item/camera)
 	rpg_title = "Wanderer"
-	job_flags = STATION_JOB_FLAGS
+	job_flags = STATION_JOB_FLAGS | JOB_ANTAG_PROTECTED
 	mail_goodies = list(
 		/obj/item/flashlight/flare = 15,
 		/obj/item/tank/internals/emergency_oxygen = 5,

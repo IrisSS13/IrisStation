@@ -13,11 +13,6 @@
 
 import { perf } from 'common/perf';
 import { createAction } from 'common/redux';
-import {
-  releaseHeldKeys,
-  startKeyPassthrough,
-  stopKeyPassthrough,
-} from 'tgui-core/hotkeys';
 import type { BooleanLike } from 'tgui-core/react';
 
 import { setupDrag } from './drag';
@@ -217,8 +212,6 @@ export const backendMiddleware = (store) => {
       Byond.winset(Byond.windowId, {
         'is-visible': false,
       });
-      stopKeyPassthrough();
-      releaseHeldKeys();
       setTimeout(() => focusMap());
     }
 
@@ -245,7 +238,6 @@ export const backendMiddleware = (store) => {
       logger.log('backend/update', payload);
       // Signal renderer that we have resumed
       resumeRenderer();
-      startKeyPassthrough();
       // Setup drag
       setupDrag();
       // We schedule this for the next tick here because resizing and unhiding
@@ -368,7 +360,7 @@ export const sendAct = (action: string, payload: object = {}) => {
 
   const stringifiedPayload = JSON.stringify(payload);
   const urlSize = Object.entries({
-    type: 'act/' + action,
+    type: `act/${action}`,
     payload: stringifiedPayload,
     tgui: 1,
     windowId: Byond.windowId,
@@ -383,14 +375,14 @@ export const sendAct = (action: string, payload: object = {}) => {
     const id = `${Date.now()}`;
     globalStore?.dispatch(backendCreatePayloadQueue({ id, chunks }));
     Byond.sendMessage('oversizedPayloadRequest', {
-      type: 'act/' + action,
+      type: `act/${action}`,
       id,
       chunkCount: chunks.length,
     });
     return;
   }
 
-  Byond.sendMessage('act/' + action, payload);
+  Byond.sendMessage(`act/${action}`, payload);
 };
 
 type BackendState<TData> = {
