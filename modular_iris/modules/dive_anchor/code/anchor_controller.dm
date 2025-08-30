@@ -107,3 +107,12 @@
 		RND_CATEGORY_COMPUTER + RND_SUBCATEGORY_COMPUTER_CARGO
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_CARGO
+
+/datum/techweb_node/dive_anchors
+	id = TECHWEB_NODE_DIVE_ANCHORS
+	display_name = "Dive Anchor Controllers"
+	description = "Technology for remote control of the spatial manipulation capabilities of dive anchors."
+	prereq_ids = list(TECHWEB_NODE_CONSOLES)
+	design_ids = list("anchor_controller")
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
+	announce_channels = list(RADIO_CHANNEL_CARGO)
