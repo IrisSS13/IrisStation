@@ -14,8 +14,7 @@
 	icon_state = "rolled_poster"
 	/// List of posters which make you feel a certain type of way
 	var/static/list/pinup_posters = list(
-		/obj/structure/sign/poster/contraband/lusty_xenomorph,
-		/obj/structure/sign/poster/contraband/double_rainbow
+		/obj/structure/sign/poster/contraband/lusty_xenomorph
 	)
 
 /obj/item/poster/random_contraband/pinup/Initialize(mapload, obj/structure/sign/poster/new_poster_structure)
