@@ -12,7 +12,7 @@
 	pixel_x = -16
 	resistance_flags = FIRE_PROOF
 	light_color = LIGHT_COLOR_FIRE
-	light_angle = 170
+	light_angle = 360
 	light_flags = LIGHT_IGNORE_OFFSET
 	/// is the fireplace lit?
 	var/lit = FALSE
