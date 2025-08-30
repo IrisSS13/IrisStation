@@ -28,6 +28,10 @@ GLOBAL_LIST_EMPTY(anchors)
 	AddComponent(/datum/component/gps, "Dive Anchor")
 	set_light_on(TRUE)
 
+/obj/machinery/dive_anchor/Destroy(force)
+	. = ..()
+	GLOB.anchors -= designation
+
 /obj/machinery/dive_anchor/examine(mob/user)
 	. = ..()
 	. += span_notice("Its designation is <b>[designation]</b>.")
