@@ -20,7 +20,7 @@
 			/mob/living/simple_animal/hostile/megafauna/demonic_frost_miner,
 			/mob/living/basic/boss/thing
 		)
-		if(!is_mining_level(user.z) || (summoned_mega in ice_megas && !(user.z == 2)))
+		if(!is_mining_level(user.z) || ((summoned_mega in ice_megas) && !(user.z == 2)))
 			to_chat(user, span_warning("In this environment, the flute produces no sound."))
 			return
 		to_chat(user, span_userdanger("A terrifying rumbling portends the arrival of the summoned one..."))
