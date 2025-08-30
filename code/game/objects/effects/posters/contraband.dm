@@ -822,10 +822,3 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/jovial, 32)
 	icon_state = "rolled_poster"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/bojack, 32)
-
-/obj/structure/sign/poster/contraband/double_rainbow
-	name = "Double Rainbow"
-	desc = "It's so bright and vivid! What does this mean?"
-	icon_state = "double_rainbow"
-
-MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/double_rainbow, 32)
