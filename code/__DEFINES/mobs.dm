@@ -726,7 +726,7 @@ GLOBAL_LIST_INIT(human_heights_to_offsets, list(
 /// Mutantrace features (tail when looking south) that must appear behind the body parts
 #define BODY_BEHIND_LAYER 42 // NOVA EDIT CHANGE - ORIGINAL: #define BODY_BEHIND_LAYER 36
 /// Layer for bodyparts that should appear behind every other bodypart - Mostly, legs when facing WEST or EAST
-#define BODYPARTS_LOW_LAYER 39 // NOVA EDIT CHANGE - ORIGINAL: 34 //IRIS EDIT: this is PROBABLY a BAD idea, but i don't know how to fix polylegs otherwise, was 40
+#define BODYPARTS_LOW_LAYER 40 // NOVA EDIT CHANGE - ORIGINAL: 34 //IRIS EDIT: this is PROBABLY a BAD idea, but i don't know how to fix polylegs otherwise, make sure to keep it on the same layer as BODYPARTS_LAYER
 /// Layer for most bodyparts, appears above BODYPARTS_LOW_LAYER and below BODYPARTS_HIGH_LAYER
 #define BODYPARTS_LAYER 40 // NOVA EDIT CHANGE - ORIGINAL: #define BODYPARTS_LAYER 34
 /// Mutantrace features (snout, body markings) that must appear above the body parts
