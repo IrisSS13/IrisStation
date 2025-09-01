@@ -8,7 +8,7 @@
 	var/obj/machinery/dive_anchor/anchor
 	///Message shown in the UI after a successful or unsuccessful action
 	var/message = "Nothing to report."
-	///Coordinate values used in the UI
+	///Coordinate values used in the UI, we have to leave room for the transition zones on the space levels, hence starting at 10
 	var/ui_x = 10
 	var/ui_y = 10
 	var/ui_z = 5
