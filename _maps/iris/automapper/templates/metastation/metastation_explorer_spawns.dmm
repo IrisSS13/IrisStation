@@ -18,10 +18,8 @@
 /turf/open/floor/engine,
 /area/station/cargo/miningoffice)
 "q" = (
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/access/any/supply/mining,
 /obj/machinery/door/airlock/external{
 	name = "Exploration Office Airlock";
 	space_dir = 1
@@ -29,6 +27,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "exploration-office-airlock"
 	},
+/obj/effect/mapping_helpers/airlock/access/all/command/gateway,
 /turf/open/floor/plating,
 /area/station/cargo/miningoffice)
 "r" = (
@@ -50,10 +49,16 @@
 /turf/open/floor/engine,
 /area/station/cargo/miningoffice)
 "v" = (
-/obj/structure/cable,
 /obj/machinery/light/small/directional/north,
 /obj/machinery/atmospherics/components/unary/airlock_pump/unbolt_only,
 /turf/open/floor/plating,
+/area/station/cargo/miningoffice)
+"w" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
+/obj/effect/landmark/start/explorer,
+/obj/item/radio/intercom/chapel/directional/west,
+/turf/open/floor/engine,
 /area/station/cargo/miningoffice)
 "x" = (
 /obj/structure/cable,
@@ -87,8 +92,8 @@
 /obj/machinery/door/airlock/mining{
 	name = "Exploration Office"
 	},
-/obj/effect/mapping_helpers/airlock/access/any/supply/mining,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/all/command/gateway,
 /turf/open/floor/plating,
 /area/station/cargo/miningoffice)
 "D" = (
@@ -109,17 +114,16 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/plating,
-/area/template_noop)
+/area/station/maintenance/port/fore)
 "J" = (
-/obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
 	cycle_id = "exploration-office-airlock"
 	},
-/obj/effect/mapping_helpers/airlock/access/any/supply/mining,
 /obj/machinery/door/airlock/external{
 	name = "Exploration Office Airlock";
 	space_dir = 1
 	},
+/obj/effect/mapping_helpers/airlock/access/all/command/gateway,
 /turf/open/floor/plating,
 /area/station/cargo/miningoffice)
 "L" = (
@@ -127,15 +131,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/sign/warning/vacuum/external/directional/north,
 /turf/open/floor/plating,
-/area/template_noop)
-"N" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
-/obj/effect/landmark/start/explorer,
-/obj/item/radio/intercom/chapel/directional/west,
-/turf/open/floor/engine,
-/area/station/cargo/miningoffice)
+/area/station/maintenance/port/fore)
 "P" = (
 /turf/closed/wall,
 /area/station/cargo/miningoffice)
@@ -146,9 +142,8 @@
 "U" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
-/area/template_noop)
+/turf/closed/wall,
+/area/station/maintenance/port/fore)
 "V" = (
 /obj/effect/landmark/start/explorer,
 /turf/open/floor/engine,
@@ -165,7 +160,7 @@
 
 (1,1,1) = {"
 P
-P
+s
 P
 P
 P
@@ -179,7 +174,7 @@ a
 P
 v
 q
-N
+w
 t
 g
 P
@@ -227,7 +222,7 @@ a
 b
 b
 P
-P
+s
 P
 C
 a

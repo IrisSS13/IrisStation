@@ -159,3 +159,8 @@
 	name = "Explorer"
 	icon = 'modular_iris/master_files/icons/mob/landmarks.dmi'
 	icon_state = "Explorer"
+
+/area/station/cargo/exploration_office
+	name = "\improper Exploration Office"
+	icon = 'icons/area/areas_station.dmi'
+	icon_state = "exploration_office"
