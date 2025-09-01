@@ -1,3 +1,3 @@
 // Xen mobs
-#define isxenmob(A) (istype(A, /mob/living/simple_animal/hostile/blackmesa/xen))
+#define isxenmob(A) (istype(A, /mob/living/basic/hostile/blackmesa/xen))
 

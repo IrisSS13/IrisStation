@@ -53,7 +53,7 @@
 	/// Mobs in this list will not be affected by this grenade.
 	var/list/blacklisted_mobs = list(
 		/mob/living/basic/hostile/blackmesa/xen/gordon_freeman,
-		// /mob/living/simple_animal/hostile/blackmesa/xen/nihilanth,
+		/mob/living/basic/hostile/blackmesa/xen/nihilanth,
 	)
 
 /obj/item/grenade/xen_crystal/detonate(mob/living/lanced_by)

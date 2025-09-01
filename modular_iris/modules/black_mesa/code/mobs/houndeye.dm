@@ -199,7 +199,7 @@
  */
 /obj/effect/temp_visual/spirit_hound_charge
 	icon = 'icons/effects/effects.dmi'
-	icon_state = "electricity2"
+	icon_state = "lightning"
 	duration = 1.5 SECONDS
 	randomdir = FALSE
 	layer = BELOW_MOB_LAYER

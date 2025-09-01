@@ -30,7 +30,7 @@
 	// Mob traits
 	mob_biotypes = MOB_ORGANIC | MOB_BEAST
 	environment_smash = ENVIRONMENT_SMASH_STRUCTURES
-	basic_mob_flags = DEL_ON_DEATH | FLAMMABLE_MOB
+	basic_mob_flags = FLAMMABLE_MOB
 	unsuitable_cold_damage = 15
 	unsuitable_heat_damage = 15
 	speak_emote = list("growls")
@@ -49,7 +49,6 @@
 /mob/living/basic/hostile/blackmesa/xen/bullsquid/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/ai_listen_to_weather)
-	AddElement(/datum/element/ai_retaliate)
 	// Add ranged attack component with proper targeting
 	AddComponent(/datum/component/ranged_attacks, projectile_type = /obj/projectile/bullsquid, projectile_sound = 'modular_iris/modules/black_mesa/sound/mobs/bullsquid/goo_attack3.ogg', cooldown_time = 3 SECONDS)
 	// Make each bullsquid unique to fight each other
