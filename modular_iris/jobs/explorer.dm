@@ -162,5 +162,5 @@
 
 /area/station/cargo/exploration_office
 	name = "\improper Exploration Office"
-	icon = 'icons/area/areas_station.dmi'
+	icon = 'modular_iris/master_files/icons/areas/exploration.dmi'
 	icon_state = "exploration_office"
