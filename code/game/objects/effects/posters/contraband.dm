@@ -13,7 +13,9 @@
 	name = "random pinup poster"
 	icon_state = "rolled_poster"
 	/// List of posters which make you feel a certain type of way
-	var/static/list/pinup_posters = list(/obj/structure/sign/poster/contraband/lusty_xenomorph)
+	var/static/list/pinup_posters = list(
+		/obj/structure/sign/poster/contraband/lusty_xenomorph
+	)
 
 /obj/item/poster/random_contraband/pinup/Initialize(mapload, obj/structure/sign/poster/new_poster_structure)
 	poster_type = pick(pinup_posters)

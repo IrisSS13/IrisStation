@@ -4,7 +4,6 @@
 
 #ifndef LOWMEMORYMODE
 	#ifdef ALL_MAPS
-		#include "map_files\Birdshot\birdshot.dmm"
 		#include "map_files\debug\multiz.dmm"
 		#include "map_files\debug\runtimestation.dmm"
 		#include "map_files\Deltastation\DeltaStation2.dmm"
@@ -24,6 +23,7 @@
 		// NOVA EDIT ADDITION END
 		// IRIS EDIT START
 		#include "map_files\KiloStation\KiloStation.dmm"
+		#include "map_files\Oshan\Oshan.dmm"
 		// IRIS EDIT END
 	#endif
 	#ifdef ALL_TEMPLATES

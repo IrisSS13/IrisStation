@@ -160,7 +160,7 @@ export function ExaminePanel(props) {
                       preserveWhitespace
                       title={
                         custom_species
-                          ? 'Species: ' + custom_species
+                          ? `Species: ${custom_species}`
                           : 'No Custom Species!'
                       }
                     >

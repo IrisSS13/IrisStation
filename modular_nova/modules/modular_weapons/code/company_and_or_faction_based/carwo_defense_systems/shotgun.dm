@@ -1,8 +1,8 @@
-// SolFed shotgun (this was gonna be in a proprietary shotgun shell type outside of 12ga at some point, wild right?)
+// SolGov shotgun (this was gonna be in a proprietary shotgun shell type outside of 12ga at some point, wild right?)
 
 /obj/item/gun/ballistic/shotgun/riot/sol
 	name = "\improper M64 Shotgun"
-	desc = "A robust twelve-gauge shotgun with an eight-shell, top-mounted magazine tube. Made for and used by SolFed's various military and police forces."
+	desc = "A robust twelve-gauge shotgun with an eight-shell, top-mounted magazine tube. Made for and used by SolGov's various military and police forces."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/guns48x.dmi'
 	icon_state = "renoster"
@@ -92,7 +92,7 @@
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/shot/sol_super
 	icon_state = "renoster_super"
 	bolt_wording = "bolt"
-	lore_blurb = "The Kolben is an overhaul of the robust M64 shotgun of SolFed fame, improving on an already lethal design.<br><br>\
+	lore_blurb = "The Kolben is an overhaul of the robust M64 shotgun of SolGov fame, improving on an already lethal design.<br><br>\
 		More precisely, the Archon Combat Systems \"KOLBEN-KASUAR\" suite (as it's officially known) is an upgrade and accessory set for the M64, \
 		consisting of a hardened receiver and magazine tube, smartlink sight, hybridized handguard-smartlinked aiming module, and an integrated barrel charger \
 		providing improved ballistic performance, with an optional overclock mode tied to manual bolt actuation. \
@@ -135,10 +135,10 @@
 	else
 		..()
 
-/obj/item/gun/ballistic/shotgun/riot/sol/super/fire_sounds()
+/obj/item/gun/ballistic/shotgun/riot/sol/super/rack(mob/user)
 	. = ..()
 	if(amped)
-		playsound(src, 'sound/effects/magic/charge.ogg', 50, TRUE)
+		playsound(src, 'sound/items/weapons/kinetic_reload.ogg', 50, TRUE)
 
 /obj/item/gun/ballistic/shotgun/riot/sol/super/proc/toggle_amp(mob/user)
 	amped = !amped
@@ -159,11 +159,6 @@
 	playsound(user, 'sound/items/weapons/empty.ogg', 100, TRUE)
 	update_appearance()
 	update_item_action_buttons()
-
-/obj/item/gun/ballistic/shotgun/riot/sol/super/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
-	if(amped)
-		bonus_spread -= 25
-	return ..()
 
 /obj/item/gun/ballistic/shotgun/riot/sol/super/before_firing(atom/target, mob/user)
 	if(amped && chambered && chambered.variance > 0)
