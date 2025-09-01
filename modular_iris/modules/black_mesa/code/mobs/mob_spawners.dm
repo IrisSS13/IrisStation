@@ -8,6 +8,7 @@
 
 /mob/living/basic/hostile/blackmesa/Initialize(mapload)
 	. = ..()
+	AddElement(/datum/element/ai_retaliate)
 	if(alert_sounds)
 		RegisterSignal(src, COMSIG_AI_BLACKBOARD_KEY_SET(BB_BASIC_MOB_CURRENT_TARGET), PROC_REF(handle_alert))
 

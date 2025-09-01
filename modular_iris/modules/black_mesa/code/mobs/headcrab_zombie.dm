@@ -30,7 +30,7 @@
 
 	// Mob traits
 	mob_biotypes = MOB_ORGANIC | MOB_HUMANOID
-	basic_mob_flags = DEL_ON_DEATH
+	basic_mob_flags = NONE
 	faction = list(FACTION_XEN)
 	ai_controller = /datum/ai_controller/basic_controller/headcrab_zombie
 	gold_core_spawnable = HOSTILE_SPAWN
@@ -52,9 +52,6 @@
 	AddElement(/datum/element/wall_smasher, strength_flag = ENVIRONMENT_SMASH_STRUCTURES)
 
 /mob/living/basic/hostile/blackmesa/xen/headcrab_zombie/death(gibbed)
-	new /obj/effect/gibspawner/human(get_turf(src))
-	if(corpse_type)
-		new corpse_type(get_turf(src))
 	return ..()
 
 /**

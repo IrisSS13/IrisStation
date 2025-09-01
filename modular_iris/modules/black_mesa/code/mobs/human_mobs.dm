@@ -8,7 +8,7 @@
 	// Mob traits
 	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
 	sentience_type = SENTIENCE_HUMANOID
-	basic_mob_flags = NONE // Handle death manually for corpse spawning
+	basic_mob_flags = DEL_ON_DEATH // Handle death manually for corpse spawning
 	status_flags = CANPUSH
 
 	// Combat stats
@@ -44,15 +44,16 @@
 /mob/living/basic/hostile/blackmesa/human/death(gibbed)
 	if(!gibbed)
 		var/turf/T = get_turf(src)
-		// Clean up any components with active timers first
-		new /obj/effect/gibspawner/human(T)
+		if(T)
+			// Clean up any components with active timers first
+			new /obj/effect/gibspawner/human(T)
 
-		if(prob(corpse_chance) && corpse)
-			new corpse(T)
+			if(prob(corpse_chance) && corpse)
+				new corpse(T)
 
-		// Clean up any casings at our feet
-		for(var/obj/item/ammo_casing/casing in T)
-			qdel(casing)
+			// Clean up any casings at our feet
+			for(var/obj/item/ammo_casing/casing in T)
+				qdel(casing)
 
 		qdel(src)
 		return

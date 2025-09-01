@@ -25,7 +25,7 @@
 
 	// Mob traits
 	mob_biotypes = MOB_ORGANIC | MOB_BEAST
-	basic_mob_flags = DEL_ON_DEATH
+	basic_mob_flags = NONE
 	ai_controller = /datum/ai_controller/basic_controller/headcrab
 
 	// Movement
@@ -150,7 +150,7 @@
 
 	// Mob traits
 	mob_biotypes = MOB_ORGANIC | MOB_HUMANOID
-	basic_mob_flags = DEL_ON_DEATH
+	basic_mob_flags = NONE
 	faction = list(FACTION_XEN)
 	ai_controller = /datum/ai_controller/basic_controller/zombie_headcrab
 

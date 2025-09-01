@@ -26,7 +26,7 @@
 	// Movement
 	speed = -2
 	ai_controller = /datum/ai_controller/basic_controller/gordon_freeman
-	basic_mob_flags = NONE
+	basic_mob_flags = DEL_ON_DEATH
 
 	// Boss properties
 	environment_smash = ENVIRONMENT_SMASH_RWALLS
@@ -66,14 +66,15 @@
 
 	// Handle death drops
 	var/turf/T = get_turf(src)
-	for(var/item_type in butcher_results)
-		var/amount = butcher_results[item_type]
-		for(var/i in 1 to amount)
-			new item_type(T)
+	if(T)
+		for(var/item_type in butcher_results)
+			var/amount = butcher_results[item_type]
+			for(var/i in 1 to amount)
+				new item_type(T)
 
-	// Create death effect
-	T.visible_message(span_warning("[src] violently dissolves into a pile of flesh!"))
-	new /obj/effect/gibspawner/generic(T)
+		// Create death effect
+		T.visible_message(span_warning("[src] violently dissolves into a pile of flesh!"))
+		new /obj/effect/gibspawner/generic(T)
 
 	// Clean up the mob
 	qdel(src)
