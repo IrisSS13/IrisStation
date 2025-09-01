@@ -122,44 +122,6 @@
 		)), 100)
 	return ..()
 
-/**
- * Headcrab Zombie (/mob/living/basic/blackmesa/xen/zombie_headcrab)
- * A zombified human controlled by a headcrab.
- */
-/mob/living/basic/blackmesa/xen/zombie_headcrab
-	name = "zombie"
-	desc = "A shambling corpse animated by a headcrab!"
-	icon = 'modular_iris/modules/black_mesa/icons/mobs.dmi'
-	icon_state = "headcrab_zombie"
-	base_icon_state = "headcrab_zombie"
-
-	// Health and combat
-	maxHealth = 100
-	health = 100
-	melee_damage_lower = 15
-	melee_damage_upper = 20
-	obj_damage = 21
-	combat_mode = TRUE  // Always aggressive
-
-	// Movement and behavior
-	speed = 2
-	move_force = MOVE_FORCE_STRONG  // Stronger than headcrabs
-	move_resist = MOVE_FORCE_STRONG
-	pull_force = MOVE_FORCE_STRONG
-
-	// Mob traits
-	mob_biotypes = MOB_ORGANIC | MOB_HUMANOID
-	basic_mob_flags = NONE
-	faction = list(FACTION_XEN)
-	ai_controller = /datum/ai_controller/basic_controller/zombie_headcrab
-
-	/// The human that was zombified
-	var/mob/living/carbon/human/zombified_human = null
-
-/mob/living/basic/blackmesa/xen/zombie_headcrab/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/wall_smasher, strength_flag = ENVIRONMENT_SMASH_STRUCTURES)
-
 /// Transforms a human into a headcrab zombie
 /mob/living/basic/blackmesa/xen/headcrab/proc/zombify(mob/living/carbon/human/target_human)
 	// Sanity checks
@@ -167,9 +129,8 @@
 		return FALSE
 
 	// Create the zombie at our location
-	var/mob/living/basic/blackmesa/xen/zombie_headcrab/new_zombie = new(get_turf(src))
+	var/mob/living/basic/blackmesa/xen/headcrab_zombie/new_zombie = new(get_turf(src))
 	new_zombie.name = "[target_human.name] zombie"
-	new_zombie.zombified_human = target_human
 
 	// Copy the human's appearance
 	target_human.set_hairstyle(null, update = FALSE)
@@ -182,6 +143,7 @@
 
 	// Store the human inside the zombie
 	target_human.forceMove(new_zombie)
+	new_zombie.zombified_human = target_human
 
 	// If they have armor, apply it to the zombie
 	var/obj/item/clothing/suit/armor/zombie_suit = target_human.wear_suit
@@ -196,20 +158,6 @@
 	// Delete the original headcrab
 	qdel(src)
 	return TRUE
-
-/mob/living/basic/blackmesa/xen/zombie_headcrab/death(gibbed)
-	if(!gibbed && prob(30))
-		new /mob/living/basic/blackmesa/xen/headcrab(loc) // Headcrab detaches and survives!
-	if(zombified_human)
-		zombified_human.forceMove(get_turf(src))
-		zombified_human = null
-	return ..()
-
-/mob/living/basic/blackmesa/xen/zombie_headcrab/Destroy()
-	if(zombified_human)
-		zombified_human.forceMove(get_turf(src))
-		zombified_human = null
-	return ..()
 
 /datum/ai_controller/basic_controller/headcrab
 	blackboard = list(
@@ -226,22 +174,6 @@
 		/datum/ai_planning_subtree/target_retaliate,
 		/datum/ai_planning_subtree/simple_find_target,
 		/datum/ai_planning_subtree/headcrab_hunt
-	)
-
-/datum/ai_controller/basic_controller/zombie_headcrab
-	blackboard = list(
-		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
-		BB_BASIC_MOB_CURRENT_TARGET = null,
-		BB_BASIC_MOB_CURRENT_TARGET_HIDING = FALSE,
-		BB_TARGET_MINIMUM_STAT = HARD_CRIT
-	)
-
-	ai_movement = /datum/ai_movement/basic_avoidance
-	idle_behavior = /datum/idle_behavior/idle_random_walk
-	planning_subtrees = list(
-		/datum/ai_planning_subtree/simple_find_target,
-		/datum/ai_planning_subtree/basic_melee_attack_subtree,
-		/datum/ai_planning_subtree/target_retaliate
 	)
 
 /// Handles the headcrab's hunting behavior, trying to leap at targets when in range

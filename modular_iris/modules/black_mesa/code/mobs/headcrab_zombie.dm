@@ -37,6 +37,8 @@
 
 	/// What type of corpse to spawn when this zombie dies
 	var/corpse_type = null
+	/// The human that was zombified (for freeing on death)
+	var/mob/living/carbon/human/zombified_human = null
 	// Alert Sound System - Inherited from /mob/living/basic/blackmesa
 	alert_sounds = list(
 		'modular_iris/modules/black_mesa/sound/mobs/zombies/alert1.ogg',
@@ -52,6 +54,17 @@
 	AddElement(/datum/element/wall_smasher, strength_flag = ENVIRONMENT_SMASH_STRUCTURES)
 
 /mob/living/basic/blackmesa/xen/headcrab_zombie/death(gibbed)
+	if(!gibbed && prob(30))
+		new /mob/living/basic/blackmesa/xen/headcrab(loc) // Headcrab detaches and survives!
+	if(zombified_human)
+		zombified_human.forceMove(get_turf(src))
+		zombified_human = null
+	return ..()
+
+/mob/living/basic/blackmesa/xen/headcrab_zombie/Destroy()
+	if(zombified_human)
+		zombified_human.forceMove(get_turf(src))
+		zombified_human = null
 	return ..()
 
 /**
