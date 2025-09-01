@@ -81,9 +81,9 @@
 	var/mob/living/hit_mob = hit_atom
 
 	// More damage if we hit them at high speed
-	var/damage = 15
+	var/damage = 8
 	if(throwingdatum.speed >= 3)
-		damage = 20
+		damage = 12
 
 	hit_mob.apply_damage(damage, BRUTE)
 
@@ -100,7 +100,7 @@
 	// Check for head protection on unconscious targets
 	var/obj/item/clothing/head/head_protection = human_target.get_item_by_slot(ITEM_SLOT_HEAD)
 	if(head_protection)
-		head_protection.take_damage(25)
+		head_protection.take_damage(15)
 		return
 
 	// Zombify unprotected unconscious targets
