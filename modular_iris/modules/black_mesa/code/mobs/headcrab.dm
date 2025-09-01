@@ -58,7 +58,6 @@
 /mob/living/basic/hostile/blackmesa/xen/headcrab/Initialize(mapload)
 	. = ..()
 	RegisterSignal(src, COMSIG_MOVABLE_IMPACT, PROC_REF(handle_impact))
-	AddElement(/datum/element/ai_retaliate)
 	ai_controller.set_blackboard_key(BB_TARGET_MINIMUM_STAT, HARD_CRIT) // Allow targeting unconscious people
 
 /// Execute the jump after the telegraph

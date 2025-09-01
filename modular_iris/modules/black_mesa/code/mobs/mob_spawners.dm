@@ -29,9 +29,11 @@
 	unsuitable_heat_damage = 15
 	habitable_atmos = null  // Can survive in any atmos
 
-	/// Track if we're shielded by pylons
+	/// Can we be shielded by pylons?
+	var/can_be_shielded = TRUE
+	/// If we have support pylons, this is true.
 	var/shielded = FALSE
-	/// Number of pylons shielding us
+	/// How many shields we have protecting us
 	var/shield_count = 0
 
 #define MOB_PLACER_RANGE 16 // One more tile than the biggest viewrange we have.
