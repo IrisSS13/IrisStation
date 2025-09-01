@@ -79,3 +79,6 @@
 #define CAT_ENTERTAINMENT "Entertainment"
 #define CAT_TOOLS "Tools"
 #define CAT_CULT "Blood Cult"
+// iris edit
+#define CAT_MAGIC "Magic"
+// iris edit end
