@@ -18,7 +18,7 @@
 		var/processor_flags = human_processor.dna.species.reagent_flags
 
 		// SYNTHETIC-oriented reagents require PROCESS_SYNTHETIC or a synth liver
-		if((reagent.process_flags & REAGENT_SYNTHETIC))
+		if((reagent.process_flags & REAGENT_SYNTHETIC | REAGENT_PROTEAN)) //We'll assume that non-human mobs lack the ability to process synthetic/protean-oriented reagents (adjust this if we need to change that assumption)
 			// SYNTHETIC-oriented neuroware can't affect organic brains, unless they have a nif
 			if(reagent.chemical_flags & REAGENT_NEUROWARE)
 				var/obj/item/organ/brain/owner_brain = human_processor.get_organ_slot(ORGAN_SLOT_BRAIN)
@@ -48,6 +48,7 @@
 			var/obj/item/organ/liver/owner_liver = human_processor.get_organ_slot(ORGAN_SLOT_LIVER)
 			if(!istype(owner_liver, /obj/item/organ/liver/synth))
 				return TRUE
-
+			if(processor_flags & (PROCESS_PROTEAN)) //iris edit - protean
+				return TRUE
 		return FALSE
 	return TRUE
