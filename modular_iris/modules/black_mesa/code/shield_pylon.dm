@@ -59,7 +59,7 @@
 		return
 	register_mob(entered_xen_mob)
 
-/obj/structure/xen_pylon/proc/register_mob(mob/living/basic/hostile/blackmesa/xen/mob_to_register)
+/obj/structure/xen_pylon/proc/register_mob(mob/living/basic/blackmesa/xen/mob_to_register)
 	if(mob_to_register in shielded_mobs)
 		return
 	if(!istype(mob_to_register))

@@ -84,7 +84,7 @@
 	shield_range = 30
 	max_integrity = 300
 
-/obj/structure/xen_pylon/freeman/register_mob(mob/living/basic/hostile/blackmesa/xen/mob_to_register)
+/obj/structure/xen_pylon/freeman/register_mob(mob/living/basic/blackmesa/xen/mob_to_register)
 	if(!istype(mob_to_register, /mob/living/basic/blackmesa/xen/gordon_freeman))
 		return FALSE
 	if(mob_to_register in shielded_mobs)

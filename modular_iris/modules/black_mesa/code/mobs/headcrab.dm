@@ -61,7 +61,7 @@
 	ai_controller.set_blackboard_key(BB_TARGET_MINIMUM_STAT, HARD_CRIT) // Allow targeting unconscious people
 
 /// Execute the jump after the telegraph
-/datum/ai_planning_subtree/headcrab_hunt/proc/execute_jump(mob/living/basic/hostile/blackmesa/xen/headcrab/jumper, atom/target, distance, speed)
+/datum/ai_planning_subtree/headcrab_hunt/proc/execute_jump(mob/living/basic/blackmesa/xen/headcrab/jumper, atom/target, distance, speed)
 	if(QDELETED(jumper) || QDELETED(target))
 		return
 

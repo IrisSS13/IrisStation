@@ -110,7 +110,7 @@
 /**
  * Check if we can use sonic blast on the target
  */
-/datum/ai_behavior/basic_melee_attack/houndeye/proc/can_sonic_blast(mob/living/basic/hostile/blackmesa/xen/houndeye/living_pawn, atom/target)
+/datum/ai_behavior/basic_melee_attack/houndeye/proc/can_sonic_blast(mob/living/basic/blackmesa/xen/houndeye/living_pawn, atom/target)
 	if(!isliving(target))
 		return FALSE
 
@@ -122,7 +122,7 @@
 /**
  * Perform the sonic blast attack
  */
-/datum/ai_behavior/basic_melee_attack/houndeye/proc/do_sonic_blast(mob/living/basic/hostile/blackmesa/xen/houndeye/living_pawn, atom/target)
+/datum/ai_behavior/basic_melee_attack/houndeye/proc/do_sonic_blast(mob/living/basic/blackmesa/xen/houndeye/living_pawn, atom/target)
 	// Start charging and prevent movement
 	living_pawn.face_atom(target)
 	living_pawn.set_anchored(TRUE)
@@ -143,7 +143,7 @@
 /**
  * Helper proc to reset movement restrictions
  */
-/datum/ai_behavior/basic_melee_attack/houndeye/proc/reset_movement(mob/living/basic/hostile/blackmesa/xen/houndeye/living_pawn)
+/datum/ai_behavior/basic_melee_attack/houndeye/proc/reset_movement(mob/living/basic/blackmesa/xen/houndeye/living_pawn)
 	if(QDELETED(living_pawn))
 		return
 	living_pawn.set_anchored(FALSE)
@@ -152,7 +152,7 @@
 /**
  * Release the charged up sonic blast
  */
-/datum/ai_behavior/basic_melee_attack/houndeye/proc/release_sonic_blast(mob/living/basic/hostile/blackmesa/xen/houndeye/living_pawn, atom/target)
+/datum/ai_behavior/basic_melee_attack/houndeye/proc/release_sonic_blast(mob/living/basic/blackmesa/xen/houndeye/living_pawn, atom/target)
 	if(QDELETED(living_pawn) || QDELETED(target))
 		return
 
