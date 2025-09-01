@@ -132,7 +132,6 @@
 		"blast",
 		"ignition",
 		"big_manipulator",
-		"tile_sprayer",
 		"airlock_painter",
 		"decal_painter",
 		"rwd",
