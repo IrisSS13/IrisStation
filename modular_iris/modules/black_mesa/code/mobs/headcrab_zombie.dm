@@ -34,6 +34,7 @@
 	faction = list(FACTION_XEN)
 	ai_controller = /datum/ai_controller/basic_controller/headcrab_zombie
 	gold_core_spawnable = HOSTILE_SPAWN
+	can_be_shielded = FALSE  // Zombies are corrupted humans, not true Xen allies
 
 	/// What type of corpse to spawn when this zombie dies
 	var/corpse_type = null

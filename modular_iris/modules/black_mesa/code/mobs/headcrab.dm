@@ -36,6 +36,7 @@
 	pixel_x = -8
 	base_pixel_x = -8
 	faction = list(FACTION_XEN) // Friendly to other Xen creatures
+	can_be_shielded = FALSE  // Headcrabs don't use shield pylons
 
 	// Spawning and loot
 	gold_core_spawnable = HOSTILE_SPAWN
