@@ -1,4 +1,4 @@
-/mob/living/basic/hostile/blackmesa/xen/houndeye
+/mob/living/basic/blackmesa/xen/houndeye
 	name = "houndeye"
 	desc = "Some highly aggressive alien creature that attacks using sonic waves."
 	icon = 'modular_iris/modules/black_mesa/icons/mobs.dmi'
@@ -87,7 +87,7 @@
 	required_distance = 5
 
 /datum/ai_behavior/basic_melee_attack/houndeye/perform(seconds_per_tick, datum/ai_controller/controller, target_key, targetting_datum_key, hiding_location_key)
-	var/mob/living/basic/hostile/blackmesa/xen/houndeye/living_pawn = controller.pawn
+	var/mob/living/basic/blackmesa/xen/houndeye/living_pawn = controller.pawn
 	var/atom/target = controller.blackboard[target_key]
 
 	if(QDELETED(target))

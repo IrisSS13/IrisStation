@@ -4,7 +4,7 @@
  * A massive floating entity that serves as the master of the Xen forces.
  * Uses powerful ranged attacks and becomes more desperate as its health decreases.
  */
-/mob/living/basic/hostile/blackmesa/xen/nihilanth
+/mob/living/basic/blackmesa/xen/nihilanth
 	name = "nihilanth"
 	desc = "Holy shit."
 	COOLDOWN_DECLARE(voice_cooldown)
@@ -67,7 +67,7 @@
 	hitsound_wall = 'sound/items/weapons/effects/searwall.ogg'
 	nondirectional_sprite = TRUE
 
-/mob/living/basic/hostile/blackmesa/xen/nihilanth/Initialize(mapload)
+/mob/living/basic/blackmesa/xen/nihilanth/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_IMMOBILIZED, INNATE_TRAIT) // Prevent unnecessary movement processing
 	ADD_TRAIT(src, TRAIT_NO_FLOATING_ANIM, INNATE_TRAIT) // Prevent unnecessary animation processing
@@ -84,14 +84,14 @@
 	update_appearance(UPDATE_ICON)
 
 /// Called when nihilanth dies - play death sound
-/mob/living/basic/hostile/blackmesa/xen/nihilanth/proc/on_death(datum/source)
+/mob/living/basic/blackmesa/xen/nihilanth/proc/on_death(datum/source)
 	SIGNAL_HANDLER
 	playsound(src, pick(list(
 		'modular_iris/modules/black_mesa/sound/mobs/nihilanth/nihilanth_pain01.ogg',
 		'modular_iris/modules/black_mesa/sound/mobs/nihilanth/nihilanth_freeeemmaan01.ogg'
 	)), 100)
 
-/mob/living/basic/hostile/blackmesa/xen/nihilanth/adjustBruteLoss(amount, updating_health = TRUE, forced = FALSE, required_bodytype)
+/mob/living/basic/blackmesa/xen/nihilanth/adjustBruteLoss(amount, updating_health = TRUE, forced = FALSE, required_bodytype)
 	. = ..()
 	if(amount <= 0 || !COOLDOWN_FINISHED(src, voice_cooldown))  // Don't play sounds for healing or during cooldown
 		return

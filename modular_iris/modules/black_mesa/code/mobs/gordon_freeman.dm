@@ -6,7 +6,7 @@
  * Once destroyed, the shield falls, and the mob can be killed.
  */
 
-/mob/living/basic/hostile/blackmesa/xen/gordon_freeman
+/mob/living/basic/blackmesa/xen/gordon_freeman
 	name = "\improper Gordon Freeman"
 	desc = "Gordon Freeman in the flesh. Or in the zombified form, it seems."
 	icon = 'modular_iris/modules/black_mesa/icons/mobs.dmi'
@@ -38,13 +38,13 @@
 		/obj/item/keycard/freeman_boss_exit = 1
 	)
 
-/mob/living/basic/hostile/blackmesa/xen/gordon_freeman/Initialize(mapload)
+/mob/living/basic/blackmesa/xen/gordon_freeman/Initialize(mapload)
 	. = ..()
 	if(mapload)
 		find_and_register_pylons()
 
 /// Finds all pylons in range and registers with them
-/mob/living/basic/hostile/blackmesa/xen/gordon_freeman/proc/find_and_register_pylons()
+/mob/living/basic/blackmesa/xen/gordon_freeman/proc/find_and_register_pylons()
 	var/found_pylons = 0
 	for(var/obj/structure/xen_pylon/freeman/pylon in orange(30, src))
 		if(pylon.register_mob(src))
@@ -53,13 +53,13 @@
 		stack_trace("[src] failed to find any pylons on initialization")
 
 /// Update our appearance when shield status changes
-/mob/living/basic/hostile/blackmesa/xen/gordon_freeman/update_overlays()
+/mob/living/basic/blackmesa/xen/gordon_freeman/update_overlays()
 	. = ..()
 	if(!shielded)
 		return
 	. += mutable_appearance(icon, "gordon_freeman_shield", layer = ABOVE_MOB_LAYER)
 
-/mob/living/basic/hostile/blackmesa/xen/gordon_freeman/death(gibbed)
+/mob/living/basic/blackmesa/xen/gordon_freeman/death(gibbed)
 	// Cleanup shield effects and beams
 	shielded = FALSE
 	shield_count = 0
@@ -85,7 +85,7 @@
 	max_integrity = 300
 
 /obj/structure/xen_pylon/freeman/register_mob(mob/living/basic/hostile/blackmesa/xen/mob_to_register)
-	if(!istype(mob_to_register, /mob/living/basic/hostile/blackmesa/xen/gordon_freeman))
+	if(!istype(mob_to_register, /mob/living/basic/blackmesa/xen/gordon_freeman))
 		return FALSE
 	if(mob_to_register in shielded_mobs)
 		return FALSE
@@ -143,7 +143,7 @@
 
 /obj/effect/freeman_blocker/CanPass(atom/blocker, movement_dir, blocker_opinion)
 	. = ..()
-	if(istype(blocker, /mob/living/basic/hostile/blackmesa/xen/gordon_freeman))
+	if(istype(blocker, /mob/living/basic/blackmesa/xen/gordon_freeman))
 		return FALSE
 	return TRUE
 

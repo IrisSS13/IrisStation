@@ -1,5 +1,5 @@
 /**
- * Headcrab (/mob/living/basic/hostile/blackmesa/xen/headcrab)
+ * Headcrab (/mob/living/basic/blackmesa/xen/headcrab)
  * Parasitic alien that jumps at targets and can zombify humans.
  *
  * A classic Half-Life enemy that uses jumping attacks and can turn humans into zombies.
@@ -7,7 +7,7 @@
  * - Can zombify unprotected humans on headshot
  * - Detaches from zombies on death with a chance to survive
  */
-/mob/living/basic/hostile/blackmesa/xen/headcrab
+/mob/living/basic/blackmesa/xen/headcrab
 	name = "headcrab"
 	desc = "Don't let it latch onto your hea-... hey, that's kinda cool."
 	icon = 'modular_iris/modules/black_mesa/icons/mobs.dmi'
@@ -52,10 +52,10 @@
 	/// Track if we've attached to a human, to prevent multiple zombifications
 	var/is_zombie = FALSE
 
-/mob/living/basic/hostile/blackmesa/xen/headcrab
+/mob/living/basic/blackmesa/xen/headcrab
 	alert_sounds = list('modular_iris/modules/black_mesa/sound/mobs/headcrab/alert1.ogg')
 
-/mob/living/basic/hostile/blackmesa/xen/headcrab/Initialize(mapload)
+/mob/living/basic/blackmesa/xen/headcrab/Initialize(mapload)
 	. = ..()
 	RegisterSignal(src, COMSIG_MOVABLE_IMPACT, PROC_REF(handle_impact))
 	ai_controller.set_blackboard_key(BB_TARGET_MINIMUM_STAT, HARD_CRIT) // Allow targeting unconscious people
@@ -70,7 +70,7 @@
 	jumper.throw_at(target, distance, speed, jumper, TRUE, TRUE, null, 0.1, FALSE, spin_speed)
 
 /// Handle leap impacts
-/mob/living/basic/hostile/blackmesa/xen/headcrab/proc/handle_impact(datum/source, atom/hit_atom, datum/thrownthing/throwingdatum)
+/mob/living/basic/blackmesa/xen/headcrab/proc/handle_impact(datum/source, atom/hit_atom, datum/thrownthing/throwingdatum)
 	SIGNAL_HANDLER
 	if(!hit_atom || stat == DEAD)
 		return
@@ -113,7 +113,7 @@
 		human_target.investigate_log("was zombified by [src] while unconscious.", INVESTIGATE_DEATHS)
 		human_target.death(FALSE)
 
-/mob/living/basic/hostile/blackmesa/xen/headcrab/death(gibbed)
+/mob/living/basic/blackmesa/xen/headcrab/death(gibbed)
 	// Handle death sound if not gibbed
 	if(!gibbed)
 		playsound(src, pick(list(
@@ -123,10 +123,10 @@
 	return ..()
 
 /**
- * Headcrab Zombie (/mob/living/basic/hostile/blackmesa/xen/zombie_headcrab)
+ * Headcrab Zombie (/mob/living/basic/blackmesa/xen/zombie_headcrab)
  * A zombified human controlled by a headcrab.
  */
-/mob/living/basic/hostile/blackmesa/xen/zombie_headcrab
+/mob/living/basic/blackmesa/xen/zombie_headcrab
 	name = "zombie"
 	desc = "A shambling corpse animated by a headcrab!"
 	icon = 'modular_iris/modules/black_mesa/icons/mobs.dmi'
@@ -156,18 +156,18 @@
 	/// The human that was zombified
 	var/mob/living/carbon/human/zombified_human = null
 
-/mob/living/basic/hostile/blackmesa/xen/zombie_headcrab/Initialize(mapload)
+/mob/living/basic/blackmesa/xen/zombie_headcrab/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/wall_smasher, strength_flag = ENVIRONMENT_SMASH_STRUCTURES)
 
 /// Transforms a human into a headcrab zombie
-/mob/living/basic/hostile/blackmesa/xen/headcrab/proc/zombify(mob/living/carbon/human/target_human)
+/mob/living/basic/blackmesa/xen/headcrab/proc/zombify(mob/living/carbon/human/target_human)
 	// Sanity checks
 	if(is_zombie || !target_human)
 		return FALSE
 
 	// Create the zombie at our location
-	var/mob/living/basic/hostile/blackmesa/xen/zombie_headcrab/new_zombie = new(get_turf(src))
+	var/mob/living/basic/blackmesa/xen/zombie_headcrab/new_zombie = new(get_turf(src))
 	new_zombie.name = "[target_human.name] zombie"
 	new_zombie.zombified_human = target_human
 
@@ -197,15 +197,15 @@
 	qdel(src)
 	return TRUE
 
-/mob/living/basic/hostile/blackmesa/xen/zombie_headcrab/death(gibbed)
+/mob/living/basic/blackmesa/xen/zombie_headcrab/death(gibbed)
 	if(!gibbed && prob(30))
-		new /mob/living/basic/hostile/blackmesa/xen/headcrab(loc) // Headcrab detaches and survives!
+		new /mob/living/basic/blackmesa/xen/headcrab(loc) // Headcrab detaches and survives!
 	if(zombified_human)
 		zombified_human.forceMove(get_turf(src))
 		zombified_human = null
 	return ..()
 
-/mob/living/basic/hostile/blackmesa/xen/zombie_headcrab/Destroy()
+/mob/living/basic/blackmesa/xen/zombie_headcrab/Destroy()
 	if(zombified_human)
 		zombified_human.forceMove(get_turf(src))
 		zombified_human = null
@@ -286,7 +286,7 @@
 		addtimer(CALLBACK(src, PROC_REF(execute_jump), living_pawn, target, distance, jump_speed), 0.3 SECONDS)
 
 /**
- * Fast Headcrab (/mob/living/basic/hostile/blackmesa/xen/headcrab/fast)
+ * Fast Headcrab (/mob/living/basic/blackmesa/xen/headcrab/fast)
  * A variant of the standard headcrab that moves significantly faster.
  *
  * This version appears in later stages of Half-Life and represents a more dangerous variant.
@@ -294,6 +294,6 @@
  * - Same jumping and zombification mechanics
  * - More dangerous due to increased mobility
  */
-/mob/living/basic/hostile/blackmesa/xen/headcrab/fast
+/mob/living/basic/blackmesa/xen/headcrab/fast
 	speed = -2
 	desc = "Don't let it latch onto your hea-... hey, that's kinda cool. This one looks faster than usual."

@@ -1,12 +1,12 @@
 /**
- * Bullsquid (/mob/living/basic/hostile/blackmesa/xen/bullsquid)
+ * Bullsquid (/mob/living/basic/blackmesa/xen/bullsquid)
  * An aggressive alien creature from Xen that uses both melee and ranged attacks.
  *
  * A hostile mob that switches between biting nearby targets and spitting acid at distant ones.
  * Uses standard melee attacks when adjacent and acid spit when at range.
  * Each bullsquid is hostile to other bullsquids, creating organic free-for-all combat.
  */
-/mob/living/basic/hostile/blackmesa/xen/bullsquid
+/mob/living/basic/blackmesa/xen/bullsquid
 	name = "bullsquid"
 	desc = "Some highly aggressive alien creature. Thrives in toxic environments."
 	icon = 'modular_iris/modules/black_mesa/icons/mobs.dmi'
@@ -46,7 +46,7 @@
 		'modular_iris/modules/black_mesa/sound/mobs/bullsquid/detect3.ogg'
 	)
 
-/mob/living/basic/hostile/blackmesa/xen/bullsquid/Initialize(mapload)
+/mob/living/basic/blackmesa/xen/bullsquid/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/ai_listen_to_weather)
 	// Add ranged attack component with proper targeting
@@ -86,7 +86,7 @@
 	if(!target)
 		return
 
-	var/mob/living/basic/hostile/blackmesa/xen/bullsquid/pawn = controller.pawn
+	var/mob/living/basic/blackmesa/xen/bullsquid/pawn = controller.pawn
 	if(QDELETED(pawn))
 		return
 

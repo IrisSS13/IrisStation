@@ -4,7 +4,7 @@
  */
 
 /// Base type for all Black Mesa human NPCs
-/mob/living/basic/hostile/blackmesa/human
+/mob/living/basic/blackmesa/human
 	// Mob traits
 	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
 	sentience_type = SENTIENCE_HUMANOID
@@ -41,7 +41,7 @@
 	var/obj/item/r_hand
 
 
-/mob/living/basic/hostile/blackmesa/human/death(gibbed)
+/mob/living/basic/blackmesa/human/death(gibbed)
 	if(!gibbed)
 		var/turf/T = get_turf(src)
 		if(T)
@@ -57,12 +57,9 @@
 
 		qdel(src)
 		return
-	return ..()/**
- * HECU
- */
+	return ..()
 
-/// Base type for HECU troops
-/mob/living/basic/hostile/blackmesa/human/hecu
+/mob/living/basic/blackmesa/human/hecu
 	name = "HECU Grunt"
 	desc = "I didn't sign on for this shit. Monsters, sure, but civilians? Who ordered this operation anyway?"
 	icon = 'modular_iris/modules/black_mesa/icons/mobs.dmi'
@@ -89,14 +86,14 @@
 	)
 
 
-/mob/living/basic/hostile/blackmesa/human/hecu/ranged
+/mob/living/basic/blackmesa/human/hecu/ranged
 	icon_state = "hecu_ranged"
 	icon_living = "hecu_ranged"
 	ai_controller = /datum/ai_controller/basic_controller/hecu/ranged
 	corpse = /obj/effect/mob_spawn/corpse/human/hecu_ranged
 	r_hand = /obj/item/gun/ballistic/automatic/pistol/deagle
 
-/mob/living/basic/hostile/blackmesa/human/hecu/ranged/Initialize(mapload)
+/mob/living/basic/blackmesa/human/hecu/ranged/Initialize(mapload)
 	. = ..()
 	AddComponent(\
 		/datum/component/ranged_attacks,\
@@ -106,14 +103,14 @@
 		burst_shots = 1\
 	)
 
-/mob/living/basic/hostile/blackmesa/human/hecu/ranged/smg
+/mob/living/basic/blackmesa/human/hecu/ranged/smg
 	icon_state = "hecu_ranged_smg"
 	icon_living = "hecu_ranged_smg"
 	ai_controller = /datum/ai_controller/basic_controller/hecu/ranged
 	corpse = /obj/effect/mob_spawn/corpse/human/hecu_smg
 	r_hand = /obj/item/gun/ballistic/automatic/c20r
 
-/mob/living/basic/hostile/blackmesa/human/hecu/ranged/smg/Initialize(mapload)
+/mob/living/basic/blackmesa/human/hecu/ranged/smg/Initialize(mapload)
 	. = ..()
 	// Override parent's pistol component with SMG settings
 	qdel(GetComponent(/datum/component/ranged_attacks))
@@ -121,11 +118,11 @@
 		/datum/component/ranged_attacks,\
 		casing_type = /obj/item/ammo_casing/c45,\
 		projectile_sound = 'sound/items/weapons/gun/smg/shot.ogg',\
-		cooldown_time = 5 SECONDS,\
+		cooldown_time = 3 SECONDS,\
 		burst_shots = 3\
 	)
 
-/mob/living/basic/hostile/blackmesa/human/sec
+/mob/living/basic/blackmesa/human/sec
 	name = "Security Guard"
 	desc = "About that beer I owe'd ya!"
 	icon = 'modular_iris/modules/black_mesa/icons/mobs.dmi'
@@ -143,7 +140,6 @@
 	alert_sounds = list(
 		'modular_iris/modules/black_mesa/sound/mobs/security_guard/annoyance01.ogg',
 		'modular_iris/modules/black_mesa/sound/mobs/security_guard/annoyance02.ogg',
-		'modular_iris/modules/black_mesa/sound/mobs/security_guard/annoyance02.ogg',
 		'modular_iris/modules/black_mesa/sound/mobs/security_guard/annoyance03.ogg',
 		'modular_iris/modules/black_mesa/sound/mobs/security_guard/annoyance04.ogg',
 		'modular_iris/modules/black_mesa/sound/mobs/security_guard/annoyance05.ogg',
@@ -154,26 +150,24 @@
 		'modular_iris/modules/black_mesa/sound/mobs/security_guard/annoyance10.ogg'
 	)
 
-
-
-/mob/living/basic/hostile/blackmesa/human/sec/ranged
+/mob/living/basic/blackmesa/human/sec/ranged
 	icon_state = "security_guard_ranged"
 	icon_living = "security_guard_ranged"
 	ai_controller = /datum/ai_controller/basic_controller/sec/ranged
 	corpse = /obj/effect/mob_spawn/corpse/human/security_guard/ranged
 	r_hand = /obj/item/gun/ballistic/automatic/pistol/sol
 
-/mob/living/basic/hostile/blackmesa/human/sec/ranged/Initialize(mapload)
+/mob/living/basic/blackmesa/human/sec/ranged/Initialize(mapload)
 	. = ..()
 	AddComponent(\
 		/datum/component/ranged_attacks,\
-		casing_type = /obj/item/ammo_casing/c40sol,\
+		casing_type = /obj/item/ammo_casing/c35sol,\
 		projectile_sound = 'sound/items/weapons/gun/pistol/shot.ogg',\
 		cooldown_time = 5 SECONDS,\
 		burst_shots = 1\
 	)
 
-/mob/living/basic/hostile/blackmesa/human/blackops
+/mob/living/basic/blackmesa/human/blackops
 	name = "black operative"
 	desc = "Why do we always have to clean up a mess the grunts can't handle?"
 	icon = 'modular_iris/modules/black_mesa/icons/mobs.dmi'
@@ -203,7 +197,7 @@
 	)
 
 
-/mob/living/basic/hostile/blackmesa/human/blackops/ranged
+/mob/living/basic/blackmesa/human/blackops/ranged
 	icon_state = "blackops_ranged"
 	icon_living = "blackops_ranged"
 	ai_controller = /datum/ai_controller/basic_controller/blackops/ranged
@@ -211,14 +205,14 @@
 	corpse = /obj/effect/mob_spawn/corpse/human/black_ops/ranged
 	r_hand = /obj/item/gun/ballistic/automatic/sol_rifle
 
-/mob/living/basic/hostile/blackmesa/human/blackops/ranged/Initialize(mapload)
+/mob/living/basic/blackmesa/human/blackops/ranged/Initialize(mapload)
 	. = ..()
 	AddComponent(\
 		/datum/component/ranged_attacks,\
-		casing_type = /obj/item/ammo_casing/c45,\
+		casing_type = /obj/item/ammo_casing/c40sol,\
 		projectile_sound = 'sound/items/weapons/gun/rifle/shot.ogg',\
 		cooldown_time = 4 SECONDS,\
-		burst_shots = 4\
+		burst_shots = 3\
 	)
 
 /**

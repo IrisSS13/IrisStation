@@ -4,7 +4,7 @@
  * A friendly alien that uses beam attacks and maintains distance from enemies.
  * Uses ranged skirmish AI to maintain optimal distance while attacking.
  */
-/mob/living/basic/hostile/blackmesa/xen/vortigaunt
+/mob/living/basic/blackmesa/xen/vortigaunt
 	name = "vortigaunt"
 	desc = "There is no distance between us. No false veils of time or space may intervene."
 	icon = 'modular_iris/modules/black_mesa/icons/mobs.dmi'
@@ -39,7 +39,7 @@
 /**
  * Initialize the vortigaunt with ranged attack capabilities
  */
-/mob/living/basic/hostile/blackmesa/xen/vortigaunt/Initialize(mapload)
+/mob/living/basic/blackmesa/xen/vortigaunt/Initialize(mapload)
 	. = ..()
 	// Add ranged attack component
 	AddComponent(\
@@ -75,7 +75,7 @@
 /**
  * Slave Vortigaunt - Hostile variant that fights for the Xen forces
  */
-/mob/living/basic/hostile/blackmesa/xen/vortigaunt/slave
+/mob/living/basic/blackmesa/xen/vortigaunt/slave
 	name = "slave vortigaunt"
 	desc = "Bound by the shackles of a sinister force. He does not want to hurt you."
 	icon_state = "vortigaunt_slave"

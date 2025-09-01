@@ -5,7 +5,7 @@
  * Base zombie type with common behaviors and properties.
  * Each variant (scientist, guard, HECU, HEV) has different health values and corpses.
  */
-/mob/living/basic/hostile/blackmesa/xen/headcrab_zombie
+/mob/living/basic/blackmesa/xen/headcrab_zombie
 	name = "headcrab zombie"
 	desc = "This unlucky person has had a headcrab latch onto their head. Ouch."
 	icon = 'modular_iris/modules/black_mesa/icons/mobs.dmi'
@@ -37,7 +37,7 @@
 
 	/// What type of corpse to spawn when this zombie dies
 	var/corpse_type = null
-	// Alert Sound System - Inherited from /mob/living/basic/hostile/blackmesa
+	// Alert Sound System - Inherited from /mob/living/basic/blackmesa
 	alert_sounds = list(
 		'modular_iris/modules/black_mesa/sound/mobs/zombies/alert1.ogg',
 		'modular_iris/modules/black_mesa/sound/mobs/zombies/alert2.ogg',
@@ -47,11 +47,11 @@
 		'modular_iris/modules/black_mesa/sound/mobs/zombies/alert6.ogg'
 	)
 
-/mob/living/basic/hostile/blackmesa/xen/headcrab_zombie/Initialize(mapload)
+/mob/living/basic/blackmesa/xen/headcrab_zombie/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/wall_smasher, strength_flag = ENVIRONMENT_SMASH_STRUCTURES)
 
-/mob/living/basic/hostile/blackmesa/xen/headcrab_zombie/death(gibbed)
+/mob/living/basic/blackmesa/xen/headcrab_zombie/death(gibbed)
 	return ..()
 
 /**
@@ -80,7 +80,7 @@
  */
 
 /// Scientist zombie - baseline zombie with standard stats
-/mob/living/basic/hostile/blackmesa/xen/headcrab_zombie/scientist
+/mob/living/basic/blackmesa/xen/headcrab_zombie/scientist
 	name = "zombified scientist"
 	desc = "Even after death, I still have to wear this horrible tie!"
 	icon_state = "scientist_zombie"
@@ -88,7 +88,7 @@
 	corpse_type = /obj/effect/mob_spawn/corpse/human/scientist_zombie
 
 /// Security guard zombie - medium armor
-/mob/living/basic/hostile/blackmesa/xen/headcrab_zombie/guard
+/mob/living/basic/blackmesa/xen/headcrab_zombie/guard
 	name = "zombified guard"
 	desc = "About that brain I owed ya!"
 	icon_state = "security_zombie"
@@ -98,7 +98,7 @@
 	corpse_type = /obj/effect/mob_spawn/corpse/human/guard_zombie
 
 /// HECU Marine zombie - heavy armor
-/mob/living/basic/hostile/blackmesa/xen/headcrab_zombie/hecu
+/mob/living/basic/blackmesa/xen/headcrab_zombie/hecu
 	name = "zombified marine"
 	desc = "MY. ASS. IS. DEAD."
 	icon_state = "hecu_zombie"
@@ -108,7 +108,7 @@
 	corpse_type = /obj/effect/mob_spawn/corpse/human/hecu_zombie
 
 /// HEV zombie - extremely tough due to the HEV suit
-/mob/living/basic/hostile/blackmesa/xen/headcrab_zombie/hev
+/mob/living/basic/blackmesa/xen/headcrab_zombie/hev
 	name = "zombified hazardous environment specialist"
 	desc = "User death... surpassed."
 	icon_state = "hev_zombie"
