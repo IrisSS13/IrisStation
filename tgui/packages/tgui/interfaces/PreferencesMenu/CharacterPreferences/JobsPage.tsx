@@ -232,14 +232,6 @@ function JobRow(props: JobRowProps) {
       </Stack>
     );
     // NOVA EDIT START
-  } else if (job.nova_star && !data.is_nova_star) {
-    rightSide = (
-      <Stack align="center" height="100%" pr={1}>
-        <Stack.Item grow textAlign="right">
-          <b>Nova Stars Only</b>
-        </Stack.Item>
-      </Stack>
-    );
   } else if (
     data.species_restricted_jobs &&
     data.species_restricted_jobs.indexOf(name) !== -1

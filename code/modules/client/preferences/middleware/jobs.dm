@@ -81,7 +81,6 @@
 		jobs[job.title] = list(
 			"description" = job.description,
 			"department" = department_name,
-			"nova_star" = job.nova_stars_only, // NOVA EDIT
 			"alt_titles" = job.alt_titles, // NOVA EDIT
 		)
 
@@ -106,10 +105,6 @@
 
 /datum/preference_middleware/jobs/get_ui_static_data(mob/user)
 	var/list/data = list()
-	// NOVA EDIT
-	if(SSplayer_ranks.is_nova_star(user.client))
-		data["is_nova_star"] = TRUE
-	// NOVA EDIT END
 	var/list/required_job_playtime = get_required_job_playtime(user)
 	if (!isnull(required_job_playtime))
 		data += required_job_playtime
