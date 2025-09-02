@@ -3,21 +3,30 @@
 /turf/template_noop,
 /area/template_noop)
 "b" = (
+/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/engine,
 /area/station/cargo/exploration_office)
 "c" = (
-/turf/open/space/basic,
-/area/template_noop)
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/engine,
+/area/station/cargo/exploration_office)
 "d" = (
-/obj/structure/sign/warning/doors/directional/east,
-/turf/open/floor/catwalk_floor,
-/area/space/nearstation)
+/turf/closed/wall,
+/area/station/cargo/exploration_office)
 "f" = (
-/obj/machinery/suit_storage_unit/standard_unit,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden,
 /turf/open/floor/engine,
 /area/station/cargo/exploration_office)
 "g" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/machinery/suit_storage_unit/standard_unit,
+/turf/open/floor/engine,
+/area/station/cargo/exploration_office)
+"h" = (
 /turf/open/floor/engine,
 /area/station/cargo/exploration_office)
 "i" = (
@@ -28,18 +37,61 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
+"j" = (
+/obj/machinery/dive_anchor,
+/turf/open/space/basic,
+/area/space/nearstation)
 "k" = (
+/obj/machinery/door/airlock{
+	name = "Auxiliary Storage Closet"
+	},
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden,
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/maintenance/port/fore)
+"l" = (
+/obj/machinery/suit_storage_unit/standard_unit,
+/obj/machinery/light_switch/directional/east,
+/turf/open/floor/engine,
+/area/station/cargo/exploration_office)
+"m" = (
+/obj/effect/turf_decal/tile/neutral/opposingcorners,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden,
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"n" = (
+/obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
+	dir = 4
+	},
+/obj/structure/closet/firecloset,
+/obj/effect/turf_decal/bot,
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/maintenance/port/fore)
+"o" = (
+/obj/structure/sign/warning/doors/directional/east,
+/turf/open/floor/catwalk_floor,
+/area/space/nearstation)
+"p" = (
+/turf/open/space/basic,
+/area/template_noop)
+"q" = (
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
 /turf/open/floor/engine,
 /area/station/cargo/exploration_office)
-"l" = (
-/obj/structure/cable,
-/turf/closed/wall,
-/area/station/maintenance/port/fore)
-"m" = (
+"r" = (
+/obj/machinery/computer/anchor_controller,
+/turf/open/floor/engine,
+/area/station/cargo/exploration_office)
+"s" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -47,87 +99,63 @@
 /obj/machinery/door/airlock/external{
 	name = "Exploration Office Airlock"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/command/gateway,
-/turf/open/floor/iron,
-/area/station/cargo/exploration_office)
-"n" = (
-/obj/structure/sign/warning/vacuum/external/directional/south,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
-/turf/open/floor/engine,
-/area/station/cargo/exploration_office)
-"o" = (
-/obj/structure/lattice,
-/turf/open/space/basic,
-/area/space/nearstation)
-"p" = (
-/obj/structure/rack,
-/obj/machinery/airalarm/directional/south,
-/turf/open/floor/engine,
-/area/station/cargo/exploration_office)
-"q" = (
-/obj/structure/sign/warning/directional/south,
-/turf/open/floor/catwalk_floor,
-/area/space/nearstation)
-"r" = (
-/obj/effect/turf_decal/stripes/line,
-/turf/open/floor/engine,
-/area/station/cargo/exploration_office)
-"s" = (
-/obj/machinery/suit_storage_unit/standard_unit,
-/obj/machinery/light_switch/directional/east,
-/turf/open/floor/engine,
+/obj/effect/mapping_helpers/airlock/access/all/command/gateway,
+/turf/open/floor/iron,
 /area/station/cargo/exploration_office)
 "t" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/airlock/mining{
-	name = "Exploration Office"
+/obj/structure/chair/office{
+	dir = 1
 	},
-/obj/effect/mapping_helpers/airlock/access/all/command/gateway,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron,
-/area/station/hallway/secondary/entry)
+/turf/open/floor/engine,
+/area/station/cargo/exploration_office)
 "u" = (
-/obj/machinery/dive_anchor/stationary,
-/obj/effect/turf_decal/stripes/box,
-/turf/open/floor/engine,
-/area/station/cargo/exploration_office)
-"v" = (
-/obj/structure/lattice,
-/turf/closed/wall,
-/area/station/cargo/exploration_office)
-"w" = (
-/obj/machinery/light/directional/west,
-/obj/effect/turf_decal/stripes/line,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/turf/open/floor/engine,
-/area/station/cargo/exploration_office)
-"x" = (
 /obj/structure/extinguisher_cabinet/directional/south,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
 /turf/open/floor/engine,
 /area/station/cargo/exploration_office)
-"y" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
-/area/station/cargo/exploration_office)
-"z" = (
-/obj/structure/chair/office{
+"v" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/machinery/light/small/directional/south,
+/obj/machinery/atmospherics/components/unary/airlock_pump{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/station/cargo/exploration_office)
+"w" = (
+/obj/docking_port/stationary{
+	dir = 8;
+	dwidth = 11;
+	height = 24;
+	name = "SS13: Auxiliary Dock, Station-Fore";
+	shuttle_id = "whiteship_home";
+	width = 35
+	},
+/turf/open/space/basic,
+/area/template_noop)
+"y" = (
+/obj/machinery/light/directional/west,
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/engine,
+/area/station/cargo/exploration_office)
+"z" = (
+/obj/machinery/light/directional/south,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/engine,
 /area/station/cargo/exploration_office)
 "A" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden,
+/obj/structure/tank_dispenser/oxygen{
+	pixel_y = 2;
+	pixel_x = 2
+	},
 /turf/open/floor/engine,
 /area/station/cargo/exploration_office)
 "C" = (
@@ -141,36 +169,53 @@
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "D" = (
-/turf/closed/wall,
-/area/station/cargo/exploration_office)
-"G" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/machinery/door/airlock/external{
-	name = "Exploration Office Airlock"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/access/all/command/gateway,
-/turf/open/floor/iron,
-/area/station/cargo/exploration_office)
-"H" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/layer_manifold/cyan/hidden{
-	dir = 8
-	},
+/obj/structure/lattice,
+/turf/open/space/basic,
+/area/space/nearstation)
+"F" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/engine,
 /area/station/cargo/exploration_office)
-"J" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/turf/open/floor/engine,
-/area/station/cargo/exploration_office)
+"I" = (
+/obj/structure/sign/warning/directional/south,
+/turf/open/floor/catwalk_floor,
+/area/space/nearstation)
 "K" = (
+/turf/open/floor/catwalk_floor,
+/area/space/nearstation)
+"L" = (
+/obj/machinery/dive_anchor/stationary,
+/obj/effect/turf_decal/stripes/box,
+/turf/open/floor/engine,
+/area/station/cargo/exploration_office)
+"M" = (
+/obj/structure/rack,
+/obj/machinery/airalarm/directional/south,
+/obj/item/multitool,
+/obj/item/stack/impure_telecrystal,
+/turf/open/floor/engine,
+/area/station/cargo/exploration_office)
+"N" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/station/cargo/exploration_office)
+"O" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/airlock/mining{
+	name = "Exploration Office"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/command/gateway,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
+"Q" = (
+/turf/closed/wall,
+/area/station/hallway/secondary/entry)
+"R" = (
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 1
 	},
@@ -179,89 +224,46 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/maintenance/port/fore)
-"L" = (
-/obj/machinery/light/directional/south,
+"S" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/engine,
-/area/station/cargo/exploration_office)
-"M" = (
-/obj/machinery/dive_anchor,
-/turf/open/space/basic,
-/area/space/nearstation)
-"O" = (
-/obj/machinery/computer/anchor_controller,
-/turf/open/floor/engine,
-/area/station/cargo/exploration_office)
-"P" = (
-/turf/open/floor/catwalk_floor,
-/area/space/nearstation)
-"Q" = (
-/turf/closed/wall,
-/area/station/hallway/secondary/entry)
-"S" = (
-/obj/machinery/door/airlock{
-	name = "Auxiliary Storage Closet"
+/obj/machinery/atmospherics/pipe/layer_manifold/cyan/hidden{
+	dir = 8
 	},
+/turf/open/floor/engine,
+/area/station/cargo/exploration_office)
+"T" = (
+/obj/structure/cable,
+/turf/closed/wall,
+/area/station/maintenance/port/fore)
+"U" = (
+/obj/structure/lattice,
+/turf/closed/wall,
+/area/station/cargo/exploration_office)
+"W" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden,
-/obj/structure/cable,
+/obj/machinery/door/airlock/external{
+	name = "Exploration Office Airlock"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/command/gateway,
 /turf/open/floor/iron,
-/area/station/maintenance/port/fore)
-"T" = (
+/area/station/cargo/exploration_office)
+"Y" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
 /turf/open/floor/engine,
 /area/station/cargo/exploration_office)
-"U" = (
-/obj/docking_port/stationary{
-	dir = 8;
-	dwidth = 11;
-	height = 24;
-	name = "SS13: Auxiliary Dock, Station-Fore";
-	shuttle_id = "whiteship_home";
-	width = 35
-	},
-/turf/open/space/basic,
-/area/template_noop)
-"V" = (
-/obj/structure/tank_dispenser/oxygen{
-	pixel_y = 2;
-	pixel_x = 2
-	},
+"Z" = (
+/obj/structure/sign/warning/vacuum/external/directional/south,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
 /turf/open/floor/engine,
 /area/station/cargo/exploration_office)
-"X" = (
-/obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
-	dir = 4
-	},
-/obj/structure/closet/firecloset,
-/obj/effect/turf_decal/bot,
-/obj/structure/cable,
-/turf/open/floor/iron,
-/area/station/maintenance/port/fore)
-"Y" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/machinery/light/small/directional/south,
-/obj/machinery/atmospherics/components/unary/airlock_pump{
-	dir = 4
-	},
-/turf/open/floor/iron,
-/area/station/cargo/exploration_office)
-"Z" = (
-/obj/effect/turf_decal/tile/neutral/opposingcorners,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden,
-/obj/structure/cable,
-/turf/open/floor/iron,
-/area/station/hallway/secondary/entry)
 
 (1,1,1) = {"
 a
@@ -323,13 +325,13 @@ a
 a
 a
 a
-P
-P
-P
-P
-P
-d
+K
+K
+K
+K
+K
 o
+D
 a
 "}
 (4,1,1) = {"
@@ -346,13 +348,13 @@ a
 a
 a
 a
-P
-M
-q
+K
+j
+I
+d
+W
+d
 D
-m
-D
-o
 a
 "}
 (5,1,1) = {"
@@ -369,13 +371,13 @@ a
 a
 a
 a
-P
-P
-P
+K
+K
+K
+d
+v
+d
 D
-Y
-D
-o
 a
 "}
 (6,1,1) = {"
@@ -392,13 +394,13 @@ a
 a
 a
 a
-y
-y
-y
+N
+N
+N
+d
+s
+d
 D
-G
-D
-o
 a
 "}
 (7,1,1) = {"
@@ -415,13 +417,13 @@ a
 a
 a
 a
+N
+h
+h
 y
-b
-b
-w
-n
+Z
+d
 D
-o
 a
 "}
 (8,1,1) = {"
@@ -438,13 +440,13 @@ a
 a
 a
 a
-y
+N
+h
+L
 b
-u
-r
-k
+q
+d
 D
-o
 a
 "}
 (9,1,1) = {"
@@ -461,13 +463,13 @@ a
 a
 a
 a
-y
-J
-J
-T
-x
+N
+c
+c
+Y
+u
+d
 D
-o
 a
 "}
 (10,1,1) = {"
@@ -484,36 +486,36 @@ a
 a
 a
 a
-y
-O
+N
+r
+t
+S
 z
-H
-L
+d
 D
-o
 a
 "}
 (11,1,1) = {"
-U
+w
 a
 a
 a
 a
 a
 a
-c
-a
-a
-a
-a
-a
-D
-V
-g
-A
 p
+a
+a
+a
+a
+a
+d
+A
+F
+f
+M
+d
 D
-o
 a
 "}
 (12,1,1) = {"
@@ -530,12 +532,12 @@ a
 a
 a
 a
-D
-D
-s
-A
+d
+d
+l
 f
-v
+g
+U
 a
 a
 "}
@@ -556,7 +558,7 @@ a
 a
 a
 Q
-t
+O
 Q
 a
 a
@@ -580,9 +582,9 @@ a
 a
 a
 C
-Z
-S
-K
+m
+k
+R
 a
 "}
 (15,1,1) = {"
@@ -605,7 +607,7 @@ a
 i
 a
 a
-X
+n
 a
 "}
 (16,1,1) = {"
@@ -628,6 +630,6 @@ a
 a
 a
 a
-l
+T
 a
 "}
