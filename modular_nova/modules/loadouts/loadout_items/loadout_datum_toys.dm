@@ -1,3 +1,5 @@
+// LOADOUT ITEM DATUMS FOR TOY ITEMS, PLACED DIRECTLY INTO THE BACKPACK
+
 /datum/loadout_category/toys
 	category_name = "Toys"
 	category_ui_icon = FA_ICON_TROPHY
@@ -29,106 +31,85 @@
 /datum/loadout_item/toys
 	abstract_type = /datum/loadout_item/toys
 
-/*
-*	PLUSHIES
-*/
-
 /datum/loadout_item/toys/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE)  // these go in the backpack
 	return FALSE
 
-/datum/loadout_item/toys/plush
-	group = "Plushies"
-	abstract_type = /datum/loadout_item/toys/plush
-	can_be_named = TRUE
+/*
+*	ITEMS BELOW HERE
+*/
 
-/datum/loadout_item/toys/plush/bee
-	name = "Bee Plushie"
-	item_path = /obj/item/toy/plush/beeplushie
+/datum/loadout_item/toys/crayons
+	//Extra space forces the "Toys" Group to the top
+	name = " Box of Crayons"
+	item_path = /obj/item/storage/crayons
 
-/datum/loadout_item/toys/plush/carp
-	name = "Carp Plushie"
-	item_path = /obj/item/toy/plush/carpplushie
+/datum/loadout_item/toys/cat_toy
+	name = "Cat Toy"
+	item_path = /obj/item/toy/cattoy
 
-/datum/loadout_item/toys/plush/shark
-	name = "Shark Plushie"
-	item_path = /obj/item/toy/plush/shark
+/datum/loadout_item/toys/dog_bone
+	name = "Jumbo Dog Bone"
+	item_path = /obj/item/dog_bone
 
-/datum/loadout_item/toys/plush/lizard_greyscale
-	name = "Greyscale Lizard Plushie"
-	item_path = /obj/item/toy/plush/lizard_plushie
-	can_be_greyscale = TRUE
+/datum/loadout_item/toys/red_laser
+	name = "Laser Pointer (Red)"
+	item_path = /obj/item/laser_pointer/limited/red
 
-/datum/loadout_item/toys/plush/moth
-	name = "Moth Plushie"
-	item_path = /obj/item/toy/plush/moth
+/datum/loadout_item/toys/green_laser
+	name = "Laser Pointer (Green)"
+	item_path = /obj/item/laser_pointer/limited/green
 
-/datum/loadout_item/toys/plush/narsie
-	name = "Nar'sie Plushie"
-	item_path = /obj/item/toy/plush/narplush
+/datum/loadout_item/toys/blue_laser
+	name = "Laser Pointer (Blue)"
+	item_path = /obj/item/laser_pointer/limited/blue
 
-/datum/loadout_item/toys/plush/nukie
-	name = "Nukie Plushie"
-	item_path = /obj/item/toy/plush/nukeplushie
+/datum/loadout_item/toys/purple_laser
+	name = "Laser Pointer (Purple)"
+	item_path = /obj/item/laser_pointer/limited/purple
 
-/datum/loadout_item/toys/plush/peacekeeper
-	name = "Peacekeeper Plushie"
-	item_path = /obj/item/toy/plush/pkplush
+/datum/loadout_item/toys/eightball
+	name = "Magic Eightball"
+	item_path = /obj/item/toy/eightball
 
-/datum/loadout_item/toys/plush/plasmaman
-	name = "Plasmaman Plushie"
-	item_path = /obj/item/toy/plush/plasmamanplushie
+/datum/loadout_item/toys/spray_can
+	name = "Spray Can"
+	item_path = /obj/item/toy/crayon/spraycan
 
-/datum/loadout_item/toys/plush/ratvar
-	name = "Ratvar Plushie"
-	item_path = /obj/item/toy/plush/ratplush
+/datum/loadout_item/toys/toykatana
+	name = "Toy Katana"
+	item_path = /obj/item/toy/katana
 
-/datum/loadout_item/toys/plush/rouny
-	name = "Rouny Plushie"
-	item_path = /obj/item/toy/plush/rouny
+/*
+*	TENNIS BALLS
+*/
 
-/datum/loadout_item/toys/plush/snake
-	name = "Snake Plushie"
-	item_path = /obj/item/toy/plush/snakeplushie
+/datum/loadout_item/toys/tennis
+	name = "Tennis Ball (Classic)"
+	item_path = /obj/item/toy/tennis
 
-/datum/loadout_item/toys/plush/slime
-	name = "Slime Plushie"
-	item_path = /obj/item/toy/plush/slimeplushie
+/datum/loadout_item/toys/tennisred
+	name = "Tennis Ball (Red)"
+	item_path = /obj/item/toy/tennis/red
 
-/datum/loadout_item/toys/plush/bubble
-	name = "Bubblegum Plushie"
-	item_path = /obj/item/toy/plush/bubbleplush
+/datum/loadout_item/toys/tennisyellow
+	name = "Tennis Ball (Yellow)"
+	item_path = /obj/item/toy/tennis/yellow
 
-/datum/loadout_item/toys/plush/goat
-	name = "Strange Goat Plushie"
-	item_path = /obj/item/toy/plush/goatplushie
+/datum/loadout_item/toys/tennisgreen
+	name = "Tennis Ball (Green)"
+	item_path = /obj/item/toy/tennis/green
 
-/datum/loadout_item/toys/plush/ianbastardman
-	name = "Ian Plushie"
-	item_path = /obj/item/toy/plush/nova/ian
+/datum/loadout_item/toys/tenniscyan
+	name = "Tennis Ball (Cyan)"
+	item_path = /obj/item/toy/tennis/cyan
 
-/datum/loadout_item/toys/plush/corgiman
-	name = "Corgi Plushie"
-	item_path = /obj/item/toy/plush/nova/ian/small
+/datum/loadout_item/toys/tennisblue
+	name = "Tennis Ball (Blue)"
+	item_path = /obj/item/toy/tennis/blue
 
-/datum/loadout_item/toys/plush/corgiwoman
-	name = "Girly Corgi Plushie"
-	item_path = /obj/item/toy/plush/nova/ian/lisa
-
-/datum/loadout_item/toys/plush/cat
-	name = "Cat Plushie"
-	item_path = /obj/item/toy/plush/nova/cat
-
-/datum/loadout_item/toys/plush/tuxcat
-	name = "Tux Cat Plushie"
-	item_path = /obj/item/toy/plush/nova/cat/tux
-
-/datum/loadout_item/toys/plush/whitecat
-	name = "White Cat Plushie"
-	item_path = /obj/item/toy/plush/nova/cat/white
-
-/datum/loadout_item/toys/plush/human
-	name = "Human Plushie"
-	item_path = /obj/item/toy/plush/human
+/datum/loadout_item/toys/tennispurple
+	name = "Tennis Ball (Purple)"
+	item_path = /obj/item/toy/tennis/purple
 
 /*
 *	CARDS
@@ -139,20 +120,20 @@
 	item_path = /obj/item/storage/card_binder
 
 /datum/loadout_item/toys/card_deck
-	name = "Playing Card Deck"
+	name = "Card Deck"
 	item_path = /obj/item/toy/cards/deck
 
 /datum/loadout_item/toys/kotahi_deck
-	name = "Kotahi Deck"
+	name = "Card Deck - Kotahi"
 	item_path = /obj/item/toy/cards/deck/kotahi
 
-/datum/loadout_item/toys/wizoff_deck
-	name = "Wizoff Deck"
-	item_path = /obj/item/toy/cards/deck/wizoff
-
 /datum/loadout_item/toys/tarot
-	name = "Tarot Card Deck"
+	name = "Card Deck - Tarot"
 	item_path = /obj/item/toy/cards/deck/tarot
+
+/datum/loadout_item/toys/wizoff_deck
+	name = "Card Deck - Wizoff"
+	item_path = /obj/item/toy/cards/deck/wizoff
 
 /*
 *	DICE
@@ -162,10 +143,12 @@
 	group = "Dice"
 	abstract_type = /datum/loadout_item/toys/dice
 
-/datum/loadout_item/toys/dice/dice_bag
-	name = "Dice Bag"
-	item_path = /obj/item/storage/dice
+/datum/loadout_item/toys/dice/d00
+	//Extra space forces "Dice" Group above "Plushies"
+	name = " D00"
+	item_path = /obj/item/dice/d00
 
+//I am NOT alphabetizing numbers dawg. It's not actually number order 11 comes before 2
 /datum/loadout_item/toys/dice/d1
 	name = "D1"
 	item_path = /obj/item/dice/d1
@@ -206,87 +189,18 @@
 	name = "D20"
 	item_path = /obj/item/dice/d20
 
+/datum/loadout_item/toys/dice/d20_weighted_low
+	name = "D20 (Weighted, Low)"
+	item_path = /obj/item/dice/d20/nat1
+
+/datum/loadout_item/toys/dice/d20_weighted_high
+	name = "D20 (Weighted, High)"
+	item_path = /obj/item/dice/d20/nat20
+
 /datum/loadout_item/toys/dice/d100
 	name = "D100"
 	item_path = /obj/item/dice/d100
 
-/datum/loadout_item/toys/dice/d00
-	name = "D00"
-	item_path = /obj/item/dice/d00
-
-
-/*
-*	TENNIS BALLS
-*/
-
-/datum/loadout_item/toys/tennis
-	name = "Tennis Ball (Classic)"
-	item_path = /obj/item/toy/tennis
-
-/datum/loadout_item/toys/tennisred
-	name = "Tennis Ball (Red)"
-	item_path = /obj/item/toy/tennis/red
-
-/datum/loadout_item/toys/tennisyellow
-	name = "Tennis Ball (Yellow)"
-	item_path = /obj/item/toy/tennis/yellow
-
-/datum/loadout_item/toys/tennisgreen
-	name = "Tennis Ball (Green)"
-	item_path = /obj/item/toy/tennis/green
-
-/datum/loadout_item/toys/tenniscyan
-	name = "Tennis Ball (Cyan)"
-	item_path = /obj/item/toy/tennis/cyan
-
-/datum/loadout_item/toys/tennisblue
-	name = "Tennis Ball (Blue)"
-	item_path = /obj/item/toy/tennis/blue
-
-/datum/loadout_item/toys/tennispurple
-	name = "Tennis Ball (Purple)"
-	item_path = /obj/item/toy/tennis/purple
-
-/*
-*	MISC
-*/
-
-/datum/loadout_item/toys/cat_toy
-	name = "Cat Toy"
-	item_path = /obj/item/toy/cattoy
-
-/datum/loadout_item/toys/crayons
-	name = "Box of Crayons"
-	item_path = /obj/item/storage/crayons
-
-/datum/loadout_item/toys/spray_can
-	name = "Spray Can"
-	item_path = /obj/item/toy/crayon/spraycan
-
-/datum/loadout_item/toys/eightball
-	name = "Magic Eightball"
-	item_path = /obj/item/toy/eightball
-
-/datum/loadout_item/toys/toykatana
-	name = "Toy Katana"
-	item_path = /obj/item/toy/katana
-
-/datum/loadout_item/toys/red_laser
-	name = "Red Laser Pointer"
-	item_path = /obj/item/laser_pointer/limited/red
-
-/datum/loadout_item/toys/green_laser
-	name = "Green Laser Pointer"
-	item_path = /obj/item/laser_pointer/limited/green
-
-/datum/loadout_item/toys/blue_laser
-	name = "Blue Laser Pointer"
-	item_path = /obj/item/laser_pointer/limited/blue
-
-/datum/loadout_item/toys/purple_laser
-	name = "Purple Laser Pointer"
-	item_path = /obj/item/laser_pointer/limited/purple
-
-/datum/loadout_item/toys/dog_bone
-	name = "Jumbo Dog Bone"
-	item_path = /obj/item/dog_bone
+/datum/loadout_item/toys/dice/dice_bag
+	name = "Dice Bag"
+	item_path = /obj/item/storage/dice

@@ -263,7 +263,7 @@
 	gun.desc = gun::desc
 	..()
 
-/obj/item/firing_pin/paywall/attackby(obj/item/M, mob/living/user, params)
+/obj/item/firing_pin/paywall/attackby(obj/item/M, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(isidcard(M))
 		var/obj/item/card/id/id = M
 		if(!id.registered_account)

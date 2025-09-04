@@ -63,7 +63,8 @@
 	recommended_species = list(SPECIES_MAMMAL, SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_TAJARAN, SPECIES_HUMANOID, SPECIES_GHOUL)
 
 /datum/sprite_accessory/ears/external/akula
-	recommended_species = list(SPECIES_MAMMAL, SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_AQUATIC, SPECIES_AKULA, SPECIES_HUMANOID, SPECIES_GHOUL)
+// IRIS EDIT: Aquatic Anthromorph compat
+	recommended_species = list(SPECIES_MAMMAL, SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_FELINE, SPECIES_AQUATIC, SPECIES_AKULA, SPECIES_HUMANOID, SPECIES_GHOUL, SPECIES_AQUAMORPH)
 
 /datum/sprite_accessory/ears/external/axolotl
 	name = "Axolotl"
@@ -300,6 +301,21 @@
 /datum/sprite_accessory/ears/external/antenna_fuzzball_v2
 	name = "Fuzzball antenna (coloring 3+1)"
 	icon_state = "antenna_fuzzballv2"
+
+/datum/sprite_accessory/ears/external/royal_antenna
+	name = "Royal Antenna"
+	icon_state = "royal_antenna"
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/ears/external/basic_antenna
+	name = "Basic Antenna"
+	icon_state = "basic_antenna"
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/ears/external/straight_antenna
+	name = "Straight Antenna"
+	icon_state = "straight_antenna"
+	color_src = USE_ONE_COLOR
 
 /datum/sprite_accessory/ears/external/setaceous
 	name = "Setaceous Antenna"

@@ -17,19 +17,19 @@
 	. = ..()
 	if(.)
 		for(var/obj/item/retractor/RT in borg.model.modules)
-			borg.model.remove_module(RT, TRUE)
+			borg.model.remove_module(RT)
 		for(var/obj/item/hemostat/HS in borg.model.modules)
-			borg.model.remove_module(HS, TRUE)
+			borg.model.remove_module(HS)
 		for(var/obj/item/cautery/CT in borg.model.modules)
-			borg.model.remove_module(CT, TRUE)
+			borg.model.remove_module(CT)
 		for(var/obj/item/surgicaldrill/SD in borg.model.modules)
-			borg.model.remove_module(SD, TRUE)
+			borg.model.remove_module(SD)
 		for(var/obj/item/scalpel/SP in borg.model.modules)
-			borg.model.remove_module(SP, TRUE)
+			borg.model.remove_module(SP)
 		for(var/obj/item/circular_saw/CS in borg.model.modules)
-			borg.model.remove_module(CS, TRUE)
+			borg.model.remove_module(CS)
 		for(var/obj/item/healthanalyzer/HA in borg.model.modules)
-			borg.model.remove_module(HA, TRUE)
+			borg.model.remove_module(HA)
 
 		var/obj/item/scalpel/advanced/AS = new /obj/item/scalpel/advanced(borg.model)
 		borg.model.basic_modules += AS
@@ -48,13 +48,13 @@
 	. = ..()
 	if(.)
 		for(var/obj/item/scalpel/advanced/AS in borg.model.modules)
-			borg.model.remove_module(AS, TRUE)
+			borg.model.remove_module(AS)
 		for(var/obj/item/retractor/advanced/AR in borg.model.modules)
-			borg.model.remove_module(AR, TRUE)
+			borg.model.remove_module(AR)
 		for(var/obj/item/cautery/advanced/AC in borg.model.modules)
-			borg.model.remove_module(AC, TRUE)
+			borg.model.remove_module(AC)
 		for(var/obj/item/healthanalyzer/advanced/AHA in borg.model.modules)
-			borg.model.remove_module(AHA, TRUE)
+			borg.model.remove_module(AHA)
 
 		var/obj/item/retractor/RT = new (borg.model)
 		borg.model.basic_modules += RT
@@ -134,9 +134,9 @@
 		return
 	borgo.hasAdvanced = FALSE
 	for(var/obj/item/stack/sheet/plasteel/cyborg/plasteel_holder in borgo.model.modules)
-		borgo.model.remove_module(plasteel_holder, TRUE)
+		borgo.model.remove_module(plasteel_holder)
 	for(var/obj/item/stack/sheet/titaniumglass/cyborg/titanium_holder in borgo.model.modules)
-		borgo.model.remove_module(titanium_holder, TRUE)
+		borgo.model.remove_module(titanium_holder)
 	for(var/datum/robot_energy_storage/plasteel/plasteel_energy in borgo.model.storages)
 		qdel(plasteel_energy)
 	for(var/datum/robot_energy_storage/titanium/titanium_energy in borgo.model.storages)
@@ -159,7 +159,7 @@
 	. = ..()
 	if(.)
 		for(var/obj/item/weldingtool/mini/W in R.model)
-			R.model.remove_module(W, TRUE)
+			R.model.remove_module(W)
 
 		var/obj/item/weldingtool/largetank/cyborg/WW = new /obj/item/weldingtool/largetank/cyborg(R.model)
 		R.model.basic_modules += WW
@@ -169,7 +169,7 @@
 	. = ..()
 	if (.)
 		for(var/obj/item/weldingtool/largetank/cyborg/WW in R.model)
-			R.model.remove_module(WW, TRUE)
+			R.model.remove_module(WW)
 
 		var/obj/item/weldingtool/mini/W = new (R.model)
 		R.model.basic_modules += W
@@ -255,7 +255,7 @@
 		return
 	var/obj/item/borg/hydraulic_clamp/better/big_clamp = locate() in cyborg.model.modules
 	if(big_clamp)
-		cyborg.model.remove_module(big_clamp, TRUE)
+		cyborg.model.remove_module(big_clamp)
 
 /*
 *	UNIVERSAL CYBORG UPGRADES
@@ -278,7 +278,7 @@
 	. = ..()
 	if (.)
 		for(var/obj/item/borg_shapeshifter/BS in R.model)
-			R.model.remove_module(BS, TRUE)
+			R.model.remove_module(BS)
 
 /// The Shrinkening
 /mob/living/silicon/robot
@@ -336,3 +336,44 @@
 /obj/item/borg/upgrade/transform/syndicatejack/action(mob/living/silicon/robot/cyborg, user = usr) // Only usable on emagged cyborgs. In exchange. makes you unable to get locked down or detonated.
 	if(cyborg.emagged)
 		return ..()
+
+/obj/item/borg/upgrade/cargo_papermanipulator
+	name = "Cargo Cyborg Paper Manipulator"
+	desc = "An upgrade to the service model cyborg, to help handle foods and paper."
+	icon_state = "module_miner"
+	require_model = TRUE
+	model_type = list(/obj/item/robot_model/cargo)
+	model_flags = BORG_MODEL_CARGO
+
+	items_to_add = list(/obj/item/borg/apparatus/cargo_papermanipulator)
+
+/obj/item/borg/apparatus/cargo_papermanipulator
+	name = "Cargo apparatus"
+	desc = "A not so special apparatus designed for the most tedious of tasks, holding paper..."
+	icon_state = "borg_service_apparatus"
+	storable = list(
+		/obj/item/paper,
+	)
+
+/obj/item/borg/apparatus/cargo_papermanipulator/Initialize(mapload)
+	update_appearance()
+	return ..()
+
+/obj/item/borg/apparatus/cargo_papermanipulator/update_overlays()
+	. = ..()
+	var/mutable_appearance/arm = mutable_appearance(icon, "borg_hardware_apparatus_arm1")
+	if(stored)
+		stored.pixel_w = -3
+		stored.pixel_z = 0
+		var/mutable_appearance/stored_copy = new /mutable_appearance(stored)
+		stored_copy.layer = FLOAT_LAYER
+		stored_copy.plane = FLOAT_PLANE
+		. += stored_copy
+	. += arm
+
+/obj/item/borg/apparatus/cargo_papermanipulator/examine()
+	. = ..()
+	if(stored)
+		. += "The apparatus currently has [stored] secured."
+	. += span_notice("<i>Alt-click</i> will drop the currently secured item.")
+

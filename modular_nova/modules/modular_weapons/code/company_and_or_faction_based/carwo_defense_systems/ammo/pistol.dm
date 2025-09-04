@@ -1,9 +1,9 @@
 // .35 Sol Short
-// Pistol caliber caseless round used almost exclusively by SolFed weapons
+// Pistol caliber caseless round used almost exclusively by SolGov weapons
 
 /obj/item/ammo_casing/c35sol
 	name = ".35 Sol Short lethal bullet casing"
-	desc = "A SolFed standard caseless lethal pistol round."
+	desc = "A SolGov standard caseless lethal pistol round."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/ammo.dmi'
 	icon_state = "35sol"
@@ -23,7 +23,7 @@
 	damage = 20
 
 	wound_bonus = 5 // Normal bullets are 20
-	bare_wound_bonus = 10
+	exposed_wound_bonus = 10
 
 
 /obj/item/ammo_box/c35sol
@@ -46,12 +46,13 @@
 
 /obj/item/ammo_casing/c35sol/incapacitator
 	name = ".35 Sol Short incapacitator bullet casing"
-	desc = "A SolFed standard caseless less-lethal pistol round. Exhausts targets on hit, has a tendency to bounce off walls at shallow angles."
+	desc = "A SolGov standard caseless less-lethal pistol round. Exhausts targets on hit, has a tendency to bounce off walls at shallow angles."
 
 	icon_state = "35sol_disabler"
 
 	projectile_type = /obj/projectile/bullet/c35sol/incapacitator
 	harmful = FALSE
+	ammo_categories = AMMO_CLASS_NONE
 
 
 /obj/projectile/bullet/c35sol/incapacitator
@@ -60,7 +61,7 @@
 	stamina = 30
 
 	wound_bonus = -40
-	bare_wound_bonus = -20
+	exposed_wound_bonus = -20
 
 	weak_against_armour = TRUE
 
@@ -91,14 +92,13 @@
 
 /obj/item/ammo_casing/c35sol/ripper
 	name = ".35 Sol Short ripper bullet casing"
-	desc = "A SolFed standard caseless ripper pistol round. Causes slashing wounds on targets, but is weak to armor."
+	desc = "A SolGov standard caseless ripper pistol round. Causes slashing wounds on targets, but is weak to armor."
 
 	icon_state = "35sol_shrapnel"
 	projectile_type = /obj/projectile/bullet/c35sol/ripper
 
 	custom_materials = AMMO_MATS_RIPPER
-	advanced_print_req = TRUE
-
+	ammo_categories = AMMO_CLASS_PLUS
 
 /obj/projectile/bullet/c35sol/ripper
 	name = ".35 Sol ripper bullet"
@@ -109,7 +109,7 @@
 	sharpness = SHARP_EDGED
 
 	wound_bonus = 20
-	bare_wound_bonus = 20
+	exposed_wound_bonus = 20
 
 	embed_type = /datum/embedding/c35sol_ripper
 
@@ -137,12 +137,13 @@
 
 /obj/item/ammo_casing/c35sol/flash
 	name = ".35 Sol Short flash bullet casing"
-	desc = "A SolFed standard caseless less-lethal pistol round. Creates a small, pyrotechnic flash on hit; insufficient to overload cyborgs."
+	desc = "A SolGov standard caseless less-lethal pistol round. Creates a small, pyrotechnic flash on hit; insufficient to overload cyborgs."
 
 	icon_state = "35sol_flash"
 
 	projectile_type = /obj/projectile/bullet/c35sol/flash
 	harmful = FALSE
+	ammo_categories = AMMO_CLASS_NONE
 
 /obj/projectile/bullet/c35sol/flash
 	name = ".35 Sol Short flash bullet"

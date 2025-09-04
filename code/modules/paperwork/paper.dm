@@ -66,10 +66,18 @@
 	///If this paper can be selected as a candidate for a future message in a bottle when spawned outside of mapload. Doesn't affect manually doing that.
 	var/can_become_message_in_bottle = TRUE
 
+	//IRIS EDIT ADDITION BEGIN - STATIONARY_PAPER
+	///If TRUE, do not randomise pixel_x and pixel_y values of this object
+	var/keep_offsets = FALSE
+	//IRIS EDIT ADDITION END
+
 /obj/item/paper/Initialize(mapload)
 	. = ..()
-	pixel_x = base_pixel_x + rand(-9, 9)
-	pixel_y = base_pixel_y + rand(-8, 8)
+	//IRIS EDIT CHANGE BEGIN - STATIONARY_PAPER
+	if(!(keep_offsets))
+		pixel_x = base_pixel_x + rand(-9, 9)
+		pixel_y = base_pixel_y + rand(-8, 8)
+	//IRIS EDIT CHANGE END
 
 	if(default_raw_text)
 		add_raw_text(default_raw_text)
@@ -413,9 +421,9 @@
 		user.put_in_hands(new_plane)
 	return new_plane
 
-/obj/item/paper/attackby(obj/item/attacking_item, mob/living/user, params)
-	// Enable picking paper up by clicking on it with the clipboard or folder
-	if(istype(attacking_item, /obj/item/clipboard) || istype(attacking_item, /obj/item/folder) || istype(attacking_item, /obj/item/paper_bin))
+/obj/item/paper/attackby(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
+	// Enable picking paper up by clicking on it with the clipboard or paper bin
+	if(istype(attacking_item, /obj/item/clipboard) || istype(attacking_item, /obj/item/paper_bin))
 		attacking_item.attackby(src, user)
 		return
 
@@ -593,6 +601,12 @@
 	if(.)
 		return
 
+	if(action == "admin_log")
+		var/message = params["message"]
+		message_admins("[key_name(usr)] [message]")
+		log_admin("[key_name(usr)] [message]")
+		return TRUE
+
 	var/mob/user = ui.user
 
 	switch(action)
@@ -630,12 +644,9 @@
 			return TRUE
 		if("add_text")
 			var/paper_input = params["text"]
-			var/this_input_length = length_char(paper_input)
-
-			if(this_input_length == 0)
-				to_chat(user, pick("Writing block strikes again!", "You forgot to write anything!"))
-				return TRUE
-
+			var/blocked_summary = params["blocked_summary"]
+			if(blocked_summary && blocked_summary != "")
+				log_admin("[key_name(user)] had forbidden HTML/CSS sanitized from paper: [blocked_summary]")
 			// If the paper is on an unwritable noticeboard, this usually shouldn't be possible.
 			if(istype(loc, /obj/structure/noticeboard))
 				var/obj/structure/noticeboard/noticeboard = loc
@@ -657,7 +668,7 @@
 				return TRUE
 
 			var/current_length = get_total_length()
-			var/new_length = current_length + this_input_length
+			var/new_length = current_length + length_char(paper_input)
 
 			// tgui should prevent this outcome.
 			if(new_length > MAX_PAPER_LENGTH)
@@ -842,12 +853,17 @@
 	)
 
 /obj/item/paper/construction
+	name = "construction paper"
+	icon = 'icons/effects/random_spawners.dmi'
 
 /obj/item/paper/construction/Initialize(mapload)
 	. = ..()
+	icon = 'icons/obj/service/bureaucracy.dmi'
 	color = pick(COLOR_RED, COLOR_LIME, COLOR_LIGHT_ORANGE, COLOR_DARK_PURPLE, COLOR_FADED_PINK, COLOR_BLUE_LIGHT)
+	update_appearance()
 
 /obj/item/paper/natural
+	name = "natural paper"
 	color = COLOR_OFF_WHITE
 
 /obj/item/paper/crumpled

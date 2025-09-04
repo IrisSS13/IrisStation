@@ -3,7 +3,7 @@
 
 /obj/item/ammo_casing/c40sol
 	name = ".40 Sol Long lethal bullet casing"
-	desc = "A SolFed standard caseless lethal rifle round."
+	desc = "A SolGov standard caseless lethal rifle round."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/carwo_defense_systems/ammo.dmi'
 	icon_state = "40sol"
@@ -23,7 +23,7 @@
 	damage = 35
 
 	wound_bonus = 5
-	bare_wound_bonus = 10
+	exposed_wound_bonus = 10
 
 
 /obj/item/ammo_box/c40sol
@@ -46,14 +46,13 @@
 
 /obj/item/ammo_casing/c40sol/fragmentation
 	name = ".40 Sol Long fragmentation bullet casing"
-	desc = "A SolFed standard caseless fragmentation rifle round. Shatters upon impact, ejecting sharp shrapnel that can potentially incapacitate targets."
+	desc = "A SolGov standard caseless fragmentation rifle round. Shatters upon impact, ejecting sharp shrapnel that can potentially incapacitate targets."
 
 	icon_state = "40sol_disabler"
 
 	projectile_type = /obj/projectile/bullet/c40sol/fragmentation
 
-	advanced_print_req = TRUE
-
+	ammo_categories = AMMO_CLASS_NONE // it's. on a technicality
 	harmful = FALSE
 
 
@@ -66,7 +65,7 @@
 
 	sharpness = SHARP_EDGED
 	wound_bonus = 0
-	bare_wound_bonus = 10
+	exposed_wound_bonus = 10
 
 	shrapnel_type = /obj/item/shrapnel/stingball
 	embed_type = /datum/embedding/c40sol_fragmentation
@@ -96,7 +95,7 @@
 
 /obj/item/ammo_casing/c40sol/pierce
 	name = ".40 Sol Long match bullet casing"
-	desc = "A SolFed standard caseless match grade rifle round. Fires at a higher pressure and thus fires slightly faster projectiles. \
+	desc = "A SolGov standard caseless match grade rifle round. Fires at a higher pressure and thus fires slightly faster projectiles. \
 		Rumors say you can do sick ass wall bounce trick shots with these, though the official suggestion is to just shoot your target and \
 		not the wall next to them."
 
@@ -104,9 +103,8 @@
 
 	projectile_type = /obj/projectile/bullet/c40sol/pierce
 
+	ammo_categories = AMMO_CLASS_PLUS
 	custom_materials = AMMO_MATS_AP
-	advanced_print_req = TRUE
-
 
 /obj/projectile/bullet/c40sol/pierce
 	name = ".40 Sol match bullet"
@@ -119,7 +117,7 @@
 	armour_penetration = 20
 
 	wound_bonus = -30
-	bare_wound_bonus = -10
+	exposed_wound_bonus = -10
 
 	ricochets_max = 2
 	ricochet_chance = 80
@@ -157,15 +155,14 @@
 
 /obj/item/ammo_casing/c40sol/incendiary
 	name = ".40 Sol Long incendiary bullet casing"
-	desc = "A SolFed standard caseless incendiary rifle round. Leaves no flaming trail, only igniting targets on impact."
+	desc = "A SolGov standard caseless incendiary rifle round. Leaves no flaming trail, only igniting targets on impact."
 
 	icon_state = "40sol_flame"
 
 	projectile_type = /obj/projectile/bullet/c40sol/incendiary
 
+	ammo_categories = AMMO_CLASS_NICHE
 	custom_materials = AMMO_MATS_TEMP
-	advanced_print_req = TRUE
-
 
 /obj/projectile/bullet/c40sol/incendiary
 	name = ".40 Sol Long incendiary bullet"

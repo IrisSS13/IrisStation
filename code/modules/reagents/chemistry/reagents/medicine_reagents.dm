@@ -251,6 +251,8 @@
 	metabolization_rate = 0.1 * REAGENTS_METABOLISM
 	ph = 8.1
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	inverse_chem_val = 0.3
+	inverse_chem = /datum/reagent/inverse/spaceacillin
 	added_traits = list(TRAIT_VIRUS_RESISTANCE)
 
 //Goon Chems. Ported mainly from Goonstation. Easily mixable (or not so easily) and provide a variety of effects.
@@ -297,7 +299,14 @@
 
 /datum/reagent/medicine/salglu_solution/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
-	var/need_mob_update
+	var/need_mob_update = FALSE
+	if(SPT_PROB(18, seconds_per_tick))
+		need_mob_update = affected_mob.adjustBruteLoss(-0.5 * REM * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_biotype)
+		need_mob_update += affected_mob.adjustFireLoss(-0.5 * REM * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_biotype)
+	var/datum/blood_type/blood_type = affected_mob.get_bloodtype()
+	// Only suppliments base blood types
+	if(blood_type?.restoration_chem != /datum/reagent/iron)
+		return need_mob_update ? UPDATE_MOB_HEALTH : null
 	if(last_added)
 		affected_mob.blood_volume -= last_added
 		last_added = 0
@@ -306,9 +315,6 @@
 		var/new_blood_level = min(affected_mob.blood_volume + amount_to_add, maximum_reachable)
 		last_added = new_blood_level - affected_mob.blood_volume
 		affected_mob.blood_volume = new_blood_level + (extra_regen * REM * seconds_per_tick)
-	if(SPT_PROB(18, seconds_per_tick))
-		need_mob_update = affected_mob.adjustBruteLoss(-0.5 * REM * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_biotype)
-		need_mob_update += affected_mob.adjustFireLoss(-0.5 * REM * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_biotype)
 	if(need_mob_update)
 		return UPDATE_MOB_HEALTH
 
@@ -363,7 +369,7 @@
 	if(methods & (PATCH|TOUCH))
 		var/mob/living/carbon/exposed_carbon = exposed_mob
 		for(var/datum/surgery/surgery as anything in exposed_carbon.surgeries)
-			surgery.speed_modifier = max(0.1, surgery.speed_modifier)
+			surgery.speed_modifier = min(0.9, surgery.speed_modifier)
 
 		if(show_message)
 			to_chat(exposed_carbon, span_danger("You feel your injuries fade away to nothing!") )
@@ -1172,7 +1178,8 @@
 	var/mob/living/carbon/human/human_mob = affected_mob
 	if (ismonkey(human_mob))
 		if (!HAS_TRAIT(human_mob, TRAIT_BORN_MONKEY))
-			human_mob.dna.remove_mutation(/datum/mutation/human/race, mutadone = TRUE)
+			//This is the only time mutadone should remove monkeyism
+			human_mob.dna.remove_mutation(/datum/mutation/race, list(MUTATION_SOURCE_ACTIVATED, MUTATION_SOURCE_MUTATOR))
 	else if (HAS_TRAIT(human_mob, TRAIT_BORN_MONKEY))
 		human_mob.monkeyize()
 
@@ -1181,7 +1188,8 @@
 	. = ..()
 	affected_mob.remove_status_effect(/datum/status_effect/jitter)
 	if(affected_mob.has_dna())
-		affected_mob.dna.remove_all_mutations(list(MUT_NORMAL, MUT_EXTRA), TRUE)
+		affected_mob.dna.remove_mutation_group(affected_mob.dna.mutations - affected_mob.dna.get_mutation(/datum/mutation/race), GLOB.standard_mutation_sources)
+		affected_mob.dna.scrambled = FALSE
 
 /datum/reagent/medicine/antihol
 	name = "Antihol"
@@ -1217,7 +1225,7 @@
 		return
 
 	for(var/datum/surgery/surgery as anything in exposed_carbon.surgeries)
-		surgery.speed_modifier = max(surgery.speed_modifier  - 0.1, -0.9)
+		surgery.speed_modifier = min(surgery.speed_modifier  +  0.1, 1.1)
 
 /datum/reagent/medicine/stimulants
 	name = "Stimulants"
@@ -1439,7 +1447,7 @@
 	description = "Reduces the duration of unconsciousness, knockdown and stuns. Restores stamina, but deals toxin damage when overdosed."
 	color = "#C1151D"
 	overdose_threshold = 30
-	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED|REAGENT_NO_RANDOM_RECIPE
+	chemical_flags = REAGENT_NO_RANDOM_RECIPE
 
 /datum/reagent/medicine/changelingadrenaline/on_mob_life(mob/living/carbon/metabolizer, seconds_per_tick, times_fired)
 	. = ..()
@@ -1537,65 +1545,40 @@
 	description = "Long-lasting sleep suppressant that very slightly reduces stun and knockdown times. Overdosing has horrendous side effects and deals lethal oxygen damage, will knock you unconscious if not dealt with."
 	color = "#BEF7D8" // palish blue white
 	metabolization_rate = 0.1 * REAGENTS_METABOLISM
-	overdose_threshold = 20 // with the random effects this might be awesome or might kill you at less than 10u (extensively tested)
+	overdose_threshold = 15 // with the random effects this might be awesome or might kill you at less than 10u (extensively tested) - IRIS EDIT moves down the overdose to 15, since it's no longer random
 	taste_description = "salt" // it actually does taste salty
-	var/overdose_progress = 0 // to track overdose progress
+	// var/overdose_progress = 0 // to track overdose progress - IRIS EDIT - removes random OD for modafinil
 	ph = 7.89
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	metabolized_traits = list(TRAIT_SLEEPIMMUNE)
 
+// IRIS EDIT - GIVES MODAFINIL A STATIC OVERDOSE UNIT
 /datum/reagent/medicine/modafinil/on_mob_life(mob/living/carbon/metabolizer, seconds_per_tick, times_fired)
 	. = ..()
-	if(overdosed) // We do not want any effects on OD
+	/* if(overdosed) // We do not want any effects on OD
 		return
-	overdose_threshold = overdose_threshold + ((rand(-10, 10) / 10) * REM * seconds_per_tick) // for extra fun
+	// overdose_threshold = overdose_threshold + ((rand(-10, 10) / 10) * REM * seconds_per_tick) // for extra fun
+	*/
 	metabolizer.AdjustAllImmobility(-5 * REM * seconds_per_tick)
 	metabolizer.adjustStaminaLoss(-3 * REM * seconds_per_tick, updating_stamina = FALSE, required_biotype = affected_biotype)
 	metabolizer.set_jitter_if_lower(1 SECONDS * REM * seconds_per_tick)
 	metabolization_rate = 0.005 * REAGENTS_METABOLISM * rand(5, 20) // randomizes metabolism between 0.02 and 0.08 per second
 	return UPDATE_MOB_HEALTH
 
-/datum/reagent/medicine/modafinil/overdose_start(mob/living/affected_mob)
+/* /datum/reagent/medicine/modafinil/overdose_start(mob/living/affected_mob)
 	. = ..()
 	to_chat(affected_mob, span_userdanger("You feel awfully out of breath and jittery!"))
 	metabolization_rate = 0.025 * REAGENTS_METABOLISM // sets metabolism to 0.005 per second on overdose
+*/
 
 /datum/reagent/medicine/modafinil/overdose_process(mob/living/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
-	overdose_progress++
-	var/need_mob_update
-	switch(overdose_progress)
-		if(1 to 40)
-			affected_mob.adjust_jitter_up_to(2 SECONDS * REM * seconds_per_tick, 20 SECONDS)
-			affected_mob.adjust_stutter_up_to(2 SECONDS * REM * seconds_per_tick, 20 SECONDS)
-			affected_mob.set_dizzy_if_lower(10 SECONDS * REM * seconds_per_tick)
-			if(SPT_PROB(30, seconds_per_tick))
-				affected_mob.losebreath++
-				need_mob_update = TRUE
-		if(41 to 80)
-			need_mob_update = affected_mob.adjustOxyLoss(0.1 * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
-			need_mob_update += affected_mob.adjustStaminaLoss(0.1 * REM * seconds_per_tick, updating_stamina = FALSE, required_biotype = affected_biotype)
-			affected_mob.adjust_jitter_up_to(2 SECONDS * REM * seconds_per_tick, 40 SECONDS)
-			affected_mob.adjust_stutter_up_to(2 SECONDS * REM * seconds_per_tick, 40 SECONDS)
-			affected_mob.set_dizzy_if_lower(20 SECONDS * REM * seconds_per_tick)
-			if(SPT_PROB(30, seconds_per_tick))
-				affected_mob.losebreath++
-				need_mob_update = TRUE
-			if(SPT_PROB(10, seconds_per_tick))
-				to_chat(affected_mob, span_userdanger("You have a sudden fit!"))
-				affected_mob.emote("moan")
-				affected_mob.Paralyze(20) // you should be in a bad spot at this point unless epipen has been used
-		if(81)
-			to_chat(affected_mob, span_userdanger("You feel too exhausted to continue!")) // at this point you will eventually die unless you get charcoal
-			need_mob_update = affected_mob.adjustOxyLoss(0.1 * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
-			need_mob_update += affected_mob.adjustStaminaLoss(0.1 * REM * seconds_per_tick, updating_stamina = FALSE, required_biotype = affected_biotype)
-		if(82 to INFINITY)
-			REMOVE_TRAIT(affected_mob, TRAIT_SLEEPIMMUNE, type)
-			affected_mob.Sleeping(100 * REM * seconds_per_tick)
-			need_mob_update += affected_mob.adjustOxyLoss(1.5 * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type)
-			need_mob_update += affected_mob.adjustStaminaLoss(1.5 * REM * seconds_per_tick, updating_stamina = FALSE, required_biotype = affected_biotype)
-	if(need_mob_update)
-		return UPDATE_MOB_HEALTH
+	affected_mob.adjust_jitter_up_to(2 SECONDS * REM * seconds_per_tick, 20 SECONDS)
+	affected_mob.adjust_stutter_up_to(2 SECONDS * REM * seconds_per_tick, 20 SECONDS)
+	affected_mob.set_dizzy_if_lower(10 SECONDS * REM * seconds_per_tick)
+	affected_mob.losebreath++
+
+// IRIS EDIT END
 
 /datum/reagent/medicine/psicodine
 	name = "Psicodine"
@@ -1837,3 +1820,38 @@
 		if(affected_mob.adjustStaminaLoss(10 * REM * seconds_per_tick, updating_stamina = FALSE))
 			. = UPDATE_MOB_HEALTH
 	affected_mob.adjust_disgust(-10 * REM * seconds_per_tick)
+
+/datum/reagent/medicine/naloxone
+	name = "Naloxone"
+	description = "Opioid antagonist that purges drowsiness and narcotics from the patient, restores breath loss and accelerates addiction recovery."
+	color = "#f5f5dc"
+	metabolization_rate = 0.2 * REM
+	ph = 4
+	penetrates_skin = TOUCH|VAPOR
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	metabolized_traits = list(TRAIT_ADDICTIONRESILIENT)
+	var/static/list/opiates_to_clear = list(
+		/datum/reagent/medicine/morphine,
+		/datum/reagent/impedrezene,
+		/datum/reagent/toxin/fentanyl,
+		/datum/reagent/drug/krokodil,
+		/datum/reagent/inverse/krokodil,
+	)
+
+/datum/reagent/medicine/naloxone/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+	. = ..()
+	for(var/opiate in opiates_to_clear)
+		holder.remove_reagent(opiate, 3 * REM * seconds_per_tick)
+
+	if(affected_mob.mob_mood?.get_mood_event("numb"))
+		affected_mob.clear_mood_event("numb")
+		affected_mob.add_mood_event("not numb", /datum/mood_event/antinarcotic_medium)
+
+	if(affected_mob.mob_mood?.get_mood_event("smacked out"))
+		affected_mob.clear_mood_event("smacked out")
+		affected_mob.add_mood_event("not smacked out", /datum/mood_event/antinarcotic_heavy)
+
+	affected_mob.adjust_drowsiness(-5 SECONDS * REM * seconds_per_tick)
+	if(affected_mob.losebreath >= 1)
+		affected_mob.losebreath -= 1 * REM * seconds_per_tick
+		return UPDATE_MOB_HEALTH

@@ -402,7 +402,7 @@
 			if(TPACKC)
 				back = /obj/item/storage/backpack/tinypakc
 			if(GUNCASE)
-				back = /obj/item/storage/toolbox/guncase/nova/empty
+				back = /obj/item/storage/toolbox/guncase/nova
 			// NOVA EDIT ADDITION START
 			else
 				back = backpack //Department backpack
@@ -454,7 +454,7 @@
 	var/obj/item/modular_computer/pda/pda = equipped.get_item_by_slot(pda_slot)
 
 	if(istype(pda))
-		pda.imprint_id(equipped.real_name, equipped_job.title, card)
+		pda.imprint_id(equipped.real_name, equipped_job.title)
 		pda.update_ringtone(equipped_job.job_tone)
 		pda.UpdateDisplay()
 
@@ -685,3 +685,7 @@
 /datum/job/proc/after_latejoin_spawn(mob/living/spawning)
 	SHOULD_CALL_PARENT(TRUE)
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_JOB_AFTER_LATEJOIN_SPAWN, src, spawning)
+
+/// Called when a mob that has this job is admin respawned
+/datum/job/proc/on_respawn(mob/new_character)
+	SSjob.equip_rank(new_character, new_character.mind.assigned_role, new_character.client)

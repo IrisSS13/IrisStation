@@ -274,10 +274,10 @@
 <br>
 1.Acquire fresh specimen.<br>
 2.Put the specimen on operating table.<br>
-3.Apply surgical drapes, preparing for experimental dissection.<br>
+3.Apply surgical drapes, preparing for experimental organ manipulation.<br>
 4.Apply scalpel to specimen's torso.<br>
-5.Clamp bleeders on specimen's torso with a hemostat.<br>
-6.Retract skin of specimen's torso with a retractor.<br>
+5.Retract skin of specimen's torso with a retractor.<br>
+6.Clamp bleeders on specimen's torso with a hemostat.<br>
 7.Apply scalpel again to specimen's torso.<br>
 8.Search through the specimen's torso with your hands to remove any superfluous organs.<br>
 9.Insert replacement gland (Retrieve one from gland storage).<br>
@@ -286,7 +286,20 @@
 12.Choose one of the machine options. The target will be analyzed and teleported to the selected drop-off point.<br>
 13.You will receive one supply credit, and the subject will be counted towards your quota.<br>
 <br>
-Congratulations! You are now trained for invasive xenobiology research!"}
+Congratulations! You are now trained for invasive xenobiology research!<br>
+<br>
+Addendum for more exotic biomechanical specimens:<br>
+1.Acquire less conventional surgical instruments from your collaborator.<br>
+2.Apply surgical drapes, preparing for hardware manipulation.<br>
+3.Use screwdriver to unscrew specimen's shell.<br>
+4.Open hatch with your hands.<br>
+5.Use wrench to unwrench bolts of specimen's torso.<br>
+6.Use multitool to prepare the mechanical parts for removal.<br>
+7.Remove circulatory mechanism with hemostat.<br>
+8.Insert replacement gland (Retrieve one from gland storage).<br>
+9.Use wrench to secure bolts again.<br>
+10.Use screwdriver to resecure specimen's shell.<br>
+Return to step 11 of normal process."}
 
 /obj/item/paper/guides/antag/abductor/click_alt()
 	return CLICK_ACTION_BLOCKING //otherwise it would fold into a paperplane.
@@ -332,7 +345,7 @@ Congratulations! You are now trained for invasive xenobiology research!"}
 		if(BATON_STUN)
 			txt = "stunning"
 		if(BATON_SLEEP)
-			txt = "sleep inducement"
+			txt = "paralysis inducement" //IRIS EDIT: txt = "sleep inducement"
 		if(BATON_CUFF)
 			txt = "restraining"
 		if(BATON_PROBE)
@@ -343,7 +356,6 @@ Congratulations! You are now trained for invasive xenobiology research!"}
 
 	affect_cyborg = is_stun_mode
 	log_stun_attack = is_stun_mode // other modes have their own log entries.
-	stun_animation = is_stun_or_sleep
 	on_stun_sound = is_stun_or_sleep ? 'sound/items/weapons/egloves.ogg' : null
 
 	to_chat(usr, span_notice("You switch the baton to [txt] mode."))
@@ -365,16 +377,16 @@ Congratulations! You are now trained for invasive xenobiology research!"}
 			icon_state = "wonderprodProbe"
 			inhand_icon_state = "wonderprodProbe"
 
-/obj/item/melee/baton/abductor/baton_attack(mob/target, mob/living/user, modifiers)
+/obj/item/melee/baton/abductor/can_baton(mob/living/target, mob/living/user)
 	if(!AbductorCheck(user))
-		return BATON_ATTACK_DONE
+		return FALSE
 	return ..()
 
 /obj/item/melee/baton/abductor/baton_effect(mob/living/target, mob/living/user, modifiers, stun_override)
 	switch (mode)
 		if(BATON_STUN)
 			target.visible_message(span_danger("[user] stuns [target] with [src]!"),
-				span_userdanger("[user] stuns you with [src]!"))
+				span_userdanger("[user] stuns you with [src]!"), visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE)
 			target.set_jitter_if_lower(40 SECONDS)
 			target.set_confusion_if_lower(10 SECONDS)
 			target.set_stutter_if_lower(16 SECONDS)
@@ -406,10 +418,18 @@ Congratulations! You are now trained for invasive xenobiology research!"}
 			span_userdanger("You feel a strange wave of heavy drowsiness wash over you!"))
 			target.adjust_drowsiness(4 SECONDS)
 			return
-		target.visible_message(span_danger("[user] induces sleep in [target] with [src]!"), \
+//IRIS EDIT START
+		target.visible_message(span_danger("[user] paralyzes [target] with [src]!"), \
 		span_userdanger("You suddenly feel very drowsy!"))
-		target.Sleeping(sleep_time)
-		log_combat(user, target, "put to sleep")
+		target.Paralyze(20 SECONDS)
+		log_combat(user, target, "paralyzed")
+/*
+		target.visible_message(span_danger("[user] paralyzes [target] with [src]!"), \
+		span_userdanger("You suddenly feel very drowsy!"))
+		target.Paralyze(20 SECONDS)
+		log_combat(user, target, "paralyzed")
+*/
+//IRIS EDIT END
 	else
 		if(target.can_block_magic(MAGIC_RESISTANCE_MIND, charge_cost = 0))
 			to_chat(user, span_warning("The specimen has some kind of mental protection that is completely blocking our sleep inducement methods! It seems you've been foiled."))
@@ -493,7 +513,7 @@ Congratulations! You are now trained for invasive xenobiology research!"}
 			if(BATON_STUN)
 				. += span_warning("The baton is in stun mode.")
 			if(BATON_SLEEP)
-				. += span_warning("The baton is in sleep inducement mode.")
+				. += span_warning("The baton is in paralysis inducement mode.") //IRIS EDIT: 				. += span_warning("The baton is in sleep inducement mode.")
 			if(BATON_CUFF)
 				. += span_warning("The baton is in restraining mode.")
 			if(BATON_PROBE)

@@ -1,7 +1,7 @@
 import { DmIcon, Icon } from 'tgui-core/components';
 
 import { JOB2ICON } from '../common/JobToIcon';
-import { Antagonist, Observable } from './types';
+import type { Antagonist, Observable } from './types';
 
 type Props = {
   item: Observable | Antagonist;
@@ -14,7 +14,7 @@ type IconSettings = {
 };
 
 const normalIcon: IconSettings = {
-  dmi: 'modular_nova/master_files/icons/mob/huds/hud.dmi', // NOVA CHANGE - ORIGINAL 'icons/mob/huds/hud.dmi'
+  dmi: 'modular_iris/master_files/icons/mob/huds/hud.dmi', // IRIS CHANGE; NOVA FILE modular_nova/master_files/icons/mob/huds/hud.dmi; ORIGINAL FILE 'icons/mob/huds/hud.dmi'
   transform: 'scale(2.3) translateX(9px) translateY(1px)',
 };
 

@@ -35,10 +35,11 @@
 
 /obj/item/clothing/head/helmet/cin_surplus_helmet
 	name = "\improper GZ-03 combat helmet"
-	desc = "An outdated service helmet previously used by CIN military forces. The design dates back to the years leading up to CIN - SolFed border war, and was in service until the advent of VOSKHOD powered armor becoming standard issue."
-	icon = 'modular_nova/modules/novaya_ert/icons/surplus_armor/surplus_armor.dmi'
+	desc = "An outdated service helmet previously used by CIN military forces. The design dates back to the years leading up to CIN - SolGov border war, and was in service until the advent of VOSKHOD powered armor becoming standard issue."
 	worn_icon = 'modular_nova/modules/novaya_ert/icons/surplus_armor/surplus_armor_object.dmi'
-	icon_state = "helmet_plain"
+	icon = 'icons/map_icons/clothing/head/_head.dmi'
+	icon_state = "/obj/item/clothing/head/helmet/cin_surplus_helmet"
+	post_init_icon_state = "helmet_plain"
 	greyscale_config = /datum/greyscale_config/cin_surplus_helmet/object
 	greyscale_config_worn = /datum/greyscale_config/cin_surplus_helmet
 	greyscale_colors = CIN_WINTER_COLORS
@@ -77,7 +78,7 @@
 	. += "The GZ-03 series of coalition armor was a collaborative project between the NRI and TransOrbital \
 		to develop a frontline soldier's armor set that could withstand attacks from the Solar Federation's \
 		then relatively new pulse ballistics. The design itself is based upon a far older pattern \
-		of armor originally developed by SolFed themselves, which was the standard pattern of armor design \
+		of armor originally developed by SolGov themselves, which was the standard pattern of armor design \
 		granted to the first colony ships leaving Sol. Armor older than any of the CIN member states, \
 		upgraded with modern technology. This helmet in particular encloses the entire head save for \
 		the face, and should come with a glass visor and relatively comfortable internal padding. Should, \
@@ -113,10 +114,11 @@
 
 /obj/item/clothing/under/syndicate/rus_army/cin_surplus
 	name = "\improper CIN combat uniform"
-	desc = "A CIN designed combat uniform that can come in any number of camouflauge variations. Despite this particular design being developed in the years leading up to the CIN-SolFed border war, the uniform is still in use by many member states to this day."
-	icon = 'modular_nova/modules/novaya_ert/icons/surplus_armor/surplus_armor.dmi'
+	desc = "A CIN designed combat uniform that can come in any number of camouflauge variations. Despite this particular design being developed in the years leading up to the CIN-SolGov border war, the uniform is still in use by many member states to this day."
 	worn_icon = 'modular_nova/modules/novaya_ert/icons/surplus_armor/surplus_armor_object.dmi'
-	icon_state = "undersuit_greyscale"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/syndicate/rus_army/cin_surplus"
+	post_init_icon_state = "undersuit_greyscale"
 	greyscale_config = /datum/greyscale_config/cin_surplus_undersuit/object
 	greyscale_config_worn = /datum/greyscale_config/cin_surplus_undersuit
 	greyscale_config_worn_digi = /datum/greyscale_config/cin_surplus_undersuit/digi
@@ -151,7 +153,7 @@
 
 /obj/item/clothing/suit/armor/vest/cin_surplus_vest
 	name = "\improper GZ-03 armor vest"
-	desc = "An outdated armor vest previously used by CIN military forces. The design dates back to the years leading up to CIN - SolFed border war, and was in service until the advent of VOSKHOD powered armor becoming standard issue."
+	desc = "An outdated armor vest previously used by CIN military forces. The design dates back to the years leading up to CIN - SolGov border war, and was in service until the advent of VOSKHOD powered armor becoming standard issue."
 	worn_icon = 'modular_nova/modules/novaya_ert/icons/surplus_armor/surplus_armor.dmi'
 	icon = 'modular_nova/modules/novaya_ert/icons/surplus_armor/surplus_armor_object.dmi'
 	icon_state = "vest_basic"
@@ -180,7 +182,7 @@
 	. += "The GZ-03 series of coalition armor was a collaborative project between the NRI and TransOrbital \
 		to develop a frontline soldier's armor set that could withstand attacks from the Solar Federation's \
 		then relatively new pulse ballistics. The design itself is based upon a far older pattern \
-		of armor originally developed by SolFed themselves, which was the standard pattern of armor design \
+		of armor originally developed by SolGov themselves, which was the standard pattern of armor design \
 		granted to the first colony ships leaving Sol. Armor older than any of the CIN member states, \
 		upgraded with modern technology. This vest in particular is made up of several large, dense plates \
 		front and back. While vests like this were also produced with extra plating to protect the groin, many \
@@ -193,22 +195,26 @@
 
 /obj/item/storage/belt/military/cin_surplus
 	desc = "A tactical webbing often used by the CIN's military forces."
-	icon = 'modular_nova/modules/novaya_ert/icons/surplus_armor/surplus_armor.dmi'
 	worn_icon = 'modular_nova/modules/novaya_ert/icons/surplus_armor/surplus_armor_object.dmi'
-	icon_state = "chestrig"
 	worn_icon_state = "chestrig"
+	icon = 'icons/map_icons/items/_item.dmi'
+	icon_state = "/obj/item/storage/belt/military/cin_surplus"
+	post_init_icon_state = "chestrig"
 	greyscale_config = /datum/greyscale_config/cin_surplus_chestrig/object
 	greyscale_config_worn = /datum/greyscale_config/cin_surplus_chestrig
 	greyscale_colors = CIN_WINTER_COLORS_COMPLIMENT
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/storage/belt/military/cin_surplus/desert
+	icon_state = "/obj/item/storage/belt/military/cin_surplus/desert"
 	greyscale_colors = CIN_MOUNTAIN_DESERT_COLORS_COMPLIMENT
 
 /obj/item/storage/belt/military/cin_surplus/forest
+	icon_state = "/obj/item/storage/belt/military/cin_surplus/forest"
 	greyscale_colors = CIN_FOREST_COLORS_COMPLIMENT
 
 /obj/item/storage/belt/military/cin_surplus/marine
+	icon_state = "/obj/item/storage/belt/military/cin_surplus/marine"
 	greyscale_colors = CIN_MARINE_COLORS_COMPLIMENT
 
 /obj/item/storage/belt/military/cin_surplus/random_color
@@ -231,20 +237,24 @@
 /obj/item/storage/backpack/industrial/cin_surplus
 	name = "\improper CIN military backpack"
 	desc = "A rugged backpack often used by the CIN's military forces."
-	icon = 'modular_nova/modules/novaya_ert/icons/surplus_armor/surplus_armor.dmi'
 	worn_icon = 'modular_nova/modules/novaya_ert/icons/surplus_armor/surplus_armor_object.dmi'
-	icon_state = "backpack"
+	icon = 'icons/map_icons/items/_item.dmi'
+	icon_state = "/obj/item/storage/backpack/industrial/cin_surplus"
+	post_init_icon_state = "backpack"
 	greyscale_config = /datum/greyscale_config/cin_surplus_backpack/object
 	greyscale_config_worn = /datum/greyscale_config/cin_surplus_backpack
 	greyscale_colors = CIN_WINTER_COLORS_COMPLIMENT
 
 /obj/item/storage/backpack/industrial/cin_surplus/desert
+	icon_state = "/obj/item/storage/backpack/industrial/cin_surplus/desert"
 	greyscale_colors = CIN_MOUNTAIN_DESERT_COLORS_COMPLIMENT
 
 /obj/item/storage/backpack/industrial/cin_surplus/forest
+	icon_state = "/obj/item/storage/backpack/industrial/cin_surplus/forest"
 	greyscale_colors = CIN_FOREST_COLORS_COMPLIMENT
 
 /obj/item/storage/backpack/industrial/cin_surplus/marine
+	icon_state = "/obj/item/storage/backpack/industrial/cin_surplus/marine"
 	greyscale_colors = CIN_MARINE_COLORS_COMPLIMENT
 
 /obj/item/storage/backpack/industrial/cin_surplus/random_color
@@ -260,7 +270,7 @@
 /obj/item/storage/backpack/industrial/cin_surplus/random_color/Initialize(mapload)
 	greyscale_colors = pick(possible_spawning_colors)
 
-	. = ..()
+	return ..()
 
 #undef CIN_WINTER_COLORS
 #undef CIN_MOUNTAIN_DESERT_COLORS

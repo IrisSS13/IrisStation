@@ -54,7 +54,7 @@
 #define JOB_RESEARCH_DIRECTOR "Research Director"
 #define JOB_CHIEF_ENGINEER "Chief Engineer"
 #define JOB_CHIEF_MEDICAL_OFFICER "Chief Medical Officer"
-#define JOB_BRIDGE_ASSISTANT "Bridge Assistant"
+#define JOB_BRIDGE_ASSISTANT "Bridge Officer" // NOVA EDIT CHANGE - ORIGINAL: #define JOB_BRIDGE_ASSISTANT "Bridge Assistant"
 #define JOB_VETERAN_ADVISOR "Veteran Security Advisor"
 //Silicon
 #define JOB_AI "AI"
@@ -94,6 +94,7 @@
 #define JOB_SHAFT_MINER "Shaft Miner"
 #define JOB_BITRUNNER "Bitrunner"
 #define JOB_CUSTOMS_AGENT "Customs Agent" // NOVA EDIT ADDITION
+#define JOB_EXPLORER "Explorer" // IRIS EDIT ADDITION
 //Service
 #define JOB_BARTENDER "Bartender"
 #define JOB_BOTANIST "Botanist"
@@ -145,8 +146,8 @@
 #define JOB_NAVAL_FLEET_ADMIRAL "Fleet Admiral"
 // Off-Station
 #define JOB_SPACE_POLICE "Space Police"
-#define JOB_SOLFED "SolFed"
-#define JOB_SOLFED_LIASON "SolFed Liason"
+#define JOB_SOLFED "SolGov"
+#define JOB_SOLFED_LIASON "SolGov Liason"
 // NOVA EDIT ADDITION END
 
 //Lost crew
@@ -281,6 +282,10 @@ DEFINE_BITFIELD(departments_bitflags, list(
 #define JOB_LATEJOIN_ONLY (1<<11)
 /// This job is a head of staff.
 #define JOB_HEAD_OF_STAFF (1<<12)
+/// This job will NEVER be selected as an antag role
+#define JOB_ANTAG_BLACKLISTED (1<<13)
+/// This job will never be selected as an antag role IF config `protect_roles_from_antagonist` is set
+#define JOB_ANTAG_PROTECTED (1<<14)
 
 DEFINE_BITFIELD(job_flags, list(
 	"JOB_ANNOUNCE_ARRIVAL" = JOB_ANNOUNCE_ARRIVAL,
@@ -301,7 +306,7 @@ DEFINE_BITFIELD(job_flags, list(
 /// Combination flag for jobs which are considered regular crew members of the station.
 #define STATION_JOB_FLAGS (JOB_ANNOUNCE_ARRIVAL|JOB_CREW_MANIFEST|JOB_EQUIP_RANK|JOB_CREW_MEMBER|JOB_NEW_PLAYER_JOINABLE|JOB_REOPEN_ON_ROUNDSTART_LOSS|JOB_ASSIGN_QUIRKS|JOB_CAN_BE_INTERN)
 /// Combination flag for jobs which are considered heads of staff.
-#define HEAD_OF_STAFF_JOB_FLAGS (JOB_BOLD_SELECT_TEXT|JOB_CANNOT_OPEN_SLOTS|JOB_HEAD_OF_STAFF)
+#define HEAD_OF_STAFF_JOB_FLAGS (JOB_BOLD_SELECT_TEXT|JOB_CANNOT_OPEN_SLOTS|JOB_HEAD_OF_STAFF|JOB_ANTAG_PROTECTED) // NOVA EDIT CHANGE - Heads are antag protected - Original: #define HEAD_OF_STAFF_JOB_FLAGS (JOB_BOLD_SELECT_TEXT|JOB_CANNOT_OPEN_SLOTS|JOB_HEAD_OF_STAFF)
 /// Combination flag for jobs which are enabled by station traits.
 #define STATION_TRAIT_JOB_FLAGS (JOB_CANNOT_OPEN_SLOTS|JOB_HIDE_WHEN_EMPTY|JOB_LATEJOIN_ONLY&~JOB_REOPEN_ON_ROUNDSTART_LOSS)
 

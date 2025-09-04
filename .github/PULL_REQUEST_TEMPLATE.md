@@ -11,17 +11,12 @@
 
 ## Proof of Testing
 
-<!-- Include any screenshots/videos/debugging steps of the code functioning successfully, between the </summary> and </details> code blocks. -->
+<!-- Include any screenshots/videos/debugging steps of the code functioning successfully-->
 <!-- To our mappers and spriters: Posting screenshots of content INSIDE EDITORS (aseprite, PDN, SDMM, ect) is NOT valid proof of testing. Please make sure that you COMPILE the game and provide PROOF you tested your edits. -->
-
-<details>
-<summary>Screenshots/Videos</summary>
-
-</details>
 
 ## Changelog
 
-<!-- If your PR modifies aspects of the game that can be concretely observed by players or admins you should add a changelog. If your change does NOT meet this description, remove this section. Be sure to properly mark your PRs to prevent unnecessary GBP loss. You can read up on GBP and its effects on PRs in the tgstation guides for contributors. Please note that maintainers freely reserve the right to remove and add tags should they deem it appropriate. You can attempt to finagle the system all you want, but it's best to shoot for clear communication right off the bat. -->
+<!-- If your PR modifies aspects of the game that can be concretely observed by players or admins you should add a changelog. If your change does NOT meet this description, remove this section. Be sure to properly mark your PRs. Please note that maintainers freely reserve the right to remove and add tags should they deem it appropriate. You can attempt to finagle the system all you want, but it's best to shoot for clear communication right off the bat. -->
 
 :cl:
 add: Added new mechanics or gameplay changes

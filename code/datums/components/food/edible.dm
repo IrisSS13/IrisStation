@@ -76,10 +76,12 @@ Behavior that's still missing from this component that original food items had t
 /datum/component/edible/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_ATOM_EXAMINE, PROC_REF(examine))
 	RegisterSignal(parent, COMSIG_ATOM_ATTACK_ANIMAL, PROC_REF(UseByAnimal))
-	RegisterSignal(parent, COMSIG_ATOM_CHECKPARTS, PROC_REF(OnCraft))
+	RegisterSignal(parent, COMSIG_ATOM_ON_CRAFT, PROC_REF(OnCraft))
 	RegisterSignal(parent, COMSIG_OOZE_EAT_ATOM, PROC_REF(on_ooze_eat))
 	RegisterSignal(parent, COMSIG_FOOD_INGREDIENT_ADDED, PROC_REF(edible_ingredient_added))
 	RegisterSignal(parent, COMSIG_ATOM_CREATEDBY_PROCESSING, PROC_REF(created_by_processing))
+	RegisterSignal(parent, COMSIG_ATOM_FINALIZE_MATERIAL_EFFECTS, PROC_REF(on_material_effects))
+	RegisterSignal(parent, COMSIG_ATOM_FINALIZE_REMOVE_MATERIAL_EFFECTS, PROC_REF(on_remove_material_effects))
 	RegisterSignal(parent, COMSIG_ATOM_ATTACK_HAND_SECONDARY, PROC_REF(show_radial_recipes)) //IRIS ADDITION: Radial cooking
 
 	if(isturf(parent))
@@ -106,7 +108,7 @@ Behavior that's still missing from this component that original food items had t
 	UnregisterSignal(parent, list(
 		COMSIG_ATOM_ATTACK_ANIMAL,
 		COMSIG_ATOM_ATTACK_HAND,
-		COMSIG_ATOM_CHECKPARTS,
+		COMSIG_ATOM_ON_CRAFT,
 		COMSIG_ATOM_CREATEDBY_PROCESSING,
 		COMSIG_ATOM_ENTERED,
 		COMSIG_FOOD_INGREDIENT_ADDED,
@@ -334,11 +336,11 @@ Behavior that's still missing from this component that original food items had t
 		this_food.desc = "[original_atom.desc]"
 
 ///Called when food is crafted through a crafting recipe datum.
-/datum/component/edible/proc/OnCraft(datum/source, list/parts_list, datum/crafting_recipe/food/recipe)
+/datum/component/edible/proc/OnCraft(datum/source, list/components, datum/crafting_recipe/food/recipe)
 	SIGNAL_HANDLER
 
 	var/atom/this_food = parent
-	for(var/obj/item/food/crafted_part in parts_list)
+	for(var/obj/item/food/crafted_part in components)
 		if(!crafted_part.reagents)
 			continue
 		this_food.reagents.maximum_volume += crafted_part.reagents.maximum_volume
@@ -510,6 +512,36 @@ Behavior that's still missing from this component that original food items had t
 	if(!owner.reagents.total_volume)
 		On_Consume(eater, feeder)
 
+//IRIS EDIT START
+	var/area/current_area = get_area(eater)
+	current_area.times_eaten_counter++
+	var/ate_in_service = (current_area.times_eaten_counter >= BREAK_ROOM_DESIGNATION)
+	var/ate_at_table = find_adjacent_tables(eater)
+	var/ate_with_chair = eater.buckled
+	var/ate_with_utensils = eater.is_holding_item_of_type(/obj/item/kitchen)
+
+	if(HAS_TRAIT(eater, TRAIT_TABLE_EATING_ENJOYER) && !ate_at_table)
+		eater.add_mood_event("ate_table", /datum/mood_event/ate_event/no_table_quirk)
+
+	if(!ate_in_service)
+		eater.add_mood_event("ate_service", /datum/mood_event/ate_event/no_service)
+	else
+		eater.add_mood_event("ate_service", /datum/mood_event/ate_event/service)
+	if(!(food_flags & FOOD_FINGER_FOOD) || HAS_TRAIT(eater, TRAIT_SNOB))
+		if(!ate_with_chair)
+			eater.add_mood_event("ate_chair", /datum/mood_event/ate_event/no_chair)
+		else
+			eater.add_mood_event("ate_chair", /datum/mood_event/ate_event/chair)
+		if(!HAS_TRAIT(eater, TRAIT_TABLE_EATING_ENJOYER)) //you NEED a table to not be sad, won't get happy for having what you consider an important thing
+			if(!ate_at_table)
+				eater.add_mood_event("ate_table", /datum/mood_event/ate_event/no_table)
+			else
+				eater.add_mood_event("ate_table", /datum/mood_event/ate_event/table)
+		if(!ate_with_utensils)
+			eater.add_mood_event("ate_utensils", /datum/mood_event/ate_event/no_utensils)
+		else
+			eater.add_mood_event("ate_utensils", /datum/mood_event/ate_event/utensils)
+//IRIS EDIT END
 	//Invoke our after eat callback if it is valid
 	after_eat?.Invoke(eater, feeder, bitecount)
 
@@ -743,4 +775,19 @@ Behavior that's still missing from this component that original food items had t
 		qdel(food)
 		return COMPONENT_ATOM_EATEN
 
+#define REQUIRED_MAT_FLAGS (MATERIAL_EFFECTS|MATERIAL_NO_EDIBILITY)
+
+///Calls on_edible_applied() for the main material composing the atom parent
+/datum/component/edible/proc/on_material_effects(atom/source, list/materials, datum/material/main_material)
+	SIGNAL_HANDLER
+	if((source.material_flags & REQUIRED_MAT_FLAGS) == REQUIRED_MAT_FLAGS)
+		main_material.on_edible_applied(source, src)
+
+///Calls on_edible_removed() for the main material no longer composing the atom parent
+/datum/component/edible/proc/on_remove_material_effects(atom/source, list/materials, datum/material/main_material)
+	SIGNAL_HANDLER
+	if((source.material_flags & REQUIRED_MAT_FLAGS) == REQUIRED_MAT_FLAGS)
+		main_material.on_edible_removed(source, src)
+
+#undef REQUIRED_MAT_FLAGS
 #undef DEFAULT_EDIBLE_VOLUME

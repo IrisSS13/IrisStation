@@ -5,7 +5,7 @@
 
 /mob/living/basic/slime
 	name = "grey baby slime (123)"
-	icon = 'icons/mob/simple/slimes.dmi'
+	// icon = 'icons/mob/simple/slimes.dmi' - IRIS EDIT SPRITES OVERRIDEN IN ERIS_PORTS
 	icon_state = "grey-baby"
 	pass_flags = PASSTABLE | PASSGRILLE
 	gender = NEUTER
@@ -26,7 +26,7 @@
 	wound_bonus = -45
 	can_buckle_to = FALSE
 
-	damage_coeff = list(BRUTE = 1, BURN = -1, TOX = 1, STAMINA = 0, OXY = 1) //Healed by fire
+	damage_coeff = list(BRUTE = 1, BURN = -1, TOX = 1, STAMINA = 1, OXY = 1) //Healed by fire
 	unsuitable_cold_damage = 15
 	unsuitable_heat_damage = 0
 	maximum_survivable_temperature = INFINITY
@@ -324,6 +324,11 @@
 
 		do_sparks(5, TRUE, carbon_target)
 		var/power = our_slime.powerlevel + rand(0,3)
+		// IRIS ADDITION START
+		if(transformative_effect == SLIME_TYPE_ORANGE)
+			carbon_target.adjust_fire_stacks(2)
+			carbon_target.ignite_mob()
+		// IRIS ADDITION END
 		carbon_target.Paralyze(2 SECONDS)
 		carbon_target.Knockdown(power * 2 SECONDS)
 		carbon_target.set_stutter_if_lower(power * 2 SECONDS)

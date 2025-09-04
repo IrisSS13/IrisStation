@@ -18,7 +18,7 @@
 		return
 
 	var/name_stub = " (<b>[usr]</b>)"
-	message = usr.say_emphasis(message)
+	message = usr.apply_message_emphasis(message)
 	message = trim(copytext_char(message, 1, (MAX_MESSAGE_LEN - length(name_stub))))
 	var/message_with_name = message + name_stub
 
@@ -42,7 +42,12 @@
 		if((ghost.client?.prefs.chat_toggles & CHAT_GHOSTSIGHT) && !(ghost in viewers))
 			ghost.show_message(span_emote(message_with_name))
 
+	// IRIS EDIT: Adds runechat support for AI Cameras
 	for(var/mob/receiver in viewers)
 		receiver.show_message(span_emote(message_with_name), alt_msg = span_emote(message_with_name))
 		if (receiver.client?.prefs.read_preference(/datum/preference/toggle/enable_runechat))
-			create_chat_message(usr, null, message, null, EMOTE_MESSAGE)
+			var/mob/living/silicon/ai/ai = usr
+			if(istype(usr, /mob/living/silicon/ai) && (ai.eyeobj in viewers))
+				receiver.create_chat_message(ai.eyeobj, null, message, null, EMOTE_MESSAGE)
+			else
+				receiver.create_chat_message(usr, null, message, null, EMOTE_MESSAGE)

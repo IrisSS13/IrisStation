@@ -150,6 +150,14 @@
 	name = "Ruby Long"
 	icon_state = "hair_rubylong"
 
+/datum/sprite_accessory/hair/iris/fluffy_longer // NoNameGiven
+	name = "Fluffy Longer"
+	icon_state = "hair_fluffylonger"
+
+/datum/sprite_accessory/hair/iris/fluffy_pony // NoNameGiven
+	name = "Fluffy Long Ponytail"
+	icon_state = "hair_fluffypony"
+
 // TAILS
 
 /datum/sprite_accessory/tails/mammal/iris
@@ -258,16 +266,19 @@
 	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/ears.dmi'
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER, BACK_LAYER)
 
+/datum/sprite_accessory/ears/mutant/iris/large
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/ears_big.dmi'
+
 /datum/sprite_accessory/ears/mutant/iris/dog
 	name = "Dog"
 	icon_state = "dog"
 	color_src = USE_ONE_COLOR
 
-/datum/sprite_accessory/ears/mutant/iris/rabbit/upwards
+/datum/sprite_accessory/ears/mutant/iris/large/rabbit/upwards
 	name = "Rabbit (Upwards)"
 	icon_state = "rabbit"
 
-/datum/sprite_accessory/ears/mutant/iris/rabbit/bent
+/datum/sprite_accessory/ears/mutant/iris/large/rabbit/bent
 	name = "Rabbit (Bent)"
 	icon_state = "rabbit_bent"
 

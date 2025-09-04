@@ -116,15 +116,6 @@
 	weight = MED_EVENT_FREQ
 
 /**
- * Blob
- *
- * Disabled: Controlled by Dynamic
- */
-/datum/round_event_control/blob
-	max_occurrences = 0
-	intensity_restriction = TRUE
-
-/**
  * Brain Trauma
  *
  * Disabled: Interrupting scenes and preventing roleplay by interaction with medbay
@@ -164,22 +155,6 @@
 	weight = MED_EVENT_FREQ
 
 /**
- * Cortical Borers
- */
-/datum/round_event_control/cortical_borer
-	max_occurrences = 1 // I don't think this even rolls
-	weight = VERY_LOW_EVENT_FREQ
-
-/**
- * Changeling
- *
- * Disabled: Controlled by Dynamic
- */
-/datum/round_event_control/changeling
-	max_occurrences = 0
-	intensity_restriction = TRUE
-
-/**
  * Communications
  *
  * Combined weight: 16
@@ -193,12 +168,6 @@
 	weight = MED_EVENT_FREQ
 	intensity_restriction = TRUE
 
-/**
- * Obsessed
- */
-/datum/round_event_control/obsessed
-	max_occurrences = 1
-	weight = MED_EVENT_FREQ // this is fine being more common
 
 /**
  * Medical
@@ -224,10 +193,6 @@
 /datum/round_event_control/heart_attack
 	max_occurrences = 1
 	weight = VERY_LOW_EVENT_FREQ
-
-/datum/round_event_control/sentient_disease
-	max_occurrences = 0
-	intensity_restriction = TRUE
 
 /**
  * Earthquakes
@@ -258,13 +223,6 @@
 /datum/round_event_control/falsealarm
 	max_occurrences = 4
 	weight = LOW_EVENT_FREQ
-
-/**
- * Fugitives
- */
-/datum/round_event_control/fugitives
-	max_occurrences = 1
-	weight = MED_EVENT_FREQ
 
 /**
  * Gravity Generator Blackout
@@ -376,20 +334,6 @@
 	intensity_restriction = TRUE
 
 /**
- * Morph
- */
-/datum/round_event_control/morph
-	max_occurrences = 1
-	weight = LOW_EVENT_FREQ
-
-/**
- * Nightmare
- */
-/datum/round_event_control/nightmare
-	max_occurrences = 1
-	weight = LOW_EVENT_FREQ
-
-/**
  * Lone op
  *
  * Disabled: Does not have policy. Will re-add if/when policy is added
@@ -398,20 +342,23 @@
 	max_occurrences = 0
 
 /**
- * Pirates
- *
- * Disabled: Controlled by Dynamic
- */
-/datum/round_event_control/pirates
-	max_occurrences = 0
-	intensity_restriction = TRUE
-
-/**
  * Syndicate Portal Storm
  */
 /datum/round_event_control/portal_storm_syndicate
 	max_occurrences = 2
 	weight = MED_EVENT_FREQ
+
+//IRIS ADDITION START
+/datum/round_event_control/portal_storm_monkey
+	max_occurrences = 2
+	weight = MED_EVENT_FREQ
+
+/datum/round_event_control/portal_storm_kobold
+
+	max_occurrences = 3
+	weight = MED_EVENT_FREQ
+
+//IRIS ADDITION END
 
 /**
  * Radiation
@@ -424,13 +371,6 @@
 /datum/round_event_control/radiation_storm
 	max_occurrences = 0
 	intensity_restriction = TRUE
-
-/**
- * Revenant
- */
-/datum/round_event_control/revenant
-	max_occurrences = 1
-	weight = VERY_LOW_EVENT_FREQ
 
 /**
  * Scrubber Clogs
@@ -495,28 +435,6 @@
 	weight = MED_EVENT_FREQ
 
 /**
- * Slaughter Demon
- */
-/datum/round_event_control/slaughter
-	max_occurrences = 0
-
-/**
- * Spess Dragon
- *
- * Disabled: Controlled by Dynamic
- */
-/datum/round_event_control/space_dragon
-	max_occurrences = 0
-
-/**
- * Spess Ninja
- *
- * Disabled: Controlled by Dynamic
- */
-/datum/round_event_control/space_ninja
-	max_occurrences = 0
-
-/**
  * Spess Vines
  *
  *
@@ -524,16 +442,6 @@
 /datum/round_event_control/spacevine
 	max_occurrences = 2
 	weight = MED_EVENT_FREQ
-
-/**
- * Spiders
- *
- * Disabled: Needs rebalancing
- */
-/datum/round_event_control/spider_infestation
-	max_occurrences = 0
-	weight = MED_EVENT_FREQ
-	intensity_restriction = TRUE
 
 /**
  * Stray Cargo Pods

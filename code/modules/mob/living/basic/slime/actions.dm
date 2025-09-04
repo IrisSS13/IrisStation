@@ -118,7 +118,20 @@
 			continue
 		slime_friends += possible_friend
 
-	for(var/i in 1 to 4)
+//	for(var/i in 1 to 4) // IRIS EDIT OLD
+	// IRIS EDIT NEW START
+	var/split_amount = 4
+	switch(transformative_effect)
+		if(SLIME_TYPE_GREY)
+			split_amount++
+
+		if(SLIME_TYPE_CERULEAN)
+			split_amount = 2
+			new_nutrition = round(nutrition * 0.5)
+			new_powerlevel = round(powerlevel * 0.5)
+
+	for(var/i in 1 to split_amount)
+	// IRIS EDIT NEW END
 		var/child_colour
 
 		if(mutation_chance >= 100)
@@ -128,8 +141,32 @@
 		else
 			child_colour = slime_type.type
 
+		// IRIS ADDITION START
+		switch(transformative_effect)
+			if(SLIME_TYPE_BLUE)
+				if(i == 1)
+					child_colour = slime_type.type
+
+			if(SLIME_TYPE_CERULEAN)
+				child_colour = slime_type.type
+
+			if(SLIME_TYPE_PYRITE)
+				child_colour = pick(subtypesof(/datum/slime_type) - /datum/slime_type/rainbow)
+		// IRIS ADDITION END
 		var/mob/living/basic/slime/baby
 		baby = new(drop_loc, child_colour)
+		// IRIS ADDITION START
+		if(transformative_effect)
+			baby.transformative_effect = transformative_effect
+			baby.transform_effect()
+			if(baby.spawner)
+				baby.master = master
+				baby.spawner.important_text = "Assist [master] at all costs."
+
+		if(transformative_effect == SLIME_TYPE_CERULEAN)
+			baby.set_life_stage(SLIME_LIFE_STAGE_ADULT)
+			baby.set_nutrition(new_nutrition)
+		// IRIS ADDITION END
 
 		if(ckey)
 			baby.set_nutrition(new_nutrition) //Player slimes are more robust at spliting. Once an oversight of poor copypasta, now a feature!
@@ -142,7 +179,10 @@
 			baby.befriend(slime_friend)
 
 		babies += baby
-		baby.mutation_chance = clamp(mutation_chance+(rand(5,-5)),0,100)
+		if(mutation_chance == 0)
+			baby.mutation_chance = 0
+		else
+			baby.mutation_chance = clamp(mutation_chance+(rand(5,-5)),0,100)
 		SSblackbox.record_feedback("tally", "slime_babies_born", 1, baby.slime_type.colour)
 
 	var/mob/living/basic/slime/new_slime = pick(babies) // slime that the OG slime will move into.

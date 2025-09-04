@@ -1,4 +1,4 @@
-#define RADIO_CHANNEL_SOLFED "SolFed"
+#define RADIO_CHANNEL_SOLFED "SolGov"
 #define RADIO_KEY_SOLFED "f"
 #define RADIO_TOKEN_SOLFED ":f"
 

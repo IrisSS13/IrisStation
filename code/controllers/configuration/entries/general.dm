@@ -123,6 +123,10 @@
 /// log emotes
 /datum/config_entry/flag/log_emote
 
+/// log ghost polling
+/datum/config_entry/flag/log_ghost_poll
+	default = TRUE
+
 /// log economy actions
 /datum/config_entry/flag/log_econ
 
@@ -632,12 +636,6 @@
 	default = -1
 	min_val = 0
 
-/datum/config_entry/string/default_view
-	default = "15x15"
-
-/datum/config_entry/string/default_view_square
-	default = "15x15"
-
 /datum/config_entry/flag/log_pictures
 
 /datum/config_entry/flag/picture_logging_camera
@@ -787,3 +785,6 @@
 
 // If set, enables the "Link forum account" OOC verb
 /datum/config_entry/string/forum_link_uri
+
+/datum/config_entry/flag/generate_assets_in_init
+	default = FALSE

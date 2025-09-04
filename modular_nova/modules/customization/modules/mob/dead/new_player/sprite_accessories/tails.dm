@@ -79,7 +79,8 @@
 	flags_for_organ = SPRITE_ACCESSORY_WAG_ABLE
 
 /datum/sprite_accessory/tails/mammal/wagging/akula
-	recommended_species = list(SPECIES_MAMMAL, SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_AKULA, SPECIES_AQUATIC, SPECIES_HUMANOID, SPECIES_GHOUL)
+// IRIS EDIT: Aquatic Anthromorph compat
+	recommended_species = list(SPECIES_MAMMAL, SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_AKULA, SPECIES_AQUATIC, SPECIES_HUMANOID, SPECIES_GHOUL, SPECIES_AQUAMORPH)
 
 /datum/sprite_accessory/tails/mammal/wagging/tajaran
 	recommended_species = list(SPECIES_MAMMAL, SPECIES_HUMAN, SPECIES_SYNTH, SPECIES_TAJARAN, SPECIES_HUMANOID, SPECIES_GHOUL)
@@ -214,6 +215,12 @@
 	name = "Queen Insect"
 	icon_state = "queeninsect"
 
+/datum/sprite_accessory/tails/mammal/insectoid
+	name = "Insectoid"
+	icon_state = "insectoid"
+	color_src = USE_ONE_COLOR
+	default_color = DEFAULT_PRIMARY
+
 /datum/sprite_accessory/tails/mammal/wagging/kangaroo
 	name = "Kangaroo"
 	icon_state = "kangaroo"
@@ -272,6 +279,10 @@
 /datum/sprite_accessory/tails/mammal/wagging/otie
 	name = "Otusian"
 	icon_state = "otie"
+
+/datum/sprite_accessory/tails/mammal/wagging/otter
+	name = "Otter"
+	icon_state = "otter"
 
 /datum/sprite_accessory/tails/mammal/plug
 	name = "Plug"
@@ -488,7 +499,8 @@
 
 // TG Fish infusion tails
 /datum/sprite_accessory/tails/fish
-	recommended_species = list(SPECIES_AKULA, SPECIES_AQUATIC)
+// IRIS EDIT: Aquatic Anthromorph compat
+	recommended_species = list(SPECIES_AKULA, SPECIES_AQUATIC, SPECIES_AQUAMORPH)
 	color_src = USE_ONE_COLOR
 	feature_key_override = "fish_tail"
 

@@ -25,7 +25,7 @@
 	attack_verb_simple = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")
 	sharpness = SHARP_EDGED
 	wound_bonus = 5 // 1/3rd of cleaver
-	bare_wound_bonus = 10 // Way less due to the fact that on a random greytider this would give them almost 30 wound_threshold bonus pre-damage calc.
+	exposed_wound_bonus = 10 // Way less due to the fact that on a random greytider this would give them almost 30 wound_threshold bonus pre-damage calc.
 	var/icon_type_on //will manage if a blade should have custom icons.
 	var/icon_type_off
 
@@ -48,7 +48,7 @@
 /obj/item/melee/nabber_blade/sharp
 	force = 21 //+4 damage to simulate whetstone usage.
 	wound_bonus = 15 // Same as cleaver
-	bare_wound_bonus = 10 // Less than the default, due to higher flat wound_bonus
+	exposed_wound_bonus = 10 // Less than the default, due to higher flat wound_bonus
 	name = "lethally sharpened hunting-arm"
 
 /obj/item/melee/nabber_blade/sharp/alt
@@ -66,7 +66,7 @@
 	force = 29 //Only 5 less than a DEsword, but way more utility for nabbers.
 	armour_penetration = 45 //Almost half AP however
 	wound_bonus = 15 //Same as cleaver
-	bare_wound_bonus = 20 //Insane, but this is a 18tc item. On-par with double-bladed esword/esword
+	exposed_wound_bonus = 20 //Insane, but this is a 18tc item. On-par with double-bladed esword/esword
 	hitsound = 'sound/items/weapons/blade1.ogg'
 	hit_reaction_chance = 45 //45% chance to block leaps/melee/unarmed.
 	armor_type = /datum/armor/item_shield
@@ -233,18 +233,3 @@
 	worn_icon_nabber = 'modular_iris/monke_ports/gas/icons/clothing.dmi'
 	species_exception = list(/datum/species/nabber)
 
-//Blood stuff
-
-/obj/item/reagent_containers/blood/nabber
-	blood_type = "H"
-
-/datum/design/organic_bloodbag_nabber
-	name = "H Blood Pack"
-	id = "organic_bloodbag_nabber"
-	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass = 100)
-	build_path = /obj/item/reagent_containers/blood/nabber
-	category = list(
-		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_DEFOREST_BLOOD,
-	)

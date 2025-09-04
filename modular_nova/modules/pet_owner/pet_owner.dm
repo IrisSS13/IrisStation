@@ -4,7 +4,7 @@
 	icon = FA_ICON_HORSE
 	value = 0 //IRIS EDIT: 4 to 0, no reason to make it cost anything
 	mob_trait = TRAIT_PET_OWNER
-	veteran_only = FALSE
+	nova_stars_only = FALSE // IRIS EDIT - everyone can use
 	gain_text = span_notice("You brought your pet with you to work.")
 	lose_text = span_danger("You feel lonely, as if leaving somebody behind...")
 	medical_record_text = "Patient mentions their fondness for their pet."
@@ -45,17 +45,19 @@
 	give_item_to_holder(
 		carrier,
 		list(
-			LOCATION_HANDS = ITEM_SLOT_HANDS
+			LOCATION_HANDS,
 		),
 		flavour_text = "Looks tightly packed - you might not be able to put the pet back in once they're out.",
+		notify_player = TRUE,
 	)
+	//Nanotrasen
 	give_item_to_holder(
 		space_treat,
 		list(
-			LOCATION_LPOCKET = ITEM_SLOT_LPOCKET,
-			LOCATION_RPOCKET = ITEM_SLOT_RPOCKET,
-			LOCATION_BACKPACK = ITEM_SLOT_BACKPACK,
-			LOCATION_HANDS = ITEM_SLOT_HANDS,
+			LOCATION_LPOCKET,
+			LOCATION_RPOCKET,
+			LOCATION_BACKPACK,
+			LOCATION_HANDS,
 		),
 	)
 
@@ -85,10 +87,6 @@ GLOBAL_LIST_INIT(possible_player_pet, list(
 	"Fennec" = /mob/living/basic/pet/cat/fennec,
 	"Fox" = /mob/living/basic/pet/fox/docile,
 	"Sweater Fox" = /mob/living/basic/pet/fox/docile/sweater,
-	//IRIS EDIT CHANGE BEGIN - RARE_FROG_PET
-	"Frog (green)" = /mob/living/basic/frog/common,
-	"Frog (purple)" = /mob/living/basic/frog/rare,
-	//IRIS EDIT CHANGE END
 	"Giant ant" = /mob/living/basic/ant,
 	"Kitten" = /mob/living/basic/pet/cat/kitten,
 	"Kiwi" = /mob/living/basic/kiwi,
@@ -104,9 +102,15 @@ GLOBAL_LIST_INIT(possible_player_pet, list(
 	"Sloth" = /mob/living/basic/sloth,
 	"Snake" = /mob/living/basic/snake,
 	"Spider" = /mob/living/basic/spider/maintenance,
+	"Stoat" = /mob/living/basic/stoat,
 	"Tegu" = /mob/living/basic/lizard/tegu,
 	"Turtle" = /mob/living/basic/turtle,
-	"Void Puppy" = /mob/living/basic/pet/dog/corgi/puppy/void, //iris edit
+	//IRIS EDIT CHANGE BEGIN - RARE_FROG_PET
+	"Frog (green)" = /mob/living/basic/frog,
+	"Frog (purple)" = /mob/living/basic/frog/rare,
+	"Void Puppy" = /mob/living/basic/pet/dog/corgi/puppy/void,
+	"Snail" = /mob/living/basic/snail,
+	//IRIS EDIT CHANGE END
 )) //some of these are too big to be put back into the pet carrier once taken out, so I put a warning on the carrier.
 
 /datum/preference/choiced/pet_owner/init_possible_values()

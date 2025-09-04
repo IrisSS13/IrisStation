@@ -1,13 +1,5 @@
 {
-	"eslint.nodePath": "./tgui/.yarn/sdks",
 	"eslint.workingDirectories": ["./tgui"],
-	"prettier.prettierPath": "./tgui/.yarn/sdks/prettier/index.cjs",
-	"typescript.tsdk": "./tgui/.yarn/sdks/typescript/lib",
-  	"typescript.enablePromptUseWorkspaceTsdk": true,
-	"search.exclude": {
-		"**/.yarn": true,
-		"**/.pnp.*": true
-	},
 	"editor.codeActionsOnSave": {
 		"source.fixAll.eslint": "explicit"
 	},
@@ -26,6 +18,12 @@
 	"workbench.editorAssociations": {
 		"*.dmi": "dmiEditor.dmiEditor",
 		"*.png": "imagePreview.previewEditor"
+	},
+	"search.exclude": {
+		"**/node_modules": true
+	},
+	"search.exclude": {
+		"**/node_modules": true
 	},
 	"Lua.diagnostics.enable": false
 }

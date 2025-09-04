@@ -7,14 +7,14 @@
 	name = "\improper Traitor"
 	roundend_category = "traitors"
 	antagpanel_category = "Traitor"
-	job_rank = ROLE_TRAITOR
+	pref_flag = ROLE_TRAITOR
 	antag_moodlet = /datum/mood_event/focused
 	antag_hud_name = "traitor"
 	hijack_speed = 0.5 //10 seconds per hijack stage by default
 	ui_name = "AntagInfoTraitor"
 	suicide_cry = "FOR THE SYNDICATE!!"
 	preview_outfit = /datum/outfit/traitor
-	can_assign_self_objectives = FALSE // NOVA EDIT CHANGE - Too loose of a cannon, and doesn't have staff sign off - ORIGINAL: can_assign_self_objectives = TRUE
+	can_assign_self_objectives = TRUE
 	default_custom_objective = "Perform an overcomplicated heist on valuable Nanotrasen assets."
 	hardcore_random_bonus = TRUE
 	stinger_sound = 'sound/music/antag/traitor/tatoralert.ogg'
@@ -52,8 +52,6 @@
 	src.give_objectives = give_objectives
 
 /datum/antagonist/traitor/on_gain()
-	owner.special_role = job_rank
-
 	if(give_uplink)
 		owner.give_uplink(silent = TRUE, antag_datum = src)
 
@@ -84,7 +82,7 @@
 				if((uplink_handler.assigned_role in item.restricted_roles) || (uplink_handler.assigned_species in item.restricted_species))
 					uplink_items += item
 					continue
-		uplink_handler.extra_purchasable += create_uplink_sales(rand(uplink_sales_min, uplink_sales_max), /datum/uplink_category/discounts, 1, uplink_items)
+		uplink_handler.extra_purchasable += create_uplink_sales(rand(uplink_sales_min, uplink_sales_max), /datum/uplink_category/discounts, -1, uplink_items)
 
 	if(give_objectives)
 		forge_traitor_objectives()
@@ -99,7 +97,6 @@
 		uplink_handler.can_replace_objectives = null
 		uplink_handler.replace_objectives = null
 	owner.take_uplink()
-	owner.special_role = null
 	return ..()
 
 /// Returns true if we're allowed to assign ourselves a new objective
@@ -204,7 +201,6 @@
 		datum_owner.AddComponent(/datum/component/codeword_hearing, GLOB.syndicate_code_response_regex, "red", src)
 
 /datum/antagonist/traitor/remove_innate_effects(mob/living/mob_override)
-	. = ..()
 	var/mob/living/datum_owner = mob_override || owner.current
 	handle_clown_mutation(datum_owner, removing = FALSE)
 
@@ -341,3 +337,8 @@
 
 #undef FLAVOR_FACTION_SYNDICATE
 #undef FLAVOR_FACTION_NANOTRASEN
+
+/datum/antagonist/traitor/on_respawn(mob/new_character)
+	SSjob.equip_rank(new_character, new_character.mind.assigned_role, new_character.client)
+	new_character.mind.give_uplink(silent = TRUE, antag_datum = src)
+	return TRUE
