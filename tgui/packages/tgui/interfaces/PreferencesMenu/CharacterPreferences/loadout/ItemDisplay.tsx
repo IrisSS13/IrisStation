@@ -63,7 +63,14 @@ export function ItemDisplay(props: DisplayProps) {
       <ImageButton
         imageSize={scale * 32}
         color={active ? 'green' : 'default'}
-        style={{ textTransform: 'capitalize', zIndex: '1' }}
+        // IRIS ADDITION START - donator item borders
+        style={{
+          textTransform: 'capitalize',
+          zIndex: '1',
+          border: item.donator_only ? '2px solid goldenrod' : 'none',
+          borderRadius: '0.5em',
+        }}
+        // IRIS ADDITION END
         tooltip={item.name}
         tooltipPosition={'bottom'}
         dmIcon={item.icon}
