@@ -91,8 +91,9 @@
 	name = "Exploration Office Airlock"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/command/gateway,
+/obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
-	dir = 4
+	dir = 1
 	},
 /turf/open/floor/iron/smooth_large,
 /area/station/cargo/exploration_office)
@@ -118,7 +119,10 @@
 "y" = (
 /obj/structure/bed/dogbed,
 /mob/living/basic/pet/cat/space{
-	name = "Lem"
+	name = "Lem";
+	gender = "male";
+	unique_pet = 1;
+	desc = "He's kittened out for space exploration."
 	},
 /turf/open/floor/iron/smooth_large,
 /area/station/cargo/exploration_office)
@@ -188,10 +192,11 @@
 	dir = 4
 	},
 /obj/effect/mapping_helpers/airlock/access/any/command/gateway,
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
 /obj/structure/cable,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
 /turf/open/floor/iron/smooth_large,
 /area/station/cargo/exploration_office)
 "L" = (
@@ -287,6 +292,10 @@
 /obj/structure/sign/warning/vacuum/external/directional/north,
 /obj/structure/extinguisher_cabinet/directional/south,
 /obj/machinery/light/floor,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
 /turf/open/floor/iron/smooth_large,
 /area/station/cargo/exploration_office)
 
