@@ -50,7 +50,7 @@
 		/datum/species/aquatic = /obj/item/toy/plush/shark,
 		/datum/species/insect = /obj/item/toy/plush/beeplushie,
 		/datum/species/insectoid = /obj/item/toy/plush/beeplushie,
-		/datum/species/xeno = /obj/item/toy/plush/rouny,
+		/datum/species/polysmorph = /obj/item/toy/plush/rouny,
 	)
 
 	var/obj/item/toy/plush/plush = species_to_plush[target.dna.species.type]
