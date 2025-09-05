@@ -42,7 +42,7 @@
 		/datum/species/abductor = /obj/item/toy/plush/abductor,
 		/datum/species/android = /obj/item/toy/plush/pkplush,
 		/datum/species/lizard = /obj/item/toy/plush/lizard_plushie/greyscale,
-		/datum/species/unathi = /obj/item/toy/plush/lizard_plushie/greyscale,
+		/datum/species/monkey/kobold = /obj/item/toy/plush/lizard_plushie/greyscale,
 		/datum/species/monkey = /obj/item/toy/plush/monkey,
 		/datum/species/moth = /obj/item/toy/plush/moth,
 		/datum/species/plasmaman = /obj/item/toy/plush/plasmamanplushie,
