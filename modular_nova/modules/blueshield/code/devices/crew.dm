@@ -100,7 +100,7 @@ GLOBAL_DATUM_INIT(blueshield_crewmonitor, /datum/crewmonitor/blueshield, new)
 			else
 				continue
 
-			if (issynthetic(tracked_human))
+			if (issynthetic(tracked_human) || isprotean(tracked_human)) //IRIS EDIT - CHECKING FOR PROTEANS
 				entry["is_robot"] = TRUE
 
 			if (sensor_mode >= SENSOR_LIVING)
