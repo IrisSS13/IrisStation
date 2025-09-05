@@ -164,3 +164,6 @@
 	name = "\improper Exploration Office"
 	icon = 'modular_iris/master_files/icons/areas/exploration.dmi'
 	icon_state = "exploration_office"
+
+/obj/effect/landmark/navigate_destination/exploration_office
+	location = "Exploration Office"
