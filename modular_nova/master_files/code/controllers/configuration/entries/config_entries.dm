@@ -71,10 +71,6 @@
 /datum/config_entry/flag/mentor_legacy_system
 	protection = CONFIG_ENTRY_LOCKED
 
-/// Defines whether the server uses the legacy star system with nova_star_players.txt or the SQL system.
-/datum/config_entry/flag/nova_star_legacy_system
-	protection = CONFIG_ENTRY_LOCKED
-
 /// RUIN BUDGETS ///
 /datum/config_entry/number/jungle_budget
 	default = 2

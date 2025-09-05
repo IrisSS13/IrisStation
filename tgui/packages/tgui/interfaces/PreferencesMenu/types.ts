@@ -56,8 +56,6 @@ export type Species = {
 
   enabled_features: string[];
 
-  nova_stars_only: boolean; // NOVA EDIT - Nova star quirks
-
   perks: {
     positive: Perk[];
     negative: Perk[];
@@ -85,7 +83,6 @@ export type Job = {
   description: string;
   department: string;
   // NOVA EDIT
-  nova_star?: boolean;
   alt_titles?: string[];
   // NOVA EDIT END
 };
@@ -97,7 +94,6 @@ export type Quirk = {
   value: number;
   customizable: boolean;
   customization_options?: string[];
-  nova_stars_only: boolean; // NOVA EDIT ADDITION - Nova star quirks
   erp_quirk: boolean; // NOVA EDIT ADDITION - Purple ERP quirks
 };
 
@@ -185,7 +181,6 @@ export type PreferencesMenuData = {
   preview_options: string[]; // NOVA EDIT ADDITION
   preview_selection: string; // NOVA EDIT ADDITION
 
-  is_nova_star: BooleanLike; // NOVA EDIT - Star status
   erp_pref: BooleanLike; // NOVA EDIT ADDITION
 
   character_preferences: {

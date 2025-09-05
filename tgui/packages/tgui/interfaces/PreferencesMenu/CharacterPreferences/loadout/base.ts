@@ -44,7 +44,6 @@ export type LoadoutItem = {
   blacklisted_roles: string[] | null;
   restricted_species: string[] | null;
   donator_only: BooleanLike;
-  nova_stars_only: BooleanLike;
   // NOVA EDIT END
 };
 
