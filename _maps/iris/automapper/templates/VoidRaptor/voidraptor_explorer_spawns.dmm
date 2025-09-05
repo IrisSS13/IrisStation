@@ -3,45 +3,597 @@
 /turf/template_noop,
 /area/template_noop)
 "b" = (
+/obj/machinery/computer/anchor_controller{
+	dir = 8
+	},
+/turf/open/floor/iron/smooth_large,
+/area/station/cargo/exploration_office)
+"c" = (
+/obj/machinery/dive_anchor,
+/turf/open/space/basic,
+/area/space/nearstation)
+"d" = (
 /obj/structure/cable,
-/obj/structure/chair/stool/directional/west,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/disposalpipe/segment{
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/any/command/gateway,
+/obj/machinery/door/airlock/mining{
+	name = "Exploration Office"
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/landmark/navigate_destination/exploration_office,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/station/cargo/exploration_office)
+"f" = (
+/obj/structure/cable,
+/obj/item/kirbyplants/random,
+/obj/machinery/camera/autoname/directional/north,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/station/cargo/exploration_office)
+"g" = (
+/obj/structure/cable,
+/obj/machinery/light/directional/east,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/station/cargo/exploration_office)
+"h" = (
+/obj/structure/cable,
+/obj/item/kirbyplants/random,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/station/cargo/exploration_office)
+"i" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/obj/item/kirbyplants/random,
+/turf/open/floor/iron/smooth_large,
+/area/station/cargo/exploration_office)
+"j" = (
+/obj/structure/tank_dispenser/oxygen,
+/turf/open/floor/iron/smooth_large,
+/area/station/cargo/exploration_office)
+"k" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/machinery/light/directional/north,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/station/cargo/exploration_office)
+"l" = (
+/obj/structure/rack,
+/obj/item/stack/rods/twentyfive,
+/obj/item/stack/impure_telecrystal,
+/obj/item/multitool,
+/turf/open/floor/iron/smooth_large,
+/area/station/cargo/exploration_office)
+"m" = (
+/turf/closed/wall,
+/area/station/cargo/exploration_office)
+"n" = (
+/obj/effect/landmark/start/explorer,
+/turf/open/floor/iron/smooth_large,
+/area/station/cargo/exploration_office)
+"o" = (
+/obj/structure/lattice,
+/turf/open/space/basic,
+/area/space/nearstation)
+"p" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/station/cargo/exploration_office)
+"q" = (
+/obj/structure/lattice/catwalk,
+/turf/open/space/basic,
+/area/space/nearstation)
+"r" = (
+/obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
-/obj/effect/landmark/start/explorer,
-/turf/open/floor/iron/dark/smooth_large,
-/area/station/command/gateway)
-"h" = (
-/obj/machinery/light_switch/directional/west,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 4
+/turf/open/floor/engine,
+/area/station/cargo/exploration_office)
+"s" = (
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 8
 	},
-/obj/effect/turf_decal/trimline/blue/filled/warning{
-	dir = 10
+/obj/machinery/door/airlock/external{
+	name = "Exploration Office Airlock"
 	},
-/obj/effect/landmark/start/explorer,
-/turf/open/floor/iron/dark,
-/area/station/command/gateway)
-"r" = (
+/obj/effect/mapping_helpers/airlock/access/any/command/gateway,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth_large,
+/area/station/cargo/exploration_office)
+"t" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/disposalpipe/segment,
-/obj/machinery/holopad,
-/obj/effect/turf_decal/bot,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/station/maintenance/aft/upper)
+"u" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/station/cargo/exploration_office)
+"v" = (
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/station/cargo/exploration_office)
+"w" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/station/cargo/exploration_office)
+"x" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/machinery/camera/autoname/directional/south,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/station/cargo/exploration_office)
+"y" = (
+/mob/living/basic/pet/cat/space{
+	name = "Lem";
+	gender = "male";
+	unique_pet = 1;
+	desc = "He's kittened out for space exploration."
+	},
+/obj/structure/bed/dogbed{
+	name = "Lem's bed";
+	desc = "A comfy-looking cat bed. You can even strap your pet in, in case the gravity turns off."
+	},
+/turf/open/floor/iron/smooth_large,
+/area/station/cargo/exploration_office)
+"z" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
 /obj/effect/landmark/start/explorer,
-/turf/open/floor/iron/dark/smooth_large,
-/area/station/command/gateway)
+/turf/open/floor/engine,
+/area/station/cargo/exploration_office)
+"A" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/engine,
+/area/station/cargo/exploration_office)
+"B" = (
+/turf/open/floor/iron/smooth_large,
+/area/station/cargo/exploration_office)
+"C" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/station/maintenance/aft/upper)
+"D" = (
+/obj/structure/table,
+/obj/item/radio,
+/obj/item/flashlight,
+/turf/open/floor/iron/smooth_large,
+/area/station/cargo/exploration_office)
+"E" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/station/cargo/exploration_office)
+"F" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/south,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/station/cargo/exploration_office)
+"G" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/turf/open/floor/engine,
+/area/station/cargo/exploration_office)
+"H" = (
+/obj/effect/landmark/carpspawn,
+/turf/open/space/basic,
+/area/space)
+"I" = (
+/obj/effect/turf_decal/stripes/box,
+/obj/machinery/dive_anchor/stationary,
+/turf/open/floor/engine,
+/area/station/cargo/exploration_office)
+"J" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/machinery/light/directional/south,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/station/cargo/exploration_office)
+"K" = (
+/obj/machinery/door/airlock/external{
+	name = "Exploration Office Airlock"
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/airlock/access/any/command/gateway,
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth_large,
+/area/station/cargo/exploration_office)
+"L" = (
+/obj/structure/closet/crate/bin,
+/turf/open/floor/iron/smooth_large,
+/area/station/cargo/exploration_office)
+"M" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/template_noop)
+"N" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/machinery/light/directional/west,
+/obj/machinery/light_switch/directional/west,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/station/cargo/exploration_office)
+"O" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/machinery/airalarm/directional/north,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/station/cargo/exploration_office)
+"P" = (
+/obj/structure/chair/office{
+	dir = 4
+	},
+/obj/effect/landmark/start/explorer,
+/turf/open/floor/iron/smooth_large,
+/area/station/cargo/exploration_office)
+"Q" = (
+/obj/structure/table,
+/obj/item/paper_bin{
+	pixel_x = -3;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/cup/glass/mug/britcup{
+	pixel_y = 8;
+	pixel_x = -2
+	},
+/turf/open/floor/iron/smooth_large,
+/area/station/cargo/exploration_office)
+"R" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/turf/open/floor/engine,
+/area/station/cargo/exploration_office)
+"S" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/machinery/light/directional/west,
+/obj/machinery/firealarm/directional/west,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/station/cargo/exploration_office)
+"T" = (
+/obj/machinery/suit_storage_unit/standard_unit,
+/turf/open/floor/iron/smooth_large,
+/area/station/cargo/exploration_office)
+"V" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/engine,
+/area/station/cargo/exploration_office)
+"W" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/item/kirbyplants/random,
+/turf/open/floor/iron/smooth_large,
+/area/station/cargo/exploration_office)
+"X" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/engine,
+/area/station/cargo/exploration_office)
+"Y" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/turf/open/floor/engine,
+/area/station/cargo/exploration_office)
+"Z" = (
+/obj/structure/sign/warning/vacuum/external/directional/north,
+/obj/structure/extinguisher_cabinet/directional/south,
+/obj/machinery/light/floor,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth_large,
+/area/station/cargo/exploration_office)
 
 (1,1,1) = {"
 a
 a
 a
-h
+a
+a
+a
+M
+a
+a
+a
+a
 "}
 (2,1,1) = {"
-b
 a
+a
+a
+a
+a
+C
+t
+C
+a
+a
+o
+"}
+(3,1,1) = {"
+a
+a
+o
+m
+m
+m
+d
+m
+m
+m
+o
+"}
+(4,1,1) = {"
+a
+a
+o
+m
+p
+N
+E
+S
+x
+m
+o
+"}
+(5,1,1) = {"
+a
+a
+o
+u
+p
+T
+B
+j
+w
+u
+o
+"}
+(6,1,1) = {"
+a
+a
+o
+u
+p
+i
+n
+W
+w
+u
+o
+"}
+(7,1,1) = {"
+a
+a
+o
+u
+p
+T
+B
+l
+w
+u
+o
+"}
+(8,1,1) = {"
+a
+a
+o
+m
+k
+B
+B
+B
+J
+m
+o
+"}
+(9,1,1) = {"
+a
+a
+o
+m
+O
+y
+P
+L
+F
+m
+o
+"}
+(10,1,1) = {"
+a
+a
+o
+m
+k
+D
+b
+Q
+J
+m
+o
+"}
+(11,1,1) = {"
+a
+a
+o
+u
+p
+R
+X
+G
+w
+u
+o
+"}
+(12,1,1) = {"
+H
+a
+o
+u
+p
+V
+I
+A
+w
+u
+o
+"}
+(13,1,1) = {"
+a
+a
+o
+u
+v
+Y
+z
 r
+v
+u
+o
+"}
+(14,1,1) = {"
+a
+a
+o
+m
+f
+g
+v
+g
+h
+m
+o
+"}
+(15,1,1) = {"
+a
+a
+o
+m
+m
+m
+K
+m
+m
+m
+o
+"}
+(16,1,1) = {"
+a
+a
+o
+o
+o
+m
+Z
+m
+o
+o
+o
+"}
+(17,1,1) = {"
+a
+a
+a
+o
+a
+m
+s
+m
+a
+o
+H
+"}
+(18,1,1) = {"
+a
+a
+a
+o
+o
+q
+q
+q
+o
+o
+a
+"}
+(19,1,1) = {"
+a
+a
+a
+o
+a
+q
+c
+q
+a
+o
+a
+"}
+(20,1,1) = {"
+a
+a
+a
+o
+o
+q
+q
+q
+o
+o
+a
+"}
+(21,1,1) = {"
+a
+a
+a
+a
+o
+o
+a
+o
+o
+a
+a
+"}
+(22,1,1) = {"
+a
+a
+a
+a
+a
+o
+o
+o
+a
+a
 a
 "}

@@ -3,8 +3,8 @@ GLOBAL_LIST_EMPTY(anchors)
 /obj/machinery/dive_anchor
 	name = "dive anchor"
 	desc = "They've been working on a unified theory."
-	icon = 'icons/obj/machines/satellite.dmi'
-	icon_state = "sat_active"
+	icon = 'modular_iris/modules/dive_anchor/icons/dive_anchor.dmi'
+	icon_state = "anchor_active"
 	density = TRUE
 	use_power = NO_POWER_USE
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
@@ -168,7 +168,7 @@ GLOBAL_LIST_EMPTY(anchors)
 
 /obj/machinery/dive_anchor/stationary
 	name = "stationary dive anchor"
-	icon_state = "sat_inactive"
+	icon_state = "anchor_stationary"
 	light_range = 0
 	designation = "Space Station 13"
 	target_designation = "Ad Astra"

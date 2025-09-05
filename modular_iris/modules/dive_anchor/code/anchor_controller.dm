@@ -8,9 +8,9 @@
 	var/obj/machinery/dive_anchor/anchor
 	///Message shown in the UI after a successful or unsuccessful action
 	var/message = "Nothing to report."
-	///Coordinate values used in the UI
-	var/ui_x = 1
-	var/ui_y = 1
+	///Coordinate values used in the UI, we have to leave room for the transition zones on the space levels, hence starting at 10
+	var/ui_x = 10
+	var/ui_y = 10
 	var/ui_z = 5
 
 /obj/machinery/computer/anchor_controller/multitool_act(mob/living/user, obj/item/tool)
@@ -53,10 +53,10 @@
 	. = ..()
 	switch(action)
 		if("adjust-x")
-			ui_x = clamp(params["new_x"], 1, 255)
+			ui_x = clamp(params["new_x"], 10, 245)
 			return TRUE
 		if("adjust-y")
-			ui_y = clamp(params["new_y"], 1, 255)
+			ui_y = clamp(params["new_y"], 10, 245)
 			return TRUE
 		if("adjust-z")
 			ui_z = clamp(params["new_z"], 5, 11) //unreserved z-levels only
