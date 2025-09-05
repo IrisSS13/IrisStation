@@ -127,8 +127,6 @@
 
 		if(SLIME_TYPE_CERULEAN)
 			split_amount = 2
-			new_nutrition = round(nutrition * 0.5)
-			new_powerlevel = round(powerlevel * 0.5)
 
 	for(var/i in 1 to split_amount)
 	// IRIS EDIT NEW END
@@ -155,6 +153,7 @@
 		// IRIS ADDITION END
 		var/mob/living/basic/slime/baby
 		baby = new(drop_loc, child_colour)
+
 		// IRIS ADDITION START
 		if(transformative_effect)
 			baby.transformative_effect = transformative_effect
@@ -165,6 +164,8 @@
 
 		if(transformative_effect == SLIME_TYPE_CERULEAN)
 			baby.set_life_stage(SLIME_LIFE_STAGE_ADULT)
+			baby.update_name()
+			baby.regenerate_icons()
 			baby.set_nutrition(new_nutrition)
 		// IRIS ADDITION END
 
