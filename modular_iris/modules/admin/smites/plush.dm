@@ -39,19 +39,24 @@
 		return
 
 	var/list/species_to_plush = list(
-		/datum/species/abductor = /obj/item/toy/plush/abductor,
+		/datum/species/abductor = /obj/item/toy/plush/abductor/agent,
+		/datum/species/abductor/abductorweak = /obj/item/toy/plush/abductor,
 		/datum/species/android = /obj/item/toy/plush/pkplush,
 		/datum/species/lizard = /obj/item/toy/plush/lizard_plushie/greyscale,
 		/datum/species/monkey/kobold = /obj/item/toy/plush/lizard_plushie/greyscale,
 		/datum/species/monkey = /obj/item/toy/plush/monkey,
 		/datum/species/moth = /obj/item/toy/plush/moth,
 		/datum/species/plasmaman = /obj/item/toy/plush/plasmamanplushie,
+		/datum/species/jelly/slime = /obj/item/toy/plush/slimeplushie,
+		/datum/species/jelly/roundstartslime = /obj/item/toy/plush/slimeplushie,
+		/datum/species/jelly/luminescent = /obj/item/toy/plush/slimeplushie,
+		/datum/species/jelly/stargazer = /obj/item/toy/plush/slimeplushie,
 		/datum/species/akula = /obj/item/toy/plush/shark, // Yes
 		/datum/species/aquatic = /obj/item/toy/plush/shark,
 		/datum/species/insect = /obj/item/toy/plush/beeplushie,
 		/datum/species/insectoid = /obj/item/toy/plush/beeplushie,
 		/datum/species/polysmorph = /obj/item/toy/plush/rouny,
-		/datum/species/felinid = /obj/item/toy/plush/nova/cat,
+		/datum/species/human/felinid = /obj/item/toy/plush/nova/cat,
 	)
 
 	var/obj/item/toy/plush/plush = species_to_plush[target.dna.species.type]
