@@ -51,6 +51,7 @@
 		/datum/species/insect = /obj/item/toy/plush/beeplushie,
 		/datum/species/insectoid = /obj/item/toy/plush/beeplushie,
 		/datum/species/polysmorph = /obj/item/toy/plush/rouny,
+		/datum/species/felinid = /obj/item/toy/plush/nova/cat,
 	)
 
 	var/obj/item/toy/plush/plush = species_to_plush[target.dna.species.type]
