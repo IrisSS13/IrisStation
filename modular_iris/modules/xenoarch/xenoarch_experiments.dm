@@ -47,7 +47,7 @@ GLOBAL_LIST_EMPTY(scanned_xenoarch_by_techweb)
 /datum/experiment/scanning/points/xenoarch/survey
 	name = "Xenoarchaeology Survey 1"
 	description = "There is much to learn from relics of the past."
-	points_reward = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_5_POINTS )
+	points_reward = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_POINTS_5_MINUTES )
 	required_points = 25
 	required_atoms = list(
 		/obj/item/xenoarch/useless_relic = 1,
@@ -58,7 +58,7 @@ GLOBAL_LIST_EMPTY(scanned_xenoarch_by_techweb)
 /datum/experiment/scanning/points/xenoarch/survey/second
 	name = "Xenoarchaeology Survey 2"
 	description = "There is more to learn from relics of the past."
-	points_reward = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_5_POINTS )
+	points_reward = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_POINTS_10_MINUTES )
 	required_points = 50
 	required_atoms = list(
 		/obj/item/xenoarch/useless_relic = 1,
@@ -69,7 +69,7 @@ GLOBAL_LIST_EMPTY(scanned_xenoarch_by_techweb)
 /datum/experiment/scanning/points/xenoarch/survey/third
 	name = "Xenoarchaeology Survey 3"
 	description = "There is much more to learn from relics of the past."
-	points_reward = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_5_POINTS )
+	points_reward = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_POINTS_15_MINUTES )
 	required_points = 100
 	required_atoms = list(
 		/obj/item/xenoarch/useless_relic = 1,
@@ -79,7 +79,7 @@ GLOBAL_LIST_EMPTY(scanned_xenoarch_by_techweb)
 /datum/experiment/scanning/points/xenoarch/artifact
 	name = "Xenoarchaeology Artifact Scan 1"
 	description = "Scan the powerful ancient artifacts exhumed from Lavaland's surface."
-	points_reward = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_5_POINTS )
+	points_reward = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_POINTS_5_MINUTES )
 	required_points = 1
 	required_atoms = list(/obj/machinery/artifact = 1)
 	next_experiments = list(/datum/experiment/scanning/points/xenoarch/artifact/second)
@@ -87,7 +87,7 @@ GLOBAL_LIST_EMPTY(scanned_xenoarch_by_techweb)
 /datum/experiment/scanning/points/xenoarch/artifact/second
 	name = "Xenoarchaeology Artifact Scan 2"
 	description = "Scan more powerful ancient artifacts exhumed from Lavaland's surface."
-	points_reward = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_5_POINTS )
+	points_reward = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_POINTS_10_MINUTES )
 	required_points = 2
 	required_atoms = list(/obj/machinery/artifact = 1)
 	next_experiments = list(/datum/experiment/scanning/points/xenoarch/artifact/third)
@@ -95,6 +95,6 @@ GLOBAL_LIST_EMPTY(scanned_xenoarch_by_techweb)
 /datum/experiment/scanning/points/xenoarch/artifact/third
 	name = "Xenoarchaeology Artifact Scan 3"
 	description = "Scan even more powerful ancient artifacts exhumed from Lavaland's surface."
-	points_reward = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_5_POINTS )
+	points_reward = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_POINTS_15_MINUTES )
 	required_points = 3
 	required_atoms = list(/obj/machinery/artifact = 1)
