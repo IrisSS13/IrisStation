@@ -51,6 +51,9 @@
 		/datum/species/jelly/roundstartslime = /obj/item/toy/plush/slimeplushie,
 		/datum/species/jelly/luminescent = /obj/item/toy/plush/slimeplushie,
 		/datum/species/jelly/stargazer = /obj/item/toy/plush/slimeplushie,
+		/datum/species/nabber = /obj/item/toy/plush/snakeplushie,
+		/datum/species/vox = /obj/item/toy/plush/nova/borbplushie,
+		/datum/species/mammal - /obj/item/toy/plush/nova/ian,
 		/datum/species/akula = /obj/item/toy/plush/shark, // Yes
 		/datum/species/aquatic = /obj/item/toy/plush/shark,
 		/datum/species/insect = /obj/item/toy/plush/beeplushie,
