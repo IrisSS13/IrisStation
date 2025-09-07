@@ -4,12 +4,10 @@
 /turf/open/floor/iron,
 /area/station/cargo/exploration_office)
 "aA" = (
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 6
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/item/kirbyplants/random,
+/obj/effect/turf_decal/tile/brown/fourcorners,
+/obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/iron,
 /area/station/cargo/exploration_office)
 "bv" = (
@@ -47,6 +45,10 @@
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 8
 	},
+/obj/item/kirbyplants/random{
+	pixel_x = -7;
+	pixel_y = 16
+	},
 /turf/open/floor/iron,
 /area/station/cargo/exploration_office)
 "eC" = (
@@ -67,12 +69,14 @@
 	},
 /obj/structure/table,
 /obj/item/reagent_containers/cup/glass/mug{
-	pixel_x = -7
+	pixel_x = -7;
+	list_reagents = list(/datum/reagent/consumable/coffee = 10)
 	},
 /obj/item/paper_bin{
 	pixel_x = 7;
 	pixel_y = 4
 	},
+/obj/item/pen,
 /turf/open/floor/iron,
 /area/station/cargo/exploration_office)
 "hq" = (
@@ -100,10 +104,16 @@
 /turf/open/floor/iron,
 /area/station/cargo/exploration_office)
 "jg" = (
-/obj/structure/rack,
 /obj/effect/turf_decal/tile/brown/fourcorners,
-/obj/item/radio,
-/obj/item/flashlight,
+/obj/item/storage/box/nri_flares{
+	pixel_y = 3;
+	pixel_x = -6
+	},
+/obj/machinery/recharger{
+	pixel_x = 8;
+	pixel_y = 3
+	},
+/obj/structure/table/reinforced,
 /turf/open/floor/iron,
 /area/station/cargo/exploration_office)
 "jD" = (
@@ -131,6 +141,16 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/cargo/exploration_office)
+"mZ" = (
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 1
+	},
+/obj/item/kirbyplants/random{
+	pixel_x = -7;
+	pixel_y = 16
+	},
 /turf/open/floor/iron,
 /area/station/cargo/exploration_office)
 "nn" = (
@@ -170,6 +190,13 @@
 	},
 /turf/open/floor/plating/airless,
 /area/station/asteroid)
+"ps" = (
+/obj/effect/turf_decal/trimline/brown/filled/line,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron,
+/area/station/cargo/exploration_office)
 "pI" = (
 /obj/effect/turf_decal/trimline/brown/filled/line,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -179,17 +206,15 @@
 /turf/open/floor/iron,
 /area/station/cargo/exploration_office)
 "qW" = (
-/obj/structure/closet{
-	anchored = 1
-	},
+/obj/structure/closet/toolcloset,
 /obj/effect/turf_decal/tile/brown/fourcorners,
+/obj/item/flashlight,
 /turf/open/floor/iron,
 /area/station/cargo/exploration_office)
 "ru" = (
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 9
-	},
-/obj/item/kirbyplants/random,
+/obj/effect/turf_decal/tile/brown/fourcorners,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/decal/cleanable/cobweb,
 /turf/open/floor/iron,
 /area/station/cargo/exploration_office)
 "sn" = (
@@ -219,19 +244,8 @@
 /turf/open/floor/plating/airless,
 /area/station/asteroid)
 "tB" = (
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 8
-	},
-/obj/structure/bed/dogbed{
-	name = "Lem's bed";
-	desc = "A comfy-looking cat bed. You can even strap your pet in, in case the gravity turns off."
-	},
-/mob/living/basic/pet/cat/space{
-	name = "Lem";
-	gender = "male";
-	unique_pet = 1;
-	desc = "He's kittened out for space exploration."
-	},
+/obj/effect/turf_decal/tile/brown/fourcorners,
+/obj/machinery/recharge_station,
 /turf/open/floor/iron,
 /area/station/cargo/exploration_office)
 "tP" = (
@@ -239,6 +253,18 @@
 	dir = 1
 	},
 /obj/structure/closet/crate/bin,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
+/turf/open/floor/iron,
+/area/station/cargo/exploration_office)
+"um" = (
+/obj/structure/closet{
+	anchored = 1
+	},
+/obj/effect/turf_decal/tile/brown/fourcorners,
+/obj/item/storage/box/colonial_rations,
+/obj/item/storage/box/colonial_rations,
+/obj/item/storage/box/colonial_rations,
 /turf/open/floor/iron,
 /area/station/cargo/exploration_office)
 "uF" = (
@@ -272,6 +298,10 @@
 	},
 /turf/open/floor/plating/airless,
 /area/station/asteroid)
+"Aq" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron,
+/area/station/cargo/exploration_office)
 "Ep" = (
 /obj/effect/turf_decal/trimline/brown/filled/line,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -288,6 +318,18 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/cargo/exploration_office)
+"Fe" = (
+/obj/effect/turf_decal/tile/brown/opposingcorners,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/machinery/door/airlock/mining/glass{
+	name = "Exploration Office"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/command/gateway,
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron,
 /area/station/cargo/exploration_office)
 "Ft" = (
@@ -317,7 +359,16 @@
 	dir = 8
 	},
 /obj/structure/sign/poster/abductor/ayylian/directional/west,
-/obj/item/kirbyplants/random,
+/obj/structure/bed/dogbed{
+	name = "Lem's bed";
+	desc = "A comfy-looking cat bed. You can even strap your pet in, in case the gravity turns off."
+	},
+/mob/living/basic/pet/cat/space{
+	name = "Lem";
+	gender = "male";
+	unique_pet = 1;
+	desc = "He's kittened out for space exploration."
+	},
 /turf/open/floor/iron,
 /area/station/cargo/exploration_office)
 "GK" = (
@@ -331,12 +382,14 @@
 /turf/open/misc/asteroid/airless,
 /area/station/asteroid)
 "Jg" = (
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/firealarm/directional/east,
+/obj/structure/reagent_dispensers/fueltank,
+/obj/effect/turf_decal/tile/brown/fourcorners,
+/obj/structure/railing{
+	dir = 1
+	},
 /turf/open/floor/iron,
 /area/station/cargo/exploration_office)
 "Ju" = (
@@ -358,12 +411,15 @@
 /turf/open/floor/engine,
 /area/station/cargo/exploration_office)
 "LF" = (
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/extinguisher_cabinet/directional/east,
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 4
+	},
+/obj/item/kirbyplants/random{
+	pixel_x = 7
+	},
 /turf/open/floor/iron,
 /area/station/cargo/exploration_office)
 "MG" = (
@@ -386,6 +442,7 @@
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/light/small/directional/north,
 /obj/structure/sign/warning/vacuum/external/directional/south,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron,
 /area/station/cargo/exploration_office)
 "Qk" = (
@@ -398,7 +455,7 @@
 /turf/open/floor/iron,
 /area/station/cargo/drone_bay)
 "Rd" = (
-/obj/machinery/suit_storage_unit/standard_unit,
+/obj/machinery/suit_storage_unit/explorer,
 /obj/effect/turf_decal/tile/brown/fourcorners,
 /turf/open/floor/iron,
 /area/station/cargo/exploration_office)
@@ -457,9 +514,13 @@
 	dir = 5
 	},
 /obj/structure/rack,
-/obj/item/stack/rods/twentyfive,
-/obj/item/multitool,
-/obj/item/stack/impure_telecrystal,
+/obj/item/multitool{
+	pixel_x = 4;
+	pixel_y = 2
+	},
+/obj/item/stack/impure_telecrystal{
+	pixel_x = -5
+	},
 /turf/open/floor/iron,
 /area/station/cargo/exploration_office)
 "VR" = (
@@ -521,7 +582,7 @@ tB
 GF
 ew
 db
-ER
+Fe
 ER
 dr
 Rv
@@ -532,13 +593,13 @@ ZD
 "}
 (3,1,1) = {"
 bv
-GK
+mZ
 or
 sn
 or
 or
 TQ
-or
+Aq
 mq
 SW
 SW
@@ -554,7 +615,7 @@ bv
 GK
 qW
 jg
-qW
+um
 or
 or
 UK
@@ -573,7 +634,7 @@ bv
 GK
 or
 or
-or
+Aq
 or
 Xy
 or
@@ -596,7 +657,7 @@ or
 as
 TQ
 or
-Ep
+ps
 bv
 UT
 zo
@@ -613,7 +674,7 @@ lv
 Ju
 or
 or
-or
+Aq
 eC
 Ep
 bv

@@ -8,8 +8,9 @@
 /turf/open/space/basic,
 /area/space/nearstation)
 "c" = (
-/obj/machinery/suit_storage_unit/standard_unit,
+/obj/machinery/suit_storage_unit/explorer,
 /obj/machinery/light_switch/directional/east,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/iron,
 /area/station/cargo/exploration_office)
 "d" = (
@@ -77,11 +78,16 @@
 /turf/open/floor/iron,
 /area/station/cargo/exploration_office)
 "o" = (
-/obj/structure/rack,
 /obj/machinery/airalarm/directional/south,
-/obj/item/multitool,
-/obj/item/stack/impure_telecrystal,
-/obj/item/stack/rods/twentyfive,
+/obj/structure/table/reinforced,
+/obj/machinery/cell_charger{
+	pixel_x = 3
+	},
+/obj/machinery/recharger{
+	pixel_x = -9;
+	pixel_y = 7;
+	layer = 2.89
+	},
 /turf/open/floor/iron,
 /area/station/cargo/exploration_office)
 "p" = (
@@ -170,8 +176,9 @@
 /turf/open/floor/engine,
 /area/station/cargo/exploration_office)
 "F" = (
-/obj/machinery/suit_storage_unit/standard_unit,
+/obj/machinery/suit_storage_unit/explorer,
 /obj/machinery/firealarm/directional/east,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/iron,
 /area/station/cargo/exploration_office)
 "G" = (
@@ -221,6 +228,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
 /obj/effect/landmark/start/explorer,
+/obj/item/kirbyplants/random{
+	pixel_x = 10
+	},
 /turf/open/floor/iron,
 /area/station/cargo/exploration_office)
 "P" = (
@@ -241,7 +251,20 @@
 /obj/machinery/light/directional/south,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/item/kirbyplants/random,
+/obj/structure/rack,
+/obj/item/storage/box/nri_flares{
+	layer = 2.99;
+	pixel_y = 1;
+	pixel_x = 3
+	},
+/obj/item/multitool{
+	pixel_x = -7;
+	pixel_y = 2
+	},
+/obj/item/stack/impure_telecrystal{
+	pixel_x = -6;
+	pixel_y = -2
+	},
 /turf/open/floor/iron,
 /area/station/cargo/exploration_office)
 "S" = (

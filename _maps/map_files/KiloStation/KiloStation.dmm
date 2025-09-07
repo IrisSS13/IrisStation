@@ -4568,6 +4568,11 @@
 	},
 /turf/open/floor/engine/o2,
 /area/station/engineering/atmos)
+"bum" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/recharge_station,
+/turf/open/floor/iron/smooth_large,
+/area/station/cargo/exploration_office)
 "bup" = (
 /obj/machinery/cryopod,
 /turf/open/floor/iron/freezer,
@@ -7690,9 +7695,19 @@
 /area/station/cargo/warehouse)
 "cnH" = (
 /obj/structure/rack,
-/obj/item/stack/rods/twentyfive,
-/obj/item/multitool,
-/obj/item/stack/impure_telecrystal,
+/obj/item/storage/box/nri_flares{
+	layer = 2.99;
+	pixel_y = 1;
+	pixel_x = 3
+	},
+/obj/item/multitool{
+	pixel_x = -7;
+	pixel_y = 2
+	},
+/obj/item/stack/impure_telecrystal{
+	pixel_x = -6;
+	pixel_y = -2
+	},
 /turf/open/floor/iron/smooth_large,
 /area/station/cargo/exploration_office)
 "cnM" = (
@@ -10314,8 +10329,18 @@
 /area/station/service/hydroponics/garden)
 "dfR" = (
 /obj/structure/table,
-/obj/item/radio,
-/obj/item/flashlight,
+/obj/item/storage/fancy/cigarettes/cigpack_robustgold{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/lighter/greyscale{
+	pixel_x = 6;
+	pixel_y = -2
+	},
+/obj/item/reagent_containers/cup/glass/mug{
+	pixel_x = 7;
+	pixel_y = -12
+	},
 /turf/open/floor/iron/smooth_large,
 /area/station/cargo/exploration_office)
 "dfS" = (
@@ -19384,7 +19409,9 @@
 /area/station/command/bridge)
 "fMz" = (
 /obj/structure/extinguisher_cabinet/directional/east,
-/obj/item/kirbyplants/random,
+/obj/item/kirbyplants/random{
+	pixel_x = 10
+	},
 /turf/open/floor/iron/smooth_large,
 /area/station/cargo/exploration_office)
 "fMB" = (
@@ -21481,6 +21508,16 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/north,
+/obj/structure/bed/dogbed{
+	name = "Lem's bed";
+	desc = "A comfy-looking cat bed. You can even strap your pet in, in case the gravity turns off."
+	},
+/mob/living/basic/pet/cat/space{
+	name = "Lem";
+	gender = "male";
+	unique_pet = 1;
+	desc = "He's kittened out for space exploration."
+	},
 /turf/open/floor/iron/smooth_large,
 /area/station/cargo/exploration_office)
 "guv" = (
@@ -26570,7 +26607,8 @@
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/customs)
 "hSL" = (
-/obj/machinery/suit_storage_unit/standard_unit,
+/obj/machinery/suit_storage_unit/explorer,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/iron/smooth_large,
 /area/station/cargo/exploration_office)
 "hSU" = (
@@ -27281,7 +27319,9 @@
 /turf/closed/wall/rust,
 /area/space/nearstation)
 "icB" = (
-/obj/item/kirbyplants/random,
+/obj/item/kirbyplants/random{
+	pixel_x = 10
+	},
 /obj/structure/sign/warning/vacuum/external/directional/east,
 /turf/open/floor/iron/smooth_large,
 /area/station/cargo/exploration_office)
@@ -30175,6 +30215,7 @@
 /area/station/cargo/storage)
 "iSe" = (
 /obj/structure/sign/poster/official/safety_internals/directional/south,
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/open/floor/iron/smooth_large,
 /area/station/cargo/exploration_office)
 "iSo" = (
@@ -38481,6 +38522,14 @@
 	},
 /turf/open/floor/iron/showroomfloor,
 /area/station/science/robotics/lab)
+"lxA" = (
+/obj/structure/chair{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/decal/cleanable/confetti,
+/turf/open/floor/iron/smooth_large,
+/area/station/cargo/exploration_office)
 "lxG" = (
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt,
@@ -47284,8 +47333,8 @@
 "omy" = (
 /obj/structure/table,
 /obj/machinery/light/directional/north,
-/obj/item/storage/box/donkpockets{
-	pixel_y = 5
+/obj/machinery/coffeemaker{
+	pixel_y = 9
 	},
 /turf/open/floor/iron/smooth_large,
 /area/station/cargo/exploration_office)
@@ -51180,6 +51229,8 @@
 /area/station/command/gateway)
 "puM" = (
 /obj/structure/closet/crate/bin,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
 /turf/open/floor/iron/smooth_large,
 /area/station/cargo/exploration_office)
 "puN" = (
@@ -65503,8 +65554,13 @@
 "tKC" = (
 /obj/structure/table,
 /obj/item/paper_bin{
-	pixel_x = -3;
-	pixel_y = 4
+	pixel_x = -7;
+	pixel_y = 5
+	},
+/obj/item/pen,
+/obj/machinery/recharger{
+	pixel_x = 6;
+	pixel_y = 3
 	},
 /turf/open/floor/iron/smooth_large,
 /area/station/cargo/exploration_office)
@@ -69916,16 +69972,9 @@
 /turf/open/floor/wood/parquet,
 /area/station/service/chapel)
 "vdA" = (
-/obj/structure/bed/dogbed{
-	name = "Lem's bed";
-	desc = "A comfy-looking cat bed. You can even strap your pet in, in case the gravity turns off."
-	},
-/mob/living/basic/pet/cat/space{
-	name = "Lem";
-	gender = "male";
-	unique_pet = 1;
-	desc = "He's kittened out for space exploration."
-	},
+/obj/structure/closet/toolcloset,
+/obj/item/flashlight,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/iron/smooth_large,
 /area/station/cargo/exploration_office)
 "vdJ" = (
@@ -79815,9 +79864,17 @@
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
 "xVt" = (
-/obj/structure/table,
-/obj/machinery/coffeemaker{
-	pixel_y = 9
+/obj/item/storage/box/donkpockets{
+	pixel_y = 5
+	},
+/obj/structure/closet{
+	anchored = 1
+	},
+/obj/item/storage/box/colonial_rations{
+	pixel_y = -2
+	},
+/obj/item/storage/box/colonial_rations{
+	pixel_y = -2
 	},
 /turf/open/floor/iron/smooth_large,
 /area/station/cargo/exploration_office)
@@ -80049,6 +80106,12 @@
 /obj/structure/lattice/catwalk,
 /turf/open/space,
 /area/space/nearstation)
+"xXV" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/decal/cleanable/confetti,
+/turf/open/floor/iron/smooth_large,
+/area/station/cargo/exploration_office)
 "xYa" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/status_display/shuttle{
@@ -130490,7 +130553,7 @@ uEF
 esP
 puk
 uEF
-gir
+vdA
 gCP
 gCP
 iVx
@@ -131003,7 +131066,7 @@ usw
 udu
 oUP
 nbm
-vdA
+xeg
 xeg
 sMc
 eUz
@@ -131518,7 +131581,7 @@ uEF
 cnH
 urD
 uEF
-gir
+bum
 gCP
 gCP
 plJ
@@ -132279,7 +132342,7 @@ gCP
 gCP
 gCP
 aoS
-lSh
+xXV
 uzI
 gCP
 aaa
@@ -132792,7 +132855,7 @@ gCP
 omy
 lZY
 vbK
-vbK
+lxA
 vbK
 xeg
 eUz

@@ -20,6 +20,7 @@
 /area/station/cargo/exploration_office)
 "f" = (
 /obj/machinery/light/directional/north,
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/open/floor/iron/dark,
 /area/station/cargo/exploration_office)
 "g" = (
@@ -45,11 +46,21 @@
 /area/station/cargo/exploration_office)
 "m" = (
 /obj/structure/rack,
-/obj/item/stack/rods/twentyfive,
-/obj/item/multitool,
-/obj/item/stack/impure_telecrystal,
+/obj/item/multitool{
+	pixel_x = -7;
+	pixel_y = 2
+	},
+/obj/item/stack/impure_telecrystal{
+	pixel_x = -6;
+	pixel_y = -2
+	},
 /obj/machinery/camera/autoname/directional/east,
 /obj/structure/sign/warning/vacuum/external/directional/east,
+/obj/item/storage/box/nri_flares{
+	layer = 2.99;
+	pixel_y = 1;
+	pixel_x = 3
+	},
 /turf/open/floor/iron/dark,
 /area/station/cargo/exploration_office)
 "n" = (
@@ -66,7 +77,8 @@
 /turf/open/floor/iron/dark,
 /area/station/cargo/exploration_office)
 "o" = (
-/obj/machinery/suit_storage_unit/standard_unit,
+/obj/machinery/suit_storage_unit/explorer,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/iron/dark,
 /area/station/cargo/exploration_office)
 "p" = (
@@ -150,12 +162,16 @@
 /turf/open/floor/engine,
 /area/station/cargo/exploration_office)
 "F" = (
-/obj/structure/table,
+/obj/structure/table/reinforced,
 /obj/item/paper_bin{
-	pixel_y = 4
+	pixel_y = 4;
+	pixel_x = -7
 	},
-/obj/item/radio,
-/obj/item/flashlight,
+/obj/item/pen,
+/obj/machinery/recharger{
+	pixel_x = 6;
+	pixel_y = 3
+	},
 /turf/open/floor/iron/dark,
 /area/station/cargo/exploration_office)
 "G" = (
@@ -184,7 +200,9 @@
 /area/station/cargo/exploration_office)
 "K" = (
 /obj/machinery/light/directional/south,
-/obj/item/kirbyplants/random,
+/obj/structure/closet/crate/bin,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
 /turf/open/floor/iron/dark,
 /area/station/cargo/exploration_office)
 "L" = (
@@ -207,8 +225,10 @@
 /turf/open/floor/engine,
 /area/station/cargo/exploration_office)
 "P" = (
-/obj/structure/closet/crate/bin,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/item/kirbyplants/random{
+	pixel_x = -9
+	},
 /turf/open/floor/iron/dark,
 /area/station/cargo/exploration_office)
 "Q" = (
@@ -253,12 +273,14 @@
 /turf/open/floor/iron,
 /area/station/maintenance/fore/lesser)
 "W" = (
-/obj/machinery/dive_anchor/debug,
+/obj/machinery/dive_anchor,
 /turf/open/space/basic,
 /area/space/nearstation)
 "X" = (
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
+/obj/machinery/recharge_station,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/iron/dark,
 /area/station/cargo/exploration_office)
 "Y" = (
