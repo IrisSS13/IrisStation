@@ -177,3 +177,10 @@
 	name = "Töchtaüse berries"
 	purchase_path = /obj/item/food/grown/toechtauese
 	cost_per_order = 15
+
+/*	IRIS EDIT START */
+/datum/orderable_item/veggies/seraka
+	name = "Steeped Seraka Mushroom"
+	purchase_path = /obj/item/food/steeped_mushrooms
+	cost_per_order = 30
+/*	IRIS EDIT END 	*/
