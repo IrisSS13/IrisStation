@@ -18,9 +18,18 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/engine,
 /area/station/cargo/exploration_office)
+"e" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/indigo{
+	pixel_x = -12;
+	pixel_y = 15
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
 "f" = (
 /obj/machinery/light/directional/north,
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/turf_decal/bot,
+/obj/machinery/recharge_station,
 /turf/open/floor/iron/dark,
 /area/station/cargo/exploration_office)
 "g" = (
@@ -33,7 +42,7 @@
 /area/station/cargo/exploration_office)
 "i" = (
 /obj/machinery/computer/anchor_controller{
-	dir = 1
+	dir = 4
 	},
 /turf/open/floor/iron/dark,
 /area/station/cargo/exploration_office)
@@ -43,6 +52,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/iron/dark,
+/area/station/cargo/exploration_office)
+"k" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4;
+	plane = -3
+	},
 /turf/open/floor/iron/dark,
 /area/station/cargo/exploration_office)
 "m" = (
@@ -60,6 +76,9 @@
 /obj/item/stack/rods{
 	pixel_x = 4;
 	amount = 20
+	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
 	},
 /turf/open/floor/iron/dark,
 /area/station/cargo/exploration_office)
@@ -83,6 +102,15 @@
 /area/station/cargo/exploration_office)
 "p" = (
 /obj/machinery/light/small/directional/south,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
 /turf/open/floor/iron/dark,
 /area/station/cargo/exploration_office)
 "q" = (
@@ -94,10 +122,10 @@
 /turf/open/floor/iron,
 /area/station/maintenance/fore/lesser)
 "r" = (
-/obj/effect/turf_decal/stripes/line{
+/obj/effect/turf_decal/stripes/end{
 	dir = 8
 	},
-/obj/machinery/door/airlock/external{
+/obj/machinery/door/airlock/external/glass{
 	name = "Exploration Office Airlock"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
@@ -116,7 +144,7 @@
 /turf/open/floor/iron/dark,
 /area/station/cargo/exploration_office)
 "v" = (
-/obj/effect/turf_decal/stripes/line{
+/obj/effect/turf_decal/stripes/end{
 	dir = 1
 	},
 /obj/machinery/door/airlock/external{
@@ -128,6 +156,14 @@
 /obj/effect/mapping_helpers/airlock/access/all/command/gateway,
 /turf/open/floor/iron/dark,
 /area/station/cargo/exploration_office)
+"w" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/indigo{
+	pixel_x = -12;
+	pixel_y = -12
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
 "x" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -141,6 +177,11 @@
 /obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor/engine,
 /area/station/cargo/exploration_office)
+"z" = (
+/obj/structure/lattice,
+/obj/structure/sign/warning/directional/west,
+/turf/open/space/basic,
+/area/space/nearstation)
 "A" = (
 /obj/effect/landmark/start/explorer,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -154,6 +195,14 @@
 	},
 /turf/open/floor/engine,
 /area/station/cargo/exploration_office)
+"C" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/indigo{
+	pixel_x = 14;
+	pixel_y = 15
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
 "D" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
@@ -161,16 +210,10 @@
 /turf/open/floor/engine,
 /area/station/cargo/exploration_office)
 "F" = (
-/obj/structure/table/reinforced,
-/obj/item/paper_bin{
-	pixel_y = 4;
-	pixel_x = -7
+/obj/structure/chair/office{
+	dir = 8
 	},
-/obj/item/pen,
-/obj/machinery/recharger{
-	pixel_x = 6;
-	pixel_y = 3
-	},
+/obj/effect/landmark/start/explorer,
 /turf/open/floor/iron/dark,
 /area/station/cargo/exploration_office)
 "G" = (
@@ -214,7 +257,10 @@
 /area/space/nearstation)
 "N" = (
 /obj/structure/lattice/catwalk,
-/obj/structure/sign/warning/directional/north,
+/obj/structure/marker_beacon/indigo{
+	pixel_x = 14;
+	pixel_y = -12
+	},
 /turf/open/space/basic,
 /area/space/nearstation)
 "O" = (
@@ -278,8 +324,8 @@
 "X" = (
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
-/obj/machinery/recharge_station,
-/obj/effect/turf_decal/bot,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/turf_decal/box,
 /turf/open/floor/iron/dark,
 /area/station/cargo/exploration_office)
 "Y" = (
@@ -287,9 +333,17 @@
 /turf/open/floor/iron/dark,
 /area/station/cargo/exploration_office)
 "Z" = (
-/obj/structure/chair/office,
-/obj/effect/landmark/start/explorer,
 /obj/effect/decal/cleanable/cobweb,
+/obj/structure/table/reinforced,
+/obj/item/paper_bin{
+	pixel_y = 4;
+	pixel_x = -7
+	},
+/obj/machinery/recharger{
+	pixel_x = 6;
+	pixel_y = 3
+	},
+/obj/item/pen,
 /turf/open/floor/iron/dark,
 /area/station/cargo/exploration_office)
 
@@ -393,7 +447,7 @@ J
 J
 J
 U
-h
+k
 m
 U
 "}
@@ -404,7 +458,7 @@ U
 U
 N
 b
-b
+C
 U
 r
 U
@@ -414,7 +468,7 @@ U
 a
 a
 T
-T
+z
 b
 W
 b
@@ -428,9 +482,9 @@ a
 a
 a
 a
+w
 b
-b
-b
+e
 U
 J
 U

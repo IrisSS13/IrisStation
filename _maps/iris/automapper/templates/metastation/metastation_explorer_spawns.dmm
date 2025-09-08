@@ -24,24 +24,45 @@
 /area/station/cargo/exploration_office)
 "k" = (
 /obj/structure/lattice/catwalk,
-/obj/structure/sign/warning/directional/west,
+/obj/structure/marker_beacon/indigo{
+	pixel_x = 14;
+	pixel_y = -12
+	},
 /turf/open/space/basic,
 /area/space/nearstation)
 "n" = (
 /turf/closed/wall,
 /area/station/maintenance/port/fore)
+"o" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/marker_beacon/indigo{
+	pixel_x = -12;
+	pixel_y = -12
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
+"p" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/sign/warning/directional/south,
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
 "q" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
-/obj/machinery/door/airlock/external{
-	name = "Exploration Office Airlock";
-	space_dir = 2
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
-	cycle_id = "exploration-office-airlock"
-	},
 /obj/effect/mapping_helpers/airlock/access/all/command/gateway,
-/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/end,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external/glass{
+	name = "Exploration Office Airlock"
+	},
 /turf/open/floor/plating,
 /area/station/cargo/exploration_office)
 "r" = (
@@ -68,9 +89,17 @@
 /turf/open/floor/engine,
 /area/station/cargo/exploration_office)
 "v" = (
-/obj/machinery/light/small/directional/north,
 /obj/machinery/atmospherics/components/unary/airlock_pump/unbolt_only,
-/obj/structure/sign/warning/vacuum/external/directional/north,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/machinery/light/small/directional/west{
+	dir = 4
+	},
+/obj/structure/sign/warning/vacuum/external/directional/east,
 /turf/open/floor/plating,
 /area/station/cargo/exploration_office)
 "w" = (
@@ -155,6 +184,17 @@
 	},
 /turf/open/floor/engine,
 /area/station/cargo/exploration_office)
+"E" = (
+/obj/structure/lattice,
+/turf/open/space/basic,
+/area/space/nearstation)
+"F" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/corner/end{
+	dir = 8
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
 "G" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
@@ -178,28 +218,38 @@
 /turf/open/floor/engine,
 /area/station/cargo/exploration_office)
 "J" = (
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
-	cycle_id = "exploration-office-airlock"
+/obj/structure/lattice/catwalk,
+/obj/structure/railing{
+	dir = 1
 	},
-/obj/machinery/door/airlock/external{
-	name = "Exploration Office Airlock";
-	space_dir = 8
-	},
-/obj/effect/mapping_helpers/airlock/access/all/command/gateway,
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/station/cargo/exploration_office)
+/turf/open/space/basic,
+/area/space/nearstation)
 "L" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/sign/warning/vacuum/external/directional/north,
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
+"O" = (
+/obj/effect/mapping_helpers/airlock/access/all/command/gateway,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/effect/turf_decal/stripes/end{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external{
+	name = "Exploration Office Airlock"
+	},
+/turf/open/floor/plating,
+/area/station/cargo/exploration_office)
 "P" = (
 /turf/closed/wall,
 /area/station/cargo/exploration_office)
+"Q" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
 "T" = (
 /obj/machinery/dive_anchor,
 /turf/open/space/basic,
@@ -225,6 +275,7 @@
 /area/station/cargo/exploration_office)
 
 (1,1,1) = {"
+E
 P
 s
 P
@@ -237,7 +288,8 @@ a
 a
 "}
 (2,1,1) = {"
-P
+J
+O
 v
 q
 w
@@ -249,8 +301,9 @@ a
 a
 "}
 (3,1,1) = {"
+p
 P
-J
+P
 P
 A
 Y
@@ -261,6 +314,7 @@ a
 a
 "}
 (4,1,1) = {"
+J
 k
 b
 s
@@ -273,6 +327,7 @@ H
 a
 "}
 (5,1,1) = {"
+F
 b
 T
 s
@@ -285,8 +340,9 @@ a
 a
 "}
 (6,1,1) = {"
-b
-b
+a
+o
+Q
 s
 s
 P
@@ -297,6 +353,7 @@ a
 a
 "}
 (7,1,1) = {"
+a
 a
 a
 a
