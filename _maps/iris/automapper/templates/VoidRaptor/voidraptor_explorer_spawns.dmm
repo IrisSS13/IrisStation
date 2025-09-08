@@ -15,7 +15,9 @@
 	pixel_x = 6;
 	pixel_y = 4
 	},
-/turf/open/floor/iron/smooth_large,
+/turf/open/floor/iron/smooth_corner{
+	dir = 1
+	},
 /area/station/cargo/exploration_office)
 "bW" = (
 /obj/structure/lattice/catwalk,
@@ -25,14 +27,6 @@
 	},
 /turf/open/space/basic,
 /area/space/nearstation)
-"ce" = (
-/obj/structure/cable,
-/obj/machinery/light/directional/east,
-/obj/effect/turf_decal/stripes/corner{
-	dir = 4
-	},
-/turf/open/floor/iron/smooth_large,
-/area/station/cargo/exploration_office)
 "dv" = (
 /obj/machinery/door/airlock/external/glass{
 	name = "Exploration Office Airlock"
@@ -70,7 +64,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/start/explorer,
-/turf/open/floor/iron/smooth_large,
+/turf/open/floor/iron/smooth,
 /area/station/cargo/exploration_office)
 "jw" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -107,7 +101,7 @@
 /obj/structure/closet/crate/bin,
 /obj/effect/spawner/random/trash/garbage,
 /obj/effect/spawner/random/trash/garbage,
-/turf/open/floor/iron/smooth_large,
+/turf/open/floor/iron/smooth_edge,
 /area/station/cargo/exploration_office)
 "uS" = (
 /turf/open/floor/iron/smooth_large,
@@ -133,6 +127,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /turf/open/floor/catwalk_floor/iron_smooth,
+/area/station/cargo/exploration_office)
+"yi" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/iron/smooth_large,
 /area/station/cargo/exploration_office)
 "zA" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -223,6 +224,9 @@
 	},
 /turf/open/floor/iron/smooth_large,
 /area/station/cargo/exploration_office)
+"Hi" = (
+/turf/open/floor/iron/smooth_corner,
+/area/station/cargo/exploration_office)
 "Hn" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
@@ -241,6 +245,11 @@
 /obj/structure/cable,
 /obj/machinery/light/directional/north,
 /turf/open/floor/catwalk_floor/iron_smooth,
+/area/station/cargo/exploration_office)
+"HO" = (
+/turf/open/floor/iron/smooth_corner{
+	dir = 4
+	},
 /area/station/cargo/exploration_office)
 "HS" = (
 /obj/structure/cable,
@@ -299,11 +308,21 @@
 /obj/structure/sign/warning/directional/west,
 /turf/open/space/basic,
 /area/space/nearstation)
+"Ls" = (
+/obj/structure/cable,
+/obj/machinery/light/directional/east,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/turf/open/floor/iron/smooth_large,
+/area/station/cargo/exploration_office)
 "Lv" = (
 /obj/machinery/computer/anchor_controller{
 	dir = 8
 	},
-/turf/open/floor/iron/smooth_large,
+/turf/open/floor/iron/smooth_edge{
+	dir = 4
+	},
 /area/station/cargo/exploration_office)
 "Ma" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -312,10 +331,6 @@
 	pixel_y = 26
 	},
 /turf/open/floor/catwalk_floor/iron_smooth,
-/area/station/cargo/exploration_office)
-"MH" = (
-/obj/effect/spawner/random/engineering/tracking_beacon,
-/turf/open/floor/iron/smooth_large,
 /area/station/cargo/exploration_office)
 "Nn" = (
 /turf/template_noop,
@@ -337,18 +352,28 @@
 	name = "Lem's bed";
 	desc = "A comfy-looking cat bed. You can even strap your pet in, in case the gravity turns off."
 	},
-/turf/open/floor/iron/smooth_large,
+/turf/open/floor/iron/smooth_edge{
+	dir = 1
+	},
 /area/station/cargo/exploration_office)
 "Rs" = (
 /obj/structure/table/reinforced,
 /obj/machinery/cell_charger,
-/turf/open/floor/iron/smooth_large,
+/turf/open/floor/iron/smooth_corner{
+	dir = 8
+	},
 /area/station/cargo/exploration_office)
 "TQ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/catwalk_floor/iron_smooth,
+/area/station/cargo/exploration_office)
+"Wf" = (
+/obj/effect/spawner/random/engineering/tracking_beacon,
+/turf/open/floor/iron/smooth_edge{
+	dir = 8
+	},
 /area/station/cargo/exploration_office)
 "Wn" = (
 /obj/structure/cable,
@@ -373,13 +398,6 @@
 	},
 /obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor/engine,
-/area/station/cargo/exploration_office)
-"Zh" = (
-/obj/structure/cable,
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/turf/open/floor/iron/smooth_large,
 /area/station/cargo/exploration_office)
 "Zs" = (
 /obj/effect/landmark/start/explorer,
@@ -493,9 +511,9 @@ Nn
 KR
 hG
 HE
-uS
-MH
-uS
+Hi
+Wf
+HO
 jw
 hG
 KR
@@ -572,8 +590,8 @@ KR
 hG
 HS
 HU
-Zh
-ce
+yi
+Ls
 jX
 hG
 KR
