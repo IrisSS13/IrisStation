@@ -45,8 +45,8 @@ export const AnchorController = (props) => {
                   <NumberInput
                     value={data.x_coord}
                     step={1}
-                    minValue={1}
-                    maxValue={255}
+                    minValue={10}
+                    maxValue={245}
                     onChange={(value) =>
                       act('adjust-x', {
                         new_x: value,
@@ -58,8 +58,8 @@ export const AnchorController = (props) => {
                   <NumberInput
                     value={data.y_coord}
                     step={1}
-                    minValue={1}
-                    maxValue={255}
+                    minValue={10}
+                    maxValue={245}
                     onChange={(value) =>
                       act('adjust-y', {
                         new_y: value,
