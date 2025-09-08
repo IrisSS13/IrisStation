@@ -12,7 +12,7 @@
 	target_mobtypes = list(/mob/living/carbon/human)
 	possible_locs = list(BODY_ZONE_CHEST) // The brains are in the chest
 	organ_to_manipulate = ORGAN_SLOT_BRAIN
-	requires_bodypart_type = BODYTYPE_ROBOTIC
+	requires_bodypart_type = BODYTYPE_ROBOTIC | BODYTYPE_NANO // IRIS BUBBER Edit - BODYTYPE_NANO
 	requires_organ_flags = ORGAN_ROBOTIC
 
 // Subtype for synthetic humanoids with organic bodyparts

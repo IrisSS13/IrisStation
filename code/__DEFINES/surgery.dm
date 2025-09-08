@@ -42,6 +42,8 @@
 /// Organ flag for organs of hemophage origin, or organs that have since been infected by an hemophage's tumor.
 #define ORGAN_TUMOR_CORRUPTED (1<<17)
 // NOVA EDIT ADDITION END
+/// Nanoswarm organ
+#define ORGAN_NANOMACHINE (1<<18)
 
 /// Scarring on the right eye
 #define RIGHT_EYE_SCAR (1<<0)
