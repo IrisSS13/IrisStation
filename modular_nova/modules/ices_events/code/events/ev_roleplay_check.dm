@@ -1,3 +1,4 @@
+/*
 /**
  * Checks if a player meets certain conditions to exclude them from event selection.
  * Returns FALSE if the player is considered ineligible for the event
@@ -16,3 +17,4 @@
 		return FALSE
 
 	return TRUE
+*/
