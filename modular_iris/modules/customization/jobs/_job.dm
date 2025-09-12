@@ -77,4 +77,4 @@
 	banned_quirks = list(JOB_RESTRICTED_QUIRKS)
 
 /datum/job/explorer
-    banned_quirks = list(JOB_RESTRICTED_QUIRKS)
+	banned_quirks = list(JOB_RESTRICTED_QUIRKS)
