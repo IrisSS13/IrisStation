@@ -1093,8 +1093,9 @@
 	. = ..()
 	.[/datum/job/ai::title] = minutes
 
-/mob/living/silicon/ai/get_voice(add_id_name)
-	if(ai_voicechanger?.changing_voice)
+/mob/living/silicon/ai/get_voice()
+	. = ..()
+	if(ai_voicechanger && ai_voicechanger.changing_voice)
 		return ai_voicechanger.say_name
 	return ..()
 
