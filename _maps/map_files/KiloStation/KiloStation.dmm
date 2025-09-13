@@ -1709,17 +1709,12 @@
 	dir = 4
 	},
 /obj/machinery/button/door{
-	pixel_x = 8;
-	pixel_y = -3;
+	pixel_x = 7;
+	pixel_y = -2;
 	normaldoorcontrol = 1;
 	id = "hop_door";
 	name = "Door Toggle";
 	req_access = list("hop")
-	},
-/obj/item/reagent_containers/cup/glass/mug/nanotrasen{
-	pixel_x = 11;
-	pixel_y = 8;
-	list_reagents = list(/datum/reagent/consumable/tea = 10, /datum/reagent/consumable/honey = 2)
 	},
 /turf/open/floor/iron/checker{
 	dir = 8
@@ -7058,15 +7053,16 @@
 /turf/closed/wall,
 /area/station/maintenance/fore)
 "cfC" = (
-/obj/machinery/holopad,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
 	},
 /obj/effect/turf_decal/tile/dark_blue/opposingcorners,
-/obj/effect/landmark/event_spawn,
-/obj/effect/turf_decal/box/blue/corners{
-	dir = 8
+/obj/machinery/disposal/bin{
+	pixel_y = -3
+	},
+/obj/structure/disposalpipe/trunk{
+	dir = 1
 	},
 /turf/open/floor/iron/checker{
 	dir = 8
@@ -12340,7 +12336,7 @@
 /area/station/maintenance/starboard)
 "dJX" = (
 /obj/structure/disposalpipe/segment{
-	dir = 6
+	dir = 4
 	},
 /obj/machinery/light_switch/directional/east{
 	pixel_x = 21;
@@ -14308,24 +14304,27 @@
 /turf/open/floor/iron/smooth_large,
 /area/station/cargo/exploration_office)
 "ept" = (
-/obj/machinery/modular_computer/preset/id{
-	dir = 8
-	},
 /obj/machinery/button/ticket_machine{
 	name = "Increment Ticket Counter";
-	pixel_x = 22;
-	pixel_y = 10
+	pixel_x = -3;
+	pixel_y = 7
 	},
 /obj/machinery/button/door/directional/east{
 	id = "hop_shutters";
 	name = "Privacy Shutters Toggle";
 	req_access = list("hop");
-	pixel_x = 22
+	pixel_x = 7;
+	pixel_y = 7
 	},
 /obj/machinery/button/flasher{
 	id = "hopflash";
-	pixel_x = 22;
-	pixel_y = -10
+	pixel_x = 7;
+	pixel_y = -2
+	},
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/item/reagent_containers/cup/glass/mug/nanotrasen{
+	pixel_x = -5;
+	list_reagents = list(/datum/reagent/consumable/tea = 10, /datum/reagent/consumable/honey = 2)
 	},
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/hop)
@@ -25104,6 +25103,8 @@
 /obj/effect/mapping_helpers/iannewyear,
 /obj/effect/turf_decal/siding/wood,
 /mob/living/basic/pet/dog/corgi/ian,
+/obj/machinery/holopad,
+/obj/effect/landmark/event_spawn,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/hop)
 "hxw" = (
@@ -43751,6 +43752,9 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/hop)
 "nam" = (
@@ -48965,17 +48969,11 @@
 /turf/open/floor/iron/dark/textured_edge,
 /area/station/ai_monitored/security/armory)
 "oJq" = (
-/obj/machinery/disposal/bin{
-	pixel_x = 2;
-	pixel_y = 1
-	},
-/obj/structure/disposalpipe/trunk{
-	dir = 1
-	},
 /obj/machinery/light/directional/east,
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
+/obj/machinery/pdapainter,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/hop)
 "oJr" = (
@@ -53706,6 +53704,9 @@
 "qdE" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/hop)
 "qdR" = (
@@ -55843,11 +55844,13 @@
 /turf/closed/wall/r_wall,
 /area/station/maintenance/aft)
 "qNJ" = (
-/obj/machinery/pdapainter,
 /obj/machinery/camera/directional/north{
 	c_tag = "Head of Personnel's Office";
 	name = "command camera";
 	dir = 4
+	},
+/obj/machinery/modular_computer/preset/id{
+	dir = 8
 	},
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/hop)
@@ -77352,6 +77355,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 6
 	},
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/hop)
@@ -110925,7 +110931,7 @@ cEr
 qxA
 cEr
 cEr
-fYh
+cEr
 fYh
 fYh
 rai
