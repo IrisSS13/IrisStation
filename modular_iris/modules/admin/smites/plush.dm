@@ -79,9 +79,10 @@
 	icon = plush.icon
 	icon_state = plush.icon_state
 	inhand_icon_state = plush.inhand_icon_state
-	attack_verb_continuous = plush.attack_verb_continuous
-	attack_verb_simple = plush.attack_verb_simple
-	squeak_override = plush.squeak_override
+	attack_verb_continuous = plush.attack_verb_continuous.Copy()
+	attack_verb_simple = plush.attack_verb_simple.Copy()
+	if(squeak_override)
+		squeak_override = plush.squeak_override.Copy()
 	var/skin_color = target.dna.features["mcolor"]
 	if(plush.greyscale_config && skin_color)
 		greyscale_config = plush.greyscale_config
