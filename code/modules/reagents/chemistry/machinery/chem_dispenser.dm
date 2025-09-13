@@ -231,7 +231,10 @@
 		balloon_alert(user, "already emagged!")
 		return FALSE
 	balloon_alert(user, "safeties shorted out")
-	dispensable_reagents |= emagged_reagents//add the emagged reagents to the dispensable ones
+	//IRIS EDIT CHANGE BEGIN - QUANTUM_UPGRADE_CHEMS - Don't add the reagents to the list if they're already present
+	if(!(emagged_reagents in dispensable_reagents))
+		dispensable_reagents |= emagged_reagents//add the emagged reagents to the dispensable ones
+	//IRIS EDIT CHANGE END
 	obj_flags |= EMAGGED
 	return TRUE
 
@@ -548,6 +551,13 @@
 		else
 			dispensable_reagents -= upgrade3_reagents
 		//NOVA EDIT END
+		//IRIS EDIT ADDITION BEGIN - QUANTUM_UPGRADE_CHEMS - Adding a quantum servo adds reagents normally only unlocked by emagging
+		if(!(obj_flags & EMAGGED))
+			if(servo.tier > 4)
+				dispensable_reagents |= emagged_reagents
+			else
+				dispensable_reagents -= emagged_reagents
+		//IRIS EDIT ADDITION END
 		parts_rating += servo.tier
 	power_cost = max(new_power_cost, 0.1 KILO WATTS)
 
