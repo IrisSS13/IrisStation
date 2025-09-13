@@ -26,12 +26,18 @@
 	if(target)
 		make_marketable(target, bind_target)
 
+/obj/item/toy/plush/living/Destroy(force)
+	if(current_owner)
+		clear_owner()
+	return ..()
+
 // Actually turns the plush to look like whoever 'target' is, 'target' being required and 'bind_target' being optional
 /obj/item/toy/plush/living/proc/make_marketable(mob/living/carbon/human/target = null, bind_target = FALSE)
 	name = "Marketable [target] plush"
 	if(bind_target)
 		current_owner = target
-		ADD_TRAIT(target, TRAIT_NOBREATH, src)
+		ADD_TRAIT(current_owner, TRAIT_NOBREATH, src)
+		ADD_TRAIT(current_owner, TRAIT_HANDS_BLOCKED, src)
 		target.forceMove(src)
 		RegisterSignal(target, COMSIG_QDELETING, PROC_REF(clear_owner))
 
@@ -43,6 +49,7 @@
 		/datum/species/abductor/abductorweak = /obj/item/toy/plush/abductor,
 		/datum/species/android = /obj/item/toy/plush/pkplush,
 		/datum/species/lizard = /obj/item/toy/plush/lizard_plushie/greyscale,
+		/datum/species/lizard/ashwalker = /obj/item/toy/plush/lizard_plushie/greyscale,
 		/datum/species/monkey/kobold = /obj/item/toy/plush/lizard_plushie/greyscale,
 		/datum/species/monkey = /obj/item/toy/plush/monkey,
 		/datum/species/moth = /obj/item/toy/plush/moth,
@@ -53,7 +60,7 @@
 		/datum/species/jelly/stargazer = /obj/item/toy/plush/slimeplushie,
 		/datum/species/nabber = /obj/item/toy/plush/snakeplushie,
 		/datum/species/vox = /obj/item/toy/plush/nova/borbplushie,
-		/datum/species/mammal - /obj/item/toy/plush/nova/ian,
+		/datum/species/mammal = /obj/item/toy/plush/nova/ian,
 		/datum/species/akula = /obj/item/toy/plush/shark, // Yes
 		/datum/species/aquatic = /obj/item/toy/plush/shark,
 		/datum/species/insect = /obj/item/toy/plush/beeplushie,
@@ -83,15 +90,11 @@
 
 	qdel(plush)
 
-/obj/item/toy/plush/living/Destroy(force)
-	if(current_owner)
-		clear_owner()
-	return ..()
-
 /obj/item/toy/plush/living/proc/clear_owner(datum/source)
 	SIGNAL_HANDLER
 	UnregisterSignal(current_owner, COMSIG_QDELETING)
 	REMOVE_TRAIT(current_owner, TRAIT_NOBREATH, src)
+	REMOVE_TRAIT(current_owner, TRAIT_HANDS_BLOCKED, src)
 	current_owner = null
 
 /obj/item/toy/plush/living/attackby(obj/item/I, mob/living/user, list/modifiers, list/attack_modifiers)
