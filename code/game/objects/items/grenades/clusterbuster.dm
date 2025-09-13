@@ -121,7 +121,8 @@
 
 /obj/effect/payload_spawner/random_slime/spawn_payload(type, numspawned)
 	for(var/_ in 1 to numspawned)
-		var/chosen = pick(subtypesof(/obj/item/slime_extract))
+//		var/chosen = pick(subtypesof(/obj/item/slime_extract)) // IRIS EDIT OLD -- UNIQUE SLIMES
+		var/chosen = pick(subtypesof(/obj/item/slime_extract) - typesof(/obj/item/slime_extract/unique)) // IRIS EDIT NEW
 		var/obj/item/slime_extract/slime_extract = new chosen(loc)
 		if(volatile)
 			addtimer(CALLBACK(slime_extract, TYPE_PROC_REF(/obj/item/slime_extract, activate_slime)), rand(RANDOM_DETONATE_MIN_TIME, RANDOM_DETONATE_MAX_TIME))
