@@ -13,6 +13,7 @@ GLOBAL_LIST_INIT(background_state_options, list(
 	"dark" ,
 	"plating",
 	"reinforced",
+	"green",
 	))
 
 /datum/preference/choiced/background_state/create_default_value()

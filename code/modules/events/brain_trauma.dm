@@ -21,10 +21,6 @@
 			continue
 		if(!(H.mind.assigned_role.job_flags & JOB_CREW_MEMBER)) //please stop giving my centcom admin gimmicks full body paralysis
 			continue
-		// NOVA EDIT ADD START - Station/area event candidate filtering
-		if(!engaged_role_play_check(H, station = TRUE, dorms = TRUE))
-			continue
-		// NOVA EDIT ADD END
 		traumatize(H)
 		announce_to_ghosts(H)
 		break

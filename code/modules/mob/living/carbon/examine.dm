@@ -381,7 +381,7 @@
 	var/client_like = client || HAS_TRAIT(src, TRAIT_MIND_TEMPORARILY_GONE)
 	var/valid_ghost = ghost?.can_reenter_corpse && ghost?.client
 	var/valid_soul = brain || !HAS_TRAIT(src, TRAIT_FAKE_SOULLESS)
-	if((brain && client_like) || (valid_ghost && valid_soul))
+	if((brain && client_like) || (valid_ghost && valid_soul) && (!HAS_TRAIT(src, TRAIT_DNR))) //IRIS EDIT: CHECK FOR DNR QUIRK, was: if((brain && client_like) || (valid_ghost && valid_soul))
 		return span_deadsay("[t_He] [t_is] limp and unresponsive; there are no signs of life...")
 	return span_deadsay("[t_He] [t_is] limp and unresponsive; there are no signs of life and [t_his] soul has departed...")
 

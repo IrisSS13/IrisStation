@@ -1,8 +1,8 @@
 /obj/structure/anchor_assembly
 	name = "dive anchor assembly"
 	desc = "An unfinished dive anchor."
-	icon = 'icons/obj/machines/satellite.dmi'
-	icon_state = "sat_active"
+	icon = 'modular_iris/modules/dive_anchor/icons/dive_anchor.dmi'
+	icon_state = "anchor"
 	density = TRUE
 	anchored = FALSE
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
@@ -19,12 +19,12 @@
 	if(target_type == /obj/machinery/dive_anchor)
 		name = "stationary dive anchor assembly"
 		desc = "An unfinished stationary dive anchor."
-		icon_state = "sat_inactive"
+		icon_state = "anchor_stationary"
 		target_type = /obj/machinery/dive_anchor/stationary
 		return ITEM_INTERACT_SUCCESS
 	name = "dive anchor assembly"
 	desc = "An unfinished dive anchor."
-	icon_state = "sat_active"
+	icon_state = "anchor"
 	target_type = /obj/machinery/dive_anchor
 	return ITEM_INTERACT_SUCCESS
 

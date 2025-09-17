@@ -48,6 +48,7 @@
 	new /obj/item/storage/lockbox/medal/hop(src)
 	new /obj/item/card/id/departmental_budget/srv(src) // NOVA EDIT ADDITION
 	new /obj/item/storage/box/visitor_ids(src) // NOVA EDIT ADDITION
+	new /obj/item/storage/box/deputy(src) // IRIS EDIT ADDITION
 
 /obj/structure/closet/secure_closet/hop/populate_contents_immediate()
 	new /obj/item/gun/energy/e_gun(src)

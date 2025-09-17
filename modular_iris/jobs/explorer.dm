@@ -159,3 +159,16 @@
 	name = "Explorer"
 	icon = 'modular_iris/master_files/icons/mob/landmarks.dmi'
 	icon_state = "Explorer"
+
+/area/station/cargo/exploration_office
+	name = "\improper Exploration Office"
+	icon = 'modular_iris/master_files/icons/areas/exploration.dmi'
+	icon_state = "exploration_office"
+
+/obj/effect/landmark/navigate_destination/exploration_office
+	location = "Exploration Office"
+
+/obj/machinery/suit_storage_unit/explorer
+	mask_type = /obj/item/clothing/mask/gas/atmos/frontier_colonist
+	mod_type = /obj/item/mod/control/pre_equipped/frontier_colonist
+	storage_type = /obj/item/tank/jetpack/oxygen
