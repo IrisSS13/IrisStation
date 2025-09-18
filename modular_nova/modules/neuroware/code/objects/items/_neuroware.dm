@@ -121,6 +121,7 @@
 	return FALSE
 
 ///Installs only if the mob has a synthetic brain, unless they got a nif
+///Installs only if the mob has a synthetic brain, unless they got a nif
 /obj/item/disk/neuroware/proc/try_install(mob/living/carbon/human/target, mob/living/carbon/human/user)
 	if(!ishuman(target))
 		return

@@ -31,7 +31,7 @@
 		play_lobby_button_sound()
 		var/datum/preferences/preferences = client.prefs
 		preferences.write_preference(GLOB.preference_entries[/datum/preference/toggle/be_antag], !preferences.read_preference(/datum/preference/toggle/be_antag))
-		client << output(preferences.read_preference(/datum/preference/toggle/be_antag), "title_browser:toggle_antag")
+		client << output(preferences.read_preference(/datum/preference/toggle/be_antag), "nova_title_browser:toggle_antag")
 		return
 
 	if(href_list["character_setup"])
@@ -64,7 +64,7 @@
 			SSstatpanels.add_job_estimation(src)
 		else
 			SSstatpanels.remove_job_estimation(src)
-		client << output(ready, "title_browser:toggle_ready")
+		client << output(ready, "nova_title_browser:toggle_ready")
 		return
 
 	if(href_list["late_join"])
@@ -104,7 +104,7 @@
 	if(client.interviewee)
 		return
 
-	winset(src, "title_browser", "is-disabled=false;is-visible=true")
+	winset(src, "nova_title_browser", "is-disabled=false;is-visible=true")
 	winset(src, "status_bar", "is-visible=false")
 
 	var/datum/asset/assets = get_asset_datum(/datum/asset/simple/lobby) //Sending pictures to the client
@@ -119,7 +119,7 @@
 	var/dat = get_title_html()
 
 	src << browse(SStitle.current_title_screen, "file=loading_screen.gif;display=0")
-	src << browse(dat, "window=title_browser")
+	src << browse(dat, "window=nova_title_browser")
 
 /datum/asset/simple/lobby
 	assets = list(
@@ -131,7 +131,7 @@
  */
 /mob/dead/new_player/proc/hide_title_screen()
 	if(client?.mob)
-		winset(client, "title_browser", "is-disabled=true;is-visible=false")
+		winset(client, "nova_title_browser", "is-disabled=true;is-visible=false")
 		winset(client, "status_bar", "is-visible=true")
 
 /mob/dead/new_player/proc/play_lobby_button_sound()
