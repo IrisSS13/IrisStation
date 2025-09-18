@@ -4150,13 +4150,6 @@
 /obj/structure/closet/crate/bin,
 /turf/open/floor/iron/textured_large,
 /area/awaymission/black_mesa/employee_dorm_room)
-"blz" = (
-/obj/machinery/door_buttons/airlock_controller{
-	name = "Elevator Button";
-	pixel_x = -23
-	},
-/turf/open/floor/mineral/titanium,
-/area/awaymission/black_mesa/genetics_elevator)
 "bmh" = (
 /obj/structure/flora/biolumi/mine/weaklight{
 	pixel_x = -12;
@@ -4525,8 +4518,15 @@
 /turf/open/floor/iron/dark,
 /area/awaymission/black_mesa/equipment_room)
 "cbk" = (
-/obj/structure/alien/weeds/xen,
-/turf/open/floor/mineral/titanium,
+/obj/docking_port/stationary{
+	dir = 2;
+	dwidth = 2;
+	height = 4;
+	shuttle_id = "blackmesa_sci_top";
+	name = "sector c top";
+	width = 4
+	},
+/turf/open/floor/plating/elevatorshaft,
 /area/awaymission/black_mesa/genetics_elevator)
 "cbq" = (
 /obj/machinery/light/cold/directional/west,
@@ -6048,11 +6048,7 @@
 /turf/open/floor/iron/dark,
 /area/awaymission/black_mesa/science_internal)
 "eQj" = (
-/obj/effect/bump_teleporter{
-	id = "amsup";
-	id_target = "amsdown"
-	},
-/turf/open/floor/mineral/titanium,
+/turf/open/floor/plating/elevatorshaft,
 /area/awaymission/black_mesa/genetics_elevator)
 "eQB" = (
 /obj/item/kirbyplants/random,
@@ -8095,7 +8091,7 @@
 /turf/open/floor/iron/smooth_large,
 /area/awaymission/black_mesa/high_security_armory)
 "iWr" = (
-/turf/open/floor/mineral/titanium,
+/turf/open/floor/plating/elevatorshaft,
 /area/awaymission/black_mesa/scientist_hall)
 "iWy" = (
 /turf/open/floor/iron/smooth_large,
@@ -9270,11 +9266,16 @@
 /turf/open/floor/iron/textured_large,
 /area/awaymission/black_mesa/genetics)
 "kZK" = (
-/obj/machinery/door_buttons/airlock_controller{
-	name = "Elevator Button";
-	pixel_x = -23
+/obj/docking_port/stationary{
+	dir = 2;
+	dwidth = 2;
+	height = 4;
+	shuttle_id = "blackmesa_sci_bottom";
+	name = "sector c bottom";
+	roundstart_template = /datum/map_template/shuttle/blackmesa/sci_elevator;
+	width = 4
 	},
-/turf/open/floor/mineral/titanium,
+/turf/open/floor/plating/elevatorshaft,
 /area/awaymission/black_mesa/scientist_hall)
 "kZT" = (
 /obj/structure/sign/warning/radiation,
@@ -13917,13 +13918,6 @@
 /obj/structure/flora/tree/dead,
 /turf/open/misc/xen,
 /area/awaymission/black_mesa/xen/freeman_puzzle)
-"ukc" = (
-/obj/effect/bump_teleporter{
-	id = "amsdown";
-	id_target = "amsup"
-	},
-/turf/open/floor/mineral/titanium,
-/area/awaymission/black_mesa/scientist_hall)
 "ukW" = (
 /obj/structure/table,
 /obj/item/keycard/office,
@@ -14202,9 +14196,6 @@
 /obj/structure/xen_pylon,
 /turf/open/misc/xen,
 /area/awaymission/black_mesa/xen/vortigaunt_village)
-"uOu" = (
-/turf/open/floor/mineral/titanium,
-/area/awaymission/black_mesa/genetics_elevator)
 "uOC" = (
 /obj/structure/chair/stool,
 /obj/effect/turf_decal/tile/yellow/fourcorners,
@@ -66076,9 +66067,9 @@ nxx
 vHB
 mqB
 nxx
-cbk
-blz
-uOu
+eQj
+eQj
+eQj
 eQj
 nxx
 wMZ
@@ -66334,8 +66325,8 @@ vHB
 pCG
 wXR
 cbk
-cbk
-uOu
+eQj
+eQj
 eQj
 nxx
 wMZ
@@ -66590,9 +66581,9 @@ nxx
 vHB
 pCG
 mqB
-cbk
-cbk
-uOu
+eQj
+eQj
+eQj
 eQj
 nxx
 mqB
@@ -66847,9 +66838,9 @@ nxx
 vHB
 mqB
 nxx
-cbk
-uOu
-uOu
+eQj
+eQj
+eQj
 eQj
 nxx
 mqB
@@ -72516,9 +72507,9 @@ ehE
 ehE
 gtN
 iWr
-kZK
 iWr
-ukc
+iWr
+iWr
 gtN
 aNo
 arz
@@ -72772,10 +72763,10 @@ vNU
 dUs
 dGY
 faZ
+kZK
 iWr
 iWr
 iWr
-ukc
 gtN
 aNo
 arz
@@ -73032,7 +73023,7 @@ dUs
 iWr
 iWr
 iWr
-ukc
+iWr
 gtN
 aNo
 arz
@@ -73289,7 +73280,7 @@ gtN
 iWr
 iWr
 iWr
-ukc
+iWr
 gtN
 aNo
 arz
