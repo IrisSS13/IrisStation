@@ -162,7 +162,7 @@
 * Woof says the dog
 */
 
-/mob/living/basic/evilborgs/evilborg/dog
+/* /mob/living/basic/evilborgs/evilborg/dog
 	name = "Malfunctioning Canine Cyborg"
 	desc = "A canine-borg, hacked or malfunctioning. This one appears to be a mining variant."
 	icon = 'modular_nova/master_files/icons/mob/newmobs64x32.dmi'
@@ -176,11 +176,11 @@
 	attack_verb_simple = "smash"
 	attack_sound = 'sound/items/weapons/bladeslice.ogg'
 	ai_controller = /datum/ai_controller/basic_controller/evilborgs
-
+*/ // IRIS EDIT - KILLS DOG
 /*
 * Can i pet that dawg!?
 */
-
+/*
 /mob/living/basic/evilborgs/evilborg/dogstrong
 	name = "Corrupt Hound"
 	desc = "A canine-borg, hacked or malfunctioning. This one is large, imposing, and can pack a big punch."
@@ -195,7 +195,7 @@
 	attack_verb_simple = "bite"
 	attack_sound = 'sound/items/weapons/bite.ogg'
 	ai_controller = /datum/ai_controller/basic_controller/evilborgs
-
+*/ // IRIS EDIT - KILLS DOG
 /*
 * Tank
 */
