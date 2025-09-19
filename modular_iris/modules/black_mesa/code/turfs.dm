@@ -33,36 +33,32 @@
 	planetary_atmos = TRUE
 
 /turf/open/water/beach/xen
-	desc = "It's mirky and filled with strange organisms."
 	name = "xen water"
+	desc = "It's mirky and filled with strange organisms."
 	icon = 'modular_iris/modules/black_mesa/icons/xen_turfs.dmi'
-	baseturfs = /turf/open/water/beach/xen
+	icon_state = "water"
+	base_icon_state = "water"
+	footstep = FOOTSTEP_WATER
+	barefootstep = FOOTSTEP_WATER
+	clawfootstep = FOOTSTEP_WATER
+	heavyfootstep = FOOTSTEP_WATER
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	planetary_atmos = TRUE
 
-/turf/open/misc/beach/coastline_t/xen
-	desc = "It's mirky and filled with strange organisms."
-	name = "xen water"
+/turf/open/misc/beach/xen/coast
 	icon = 'modular_iris/modules/black_mesa/icons/xen_turfs.dmi'
-	baseturfs = /turf/open/misc/beach/coastline_t/xen
-	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
-	planetary_atmos = TRUE
 
-/turf/open/misc/beach/coastline_t/sandwater_inner/xen
-	desc = "It's mirky and filled with strange organisms."
-	name = "xen water"
-	icon = 'modular_iris/modules/black_mesa/icons/xen_turfs.dmi'
-	baseturfs = /turf/open/misc/beach/coastline_t/sandwater_inner/xen
-	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
-	planetary_atmos = TRUE
+/turf/open/misc/beach/xen/coast/xen_t
+	icon_state = "sandwater_t"
+	base_icon_state = "sandwater_t"
 
-/turf/open/misc/beach/coastline_b/xen
-	name = "xen water"
-	desc = "It's mirky and filled with strange organisms."
-	icon = 'modular_iris/modules/black_mesa/icons/xen_turfs.dmi'
-	baseturfs = /turf/open/misc/beach/coastline_b/xen
-	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
-	planetary_atmos = TRUE
+/turf/open/misc/beach/xen/coast/xen_i
+	icon_state = "sandwater_inner"
+	base_icon_state = "sandwater_inner"
+
+/turf/open/misc/beach/xen/coast/xen_b
+	icon_state = "sandwater_b"
+	base_icon_state = "sandwater_b"
 
 /turf/open/misc/dirt/planet/xen
 	name = "strange path"

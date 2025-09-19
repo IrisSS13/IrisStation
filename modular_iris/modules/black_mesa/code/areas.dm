@@ -262,6 +262,15 @@
 	static_lighting = FALSE
 	lighting
 
+/area/shuttle/black_mesa/elevator1
+	name = "Black Mesa Sector C Elevator"
+
+/area/shuttle/black_mesa/elevator2
+	name = "Black Mesa Freighter Elevator"
+
+/area/shuttle/black_mesa/elevator3
+	name = "Black Mesa Lambda Complex Elevator"
+
 /area/awaymission/black_mesa/xen
 	name = "Black Mesa Xen"
 

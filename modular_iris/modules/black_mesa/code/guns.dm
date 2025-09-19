@@ -1,5 +1,6 @@
-/obj/item/gun/ballistic/automatic/laser/marksman // Cheap replacement for a gauss rifle.
-	name = "designated marksman rifle"
+// Cheap replacement for a gauss rifle.
+/obj/item/gun/ballistic/automatic/laser/marksman
+	name = "MXR-204 \"Helios Beam\""
 	desc = "A special laser beam sniper rifle designed by a certain now defunct research facility."
 	icon_state = "ctfmarksman"
 	inhand_icon_state = "ctfmarksman"

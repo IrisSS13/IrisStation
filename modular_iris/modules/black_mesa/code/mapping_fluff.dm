@@ -53,3 +53,45 @@
 /obj/structure/closet/secure_closet/security/black_mesa
 	req_access = list(ACCESS_AWAY_SEC)
 
+/obj/machinery/computer/shuttle/black_mesa/sci
+	name = "Elevator Console"
+	desc = "Used to call the Black Mesa Science Sector Elevator."
+	icon_screen = "shuttle"
+	icon_keyboard = "tech_key"
+	light_color = LIGHT_COLOR_CYAN
+	shuttleId = "blackmesa_sci"
+	possible_destinations = "blackmesa_sci_top;blackmesa_sci_bottom"
+
+/obj/machinery/computer/shuttle/black_mesa/freighter
+	name = "Elevator Console"
+	desc = "Used to call the Black Mesa Freighter Elevator."
+	icon_screen = "shuttle"
+	icon_keyboard = "tech_key"
+	light_color = LIGHT_COLOR_CYAN
+	shuttleId = "blackmesa_freighter"
+	possible_destinations = "blackmesa_freighter_top;blackmesa_freighter_bottom"
+
+/obj/machinery/computer/shuttle/black_mesa/lambda
+	name = "Elevator Console"
+	desc = "Used to call the Black Mesa Lambda Elevator."
+	icon_screen = "shuttle"
+	icon_keyboard = "tech_key"
+	light_color = LIGHT_COLOR_CYAN
+	shuttleId = "blackmesa_lambda"
+	possible_destinations = "blackmesa_lambda_top;blackmesa_lambda_bottom"
+
+/datum/map_template/shuttle/blackmesa
+	port_id = "blackmesa"
+	who_can_purchase = null
+
+/datum/map_template/shuttle/blackmesa/sci
+	suffix = "sci"
+	name = "Black Mesa Science Elevator"
+
+/datum/map_template/shuttle/blackmesa/freighter
+	suffix = "freighter"
+	name = "Black Mesa Freighter Elevator"
+
+/datum/map_template/shuttle/blackmesa/lambda
+	suffix = "lambda"
+	name = "Black Mesa Lambda Complex Elevator"
