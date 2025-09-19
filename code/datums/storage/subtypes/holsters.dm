@@ -5,7 +5,7 @@
 	open_sound = 'sound/items/handling/holster_open.ogg'
 	open_sound_vary = TRUE
 
-/datum/storage/holster/New(atom/parent, max_slots, max_specific_storage, max_total_storage, list/holdables)
+/datum/storage/holster/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound, list/holdables)
 	. = ..()
 	if(length(holdables))
 		set_holdable(holdables)
@@ -38,7 +38,7 @@
 /datum/storage/holster/energy
 	max_slots = 2
 
-/datum/storage/holster/energy/New(atom/parent, max_slots, max_specific_storage, max_total_storage, list/holdables)
+/datum/storage/holster/energy/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound, list/holdables)
 	holdables = list(
 		/obj/item/gun/energy/e_gun/mini,
 		/obj/item/gun/energy/disabler,
@@ -62,7 +62,7 @@
 /datum/storage/holster/detective
 	max_slots = 3
 
-/datum/storage/holster/detective/New(atom/parent, max_slots, max_specific_storage, max_total_storage, list/holdables)
+/datum/storage/holster/detective/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound, list/holdables)
 	holdables = list(
 		/obj/item/gun/ballistic/automatic/pistol,
 		/obj/item/ammo_box/magazine/m9mm, // Pistol magazines.
@@ -96,7 +96,7 @@
 	max_slots = 2
 	silent = TRUE
 
-/datum/storage/holster/chameleon/New(atom/parent, max_slots, max_specific_storage, max_total_storage, list/holdables)
+/datum/storage/holster/chameleon/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound, list/holdables)
 	holdables = list(
 		/obj/item/gun/ballistic/automatic/pistol,
 		/obj/item/ammo_box/magazine/m9mm,
@@ -124,7 +124,7 @@
 	max_slots = 2
 	max_specific_storage = WEIGHT_CLASS_BULKY
 
-/datum/storage/holster/nukie/New(atom/parent, max_slots, max_specific_storage, max_total_storage, list/holdables)
+/datum/storage/holster/nukie/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound, list/holdables)
 	holdables = list(
 		/obj/item/gun, // ALL guns.
 		/obj/item/ammo_box/magazine, // ALL magazines.

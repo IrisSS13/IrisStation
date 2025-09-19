@@ -1,11 +1,11 @@
-import { BooleanLike } from 'tgui-core/react';
+import type { BooleanLike } from 'tgui-core/react';
 
-import { sendAct } from '../../backend';
-import {
+import type { sendAct } from '../../backend';
+import type {
   LoadoutCategory,
   LoadoutList,
 } from './CharacterPreferences/loadout/base';
-import { Gender } from './preferences/gender';
+import type { Gender } from './preferences/gender';
 
 export enum Food {
   Alcohol = 'ALCOHOL',
@@ -42,6 +42,7 @@ export type Name = {
   can_randomize: BooleanLike;
   explanation: string;
   group: string;
+  prefixes?: string[]; // NOVA EDIT ADDITION - Drone Prefixes
 };
 
 export type Species = {
@@ -54,8 +55,6 @@ export type Species = {
   sexes: BooleanLike;
 
   enabled_features: string[];
-
-  nova_stars_only: boolean; // NOVA EDIT - Nova star quirks
 
   perks: {
     positive: Perk[];
@@ -84,7 +83,6 @@ export type Job = {
   description: string;
   department: string;
   // NOVA EDIT
-  nova_star?: boolean;
   alt_titles?: string[];
   // NOVA EDIT END
 };
@@ -96,7 +94,6 @@ export type Quirk = {
   value: number;
   customizable: boolean;
   customization_options?: string[];
-  nova_stars_only: boolean; // NOVA EDIT ADDITION - Nova star quirks
   erp_quirk: boolean; // NOVA EDIT ADDITION - Purple ERP quirks
 };
 
@@ -184,7 +181,6 @@ export type PreferencesMenuData = {
   preview_options: string[]; // NOVA EDIT ADDITION
   preview_selection: string; // NOVA EDIT ADDITION
 
-  is_nova_star: BooleanLike; // NOVA EDIT - Star status
   erp_pref: BooleanLike; // NOVA EDIT ADDITION
 
   character_preferences: {

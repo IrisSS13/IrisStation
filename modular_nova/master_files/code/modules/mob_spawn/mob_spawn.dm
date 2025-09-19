@@ -48,10 +48,7 @@
 			SSquirks.AssignQuirks(spawned_human, spawned_human.client)
 
 		post_transfer_prefs(spawned_human)
-// IRIS ADDITION START
-		if (istype(spawned_human, /mob/living/carbon/human))
-			spawned_human.grant_language(/datum/language/common, source = LANGUAGE_SPAWNER)
-// IRIS ADDITION END
+
 	if(load_prefs && loadout_enabled)
 		spawned_human?.equip_outfit_and_loadout(outfit, spawned_mob.client.prefs)
 	else if (!isnull(spawned_human))
@@ -69,10 +66,8 @@
 	var/mob/living/spawned_mob = new mob_type(get_turf(src)) //living mobs only
 	name_mob(spawned_mob, newname)
 	special(spawned_mob, mob_possessor)
-// IRIS ADDITION START
-	if(!istype(src, /obj/effect/mob_spawn/ghost_role))
-		equip(spawned_mob)
-// IRIS ADDITION END
+	equip(spawned_mob)
+	spawned_mob_ref = WEAKREF(spawned_mob)
 	return spawned_mob
 
 // Anything that can potentially be overwritten by transferring prefs must go in this proc
@@ -80,12 +75,12 @@
 // In those cases, please override this proc as well as special()
 // TODO: refactor create() and special() so that this is no longer necessary
 /obj/effect/mob_spawn/ghost_role/proc/post_transfer_prefs(mob/living/new_spawn)
+	new_spawn.mind?.assigned_role?.after_spawn(new_spawn, new_spawn?.mind) // for things in after_spawn e.g. liver traits
 	return
 
 /obj/effect/mob_spawn/ghost_role/human/special(mob/living/spawned_mob, mob/mob_possessor)
 	. = ..()
 	var/mob/living/carbon/human/spawned_human = spawned_mob
 	var/datum/job/spawned_job = SSjob.get_job_type(spawner_job_path)
-
 	spawned_human.job = spawned_job.title
 

@@ -13,10 +13,10 @@ import {
 import { createSearch } from 'tgui-core/string';
 
 import {
-  PreferencesMenuData,
-  Quirk,
+  type PreferencesMenuData,
+  type Quirk,
   RandomSetting,
-  ServerData,
+  type ServerData,
 } from '../types';
 import { useRandomToggleState } from '../useRandomToggleState';
 import { useServerPrefs } from '../useServerPrefs';
@@ -355,11 +355,6 @@ export function QuirksPage(props) {
         return 'You need a negative quirk to balance this out!';
       }
     }
-    // NOVA EDIT START - Nova star quirks
-    if (quirk.nova_stars_only && !data.is_nova_star) {
-      return 'You need to be a Nova star to select this quirk, apply today!';
-    }
-    // NOVA EDIT END
     const selectedQuirkNames = selectedQuirks.map((quirkKey) => {
       return quirkInfo[quirkKey].name;
     });

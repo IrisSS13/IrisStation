@@ -15,6 +15,10 @@
 	greyscale_config_worn = /datum/greyscale_config/beanie/worn
 	greyscale_colors = "#EEEEEE#EEEEEE"
 	flags_1 = IS_PLAYER_COLORABLE_1
+// IRIS EDIT START, adds cold protection
+	cold_protection = HEAD
+	min_cold_protection_temperature = FIRE_HELM_MIN_TEMP_PROTECT
+// IRIS EDIT END
 
 /obj/item/clothing/head/beanie/black
 	name = "black beanie"
@@ -59,6 +63,10 @@
 	icon = 'icons/obj/clothing/head/beanie.dmi'
 	worn_icon = 'icons/mob/clothing/head/beanie.dmi'
 	icon_state = "beanierasta"
+// IRIS EDIT START, adds cold protection
+	cold_protection = HEAD
+	min_cold_protection_temperature = FIRE_HELM_MIN_TEMP_PROTECT
+// IRIS EDIT END
 
 /obj/item/clothing/head/waldo
 	name = "red striped bobble hat"
@@ -66,6 +74,10 @@
 	icon = 'icons/obj/clothing/head/beanie.dmi'
 	worn_icon = 'icons/mob/clothing/head/beanie.dmi'
 	icon_state = "waldo_hat"
+// IRIS EDIT START, adds cold protection
+	cold_protection = HEAD
+	min_cold_protection_temperature = FIRE_HELM_MIN_TEMP_PROTECT
+// IRIS EDIT END
 
 //No dog fashion sprites yet :(  poor Ian can't be dope like the rest of us yet
 

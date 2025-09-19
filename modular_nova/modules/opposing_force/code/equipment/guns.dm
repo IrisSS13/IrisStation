@@ -13,7 +13,7 @@
 
 /datum/opposing_force_equipment/ranged/infanteria
 	name = "Carwo-Cawil Battle Rifle"
-	description = "A heavy battle rifle, this one seems to be painted tacticool black. Accepts any standard SolFed rifle magazine."
+	description = "A heavy battle rifle, this one seems to be painted tacticool black. Accepts any standard SolGov rifle magazine."
 	item_type = /obj/item/storage/toolbox/guncase/nova/opfor/infanteria
 
 /obj/item/storage/toolbox/guncase/nova/opfor/infanteria/PopulateContents()
@@ -30,6 +30,25 @@
 	new /obj/item/gun/ballistic/automatic/miecz(src)
 	new /obj/item/ammo_box/magazine/miecz(src)
 	new /obj/item/ammo_box/magazine/miecz(src)
+
+/datum/opposing_force_equipment/ranged/pulse_rifle
+	name = "'Žaibas' Plasma Pulse Projector"
+	description = "A high-capacity, hybrid assault rifle running on fifteen shot 'plugs' instead of conventional bullets; with three available per magazine."
+	item_type = /obj/item/storage/toolbox/guncase/nova/opfor/pulse_rifle
+
+/obj/item/storage/toolbox/guncase/nova/opfor/pulse_rifle/PopulateContents()
+	new /obj/item/gun/ballistic/automatic/pulse_rifle(src)
+	new /obj/item/ammo_box/magazine/pulse(src)
+	new /obj/item/ammo_box/magazine/pulse(src)
+
+/datum/opposing_force_equipment/ranged/pulse_sniper
+	name = "'Žaibas-A' Sniper Rifle"
+	description = "A high-power, hybrid sniper rifle running on fifteen shot 'plugs' instead of conventional bullets; pulling three shots per use."
+	item_type = /obj/item/storage/toolbox/guncase/nova/opfor/pulse_sniper
+
+/obj/item/storage/toolbox/guncase/nova/opfor/pulse_sniper/PopulateContents()
+	new /obj/item/gun/ballistic/rifle/pulse_sniper(src)
+	new /obj/item/ammo_box/pulse_cargo_box(src)
 
 /datum/opposing_force_equipment/ranged/kiboko
 	name = "Kiboko Grenade Launcher"
@@ -164,7 +183,7 @@
 
 /datum/opposing_force_equipment/ranged_stealth/wespe
 	name = "Wespe Pistol"
-	description = "The standard issue service pistol of SolFed's various military branches. Comes with attached light."
+	description = "The standard issue service pistol of SolGov's various military branches. Comes with attached light."
 	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/opfor/wespe
 
 /obj/item/storage/toolbox/guncase/nova/pistol/opfor/wespe/PopulateContents()

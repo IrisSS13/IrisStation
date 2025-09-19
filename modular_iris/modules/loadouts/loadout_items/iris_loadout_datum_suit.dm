@@ -7,10 +7,24 @@
 	name = "Pharoah Tunic"
 	item_path = /obj/item/clothing/suit/costume/nemes
 
+/datum/loadout_item/suit/tailcoat //Tailcoat from MonkeStation
+	name = "Recolorable Tailcoat"
+	item_path = /obj/item/clothing/suit/jacket/tailcoat
+
 // JOBS
 /datum/loadout_item/suit/labcoat_paramedic
 	name = "Paramedic's Jacket"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/paramedic
+
+/datum/loadout_item/suit/transform_wintercoat
+	name = "Transformative Wintercoat (briefcase-only)"
+	item_path = /obj/item/transformative_wintercoat
+
+/datum/loadout_item/suit/tailcoat_bar //Tailcoat from MonkeStation
+	name = "Bartender's Tailcoat"
+	item_path = /obj/item/clothing/suit/jacket/tailcoat/bartender
+	restricted_roles = list(JOB_BARTENDER)
+	group = "Job-Locked"
 
 // NABBER ITEMS
 /datum/loadout_item/suit/nabberponcho

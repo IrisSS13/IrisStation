@@ -483,7 +483,7 @@
 	minimal_access = list(
 		ACCESS_KITCHEN,
 		ACCESS_MINERAL_STOREROOM,
-		ACCESS_MORGUE,
+		//ACCESS_MORGUE, // IRIS EDIT - commented out
 		ACCESS_SERVICE,
 		)
 	extra_access = list(
@@ -509,14 +509,14 @@
 	assignment = JOB_CORONER
 	trim_state = "trim_coroner"
 	department_color = COLOR_MEDICAL_BLUE
-	subdepartment_color = COLOR_SERVICE_LIME
+	subdepartment_color = COLOR_MEDICAL_BLUE // IRIS EDIT - Coroner is no longer part of service
 	sechud_icon_state = SECHUD_CORONER
 	minimal_access = list(
 		ACCESS_MEDICAL,
 		ACCESS_MINERAL_STOREROOM,
 		ACCESS_MORGUE,
 		ACCESS_MORGUE_SECURE,
-		ACCESS_SERVICE,
+		//ACCESS_SERVICE, // IRIS EDIT - Coroner is no longer part of service
 		ACCESS_SURGERY,
 	)
 	extra_access = list(
@@ -528,7 +528,7 @@
 		ACCESS_CAPTAIN,
 		ACCESS_CHANGE_IDS,
 		ACCESS_CMO,
-		ACCESS_HOP,
+		//ACCESS_HOP, // IRIS EDIT - Coroner is no longer part of service
 	)
 	job = /datum/job/coroner
 
@@ -959,6 +959,7 @@
 		ACCESS_KEYCARD_AUTH,
 		ACCESS_COMMAND,
 		ACCESS_EVA,
+		ACCESS_GATEWAY, // IRIS EDIT - Explorer
 		ACCESS_BRIG_ENTRANCE,
 		ACCESS_WEAPONS,
 		)

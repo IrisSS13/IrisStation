@@ -40,7 +40,7 @@
 /datum/job/psychologist
 	banned_quirks = list(JOB_RESTRICTED_QUIRKS)
 
-/datum/job/psychologist
+/datum/job/doctor
 	banned_quirks = list(JOB_RESTRICTED_QUIRKS)
 
 /datum/job/bartender
@@ -71,4 +71,10 @@
 	banned_quirks = list(JOB_RESTRICTED_QUIRKS)
 
 /datum/job/cargo_technician
+	banned_quirks = list(JOB_RESTRICTED_QUIRKS)
+
+/datum/job/bridge_assistant
+	banned_quirks = list(JOB_RESTRICTED_QUIRKS)
+
+/datum/job/explorer
 	banned_quirks = list(JOB_RESTRICTED_QUIRKS)

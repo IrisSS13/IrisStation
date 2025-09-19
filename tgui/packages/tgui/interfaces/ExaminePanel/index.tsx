@@ -46,7 +46,6 @@ export function ExaminePanel(props) {
     custom_species,
     custom_species_lore,
     headshot,
-    nova_star_status,
     ideal_antag_optin_status,
     current_antag_optin_status,
     opt_in_colors,
@@ -109,18 +108,6 @@ export function ExaminePanel(props) {
                       title="OOC Notes"
                       preserveWhitespace
                     >
-                      {!!nova_star_status && (
-                        <Stack.Item mb="8px">
-                          <span
-                            style={{
-                              color: 'gold',
-                              fontWeight: 'bold',
-                            }}
-                          >
-                            Nova Star! ⭐
-                          </span>
-                        </Stack.Item>
-                      )}
                       {oocNotesIndex === 'SFW' && (
                         <Stack.Item>
                           {ideal_antag_optin_status && (
@@ -160,7 +147,7 @@ export function ExaminePanel(props) {
                       preserveWhitespace
                       title={
                         custom_species
-                          ? 'Species: ' + custom_species
+                          ? `Species: ${custom_species}`
                           : 'No Custom Species!'
                       }
                     >

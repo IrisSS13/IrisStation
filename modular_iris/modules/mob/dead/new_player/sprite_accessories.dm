@@ -244,7 +244,7 @@
 
 // temporary xeno tail fix till upstream does it bc synth said so
 /datum/sprite_accessory/tails/xeno
-	recommended_species = list(SPECIES_XENO)
+	recommended_species = list(SPECIES_XENO, SPECIES_POLYSMORPH)
 	feature_key_override = "tail_xeno"
 	color_src = USE_ONE_COLOR
 

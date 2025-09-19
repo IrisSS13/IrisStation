@@ -77,6 +77,8 @@
 	name = "folded coder pride flag"
 	desc = "You probably shouldn't be seeing this. Yell at the coders about it."
 	icon = 'modular_iris/bubber_ports/code/modules/maps/biodome_graveyard/pride_flags.dmi'
+	icon_state = "folded_coder"
+	sign_path = /obj/structure/sign/flag/pride
 
 /obj/item/sign/flag/pride/gay
 	name = "folded gay pride flag"

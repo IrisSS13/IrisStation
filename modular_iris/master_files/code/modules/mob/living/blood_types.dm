@@ -26,6 +26,11 @@
 		/datum/blood_type/skrell,
 	)
 
+/datum/blood_type/polysmorph
+	name = BLOOD_TYPE_POLYSMORPH
+	color = /datum/reagent/toxin/acid::color
+	reagent_type = /datum/reagent/toxin/acid
+
 // For Proteans
 /datum/blood_type/nanite_slurry
 	name = BLOOD_TYPE_NANITE_SLURRY

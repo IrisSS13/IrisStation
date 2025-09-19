@@ -78,9 +78,10 @@
 		ooc_notes += preferences.read_preference(/datum/preference/text/ooc_notes)
 		headshot += preferences.read_preference(/datum/preference/text/headshot/silicon)
 
+// IRIS EDIT: Ghosts can see flavor text regardless of if it's obscured
 	if(ishuman(holder))
 		var/mob/living/carbon/human/holder_human = holder
-		obscured = (holder_human.wear_mask && (holder_human.wear_mask.flags_inv & HIDEFACE)) || (holder_human.head && (holder_human.head.flags_inv & HIDEFACE))
+		obscured = ((holder_human.wear_mask?.flags_inv & HIDEFACE) || (holder_human.head?.flags_inv & HIDEFACE)) && !isobserver(user)
 		custom_species = obscured ? "Obscured" : holder_human.dna.species.lore_protected ? holder_human.dna.species.name : holder_human.dna.features["custom_species"]
 		flavor_text = obscured ? "Obscured" : holder_human.dna.features[EXAMINE_DNA_FLAVOR_TEXT]
 		custom_species_lore = obscured ? "Obscured" : holder_human.dna.species.lore_protected ? holder_human.dna.species.get_species_lore().Join("\n") : holder_human.dna.features["custom_species_lore"]
@@ -108,7 +109,6 @@
 
 /datum/examine_panel/ui_static_data(mob/user)
 	var/list/data = list(
-		"nova_star_status" = SSplayer_ranks.is_nova_star(holder.client, admin_bypass = FALSE),
 		"opt_in_colors" = GLOB.antag_opt_in_colors,
 	)
 	return data
