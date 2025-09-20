@@ -104,6 +104,7 @@
 /obj/structure/table,
 /obj/item/stack/package_wrap,
 /obj/item/hand_labeler,
+/obj/structure/disposalpipe/segment,
 /turf/open/floor/iron,
 /area/station/commons/vacant_room/commissary)
 "aaN" = (
@@ -474,8 +475,6 @@
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/window/right/directional/south{
-	base_state = "left";
-	icon_state = "left";
 	name = "Pharmacy Desk";
 	req_access = list("pharmacy")
 	},
@@ -602,7 +601,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/window/left/directional/west{
 	name = "Hydroponics Desk";
-	req_access = list("hydroponics");
+	req_access = list("hydroponics")
 	},
 /obj/item/paper/guides/jobs/hydroponics,
 /turf/open/floor/iron,
@@ -3503,8 +3502,6 @@
 	req_access = list("xenobiology")
 	},
 /obj/machinery/door/window/left/directional/west{
-	base_state = "right";
-	icon_state = "right";
 	name = "Creature Cell";
 	req_access = list("xenobiology")
 	},
@@ -3703,9 +3700,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/station/medical/surgery)
-"bFS" = (
-/turf/closed/mineral/random,
-/area/centcom/asteroid/nearstation)
 "bGE" = (
 /obj/structure/sign/warning/biohazard,
 /turf/closed/wall/r_wall,
@@ -3948,7 +3942,7 @@
 /obj/item/pen,
 /obj/machinery/door/window/left/directional/west{
 	name = "Genetics Desk";
-	req_access = list("genetics");
+	req_access = list("genetics")
 	},
 /turf/open/floor/iron,
 /area/station/science/genetics)
@@ -6865,6 +6859,7 @@
 	pixel_y = -6
 	},
 /obj/structure/closet/crate,
+/obj/structure/disposalpipe/segment,
 /turf/open/floor/iron,
 /area/station/commons/vacant_room/commissary)
 "far" = (
@@ -7152,8 +7147,6 @@
 /area/station/security)
 "fqs" = (
 /obj/machinery/door/window/left/directional/west{
-	base_state = "right";
-	icon_state = "right";
 	name = "Creature Cell";
 	req_access = list("xenobiology")
 	},
@@ -10299,6 +10292,7 @@
 /obj/structure/cable,
 /obj/machinery/light/directional/east,
 /obj/machinery/power/apc/auto_name/directional/east,
+/obj/structure/disposalpipe/segment,
 /turf/open/floor/iron,
 /area/station/commons/vacant_room/commissary)
 "iDZ" = (
@@ -14282,14 +14276,6 @@
 	},
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
-"mUY" = (
-/obj/structure/table/reinforced,
-/obj/effect/turf_decal/tile/bar{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/bar,
-/turf/open/floor/iron,
-/area/station/service/bar)
 "mVv" = (
 /obj/machinery/light/directional/south,
 /obj/effect/turf_decal/tile/neutral,
@@ -15465,12 +15451,12 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 8
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/landmark/navigate_destination/cargo,
+/obj/structure/disposalpipe/junction/flip{
+	dir = 8
+	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/aft)
 "odj" = (
@@ -16526,6 +16512,9 @@
 /area/space/nearstation)
 "pkD" = (
 /obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/station/commons/vacant_room/commissary)
 "plh" = (
@@ -19350,6 +19339,7 @@
 /obj/effect/turf_decal/tile/neutral,
 /obj/structure/cable,
 /obj/structure/extinguisher_cabinet/directional/east,
+/obj/structure/disposalpipe/segment,
 /turf/open/floor/iron,
 /area/station/commons/vacant_room/commissary)
 "rYU" = (
@@ -19444,6 +19434,7 @@
 "scS" = (
 /obj/effect/turf_decal/box,
 /obj/structure/cable,
+/obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/dark,
 /area/station/hallway/primary/aft)
 "sdQ" = (
@@ -22182,8 +22173,6 @@
 "uPe" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/brigdoor/left/directional/north{
-	base_state = "rightsecure";
-	icon_state = "rightsecure";
 	name = "Head of Personnel's Desk";
 	req_access = list("hop")
 	},
@@ -25263,7 +25252,7 @@
 /obj/item/food/grown/banana,
 /obj/machinery/door/window/left/directional/west{
 	name = "Hydroponics Desk";
-	req_access = list("hydroponics");
+	req_access = list("hydroponics")
 	},
 /turf/open/floor/iron,
 /area/station/service/hydroponics)
@@ -58425,7 +58414,7 @@ bAN
 eMC
 tUQ
 oqd
-mUY
+lxL
 esi
 oaf
 rkR
@@ -59450,8 +59439,8 @@ clz
 hIP
 clz
 clz
-mUY
-mUY
+lxL
+lxL
 tLO
 lxL
 esi
@@ -76971,7 +76960,7 @@ gtt
 gtt
 izN
 poE
-bFS
+gtt
 gtt
 gtt
 gtt
