@@ -3568,6 +3568,10 @@
 	dir = 4
 	},
 /obj/structure/extinguisher_cabinet/directional/north,
+/obj/machinery/mecha_part_fabricator,
+/obj/machinery/conveyor{
+	id = "robo1"
+	},
 /turf/open/floor/iron,
 /area/station/science/robotics/lab)
 "bDN" = (
@@ -6314,7 +6318,6 @@
 /area/station/science/ordnance/testlab)
 "eDB" = (
 /obj/machinery/conveyor{
-	dir = 8;
 	id = "robo1"
 	},
 /turf/open/floor/iron,
@@ -6420,6 +6423,15 @@
 	dir = 6
 	},
 /area/station/commons/fitness/locker_room)
+"eIh" = (
+/obj/structure/cable,
+/obj/machinery/conveyor_switch/oneway{
+	id = "robo2";
+	pixel_x = -10;
+	pixel_y = 1
+	},
+/turf/open/floor/iron,
+/area/station/science/robotics/lab)
 "eIo" = (
 /obj/structure/cable,
 /turf/open/floor/iron/dark/telecomms,
@@ -10201,10 +10213,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/engineering/break_room)
-"izE" = (
-/obj/structure/lattice,
-/turf/open/space/basic,
-/area/space)
 "izN" = (
 /turf/open/space,
 /area/space)
@@ -12342,6 +12350,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
+/obj/item/circuitboard/machine/experimentor,
 /turf/open/floor/iron/dark,
 /area/station/science/circuits)
 "kRq" = (
@@ -13748,7 +13757,11 @@
 /turf/closed/wall/r_wall,
 /area/station/engineering/main)
 "mkH" = (
-/obj/machinery/mecha_part_fabricator,
+/obj/machinery/conveyor_switch/oneway{
+	id = "robo2";
+	pixel_x = -10;
+	pixel_y = 1
+	},
 /turf/open/floor/iron,
 /area/station/science/robotics/lab)
 "mni" = (
@@ -15146,7 +15159,14 @@
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/hop)
 "nFd" = (
-/obj/machinery/rnd/production/circuit_imprinter/department/science,
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/mecha_part_fabricator,
+/obj/machinery/conveyor{
+	id = "robo2"
+	},
 /turf/open/floor/iron,
 /area/station/science/robotics/lab)
 "nFg" = (
@@ -18899,6 +18919,12 @@
 	},
 /turf/open/floor/iron,
 /area/station/commons/storage/primary)
+"rno" = (
+/obj/machinery/conveyor{
+	id = "robo2"
+	},
+/turf/open/floor/iron,
+/area/station/science/robotics/lab)
 "rnO" = (
 /obj/structure/cable,
 /turf/open/floor/iron,
@@ -23167,13 +23193,17 @@
 /turf/open/floor/iron/dark/side,
 /area/station/commons/fitness/locker_room)
 "vCa" = (
-/obj/machinery/conveyor_switch/oneway{
-	id = "robo2";
-	pixel_x = -14
-	},
 /obj/structure/cable,
-/turf/open/floor/iron,
-/area/station/science/robotics/lab)
+/obj/machinery/door/window/left/directional/west{
+	name = "Creature Cell";
+	req_access = list("xenobiology")
+	},
+/obj/machinery/door/window/left/directional/east{
+	name = "Creature Cell";
+	req_access = list("xenobiology")
+	},
+/turf/open/floor/plating,
+/area/station/science/xenobiology)
 "vCA" = (
 /turf/open/floor/carpet,
 /area/station/command/heads_quarters/qm)
@@ -23746,6 +23776,9 @@
 /obj/machinery/component_printer,
 /obj/machinery/component_printer{
 	pixel_y = 16
+	},
+/obj/machinery/component_printer{
+	pixel_y = 32
 	},
 /turf/open/floor/circuit/green,
 /area/station/science/circuits)
@@ -25250,6 +25283,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/rnd/production/circuit_imprinter/department/science,
 /turf/open/floor/iron,
 /area/station/science/robotics/lab)
 "xwI" = (
@@ -53446,8 +53480,8 @@ lAx
 ksE
 ksE
 ksE
-sII
 ftd
+aiO
 ksE
 aiO
 gxy
@@ -54218,9 +54252,9 @@ sII
 sII
 ksE
 pbT
+vCa
 pbT
-pbT
-pbT
+vCa
 pbT
 pbT
 sII
@@ -54472,7 +54506,7 @@ xIm
 aeQ
 lAx
 pbT
-pbT
+vCa
 pbT
 fnE
 vfX
@@ -55783,7 +55817,7 @@ hFg
 jNs
 lXq
 bDM
-paH
+eDB
 yfk
 paH
 lXq
@@ -56040,8 +56074,8 @@ laq
 hjv
 lXq
 xwA
+mkH
 paH
-eDB
 paH
 lXq
 xLo
@@ -56296,10 +56330,10 @@ oCV
 hoj
 tNz
 qDr
-xUp
-paH
-mkH
 nFd
+rno
+paH
+paH
 lXq
 pev
 gBh
@@ -56554,8 +56588,8 @@ tTG
 tNz
 qDr
 vXx
+eIh
 lzy
-vCa
 xvk
 lXq
 omM
@@ -68106,8 +68140,8 @@ aaa
 aaa
 lnS
 aaa
-izE
-izE
+poE
+poE
 feg
 feg
 fVj
