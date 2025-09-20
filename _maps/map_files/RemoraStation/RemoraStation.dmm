@@ -6371,6 +6371,12 @@
 /obj/machinery/atmospherics/components/trinary/filter,
 /turf/open/floor/iron,
 /area/station/science/ordnance/testlab)
+"eDu" = (
+/obj/machinery/computer/rdconsole{
+	dir = 1
+	},
+/turf/open/floor/iron/white,
+/area/station/science/lab)
 "eDB" = (
 /obj/machinery/conveyor{
 	id = "robo1"
@@ -6656,13 +6662,15 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/starboard)
 "ePF" = (
-/obj/structure/chair/office{
-	dir = 4
-	},
-/obj/machinery/airalarm/directional/north,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
+/obj/item/light/bulb/broken,
+/obj/item/stack/cable_coil,
+/obj/structure/railing,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/blueshield)
 "eQh" = (
@@ -6717,6 +6725,11 @@
 /mob/living/carbon/human/species/monkey,
 /turf/open/floor/grass,
 /area/station/medical/virology)
+"eSd" = (
+/obj/structure/barricade/wooden/crude,
+/obj/structure/barricade/wooden,
+/turf/closed/wall,
+/area/station/command/heads_quarters/blueshield)
 "eSP" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/rack,
@@ -11415,8 +11428,13 @@
 /turf/open/floor/iron/dark,
 /area/station/engineering/gravity_generator)
 "jON" = (
-/obj/effect/landmark/atmospheric_sanity/ignore_area,
-/turf/open/floor/iron,
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/structure/chair/comfy/shuttle{
+	dir = 8
+	},
+/turf/open/floor/plating,
 /area/station/command/heads_quarters/blueshield)
 "jOP" = (
 /obj/machinery/gravity_generator/main,
@@ -11479,8 +11497,10 @@
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
 "jTl" = (
-/obj/structure/bonfire/prelit,
-/turf/open/floor/iron,
+/obj/machinery/power/shuttle_engine/propulsion/burst{
+	dir = 8
+	},
+/turf/closed/wall/mineral/titanium,
 /area/station/command/heads_quarters/blueshield)
 "jTq" = (
 /obj/machinery/vending/snack,
@@ -12300,6 +12320,12 @@
 /obj/machinery/firealarm/directional/west,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
+"kLn" = (
+/obj/structure/bed,
+/obj/item/bedsheet/nanotrasen,
+/obj/effect/landmark/start/blueshield,
+/turf/open/floor/plating,
+/area/station/command/heads_quarters/blueshield)
 "kMo" = (
 /obj/structure/table,
 /obj/item/food/kebab/monkey,
@@ -12967,6 +12993,10 @@
 /obj/effect/landmark/start/scientist,
 /turf/open/floor/iron/white,
 /area/station/science/ordnance/testlab)
+"lux" = (
+/obj/effect/spawner/structure/window/reinforced/shuttle,
+/turf/open/floor/plating,
+/area/station/command/heads_quarters/blueshield)
 "lvE" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/hydroponics/constructable,
@@ -15888,14 +15918,12 @@
 /turf/open/floor/iron/dark,
 /area/station/hallway/secondary/command)
 "oiU" = (
-/obj/structure/railing,
-/mob/living/basic/pet/dog/dobermann/walter,
-/obj/machinery/power/apc/auto_name/directional/north,
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 8
+/obj/machinery/door/airlock/titanium/glass{
+	name = "Repurposed Escape Pod Airlock"
 	},
+/obj/effect/mapping_helpers/airlock/access/all/command/captain,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/blueshield)
 "ojh" = (
@@ -16524,17 +16552,25 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/port)
 "oVk" = (
+/obj/structure/table,
 /obj/machinery/computer/records/medical/laptop{
 	dir = 4;
 	pixel_x = -8;
 	pixel_y = 2
 	},
-/obj/structure/table,
 /obj/item/toy/figure/captain{
 	pixel_x = 6;
 	pixel_y = 14
 	},
-/turf/open/floor/iron,
+/obj/structure/railing/corner{
+	dir = 4
+	},
+/obj/item/phone{
+	desc = "Supposedly a direct line to Nanotrasen Central Command. It's not even plugged in.";
+	pixel_x = 9;
+	pixel_y = -3
+	},
+/turf/open/floor/plating,
 /area/station/command/heads_quarters/blueshield)
 "oVu" = (
 /obj/machinery/computer/records/security{
@@ -16636,10 +16672,7 @@
 /turf/open/floor/iron,
 /area/station/science/ordnance/testlab)
 "oYm" = (
-/obj/structure/bed,
-/obj/item/bedsheet/nanotrasen,
-/obj/effect/landmark/start/blueshield,
-/turf/open/floor/iron,
+/turf/open/floor/plating,
 /area/station/command/heads_quarters/blueshield)
 "oYo" = (
 /obj/effect/landmark/generic_maintenance_landmark,
@@ -17684,7 +17717,7 @@
 /area/station/command/bridge)
 "pWD" = (
 /obj/structure/closet/secure_closet/blueshield,
-/turf/open/floor/iron,
+/turf/open/floor/plating,
 /area/station/command/heads_quarters/blueshield)
 "pWG" = (
 /obj/structure/closet/secure_closet/freezer/cream_pie,
@@ -22052,7 +22085,13 @@
 /turf/open/floor/iron/dark,
 /area/station/security/brig)
 "uax" = (
-/obj/machinery/modular_computer/preset/command{
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/obj/structure/railing/corner{
 	dir = 8
 	},
 /turf/open/floor/carpet/executive,
@@ -22424,7 +22463,11 @@
 /turf/open/floor/plating,
 /area/station/maintenance/aft/greater)
 "uuJ" = (
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/obj/structure/railing{
+	dir = 8
+	},
+/mob/living/basic/pet/dog/dobermann/walter,
+/turf/open/floor/plating,
 /area/station/command/heads_quarters/blueshield)
 "uvW" = (
 /obj/effect/landmark/atmospheric_sanity/ignore_area,
@@ -22565,6 +22608,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/white,
 /area/station/science/ordnance/testlab)
+"uDw" = (
+/obj/structure/railing/corner{
+	dir = 1
+	},
+/obj/effect/landmark/atmospheric_sanity/ignore_area,
+/turf/open/floor/plating,
+/area/station/command/heads_quarters/blueshield)
 "uEa" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
@@ -23901,12 +23951,8 @@
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "vYs" = (
-/obj/structure/railing{
-	dir = 8
-	},
-/obj/item/light/bulb/broken,
-/obj/item/stack/cable_coil,
-/turf/open/floor/iron,
+/obj/structure/bonfire/prelit,
+/turf/open/floor/plating,
 /area/station/command/heads_quarters/blueshield)
 "vYN" = (
 /obj/structure/cable,
@@ -24000,8 +24046,11 @@
 	},
 /area/station/service/theater)
 "wdi" = (
-/obj/effect/spawner/structure/window/reinforced/shuttle,
-/turf/open/floor/plating,
+/obj/machinery/modular_computer/preset/command{
+	dir = 8
+	},
+/obj/machinery/airalarm/directional/north,
+/turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/blueshield)
 "wdO" = (
 /turf/closed/wall/r_wall,
@@ -25140,12 +25189,6 @@
 /obj/structure/closet/firecloset,
 /turf/open/floor/mineral/titanium/purple,
 /area/station/science/research)
-"xgK" = (
-/obj/machinery/computer/rdconsole{
-	dir = 1
-	},
-/turf/open/floor/iron/white,
-/area/station/science/lab)
 "xgT" = (
 /obj/structure/table,
 /obj/item/grenade/chem_grenade/cleaner,
@@ -57059,7 +57102,7 @@ dNR
 his
 nBH
 nBH
-xgK
+eDu
 nyo
 pQr
 dOt
@@ -67035,12 +67078,12 @@ aaa
 aaa
 aaa
 aaa
-jjQ
+jTl
 oiU
 jTl
 oVk
 pWD
-bBF
+eSd
 aaa
 aaa
 aaa
@@ -67297,7 +67340,7 @@ ePF
 vYs
 jON
 oYm
-bBF
+eSd
 aaa
 aaa
 aaa
@@ -67549,11 +67592,11 @@ aaa
 aaa
 aaa
 aaa
-jjQ
+lux
 uax
 uuJ
-bBF
-bBF
+uDw
+kLn
 bBF
 aaa
 aaa
@@ -67809,9 +67852,9 @@ aaa
 jjQ
 wdi
 jjQ
-aaa
-aaa
-aaa
+bBF
+bBF
+bBF
 aaa
 aaa
 aaa
@@ -68063,9 +68106,9 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
+jjQ
+lux
+jjQ
 aaa
 aaa
 aaa
