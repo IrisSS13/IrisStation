@@ -24,9 +24,9 @@
 /area/shuttle/escape)
 "d" = (
 /obj/machinery/door/airlock/command/glass{
-	name = "Escape Shuttle Cockpit";
-	req_access_txt = "19"
+	name = "Bridge Door"
 	},
+/obj/effect/mapping_helpers/airlock/access/all/command/general,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/escape)
 "e" = (
@@ -37,9 +37,7 @@
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
 	},
-/obj/item/radio/intercom{
-	pixel_y = -30
-	},
+/obj/item/radio/intercom/directional/south,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "g" = (
@@ -92,11 +90,8 @@
 	},
 /obj/docking_port/mobile/emergency{
 	dir = 8;
-	dwidth = 8;
-	height = 9;
 	name = "Packed emergency shuttle";
-	port_direction = 1;
-	width = 21
+	preferred_direction = 4
 	},
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/escape)
@@ -193,16 +188,12 @@
 	dir = 1
 	},
 /obj/structure/chair/comfy/shuttle,
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 29
-	},
+/obj/structure/extinguisher_cabinet/directional/north,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "H" = (
 /obj/structure/chair/comfy/shuttle,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
+/obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "J" = (
@@ -215,16 +206,14 @@
 /area/shuttle/escape)
 "M" = (
 /obj/structure/chair/comfy/shuttle,
-/obj/item/radio/intercom{
-	pixel_y = 26
-	},
+/obj/item/radio/intercom/directional/north,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "N" = (
 /obj/machinery/door/airlock/security/glass{
-	name = "Escape Shuttle Cell";
-	req_access_txt = "2"
+	name = "Security Airlock"
 	},
+/obj/effect/mapping_helpers/airlock/access/all/security/general,
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/escape/brig)
 "O" = (
@@ -238,7 +227,7 @@
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
 	},
-/obj/structure/window/reinforced,
+/obj/structure/window/reinforced/spawner/directional/south,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "R" = (
@@ -269,9 +258,7 @@
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_y = -29
-	},
+/obj/structure/extinguisher_cabinet/directional/south,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "Z" = (
