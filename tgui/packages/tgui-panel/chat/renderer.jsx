@@ -367,6 +367,11 @@ class ChatRenderer {
     const fragment = document.createDocumentFragment();
     const countByType = {};
     let node;
+
+    // IRIS EDIT
+    const len = this.visibleMessages.length;
+    const from = len - 1;
+    const to = Math.max(0, len - COMBINE_MAX_MESSAGES);
     for (const payload of batch) {
       const message = createMessage(payload);
       // Combine messages
