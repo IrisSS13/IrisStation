@@ -92,14 +92,12 @@
 	return ..()
 
 /obj/machinery/quantumpad/interact(mob/user, obj/machinery/quantumpad/target_pad = linked_pad)
-	if(!target_pad || QDELETED(target_pad))
-		if(!map_pad_link_id || !initMappedLink())
+	if(QDELETED(target_pad))
+		if(map_pad_link_id && initMappedLink())
+			target_pad = linked_pad
+		else
 			to_chat(user, span_warning("Target pad not found!"))
 			return
-		// IRIS ADDITION START -- Mapped teleporters fix
-		else
-			target_pad = linked_pad
-		// IRIS ADDITION END
 	//NOVA EDIT ADDITION
 	var/turf/my_turf = get_turf(src)
 	if(is_away_level(my_turf.z))
