@@ -2779,6 +2779,14 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/mapping_helpers/airlock/access/all/science/xenobio,
+/obj/machinery/door_buttons/access_button{
+	idDoor = "xeno_airlock_interior";
+	idSelf = "xeno_airlock_control";
+	name = "Access Button";
+	pixel_y = -25;
+	req_access = list("xenobiology");
+	pixel_x = 7
+	},
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
 "aSU" = (
@@ -2821,7 +2829,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/green,
-/obj/machinery/light/directional/south,
+/obj/machinery/shower/directional/north,
 /turf/open/floor/iron/white,
 /area/station/medical/virology)
 "aUf" = (
@@ -3130,6 +3138,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/light/directional/north,
 /turf/open/floor/iron/white,
 /area/station/medical/virology)
 "bga" = (
@@ -14370,14 +14379,6 @@
 /obj/effect/turf_decal/tile/purple{
 	dir = 4
 	},
-/obj/machinery/door_buttons/access_button{
-	idDoor = "xeno_airlock_interior";
-	idSelf = "xeno_airlock_control";
-	name = "Access Button";
-	pixel_x = 29;
-	pixel_y = -8;
-	req_access = list("xenobiology")
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -16357,7 +16358,7 @@
 	idDoor = "xeno_airlock_exterior";
 	idSelf = "xeno_airlock_control";
 	name = "Access Button";
-	pixel_y = 24;
+	pixel_y = -24;
 	req_access = list("xenobiology")
 	},
 /turf/open/floor/iron/white,
@@ -21290,7 +21291,9 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/sign/departments/xenobio/directional/west,
+/obj/structure/sign/departments/xenobio/directional/west{
+	pixel_y = 32
+	},
 /turf/open/floor/iron/white,
 /area/station/science/lab)
 "ttF" = (
@@ -21712,6 +21715,9 @@
 /obj/effect/turf_decal/tile/purple{
 	dir = 4
 	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door_buttons/airlock_controller{
 	idExterior = "xeno_airlock_exterior";
 	idInterior = "xeno_airlock_interior";
@@ -21721,9 +21727,6 @@
 	pixel_y = -25;
 	req_access = list("xenobiology")
 	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
 "tLH" = (
@@ -57235,8 +57238,8 @@ aeQ
 aeQ
 aeQ
 cmN
-dNR
 ttd
+dNR
 dNR
 dNR
 jut
