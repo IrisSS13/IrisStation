@@ -22,7 +22,7 @@
 
 /obj/structure/closet/secure_closet/captains/populate_contents_immediate()
 	new /obj/item/gun/energy/e_gun(src)
-	new /obj/item/storage/belt/sabre(src)
+	new /obj/item/storage/belt/sheath/sabre(src)
 
 /obj/structure/closet/secure_closet/hop
 	name = "head of personnel's locker"
@@ -48,6 +48,7 @@
 	new /obj/item/storage/lockbox/medal/hop(src)
 	new /obj/item/card/id/departmental_budget/srv(src) // NOVA EDIT ADDITION
 	new /obj/item/storage/box/visitor_ids(src) // NOVA EDIT ADDITION
+	new /obj/item/storage/box/deputy(src) // IRIS EDIT ADDITION
 
 /obj/structure/closet/secure_closet/hop/populate_contents_immediate()
 	new /obj/item/gun/energy/e_gun(src)

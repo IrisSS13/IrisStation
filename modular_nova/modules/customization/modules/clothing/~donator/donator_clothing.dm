@@ -722,7 +722,7 @@
 	return mutable_appearance('modular_nova/master_files/icons/donator/obj/custom.dmi', "darksheath-darksabre")
 
 // Donation reward for inferno707
-/obj/item/storage/belt/sabre/darksabre
+/obj/item/storage/belt/sheath/sabre/darksabre
 	name = "ornate sheathe"
 	desc = "An ornate and rather sinister looking sabre sheathe."
 	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
@@ -730,11 +730,11 @@
 	icon_state = "darksheath"
 	worn_icon_state = "darksheath"
 
-/obj/item/storage/belt/sabre/darksabre/Initialize(mapload)
+/obj/item/storage/belt/sheath/sabre/darksabre/Initialize(mapload)
 	. = ..()
 	atom_storage.set_holdable(/obj/item/toy/darksabre)
 
-/obj/item/storage/belt/sabre/darksabre/PopulateContents()
+/obj/item/storage/belt/sheath/sabre/darksabre/PopulateContents()
 	new /obj/item/toy/darksabre(src)
 	update_icon()
 
@@ -1305,6 +1305,10 @@
 	upsprite = "fushankaup"
 	downsprite = "fushankadown"
 
+	post_init_icon_state = null
+	greyscale_config = null
+	greyscale_config_worn = null
+
 // Donation reward for M97screwsyourparents
 /obj/item/clothing/neck/cross
 	name = "silver cross"
@@ -1582,6 +1586,15 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	icon_state = "tactichill"
+
+// Donation reward for thedragmeme and snailom
+/obj/item/clothing/shoes/fancy_heels/drag
+	desc = "A fancy pair of high heels. Clack clack clack... definitely turning a lot of heads."
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
+
+/obj/item/clothing/shoes/fancy_heels/drag/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/squeak, list('modular_nova/master_files/sound/effects/footstep/highheel1.ogg' = 1, 'modular_nova/master_files/sound/effects/footstep/highheel2.ogg' = 1), 70)
 
 // Donation reward for Razurath
 
@@ -2086,6 +2099,17 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	icon_state = "ignari_rem"
 	can_adjust = FALSE
+
+/obj/item/clothing/shoes/rem_shoes
+	name = "\improper M.I.A. heels"
+	desc = "A pair of form fitting heels. They appear to bear no distinguishing identifiers."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/shoes.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/feet.dmi'
+	icon_state = "rem_shoes"
+
+/obj/item/clothing/shoes/rem_shoes/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/squeak, list('modular_nova/master_files/sound/effects/footstep/highheel1.ogg' = 1, 'modular_nova/master_files/sound/effects/footstep/highheel2.ogg' = 1), 70)
 
 /obj/item/clothing/under/bwake
 	name = "\improper Compression bodysuit"

@@ -106,11 +106,11 @@
 		balloon_alert(src, "overcrowded!")
 		return
 
-	var/list/babies = list()
-	var/new_nutrition = round(nutrition * 0.9)
-	var/new_powerlevel = round(powerlevel / 4)
+	var/new_nutrition = floor(nutrition * 0.9)
+	var/new_powerlevel = floor(powerlevel * 0.25)
 	var/turf/drop_loc = drop_location()
 
+	var/list/created_slimes = list(src)
 	var/list/slime_friends = list()
 	for(var/faction_member in faction)
 		var/mob/living/possible_friend = locate(faction_member) in GLOB.mob_living_list
@@ -118,39 +118,22 @@
 			continue
 		slime_friends += possible_friend
 
-//	for(var/i in 1 to 4) // IRIS EDIT OLD
+//	for(var/i in 1 to 3) IRIS EDIT OLD
 	// IRIS EDIT NEW START
-	var/split_amount = 4
+	var/split_amount = 3
 	switch(transformative_effect)
 		if(SLIME_TYPE_GREY)
 			split_amount++
 
 		if(SLIME_TYPE_CERULEAN)
-			split_amount = 2
+			split_amount = 1
 
 	for(var/i in 1 to split_amount)
-	// IRIS EDIT NEW END
-		var/child_colour
+		var/mob/living/basic/slime/baby = new(drop_loc, get_random_mutation())
+		created_slimes += baby
+		for(var/slime_friend in slime_friends)
+			baby.befriend(slime_friend)
 
-		if(mutation_chance >= 100)
-			child_colour = /datum/slime_type/rainbow
-		else if(prob(mutation_chance))
-			child_colour = pick_weight(slime_type.mutations)
-		else
-			child_colour = slime_type.type
-
-		// IRIS ADDITION START
-		switch(transformative_effect)
-			if(SLIME_TYPE_BLUE)
-				if(i == 1)
-					child_colour = slime_type.type
-
-			if(SLIME_TYPE_CERULEAN)
-				child_colour = slime_type.type
-
-			if(SLIME_TYPE_PYRITE)
-				child_colour = pick(subtypesof(/datum/slime_type) - /datum/slime_type/rainbow)
-		// IRIS ADDITION END
 		var/mob/living/basic/slime/baby
 		baby = new(drop_loc, child_colour)
 
@@ -162,36 +145,51 @@
 				baby.master = master
 				baby.spawner.important_text = "Assist [master] at all costs."
 
-		if(transformative_effect == SLIME_TYPE_CERULEAN)
-			baby.set_life_stage(SLIME_LIFE_STAGE_ADULT)
-			baby.update_name()
-			baby.regenerate_icons()
-			baby.set_nutrition(new_nutrition)
+			if(transformative_effect == SLIME_TYPE_CERULEAN)
+				baby.set_life_stage(SLIME_LIFE_STAGE_ADULT)
+				baby.update_name()
+				baby.regenerate_icons()
+				baby.set_nutrition(new_nutrition)
 		// IRIS ADDITION END
 
-		if(ckey)
-			baby.set_nutrition(new_nutrition) //Player slimes are more robust at spliting. Once an oversight of poor copypasta, now a feature!
-
-		baby.powerlevel = new_powerlevel
-		if(i != 1)
-			step_away(baby, src)
-
-		for(var/slime_friend in slime_friends)
-			baby.befriend(slime_friend)
-
-		babies += baby
-		if(mutation_chance == 0)
-			baby.mutation_chance = 0
-		else
-			baby.mutation_chance = clamp(mutation_chance+(rand(5,-5)),0,100)
 		SSblackbox.record_feedback("tally", "slime_babies_born", 1, baby.slime_type.colour)
+		step_away(baby, src)
 
-	var/mob/living/basic/slime/new_slime = pick(babies) // slime that the OG slime will move into.
-	new_slime.set_combat_mode(TRUE)
+	set_nutrition(SLIME_STARTING_NUTRITION)
+	for(var/mob/living/basic/slime/baby as anything in created_slimes)
+		if(ckey) // Player slimes are more robust at spliting. Once an oversight of poor copypasta, now a feature!
+			baby.set_nutrition(new_nutrition)
+		baby.powerlevel = new_powerlevel
+		if(mutation_chance)
+			baby.mutation_chance = clamp(mutation_chance + rand(-5, 5), 0, 100)
+		else
+			baby.mutation_chance = 0
 
-	if(isnull(mind))
-		new_slime.PossessByPlayer(key)
+//	set_life_stage(SLIME_LIFE_STAGE_BABY) // IRIS EDIT OLD -- Unique slimes
+	// IRIS EDIT NEW START
+	if(transformative_effect != SLIME_TYPE_CERULEAN)
+		set_life_stage(SLIME_LIFE_STAGE_BABY)
+	// IRIS EDIT NEW END
+//	set_slime_type(get_random_mutation()) // IRIS EDIT OLD -- Unique slimes
+	// IRIS EDIT NEW START
+	if(transformative_effect != SLIME_TYPE_BLUE)
+		set_slime_type(get_random_mutation())
+	// IRIS EDIT NEW END
+	amount_grown = 0
+	mutator_used = FALSE
+
+/mob/living/basic/slime/proc/get_random_mutation()
+	// IRIS ADDITION START -- Unique slimes
+	switch(transformative_effect)
+		if(SLIME_TYPE_CERULEAN)
+			return slime_type.type
+
+		if(SLIME_TYPE_PYRITE)
+			return pick(subtypesof(/datum/slime_type) - /datum/slime_type/rainbow - typesof(/datum/slime_type/unique))
+	// IRIS ADDITION END
+	if(mutation_chance >= 100)
+		return /datum/slime_type/rainbow
+	else if(prob(mutation_chance))
+		return pick_weight(slime_type.mutations)
 	else
-		mind.transfer_to(new_slime)
-
-	qdel(src)
+		return slime_type.type

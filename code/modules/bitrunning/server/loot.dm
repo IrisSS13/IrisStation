@@ -48,7 +48,7 @@
 	certificate.add_overlay(icon('modular_iris/modules/bitrunning/icons/domain_grades.dmi', grade)) // IRIS ADDITION
 
 	var/obj/structure/closet/crate/secure/bitrunning/decrypted/reward_cache = new(src, generated_domain, bonus)
-	reward_cache.manifest = certificate
+	reward_cache.manifest = WEAKREF(certificate)
 	reward_cache.update_appearance()
 
 	if(can_generate_tech_disk(grade))
