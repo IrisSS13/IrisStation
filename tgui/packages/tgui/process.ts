@@ -23,12 +23,8 @@ export function processedText(value: string | null): ProcessedText {
     )
     .parse(value, { async: false });
 
-  const sanitized = sanitizeText(parsed);
   const textHtml = {
-    __html:
-      typeof sanitized === 'object' && sanitized !== null
-        ? sanitized.sanitized
-        : sanitized,
+    __html: sanitizeText(parsed),
   };
   return textHtml;
 }

@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/complexity/useLiteralKeys: <explanation> */
 import { Component, createRef, type RefObject } from 'react';
 import { Box, Button, Flex, Section, TextArea } from 'tgui-core/components';
 
@@ -114,8 +115,8 @@ export class PrimaryView extends Component {
                         const result = sanitizeText(textAreaText, false);
                         if (typeof result === 'object' && result !== null) {
                           act('add_text', {
-                            text: result.sanitized,
-                            blocked_summary: result.blockedSummary,
+                            text: result['sanitized'],
+                            blocked_summary: result['blockedSummary'],
                           });
                         } else {
                           act('add_text', { text: result });

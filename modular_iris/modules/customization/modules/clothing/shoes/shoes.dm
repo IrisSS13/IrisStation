@@ -13,7 +13,7 @@
 
 /obj/item/clothing/shoes/ballet_heels/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/squeak, list('modular_iris/modules/customization/modules/sound/highheel1.ogg' = 1, 'modular_iris/modules/customization/modules/sound/highheel2.ogg' = 1), 70)
+	AddComponent(/datum/component/squeak, list('modular_nova/master_files/sound/effects/footstep/highheel1.ogg' = 1, 'modular_nova/master_files/sound/effects/footstep/highheel2.ogg' = 1), 70)
 
 /obj/item/clothing/shoes/ballet_heels/boss_heels
 	name = "boss heels"

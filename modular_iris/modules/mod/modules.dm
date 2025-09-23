@@ -16,7 +16,7 @@
 	/// Double the power usage.
 	idle_power_cost = DEFAULT_CHARGE_DRAIN * 1
 	use_energy_cost = DEFAULT_CHARGE_DRAIN * 4
-	incompatible_modules = list(/obj/item/mod/module/energy_shield, /obj/item/mod/module/armor_booster)
+	incompatible_modules = list(/obj/item/mod/module/energy_shield)
 	/// 5 seconds longer delay.
 	recharge_start_delay = 15 SECONDS
 	/// Double the delay.
