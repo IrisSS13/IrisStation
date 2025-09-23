@@ -2,7 +2,7 @@
 /atom/movable/virtualspeaker
 	var/realvoice
 
-/atom/movable/virtualspeaker/GetVoice(bool)
+/atom/movable/virtualspeaker/get_voice(bool)
 	if(bool && realvoice)
 		return realvoice
 	else
