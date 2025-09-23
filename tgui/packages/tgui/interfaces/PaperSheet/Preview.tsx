@@ -304,20 +304,10 @@ export class PreviewView extends Component<PreviewViewProps> {
     return marked.parse(rawText, { async: false });
   };
 
-  // Helper to replace [sign], [station], and logo tags
-  replacePaperworkTags = (
-    html: string,
-    userName: string,
-    signatureFont: string,
-    stationName: string,
-  ): string => {
-    // Replace [sign] with the user's name in signature font, bold and italic
-    let result = html.replace(
-      /\[sign\]/gi,
-      `<span style="font-family: ${signatureFont}; font-style: italic; font-weight: bold;">${userName}</span>`,
-    );
+  // Helper to replace [station] and logo tags
+  replacePaperworkTags = (html: string, stationName: string): string => {
     // Replace [station] with the station name
-    result = result.replace(/\[station\]/gi, stationName);
+    const result = html.replace(/\[station\]/gi, stationName);
     // Replace logo tags ([ntlogo], [syndielogo], etc.)
     // result = replacePaperworkLogos(result); Temp removed, needs revisiting
     return result;
@@ -349,13 +339,10 @@ export class PreviewView extends Component<PreviewViewProps> {
           sanitizedResult['sanitized']
         : sanitizedResult;
 
-    // IRIS EXTENSION: Replace [sign], [station], and logo tags
-    const { user_name, signature_font, station_name } =
-      useBackend<PaperContext>().data;
+    // IRIS EXTENSION: Replace [station] and logo tags
+    const { station_name } = useBackend<PaperContext>().data;
     const specialText = this.replacePaperworkTags(
       sanitizedText,
-      user_name,
-      signature_font,
       station_name || '',
     );
 

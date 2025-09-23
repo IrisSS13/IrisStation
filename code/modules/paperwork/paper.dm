@@ -196,8 +196,13 @@
  * * color - The font color to use.
  * * bold - Whether this text should be rendered completely bold.
  * * advanced_html - Boolean that is true when the writer has R_FUN permission, which sanitizes less HTML (such as images) from the new paper_input
+ * * user - Optional mob who is writing this text, used for [sign] replacement
  */
-/obj/item/paper/proc/add_raw_text(text, font, color, bold, advanced_html)
+/obj/item/paper/proc/add_raw_text(text, font, color, bold, advanced_html, mob/user)
+	// Process [sign] replacement if user is provided
+	if(user && findtext(text, "\[sign\]"))
+		text = replacetext(text, "\[sign\]", "<font face=\"[SIGNATURE_FONT]\"><i>[user.real_name]</i></font>")
+
 	var/new_input_datum = new /datum/paper_input(
 		text,
 		font,
@@ -681,7 +686,7 @@
 
 			playsound(src, SFX_WRITING_PEN, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE, SOUND_FALLOFF_EXPONENT + 3, ignore_walls = FALSE)
 
-			add_raw_text(paper_input, writing_implement_data["font"], writing_implement_data["color"], writing_implement_data["use_bold"], check_rights_for(user?.client, R_FUN))
+			add_raw_text(paper_input, writing_implement_data["font"], writing_implement_data["color"], writing_implement_data["use_bold"], check_rights_for(user?.client, R_FUN), user)
 
 			log_paper("[key_name(user)] wrote to [name]: \"[paper_input]\"")
 			to_chat(user, "You have added to your paper masterpiece!");
