@@ -17,14 +17,17 @@
 	weather_duration_upper = 5 MINUTES
 
 	weather_color = null
-	thunder_color = null
+//IRIS EDIT START - thunder color was null, remove rest if needed
+	turf_thunder_chance = THUNDER_CHANCE_VERY_RARE
+	thunder_color = "#ffeabd"
+//IRIS EDIT END
 
 	area_type = /area
 	target_trait = ZTRAIT_RAINSTORM
 	immunity_type = TRAIT_RAINSTORM_IMMUNE
 	probability = 90
 
-	weather_flags = (WEATHER_TURFS | WEATHER_MOBS | WEATHER_BAROMETER) // NOVA EDIT CHANGE - ORIGINAL: weather_flags = (WEATHER_TURFS | WEATHER_MOBS | WEATHER_THUNDER | WEATHER_BAROMETER)
+	weather_flags = (WEATHER_TURFS | WEATHER_MOBS | WEATHER_THUNDER | WEATHER_BAROMETER)
 	whitelist_weather_reagents = list(/datum/reagent/water)
 
 /datum/weather/rain_storm/telegraph()
@@ -129,11 +132,11 @@
 	GLOB.wizard_rain_reagents |= allowed_medicine
 
 	// One randomized type is allowed so the whitelist isn't spammed with subtypes
-	GLOB.wizard_rain_reagents |= pick(subtypesof(/datum/reagent/glitter))
 	GLOB.wizard_rain_reagents |= pick(subtypesof(/datum/reagent/mutationtoxin))
 	GLOB.wizard_rain_reagents |= pick(subtypesof(/datum/reagent/plantnutriment))
 	GLOB.wizard_rain_reagents |= pick(subtypesof(/datum/reagent/impurity))
 	GLOB.wizard_rain_reagents |= pick(subtypesof(/datum/reagent/drug))
+	GLOB.wizard_rain_reagents |= pick(typesof(/datum/reagent/glitter/random))
 	GLOB.wizard_rain_reagents |= pick(typesof(/datum/reagent/uranium))
 	GLOB.wizard_rain_reagents |= pick(typesof(/datum/reagent/luminescent_fluid))
 	GLOB.wizard_rain_reagents |= pick(typesof(/datum/reagent/carpet))

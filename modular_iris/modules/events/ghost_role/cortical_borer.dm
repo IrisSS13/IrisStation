@@ -4,7 +4,6 @@
 	weight = 3
 	min_players = 10
 	max_occurrences = 1 //should only ever happen once
-	dynamic_should_hijack = FALSE
 	category = EVENT_CATEGORY_ENTITIES
 	description = "A cortical borer has appeared on station. It will also attempt to produce eggs, and will attempt to gather willing hosts and learn chemicals through the blood."
 

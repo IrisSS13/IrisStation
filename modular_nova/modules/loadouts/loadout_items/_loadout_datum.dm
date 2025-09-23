@@ -41,8 +41,6 @@
 	var/list/restricted_species
 	/// Whether the item is restricted to supporters
 	var/donator_only
-	/// Whether the item is restricted to veterans.
-	var/veteran_only
 	/// Whether the item requires a specific season in order to be available
 	var/required_season = null
 
@@ -113,11 +111,6 @@
 			to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to not being a donator!"))
 		return FALSE
 
-	if(veteran_only && !SSplayer_ranks.is_veteran(client))
-		if(client && !silent)
-			to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to not being a veteran!"))
-		return FALSE
-
 	if(LAZYLEN(ckeywhitelist) && !(client?.ckey in ckeywhitelist))
 		if(client && !silent)
 			to_chat(target, span_warning("You were unable to get a loadout item ([initial(item_path.name)]) due to not being apart of its CKEY whitelist!"))
@@ -146,7 +139,6 @@
 	formatted_item["blacklisted_roles"] = blacklisted_roles
 	formatted_item["restricted_species"] = restricted_species
 	formatted_item["donator_only"] = donator_only
-	formatted_item["veteran_only"] = veteran_only
 
 	return formatted_item
 

@@ -242,7 +242,7 @@
 
 			if(mode == SCANNER_VERBOSE)
 				// Follow same body zone list every time so it's consistent across all humans
-				for(var/zone in GLOB.all_body_zones)
+				for(var/zone in carbontarget.get_all_limbs())
 					var/obj/item/bodypart/limb = carbontarget.get_bodypart(zone)
 					if(isnull(limb))
 						dmgreport += "<tr>"
@@ -296,24 +296,7 @@
 			<td style='width:30em;'><font color='#ff0000'><b>Status</b></font></td>\
 			</tr>"
 
-		var/list/missing_organs = list()
-		if(!humantarget.get_organ_slot(ORGAN_SLOT_BRAIN))
-			missing_organs[ORGAN_SLOT_BRAIN] = "Brain"
-		if(humantarget.needs_heart() && !humantarget.get_organ_slot(ORGAN_SLOT_HEART))
-			missing_organs[ORGAN_SLOT_HEART] = "Heart"
-		if(!HAS_TRAIT_FROM(humantarget, TRAIT_NOBREATH, SPECIES_TRAIT) && !isnull(humantarget.dna.species.mutantlungs) && !humantarget.get_organ_slot(ORGAN_SLOT_LUNGS))
-			missing_organs[ORGAN_SLOT_LUNGS] = "Lungs"
-		if(!HAS_TRAIT_FROM(humantarget, TRAIT_LIVERLESS_METABOLISM, SPECIES_TRAIT) && !isnull(humantarget.dna.species.mutantliver) && !humantarget.get_organ_slot(ORGAN_SLOT_LIVER))
-			missing_organs[ORGAN_SLOT_LIVER] = "Liver"
-		if(!HAS_TRAIT_FROM(humantarget, TRAIT_NOHUNGER, SPECIES_TRAIT) && !isnull(humantarget.dna.species.mutantstomach) && !humantarget.get_organ_slot(ORGAN_SLOT_STOMACH))
-			missing_organs[ORGAN_SLOT_STOMACH] ="Stomach"
-		if(!isnull(humantarget.dna.species.mutanttongue) && !humantarget.get_organ_slot(ORGAN_SLOT_TONGUE))
-			missing_organs[ORGAN_SLOT_TONGUE] = "Tongue"
-		if(!isnull(humantarget.dna.species.mutantears) && !humantarget.get_organ_slot(ORGAN_SLOT_EARS))
-			missing_organs[ORGAN_SLOT_EARS] = "Ears"
-		if(!isnull(humantarget.dna.species.mutantears) && !humantarget.get_organ_slot(ORGAN_SLOT_EYES))
-			missing_organs[ORGAN_SLOT_EYES] = "Eyes"
-
+		var/list/missing_organs = humantarget.get_missing_organs()
 		// Follow same order as in the organ_process_order so it's consistent across all humans
 		for(var/sorted_slot in GLOB.organ_process_order)
 			var/obj/item/organ/organ = humantarget.get_organ_slot(sorted_slot)
@@ -456,6 +439,31 @@
 				render_list += consequences_trauma.get_health_analyzer_link_text(user)
 	// NOVA EDIT ADDITION END
 
+
+	// Lungs
+	var/obj/item/organ/lungs/lungs = target.get_organ_slot(ORGAN_SLOT_LUNGS)
+	if (lungs)
+		var/initial_pressure_mult = lungs::received_pressure_mult
+		if (lungs.received_pressure_mult != initial_pressure_mult)
+			var/tooltip
+			var/dilation_text
+			var/beginning_text = "Lung Dilation: "
+			if (lungs.received_pressure_mult > initial_pressure_mult) // higher than usual
+				beginning_text = span_blue("<b>[beginning_text]</b>")
+				dilation_text = span_blue("[(lungs.received_pressure_mult * 100) - 100]%")
+				tooltip = "Subject's lungs are dilated and breathing more air than usual. Increases the effectiveness of healium and other gases."
+			else
+				beginning_text = span_danger("<b>[beginning_text]</b>")
+				if (lungs.received_pressure_mult <= 0) // lethal
+					dilation_text = span_bolddanger("[lungs.received_pressure_mult * 100]%")
+					tooltip = "Subject's lungs are completely shut. Subject is unable to breathe and requires emergency surgery. If asthmatic, perform asthmatic bypass surgery and adminster albuterol inhalant. Otherwise, replace lungs."
+				else
+					dilation_text = span_danger("[lungs.received_pressure_mult * 100]%")
+					tooltip = "Subject's lungs are partially shut. If unable to breathe, administer a high-pressure internals tank or replace lungs. If asthmatic, inhaled albuterol or bypass surgery will likely help."
+
+			var/lung_message = beginning_text + conditional_tooltip(dilation_text, tooltip, TRUE)
+			render_list += lung_message
+
 	// Time of death
 	if(target.station_timestamp_timeofdeath && !target.appears_alive())
 		render_list += "<hr>"
@@ -525,7 +533,7 @@
 	REMOVE_TRAIT(target, TRAIT_RECENTLY_TREATED, ANALYZER_TRAIT)
 	return TRUE
 
-/proc/chemscan(mob/living/user, mob/living/target)
+/proc/chemscan(mob/living/user, mob/living/target, reagent_types_to_check = null)
 	if(user.incapacitated)
 		return
 
@@ -533,14 +541,33 @@
 		var/list/render_list = list() //The master list of readouts, including reagents in the blood/stomach, addictions, quirks, etc.
 		var/list/render_block = list() //A second block of readout strings. If this ends up empty after checking stomach/blood contents, we give the "empty" header.
 
+		// NOVA EDIT ADDITION BEGIN - Neuroware
+		var/list/neuroware_list = list()
+		// NOVA EDIT ADDITION END
 		// Blood reagents
 		if(target.reagents.reagent_list.len)
 			for(var/r in target.reagents.reagent_list)
 				var/datum/reagent/reagent = r
+				// NOVA EDIT ADDITION BEGIN - Neuroware
+				if(reagent.chemical_flags & REAGENT_NEUROWARE)
+					neuroware_list += "<span class='notice ml-2'>[reagent.name] - [round(reagent.volume, 0.001)]GQ[reagent.overdosed ? "</span> - [span_bolddanger("OVERLOADING")]" : ".</span>"]<br>"
+				// NOVA EDIT ADDITION END
 				if(reagent.chemical_flags & REAGENT_INVISIBLE) //Don't show hidden chems on scanners
 					continue
+				if(reagent_types_to_check)
+					if(!istype(reagent, reagent_types_to_check))
+						continue
 				render_block += "<span class='notice ml-2'>[round(reagent.volume, 0.001)] units of [reagent.name][reagent.overdosed ? "</span> - [span_bolddanger("OVERDOSING")]" : ".</span>"]<br>"
 
+		// NOVA EDIT ADDITION BEGIN - Neuroware
+		if(!length(neuroware_list))
+			var/obj/item/organ/brain/owner_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
+			if(!isnull(owner_brain) && (owner_brain.organ_flags & ORGAN_ROBOTIC))
+				render_list += "<span class='notice ml-1'>Subject contains no neuroware in their brain.</span><br>"
+		else
+			render_list += "<span class='notice ml-1'>Subject contains the following neuroware in their brain:</span><br>"
+			render_list += jointext(neuroware_list + "<br>", "")
+		// NOVA EDIT ADDITION END
 		if(!length(render_block)) //If no VISIBLY DISPLAYED reagents are present, we report as if there is nothing.
 			render_list += "<span class='notice ml-1'>Subject contains no reagents in their [LOWER_TEXT(target.get_bloodtype()?.get_blood_name()) || "blood"]stream.</span><br>"
 		else
@@ -556,6 +583,9 @@
 					var/datum/reagent/bit = bile
 					if(bit.chemical_flags & REAGENT_INVISIBLE)
 						continue
+					if(reagent_types_to_check)
+						if(!istype(bit, reagent_types_to_check))
+							continue
 					if(!belly.food_reagents[bit.type])
 						render_block += "<span class='notice ml-2'>[round(bit.volume, 0.001)] units of [bit.name][bit.overdosed ? "</span> - [span_bolddanger("OVERDOSING")]" : ".</span>"]<br>"
 					else

@@ -305,7 +305,9 @@
 		/datum/job/bouncer = /obj/item/organ/cyberimp/arm/strongarm,
 		/datum/job/engineering_guard = /obj/item/organ/cyberimp/arm/toolkit/flash,
 		/datum/job/telecomms_specialist = /obj/item/organ/ears/cybernetic/xray,
-		// NOVA EDIT END
+		/datum/job/bridge_assistant = /obj/item/organ/cyberimp/arm/toolkit/paperwork,
+		// NOVA EDIT ADDITION END
+		/datum/job/explorer = /obj/item/organ/cyberimp/mouth/breathing_tube, // IRIS EDIT - EXPLORER
 	)
 
 /datum/station_trait/cybernetic_revolution/New()

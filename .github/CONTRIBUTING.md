@@ -9,10 +9,9 @@
    3. [Issue Managers](#issue-managers)
 5. [Development Guides](#development-guides)
 6. [Pull Request Process](#pull-request-process)
-7. [Good Boy Points](#good-boy-points)
-8. [Porting features/sprites/sounds/tools from other codebases](#porting-featuresspritessoundstools-from-other-codebases)
-9. [Banned content](#banned-content)
-10. [A word on Git](#a-word-on-git)
+7. [Porting features/sprites/sounds/tools from other codebases](#porting-featuresspritessoundstools-from-other-codebases)
+8. [Banned content](#banned-content)
+9. [A word on Git](#a-word-on-git)
 
 ## Reporting Issues
 
@@ -63,7 +62,7 @@ These are the few directives we have for project maintainers.
   - Emergency fixes.
     - Try to get secondary maintainer approval before merging if you are able to.
   - PRs with empty commits intended to generate a changelog.
-- Do not merge PRs that contain content from the [banned content list](./CONTRIBUTING.md#banned-content).
+- Do not merge PRs that contain content from the [banned content list](/CONTRIBUTING.md#banned-content).
 - Do not close PRs purely for breaking a template if the same information is contained without it.
 
 These are not steadfast rules as maintainers are expected to use their best judgement when operating.
@@ -90,7 +89,7 @@ Things you **CAN'T** do:
 - [Close PRs](https://imgur.com/w2RqpX8.png): Only maintainers are allowed to close PRs. Do not hit that button.
 - Close issues purely for breaking a template if the same information is contained without it.
 
-For more information reference the [Issue Manager Guide](./guides/ISSUE_MANAGER.md).
+For more information reference the [Issue Manager Guide](/.github/guides/ISSUE_MANAGER.md)
 
 </details>
 
@@ -102,28 +101,28 @@ Our team is entirely voluntary, as such we extend our thanks to maintainers, iss
 
 #### Writing readable code
 
-[Style guide](./guides/STYLE.md)
+[Style guide](/.github/guides/STYLE.md)
 
 #### Writing sane code
 
-[Code standards](./guides/STANDARDS.md)
+[Code standards](/.github/guides/STANDARDS.md)
 
 #### Writing understandable code
 
-[Autodocumenting code](./guides/AUTODOC.md)
+[Autodocumenting code](/.github/guides/AUTODOC.md)
 
 #### Misc
 
-- [AI Datums](../code/datums/ai/learn_ai.md)
-- [Embedding TGUI Components in Chat](../tgui/docs/chat-embedded-components.md)
-- [Hard Deletes](./guides/HARDDELETES.md)
-- [MC Tab Guide](./guides/MC_tab.md)
-- [Policy Configuration System](./guides/POLICYCONFIG.md)
-- [Quickly setting up a development database with ezdb](./guides/EZDB.md)
-- [Required Tests (Continuous Integration)](./guides/CI.md)
-- [Splitting up pull requests, aka atomization](./guides/ATOMIZATION.md)
-- [UI Development](../tgui/README.md)
-- [Visual Effects and Systems](./guides/VISUALS.md)
+- [AI Datums](/code/datums/ai/learn_ai.md)
+- [Embedding TGUI Components in Chat](/tgui/docs/chat-embedded-components.md)
+- [Hard Deletes](/.github/guides/HARDDELETES.md)
+- [MC Tab Guide](/.github/guides/MC_tab.md)
+- [Policy Configuration System](/.github/guides/POLICYCONFIG.md)
+- [Quickly setting up a development database with ezdb](/.github/guides/EZDB.md)
+- [Required Tests (Continuous Integration)](/.github/guides/CI.md)
+- [Splitting up pull requests, aka atomization](/.github/guides/ATOMIZATION.md)
+- [UI Development](/.github/tgui/README.md)
+- [Visual Effects and Systems](/.github/guides/VISUALS.md)
 
 ## Pull Request Process
 
@@ -167,20 +166,6 @@ This is also still a requirement if your pull request has a corresponding design
 
 1. All reviewers can easily see the reasoning behind your changes on the pull request itself, no reliance on other sites required.
 2. The actual, manifested implementation of the idea behind the design document is being justified after said implementation is actually realized. This is in contrast to any reasoning put on the design document itself, which very well may have been made before any work was done on it, possibly even by an author different from the author of the pull request. Any idea in the design document may have had compromises put into it due to complications not seen in the original vision, thus the current state of the implementation (the pull request as it stands) must be defended, explained, and ultimately justified in and of itself. Of course, you should still list the design document the pull request is implementing, and may even use arguments from the design document if said arguments are applicable to the current reality of your proposed changes.
-
-## Good Boy Points
-
-Each GitHub account has a score known as Good Boy Points, or GBP. This is a system we use to ensure that the codebase stays maintained and that contributors fix bugs as well as add features.
-
-The GBP gain or loss for a PR depends on the type of changes the PR makes, represented by the tags assigned to the PR by the tgstation github bot or maintainers. Generally speaking, fixing bugs, updating sprites, or improving maps increases your GBP score, while adding mechanics, or rebalancing things will cost you GBP.
-
-The GBP change of a PR is the sum of greatest positive and lowest negative values it has. For example, a PR that has tags worth +10, +4, -1, -7, will net 3 GBP (10 - 7).
-
-Negative GBP increases the likelihood of a maintainer closing your PR. With that chance being higher the lower your GBP is. Be sure to use the proper tags in the changelog to prevent unnecessary GBP loss. Maintainers reserve the right to change tags as they deem appropriate.
-
-There is no benefit to having a higher positive GBP score, since GBP only comes into consideration when it is negative.
-
-You can see each tag and their GBP values [Here](https://github.com/tgstation/tgstation/blob/master/.github/gbp.toml).
 
 ## Porting features/sprites/sounds/tools from other codebases
 

@@ -17,7 +17,7 @@
 	///list of headlight colors we use to pick through when we have party mode due to emag
 	var/headlight_colors = list(COLOR_RED, COLOR_ORANGE, COLOR_YELLOW, COLOR_LIME, COLOR_BRIGHT_BLUE, COLOR_CYAN, COLOR_PURPLE)
 	///Cooldown time inbetween [/obj/vehicle/sealed/car/clowncar/proc/roll_the_dice()] usages
-	var/dice_cooldown_time = 150
+	var/dice_cooldown_time = 15 SECONDS
 	///How many times kidnappers in the clown car said thanks
 	var/thankscount = 0
 	///Current status of the cannon, alternates between CLOWN_CANNON_INACTIVE, CLOWN_CANNON_BUSY and CLOWN_CANNON_READY
@@ -114,6 +114,8 @@
 
 /obj/vehicle/sealed/car/clowncar/Bump(atom/bumped)
 	. = ..()
+	if(!(car_traits & CAN_KIDNAP))
+		return
 	if(isclosedturf(bumped))
 		visible_message(span_warning("[src] rams into [bumped] and crashes!"))
 		playsound(src, pick(

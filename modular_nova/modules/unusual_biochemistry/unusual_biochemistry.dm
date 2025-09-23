@@ -5,6 +5,8 @@ GLOBAL_LIST_INIT(possible_unusual_biochem_blood_types, list(
 	/datum/blood_type/pinnaglobin,
 	/datum/blood_type/exotic,
 	/datum/blood_type/haemoglobin, //IRIS EDIT
+	/datum/blood_type/haemotoxin, //IRIS EDIT
+	/datum/blood_type/nanoblood, //IRIS EDIT
 ))
 
 /datum/quirk/unusual_biochemistry

@@ -45,7 +45,7 @@
 	owner.remove_status_effect(/datum/status_effect/speech/stutter)
 	return ..()
 
-/datum/brain_trauma/mild/dumbness
+/*/datum/brain_trauma/mild/dumbness // IRIS EDIT: commented the trauma out
 	name = "Dumbness"
 	desc = "Patient has reduced brain activity, making them less intelligent."
 	scan_desc = "reduced brain activity"
@@ -68,7 +68,7 @@
 	REMOVE_TRAIT(owner, TRAIT_DUMB, TRAUMA_TRAIT)
 	owner.remove_status_effect(/datum/status_effect/speech/stutter/derpspeech)
 	owner.clear_mood_event("dumb")
-	return ..()
+	return ..()*/
 
 /datum/brain_trauma/mild/speech_impediment
 	name = "Speech Impediment"

@@ -37,6 +37,6 @@ export const RADIO_PREFIXES = {
   ':k ': 'Tark',
   ':q ': 'Csun',
   ':i ': 'Guild',
-  ':l ': 'SolFed',
+  ':l ': 'SolGov',
   // NOVA EDIT ADDITION END
 } as const;

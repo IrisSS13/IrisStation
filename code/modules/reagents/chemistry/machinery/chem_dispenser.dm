@@ -57,6 +57,7 @@
 	var/customTransferAmount
 	// NOVA EDIT ADDITION END
 
+	//IRIS EDIT - silver
 	/// The default list of dispensable_reagents
 	var/static/list/default_dispensable_reagents = list(
 		/datum/reagent/aluminium,
@@ -75,6 +76,7 @@
 		/datum/reagent/oxygen,
 		/datum/reagent/phosphorus,
 		/datum/reagent/potassium,
+		/datum/reagent/silver,
 		/datum/reagent/uranium/radium,
 		/datum/reagent/silicon,
 		/datum/reagent/sodium,
@@ -229,7 +231,10 @@
 		balloon_alert(user, "already emagged!")
 		return FALSE
 	balloon_alert(user, "safeties shorted out")
-	dispensable_reagents |= emagged_reagents//add the emagged reagents to the dispensable ones
+	//IRIS EDIT CHANGE BEGIN - QUANTUM_UPGRADE_CHEMS - Don't add the reagents to the list if they're already present
+	if(!(emagged_reagents in dispensable_reagents))
+		dispensable_reagents |= emagged_reagents//add the emagged reagents to the dispensable ones
+	//IRIS EDIT CHANGE END
 	obj_flags |= EMAGGED
 	return TRUE
 
@@ -338,7 +343,6 @@
 			if(!recording_recipe)
 				var/reagent = GLOB.name2reagent[reagent_name]
 				if(beaker && dispensable_reagents.Find(reagent))
-
 					var/datum/reagents/holder = beaker.reagents
 					var/to_dispense = max(0, min(amount, holder.maximum_volume - holder.total_volume))
 					if(!to_dispense)
@@ -347,6 +351,7 @@
 					if(!cell.use(to_dispense * power_cost))
 						say("Not enough energy to complete operation!")
 						return
+					beaker.add_hiddenprint(ui.user)
 					holder.add_reagent(reagent, to_dispense, reagtemp = dispensed_temperature, added_purity = base_reagent_purity)
 
 					work_animation()
@@ -382,7 +387,6 @@
 				if(!recording_recipe)
 					if(!beaker)
 						return
-
 					var/datum/reagents/holder = beaker.reagents
 					var/to_dispense = max(0, min(dispense_amount, holder.maximum_volume - holder.total_volume))
 					if(!to_dispense)
@@ -390,6 +394,7 @@
 					if(!cell.use(to_dispense * power_cost))
 						say("Not enough energy to complete operation!")
 						return
+					beaker.add_hiddenprint(ui.user)
 					holder.add_reagent(reagent, to_dispense, reagtemp = dispensed_temperature, added_purity = base_reagent_purity)
 					work_animation()
 				else
@@ -546,6 +551,13 @@
 		else
 			dispensable_reagents -= upgrade3_reagents
 		//NOVA EDIT END
+		//IRIS EDIT ADDITION BEGIN - QUANTUM_UPGRADE_CHEMS - Adding a quantum servo adds reagents normally only unlocked by emagging
+		if(!(obj_flags & EMAGGED))
+			if(servo.tier > 4)
+				dispensable_reagents |= emagged_reagents
+			else
+				dispensable_reagents -= emagged_reagents
+		//IRIS EDIT ADDITION END
 		parts_rating += servo.tier
 	power_cost = max(new_power_cost, 0.1 KILO WATTS)
 

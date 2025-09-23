@@ -1,6 +1,7 @@
-import { filter, map, sortBy } from 'common/collections';
-import { ReactNode, useState } from 'react';
-import { sendAct, useBackend } from 'tgui/backend';
+import { sortBy } from 'es-toolkit';
+import { filter, map } from 'es-toolkit/compat';
+import { type ReactNode, useState } from 'react';
+import { type sendAct, useBackend } from 'tgui/backend';
 import {
   Box,
   Button,
@@ -20,20 +21,21 @@ import { PageButton } from '../components/PageButton'; // IRIS EDIT
 import { RandomizationButton } from '../components/RandomizationButton';
 import { features } from '../preferences/features';
 import {
-  FeatureChoicedServerData,
+  type FeatureChoicedServerData,
   FeatureValueInput,
 } from '../preferences/features/base';
 import { Gender, GENDERS } from '../preferences/gender';
 import {
   createSetPreference,
-  PreferencesMenuData,
+  type PreferencesMenuData,
   RandomSetting,
-  ServerData,
+  type ServerData,
 } from '../types';
 import { useRandomToggleState } from '../useRandomToggleState';
 import { useServerPrefs } from '../useServerPrefs';
 import { DeleteCharacterPopup } from './DeleteCharacterPopup';
 import { MultiNameInput, NameInput } from './names';
+import { VocalsInput, VoiceInput } from './vocals'; // NOVA EDIT ADDITION
 
 const CLOTHING_CELL_SIZE = 48;
 const CLOTHING_SIDEBAR_ROWS = 12.4; // NOVA EDIT CHANGE - ORIGINAL:  9 // IRIS EDIT CHANGE - 12.4 from Nova's 13.4
@@ -358,10 +360,7 @@ const createSetRandomization =
   };
 
 function sortPreferences(array: [string, unknown][]) {
-  return sortBy(array, ([featureId, _]) => {
-    const feature = features[featureId];
-    return feature?.name;
-  });
+  return sortBy(array, [([featureId]) => features[featureId]?.name]);
 }
 
 type PreferenceListProps = {
@@ -475,6 +474,7 @@ export function MainPage(props: MainPageProps) {
   const [deleteCharacterPopupOpen, setDeleteCharacterPopupOpen] =
     useState(false);
   const [multiNameInputOpen, setMultiNameInputOpen] = useState(false);
+  const [vocalsInputOpen, setVocalsInputOpen] = useState(false); // NOVA EDIT ADDITION
   const [randomToggleEnabled] = useRandomToggleState();
 
   // IRIS EDIT BEGIN: SWAPPABLE PREF MENUS - SKYRAT PORT
@@ -489,7 +489,7 @@ export function MainPage(props: MainPageProps) {
   const serverData = useServerPrefs();
 
   const currentSpeciesData =
-    serverData && serverData.species[data.character_preferences.misc.species];
+    serverData?.species[data.character_preferences.misc.species];
 
   const contextualPreferences =
     data.character_preferences.secondary_features || [];
@@ -514,12 +514,12 @@ export function MainPage(props: MainPageProps) {
   };
 
   if (randomBodyEnabled) {
-    nonContextualPreferences['random_species'] =
-      data.character_preferences.randomization['species'];
+    nonContextualPreferences.random_species =
+      data.character_preferences.randomization.species;
   } else {
     // We can't use random_name/is_accessible because the
     // server doesn't know whether the random toggle is on.
-    delete nonContextualPreferences['random_name'];
+    delete nonContextualPreferences.random_name;
   }
 
   // IRIS EDIT BEGIN: SWAPPABLE PREF MENUS - SKYRAT PORT
@@ -575,6 +575,14 @@ export function MainPage(props: MainPageProps) {
           names={data.character_preferences.names}
         />
       )}
+      {/* NOVA EDIT ADDITION START */}
+      {vocalsInputOpen && (
+        <VocalsInput
+          handleClose={() => setVocalsInputOpen(false)}
+          vocals={data.character_preferences.vocals}
+        />
+      )}
+      {/* NOVA EDIT ADDITION END */}
 
       {deleteCharacterPopupOpen && (
         <DeleteCharacterPopup
@@ -654,6 +662,15 @@ export function MainPage(props: MainPageProps) {
                 }}
               />
             </Stack.Item>
+            {/* NOVA EDIT ADDITION START */}
+            <Stack.Item position="relative">
+              <VoiceInput
+                openVocalsInput={() => {
+                  setVocalsInputOpen(true);
+                }}
+              />
+            </Stack.Item>
+            {/* NOVA EDIT ADDITION END */}
           </Stack>
         </Stack.Item>
 

@@ -32,7 +32,6 @@
 		return TRUE
 	return !sprite_datum.is_hidden(human)
 
-
 /obj/item/organ/snout/on_mob_insert(mob/living/carbon/receiver, special, movement_flags)
 	if(sprite_accessory_flags & SPRITE_ACCESSORY_USE_MUZZLED_SPRITE)
 		external_bodyshapes |= BODYSHAPE_SNOUTED
@@ -73,7 +72,8 @@
 	recommended_species = list(SPECIES_MAMMAL, SPECIES_TAJARAN, SPECIES_HUMANOID)
 
 /datum/sprite_accessory/snouts/mammal/akula
-	recommended_species = list(SPECIES_MAMMAL, SPECIES_AKULA, SPECIES_AQUATIC, SPECIES_HUMANOID)
+// IRIS EDIT: Aquatic Anthromorph compat
+	recommended_species = list(SPECIES_MAMMAL, SPECIES_AKULA, SPECIES_AQUATIC, SPECIES_HUMANOID, SPECIES_AQUAMORPH)
 
 /datum/sprite_accessory/snouts/mammal/bird
 	name = "Beak"

@@ -106,11 +106,11 @@
 		balloon_alert(src, "overcrowded!")
 		return
 
-	var/list/babies = list()
-	var/new_nutrition = round(nutrition * 0.9)
-	var/new_powerlevel = round(powerlevel / 4)
+	var/new_nutrition = floor(nutrition * 0.9)
+	var/new_powerlevel = floor(powerlevel * 0.25)
 	var/turf/drop_loc = drop_location()
 
+	var/list/created_slimes = list(src)
 	var/list/slime_friends = list()
 	for(var/faction_member in faction)
 		var/mob/living/possible_friend = locate(faction_member) in GLOB.mob_living_list
@@ -118,39 +118,47 @@
 			continue
 		slime_friends += possible_friend
 
-	for(var/i in 1 to 4)
-		var/child_colour
+//	for(var/i in 1 to 3) IRIS EDIT OLD
+	// IRIS EDIT NEW START
+	var/split_amount = 4
+	switch(transformative_effect)
+		if(SLIME_TYPE_GREY)
+			split_amount++
 
-		if(mutation_chance >= 100)
-			child_colour = /datum/slime_type/rainbow
-		else if(prob(mutation_chance))
-			child_colour = pick_weight(slime_type.mutations)
-		else
-			child_colour = slime_type.type
+		if(SLIME_TYPE_CERULEAN)
+			split_amount = 2
+			new_nutrition = round(nutrition * 0.5)
+			new_powerlevel = round(powerlevel * 0.5)
 
-		var/mob/living/basic/slime/baby
-		baby = new(drop_loc, child_colour)
-
-		if(ckey)
-			baby.set_nutrition(new_nutrition) //Player slimes are more robust at spliting. Once an oversight of poor copypasta, now a feature!
-
-		baby.powerlevel = new_powerlevel
-		if(i != 1)
-			step_away(baby, src)
-
+	for(var/i in 1 to split_amount)
+	// IRIS EDIT NEW END
+		var/mob/living/basic/slime/baby = new(drop_loc, get_random_mutation())
+		created_slimes += baby
 		for(var/slime_friend in slime_friends)
 			baby.befriend(slime_friend)
 
-		babies += baby
-		baby.mutation_chance = clamp(mutation_chance+(rand(5,-5)),0,100)
 		SSblackbox.record_feedback("tally", "slime_babies_born", 1, baby.slime_type.colour)
+		step_away(baby, src)
 
-	var/mob/living/basic/slime/new_slime = pick(babies) // slime that the OG slime will move into.
-	new_slime.set_combat_mode(TRUE)
+	set_nutrition(SLIME_STARTING_NUTRITION)
+	for(var/mob/living/basic/slime/baby as anything in created_slimes)
+		if(ckey) // Player slimes are more robust at spliting. Once an oversight of poor copypasta, now a feature!
+			baby.set_nutrition(new_nutrition)
+		baby.powerlevel = new_powerlevel
+		if(mutation_chance)
+			baby.mutation_chance = clamp(mutation_chance + rand(-5, 5), 0, 100)
+		else
+			baby.mutation_chance = 0
 
-	if(isnull(mind))
-		new_slime.PossessByPlayer(key)
+	set_life_stage(SLIME_LIFE_STAGE_BABY)
+	set_slime_type(get_random_mutation())
+	amount_grown = 0
+	mutator_used = FALSE
+
+/mob/living/basic/slime/proc/get_random_mutation()
+	if(mutation_chance >= 100)
+		return /datum/slime_type/rainbow
+	else if(prob(mutation_chance))
+		return pick_weight(slime_type.mutations)
 	else
-		mind.transfer_to(new_slime)
-
-	qdel(src)
+		return slime_type.type

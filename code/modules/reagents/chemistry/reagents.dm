@@ -189,16 +189,18 @@
 /datum/reagent/proc/on_burn_wound_processing(datum/wound/burn/flesh/burn_wound)
 	return
 
-/*
-Used to run functions before a reagent is transferred. Returning TRUE will block the transfer attempt.
-Primarily used in reagents/reaction_agents
+/**
+ * Intercepts the reagent transfer/copy operation to do some work before it takes place.
+ * Used to perform some reaction work. Return TRUE To cancel the operation
+ *
+ * Arguments
+ *
+ * * datum/reagents/target - the target holder we are being transferred to
+ * * amount - the amount of reagent being transferred
+ * * copy_only - if TRUE we don't remove ourself from the holder because its a reagent copy & not transfer operation
 */
-/datum/reagent/proc/intercept_reagents_transfer(datum/reagents/target, amount)
+/datum/reagent/proc/intercept_reagents_transfer(datum/reagents/target, amount, copy_only)
 	return FALSE
-
-///Called after a reagent is transferred
-/datum/reagent/proc/on_transfer(atom/A, methods=TOUCH, trans_volume)
-	return
 
 /// Called when this reagent is first added to a mob
 /datum/reagent/proc/on_mob_add(mob/living/affected_mob, amount)
@@ -230,7 +232,13 @@ Primarily used in reagents/reaction_agents
 /datum/reagent/proc/on_mob_dead(mob/living/carbon/affected_mob, seconds_per_tick)
 	SHOULD_CALL_PARENT(TRUE)
 
-/// Called after add_reagents creates a new reagent.
+/**
+ * Called after add_reagents creates a new reagent.
+ *
+ * Arguments
+ * * data - if not null, contains reagent data which will be applied to the newly created reagent (this will override any pre-set data).
+ */
+
 /datum/reagent/proc/on_new(data)
 	if(data)
 		src.data = data
@@ -246,9 +254,16 @@ Primarily used in reagents/reaction_agents
 
 /// Called when an overdose starts. Returning UPDATE_MOB_HEALTH will cause updatehealth() to be called on the holder mob by /datum/reagents/proc/metabolize.
 /datum/reagent/proc/overdose_start(mob/living/affected_mob)
-	to_chat(affected_mob, span_userdanger("You feel like you took too much of [name]!"))
-	affected_mob.add_mood_event("[type]_overdose", /datum/mood_event/overdose, name)
-	return
+//IRIS EDIT START
+	if(HAS_TRAIT(affected_mob, TRAIT_SELF_AWARE))
+		to_chat(affected_mob, span_userdanger("You feel like you took too much of [name]!"))
+		affected_mob.add_mood_event("[type]_overdose", /datum/mood_event/overdose, name)
+		return
+	else
+		to_chat(affected_mob, span_userdanger("You feel sick!"))
+		affected_mob.add_mood_event("[type]_overdose", /datum/mood_event/overdose_hidden, name)
+		return
+//IRIS EDIT END
 
 /**
  * Called when this chemical is processed in a hydroponics tray.

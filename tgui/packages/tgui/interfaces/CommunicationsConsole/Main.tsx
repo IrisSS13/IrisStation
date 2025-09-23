@@ -5,7 +5,7 @@ import { capitalize } from 'tgui-core/string';
 import { useBackend } from '../../backend';
 import { AlertButton } from './AlertButton';
 import { MessageModal } from './MessageModal';
-import { CommsConsoleData, ShuttleState } from './types';
+import { type CommsConsoleData, ShuttleState } from './types';
 
 export function PageMain(props) {
   const { act, data } = useBackend<CommsConsoleData>();
@@ -224,19 +224,29 @@ export function PageMain(props) {
             </Button>
           )}
           {/* NOVA EDIT ADDITION START */}
+          {!!canMessageAssociates && (
+            <Button
+              icon="bullhorn"
+              color="gold"
+              disabled={!importantActionReady}
+              onClick={() => act('messagethefeds')}
+            >
+              Send message to the Sol Federation Regional Command
+            </Button>
+          )}
           {!!canMakeAnnouncement && (
             <Button icon="bullhorn" onClick={() => act('callThePolice')}>
-              Call Sol Federation 911: Marshals Response
+              Call Sol Goverment 911: Marshals Response
             </Button>
           )}
           {!!canMakeAnnouncement && (
             <Button icon="bullhorn" onClick={() => act('callTheCatmos')}>
-              Call Sol Federation 811: Advanced Atmospherics Response
+              Call Sol Goverment 811: Advanced Atmospherics Response
             </Button>
           )}
           {!!canMakeAnnouncement && (
             <Button icon="bullhorn" onClick={() => act('callTheParameds')}>
-              Call Sol Federation 911: Medical Response
+              Call Sol Goverment 911: Medical Response
             </Button>
           )}
           {!!emagged && (

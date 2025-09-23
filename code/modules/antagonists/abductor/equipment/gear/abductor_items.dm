@@ -2,6 +2,7 @@
 	icon = 'icons/obj/antags/abductor.dmi'
 	lefthand_file = 'icons/mob/inhands/antag/abductor_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/antag/abductor_righthand.dmi'
+	abstract_type = /obj/item/abductor
 
 /obj/item/proc/AbductorCheck(mob/user)
 	if (HAS_TRAIT(user, TRAIT_ABDUCTOR_TRAINING))
@@ -345,7 +346,7 @@ Return to step 11 of normal process."}
 		if(BATON_STUN)
 			txt = "stunning"
 		if(BATON_SLEEP)
-			txt = "sleep inducement"
+			txt = "paralysis inducement" //IRIS EDIT: txt = "sleep inducement"
 		if(BATON_CUFF)
 			txt = "restraining"
 		if(BATON_PROBE)
@@ -418,10 +419,18 @@ Return to step 11 of normal process."}
 			span_userdanger("You feel a strange wave of heavy drowsiness wash over you!"))
 			target.adjust_drowsiness(4 SECONDS)
 			return
-		target.visible_message(span_danger("[user] induces sleep in [target] with [src]!"), \
+//IRIS EDIT START
+		target.visible_message(span_danger("[user] paralyzes [target] with [src]!"), \
 		span_userdanger("You suddenly feel very drowsy!"))
-		target.Sleeping(sleep_time)
-		log_combat(user, target, "put to sleep")
+		target.Paralyze(20 SECONDS)
+		log_combat(user, target, "paralyzed")
+/*
+		target.visible_message(span_danger("[user] paralyzes [target] with [src]!"), \
+		span_userdanger("You suddenly feel very drowsy!"))
+		target.Paralyze(20 SECONDS)
+		log_combat(user, target, "paralyzed")
+*/
+//IRIS EDIT END
 	else
 		if(target.can_block_magic(MAGIC_RESISTANCE_MIND, charge_cost = 0))
 			to_chat(user, span_warning("The specimen has some kind of mental protection that is completely blocking our sleep inducement methods! It seems you've been foiled."))
@@ -445,7 +454,6 @@ Return to step 11 of normal process."}
 			if(do_after(user, time_to_cuff, carbon_victim) && carbon_victim.canBeHandcuffed())
 				if(!carbon_victim.handcuffed)
 					carbon_victim.set_handcuffed(new /obj/item/restraints/handcuffs/energy/used(carbon_victim))
-					carbon_victim.update_handcuffed()
 					to_chat(user, span_notice("You restrain [carbon_victim]."))
 					log_combat(user, carbon_victim, "handcuffed")
 			else
@@ -505,7 +513,7 @@ Return to step 11 of normal process."}
 			if(BATON_STUN)
 				. += span_warning("The baton is in stun mode.")
 			if(BATON_SLEEP)
-				. += span_warning("The baton is in sleep inducement mode.")
+				. += span_warning("The baton is in paralysis inducement mode.") //IRIS EDIT: 				. += span_warning("The baton is in sleep inducement mode.")
 			if(BATON_CUFF)
 				. += span_warning("The baton is in restraining mode.")
 			if(BATON_PROBE)
@@ -520,7 +528,7 @@ Return to step 11 of normal process."}
 
 /obj/item/radio/headset/abductor/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
+	AddComponent(/datum/component/wearertargeting/earprotection)
 	make_syndie()
 
 // Stops humans from disassembling abductor headsets.
