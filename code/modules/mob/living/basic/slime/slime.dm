@@ -115,7 +115,6 @@
 	. = ..()
 	unique_mutate(SLIME_TYPE_GOLD, /datum/slime_type/unique/cobalt)
 // IRIS ADDITION END
-
 /mob/living/basic/slime/Initialize(mapload, new_type = /datum/slime_type/grey, new_life_stage = SLIME_LIFE_STAGE_BABY)
 
 	. = ..()

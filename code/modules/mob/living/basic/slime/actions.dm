@@ -129,6 +129,7 @@
 			split_amount = 1
 
 	for(var/i in 1 to split_amount)
+	// IRIS EDIT NEW END
 		var/mob/living/basic/slime/baby = new(drop_loc, get_random_mutation())
 		created_slimes += baby
 		for(var/slime_friend in slime_friends)
@@ -148,7 +149,6 @@
 				baby.regenerate_icons()
 				baby.set_nutrition(new_nutrition)
 		// IRIS ADDITION END
-
 		SSblackbox.record_feedback("tally", "slime_babies_born", 1, baby.slime_type.colour)
 		step_away(baby, src)
 
@@ -177,12 +177,10 @@
 
 /mob/living/basic/slime/proc/get_random_mutation()
 	// IRIS ADDITION START -- Unique slimes
-	switch(transformative_effect)
-		if(SLIME_TYPE_CERULEAN)
-			return slime_type.type
-
-		if(SLIME_TYPE_PYRITE)
-			return pick(subtypesof(/datum/slime_type) - /datum/slime_type/rainbow - typesof(/datum/slime_type/unique))
+	if(transformative_effect == SLIME_TYPE_CERULEAN)
+		return slime_type.type
+	if(transformative_effect == SLIME_TYPE_PYRITE)
+		return pick(subtypesof(/datum/slime_type) - /datum/slime_type/rainbow - typesof(/datum/slime_type/unique))
 	// IRIS ADDITION END
 	if(mutation_chance >= 100)
 		return /datum/slime_type/rainbow

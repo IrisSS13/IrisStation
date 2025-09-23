@@ -49,7 +49,6 @@
 			unique_mutate(SLIME_TYPE_GREEN, /datum/slime_type/unique/lightgreen, attacking_item)
 		return
 	// IRIS ADDITION END
-
 	//Checks if the item passes through the slime first. Safe items can be used simply
 	if(check_item_passthrough(attacking_item, user))
 		return
