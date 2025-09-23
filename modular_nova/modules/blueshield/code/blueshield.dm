@@ -80,7 +80,7 @@
 	starting_programs = list(
 		/datum/computer_file/program/records/security,
 		/datum/computer_file/program/robocontrol,
-		/datum/computer_file/program/radar/lifeline,
+		/datum/computer_file/program/radar/lifeline, // IRIS EDIT - added lifeline
 	)
 
 /*

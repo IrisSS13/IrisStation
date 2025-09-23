@@ -19,6 +19,8 @@
 	new /obj/item/clothing/under/rank/blueshield/formal(src)
 	new /obj/item/clothing/under/rank/blueshield/russian(src)
 	new /obj/item/clothing/under/rank/blueshield/naval(src)
+	new /obj/item/clothing/glasses/hud/security/sunglasses(src) // IRIS EDIT - added sec hud
+	new /obj/item/clothing/glasses/hud/health/sunglasses(src) // IRIS EDIT - added health hud
 
 /obj/structure/closet/secure_closet/blueshield
 	name = "blueshield's locker"
