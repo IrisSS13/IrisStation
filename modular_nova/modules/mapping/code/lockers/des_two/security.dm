@@ -28,6 +28,7 @@
 	new /obj/item/clothing/mask/neck_gaiter(src)
 	new /obj/item/clothing/glasses/hud/security/sunglasses/eyepatch(src)
 	new /obj/item/clothing/glasses/hud/security/sunglasses(src)
+	new /obj/item/clothing/glasses/hud/health/sunglasses(src)
 
 /obj/structure/closet/secure_closet/des_two/brig_officer_locker/PopulateContents()
 	..()
