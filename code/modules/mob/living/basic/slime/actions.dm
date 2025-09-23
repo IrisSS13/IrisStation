@@ -134,9 +134,6 @@
 		for(var/slime_friend in slime_friends)
 			baby.befriend(slime_friend)
 
-		var/mob/living/basic/slime/baby
-		baby = new(drop_loc, child_colour)
-
 		// IRIS ADDITION START
 		if(transformative_effect)
 			baby.transformative_effect = transformative_effect
