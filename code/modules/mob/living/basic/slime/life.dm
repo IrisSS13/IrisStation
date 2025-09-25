@@ -11,6 +11,12 @@
 
 /mob/living/basic/slime/handle_environment(datum/gas_mixture/environment, seconds_per_tick, times_fired)
 	..()
+	// IRIS ADDITION START -- UNIQUE SLIMES
+	// Needs a very oxygenated hot tritium fire
+	if(environment.gases[/datum/gas/tritium] && environment.gases[/datum/gas/oxygen])
+		if(environment.gases[/datum/gas/oxygen][MOLES] > 100000 && environment.gases[/datum/gas/tritium][MOLES] > 1 && environment.temperature > 50000)
+			unique_mutate(SLIME_TYPE_RED, /datum/slime_type/unique/crimson)
+	// IRIS ADDITION END
 	if(bodytemperature <= (T0C - 40)) // stun temperature
 		apply_status_effect(/datum/status_effect/freon, SLIME_COLD)
 	else
