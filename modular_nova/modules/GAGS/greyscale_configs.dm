@@ -754,6 +754,17 @@
 	name = "Pencilskirt + Suit (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/suits_digi.dmi'
 
+// DOUBLE SKIRT DRESS
+/datum/greyscale_config/double_skirt_dress
+	name = "Double Skirt Dress"
+	icon_file = 'modular_nova/modules/GAGS/icons/double_skirt_dress.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/double_skirt_dress/double_skirt_dress.json'
+
+/datum/greyscale_config/double_skirt_dress/worn
+	name = "Double Skirt Dress (Worn)"
+	icon_file = 'modular_nova/modules/GAGS/icons/double_skirt_dress.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/double_skirt_dress/double_skirt_dress_worn.json'
+
 // HOODIES
 /datum/greyscale_config/hoodie
 	name = "Hoodie"
@@ -1038,9 +1049,32 @@
 	name = "'Dagger' Designer Mantle (Worn)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/dagger_mantle/dagger_mantle_worn.json'
 
+// LONG ROBE
+/datum/greyscale_config/long_robe
+	name = "Long robe"
+	icon_file = 'modular_nova/modules/GAGS/icons/suit/suit.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/long_robe/long_robe.json'
+
+/datum/greyscale_config/long_robe/worn
+	name = "Long robe (Worn)"
+	icon_file = 'modular_nova/modules/GAGS/icons/suit/suit.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/long_robe/long_robe_worn.json'
+
+
+// HAORI
+/datum/greyscale_config/haori
+	name = "Haori"
+	icon_file = 'modular_nova/modules/GAGS/icons/suit/suit.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/haori/haori.json'
+
+/datum/greyscale_config/haori/worn
+	name = "Haori (Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/haori/haori_worn.json'
+
 /*
 *	UNDER
 */
+
 
 
 // JUMPSUITS
@@ -1410,6 +1444,15 @@
 	name = "Yukata (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/costume_digi.dmi'
 
+/datum/greyscale_config/hakama
+	name = "Hakama"
+	icon_file = 'modular_nova/modules/GAGS/icons/hakama.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/hakama/hakama.json'
+
+/datum/greyscale_config/hakama/worn
+	name = "Hakama (Worn)"
+	json_config = 'modular_nova/modules/GAGS/json_configs/hakama/hakama_worn.json'
+
 // KILT
 /datum/greyscale_config/kilt
 	name = "Kilt"
@@ -1629,6 +1672,20 @@ TREK
 
 /datum/greyscale_config/boots/christmasboots/worn/digi
 	name = "christmas_boots (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'
+
+
+/datum/greyscale_config/sport_boots
+	name = "Sport Boots"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/shoes/boots/sport_boots.json'
+
+/datum/greyscale_config/sport_boots/worn
+	name = "Sport Boots (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
+
+/datum/greyscale_config/sport_boots/worn/digi
+	name = "Sport Boots (Worn, Digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'
 
 // Laceups
@@ -2172,49 +2229,49 @@ TREK
 // Solfed Uniform
 
 /datum/greyscale_config/solfedcamo
-	name = "SolGov Camo"
+	name = "SolFed Camo"
 	icon_file = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/maincamo.json'
 
 /datum/greyscale_config/solfedcamo/worn
-	name = "SolGov Camo (Worn)"
+	name = "SolFed Camo (Worn)"
 	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
 
 /datum/greyscale_config/solfedcamo/worn/digi
-	name = "SolGov Camo (Worn, Digi)"
+	name = "SolFed Camo (Worn, Digi)"
 	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms_digi.dmi'
 
 /datum/greyscale_config/vestcam
-	name = "SolGov Vest Camo"
+	name = "SolFed Vest Camo"
 	icon_file = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/milvest.json'
 
 /datum/greyscale_config/vestcam/worn
-	name = "SolGov Vest Camo (Worn)"
+	name = "SolFed Vest Camo (Worn)"
 	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
 
 /datum/greyscale_config/vestcam/worn/digi
-	name = "SolGov Vest Camo (Worn, Digi)"
+	name = "SolFed Vest Camo (Worn, Digi)"
 	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms_digi.dmi'
 
 // Solfed Accessories
 /datum/greyscale_config/solfedribbons
-	name = "SolGov Ribbons"
+	name = "SolFed Ribbons"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/accessories.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/sfranks.json'
 
 /datum/greyscale_config/solfedribbons/worn
-	name = "SolGov Ribbons (Worn)"
+	name = "SolFed Ribbons (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/accessories.dmi'
 
 // Solfed Goggles Code
 /datum/greyscale_config/solfed_goggles
-	name = "SolGov Goggles"
+	name = "SolFed Goggles"
 	icon_file = 'modular_nova/modules/goofsec/icons/obj/uniforms.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/solfed/gogglefed.json'
 
 /datum/greyscale_config/solfed_goggles/worn
-	name = "SolGov Goggles (Worn)"
+	name = "SolFed Goggles (Worn)"
 	icon_file = 'modular_nova/modules/goofsec/icons/mob/uniforms.dmi'
 
 /// Content of PR #5835

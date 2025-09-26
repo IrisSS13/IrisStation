@@ -638,6 +638,15 @@
 	turf_type = /turf/open/floor/iron/freezer/large
 	merge_type = /obj/item/stack/tile/iron/freezer/large
 
+/*
+/obj/item/stack/tile/iron/grimy
+	name = "grimy floor tile"
+	singular_name = "grimy floor tile"
+	icon_state = "tile_grimy"
+	turf_type = /turf/open/floor/iron/grimy
+	merge_type = /obj/item/stack/tile/iron/grimy
+*/
+
 /obj/item/stack/tile/iron/sepia
 	name = "sepia floor tile"
 	singular_name = "sepia floor tile"

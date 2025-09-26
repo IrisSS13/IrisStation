@@ -848,12 +848,6 @@
 	if(slot & ITEM_SLOT_HANDS)
 		play_pickup_sound()
 
-	if(!initial && (slot_flags & slot) && (play_equip_sound()))
-		return
-
-	if(slot & ITEM_SLOT_HANDS)
-		play_pickup_sound()
-
 /// Gives one of our item actions to a mob, when equipped to a certain slot
 /obj/item/proc/give_item_action(datum/action/action, mob/to_who, slot)
 	// Some items only give their actions buttons when in a specific slot.
