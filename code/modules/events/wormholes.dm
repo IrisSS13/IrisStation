@@ -51,7 +51,7 @@ GLOBAL_LIST_EMPTY(all_wormholes) // So we can pick wormholes to teleport to
 /obj/effect/portal/wormhole
 	name = "wormhole"
 	desc = "It looks highly unstable; It could close at any moment."
-	icon = 'icons/obj/anomaly.dmi'
+	icon = 'modular_iris/icons/effects/anomalies.dmi' // IRIS EDIT - REPLACED WITH A BETTER ONE - original: icon = 'icons/obj/anomaly.dmi'
 	icon_state = "anom"
 	mech_sized = TRUE
 	light_on = FALSE
