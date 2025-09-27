@@ -5325,18 +5325,12 @@
 /turf/open/floor/iron,
 /area/station/security)
 "dCi" = (
-/obj/effect/turf_decal/bot_white/right,
-/obj/effect/turf_decal/tile/neutral{
+/obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
+/obj/machinery/door/window/brigdoor/right/directional/east{
+	name = "Gateway Access"
 	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/command/gateway)
 "dDQ" = (
@@ -5802,6 +5796,9 @@
 /area/station/maintenance/disposal)
 "dSM" = (
 /obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/table/reinforced,
+/obj/item/aicard,
+/obj/item/multitool,
 /turf/open/floor/iron/dark/diagonal,
 /area/station/command/bridge)
 "dSY" = (
@@ -7689,6 +7686,9 @@
 "fPT" = (
 /obj/structure/table/reinforced,
 /obj/structure/secure_safe/caps_spare,
+/obj/machinery/camera/directional/east{
+	c_tag = "Bridge - Starboard"
+	},
 /turf/open/floor/iron/dark/diagonal,
 /area/station/command/bridge)
 "fQi" = (
@@ -8337,6 +8337,11 @@
 /obj/machinery/airalarm/directional/north,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
+"gyE" = (
+/obj/structure/cable,
+/obj/machinery/firealarm/directional/south,
+/turf/open/floor/carpet/blue,
+/area/station/command/bridge)
 "gyP" = (
 /obj/structure/bed,
 /obj/item/bedsheet/captain,
@@ -8582,6 +8587,13 @@
 /obj/effect/landmark/start/cargo_technician,
 /turf/open/floor/iron,
 /area/station/cargo/storage)
+"gJt" = (
+/obj/effect/turf_decal/box/corners{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/floor/iron/dark,
+/area/station/command/gateway)
 "gJK" = (
 /obj/machinery/door/airlock/research{
 	glass = 1;
@@ -8683,18 +8695,8 @@
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
 "gQh" = (
-/obj/effect/turf_decal/bot_white/left,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
 /obj/structure/window/reinforced/spawner/directional/east,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/station/command/gateway)
 "gQl" = (
@@ -17506,18 +17508,9 @@
 /turf/closed/wall/r_wall,
 /area/station/maintenance/starboard/fore)
 "pGr" = (
-/obj/effect/turf_decal/bot_white,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
 /obj/structure/window/reinforced/spawner/directional/east,
+/obj/effect/turf_decal/box/corners,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/station/command/gateway)
 "pGy" = (
@@ -17849,7 +17842,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/open/floor/iron/dark/diagonal,
+/turf/closed/wall/r_wall,
 /area/station/command/bridge)
 "pWD" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -18031,13 +18024,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 9
 	},
-/obj/machinery/firealarm/directional/south,
-/obj/machinery/fax{
-	fax_name = "Bridge";
-	name = "Bridge Fax Machine"
-	},
-/obj/structure/table/reinforced,
-/turf/open/floor/iron/dark/diagonal,
+/turf/closed/wall/r_wall,
 /area/station/command/bridge)
 "qch" = (
 /obj/structure/table/wood,
@@ -18241,11 +18228,13 @@
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
 "qlB" = (
-/obj/structure/table/reinforced,
-/obj/item/aicard,
-/obj/item/multitool,
-/turf/open/floor/iron/dark/diagonal,
-/area/station/command/bridge)
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/effect/turf_decal/box/corners{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/floor/iron/dark,
+/area/station/command/gateway)
 "qlL" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
@@ -18295,14 +18284,10 @@
 /turf/open/floor/iron,
 /area/station/ai_monitored/command/storage/eva)
 "qnK" = (
-/obj/structure/table/reinforced,
-/obj/item/storage/briefcase/secure,
-/obj/machinery/light/directional/east,
-/obj/machinery/camera/directional/east{
-	c_tag = "Bridge - Starboard"
-	},
-/turf/open/floor/iron/dark/diagonal,
-/area/station/command/bridge)
+/obj/machinery/light/directional/north,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/floor/iron/dark,
+/area/station/command/gateway)
 "qoa" = (
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /turf/open/floor/iron,
@@ -19159,6 +19144,12 @@
 "rfS" = (
 /turf/open/floor/wood,
 /area/station/maintenance/starboard/fore)
+"rgk" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
+/area/station/command/gateway)
 "rgM" = (
 /turf/closed/wall,
 /area/station/security/warden)
@@ -19551,6 +19542,18 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/engine,
 /area/station/engineering/rbmk2)
+"rCV" = (
+/obj/machinery/light/directional/south,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/fax{
+	fax_name = "Bridge";
+	name = "Bridge Fax Machine"
+	},
+/obj/structure/table/reinforced,
+/turf/open/floor/iron/dark/diagonal,
+/area/station/command/bridge)
 "rDh" = (
 /turf/open/floor/iron,
 /area/station/security/brig)
@@ -20637,18 +20640,7 @@
 /turf/closed/wall/r_wall,
 /area/station/science/ordnance/burnchamber)
 "sCK" = (
-/obj/effect/turf_decal/bot_white/right,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/machinery/light/directional/north,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/station/command/gateway)
 "sCQ" = (
@@ -20924,17 +20916,10 @@
 /turf/open/floor/iron/dark,
 /area/station/hallway/primary/aft)
 "sKX" = (
-/obj/effect/turf_decal/bot_white,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
+/obj/effect/turf_decal/box/corners{
 	dir = 8
 	},
+/obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/station/command/gateway)
 "sLy" = (
@@ -22348,18 +22333,10 @@
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/lobby)
 "ucW" = (
-/obj/effect/turf_decal/bot_white/left,
-/obj/effect/turf_decal/tile/neutral{
+/obj/machinery/firealarm/directional/west,
+/obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/machinery/firealarm/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/command/gateway)
 "udJ" = (
@@ -61048,7 +61025,7 @@ dKV
 fIb
 iSk
 mLD
-vxW
+rCV
 ykT
 tjv
 lBO
@@ -61304,7 +61281,7 @@ biU
 dSM
 xAR
 iSk
-mLD
+gyE
 pWc
 ykT
 ykT
@@ -61563,7 +61540,7 @@ fKR
 iSk
 mSD
 qbJ
-rcD
+gJt
 sCK
 sKX
 ucW
@@ -61819,11 +61796,11 @@ dTL
 xAR
 iSk
 mTY
-qlB
-rcD
-sKX
+ykT
+qnK
 ufg
-sKX
+sCK
+rgk
 rAb
 bHc
 mSe
@@ -62076,8 +62053,8 @@ eep
 fPT
 jrd
 mWB
-qnK
-rcD
+ykT
+qlB
 gQh
 pGr
 dCi
