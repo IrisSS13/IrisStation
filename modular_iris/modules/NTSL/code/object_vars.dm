@@ -4,6 +4,6 @@
 
 /atom/movable/virtualspeaker/get_voice(bool)
 	if(bool && realvoice)
-		return realvoice
+		return realvoice()
 	else
 		return "[src]"

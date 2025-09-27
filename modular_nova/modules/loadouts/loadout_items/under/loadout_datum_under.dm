@@ -3,8 +3,8 @@
 /datum/loadout_category/undersuit
 	category_name = "Undersuit"
 	category_ui_icon = FA_ICON_SHIRT
-	type_to_generate = newlist(/datum/loadout_item/under, /datum/loadout_item/donator/under)
-	tab_order = LOADOUT_UNDERSUIT
+	type_to_generate = /datum/loadout_item/under
+	tab_order = /datum/loadout_category/suit::tab_order + 1
 
 /datum/loadout_item/under
 	abstract_type = /datum/loadout_item/under
@@ -355,7 +355,6 @@
 	name = "Tuxedo Suit"
 	item_path = /obj/item/clothing/under/suit/tuxedo
 
-/datum/loadout_item/under/formal/pencil/tan
-	name = "Pencilskirt (Tan)"
-	item_path = /obj/item/clothing/under/suit/nova/pencil/tan
-	can_be_greyscale = DONT_GREYSCALE
+/datum/loadout_item/under/formal/waiter
+	name = "Waiter's Suit"
+	item_path = /obj/item/clothing/under/suit/waiter
