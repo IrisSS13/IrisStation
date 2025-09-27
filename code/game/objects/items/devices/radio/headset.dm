@@ -367,7 +367,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	// "puts the antenna down" while the headset is off
 	overlay_speaker_idle = "headset_up"
 	overlay_mic_idle = "headset_up"
-	keyslot = /obj/item/encryptionkey/headset_mining
+	keyslot = /obj/item/encryptionkey/headset_cargo // IRIS EDIT - changed to cargo key
 
 /obj/item/radio/headset/headset_cargo/mining/Initialize(mapload)
 	. = ..()
