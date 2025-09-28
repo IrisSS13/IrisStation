@@ -368,7 +368,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/virtualspeaker)
 	radio = _radio
 	source = M
 	if(istype(M))
-		name = radio.anonymize ? "Unknown" : M.get_voice()
+		name = radio.anonymize ? "Unknown" : M.get_voice(add_id_name = TRUE)
 		realvoice = name // IRIS ADDITION -- NTSL
 		verb_say = M.get_default_say_verb()
 		verb_ask = M.verb_ask
