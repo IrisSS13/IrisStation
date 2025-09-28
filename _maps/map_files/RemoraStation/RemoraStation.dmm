@@ -1262,10 +1262,9 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
-/obj/machinery/door/window/brigdoor/left/directional/north{
-	req_access = list("brig");
-	dir = 2;
-	name = "Evidence Storage"
+/obj/machinery/door/window/brigdoor/left/directional/south{
+	name = "Evidence Storage";
+	req_access = list("brig")
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/brig)
@@ -6604,6 +6603,14 @@
 /obj/machinery/airalarm/directional/west,
 /turf/open/floor/iron,
 /area/station/commons/fitness/locker_room)
+"eKk" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/item/radio/intercom/directional/east,
+/turf/open/floor/iron/dark/textured_edge{
+	dir = 8
+	},
+/area/station/hallway/primary/fore)
 "eKH" = (
 /obj/structure/frame/computer,
 /turf/open/floor/plating,
@@ -9047,9 +9054,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/science/ordnance/testlab)
-"hlk" = (
-/turf/closed/wall/r_wall,
-/area/station/security)
 "hlN" = (
 /obj/structure/sign/warning/secure_area,
 /turf/closed/wall/r_wall,
@@ -9271,10 +9275,12 @@
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/command/storage/eva)
 "hzj" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/obj/item/radio/intercom/directional/east,
-/turf/open/floor/iron,
-/area/station/security/warden)
+/obj/machinery/door/window/brigdoor/left/directional/south{
+	name = "Evidence Storage";
+	req_access = list("brig")
+	},
+/turf/open/floor/iron/dark,
+/area/station/security/brig)
 "hzK" = (
 /obj/structure/cable,
 /obj/machinery/disposal/bin,
@@ -11381,14 +11387,10 @@
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "jKY" = (
-/obj/structure/reagent_dispensers/wall/peppertank/directional/north,
-/obj/effect/turf_decal/tile/dark_red/fourcorners,
-/obj/structure/table,
-/obj/machinery/recharger{
-	pixel_y = 4
-	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/item/radio/intercom/directional/east,
 /turf/open/floor/iron,
-/area/station/security)
+/area/station/security/warden)
 "jLf" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
@@ -12574,13 +12576,8 @@
 /turf/open/floor/iron/white,
 /area/station/science/robotics/lab)
 "kSt" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/item/radio/intercom/directional/east,
-/turf/open/floor/iron/dark/textured_edge{
-	dir = 8
-	},
-/area/station/hallway/primary/fore)
+/turf/closed/wall/r_wall,
+/area/station/security)
 "kTF" = (
 /obj/machinery/newscaster/directional/north,
 /turf/open/floor/iron/dark/diagonal,
@@ -14247,6 +14244,15 @@
 "mwk" = (
 /turf/closed/wall,
 /area/station/commons/lounge)
+"mwC" = (
+/obj/structure/reagent_dispensers/wall/peppertank/directional/north,
+/obj/effect/turf_decal/tile/dark_red/fourcorners,
+/obj/structure/table,
+/obj/machinery/recharger{
+	pixel_y = 4
+	},
+/turf/open/floor/iron,
+/area/station/security)
 "mwY" = (
 /turf/closed/wall/r_wall,
 /area/space/nearstation)
@@ -19212,12 +19218,14 @@
 /turf/open/floor/iron,
 /area/station/engineering/break_room)
 "riL" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/tile/dark_red/fourcorners,
-/turf/open/floor/iron,
-/area/station/security)
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/item/radio/intercom/directional/east,
+/turf/open/floor/iron/dark/textured_edge{
+	dir = 8
+	},
+/area/station/hallway/primary/port)
 "riZ" = (
 /obj/structure/closet/emcloset,
 /turf/open/floor/plating,
@@ -21644,14 +21652,6 @@
 /obj/effect/mapping_helpers/dead_body_placer,
 /turf/open/floor/iron/dark,
 /area/station/medical/morgue)
-"tyG" = (
-/obj/machinery/door/window/brigdoor/left/directional/north{
-	req_access = list("brig");
-	dir = 2;
-	name = "Evidence Storage"
-	},
-/turf/open/floor/iron/dark,
-/area/station/security/brig)
 "tyL" = (
 /turf/open/floor/plating,
 /area/station/maintenance/aft/greater)
@@ -25184,10 +25184,9 @@
 "wYA" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/door/window/brigdoor/left/directional/north{
-	req_access = list("brig");
-	dir = 2;
-	name = "Evidence Storage"
+/obj/machinery/door/window/brigdoor/left/directional/south{
+	name = "Evidence Storage";
+	req_access = list("brig")
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/brig)
@@ -25867,15 +25866,6 @@
 	dir = 1
 	},
 /area/station/common/cryopods)
-"xBI" = (
-/obj/effect/turf_decal/tile/blue{
-	dir = 4
-	},
-/obj/item/radio/intercom/directional/east,
-/turf/open/floor/iron/dark/textured_edge{
-	dir = 8
-	},
-/area/station/hallway/primary/port)
 "xCa" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
@@ -26124,6 +26114,13 @@
 /obj/structure/cable,
 /turf/open/floor/engine,
 /area/station/science/ordnance/burnchamber)
+"xPI" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/tile/dark_red/fourcorners,
+/turf/open/floor/iron,
+/area/station/security)
 "xQV" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/structure/disposalpipe/segment,
@@ -56717,7 +56714,7 @@ aaa
 bTc
 bTc
 gUA
-hzj
+jKY
 oXS
 rgM
 rie
@@ -57228,12 +57225,12 @@ aaa
 aaa
 aaa
 aaa
-hlk
-jKY
+kSt
+mwC
 hBC
 lbq
 pcG
-riL
+xPI
 syo
 eOF
 fqo
@@ -58828,7 +58825,7 @@ gdM
 bkn
 mPE
 bkn
-xBI
+riL
 bkn
 cCr
 emj
@@ -59807,7 +59804,7 @@ ykT
 kGA
 aLi
 uLK
-tyG
+hzj
 tHl
 jRY
 wKS
@@ -63176,7 +63173,7 @@ wnY
 nHa
 wnY
 wnY
-kSt
+eKk
 wnY
 jVt
 cty
