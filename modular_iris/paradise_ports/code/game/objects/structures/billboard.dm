@@ -16,5 +16,5 @@
 /obj/structure/lavaland_billboard/Initialize()
 	. = ..()
 	add_overlay(mutable_appearance(/obj/structure/lavaland_billboard, pick(billboard_overlay)))
-	underlays += emissive_appearance(icon, "billboard_lightmask")
+	underlays += emissive_appearance(icon, "billboard_lightmask", src)
 
