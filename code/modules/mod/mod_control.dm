@@ -192,6 +192,7 @@
 		set_wearer(user)
 	else if(wearer)
 		unset_wearer()
+	return ..()
 
 /obj/item/mod/control/dropped(mob/user)
 	. = ..()
@@ -383,7 +384,7 @@
 	return cell
 
 /obj/item/mod/control/GetAccess()
-	if(ai_controller)
+	if(ai_controller && req_access)
 		return req_access.Copy()
 	else
 		return ..()

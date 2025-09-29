@@ -325,7 +325,8 @@ export class PreviewView extends Component<PreviewViewProps> {
     const sanitizedResult = sanitizeText(parsedText, advanced_html);
     const sanitizedText =
       typeof sanitizedResult === 'object' && sanitizedResult !== null
-        ? sanitizedResult.sanitized
+        ? // biome-ignore lint/complexity/useLiteralKeys: <explanation>
+          sanitizedResult['sanitized']
         : sanitizedResult;
 
     // Fourth we replace the [__] with fields

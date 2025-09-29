@@ -2,6 +2,8 @@
 
 # Local overrides--you can use this to change the config for your dev environment (like setting up SQL) without worrying about committing it
 /config/dev_overrides.txt
+/config/dev_preferences.json
+/config/dev_preferences.json.updatebac
 
 #Ignore everything in datafolder and subdirectories
 /data/**/*
@@ -260,3 +262,47 @@ define_sanity_output.txt
 # Running OpenDream locally
 tgstation.json
 rust_g64.dll
+
+# IRIS unused maps
+_maps/map_files/CatwalkStation/CatwalkStation_2023.dmm
+_maps/map_files/NSVBlueshift/Blueshift.dmm
+_maps/map_files/Ouroboros/Ouroboros.dmm
+_maps/map_files/Snowglobe/snowglobe.dmm
+_maps/map_files/wawastation/wawastation.dmm
+_maps/nova/automapper/templates/catwalkstation/catwalkstation_armory.dmm
+_maps/nova/automapper/templates/catwalkstation/catwalkstation_arrivals.dmm
+_maps/nova/automapper/templates/catwalkstation/catwalkstation_barber.dmm
+_maps/nova/automapper/templates/catwalkstation/catwalkstation_cryo.dmm
+_maps/nova/automapper/templates/catwalkstation/catwalkstation_ntrep_office.dmm
+_maps/nova/automapper/templates/catwalkstation/catwalkstation_supermatter.dmm
+_maps/nova/automapper/templates/wawastation/wawastation_armory.dmm
+_maps/nova/automapper/templates/wawastation/wawastation_arrivals.dmm
+_maps/nova/automapper/templates/wawastation/wawastation_asteroidbluecell.dmm
+_maps/nova/automapper/templates/wawastation/wawastation_barber.dmm
+_maps/nova/automapper/templates/wawastation/wawastation_cryo.dmm
+_maps/nova/automapper/templates/wawastation/wawastation_ntrep_office.dmm
+_maps/nova/automapper/templates/wawastation/wawastation_supermatter.dmm
+
+_maps/blueshift.json
+_maps/catwalkstation.json
+_maps/ouroboros.json
+_maps/snowglobe.json
+_maps/wawastation.json
+
+# IRIS all lewd stuff from nova
+modular_nova/modules/modular_items/lewd_items/*
+modular_nova/modules/GAGS/nsfw/*
+modular_nova/modules/verbs/code/subtle.dm
+
+modular_nova/modules/customization/modules/mob/dead/new_player/sprite_accessories/genitals.dm
+modular_nova/modules/customization/modules/mob/dead/new_player/preferences_setup.dm
+modular_nova/master_files/code/modules/client/preferences/erp_preferences.dm
+modular_nova/master_files/code/modules/client/preferences/genitals.dm
+modular_nova/master_files/icons/effects/holosigns.dmi
+modular_nova/master_files/icons/obj/genitals/*
+
+tgui/packages/tgui/interfaces/MilkingMachine.jsx
+tgui/packages/tgui/interfaces/PreferencesMenu/preferences/features/character_preferences/nova/genitals.tsx
+tgui/packages/tgui/interfaces/PreferencesMenu/preferences/features/game_preferences/nova/erp_preferences.tsx
+
+code/_DEFINES/~nova_defines/lewd_defines.dm
