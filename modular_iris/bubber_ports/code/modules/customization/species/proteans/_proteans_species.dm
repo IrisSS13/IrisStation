@@ -58,6 +58,7 @@
 		TRAIT_SYNTHETIC, // Not used in any code, but just in case
 		TRAIT_TOXIMMUNE,
 		TRAIT_NEVER_WOUNDED, // Does not wound.
+		TRAIT_VIRUSIMMUNE,
 
 		// Extra cool stuff
 		TRAIT_RADIMMUNE,
