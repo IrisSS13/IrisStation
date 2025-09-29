@@ -11,7 +11,7 @@
 	layer = EDGED_TURF_LAYER
 	resistance_flags = FIRE_PROOF
 	blocks_emissive = FALSE
-	var/static/list/billboard_overlay = list("chasmland", "incompatible", "feed", "warm", "adventure", "plasmaland", "nothing", "gate", "gate2", "ufo", "notfriendly", "gps", "service", "protection", "diamonds", "step", "paradise", "hell")
+	var/static/list/billboard_overlay = list("incompatible", "feed", "warm", "adventure", "plasmaland", "nothing", "gate", "gate2", "ufo", "notfriendly", "gps", "service", "protection", "diamonds", "step", "paradise", "hell")
 
 /obj/structure/lavaland_billboard/Initialize()
 	. = ..()
