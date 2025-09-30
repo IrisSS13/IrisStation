@@ -138,6 +138,10 @@
 	pin = /obj/item/firing_pin/explorer
 /obj/item/gun/ballistic/revolver/sol/explorer
 	pin = /obj/item/firing_pin/explorer
+/obj/item/gun/ballistic/automatic/pistol/zashch/explorer
+	pin = /obj/item/firing_pin/explorer
+/obj/item/gun/energy/laser/explorer
+	pin = /obj/item/firing_pin/explorer
 
 /obj/item/choice_beacon/explorer
 	name = "weaponry beacon"
@@ -147,10 +151,13 @@
 
 /obj/item/choice_beacon/explorer/generate_display_names()
 	var/static/list/selectable_gun_types = list(
-		"Laser Carbine" = /obj/item/gun/energy/laser/carbine/explorer,
+		"Laser Auto-Carbine" = /obj/item/gun/energy/laser/carbine/explorer,
+		"Laser Carbine" = /obj/item/gun/energy/laser/explorer,
 		"Double Barrel Shotgun" = /obj/item/gun/ballistic/shotgun/doublebarrel/explorer,
 		"Guêpe Pistol" = /obj/item/gun/ballistic/automatic/pistol/sol/explorer,
-		"Renard Revolver" = /obj/item/gun/ballistic/revolver/sol/explorer
+		"Zashch Heavy Pistol" = /obj/item/gun/ballistic/automatic/pistol/zashch/explorer,
+		"Renard Revolver" = /obj/item/gun/ballistic/revolver/sol/explorer,
+		"Surplus Machete" = /obj/item/storage/belt/machete/full,
 	)
 
 	return selectable_gun_types
