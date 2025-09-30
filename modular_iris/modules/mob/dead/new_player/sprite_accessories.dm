@@ -575,23 +575,48 @@
 
 /datum/sprite_accessory/antenna/iris
 	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/ipc_antennas.dmi'
-	relevent_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
+	color_src = USE_ONE_COLOR
+	default_color = null
 
 /datum/sprite_accessory/antenna/iris/sidelights
 	name = "Sidelights"
 	icon_state = "sidelights"
+	color_src = USE_ONE_COLOR
 
 /datum/sprite_accessory/antenna/iris/tesla
 	name = "Tesla"
 	icon_state = "tesla"
+	color_src = USE_ONE_COLOR
 
 /datum/sprite_accessory/antenna/iris/droneeyes
 	name = "Drone Eyes"
 	icon_state = "droneeyes"
+	color_src = USE_ONE_COLOR
 
 /datum/sprite_accessory/antenna/iris/light
 	name = "Light"
 	icon_state = "light"
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/antenna/iris/circular
+	name = "Circular"
+	icon_state = "circular"
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/antenna/iris/comet
+	name = "Comet"
+	icon_state = "comet"
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/antenna/iris/zero
+	name = "Zero"
+	icon_state = "zero"
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/antenna/iris/cutesy
+	name = "Cutesy"
+	icon_state = "cutesy"
+	color_src = USE_MATRIXED_COLORS
 
 // SCREENS
 /datum/sprite_accessory/screen/iris
