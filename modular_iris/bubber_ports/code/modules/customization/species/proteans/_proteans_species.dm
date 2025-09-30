@@ -18,7 +18,7 @@
 	mutantheart = /obj/item/organ/heart/protean
 	mutantstomach = /obj/item/organ/stomach/protean
 	mutantlungs = null
-	mutantliver = /obj/item/organ/liver/protean
+	mutantliver = null
 	mutantappendix = null
 	mutanteyes = /obj/item/organ/eyes/robotic/protean
 	mutantears = /obj/item/organ/ears/cybernetic/protean
@@ -73,7 +73,7 @@
 	)
 
 	inherent_biotypes = MOB_ROBOTIC | MOB_HUMANOID
-	reagent_flags = PROCESS_PROTEAN
+	reagent_flags = null
 
 	/// Reference to the
 	var/obj/item/mod/control/pre_equipped/protean/species_modsuit
