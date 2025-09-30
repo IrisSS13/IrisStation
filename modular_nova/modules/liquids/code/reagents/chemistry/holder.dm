@@ -48,7 +48,7 @@
 			var/obj/item/organ/liver/owner_liver = human_processor.get_organ_slot(ORGAN_SLOT_LIVER)
 			if(!istype(owner_liver, /obj/item/organ/liver/synth))
 				return TRUE
-			if(processor_flags & (PROCESS_PROTEAN)) //iris edit - protean
+			if(processor_flags & PROCESS_PROTEAN) //iris edit - protean
 				return TRUE
 		return FALSE
 	return TRUE
