@@ -3,7 +3,7 @@ SUBSYSTEM_DEF(liquids)
 	wait = 1 SECONDS
 	flags = SS_KEEP_TIMING | SS_NO_INIT
 	runlevels = RUNLEVEL_GAME | RUNLEVEL_POSTGAME
-#ifdef UNIT_TESTS
+#ifdef UNIT_TESTS //IRIS EDIT, need this so tests dont commit sewer slide
 	can_fire = 0
 #endif
 	var/list/active_turfs = list()
