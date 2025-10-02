@@ -1,3 +1,4 @@
+#ifndef UNIT_TESTS
 /mob/living/carbon/gib(drop_bitflags = NONE) // Makes it so gibbing causes all the mobs blood/reagents to spill on the floor
 	var/datum/blood_type/blood_type = get_bloodtype()
 	if(isnull(blood_type))
@@ -11,3 +12,4 @@
 
 	pool_location.add_liquid_list(reagents_to_splash, chem_temp = bodytemperature)
 	return ..()
+#endif
