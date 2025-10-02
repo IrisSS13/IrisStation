@@ -9,7 +9,6 @@
 	name = "psychologist's turtleneck"
 	desc = "A light green turtleneck and tan khakis, for a chief medical officer with a superior sense of style."
 	icon_state = "psychturtle"
-	inhand_icon_state = "psychturtle"
 	can_adjust = TRUE
 	alt_covers_chest = TRUE
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
@@ -18,7 +17,6 @@
 	name = "psychologist's turtleneck skirt"
 	desc = "A light green turtleneck and tan khaki skirt, for a chief medical officer with a superior sense of style."
 	icon_state = "psychturtle_skirt"
-	inhand_icon_state = "psychturtle_skirt"
 	body_parts_covered = CHEST|GROIN|ARMS
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
