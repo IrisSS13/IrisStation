@@ -96,8 +96,8 @@ export const ArmamentStation = (props) => {
                                 <img
                                   src={`data:image/jpeg;base64,${item.icon}`}
                                   style={{
-                                    verticalAlign: 'middle',
-                                    textAlign: 'center',
+                                    'vertical-align': 'middle',
+                                    'horizontal-align': 'middle',
                                   }}
                                 />
                                 &nbsp;{item.name}
@@ -120,15 +120,15 @@ export const ArmamentStation = (props) => {
                         item.ref === weapon && (
                           <Stack vertical key={item.ref}>
                             <Stack.Item>
-                              <Image
-                                src={`data:image/jpeg;base64,${item.icon}`}
-                                height="100%"
-                                width="100%"
-                                style={{
-                                  verticalAlign: 'middle',
-                                  textAlign: 'center',
+                              <Image>
+                                src=
+                                {`data:image/jpeg;base64,${item.icon}`}
+                                height={'100%'} width={'100%'} style=
+                                {{
+                                  'vertical-align': 'middle',
+                                  'horizontal-align': 'middle',
                                 }}
-                              />
+                              </Image>
                             </Stack.Item>
                             <Stack.Item>{item.description}</Stack.Item>
                             <Stack.Item
