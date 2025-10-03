@@ -22,7 +22,9 @@
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/stars(null, src) //iris edit
 		/* iris removal
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/layer_2(null, src)
+		*/
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/planet(null, src)
+		/*
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/nebula(null, src)
 		if(SSparallax.random_layer)
 			C.parallax_layers_cached += new SSparallax.random_layer.type(null, src, FALSE, SSparallax.random_layer)
@@ -370,7 +372,9 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 /atom/movable/screen/parallax_layer/random/asteroids
 	icon_state = "asteroids"
 	layer = 4
+*/
 /atom/movable/screen/parallax_layer/planet
+	icon = 'icons/effects/parallax.dmi'
 	icon_state = "planet"
 	blend_mode = BLEND_OVERLAY
 	absolute = TRUE //Status of seperation
@@ -404,6 +408,5 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 
 /atom/movable/screen/parallax_layer/planet/update_o()
 	return //Shit won't move
-*/ //iris removal end
 
 #undef PARALLAX_ICON_SIZE
