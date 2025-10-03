@@ -136,9 +136,6 @@
 
 /obj/item/gun/ballistic/rifle/boltaction/harpoon/explorer
 	pin = /obj/item/firing_pin/explorer
-/obj/item/storage/toolbox/guncase/nova/harpoon
-	weapon_to_spawn = /obj/item/gun/ballistic/rifle/boltaction/harpoon/explorer
-	extra_to_spawn = /obj/item/ammo_casing/harpoon
 
 // Lasers
 /obj/item/gun/energy/laser/carbine/explorer
@@ -173,7 +170,7 @@
 /obj/item/choice_beacon/explorer/generate_display_names()
 	var/static/list/selectable_gun_types = list(
 		"Double Barrel Shotgun" = /obj/item/gun/ballistic/shotgun/doublebarrel/explorer,
-		"Harpoon Gun" = /obj/item/storage/toolbox/guncase/nova/harpoon,
+		"Harpoon Gun" = /obj/item/gun/ballistic/rifle/boltaction/harpoon/explorer,
 		"Laser Carbine" = /obj/item/gun/energy/laser/explorer,
 		"Laser Auto-Carbine" = /obj/item/gun/energy/laser/carbine/explorer,
 		"Guêpe Pistol" = /obj/item/gun/ballistic/automatic/pistol/sol/explorer,

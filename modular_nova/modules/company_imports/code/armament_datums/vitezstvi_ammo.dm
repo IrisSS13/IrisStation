@@ -218,3 +218,14 @@
 /datum/armament_entry/company_import/vitezstvi/grenade_shells/phosphor
 	item_type = /obj/item/ammo_box/c980grenade/shrapnel/phosphor
 	restricted = TRUE
+
+// IRIS ADDITION START
+
+/datum/armament_entry/company_import/vitezstvi/misc
+	subcategory = "Miscellaneous"
+	cost = PAYCHECK_CREW
+
+/datum/armament_entry/company_import/vitezstvi/misc/harpoon
+	item_type = /obj/item/ammo_casing/harpoon
+
+// IRIS ADDITION END
