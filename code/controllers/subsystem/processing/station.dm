@@ -27,7 +27,7 @@ PROCESSING_SUBSYSTEM_DEF(station)
 	#endif
 
 	announcer = new announcer() //Initialize the station's announcer datum
-	SSparallax.post_station_setup() //Apply station effects that parallax might have
+	//SSparallax.post_station_setup() //Apply station effects that parallax might have
 
 	return SS_INIT_SUCCESS
 

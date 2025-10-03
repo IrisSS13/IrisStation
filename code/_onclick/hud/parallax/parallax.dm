@@ -1,4 +1,5 @@
 
+#define PARALLAX_ICON_SIZE 672 // monkestation edit
 /datum/hud/proc/create_parallax(mob/viewmob)
 	var/mob/screenmob = viewmob || mymob
 	var/client/C = screenmob.client
@@ -18,11 +19,15 @@
 	if(!length(C.parallax_layers_cached))
 		C.parallax_layers_cached = list()
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/layer_1(null, src)
+		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/stars(null, src) //monkestation edit
+		/* monkestation removal
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/layer_2(null, src)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/planet(null, src)
+		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/nebula(null, src)
 		if(SSparallax.random_layer)
-			C.parallax_layers_cached += new SSparallax.random_layer.type(null, src, FALSE, SSparallax.random_layer)
+			C.parallax_layers_cached += new SSparallax.random_layer(null, src)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/layer_3(null, src)
+		*/ //monkestation removal end
 
 	C.parallax_layers = C.parallax_layers_cached.Copy()
 
@@ -62,7 +67,12 @@
 	var/turf/screen_location = get_turf(screenmob)
 
 	if(SSmapping.level_trait(screen_location?.z, ZTRAIT_NOPARALLAX))
+		for(var/atom/movable/screen/plane_master/white_space as anything in get_true_plane_masters(PLANE_SPACE))
+			white_space.hide_plane(screenmob)
 		return FALSE
+
+	for(var/atom/movable/screen/plane_master/white_space as anything in get_true_plane_masters(PLANE_SPACE))
+		white_space.unhide_plane(screenmob)
 
 	if (SSlag_switch.measures[DISABLE_PARALLAX] && !HAS_TRAIT(viewmob, TRAIT_BYPASS_MEASURES))
 		return FALSE
@@ -115,13 +125,13 @@
 	var/matrix/new_transform
 	switch(animation_dir)
 		if(NORTH)
-			new_transform = matrix(1, 0, 0, 0, 1, 480)
+			new_transform = matrix(1, 0, 0, 0, 1, PARALLAX_ICON_SIZE)
 		if(SOUTH)
-			new_transform = matrix(1, 0, 0, 0, 1,-480)
+			new_transform = matrix(1, 0, 0, 0, 1,-PARALLAX_ICON_SIZE)
 		if(EAST)
-			new_transform = matrix(1, 0, 480, 0, 1, 0)
+			new_transform = matrix(1, 0, PARALLAX_ICON_SIZE, 0, 1, 0)
 		if(WEST)
-			new_transform = matrix(1, 0,-480, 0, 1, 0)
+			new_transform = matrix(1, 0,-PARALLAX_ICON_SIZE, 0, 1, 0)
 
 	var/longest_timer = 0
 	for(var/key in C.parallax_animate_timers)
@@ -187,7 +197,7 @@
 	if(!offset_x && !offset_y && !force)
 		return
 
-	var/glide_rate = round(ICON_SIZE_ALL / screenmob.glide_size * world.tick_lag, world.tick_lag)
+	var/glide_rate = round(world.icon_size / screenmob.glide_size * world.tick_lag, world.tick_lag)
 	C.previous_turf = posobj
 
 	var/largest_change = max(abs(offset_x), abs(offset_y))
@@ -211,17 +221,17 @@
 
 			// This is how we tile parralax sprites
 			// It doesn't use change because we really don't want to animate this
-			if(old_x - change_x > 240)
-				parallax_layer.offset_x -= 480
+			if(old_x - change_x > (PARALLAX_ICON_SIZE / 2))
+				parallax_layer.offset_x -= PARALLAX_ICON_SIZE
 				parallax_layer.pixel_w = parallax_layer.offset_x
-			else if(old_x - change_x < -240)
-				parallax_layer.offset_x += 480
+			else if(old_x - change_x < -(PARALLAX_ICON_SIZE / 2))
+				parallax_layer.offset_x += PARALLAX_ICON_SIZE
 				parallax_layer.pixel_w = parallax_layer.offset_x
-			if(old_y - change_y > 240)
-				parallax_layer.offset_y -= 480
+			if(old_y - change_y > (PARALLAX_ICON_SIZE / 2))
+				parallax_layer.offset_y -= PARALLAX_ICON_SIZE
 				parallax_layer.pixel_z = parallax_layer.offset_y
-			else if(old_y - change_y < -240)
-				parallax_layer.offset_y += 480
+			else if(old_y - change_y < -(PARALLAX_ICON_SIZE / 2))
+				parallax_layer.offset_y += PARALLAX_ICON_SIZE
 				parallax_layer.pixel_z = parallax_layer.offset_y
 
 		parallax_layer.offset_x -= change_x
@@ -257,7 +267,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_home)
 // We need parallax to always pass its args down into initialize, so we immediate init it
 INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 /atom/movable/screen/parallax_layer
-	icon = 'icons/effects/parallax.dmi'
+	icon = 'modular_iris/master_files/icons/effects/skybox.dmi' //monkestation edit
 	var/speed = 1
 	var/offset_x = 0
 	var/offset_y = 0
@@ -267,17 +277,13 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 	plane = PLANE_SPACE_PARALLAX
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
-/atom/movable/screen/parallax_layer/Initialize(mapload, datum/hud/hud_owner, template = FALSE)
+/atom/movable/screen/parallax_layer/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
-	// Parallax layers are independent of hud, they care about client
+	// Parallax layers are independant of hud, they care about client
 	// Not doing this will just create a bunch of hard deletes
 	set_new_hud(hud_owner = null)
 
-	if(template)
-		return
-
 	var/client/boss = hud_owner?.mymob?.canon_client
-
 	if(!boss) // If this typepath all starts to harddel your culprit is likely this
 		return INITIALIZE_HINT_QDEL
 
@@ -293,8 +299,8 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 /atom/movable/screen/parallax_layer/proc/update_o(view)
 	if (!view)
 		view = world.view
-	var/static/pixel_grid_size = ICON_SIZE_ALL * 15
-	var/static/parallax_scaler = ICON_SIZE_ALL / pixel_grid_size
+
+	var/static/parallax_scaler = world.icon_size / PARALLAX_ICON_SIZE //monkestation edit
 
 	// Turn the view size into a grid of correctly scaled overlays
 	var/list/viewscales = getviewsize(view)
@@ -307,13 +313,30 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 			if(x == 0 && y == 0)
 				continue
 			var/mutable_appearance/texture_overlay = mutable_appearance(icon, icon_state)
-			texture_overlay.pixel_w += pixel_grid_size * x
-			texture_overlay.pixel_z += pixel_grid_size * y
+			texture_overlay.pixel_w += PARALLAX_ICON_SIZE * x
+			texture_overlay.pixel_z += PARALLAX_ICON_SIZE * y
 			new_overlays += texture_overlay
 	cut_overlays()
 	add_overlay(new_overlays)
 
+//monkestation edit start
 /atom/movable/screen/parallax_layer/layer_1
+	icon_state = "dyable" // monkestation edit
+	blend_mode = BLEND_OVERLAY
+	speed = 0.5
+	layer = 1
+
+/atom/movable/screen/parallax_layer/layer_1/Initialize(mapload, datum/hud/hud_owner)
+	. = ..()
+	src.add_atom_colour(GLOB.starlight_color, ADMIN_COLOUR_PRIORITY)
+
+/atom/movable/screen/parallax_layer/stars
+	icon_state = "stars"
+	blend_mode = BLEND_OVERLAY
+	layer = 1
+	speed = 0.5
+//monkestation edit end
+/* monkestation removal start
 	icon_state = "layer1"
 	speed = 0.6
 	layer = 1
@@ -328,10 +351,25 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 	speed = 1.4
 	layer = 3
 
+/atom/movable/screen/parallax_layer/random
+	blend_mode = BLEND_OVERLAY
+	speed = 3
+	layer = 3
+
+/atom/movable/screen/parallax_layer/random/space_gas
+	icon_state = "space_gas"
+
+/atom/movable/screen/parallax_layer/random/space_gas/Initialize(mapload, datum/hud/hud_owner)
+	. = ..()
+	add_atom_colour(SSparallax.random_parallax_color, ADMIN_COLOUR_PRIORITY)
+
+/atom/movable/screen/parallax_layer/random/asteroids
+	icon_state = "asteroids"
+	layer = 4
 /atom/movable/screen/parallax_layer/planet
 	icon_state = "planet"
 	blend_mode = BLEND_OVERLAY
-	absolute = TRUE //Status of separation
+	absolute = TRUE //Status of seperation
 	speed = 3
 	layer = 30
 
@@ -358,7 +396,10 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 	var/turf/posobj = get_turf(boss?.eye)
 	if(!posobj)
 		return
-	SetInvisibility(is_station_level(posobj.z) ? INVISIBILITY_NONE : INVISIBILITY_ABSTRACT, id=type)
+	invisibility = is_station_level(posobj.z) ? 0 : INVISIBILITY_ABSTRACT
 
 /atom/movable/screen/parallax_layer/planet/update_o()
 	return //Shit won't move
+*/ //monkestation removal end
+
+#undef PARALLAX_ICON_SIZE
