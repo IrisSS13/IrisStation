@@ -1,5 +1,5 @@
 
-#define PARALLAX_ICON_SIZE 672 // monkestation edit
+#define PARALLAX_ICON_SIZE 672 // iris edit
 /datum/hud/proc/create_parallax(mob/viewmob)
 	var/mob/screenmob = viewmob || mymob
 	var/client/C = screenmob.client
@@ -19,15 +19,15 @@
 	if(!length(C.parallax_layers_cached))
 		C.parallax_layers_cached = list()
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/layer_1(null, src)
-		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/stars(null, src) //monkestation edit
-		/* monkestation removal
+		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/stars(null, src) //iris edit
+		/* iris removal
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/layer_2(null, src)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/planet(null, src)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/nebula(null, src)
 		if(SSparallax.random_layer)
 			C.parallax_layers_cached += new SSparallax.random_layer(null, src)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/layer_3(null, src)
-		*/ //monkestation removal end
+		*/ //iris removal end
 
 	C.parallax_layers = C.parallax_layers_cached.Copy()
 
@@ -267,7 +267,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_home)
 // We need parallax to always pass its args down into initialize, so we immediate init it
 INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 /atom/movable/screen/parallax_layer
-	icon = 'modular_iris/master_files/icons/effects/skybox.dmi' //monkestation edit
+	icon = 'modular_iris/master_files/icons/effects/skybox.dmi' //iris edit
 	var/speed = 1
 	var/offset_x = 0
 	var/offset_y = 0
@@ -300,7 +300,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 	if (!view)
 		view = world.view
 
-	var/static/parallax_scaler = world.icon_size / PARALLAX_ICON_SIZE //monkestation edit
+	var/static/parallax_scaler = world.icon_size / PARALLAX_ICON_SIZE //iris edit
 
 	// Turn the view size into a grid of correctly scaled overlays
 	var/list/viewscales = getviewsize(view)
@@ -319,9 +319,9 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 	cut_overlays()
 	add_overlay(new_overlays)
 
-//monkestation edit start
+//iris edit start
 /atom/movable/screen/parallax_layer/layer_1
-	icon_state = "dyable" // monkestation edit
+	icon_state = "dyable" // iris edit
 	blend_mode = BLEND_OVERLAY
 	speed = 0.5
 	layer = 1
@@ -335,8 +335,8 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 	blend_mode = BLEND_OVERLAY
 	layer = 1
 	speed = 0.5
-//monkestation edit end
-/* monkestation removal start
+//iris edit end
+/* iris removal start
 	icon_state = "layer1"
 	speed = 0.6
 	layer = 1
@@ -400,6 +400,6 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 
 /atom/movable/screen/parallax_layer/planet/update_o()
 	return //Shit won't move
-*/ //monkestation removal end
+*/ //iris removal end
 
 #undef PARALLAX_ICON_SIZE
