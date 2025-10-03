@@ -374,10 +374,10 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 	layer = 4
 */
 /atom/movable/screen/parallax_layer/planet
-	icon = 'icons/effects/parallax.dmi'
+	icon = 'icons/effects/parallax.dmi' //IRIS ADDITION: need it since main one uses other dmi
 	icon_state = "planet"
 	blend_mode = BLEND_OVERLAY
-	absolute = TRUE //Status of seperation
+	absolute = TRUE //Status of separation
 	speed = 3
 	layer = 30
 
