@@ -1,7 +1,7 @@
 ///The base color of light space emits
 GLOBAL_VAR_INIT(base_starlight_color, default_starlight_color())
 ///The color of light space is currently emitting
-GLOBAL_VAR_INIT(starlight_color, pick(COLOR_TEAL, COLOR_GREEN, COLOR_CYAN, COLOR_ORANGE, COLOR_PURPLE, COLOR_RED, COLOR_BLUE, COLOR_GREEN, COLOR_MAGENTA))
+GLOBAL_VAR_INIT(starlight_color, default_starlight_color())
 /proc/default_starlight_color()
 	var/turf/open/space/read_from = /turf/open/space
 	return initial(read_from.light_color)
@@ -42,7 +42,6 @@ GLOBAL_VAR_INIT(starlight_power, default_starlight_power())
 
 GLOBAL_LIST_EMPTY(starlight)
 
-
 /turf/open/space
 	icon = 'icons/turf/space.dmi'
 	MAP_SWITCH(icon_state = "space", icon_state = "space_map")
@@ -63,6 +62,7 @@ GLOBAL_LIST_EMPTY(starlight)
 	layer = SPACE_LAYER
 	light_power = 1
 	light_range = 2
+	light_color = COLOR_STARLIGHT
 	light_height = LIGHTING_HEIGHT_SPACE
 	light_on = FALSE
 	space_lit = TRUE

@@ -199,7 +199,7 @@
 	if(!offset_x && !offset_y && !force)
 		return
 
-	var/glide_rate = round(world.icon_size / screenmob.glide_size * world.tick_lag, world.tick_lag)
+	var/glide_rate = round(ICON_SIZE_ALL / screenmob.glide_size * world.tick_lag, world.tick_lag)
 	C.previous_turf = posobj
 
 	var/largest_change = max(abs(offset_x), abs(offset_y))
@@ -334,7 +334,8 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 
 /atom/movable/screen/parallax_layer/layer_1/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
-	src.add_atom_colour(GLOB.starlight_color, ADMIN_COLOUR_PRIORITY)
+	var/possible_colors = pick(COLOR_TEAL, COLOR_GREEN, COLOR_CYAN, COLOR_ORANGE, COLOR_PURPLE, COLOR_RED, COLOR_BLUE, COLOR_GREEN, COLOR_MAGENTA)
+	src.add_atom_colour(possible_colors, ADMIN_COLOUR_PRIORITY)
 
 /atom/movable/screen/parallax_layer/stars
 	icon_state = "stars"
