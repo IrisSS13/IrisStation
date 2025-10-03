@@ -25,7 +25,7 @@
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/planet(null, src)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/nebula(null, src)
 		if(SSparallax.random_layer)
-			C.parallax_layers_cached += new SSparallax.random_layer(null, src)
+			C.parallax_layers_cached += new SSparallax.random_layer.type(null, src, FALSE, SSparallax.random_layer)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/layer_3(null, src)
 		*/ //iris removal end
 
@@ -277,13 +277,17 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 	plane = PLANE_SPACE_PARALLAX
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
-/atom/movable/screen/parallax_layer/Initialize(mapload, datum/hud/hud_owner)
+/atom/movable/screen/parallax_layer/Initialize(mapload, datum/hud/hud_owner, template = FALSE)
 	. = ..()
-	// Parallax layers are independant of hud, they care about client
+	// Parallax layers are independent of hud, they care about client
 	// Not doing this will just create a bunch of hard deletes
 	set_new_hud(hud_owner = null)
 
+	if(template)
+		return
+
 	var/client/boss = hud_owner?.mymob?.canon_client
+
 	if(!boss) // If this typepath all starts to harddel your culprit is likely this
 		return INITIALIZE_HINT_QDEL
 
@@ -299,7 +303,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 /atom/movable/screen/parallax_layer/proc/update_o(view)
 	if (!view)
 		view = world.view
-
+	var/static/pixel_grid_size = ICON_SIZE_ALL * 15
 	var/static/parallax_scaler = world.icon_size / PARALLAX_ICON_SIZE //iris edit
 
 	// Turn the view size into a grid of correctly scaled overlays
@@ -396,7 +400,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 	var/turf/posobj = get_turf(boss?.eye)
 	if(!posobj)
 		return
-	invisibility = is_station_level(posobj.z) ? 0 : INVISIBILITY_ABSTRACT
+	SetInvisibility(is_station_level(posobj.z) ? INVISIBILITY_NONE : INVISIBILITY_ABSTRACT, id=type)
 
 /atom/movable/screen/parallax_layer/planet/update_o()
 	return //Shit won't move
