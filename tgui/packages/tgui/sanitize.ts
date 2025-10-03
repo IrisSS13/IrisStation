@@ -72,7 +72,6 @@ const advTag = ['img'];
 
 // Allowed HTML attributes for paper formatting
 const allowedAttr = [
-  'class',
   'style',
   'color',
   'align',
@@ -90,6 +89,13 @@ const allowedAttr = [
   'lang',
   'title',
   'id',
+  'nowrap',
+  'scope',
+  'headers',
+  'axis',
+  'abbr',
+  'alt',
+  'bgcolor',
 ];
 
 // Forbidden attributes that could be security risks
@@ -109,6 +115,31 @@ const forbiddenAttr = [
   'action',
   'method',
   'target',
+  'onreset',
+  'onkeydown',
+  'onkeyup',
+  'onkeypress',
+  'onabort',
+  'onbeforeunload',
+  'onhashchange',
+  'onmessage',
+  'onoffline',
+  'ononline',
+  'onpagehide',
+  'onpageshow',
+  'onpopstate',
+  'onresize',
+  'onstorage',
+  'onunload',
+  'oncontextmenu',
+  'oninput',
+  'oninvalid',
+  'onsearch',
+  'formaction',
+  'form',
+  'xmlns',
+  'xlink:href',
+  'class',
 ];
 
 // Safe CSS properties that can be used in styling
@@ -160,6 +191,20 @@ const allowedCssProperties = [
   'white-space',
   'overflow',
   'text-indent',
+  'border-radius',
+  'visibility',
+  'opacity',
+  'position',
+  'top',
+  'right',
+  'bottom',
+  'left',
+  'z-index',
+  'list-style',
+  'list-style-type',
+  'list-style-position',
+  'list-style-image',
+  'border-collapse',
 ];
 
 // CSS values that should be blocked for security
