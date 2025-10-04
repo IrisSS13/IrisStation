@@ -21,24 +21,11 @@
 			var/obj/obj_atom = item
 			if(initial(obj_atom.icon_state_preview))
 				icon_state = initial(obj_atom.icon_state_preview)
-		var/has_gags = initial(item.greyscale_config) && initial(item.greyscale_colors)
-		var/has_color = initial(item.color) && icon_state
-		// GAGS and colored icons must be pregenerated
-		// Otherwise we can rely on DMIcon, so skip it to save init time
-		if(!has_gags && !has_color)
-			continue
-
+		// IRIS EDIT - Always generate icons for all items, regardless of GAGS or color
 		if (PERFORM_ALL_TESTS(focus_only/invalid_vending_machine_icon_states))
-			if (!has_gags && !icon_exists(initial(item.icon), icon_state))
+			if (!icon_exists(initial(item.icon), icon_state))
 				var/icon_file = initial(item.icon)
-				var/icon_states_string
-				for (var/an_icon_state in icon_states(icon_file))
-					if (!icon_states_string)
-						icon_states_string = "[json_encode(an_icon_state)]([text_ref(an_icon_state)])"
-					else
-						icon_states_string += ", [json_encode(an_icon_state)]([text_ref(an_icon_state)])"
-
-				stack_trace("[item] does not have a valid icon state, icon=[icon_file], icon_state=[json_encode(icon_state)]([text_ref(icon_state)]), icon_states=[icon_states_string]")
+				stack_trace("[item] does not have a valid icon state, icon=[icon_file], icon_state=[json_encode(icon_state)]([text_ref(icon_state)])")
 				continue
 
 		var/imgid = replacetext(replacetext("[item]", "/obj/item/", ""), "/", "-")
