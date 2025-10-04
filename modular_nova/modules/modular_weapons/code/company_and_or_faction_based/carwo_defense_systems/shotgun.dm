@@ -97,7 +97,7 @@
 	)
 	icon_state = "renoster_super"
 	inhand_icon_state = "renoster_super"
-	lore_blurb = "The Nachtreiher is an overhaul of the robust M64 shotgun of SolGov fame, improving on an already lethal design.<br><br>\
+	lore_blurb = "The Nachtreiher is an overhaul of the robust M64 shotgun of SolFed fame, improving on an already lethal design.<br><br>\
 		More precisely, the Archon Combat Systems \"KOLBEN/NACHTREIHER\" suite (as it's officially known) is an upgrade and accessory set for the M64, \
 		featuring an extended magazine tube, smartlink sight, and improved-ergonomics pump. \
 		An auxiliary barrel charger provides improved ballistic performance, but, when activated, \

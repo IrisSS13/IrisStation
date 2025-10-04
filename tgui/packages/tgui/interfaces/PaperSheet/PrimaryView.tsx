@@ -1,4 +1,3 @@
-/** biome-ignore-all lint/complexity/useLiteralKeys: <explanation> */
 import { Component, createRef, type RefObject } from 'react';
 import { Box, Button, Flex, Section, TextArea } from 'tgui-core/components';
 

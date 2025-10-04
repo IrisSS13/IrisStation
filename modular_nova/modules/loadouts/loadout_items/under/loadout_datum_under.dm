@@ -355,7 +355,6 @@
 	name = "Tuxedo Suit"
 	item_path = /obj/item/clothing/under/suit/tuxedo
 
-/datum/loadout_item/under/formal/pencil/tan
-	name = "Pencilskirt (Tan)"
-	item_path = /obj/item/clothing/under/suit/nova/pencil/tan
-	can_be_greyscale = DONT_GREYSCALE
+/datum/loadout_item/under/formal/waiter
+	name = "Waiter's Suit"
+	item_path = /obj/item/clothing/under/suit/waiter
