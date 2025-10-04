@@ -17,16 +17,14 @@
 			continue
 
 		var/icon_state = initial(item.icon_state)
-		if(ispath(item, /obj))
-			var/obj/obj_atom = item
-			if(initial(obj_atom.icon_state_preview))
-				icon_state = initial(obj_atom.icon_state_preview)
-		// IRIS EDIT - Always generate icons for all items, regardless of GAGS or color
-		if (PERFORM_ALL_TESTS(focus_only/invalid_vending_machine_icon_states))
-			if (!icon_exists(initial(item.icon), icon_state))
+		if(!icon_state || !istext(icon_state))
+			continue
+
+		if(!icon_exists(initial(item.icon), icon_state))
+			if (PERFORM_ALL_TESTS(focus_only/invalid_vending_machine_icon_states))
 				var/icon_file = initial(item.icon)
 				stack_trace("[item] does not have a valid icon state, icon=[icon_file], icon_state=[json_encode(icon_state)]([text_ref(icon_state)])")
-				continue
+			continue
 
 		var/imgid = replacetext(replacetext("[item]", "/obj/item/", ""), "/", "-")
 		insert_icon(imgid, get_display_icon_for(item))
