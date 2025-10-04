@@ -331,7 +331,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 	. = ..()
 	var/possible_colors = pick(COLOR_TEAL, COLOR_GREEN, COLOR_CYAN, COLOR_ORANGE, COLOR_PURPLE, COLOR_RED, COLOR_BLUE, COLOR_GREEN, COLOR_MAGENTA)
 	src.add_atom_colour(possible_colors, ADMIN_COLOUR_PRIORITY)
-	set_base_starlight(possible_colors)
+	set_starlight(possible_colors)
 
 /atom/movable/screen/parallax_layer/stars
 	icon_state = "stars"
