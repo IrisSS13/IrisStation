@@ -444,6 +444,7 @@
 		/obj/item/t_scanner,
 		/obj/item/analyzer,
 		/obj/item/storage/medkit,
+		/obj/item/storage/belt/machete, // IRIS ADDITION
 	)
 	variants = list(
 		"colonist" = list(
