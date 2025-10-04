@@ -306,7 +306,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 	if (!view)
 		view = world.view
 	var/static/pixel_grid_size = ICON_SIZE_ALL * 15
-	var/static/parallax_scaler = world.icon_size / PARALLAX_ICON_SIZE //iris edit
+	var/static/parallax_scaler = ICON_SIZE_ALL / PARALLAX_ICON_SIZE //iris edit
 
 	// Turn the view size into a grid of correctly scaled overlays
 	var/list/viewscales = getviewsize(view)
