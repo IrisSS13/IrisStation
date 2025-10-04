@@ -476,7 +476,7 @@
 /datum/station_trait/nebula/New()
 	. = ..()
 
-	SSparallax.swap_out_random_parallax_layer(nebula_layer)
+	//SSparallax.swap_out_random_parallax_layer(nebula_layer)
 
 	//Color the carp in unique colors to better blend with the nebula
 	if(carp_color_override)
