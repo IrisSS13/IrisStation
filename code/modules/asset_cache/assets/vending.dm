@@ -16,15 +16,21 @@
 		if (!ispath(item, /atom))
 			continue
 
+		var/icon_file = initial(item.icon)
 		var/icon_state = initial(item.icon_state)
 		if(!icon_state || !istext(icon_state))
 			continue
 
-		if(!icon_exists(initial(item.icon), icon_state))
-			if (PERFORM_ALL_TESTS(focus_only/invalid_vending_machine_icon_states))
-				var/icon_file = initial(item.icon)
-				stack_trace("[item] does not have a valid icon state, icon=[icon_file], icon_state=[json_encode(icon_state)]([text_ref(icon_state)])")
-			continue
+		// Try to load the icon - first with the given state
+		if(!icon_exists(icon_file, icon_state))
+			// If that fails, try using just the last part of a full path
+			var/last_part = copytext(icon_state, findlasttext(icon_state, "/") + 1)
+			if(last_part && icon_exists(icon_file, last_part))
+				icon_state = last_part
+			else
+				if (PERFORM_ALL_TESTS(focus_only/invalid_vending_machine_icon_states))
+					stack_trace("[item] does not have a valid icon state, icon=[icon_file], icon_state=[json_encode(icon_state)]([text_ref(icon_state)])")
+				continue
 
 		var/imgid = replacetext(replacetext("[item]", "/obj/item/", ""), "/", "-")
 		insert_icon(imgid, get_display_icon_for(item))
