@@ -2,7 +2,7 @@
 	name = "\improper Assistant sleeper"
 	desc = "A dirty cryogenic sleeper."
 	density = FALSE
-	you_are_text = "You used to be a Nanotrasen assistant, until a riot gone awry. You've joined a faction called the Tidy Tiders afterwards, wandering through space."
+	you_are_text = "You used to be a Nanotrasen assistant, until your station was bombed irrepairably. You've joined a faction called the Tidy Tiders afterwards, wandering through space."
 	flavour_text = "Be civil, and if the crew rejects your payment, unleash bloodshed."
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper"
@@ -17,6 +17,6 @@
 
 /obj/effect/mob_spawn/ghost_role/human/pirate/grey/tidy/captain
 	prompt_name = "an assistant captain"
-	you_are_text = "You used to be a Nanotrasen assistant, until a riot gone awry. You've made a faction called the Tidy Tiders afterwards, wandering through space and recruiting anyone else."
+	you_are_text = "You used to be a Nanotrasen assistant, until your station was bombed irrepairably. You've made a faction called the Tidy Tiders afterwards, wandering through space and recruiting anyone else."
 	rank = "Tider Maximus"
 	outfit = /datum/outfit/pirate/tider/captain
