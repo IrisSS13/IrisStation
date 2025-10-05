@@ -326,6 +326,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 	blend_mode = BLEND_OVERLAY
 	speed = 0.5
 	layer = 1
+	///This NEEDS to be a static, otherwise space turns into a bigass rave
 	var/static/skybox_starlight = pick(COLOR_TEAL, COLOR_GREEN, COLOR_CYAN, COLOR_ORANGE, COLOR_PURPLE, COLOR_RED, COLOR_BLUE, COLOR_GREEN, COLOR_MAGENTA)
 
 /atom/movable/screen/parallax_layer/layer_1/Initialize(mapload, datum/hud/hud_owner)
