@@ -54,15 +54,17 @@
 				final_state = last_part
 				can_use_state = TRUE
 
-		// If we can't find the icon state and we're in test mode, report it
-		if(!can_use_state && PERFORM_ALL_TESTS(focus_only/invalid_vending_machine_icon_states))
-			var/icon_states_string
-			for(var/an_icon_state in icon_states(icon_file))
-				if(!icon_states_string)
-					icon_states_string = "[json_encode(an_icon_state)]([text_ref(an_icon_state)])"
-				else
-					icon_states_string += ", [json_encode(an_icon_state)]([text_ref(an_icon_state)])"
-			stack_trace("[item] does not have a valid icon state, icon=[icon_file], icon_state=[json_encode(icon_state)]([text_ref(icon_state)]), icon_states=[icon_states_string]")
+		// If we can't find the icon state, skip this item
+		if(!can_use_state)
+			// Report it in test mode
+			if(PERFORM_ALL_TESTS(focus_only/invalid_vending_machine_icon_states))
+				var/icon_states_string
+				for(var/an_icon_state in icon_states(icon_file))
+					if(!icon_states_string)
+						icon_states_string = "[json_encode(an_icon_state)]([text_ref(an_icon_state)])"
+					else
+						icon_states_string += ", [json_encode(an_icon_state)]([text_ref(an_icon_state)])"
+				stack_trace("[item] does not have a valid icon state, icon=[icon_file], icon_state=[json_encode(icon_state)]([text_ref(icon_state)]), icon_states=[icon_states_string]")
 			if(temp_obj)
 				qdel(temp_obj)
 			continue
