@@ -190,7 +190,7 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	)
 
 /datum/holiday/birthday/greet()
-	var/game_age = text2num(time2text(world.timeofday, "YYYY", world.timezone)) - 2003
+	var/game_age = text2num(time2text(world.timeofday, "YYYY")) - 2003
 	var/Fact
 	switch(game_age)
 		if(16)
@@ -1027,7 +1027,7 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 
 /datum/holiday/easter/shouldCelebrate(dd, mm, yyyy, ddd)
 	if(!begin_month)
-		current_year = text2num(time2text(world.timeofday, "YYYY", world.timezone))
+		current_year = text2num(time2text(world.timeofday, "YYYY"))
 		var/list/easterResults = EasterDate(current_year+year_offset)
 
 		begin_day = easterResults["day"]
