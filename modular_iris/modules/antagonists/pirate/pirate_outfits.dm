@@ -9,7 +9,7 @@
 	glasses = /obj/item/clothing/glasses/sunglasses/solfed
 	gloves = /obj/item/clothing/gloves/combat
 	mask = /obj/item/clothing/mask/gas/alt
-	l_pocket = /obj/item/card/emag/doorjack
+	l_pocket = /obj/item/tank/internals/emergency_oxygen/engi
 	head = /obj/item/clothing/head/helmet/cin_surplus_helmet
 	shoes = /obj/item/clothing/shoes/jackboots/frontier_colonist
 	backpack_contents = list(
