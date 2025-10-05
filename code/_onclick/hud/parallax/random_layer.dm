@@ -24,7 +24,9 @@
 
 /// Gassy background with a few random colors
 /atom/movable/screen/parallax_layer/random/space_gas
-	icon_state = "space_gas"
+	icon = 'modular_iris/master_files/icons/effects/electrobox.dmi'
+	icon_state = "lightning"
+	speed = 0.5
 
 	/// The colors we can be
 	var/possible_colors = list(COLOR_TEAL, COLOR_GREEN, COLOR_SILVER, COLOR_YELLOW, COLOR_CYAN, COLOR_ORANGE, COLOR_PURPLE)
@@ -48,5 +50,6 @@
 
 /// Big asteroid rocks appear in the background
 /atom/movable/screen/parallax_layer/random/asteroids
-	icon_state = "asteroids"
+	icon = 'modular_iris/master_files/icons/effects/rockbox.dmi'
+	icon_state = "rockbox"
 	layer = 4
