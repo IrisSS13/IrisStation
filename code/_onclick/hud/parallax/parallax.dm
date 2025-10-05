@@ -353,22 +353,6 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 	icon_state = "layer3"
 	speed = 1.4
 	layer = 3
-
-/atom/movable/screen/parallax_layer/random
-	blend_mode = BLEND_OVERLAY
-	speed = 3
-	layer = 3
-
-/atom/movable/screen/parallax_layer/random/space_gas
-	icon_state = "space_gas"
-
-/atom/movable/screen/parallax_layer/random/space_gas/Initialize(mapload, datum/hud/hud_owner)
-	. = ..()
-	add_atom_colour(SSparallax.random_parallax_color, ADMIN_COLOUR_PRIORITY)
-
-/atom/movable/screen/parallax_layer/random/asteroids
-	icon_state = "asteroids"
-	layer = 4
 */
 /atom/movable/screen/parallax_layer/planet
 	icon = 'icons/effects/parallax.dmi' //IRIS ADDITION: need it since main one uses other dmi
