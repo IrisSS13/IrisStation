@@ -320,7 +320,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 
 //IRIS EDIT START
 /atom/movable/screen/parallax_layer/layer_1
-	icon_state = "dyable" // iris edit
+	icon_state = "dyable"
 	blend_mode = BLEND_OVERLAY
 	speed = 0.5
 	layer = 1
