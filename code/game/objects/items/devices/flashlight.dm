@@ -3,6 +3,8 @@
 #define NO_FUEL 2
 #define ALREADY_LIT 3
 
+//IRIS EDIT - SPRITES OVERRIDEN IN paradise_ports
+
 /obj/item/flashlight
 	name = "flashlight"
 	desc = "A hand-held emergency light."

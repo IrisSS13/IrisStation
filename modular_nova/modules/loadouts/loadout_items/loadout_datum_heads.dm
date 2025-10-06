@@ -770,7 +770,7 @@
 	item_path = /obj/item/grown/carbon_rose
 	group = "Miscellaneous"
 
-/datum/loadout_item/head/donator/fraxinella
+/datum/loadout_item/head/fraxinella		// IRIS EDIT - Made fraxinella no longer a donator item
 	name = "Flower - Fraxinella"
 	item_path = /obj/item/food/grown/poppy/geranium/fraxinella
 	group = "Miscellaneous"

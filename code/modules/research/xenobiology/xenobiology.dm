@@ -614,7 +614,8 @@
 			return 100
 
 		if(SLIME_ACTIVATE_MAJOR)
-			var/chosen = pick(subtypesof(/obj/item/slime_extract))
+//			var/chosen = pick(subtypesof(/obj/item/slime_extract)) // IRIS EDIT OLD -- UNIQUE SLIMES
+			var/chosen = pick(subtypesof(/obj/item/slime_extract) - typesof(/obj/item/slime_extract/unique)) // IRIS EDIT NEW
 			var/obj/item/O = new chosen(null)
 			if(!user.put_in_active_hand(O))
 				O.forceMove(user.drop_location())

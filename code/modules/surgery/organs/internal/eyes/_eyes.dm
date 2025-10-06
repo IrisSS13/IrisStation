@@ -747,7 +747,7 @@
 	pupils_name = "slit aperatures"
 	penlight_message = "are cybernetic, with vertically slit metalic lenses."
 
-/obj/item/organ/eyes/robotic/flashlight
+/obj/item/organ/eyes/robotic/flashlight //IRIS EDIT - SPRITE OVERRIDEN IN paradise_ports
 	name = "flashlight eyes"
 	desc = "It's two flashlights rigged together with some wire. Why would you put these in someone's head?"
 	icon_state = "flashlight_eyes"

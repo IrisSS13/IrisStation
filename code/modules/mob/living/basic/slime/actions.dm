@@ -120,15 +120,13 @@
 
 //	for(var/i in 1 to 3) IRIS EDIT OLD
 	// IRIS EDIT NEW START
-	var/split_amount = 4
+	var/split_amount = 3
 	switch(transformative_effect)
 		if(SLIME_TYPE_GREY)
 			split_amount++
 
 		if(SLIME_TYPE_CERULEAN)
-			split_amount = 2
-			new_nutrition = round(nutrition * 0.5)
-			new_powerlevel = round(powerlevel * 0.5)
+			split_amount = 1
 
 	for(var/i in 1 to split_amount)
 	// IRIS EDIT NEW END
@@ -137,6 +135,20 @@
 		for(var/slime_friend in slime_friends)
 			baby.befriend(slime_friend)
 
+		// IRIS ADDITION START
+		if(transformative_effect)
+			baby.transformative_effect = transformative_effect
+			baby.transform_effect()
+			if(baby.spawner)
+				baby.master = master
+				baby.spawner.important_text = "Assist [master] at all costs."
+
+			if(transformative_effect == SLIME_TYPE_CERULEAN)
+				baby.set_life_stage(SLIME_LIFE_STAGE_ADULT)
+				baby.update_name()
+				baby.regenerate_icons()
+				baby.set_nutrition(new_nutrition)
+		// IRIS ADDITION END
 		SSblackbox.record_feedback("tally", "slime_babies_born", 1, baby.slime_type.colour)
 		step_away(baby, src)
 
@@ -150,12 +162,26 @@
 		else
 			baby.mutation_chance = 0
 
-	set_life_stage(SLIME_LIFE_STAGE_BABY)
-	set_slime_type(get_random_mutation())
+//	set_life_stage(SLIME_LIFE_STAGE_BABY) // IRIS EDIT OLD -- Unique slimes
+	// IRIS EDIT NEW START
+	if(transformative_effect != SLIME_TYPE_CERULEAN)
+		set_life_stage(SLIME_LIFE_STAGE_BABY)
+	// IRIS EDIT NEW END
+//	set_slime_type(get_random_mutation()) // IRIS EDIT OLD -- Unique slimes
+	// IRIS EDIT NEW START
+	if(transformative_effect != SLIME_TYPE_BLUE)
+		set_slime_type(get_random_mutation())
+	// IRIS EDIT NEW END
 	amount_grown = 0
 	mutator_used = FALSE
 
 /mob/living/basic/slime/proc/get_random_mutation()
+	// IRIS ADDITION START -- Unique slimes
+	if(transformative_effect == SLIME_TYPE_CERULEAN)
+		return slime_type.type
+	if(transformative_effect == SLIME_TYPE_PYRITE)
+		return pick(subtypesof(/datum/slime_type) - /datum/slime_type/rainbow - typesof(/datum/slime_type/unique))
+	// IRIS ADDITION END
 	if(mutation_chance >= 100)
 		return /datum/slime_type/rainbow
 	else if(prob(mutation_chance))

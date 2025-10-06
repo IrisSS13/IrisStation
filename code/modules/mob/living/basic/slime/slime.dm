@@ -110,6 +110,11 @@
 	/// Our reproduction action
 	var/datum/action/innate/slime/reproduce/reproduce_action
 
+// IRIS ADDITION START -- UNIQUE SLIMES
+/mob/living/basic/slime/handle_high_gravity(gravity, seconds_per_tick, times_fired)
+	. = ..()
+	unique_mutate(SLIME_TYPE_GOLD, /datum/slime_type/unique/cobalt)
+// IRIS ADDITION END
 /mob/living/basic/slime/Initialize(mapload, new_type = /datum/slime_type/grey, new_life_stage = SLIME_LIFE_STAGE_BABY)
 
 	. = ..()
@@ -275,7 +280,8 @@
 /// If not provided with a type it will instead be random
 /mob/living/basic/slime/proc/set_slime_type(new_type = null)
 	if(isnull(new_type))
-		new_type = pick(subtypesof(/datum/slime_type))
+//		new_type = pick(subtypesof(/datum/slime_type)) // IRIS EDIT OLD -- UNIQUE SLIMES
+		new_type = pick(subtypesof(/datum/slime_type) - typesof(/datum/slime_type/unique)) // IRIS EDIT NEW
 
 	slime_type = possible_slime_types[new_type]
 	update_name()

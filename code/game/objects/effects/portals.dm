@@ -50,7 +50,7 @@
 
 /obj/effect/portal/anom
 	name = "wormhole"
-	icon = 'icons/obj/anomaly.dmi'
+	icon = 'modular_iris/icons/effects/anomalies.dmi' // IRIS EDIT - REPLACED WITH A BETTER ONE - original: icon = 'icons/obj/anomaly.dmi'
 	icon_state = "anom"
 	layer = RIPPLE_LAYER
 	plane = ABOVE_GAME_PLANE

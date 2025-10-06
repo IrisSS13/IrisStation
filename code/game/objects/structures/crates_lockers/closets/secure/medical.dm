@@ -55,19 +55,15 @@
 	open_sound_volume = 25
 	close_sound_volume = 50
 
-/obj/structure/closet/secure_closet/psychology/PopulateContents()
+/obj/structure/closet/secure_closet/psychology/PopulateContents() //IRIS EDIT - removed clothes, added garment bag
 	..()
-	new /obj/item/clothing/under/costume/buttondown/slacks/service(src)
-	new /obj/item/clothing/under/costume/buttondown/skirt/service(src)
-	new /obj/item/clothing/neck/tie/black(src)
-	new /obj/item/clothing/shoes/laceup(src)
 	new /obj/item/storage/backpack/medic(src)
-	new /obj/item/radio/headset/headset_srvmed(src)
 	new /obj/item/clipboard(src)
 	new /obj/item/clothing/suit/jacket/straight_jacket(src)
 	new /obj/item/clothing/ears/earmuffs(src)
 	new /obj/item/clothing/mask/muzzle(src)
 	new /obj/item/clothing/glasses/blindfold(src)
+	new /obj/item/storage/bag/garment/psychologist(src)
 
 /obj/structure/closet/secure_closet/chief_medical
 	name = "chief medical officer's locker"
