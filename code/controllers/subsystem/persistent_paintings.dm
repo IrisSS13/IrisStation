@@ -253,6 +253,7 @@ SUBSYSTEM_DEF(persistent_paintings)
 			new_data["patron_ckey"] = ""
 			new_data["patron_name"] = ""
 			new_data["credit_value"] = 0
+			new_data["width"] = width
 			new_data["height"] = height
 			new_data["medium"] = "Spraypaint on canvas" //Let's go with most common tool.
 			data += list(new_data)
