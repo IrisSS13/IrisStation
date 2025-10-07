@@ -12895,7 +12895,6 @@
 /turf/open/floor/iron/white,
 /area/station/medical/chemistry)
 "lkf" = (
-/obj/machinery/light/small/directional/west,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -12994,7 +12993,7 @@
 /area/station/science/ordnance/testlab)
 "lnS" = (
 /obj/structure/grille,
-/turf/closed/wall/r_wall,
+/turf/open/space/basic,
 /area/space/nearstation)
 "loi" = (
 /obj/structure/dresser,
@@ -13246,8 +13245,13 @@
 /area/station/engineering/rbmk2)
 "lBi" = (
 /obj/structure/chair/comfy/teal,
-/obj/machinery/firealarm{
-	pixel_y = 24
+/obj/structure/fluff{
+	icon = 'icons/obj/machines/wallmounts.dmi';
+	icon_state = "fire0";
+	dir = 1;
+	pixel_y = 26;
+	name = "fire alarm";
+	desc = "Pull this in case of emergency. Looks like they didn't pull it in time."
 	},
 /turf/open/floor/plating/airless,
 /area/station/asteroid)
@@ -16574,13 +16578,6 @@
 /obj/machinery/duct,
 /turf/open/floor/iron/dark,
 /area/station/engineering/break_room)
-"oOU" = (
-/obj/structure/cable,
-/obj/machinery/light/directional/south,
-/turf/open/floor/iron/dark/textured_edge{
-	dir = 1
-	},
-/area/station/hallway/primary/aft)
 "oPi" = (
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/tile/purple{
@@ -21069,6 +21066,7 @@
 "sPi" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/extinguisher_cabinet/directional/east,
+/obj/machinery/light/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/hallway/primary/aft)
 "sPs" = (
@@ -24377,8 +24375,12 @@
 /area/station/commons/fitness/locker_room)
 "wik" = (
 /obj/structure/chair/comfy/teal,
-/obj/machinery/airalarm/directional/north{
-	pixel_y = 23
+/obj/structure/fluff{
+	icon = 'icons/obj/machines/wallmounts.dmi';
+	icon_state = "alarmp";
+	pixel_y = 27;
+	name = "air alarm";
+	desc = "A machine that monitors atmosphere levels. Goes off if the area is dangerous, seems like this one won't be used anymore"
 	},
 /turf/open/floor/plating/airless,
 /area/station/asteroid)
@@ -58646,7 +58648,7 @@ ncz
 bfL
 ncz
 tIs
-oOU
+iWd
 jXr
 aiD
 ajl
