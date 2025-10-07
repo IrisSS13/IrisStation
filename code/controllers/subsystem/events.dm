@@ -189,11 +189,11 @@ GLOBAL_LIST(holidays)
 		var/delete_holiday = TRUE
 		for(var/timezone in holiday.timezones)
 			var/time_in_timezone = world.realtime + timezone HOURS
-
-			var/YYYY = text2num(time2text(time_in_timezone, "YYYY", world.timezone)) // get the current year
-			var/MM = text2num(time2text(time_in_timezone, "MM", world.timezone)) // get the current month
-			var/DD = text2num(time2text(time_in_timezone, "DD", world.timezone)) // get the current day
-			var/DDD = time2text(time_in_timezone, "DDD", world.timezone) // get the current weekday
+			
+			var/YYYY = text2num(time2text(time_in_timezone, "YYYY")) // get the current year
+			var/MM = text2num(time2text(time_in_timezone, "MM")) // get the current month
+			var/DD = text2num(time2text(time_in_timezone, "DD")) // get the current day
+			var/DDD = time2text(time_in_timezone, "DDD") // get the current weekday
 
 			if(holiday.shouldCelebrate(DD, MM, YYYY, DDD))
 				holiday.celebrate()
