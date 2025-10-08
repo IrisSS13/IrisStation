@@ -1,4 +1,5 @@
 
+#define PARALLAX_ICON_SIZE 672 //IRIS EDIT
 /datum/hud/proc/create_parallax(mob/viewmob)
 	var/mob/screenmob = viewmob || mymob
 	var/client/C = screenmob.client
@@ -18,11 +19,13 @@
 	if(!length(C.parallax_layers_cached))
 		C.parallax_layers_cached = list()
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/layer_1(null, src)
-		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/layer_2(null, src)
+		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/stars(null, src) //IRIS ADDITION
+		//C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/layer_2(null, src) //IRIS REMOVAL
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/planet(null, src)
+		//C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/nebula(null, src) //IRIS REMOVAL
 		if(SSparallax.random_layer)
 			C.parallax_layers_cached += new SSparallax.random_layer.type(null, src, FALSE, SSparallax.random_layer)
-		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/layer_3(null, src)
+		//C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/layer_3(null, src) //IRIS REMOVAL
 
 	C.parallax_layers = C.parallax_layers_cached.Copy()
 
@@ -115,13 +118,13 @@
 	var/matrix/new_transform
 	switch(animation_dir)
 		if(NORTH)
-			new_transform = matrix(1, 0, 0, 0, 1, 480)
+			new_transform = matrix(1, 0, 0, 0, 1, PARALLAX_ICON_SIZE) //IRIS EDIT
 		if(SOUTH)
-			new_transform = matrix(1, 0, 0, 0, 1,-480)
+			new_transform = matrix(1, 0, 0, 0, 1,-PARALLAX_ICON_SIZE) //IRIS EDIT
 		if(EAST)
-			new_transform = matrix(1, 0, 480, 0, 1, 0)
+			new_transform = matrix(1, 0, PARALLAX_ICON_SIZE, 0, 1, 0) //IRIS EDIT
 		if(WEST)
-			new_transform = matrix(1, 0,-480, 0, 1, 0)
+			new_transform = matrix(1, 0,-PARALLAX_ICON_SIZE, 0, 1, 0) //IRIS EDIT
 
 	var/longest_timer = 0
 	for(var/key in C.parallax_animate_timers)
@@ -211,18 +214,20 @@
 
 			// This is how we tile parralax sprites
 			// It doesn't use change because we really don't want to animate this
-			if(old_x - change_x > 240)
-				parallax_layer.offset_x -= 480
+		//IRIS EDIT START
+			if(old_x - change_x > (PARALLAX_ICON_SIZE / 2))
+				parallax_layer.offset_x -= PARALLAX_ICON_SIZE
 				parallax_layer.pixel_w = parallax_layer.offset_x
-			else if(old_x - change_x < -240)
-				parallax_layer.offset_x += 480
+			else if(old_x - change_x < -(PARALLAX_ICON_SIZE / 2))
+				parallax_layer.offset_x += PARALLAX_ICON_SIZE
 				parallax_layer.pixel_w = parallax_layer.offset_x
-			if(old_y - change_y > 240)
-				parallax_layer.offset_y -= 480
+			if(old_y - change_y > (PARALLAX_ICON_SIZE / 2))
+				parallax_layer.offset_y -= PARALLAX_ICON_SIZE
 				parallax_layer.pixel_z = parallax_layer.offset_y
-			else if(old_y - change_y < -240)
-				parallax_layer.offset_y += 480
+			else if(old_y - change_y < -(PARALLAX_ICON_SIZE / 2))
+				parallax_layer.offset_y += PARALLAX_ICON_SIZE
 				parallax_layer.pixel_z = parallax_layer.offset_y
+		//IRIS EDIT END
 
 		parallax_layer.offset_x -= change_x
 		parallax_layer.offset_y -= change_y
@@ -257,7 +262,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_home)
 // We need parallax to always pass its args down into initialize, so we immediate init it
 INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 /atom/movable/screen/parallax_layer
-	icon = 'icons/effects/parallax.dmi'
+	icon = 'modular_iris/master_files/icons/effects/skybox.dmi' //IRIS EDIT
 	var/speed = 1
 	var/offset_x = 0
 	var/offset_y = 0
@@ -294,7 +299,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 	if (!view)
 		view = world.view
 	var/static/pixel_grid_size = ICON_SIZE_ALL * 15
-	var/static/parallax_scaler = ICON_SIZE_ALL / pixel_grid_size
+	var/static/parallax_scaler = ICON_SIZE_ALL / PARALLAX_ICON_SIZE //IRIS EDIT
 
 	// Turn the view size into a grid of correctly scaled overlays
 	var/list/viewscales = getviewsize(view)
@@ -307,13 +312,35 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 			if(x == 0 && y == 0)
 				continue
 			var/mutable_appearance/texture_overlay = mutable_appearance(icon, icon_state)
-			texture_overlay.pixel_w += pixel_grid_size * x
-			texture_overlay.pixel_z += pixel_grid_size * y
+			texture_overlay.pixel_w += PARALLAX_ICON_SIZE * x //IRIS EDIT
+			texture_overlay.pixel_z += PARALLAX_ICON_SIZE * y //IRIS EDIT
 			new_overlays += texture_overlay
 	cut_overlays()
 	add_overlay(new_overlays)
 
+//IRIS EDIT START
 /atom/movable/screen/parallax_layer/layer_1
+	icon_state = "dyable"
+	blend_mode = BLEND_OVERLAY
+	speed = 0.5
+	layer = 1
+	///This NEEDS to be a static, otherwise space turns into a bigass rave
+	var/static/skybox_starlight = pick(COLOR_TEAL, COLOR_GREEN, COLOR_CYAN, COLOR_ORANGE, COLOR_PURPLE, COLOR_RED, COLOR_BLUE, COLOR_GREEN, COLOR_MAGENTA)
+
+/atom/movable/screen/parallax_layer/layer_1/Initialize(mapload, datum/hud/hud_owner)
+	. = ..()
+	src.add_atom_colour(skybox_starlight, ADMIN_COLOUR_PRIORITY)
+	set_base_starlight(skybox_starlight)
+
+/atom/movable/screen/parallax_layer/stars
+	icon_state = "stars"
+	blend_mode = BLEND_OVERLAY
+	layer = 1
+	speed = 0.5
+//IRIS EDIT END
+
+//IRIS REMOVAL START
+/*
 	icon_state = "layer1"
 	speed = 0.6
 	layer = 1
@@ -327,8 +354,11 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 	icon_state = "layer3"
 	speed = 1.4
 	layer = 3
+*/
+//IRIS REMOVAL END
 
 /atom/movable/screen/parallax_layer/planet
+	icon = 'icons/effects/parallax.dmi' //IRIS ADDITION: need it since main one uses other dmi
 	icon_state = "planet"
 	blend_mode = BLEND_OVERLAY
 	absolute = TRUE //Status of separation
@@ -362,3 +392,5 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 
 /atom/movable/screen/parallax_layer/planet/update_o()
 	return //Shit won't move
+
+#undef PARALLAX_ICON_SIZE //IRIS EDIT
