@@ -4,4 +4,4 @@
 	icon_state = "dirt"
 	icon = 'modular_iris/icons/obj/back.dmi'
 	worn_icon = 'modular_iris/icons/mob/back.dmi'
-	worn_icon_teshari = "modular_iris/icons/mob/teshari.dmi"
+	worn_icon_teshari = 'modular_iris/icons/mob/teshari.dmi'
