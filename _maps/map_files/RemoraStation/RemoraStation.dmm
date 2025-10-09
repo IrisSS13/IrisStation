@@ -3831,13 +3831,13 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port/aft)
 "bWT" = (
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "cargounload"
-	},
 /obj/machinery/door/poddoor{
 	id = "QMLoaddoor2";
 	name = "Supply Dock Loading Door"
+	},
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "QMLoad2"
 	},
 /turf/open/floor/plating,
 /area/station/cargo/storage)
@@ -7016,7 +7016,7 @@
 	},
 /obj/machinery/conveyor{
 	dir = 4;
-	id = "cargoload"
+	id = "QMLoad"
 	},
 /turf/open/floor/iron,
 /area/station/cargo/storage)
@@ -11086,7 +11086,6 @@
 /obj/item/disk/nuclear{
 	pixel_y = 3
 	},
-/obj/structure/extinguisher_cabinet/directional/west,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/captain)
 "jry" = (
@@ -11982,6 +11981,19 @@
 "knO" = (
 /turf/open/floor/iron/white,
 /area/station/science/robotics/lab)
+"knW" = (
+/obj/effect/turf_decal/tile/brown,
+/obj/effect/turf_decal/tile/brown{
+	dir = 1
+	},
+/obj/machinery/conveyor_switch/oneway{
+	id = "QMLoad2";
+	name = "Unloading Conveyor";
+	pixel_x = 9;
+	pixel_y = 23
+	},
+/turf/open/floor/iron,
+/area/station/cargo/storage)
 "koj" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -15631,7 +15643,7 @@
 	},
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "cargounload"
+	id = "QMLoad2"
 	},
 /obj/structure/plasticflaps,
 /turf/open/floor/iron,
@@ -15905,8 +15917,12 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
 	},
-/obj/machinery/conveyor_switch{
-	id = "cargoload"
+/obj/machinery/conveyor_switch/oneway{
+	dir = 8;
+	id = "QMLoad";
+	name = "Loading Conveyor";
+	pixel_x = 9;
+	pixel_y = -1
 	},
 /turf/open/floor/iron,
 /area/station/cargo/storage)
@@ -18410,6 +18426,7 @@
 	dir = 1
 	},
 /obj/machinery/disposal/bin,
+/obj/structure/extinguisher_cabinet/directional/west,
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/captain)
 "qsc" = (
@@ -21924,11 +21941,11 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
 	},
+/obj/structure/plasticflaps,
 /obj/machinery/conveyor{
 	dir = 4;
-	id = "cargoload"
+	id = "QMLoad"
 	},
-/obj/structure/plasticflaps,
 /turf/open/floor/iron,
 /area/station/cargo/storage)
 "tJd" = (
@@ -22299,13 +22316,13 @@
 /area/station/cargo/warehouse)
 "tWS" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "cargoload"
-	},
 /obj/machinery/door/poddoor{
 	id = "QMLoaddoor";
 	name = "Supply Dock Loading Door"
+	},
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "QMLoad"
 	},
 /turf/open/floor/plating,
 /area/station/cargo/storage)
@@ -22927,7 +22944,7 @@
 	},
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "cargounload"
+	id = "QMLoad2"
 	},
 /turf/open/floor/iron,
 /area/station/cargo/storage)
@@ -23949,9 +23966,6 @@
 	dir = 1
 	},
 /obj/machinery/camera/directional/north,
-/obj/machinery/conveyor_switch{
-	id = "cargounload"
-	},
 /turf/open/floor/iron,
 /area/station/cargo/storage)
 "vPe" = (
@@ -67901,11 +67915,11 @@ trr
 liS
 aXt
 nDd
-nWL
+hGm
 nmk
+knW
 hGm
-hGm
-hGm
+nWL
 hGm
 nFO
 aaa
