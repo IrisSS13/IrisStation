@@ -25,10 +25,10 @@
 	RegisterSignal(receiver, COMSIG_CARBON_ATTEMPT_EAT, PROC_REF(try_stomach_eat))
 	RegisterSignal(receiver, COMSIG_MOB_AFTER_APPLY_DAMAGE, PROC_REF(damage_listener))
 
-/obj/item/organ/stomach/protean/on_mob_remove(mob/living/carbon/stomach_owner, special, movement_flags)
+/obj/item/organ/stomach/protean/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
 	. = ..()
-	UnregisterSignal(stomach_owner, COMSIG_CARBON_ATTEMPT_EAT)
-	UnregisterSignal(stomach_owner, COMSIG_MOB_AFTER_APPLY_DAMAGE)
+	UnregisterSignal(organ_owner, COMSIG_CARBON_ATTEMPT_EAT)
+	UnregisterSignal(organ_owner, COMSIG_MOB_AFTER_APPLY_DAMAGE)
 
 /obj/item/organ/stomach/protean/on_life(seconds_per_tick, times_fired)
 	var/datum/species/protean/species = owner?.dna.species

@@ -17,7 +17,7 @@
 	mutantheart = /obj/item/organ/heart/protean
 	mutantstomach = /obj/item/organ/stomach/protean
 	mutantlungs = null
-	mutantliver = /obj/item/organ/liver/synth
+	mutantliver = null // they have LIVERLESS_METABOLISM
 	mutantappendix = null
 	mutanteyes = /obj/item/organ/eyes/robotic/protean
 	mutantears = /obj/item/organ/ears/cybernetic/protean
@@ -54,7 +54,7 @@
 		TRAIT_GENELESS,
 		TRAIT_NO_HUSK,
 		TRAIT_NO_DNA_SCRAMBLE,
-		TRAIT_SYNTHETIC, // Not used in any code, but just in case
+		TRAIT_SYNTHETIC,
 		TRAIT_TOXIMMUNE,
 		TRAIT_NEVER_WOUNDED, // Does not wound.
 		TRAIT_VIRUSIMMUNE,

@@ -81,3 +81,9 @@
 	if(TRAIT_CHUNKYFINGERS in species_traits)
 		return FALSE
 	return ..()
+
+/datum/quirk/equipping/entombed/is_species_appropriate(datum/species/mob_species) //entombed kills you. if u no death it will get fucky. for zombies and proteans.
+	var/datum/species_traits = GLOB.species_prototypes[mob_species].inherent_traits
+	if(TRAIT_NODEATH in species_traits)
+		return FALSE
+	return ..()
