@@ -44,7 +44,7 @@
 		/datum/computer_file/program/notepad,
 		/datum/computer_file/program/crew_manifest,
 		/datum/computer_file/program/crew_self_serve, // NOVA EDIT ADDITION - Adds punch clock app to all base tablets
-		/datum/computer_file/program/maintenance/camera, // NOVA EDIT ADDITION - Adds camera to all base tablets
+		// /datum/computer_file/program/maintenance/camera, // NOVA EDIT ADDITION - Adds camera to all base tablets - IRIS EDIT TEMPORARILY DISABLED DUE TO LAG
 	)
 	///List of items that can be stored in a PDA
 	var/static/list/contained_item = list(

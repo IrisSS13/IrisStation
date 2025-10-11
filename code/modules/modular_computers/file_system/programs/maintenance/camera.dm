@@ -1,4 +1,4 @@
-/datum/computer_file/program/maintenance/camera
+/* /datum/computer_file/program/maintenance/camera
 	filename = "camera_app"
 	filedesc = "Camera"
 	program_open_overlay = "camera"
@@ -117,3 +117,5 @@
 	SIGNAL_HANDLER
 	photographed.set_output(target)
 	photo_taken.set_output(COMPONENT_SIGNAL)
+
+*/ // IRIS EDIT - TEMPORARILY DISABLED DUE TO LAG
