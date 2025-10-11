@@ -729,7 +729,7 @@ GLOBAL_LIST_INIT(human_heights_to_offsets, list(
 /// Mutantrace features (tail when looking south) that must appear behind the body parts
 #define BODY_BEHIND_LAYER 43 // NOVA EDIT CHANGE - ORIGINAL: #define BODY_BEHIND_LAYER 37
 /// Layer for bodyparts that should appear behind every other bodypart - Mostly, legs when facing WEST or EAST
-#define BODYPARTS_LOW_LAYER 42 // NOVA EDIT CHANGE - ORIGINAL: #define BODYPARTS_LOW_LAYER 36
+#define BODYPARTS_LOW_LAYER 41// NOVA EDIT CHANGE - ORIGINAL: #define BODYPARTS_LOW_LAYER 36 - IRIS EDIT - ORIGINALLY 42. KEEP IT THE SAME AS BODYPARTS_LAYER
 /// Layer for most bodyparts, appears above BODYPARTS_LOW_LAYER and below BODYPARTS_HIGH_LAYER
 #define BODYPARTS_LAYER 41 // NOVA EDIT CHANGE - ORIGINAL: #define BODYPARTS_LAYER 35
 /// Mutantrace features (snout, body markings) that must appear above the body parts
@@ -749,10 +749,6 @@ GLOBAL_LIST_INIT(human_heights_to_offsets, list(
 /// Jumpsuit clothing layer
 #define UNIFORM_LAYER 34 // NOVA EDIT CHANGE - ORIGINAL: #define UNIFORM_LAYER 29
 // NOVA EDIT ADDITION BEGIN - cursed layers under clothing
-#define ANUS_LAYER 33
-#define VAGINA_LAYER 32
-#define PENIS_LAYER 31
-#define NIPPLES_LAYER 30
 #define BANDAGE_LAYER 29
 //NOVA EDIT ADDITION END
 /// ID card layer
