@@ -36,7 +36,7 @@
 		Thanks to that, they could be found in the hands of any SolGov second-line force, \
 		such as, but not limited to, medics, ship techs, and logistics officers. \
 		Funnily enough, shuttle pilots often had several just to show off.<br><br>\
-		Due to SolGov's quest to extend the lifespans of their logistics officers and quartermasters, \
+		Due to SolFed's quest to extend the lifespans of their logistics officers and quartermasters, \
 		the Sindano uses the same standard pistol cartridge and magazines that most other SolFed military weapons of \
 		small caliber do. This results in interchangeable magazines between pistols and submachine guns. Neat!"
 
