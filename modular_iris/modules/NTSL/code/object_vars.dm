@@ -2,8 +2,8 @@
 /atom/movable/virtualspeaker
 	var/realvoice
 
-/atom/movable/virtualspeaker/get_voice(bool)
-	if(bool && realvoice)
+/atom/movable/virtualspeaker/get_voice(add_id_name = TRUE)
+	if(add_id_name && realvoice)
 		return realvoice
 	else
 		return "[src]"

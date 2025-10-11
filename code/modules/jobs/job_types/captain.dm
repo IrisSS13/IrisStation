@@ -30,7 +30,6 @@
 	department_for_prefs = /datum/job_department/captain
 	departments_list = list(
 		/datum/job_department/command,
-	// IRIS EDIT: Removed captain from Security department. commented out:	/datum/job_department/security,
 	)
 
 	family_heirlooms = list(/obj/item/reagent_containers/cup/glass/flask/gold, /obj/item/toy/captainsaid/collector)

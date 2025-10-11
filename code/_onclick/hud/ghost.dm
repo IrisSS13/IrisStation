@@ -85,6 +85,10 @@
 	using.screen_loc = ui_dnr
 	static_inventory += using
 
+	using = new /atom/movable/screen/ghost/dnr(null, src)
+	using.screen_loc = ui_dnr
+	static_inventory += using
+
 	using = new /atom/movable/screen/ghost/teleport(null, src)
 	using.screen_loc = ui_ghost_teleport
 	static_inventory += using

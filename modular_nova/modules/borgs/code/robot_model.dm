@@ -252,7 +252,6 @@
 	name = "Syndicate"
 	basic_modules = list(
 		/obj/item/assembly/flash/cyborg,
-		/obj/item/borg/sight/thermal,
 		/obj/item/extinguisher,
 		/obj/item/weldingtool/electric,
 		/obj/item/borg/cyborg_omnitool/engineering,
@@ -298,6 +297,20 @@
 		"Bird Syndicate" = list(SKIN_ICON_STATE = "bird_synd", SKIN_ICON = CYBORG_ICON_SYNDIE),
 		"Mech" = list(SKIN_ICON_STATE = "chesty", SKIN_ICON = CYBORG_ICON_SYNDIE)
 	)
+	/// Weakref to the thermal vision action
+	var/datum/weakref/thermal_vision_ref
+
+/obj/item/robot_model/syndicatejack/Destroy(force)
+	QDEL_NULL(thermal_vision_ref)
+	return ..()
+
+/obj/item/robot_model/syndicatejack/be_transformed_to(obj/item/robot_model/old_model, forced = FALSE)
+	var/datum/action/cooldown/borg_thermal/thermal_vision = new(loc)
+	. = ..()
+	if(!.)
+		return
+	thermal_vision.Grant(loc)
+	thermal_vision_ref = WEAKREF(thermal_vision)
 
 /obj/item/robot_model/syndicatejack/rebuild_modules()
 	. = ..()
@@ -377,7 +390,6 @@
 	name = "Spider Clan Saboteur"
 	basic_modules = list(
 		/obj/item/assembly/flash/cyborg,
-		/obj/item/borg/sight/thermal,
 		/obj/item/katana/ninja_blade,
 		/obj/item/construction/rcd/borg/syndicate,
 		/obj/item/pipe_dispenser,
@@ -413,6 +425,20 @@
 		"Miss M" = list(SKIN_ICON_STATE = "missm_ninja", SKIN_ICON = CYBORG_ICON_NINJA),
 		"Spider" = list(SKIN_ICON_STATE = "ninjaspider", SKIN_ICON = CYBORG_ICON_NINJA)
 	)
+	/// Weakref to the thermal vision action
+	var/datum/weakref/thermal_vision_ref
+
+/obj/item/robot_model/ninja_saboteur/Destroy(force)
+	QDEL_NULL(thermal_vision_ref)
+	return ..()
+
+/obj/item/robot_model/ninja_saboteur/be_transformed_to(obj/item/robot_model/old_model, forced = FALSE)
+	var/datum/action/cooldown/borg_thermal/thermal_vision = new(loc)
+	. = ..()
+	if(!.)
+		return
+	thermal_vision.Grant(loc)
+	thermal_vision_ref = WEAKREF(thermal_vision)
 
 /obj/item/robot_model/ninja_saboteur/do_transform_animation()
 	. = ..()

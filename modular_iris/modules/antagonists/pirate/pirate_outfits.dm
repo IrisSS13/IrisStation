@@ -26,7 +26,7 @@
 	belt = /obj/item/storage/belt/holster
 	belt_contents = list(
 		/obj/item/gun/ballistic/revolver/c38/super = 1,
-		/obj/item/ammo_box/c38 = 2,
+		/obj/item/ammo_box/speedloader/c38 = 2,
 	)
 	backpack_contents = list(
 		/obj/item/storage/box/survival/engineer/radio = 1,
@@ -43,7 +43,7 @@
 	belt = /obj/item/storage/belt/holster
 	belt_contents = list(
 		/obj/item/gun/ballistic/revolver/c38/super = 1,
-		/obj/item/ammo_box/c38 = 2,
+		/obj/item/ammo_box/speedloader/c38 = 2,
 	)
 	backpack_contents = list(
 		/obj/item/storage/box/survival/engineer/radio = 1,

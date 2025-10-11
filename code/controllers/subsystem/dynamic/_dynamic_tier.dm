@@ -118,8 +118,8 @@
 
 	advisory_report = "Advisory Level: <b>Green Star</b></center><BR>\
 		Your sector's advisory level is Green Star. \
-		Surveillance information shows no credible threats to Nanotrasen assets within the Cabriole Sector at this time. \
-		As always, the Department advises maintaining vigilance against potential threats, regardless of a lack of known threats." // Iris edit, Spinward>Cabriole
+		Surveillance information shows no credible threats to Nanotrasen assets within the Spinward Sector at this time. \
+		As always, the Department advises maintaining vigilance against potential threats, regardless of a lack of known threats."
 
 /datum/dynamic_tier/low
 	tier = DYNAMIC_TIER_LOW
@@ -129,8 +129,8 @@
 
 	advisory_report = "Advisory Level: <b>Yellow Star</b></center><BR>\
 		Your sector's advisory level is Yellow Star. \
-		Surveillance shows a credible risk of enemy attack against our assets in the Cabriole Sector. \
-		We advise a heightened level of security alongside maintaining vigilance against potential threats." // Iris Edit, Spinward>Cabriole
+		Surveillance shows a credible risk of enemy attack against our assets in the Spinward Sector. \
+		We advise a heightened level of security alongside maintaining vigilance against potential threats."
 
 	ruleset_type_settings = list(
 		ROUNDSTART = list(
@@ -177,8 +177,8 @@
 	advisory_report = "Advisory Level: <b>Red Star</b></center><BR>\
 		Your sector's advisory level is Red Star. \
 		The Department of Intelligence has decrypted Cybersun communications suggesting a high likelihood of attacks \
-		on Nanotrasen assets within the Cabriole Sector. \
-		Stations in the region are advised to remain highly vigilant for signs of enemy activity and to be on high alert." // Iris Edit, Spinward>Cabriole
+		on Nanotrasen assets within the Spinward Sector. \
+		Stations in the region are advised to remain highly vigilant for signs of enemy activity and to be on high alert."
 
 	ruleset_type_settings = list(
 		ROUNDSTART = list(
@@ -276,8 +276,8 @@
 	advisory_report = "Advisory Level: <b>Midnight Sun</b></center><BR>\
 		Your sector's advisory level is Midnight Sun. \
 		Credible information passed to us by GDI suggests that the Syndicate \
-		is preparing to mount a major concerted offensive on Nanotrasen assets in the Cabriole Sector to cripple our foothold there. \
-		All stations should remain on high alert and prepared to defend themselves." // Iris Edit, Spinward>Cabriole
+		is preparing to mount a major concerted offensive on Nanotrasen assets in the Spinward Sector to cripple our foothold there. \
+		All stations should remain on high alert and prepared to defend themselves."
 
 	ruleset_type_settings = list(
 		ROUNDSTART = list(
