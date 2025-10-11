@@ -13,5 +13,5 @@
 
 /datum/loadout_item/inhand/dirtbag
 	name = "Dirt Bag"
-	item_path = /obj/item/storage/backpack/donator/dirt
+	item_path = /obj/item/storage/backpack/duffelbag/donator/dirt
 	ckeywhitelist = list("dirttastesbad")

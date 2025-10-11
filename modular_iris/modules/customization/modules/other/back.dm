@@ -1,4 +1,4 @@
-/obj/item/storage/backpack/donator/dirt
+/obj/item/storage/backpack/duffelbag/donator/dirt
 	name = "dirt bag"
 	desc = "A camping bag for a dirty bird thing."
 	icon_state = "dirt"
