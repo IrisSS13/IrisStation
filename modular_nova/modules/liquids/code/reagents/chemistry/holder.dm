@@ -48,6 +48,5 @@
 			var/obj/item/organ/liver/owner_liver = human_processor.get_organ_slot(ORGAN_SLOT_LIVER)
 			if(!istype(owner_liver, /obj/item/organ/liver/synth))
 				return TRUE
-
 		return FALSE
 	return TRUE
