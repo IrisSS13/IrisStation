@@ -309,11 +309,12 @@
 	required_experiments = list(/datum/experiment/scanning/points/xenoarch)
 	announce_channels = list(RADIO_CHANNEL_SCIENCE)
 
-/datum/experiment/scanning/points/xenoarch
-	name = "Advanced Xenoarchaeology Tools"
-	description = "It is possible to create even more advanced tools for xenoarchaeoloy."
-	required_points = 10
-	required_atoms = list(
-		/obj/item/xenoarch/useless_relic = 1,
-		/obj/item/xenoarch/broken_item = 2,
-	)
+// IRIS EDIT - /datum/experiment/scanning/points/xenoarch  moved to  modular_iris/modules/xenoarch/xenoarch_experiments.dm
+// /datum/experiment/scanning/points/xenoarch
+//	name = "Advanced Xenoarchaeology Tools"
+//	description = "It is possible to create even more advanced tools for xenoarchaeoloy."
+//	required_points = 10
+//	required_atoms = list(
+//		/obj/item/xenoarch/useless_relic = 1,
+//		/obj/item/xenoarch/broken_item = 2,
+//	)
