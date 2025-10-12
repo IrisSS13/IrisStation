@@ -4,3 +4,7 @@
 
 #define TECHWEB_SEC_ADVANCED "advanced_sec"
 #define TECHWEB_NODE_BOTANY_ADV "botanygene"
+
+#define TECHWEB_NODE_MOD_DECLASSIFIED "mod_declassified"
+
+#define TECHWEB_NODE_DIVE_ANCHORS "dive_anchors"

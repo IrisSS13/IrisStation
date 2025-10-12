@@ -218,7 +218,7 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	ADD_TRAIT(human_holder, TRAIT_HATED_BY_DOGS, SPECIES_TRAIT)
 	ADD_TRAIT(human_holder, TRAIT_CATLIKE_GRACE, SPECIES_TRAIT)
 
-	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
+	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE), human_holder)
 	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
 /datum/quirk/feline_aspect/remove()
@@ -229,7 +229,7 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	REMOVE_TRAIT(human_holder, TRAIT_HATED_BY_DOGS, SPECIES_TRAIT)
 	REMOVE_TRAIT(human_holder, TRAIT_CATLIKE_GRACE, SPECIES_TRAIT)
 
-	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
+	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE), human_holder)
 	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
 /datum/quirk/canine_aspect
@@ -247,22 +247,20 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/obj/item/organ/tongue/dog/new_tongue = new(get_turf(human_holder))
 
-	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
+	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE), human_holder)
 	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
-	human_holder.dna.add_mutation(/datum/mutation/human/olfaction, MUT_NORMAL)
-	human_holder.dna.activate_mutation(/datum/mutation/human/olfaction)
-	for(var/datum/mutation/human/olfaction/sneef in human_holder.dna.mutations)
-		sneef.mutadone_proof = TRUE
+	human_holder.dna.activate_mutation(/datum/mutation/olfaction)
+	human_holder.dna.add_mutation(/datum/mutation/olfaction, MUTATION_SOURCE_ACTIVATED)
 
 /datum/quirk/canine_aspect/remove()
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/obj/item/organ/tongue/new_tongue = new human_holder.dna.species.mutanttongue
 
-	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
+	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE), human_holder)
 	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
-	human_holder.dna.remove_mutation(/datum/mutation/human/olfaction)
+	human_holder.dna.remove_mutation(/datum/mutation/olfaction, MUTATION_SOURCE_ACTIVATED)
 
 /datum/quirk/avian_aspect
 	name = "Avian Traits"
@@ -279,7 +277,7 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/obj/item/organ/tongue/avian/new_tongue = new(get_turf(human_holder))
 
-	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
+	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE), human_holder)
 	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 	human_holder.AddComponent(/datum/component/pinata, candy = list(/obj/item/feather))
 
@@ -287,7 +285,7 @@ GLOBAL_VAR_INIT(DNR_trait_overlay, generate_DNR_trait_overlay())
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/obj/item/organ/tongue/new_tongue = new human_holder.dna.species.mutanttongue
 
-	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE))
+	new_tongue.copy_traits_from(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE), human_holder)
 	new_tongue.Insert(human_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 	var/datum/component/pinata/feathered_removal = quirk_holder.GetExactComponent(/datum/component/pinata)
 	feathered_removal.Destroy()

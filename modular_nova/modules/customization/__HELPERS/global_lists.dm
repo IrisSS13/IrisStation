@@ -20,13 +20,13 @@
 		var/datum/laugh_type/L = new spath()
 		GLOB.laugh_types[L.name] = spath
 	sort_list(GLOB.laugh_types, GLOBAL_PROC_REF(cmp_typepaths_asc))
-			//IRIS EDIT ADDITION
+
+	//Voice_Bark
 	for(var/sound_blooper_path in subtypesof(/datum/blooper))
-		var/datum/blooper/B = new sound_blooper_path()
-		GLOB.blooper_list[B.id] = sound_blooper_path
-		if(B.allow_random)
-			GLOB.blooper_random_list[B.id] = sound_blooper_path
-	//IRIS EDIT END
+		var/datum/blooper/blooper = new sound_blooper_path()
+		GLOB.blooper_list[blooper.id] = sound_blooper_path
+		if(blooper.allow_random)
+			GLOB.blooper_random_list[blooper.id] = sound_blooper_path
 
 /proc/make_default_mutant_bodypart_references()
 	// Build the global list for default species' mutant_bodyparts

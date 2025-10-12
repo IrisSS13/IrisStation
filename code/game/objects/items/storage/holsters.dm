@@ -57,7 +57,7 @@
 
 /obj/item/storage/belt/holster/detective/full/PopulateContents()
 	generate_items_inside(list(
-		/obj/item/ammo_box/c38 = 2,
+		/obj/item/ammo_box/speedloader/c38 = 2,
 		/obj/item/gun/ballistic/revolver/c38/detective = 1,
 	), src)
 
@@ -82,7 +82,6 @@
 	worn_icon_state = "syndicate_holster"
 	w_class = WEIGHT_CLASS_NORMAL
 	actions_types = list(/datum/action/item_action/chameleon/change/belt)
-	action_slots = ALL
 	storage_type = /datum/storage/holster/chameleon
 
 /obj/item/storage/belt/holster/nukie
@@ -100,7 +99,7 @@
 
 /obj/item/storage/belt/holster/nukie/cowboy/full/PopulateContents()
 	generate_items_inside(list(
-		/obj/item/ammo_box/a357 = 2,
+		/obj/item/ammo_box/speedloader/c357 = 2,
 		/obj/item/gun/ballistic/revolver/cowboy/nuclear = 1,
 	), src)
 

@@ -1,10 +1,9 @@
 /obj/item/clothing/shoes/ballet_heels
 	name = "ballet heels"
 	desc = "Restrictive, knee-high heels. Unfathomably difficult to walk in."
-	icon_state = "ballet_heels"
-	icon = 'modular_iris/modules/GAGS/icons/shoes/high_heels.dmi'
-	worn_icon = 'modular_iris/modules/GAGS/icons/shoes/high_heels_worn.dmi'
-	worn_icon_digi = 'modular_iris/modules/GAGS/icons/shoes/high_heels_digi.dmi'
+	icon = 'icons/map_icons/clothing/shoes.dmi'
+	icon_state = "/obj/item/clothing/shoes/ballet_heels"
+	post_init_icon_state = "ballet_heels"
 	greyscale_colors = "#e8e8e8"
 	greyscale_config = /datum/greyscale_config/ballet_heels
 	greyscale_config_worn = /datum/greyscale_config/ballet_heels/worn
@@ -14,7 +13,7 @@
 
 /obj/item/clothing/shoes/ballet_heels/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/squeak, list('modular_iris/modules/customization/modules/sound/highheel1.ogg' = 1, 'modular_iris/modules/customization/modules/sound/highheel2.ogg' = 1), 70)
+	AddComponent(/datum/component/squeak, list('modular_nova/master_files/sound/effects/footstep/highheel1.ogg' = 1, 'modular_nova/master_files/sound/effects/footstep/highheel2.ogg' = 1), 70)
 
 /obj/item/clothing/shoes/ballet_heels/boss_heels
 	name = "boss heels"
@@ -23,6 +22,7 @@
 	worn_icon = 'modular_iris/modules/GAGS/icons/shoes/high_heels_worn.dmi'
 	worn_icon_digi = 'modular_iris/modules/GAGS/icons/shoes/high_heels_digi.dmi'
 	icon_state = "boss_heels"
+	post_init_icon_state = null
 	greyscale_colors = null
 	greyscale_config = null
 	greyscale_config_worn = null

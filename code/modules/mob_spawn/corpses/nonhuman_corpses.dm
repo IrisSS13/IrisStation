@@ -19,7 +19,7 @@
 ///dead slimes, with a var for whatever color you want.
 /obj/effect/mob_spawn/corpse/slime
 	mob_type = /mob/living/basic/slime
-	icon = 'icons/mob/simple/slimes.dmi'
+	// icon = 'icons/mob/simple/slimes.dmi' - IRIS EDIT SPRITES OVERRIDEN IN ERIS_PORTS
 	icon_state = "grey-baby-dead" //sets the icon in the map editor
 	///the color of the slime you're spawning.
 	var/slime_species = /datum/slime_type/grey

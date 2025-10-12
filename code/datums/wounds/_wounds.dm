@@ -190,11 +190,13 @@
 		qdel(src)
 		return FALSE
 
-	if(isitem(wound_source))
-		var/obj/item/wound_item = wound_source
-		src.wound_source = wound_item.name
-	else
+	if(isatom(wound_source))
+		var/atom/wound_atom = wound_source
+		src.wound_source = wound_atom.name
+	else if(istext(wound_source))
 		src.wound_source = wound_source
+	else
+		src.wound_source = "Unknown"
 
 	set_victim(L.owner)
 	set_limb(L, replacing)
@@ -588,7 +590,7 @@
  * Returns BLOOD_FLOW_STEADY if we're not bleeding or there's no change (like piercing), BLOOD_FLOW_DECREASING if we're clotting (non-critical slashes, gauzed, coagulant, etc), BLOOD_FLOW_INCREASING if we're opening up (crit slashes/heparin/nitrous oxide)
  */
 /datum/wound/proc/get_bleed_rate_of_change()
-	if(blood_flow && HAS_TRAIT(victim, TRAIT_BLOODY_MESS))
+	if(blood_flow && HAS_TRAIT(victim, TRAIT_BLOOD_FOUNTAIN))
 		return BLOOD_FLOW_INCREASING
 	return BLOOD_FLOW_STEADY
 
@@ -723,7 +725,7 @@
 	// fleshy burns will look for flesh then bone
 	// dislocations will look for flesh, then bone, then metal
 	var/file = default_scar_file
-	for (var/biotype as anything in pregen_data.scar_priorities)
+	for (var/biotype in pregen_data.scar_priorities)
 		if (scarred_limb.biological_state & text2num(biotype))
 			file = GLOB.biotypes_to_scar_file[biotype]
 			break

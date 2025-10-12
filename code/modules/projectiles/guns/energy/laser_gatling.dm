@@ -53,7 +53,7 @@
 	else
 		..()
 
-/obj/item/minigunpack/attackby(obj/item/W, mob/user, list/modifiers)
+/obj/item/minigunpack/attackby(obj/item/W, mob/user, list/modifiers, list/attack_modifiers)
 	if(W == gun) //Don't need armed check, because if you have the gun assume its armed.
 		user.dropItemToGround(gun, TRUE)
 	else
@@ -99,6 +99,7 @@
 	slowdown = 1
 	slot_flags = null
 	w_class = WEIGHT_CLASS_HUGE
+	spawn_blacklisted = TRUE
 	custom_materials = null
 	weapon_weight = WEAPON_HEAVY
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/minigun)

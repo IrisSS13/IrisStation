@@ -497,11 +497,6 @@
 	var/list/shielding = list()
 
 /datum/station_trait/nebula/hostile/process(seconds_per_tick)
-	// NOVA EDIT ADDITION START
-	if(!storms_enabled)
-		get_shielding_level() // So shields still produce tritium
-		return
-	// NOVA EDIT ADDITION END
 	calculate_nebula_strength()
 
 	apply_nebula_effect(nebula_intensity - get_shielding_level())
@@ -564,10 +559,9 @@
 	trait_to_give = STATION_TRAIT_RADIOACTIVE_NEBULA
 
 	blacklist = list(/datum/station_trait/random_event_weight_modifier/rad_storms)
-	threat_reduction = 30
 	dynamic_threat_id = "Radioactive Nebula"
 
-	intensity_increment_time = 10 MINUTES // NOVA EDIT longer shield duration - ORIGINAL: intensity_increment_time = 5 MINUTES /
+	intensity_increment_time = 10 MINUTES //IRIS EDIT - OG: 5 MINUTES
 	maximum_nebula_intensity = 1 HOURS + 40 MINUTES
 
 	nebula_layer = /atom/movable/screen/parallax_layer/random/space_gas/radioactive
@@ -689,7 +683,6 @@
 	new /obj/effect/pod_landingzone (get_safe_random_station_turf_equal_weight(), new /obj/structure/closet/supplypod/centcompod (), new /obj/machinery/nebula_shielding/emergency/radiation ())
 
 /datum/station_trait/nebula/hostile/radiation/send_instructions()
-	/* NOVA EDIT REMOVAL START - No more radiation storms on station
 	var/obj/machinery/nebula_shielding/shielder = /obj/machinery/nebula_shielding/radiation
 	var/obj/machinery/gravity_generator/main/innate_shielding = /obj/machinery/gravity_generator/main
 	//How long do we have until the first shielding unit needs to be up?
@@ -708,12 +701,6 @@
 		You have [deadline] before the nebula enters the station. \
 		Every shielding unit will provide an additional [shielder_time] of protection, fully protecting the station with [max_shielders] shielding units.
 	"}
-	NOVA EDIT REMOVAL END */
-	// NOVA EDIT CHANGE START - ORIGINAL: See above
-	var/announcement = {"Your station has been constructed inside a radioactive nebula. \
-		Standard spacesuits will not protect against the nebula and using them is strongly discouraged.
-	"}
-	// NOVA EDIT CHANGE END
 
 	priority_announce(announcement, sound = 'sound/announcer/notice/notice1.ogg')
 

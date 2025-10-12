@@ -99,10 +99,6 @@
 	UnregisterSignal(user, COMSIG_MOUSE_SCROLL_ON)
 	return ..()
 
-/obj/item/construction/plumbing/cyborg_unequip(mob/user)
-	UnregisterSignal(user, COMSIG_MOUSE_SCROLL_ON)
-	return ..()
-
 /obj/item/construction/plumbing/attack_self(mob/user)
 	. = ..()
 	ui_interact(user)
@@ -210,13 +206,13 @@
 	var/is_allowed = TRUE
 	if(!checkResource(cost, user) || !(is_allowed = canPlace(destination)))
 		if(!is_allowed)
-			balloon_alert(user, "turf is blocked!")
+			balloon_alert(user, "tile is blocked!")
 		return FALSE
 	if(!build_delay(user, cost, target = destination))
 		return FALSE
 	if(!checkResource(cost, user) || !(is_allowed = canPlace(destination)))
 		if(!is_allowed)
-			balloon_alert(user, "turf is blocked!")
+			balloon_alert(user, "tile is blocked!")
 		return FALSE
 
 	if(!useResource(cost, user))

@@ -96,8 +96,8 @@ export const ArmamentStation = (props) => {
                                 <img
                                   src={`data:image/jpeg;base64,${item.icon}`}
                                   style={{
-                                    'vertical-align': 'middle',
-                                    'horizontal-align': 'middle',
+                                    verticalAlign: 'middle',
+                                    textAlign: 'center',
                                   }}
                                 />
                                 &nbsp;{item.name}
@@ -120,15 +120,15 @@ export const ArmamentStation = (props) => {
                         item.ref === weapon && (
                           <Stack vertical key={item.ref}>
                             <Stack.Item>
-                              <Image>
-                                src=
-                                {`data:image/jpeg;base64,${item.icon}`}
-                                height={'100%'} width={'100%'} style=
-                                {{
-                                  'vertical-align': 'middle',
-                                  'horizontal-align': 'middle',
+                              <Image
+                                src={`data:image/jpeg;base64,${item.icon}`}
+                                height="100%"
+                                width="100%"
+                                style={{
+                                  verticalAlign: 'middle',
+                                  textAlign: 'center',
                                 }}
-                              </Image>
+                              />
                             </Stack.Item>
                             <Stack.Item>{item.description}</Stack.Item>
                             <Stack.Item
@@ -138,8 +138,8 @@ export const ArmamentStation = (props) => {
                                   : 'green'
                               }
                             >
-                              {'Quantity Remaining: ' +
-                                (item.quantity - item.purchased)}
+                              {`Quantity Remaining:
+                                 ${item.quantity - item.purchased}`}
                             </Stack.Item>
                             <Stack.Item
                               textColor={
@@ -148,7 +148,7 @@ export const ArmamentStation = (props) => {
                                   : 'green'
                               }
                             >
-                              {'Cost: ' + item.cost}
+                              {`Cost: ${item.cost}`}
                             </Stack.Item>
                             {!!item.buyable_ammo && (
                               <Stack.Item
@@ -159,7 +159,7 @@ export const ArmamentStation = (props) => {
                                     : 'green'
                                 }
                               >
-                                {'Ammo Cost: ' + item.magazine_cost}
+                                {`Ammo Cost: ${item.magazine_cost}`}
                               </Stack.Item>
                             )}
                             <Stack.Item>

@@ -26,7 +26,7 @@
 /mob/Destroy()
 	if(client)
 		stack_trace("Mob with client has been deleted.")
-	else if(ckey)
+	else if(ckey && !IS_FAKE_KEY(ckey)) // FUCK YOU AGHOST CODE FUCK YOU
 		stack_trace("Mob without client but with associated ckey, [ckey], has been deleted.")
 
 	persistent_client?.set_mob(null)
@@ -191,7 +191,7 @@
 			hud_list[hud] = list()
 
 		else
-			var/image/I = image('modular_nova/master_files/icons/mob/huds/hud.dmi', src, "")	//NOVA EDIT: original filepath 'icons/mob/huds/hud.dmi'
+			var/image/I = image('modular_iris/master_files/icons/mob/huds/hud.dmi', src, "")	// IRIS EDIT: nova filepath 'modular_nova/master_files/icons/mob/huds/hud.dmi'; original filepath 'icons/mob/huds/hud.dmi'
 			I.appearance_flags = RESET_COLOR|PIXEL_SCALE|KEEP_APART
 			hud_list[hud] = I
 		set_hud_image_active(hud, update_huds = FALSE) //by default everything is active. but dont add it to huds to keep control.
@@ -561,7 +561,7 @@
 
 	DEFAULT_QUEUE_OR_CALL_VERB(VERB_CALLBACK(src, PROC_REF(run_examinate), examinify))
 
-/mob/proc/run_examinate(atom/examinify)
+/mob/proc/run_examinate(atom/examinify, force_examinate_more = FALSE)
 
 	if(isturf(examinify) && !(sight & SEE_TURFS) && !(examinify in view(client ? client.view : world.view, src)))
 		// shift-click catcher may issue examinate() calls for out-of-sight turfs
@@ -578,11 +578,12 @@
 
 	face_atom(examinify)
 	var/result_combined
+	var/removes_double_click = client?.prefs.read_preference(/datum/preference/toggle/remove_double_click)
 	if(client)
 		LAZYINITLIST(client.recent_examines)
 		var/ref_to_atom = REF(examinify)
 		var/examine_time = client.recent_examines[ref_to_atom]
-		if(examine_time && (world.time - examine_time < EXAMINE_MORE_WINDOW))
+		if(force_examinate_more || (examine_time && (world.time - examine_time < EXAMINE_MORE_WINDOW) && !removes_double_click))
 			var/list/result = examinify.examine_more(src)
 			if(!length(result))
 				result += span_notice("<i>You examine [examinify] closer, but find nothing of interest...</i>")
@@ -598,11 +599,23 @@
 		var/list/result = examinify.examine(src)
 		var/atom_title = examinify.examine_title(src, thats = TRUE)
 		SEND_SIGNAL(src, COMSIG_MOB_EXAMINING, examinify, result)
+		if(removes_double_click)
+			result += span_notice("<i>You can <a href=byond://?src=[REF(src)];run_examinate=[REF(examinify)]>examine</a> [examinify] closer...</i>")
 		result_combined = (atom_title ? fieldset_block("[atom_title][ismob(examinify) ? "!" :"."]", jointext(result, "<br>"), "boxed_message") : boxed_message(jointext(result, "<br>"))) // NOVA EDIT CHANGE - ORIGINAL: result_combined = (atom_title ? fieldset_block("[atom_title]", jointext(result, "<br>"), "boxed_message") : boxed_message(jointext(result, "<br>")))
 		result_combined = replacetext(result_combined, "<hr><br>", "<hr>") // NOVA EDIT ADDITION - bit of a hack here to make sure we don't get linebreaks coming after headers
 
 	to_chat(src, span_infoplain(result_combined))
 	SEND_SIGNAL(src, COMSIG_MOB_EXAMINATE, examinify)
+
+/mob/Topic(href, list/href_list)
+	. = ..()
+	if(.)
+		return
+	if(href_list["run_examinate"])
+		var/atom/examined_atom = locate(href_list["run_examinate"])
+		//run_examinate only early returns this check for turfs for some reason.
+		if(examined_atom in view(client ? client.view : world.view, src))
+			run_examinate(examined_atom, force_examinate_more = TRUE)
 
 /mob/proc/blind_examine_check(atom/examined_thing)
 	return TRUE //The non-living will always succeed at this check.
@@ -676,44 +689,43 @@
  * Also note that examine_more() doesn't proc this or extend the timer, just because it's simpler this way and doesn't lose much.
  * The nice part about relying on examining is that we don't bother checking visibility, because we already know they were both visible to each other within the last second, and the one who triggers it is currently seeing them
  */
-// IRIS EDIT START - MapleStation Port
-/mob/proc/handle_eye_contact(mob/living/examined_mob, allow_imagine = TRUE)
+/mob/proc/handle_eye_contact(mob/living/examined_mob)
 	return
 
-/mob/living/handle_eye_contact(mob/living/examined_mob, alert_examined = TRUE)
-	if(!istype(examined_mob) || src == examined_mob || !GET_CLIENT(src))
-		return
-	if(stat >= UNCONSCIOUS || examined_mob.stat >= UNCONSCIOUS || is_blind() || !examined_mob.is_eyes_visible())
+/mob/living/handle_eye_contact(mob/living/examined_mob)
+	if(!istype(examined_mob) || src == examined_mob || examined_mob.stat >= UNCONSCIOUS || !client || is_blind())
 		return
 
 	var/imagined_eye_contact = FALSE
-	var/glance_dist = get_dist(src, examined_mob)
 	if(!LAZYACCESS(examined_mob.client?.recent_examines, src))
-		// you imagine they made eye contact
-		if(alert_examined && HAS_TRAIT(examined_mob, TRAIT_SHIFTY_EYES) && prob(10 - glance_dist))
+		// even if you haven't looked at them recently, if you have the shift eyes trait, they may still imagine the eye contact
+		if(HAS_TRAIT(examined_mob, TRAIT_SHIFTY_EYES) && prob(10 - get_dist(src, examined_mob)))
 			imagined_eye_contact = TRUE
 		else
 			return
 
-	if(glance_dist > EYE_CONTACT_RANGE)
+	if(get_dist(src, examined_mob) > EYE_CONTACT_RANGE)
 		return
 
-	// eye contact is "happening" now but it can be "stopped" by signal
-	if(SEND_SIGNAL(src, COMSIG_MOB_EYECONTACT, examined_mob) & COMSIG_BLOCK_EYECONTACT)
-		return
-	// generic eye contact
-	// message is on a timer so it pops up after examine is processed
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), src, span_smallnotice("You[imagined_eye_contact && prob(10) ? " think you" : ""] make eye contact with [examined_mob].")), 0.2 SECONDS)
-	// feedback to the other end of the glance
-	if(alert_examined && !examined_mob.is_blind() && GET_CLIENT(examined_mob))
-		if(imagined_eye_contact)
-			// we imagined eye contact, we didn't actually make anything. so in reality, we're just staring like a weirdo
-			if(prob(5 - glance_dist))
-				addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), examined_mob, span_smallnotice("You notice [src] staring at you.")), 0.2 SECONDS)
-		else
-			// we made real eye contact, so now go through and process them looking back at us. no alert back though obviously
-			examined_mob.handle_eye_contact(src, FALSE)
-// IRIS EDIT END
+	// check to see if their face is blocked or, if not, a signal blocks it
+	if(examined_mob.can_eye_contact() && SEND_SIGNAL(src, COMSIG_MOB_EYECONTACT, examined_mob, TRUE) != COMSIG_BLOCK_EYECONTACT)
+		var/obj/item/clothing/eye_cover = examined_mob.is_eyes_covered()
+		if (!eye_cover || (!eye_cover.tint && !eye_cover.flash_protect))
+			var/msg = span_smallnotice("You make eye contact with [examined_mob].")
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), src, msg), 0.3 SECONDS) // so the examine signal has time to fire and this will print after
+
+	if(!imagined_eye_contact && can_eye_contact() && !examined_mob.is_blind() && SEND_SIGNAL(examined_mob, COMSIG_MOB_EYECONTACT, src, FALSE) != COMSIG_BLOCK_EYECONTACT)
+		var/obj/item/clothing/eye_cover = is_eyes_covered()
+		if (!eye_cover || (!eye_cover.tint && !eye_cover.flash_protect))
+			var/msg = span_smallnotice("[src] makes eye contact with you.")
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), examined_mob, msg), 0.3 SECONDS)
+
+/// Checks if we can make eye contact or someone can make eye contact with us
+/mob/living/proc/can_eye_contact()
+	return TRUE
+
+/mob/living/carbon/can_eye_contact()
+	return !(obscured_slots & HIDEFACE)
 
 /**
  * Called by using Activate Held Object with an empty hand/limb
@@ -762,7 +774,10 @@
 
 ///Update the resting hud icon
 /mob/proc/update_rest_hud_icon()
-	hud_used?.rest_icon?.update_appearance()
+	if(!hud_used)
+		return FALSE
+	hud_used.rest_icon?.update_appearance()
+	return TRUE
 
 /**
  * Verb to activate the object in your held hand
@@ -825,16 +840,28 @@
 	if(!check_respawn_delay())
 		return
 
-	//NOVA EDIT ADDITION
+	//NOVA EDIT ADDITION START
 	if(ckey)
 		if(is_banned_from(ckey, BAN_RESPAWN))
 			to_chat(usr, "<span class='boldnotice'>You are respawn banned, you can't respawn!</span>")
 			return
-	//NOVA EDIT END
+
+	//DNR TRAIT
+	if(!istype(src, /mob/dead/observer)) //Quick check to make sure they Ghosted first (so we can use stay_dead())
+		to_chat(usr, span_boldnotice("You must be Ghosted to use this!"))
+		return
+	var/mob/dead/observer/user_ghost = src //We already know they're a ghost from the above
+	//Check if the ghost is tied to a body; if so, after confirming they want to abandon it, set the body DNR
+	//(Respawn already detaches them from the body permanently... just doesn't actually make the body itself unrevivable)
+	if(user_ghost.can_reenter_corpse)
+		if(tgui_alert(usr, "Are you sure you want to Respawn? Your old body will become unrevivable!", "Respawn", list("Yes", "No")) != "Yes")
+			return
+		user_ghost.stay_dead()
+	//NOVA EDIT ADDITION END
 
 	usr.log_message("used the respawn button.", LOG_GAME)
 
-	to_chat(usr, span_boldnotice("Please roleplay correctly! If your in-round character is dead, pick a new character!"))
+	to_chat(usr, span_boldnotice("Please roleplay correctly!"))
 
 	if(!client)
 		usr.log_message("respawn failed due to disconnect.", LOG_GAME)
@@ -1107,7 +1134,7 @@
 	if (Adjacent(A))
 		return TRUE
 	var/datum/dna/mob_dna = has_dna()
-	if(mob_dna?.check_mutation(/datum/mutation/human/telekinesis) && tkMaxRangeCheck(src, A))
+	if(mob_dna?.check_mutation(/datum/mutation/telekinesis) && tkMaxRangeCheck(src, A))
 		return TRUE
 	var/obj/item/item_in_hand = get_active_held_item()
 	if(istype(item_in_hand, /obj/item/machine_remote))
@@ -1333,14 +1360,11 @@
 	var/pen_info = writing_instrument.get_writing_implement_details()
 	if(!pen_info || (pen_info["interaction_mode"] != MODE_WRITING))
 		if(!silent_if_not_writing_tool)
-			to_chat(src, span_warning("You can't write with the [writing_instrument]!"))
+			to_chat(src, span_warning("You can't write with \the [writing_instrument]!"))
 		return FALSE
 
 	if(!is_literate())
-		if(HAS_TRAIT_FROM(src, TRAIT_ILLITERATE, FARSIGHT_TRAIT)) //ORBSTATION: farsighted gives alternate text
-			to_chat(src, span_warning("You try to write, but it's too blurry to make out."))
-		else
-			to_chat(src, span_warning("You try to write, but don't know how to spell anything!"))
+		to_chat(src, span_warning("You try to write, but don't know how to spell anything!"))
 		return FALSE
 
 	if(!has_light_nearby() && !has_nightvision())
@@ -1353,7 +1377,7 @@
 	var/obj/item/pen/pen = writing_instrument
 
 	if(istype(pen) && pen.requires_gravity)
-		to_chat(src, span_warning("You try to write, but the [writing_instrument] doesn't work in zero gravity!"))
+		to_chat(src, span_warning("You try to write, but \the [writing_instrument] doesn't work in zero gravity!"))
 		return FALSE
 
 	return TRUE
@@ -1381,10 +1405,7 @@
 /mob/proc/can_read(atom/viewed_atom, reading_check_flags = (READING_CHECK_LITERACY|READING_CHECK_LIGHT), silent = FALSE)
 	if((reading_check_flags & READING_CHECK_LITERACY) && !is_literate())
 		if(!silent)
-			if(HAS_TRAIT_FROM(src, TRAIT_ILLITERATE, FARSIGHT_TRAIT)) //ORBSTATION: farsighted gives alternate text
-				to_chat(src, span_warning("You try to read [viewed_atom], but it's too blurry to make out."))
-			else
-				to_chat(src, span_warning("You try to read [viewed_atom], but can't comprehend any of it."))
+			to_chat(src, span_warning("You try to read [viewed_atom], but can't comprehend any of it."))
 		return FALSE
 
 	if((reading_check_flags & READING_CHECK_LIGHT) && !has_light_nearby() && !has_nightvision())
@@ -1546,7 +1567,7 @@
 	else
 		living_flags |= QUEUE_NUTRITION_UPDATE
 
-///Apply a proper movespeed modifier based on items we have equipped
+/// Apply a proper movespeed modifier based on items we have equipped
 /mob/proc/update_equipment_speed_mods()
 	var/speedies = 0
 	var/immutable_speedies = 0
@@ -1589,11 +1610,6 @@
 	. = stat
 	stat = new_stat
 	SEND_SIGNAL(src, COMSIG_MOB_STATCHANGE, new_stat, .)
-
-/// Proc used for custom metabolization of reagents, if any
-/mob/proc/reagent_check(datum/reagent/chem, seconds_per_tick, times_fired)
-	SHOULD_CALL_PARENT(TRUE)
-	return SEND_SIGNAL(src, COMSIG_MOB_REAGENT_CHECK, chem, seconds_per_tick, times_fired)
 
 /mob/vv_edit_var(var_name, var_value)
 	switch(var_name)

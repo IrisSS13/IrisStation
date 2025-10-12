@@ -1,13 +1,11 @@
+// LOADOUT ITEM DATUMS FOR THE BELT SLOT
+
 /datum/loadout_category/belt
 	category_name = "Belt"
 	category_ui_icon = FA_ICON_SCREWDRIVER_WRENCH
 	type_to_generate = /datum/loadout_item/belts
-	tab_order = LOADOUT_BELT
+	tab_order = /datum/loadout_category/accessories::tab_order + 1
 
-
-/*
-*	LOADOUT ITEM DATUMS FOR THE BELT SLOT
-*/
 /datum/loadout_item/belts
 	abstract_type = /datum/loadout_item/belts
 
@@ -22,57 +20,61 @@
 
 	outfit.belt = item_path
 
-/datum/loadout_item/belts/fanny_pack_black
-	name = "Black Fannypack"
-	item_path = /obj/item/storage/belt/fannypack/black
-
-/datum/loadout_item/belts/fanny_pack_blue
-	name = "Blue Fannypack"
-	item_path = /obj/item/storage/belt/fannypack/blue
-
-/datum/loadout_item/belts/fanny_pack_brown
-	name = "Brown Fannypack"
-	item_path = /obj/item/storage/belt/fannypack
-
-/datum/loadout_item/belts/fanny_pack_cyan
-	name = "Cyan Fannypack"
-	item_path = /obj/item/storage/belt/fannypack/cyan
-
-/datum/loadout_item/belts/fanny_pack_green
-	name = "Green Fannypack"
-	item_path = /obj/item/storage/belt/fannypack/green
-
-/datum/loadout_item/belts/fanny_pack_orange
-	name = "Orange Fannypack"
-	item_path = /obj/item/storage/belt/fannypack/orange
-
-/datum/loadout_item/belts/fanny_pack_pink
-	name = "Pink Fannypack"
-	item_path = /obj/item/storage/belt/fannypack/pink
-
-/datum/loadout_item/belts/fanny_pack_purple
-	name = "Purple Fannypack"
-	item_path = /obj/item/storage/belt/fannypack/purple
-
-/datum/loadout_item/belts/fanny_pack_red
-	name = "Red Fannypack"
-	item_path = /obj/item/storage/belt/fannypack/red
-
-/datum/loadout_item/belts/fanny_pack_yellow
-	name = "Yellow Fannypack"
-	item_path = /obj/item/storage/belt/fannypack/yellow
-
-/datum/loadout_item/belts/fanny_pack_white
-	name = "White Fannypack"
-	item_path = /obj/item/storage/belt/fannypack/white
-
-/datum/loadout_item/belts/lantern
-	name = "Lantern"
-	item_path = /obj/item/flashlight/lantern
+/*
+*	ITEMS BELOW HERE
+*/
 
 /datum/loadout_item/belts/candle_box
 	name = "Candle Box"
 	item_path = /obj/item/storage/fancy/candle_box
+
+/datum/loadout_item/belts/fanny_pack_black
+	name = "Fannypack (Black)"
+	item_path = /obj/item/storage/belt/fannypack/black
+
+/datum/loadout_item/belts/fanny_pack_blue
+	name = "Fannypack (Blue)"
+	item_path = /obj/item/storage/belt/fannypack/blue
+
+/datum/loadout_item/belts/fanny_pack_brown
+	name = "Fannypack (Brown)"
+	item_path = /obj/item/storage/belt/fannypack
+
+/datum/loadout_item/belts/fanny_pack_cyan
+	name = "Fannypack (Cyan)"
+	item_path = /obj/item/storage/belt/fannypack/cyan
+
+/datum/loadout_item/belts/fanny_pack_green
+	name = "Fannypack (Green)"
+	item_path = /obj/item/storage/belt/fannypack/green
+
+/datum/loadout_item/belts/fanny_pack_orange
+	name = "Fannypack (Orange)"
+	item_path = /obj/item/storage/belt/fannypack/orange
+
+/datum/loadout_item/belts/fanny_pack_pink
+	name = "Fannypack (Pink)"
+	item_path = /obj/item/storage/belt/fannypack/pink
+
+/datum/loadout_item/belts/fanny_pack_purple
+	name = "Fannypack (Purple)"
+	item_path = /obj/item/storage/belt/fannypack/purple
+
+/datum/loadout_item/belts/fanny_pack_red
+	name = "Fannypack (Red)"
+	item_path = /obj/item/storage/belt/fannypack/red
+
+/datum/loadout_item/belts/fanny_pack_white
+	name = "Fannypack (White)"
+	item_path = /obj/item/storage/belt/fannypack/white
+
+/datum/loadout_item/belts/fanny_pack_yellow
+	name = "Fannypack (Yellow)"
+	item_path = /obj/item/storage/belt/fannypack/yellow
+
+/datum/loadout_item/belts/lantern
+	name = "Lantern"
+	item_path = /obj/item/flashlight/lantern
 
 // HOLSTERS
 
@@ -81,32 +83,58 @@
 	item_path = /obj/item/storage/belt/holster
 
 /datum/loadout_item/belts/holster_cowboy
-	name = "Holster (Thigh)"
+	name = "Holster (Thigh, Colorable)"
 	item_path = /obj/item/storage/belt/holster/thigh
 
 // RIGS/WEBBING (for military larpers)
 
+/datum/loadout_item/belts/webbing
+	name = "Webbing - Basic"
+	item_path = /obj/item/storage/belt/webbing
+
 /datum/loadout_item/belts/cin_surplus_chestrig
-	name = "CIN Surplus Chest Rig (Standard)"
+	name = "Webbing - CIN Surplus (Colorable)"
 	item_path = /obj/item/storage/belt/military/cin_surplus
 
 /datum/loadout_item/belts/cin_surplus_chestrig_desert
-	name = "CIN Surplus Chest Rig (Desert)"
+	name = "Webbing - CIN Surplus (Desert)"
 	item_path = /obj/item/storage/belt/military/cin_surplus/desert
+	can_be_greyscale = DONT_GREYSCALE
 
 /datum/loadout_item/belts/cin_surplus_chestrig_forest
-	name = "CIN Surplus Chest Rig (Forest)"
+	name = "Webbing - CIN Surplus (Forest)"
 	item_path = /obj/item/storage/belt/military/cin_surplus/forest
+	can_be_greyscale = DONT_GREYSCALE
 
 /datum/loadout_item/belts/cin_surplus_chestrig_marine
-	name = "CIN Surplus Chest Rig (Marine)"
+	name = "Webbing - CIN Surplus (Marine)"
 	item_path = /obj/item/storage/belt/military/cin_surplus/marine
+	can_be_greyscale = DONT_GREYSCALE
+
+/datum/loadout_item/belts/colonial_webbing
+	name = "Webbing - Colonial"
+	item_path = /obj/item/storage/belt/webbing/colonial
+
+/datum/loadout_item/belts/webbing_pouch
+	name = "Webbing - Drop Pouches"
+	item_path = /obj/item/storage/belt/webbing/pouch
+	can_be_reskinned = TRUE
 
 /datum/loadout_item/belts/expeditionary_chestrig_belt
-	name = "Expeditionary Chest Rig/Webbing Belt"
+	name = "Webbing - Expeditionary"
 	item_path = /obj/item/storage/belt/military/expeditionary_corps
 
 /datum/loadout_item/belts/frontier_chestrig
-	name = "Frontier Chest Rig"
+	name = "Webbing - Frontier"
 	item_path = /obj/item/storage/belt/utility/frontier_colonist
+
+/datum/loadout_item/belts/webbing_pilot
+	name = "Webbing - Rigging"
+	item_path = /obj/item/storage/belt/webbing/pilot
+	can_be_reskinned = TRUE
+
+/datum/loadout_item/belts/webbing_vest
+	name = "Webbing - Vest"
+	item_path = /obj/item/storage/belt/webbing/vest
+	can_be_reskinned = TRUE
 

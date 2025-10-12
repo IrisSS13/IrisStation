@@ -33,7 +33,7 @@
 	name = "Increased Energy"
 	desc = "Boost your speed by a large amount."
 	gain_text = "And as I watched, the Cortical Borer was able to complete the course in just over half the time it had last week."
-	mutually_exclusive = TRUE
+	mutually_exclusive = FALSE
 	tier = 3
 	unlocked_evolutions = list(/datum/borer_evolution/hivelord/stealth_mode)
 
@@ -65,7 +65,7 @@
 		/datum/borer_evolution/sugar_immunity,
 		/datum/borer_evolution/synthetic_borer,
 		/datum/borer_evolution/synthetic_chems_positive,
-		/datum/borer_evolution/synthetic_chems_negative,
+		///datum/borer_evolution/synthetic_chems_negative,
 	)
 
 /datum/borer_evolution/hivelord/produce_offspring_alone/on_evolve(mob/living/basic/cortical_borer/cortical_owner)

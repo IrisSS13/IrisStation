@@ -96,7 +96,7 @@
 		var/atom/movable/screen/inventory/hand/H = over_object
 		M.putItemFromInventoryInHandIfPossible(src, H.held_index)
 
-/obj/item/watertank/attackby(obj/item/attacking_item, mob/user, list/modifiers)
+/obj/item/watertank/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(attacking_item == noz)
 		remove_noz()
 		return TRUE
@@ -396,8 +396,7 @@
 	/// How much to inject per second
 	var/injection_amount = 0.5
 	amount_per_transfer_from_this = 5
-	reagent_flags = OPENCONTAINER
-	spillable = FALSE
+	initial_reagent_flags = TRANSPARENT
 	possible_transfer_amounts = list(5,10,15)
 	fill_icon_thresholds = list(0, 15, 60)
 	fill_icon_state = "backpack"

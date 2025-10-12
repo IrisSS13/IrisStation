@@ -17,10 +17,10 @@
 	can_suppress = TRUE
 
 	lore_blurb = "The Renard is as simple as it looks, trimming down Trappiste's typical extravagance for the sake of its small size.<br><br>\
-		Originally, it was seen as an acceptable backup for SolFed's police forces, \
+		Originally, it was seen as an acceptable backup for SolGov's police forces, \
 		able to be stashed in any manner of pouch, pocket, or even just stuck into your waistband, \
 		while still coming loaded with eight .35 Sol Short rounds. \
-		As SolFed's myriad forces modernized, the Renard began living a second life with executives, bodyguards, and criminals due to its ease of concealment. \
+		As SolGov's myriad forces modernized, the Renard began living a second life with executives, bodyguards, and criminals due to its ease of concealment. \
 		If bang for your buck was the focus, you can't do much better then the bare minimum in both cost and size. \
 		There's not a lot to be said about the actual function of the gun either; thanks to a centerline barrel \
 		and being shot from the lowest chamber of the cylinder, the recoil is non-existent, much like the user's safety. \
@@ -56,7 +56,7 @@
 	fire_delay = 0.5 SECONDS
 	recoil = 3
 
-	lore_blurb = "The Defoncé was designed to fulfill a request by the Sol Federation Armed Forces for a maintainable high-caliber handgun.<br><br>\
+	lore_blurb = "The Defoncé was designed to fulfill a request by the Sol Goverment Armed Forces for a maintainable high-caliber handgun.<br><br>\
 		While the Guêpe served well to deal with human sized targets, it struggled against large fauna. \
 		The Defoncé was made to fill that capability gap, enabling second-line SFAF personnel to easily defend themselves \
 		against dangerous creatures when serving in the wilderness of alien worlds. \

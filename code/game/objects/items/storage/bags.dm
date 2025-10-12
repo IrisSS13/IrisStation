@@ -19,6 +19,7 @@
 
 //  Generic non-item
 /obj/item/storage/bag
+	abstract_type = /obj/item/storage/bag
 	slot_flags = ITEM_SLOT_BELT
 	w_class = WEIGHT_CLASS_BULKY
 	storage_type = /datum/storage/bag
@@ -73,10 +74,6 @@
 			icon_state = "[initial(icon_state)]"
 	return ..()
 
-/obj/item/storage/bag/trash/cyborg/Initialize(mapload)
-	. = ..()
-	ADD_TRAIT(src, TRAIT_NODROP, CYBORG_ITEM_TRAIT)
-
 /obj/item/storage/bag/trash/filled/PopulateContents()
 	. = ..()
 	for(var/i in 1 to rand(1, 7))
@@ -87,6 +84,7 @@
 	name = "trash bag of holding"
 	desc = "The latest and greatest in custodial convenience, a trashbag that is capable of holding vast quantities of garbage."
 	icon_state = "bluetrashbag"
+	worn_icon_state = "bluetrashbag"
 	inhand_icon_state = "bluetrashbag"
 	item_flags = NO_MAT_REDEMPTION
 	storage_type = /datum/storage/bag/trash/bluespace
@@ -345,6 +343,10 @@
 		I_copy.layer = FLOAT_LAYER
 		. += I_copy
 
+/obj/item/storage/bag/tray/cyborg_unequip(mob/user)
+	. = ..()
+	atom_storage.remove_all(drop_location())
+
 /obj/item/storage/bag/tray/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	. = ..()
 	update_appearance()
@@ -464,7 +466,6 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	actions_types = list(/datum/action/item_action/reload_rebar)
-	action_slots = ALL
 	storage_type = /datum/storage/bag/rebar_quiver/syndicate
 
 /obj/item/storage/bag/rebar_quiver/syndicate/Initialize(mapload)

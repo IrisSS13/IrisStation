@@ -25,7 +25,7 @@
 				/obj/item/reagent_containers/cup/glass/bottle/amaretto = 5,
 				/obj/item/reagent_containers/cup/glass/bottle/ale = 6,
 				/obj/item/reagent_containers/cup/glass/bottle/grappa = 5,
-				/obj/item/reagent_containers/cup/glass/bottle/navy_rum = 5,
+				///obj/item/reagent_containers/cup/glass/bottle/navy_rum = 5, // IRIS EDIT - moved to the "imported" category in \modular_iris\modules\modular_vending\code\boozeomat.dm
 				/obj/item/reagent_containers/cup/glass/bottle/maltliquor = 6,
 				/obj/item/reagent_containers/cup/glass/bottle/kahlua = 5,
 				/obj/item/reagent_containers/cup/glass/bottle/sake = 5,
@@ -90,10 +90,12 @@
 	extra_price = PAYCHECK_COMMAND
 	payment_department = ACCOUNT_SRV
 	light_mask = "boozeomat-light-mask"
+	allow_custom = TRUE
 
 /obj/machinery/vending/boozeomat/syndicate
 	age_restrictions = FALSE
 	initial_language_holder = /datum/language_holder/syndicate
+	allow_custom = FALSE
 
 /obj/item/vending_refill/boozeomat
 	machine_name = "Booze-O-Mat"

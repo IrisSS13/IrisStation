@@ -5,7 +5,7 @@
 	burn_modifier = 2
 	head_flags = HEAD_EYESPRITES|HEAD_DEBRAIN
 	biological_state = (BIO_FLESH|BIO_BLOODED)
-	teeth_count = 0
+	teeth_count = 32
 
 /obj/item/bodypart/chest/snail
 	limb_id = SPECIES_SNAIL
@@ -17,6 +17,7 @@
 /obj/item/bodypart/arm/left/snail
 	limb_id = SPECIES_SNAIL
 	unarmed_attack_verbs = list("slap")
+	unarmed_attack_verbs_continuous = list("slaps")
 	unarmed_attack_effect = ATTACK_EFFECT_DISARM
 	unarmed_damage_low = 1
 	unarmed_damage_high = 2 //snails are soft and squishy
@@ -26,6 +27,7 @@
 /obj/item/bodypart/arm/right/snail
 	limb_id = SPECIES_SNAIL
 	unarmed_attack_verbs = list("slap")
+	unarmed_attack_verbs_continuous = list("slaps")
 	unarmed_attack_effect = ATTACK_EFFECT_DISARM
 	unarmed_damage_low = 1
 	unarmed_damage_high = 2 //snails are soft and squishy
@@ -148,7 +150,7 @@
 ///LUMINESCENT
 /obj/item/bodypart/head/jelly/luminescent
 	limb_id = SPECIES_LUMINESCENT
-	teeth_count = 0
+	teeth_count = 32
 
 /obj/item/bodypart/chest/jelly/luminescent
 	limb_id = SPECIES_LUMINESCENT
@@ -230,7 +232,9 @@
 /obj/item/bodypart/arm/left/pod
 	limb_id = SPECIES_PODPERSON
 	unarmed_attack_verbs = list("slash", "lash")
+	unarmed_attack_verbs_continuous = list("slashes", "lashes")
 	grappled_attack_verb = "lacerate"
+	grappled_attack_verb_continuous = "lacerates"
 	unarmed_attack_effect = ATTACK_EFFECT_CLAW
 	unarmed_attack_sound = 'sound/items/weapons/slice.ogg'
 	unarmed_miss_sound = 'sound/items/weapons/slashmiss.ogg'
@@ -242,7 +246,9 @@
 /obj/item/bodypart/arm/right/pod
 	limb_id = SPECIES_PODPERSON
 	unarmed_attack_verbs = list("slash", "lash")
+	unarmed_attack_verbs_continuous = list("slashes", "lashes")
 	grappled_attack_verb = "lacerate"
+	grappled_attack_verb_continuous = "lacerates"
 	unarmed_attack_effect = ATTACK_EFFECT_CLAW
 	unarmed_attack_sound = 'sound/items/weapons/slice.ogg'
 	unarmed_miss_sound = 'sound/items/weapons/slashmiss.ogg'
@@ -271,7 +277,7 @@
 	is_dimorphic = FALSE
 	should_draw_greyscale = FALSE
 	head_flags = HEAD_HAIR|HEAD_FACIAL_HAIR|HEAD_EYESPRITES|HEAD_EYEHOLES|HEAD_DEBRAIN // NOVA EDIT - Flies deserve hair - ORIGINAL: head_flags = HEAD_EYESPRITES|HEAD_EYEHOLES|HEAD_DEBRAIN
-	teeth_count = 0
+	teeth_count = 32
 	bodypart_traits = list(TRAIT_ANTENNAE)
 
 /obj/item/bodypart/chest/fly
@@ -415,7 +421,7 @@
 	is_dimorphic = TRUE
 	burn_modifier = 1.25
 	head_flags = NONE
-	teeth_count = 0
+	teeth_count = 32
 
 /obj/item/bodypart/chest/mushroom
 	limb_id = SPECIES_MUSHROOM
@@ -485,8 +491,8 @@
 	should_draw_greyscale = FALSE
 	dmg_overlay_type = null
 	head_flags = NONE
-	// too hard to drill through
-	teeth_count = 0
+	// too hard to drill through IRIS EDIT: You wish
+	teeth_count = 32
 
 /obj/item/bodypart/head/golem/Initialize(mapload)
 	worn_ears_offset = new(

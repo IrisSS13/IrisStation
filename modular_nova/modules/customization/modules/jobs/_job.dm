@@ -16,8 +16,6 @@
 	/// Which languages does the job require, associative to LANGUAGE_UNDERSTOOD or LANGUAGE_SPOKEN
 	var/list/required_languages = list(/datum/language/common = LANGUAGE_UNDERSTOOD)
 
-	///Is this job veteran only? If so, then this job requires the player to be in the veteran_players.txt
-	var/veteran_only = FALSE
 
 
 /datum/job/proc/has_banned_quirk(datum/preferences/pref)
@@ -141,6 +139,9 @@
 	banned_augments = list(HEAD_RESTRICTED_AUGMENTS)
 	required_languages = list(/datum/language/common = LANGUAGE_SPOKEN)
 
+/datum/job/bridge_assistant
+	required_languages = list(/datum/language/common = LANGUAGE_SPOKEN)
+
 //Silicon
 /datum/job/ai
 	loadout = FALSE
@@ -174,7 +175,7 @@
 	required_languages = list(/datum/language/common = LANGUAGE_SPOKEN)
 
 /datum/job/customs_agent
-	banned_quirks = list(GUARD_RESTRICTED_QUIRKS)
+	banned_quirks = list(GUARD_RESTRICTED_QUIRKS_CARGO) //IRIS EDIT
 	required_languages = list(/datum/language/common = LANGUAGE_SPOKEN)
 
 /datum/job/bouncer

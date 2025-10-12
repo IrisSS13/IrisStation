@@ -61,7 +61,8 @@
 	name = "Abductor Scientist"
 
 	backpack_contents = list(
-		/obj/item/abductor/gizmo = 1
+		/obj/item/abductor/gizmo = 1,
+		/obj/item/device/traitor_announcer/infinite = 1
 		)
 
 /datum/outfit/abductor/scientist/post_equip(mob/living/carbon/human/user, visuals_only = FALSE)

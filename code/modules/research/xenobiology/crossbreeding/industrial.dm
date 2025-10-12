@@ -204,5 +204,6 @@ Industrial extracts:
 	//Item picked below.
 
 /obj/item/slimecross/industrial/rainbow/process()
-	itempath = pick(subtypesof(/obj/item/slime_extract))
+//	itempath = pick(subtypesof(/obj/item/slime_extract)) // IRIS EDIT OLD -- UNIQUE SLIMES
+	itempath = pick(subtypesof(/obj/item/slime_extract) - typesof(/obj/item/slime_extract/unique)) // IRIS EDIT NEW
 	..()

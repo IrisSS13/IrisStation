@@ -424,8 +424,6 @@
 	. = ..()
 	. += span_notice("Alt-click [src] to adjust it.")
 
-/obj/item/clothing/mask/gas/nightlight/alldono //different itempath so regular donators can have it, too
-
 // Donation reward for Farsighted Nightlight
 /obj/item/clothing/mask/gas/nightlight/fir22
 	name = "\improper FIR-22 full-face rebreather"
@@ -724,7 +722,7 @@
 	return mutable_appearance('modular_nova/master_files/icons/donator/obj/custom.dmi', "darksheath-darksabre")
 
 // Donation reward for inferno707
-/obj/item/storage/belt/sabre/darksabre
+/obj/item/storage/belt/sheath/sabre/darksabre
 	name = "ornate sheathe"
 	desc = "An ornate and rather sinister looking sabre sheathe."
 	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
@@ -732,11 +730,11 @@
 	icon_state = "darksheath"
 	worn_icon_state = "darksheath"
 
-/obj/item/storage/belt/sabre/darksabre/Initialize(mapload)
+/obj/item/storage/belt/sheath/sabre/darksabre/Initialize(mapload)
 	. = ..()
 	atom_storage.set_holdable(/obj/item/toy/darksabre)
 
-/obj/item/storage/belt/sabre/darksabre/PopulateContents()
+/obj/item/storage/belt/sheath/sabre/darksabre/PopulateContents()
 	new /obj/item/toy/darksabre(src)
 	update_icon()
 
@@ -1181,7 +1179,7 @@
 	. = ..()
 	handle_sight_updating(user)
 
-/obj/item/clothing/glasses/welding/steampunk_goggles/attackby(obj/item/attacking_item, mob/living/user, params)
+/obj/item/clothing/glasses/welding/steampunk_goggles/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(!istype(attacking_item, /obj/item/clothing/glasses/welding))
 		return ..()
 
@@ -1307,6 +1305,10 @@
 	upsprite = "fushankaup"
 	downsprite = "fushankadown"
 
+	post_init_icon_state = null
+	greyscale_config = null
+	greyscale_config_worn = null
+
 // Donation reward for M97screwsyourparents
 /obj/item/clothing/neck/cross
 	name = "silver cross"
@@ -1399,11 +1401,11 @@
 		user.visible_message(span_notice("[user] shows you: [icon2html(src, viewers(user))] [src.name]."), span_notice("You show \the [src.name]."))
 	add_fingerprint(user)
 
-/obj/item/card/fuzzy_license/attackby(obj/item/used, mob/living/user, params)
+/obj/item/card/fuzzy_license/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	if(user.ckey != "fuzlet")
 		return
 
-	if(istype(used, /obj/item/pen) || istype(used, /obj/item/toy/crayon))
+	if(istype(attacking_item, /obj/item/pen) || istype(attacking_item, /obj/item/toy/crayon))
 		var/choice = input(user, "Select the license type", "License Type Selection") as null|anything in possible_types
 		if(!isnull(choice))
 			name = "license to [choice]"
@@ -1570,10 +1572,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 /obj/item/coin/donator/marsoc
 	name = "MARSOC Challenge Coin"
 	desc = "This is a challenge coin given to all MARSOC members upon honorable separation from the Corps. \
-			The coin has the insignia of the Marine Special Operations Command on one side, and the Sol Federation Marine Corps logo on the other. \
+			The coin has the insignia of the Marine Special Operations Command on one side, and the Sol Goverment Marine Corps logo on the other. \
 			This one has an engraving on the Marine Corps logo side, etched in a circle around it: \
 			\"To Staff Sargent Henry Rockwell, for his exemplary service to the Special Operations community and his outstanding moral fiber \
-			and shining example to the core values of the Sol Federation Marine Corps.\""
+			and shining example to the core values of the Sol Goverment Marine Corps.\""
 	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
 	sideslist = list("MARSOC", "SFMC")
 
@@ -1584,6 +1586,15 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/uniform.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/uniform.dmi'
 	icon_state = "tactichill"
+
+// Donation reward for thedragmeme and snailom
+/obj/item/clothing/shoes/fancy_heels/drag
+	desc = "A fancy pair of high heels. Clack clack clack... definitely turning a lot of heads."
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1
+
+/obj/item/clothing/shoes/fancy_heels/drag/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/squeak, list('modular_nova/master_files/sound/effects/footstep/highheel1.ogg' = 1, 'modular_nova/master_files/sound/effects/footstep/highheel2.ogg' = 1), 70)
 
 // Donation reward for Razurath
 
@@ -1909,7 +1920,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 		message = span_warning("[src]'s delicate fabric is shredded by [washer]! How terrible!")
 		sound_effect_path = 'sound/effects/cloth_rip.ogg'
 		sound_effect_volume = 30
-		for (var/zone as anything in cover_flags2body_zones(body_parts_covered))
+		for (var/zone in cover_flags2body_zones(body_parts_covered))
 			take_damage_zone(zone, limb_integrity * 1.1, BRUTE) // fucking shreds it
 
 	var/turf/our_turf = get_turf(src)
@@ -2019,7 +2030,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 #undef TOASTER_IMPLANT_COOLDOWN
 
 // donator item for Sciamach
-/obj/item/organ/cyberimp/arm/shard/donator/theurgic_crystal
+/obj/item/organ/cyberimp/arm/toolkit/shard/donator/theurgic_crystal
 	name = "theurgic stone"
 	desc = "An eerie crystalline shard that pulses with theurgic energies. Tendrils of crimson energy seem to dance along its surface."
 	icon = 'modular_nova/master_files/icons/donator/obj/custom.dmi'
@@ -2089,6 +2100,17 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 	icon_state = "ignari_rem"
 	can_adjust = FALSE
 
+/obj/item/clothing/shoes/rem_shoes
+	name = "\improper M.I.A. heels"
+	desc = "A pair of form fitting heels. They appear to bear no distinguishing identifiers."
+	icon = 'modular_nova/master_files/icons/donator/obj/clothing/shoes.dmi'
+	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/feet.dmi'
+	icon_state = "rem_shoes"
+
+/obj/item/clothing/shoes/rem_shoes/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/squeak, list('modular_nova/master_files/sound/effects/footstep/highheel1.ogg' = 1, 'modular_nova/master_files/sound/effects/footstep/highheel2.ogg' = 1), 70)
+
 /obj/item/clothing/under/bwake
 	name = "\improper Compression bodysuit"
 	desc = "A bodysuit made of weaved bluespace threads and latex. The suit appears to be exceptionally insulating, and seals quite neatly around the wearer's body."
@@ -2141,17 +2163,18 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 // donation reward for deadmon
 /obj/item/clothing/suit/hooded/seva/melon
 	name = "sundowner SEVA suit"
-	desc = "A SEVA suit originally designed for SolFed's Army Corps of Engineers to be used in CBRN environments. This suit seems to have had its typical armor plating and anti-radiation lining removed in favor of movement. "
+	desc = "A SEVA suit originally designed for SolGov's Army Corps of Engineers to be used in CBRN environments. This suit seems to have had its typical armor plating and anti-radiation lining removed in favor of movement. "
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
 	worn_icon_digi = 'modular_nova/master_files/icons/donator/mob/clothing/suit_digi.dmi'
 	icon_state = "seva_melon"
 	hoodtype = /obj/item/clothing/head/hooded/seva/melon
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	hood_up_affix = ""
 
 /obj/item/clothing/head/hooded/seva/melon
 	name = "sundowner hood"
-	desc = "Designed for the SolFed Army Corps of Engineers, the original version came with armor plates and a hardened glass faceplate. This one has been scaled down, unfortunately."
+	desc = "Designed for the SolGov Army Corps of Engineers, the original version came with armor plates and a hardened glass faceplate. This one has been scaled down, unfortunately."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/hats.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/head.dmi'
 	worn_icon_muzzled = 'modular_nova/master_files/icons/donator/mob/clothing/head_muzzled.dmi'
@@ -2262,12 +2285,13 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/clothing/suit/hooded/explorer/melon
 	name = "anomalous materials protection suit"
-	desc = "A suit originally designed for the SolFed Army to be used in CBRN environments. This suit still has it's protective plates installed. It's clear that this suit has been patched up over many years."
+	desc = "A suit originally designed for the SolGov Army to be used in CBRN environments. This suit still has it's protective plates installed. It's clear that this suit has been patched up over many years."
 	icon = 'modular_nova/master_files/icons/donator/obj/clothing/suits.dmi'
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/suit.dmi'
 	worn_icon_digi = 'modular_nova/master_files/icons/donator/mob/clothing/suit_digi.dmi'
 	icon_state = "explorer_melon"
 	hoodtype = /obj/item/clothing/head/hooded/explorer/melon
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	hood_up_affix = ""
 
 /obj/item/clothing/head/hooded/explorer/melon

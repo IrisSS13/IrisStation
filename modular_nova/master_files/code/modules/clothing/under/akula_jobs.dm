@@ -4,7 +4,7 @@
 #define TAIL_OVERLAY_LAYER 5.9
 
 /obj/item/clothing/under/akula_wetsuit
-	name = "Shoredress wetsuit"
+	name = "\improper Shoredress wetsuit"
 	desc = "The 'Wetworks'-pattern Shoredress is a long-standing template upon which most Azulean 'wetsuits' are made. \
 		This atmospheric exploration suit is a single form-fitting garment, designed to keep wearers comfortable in the harsh environment of dry land; \
 		even sometimes worn underneath orbital suits such as MODs. \n\n\
@@ -238,11 +238,11 @@
 	else
 		. += span_notice("There's nothing placed in the helmet.")
 
-/obj/item/clothing/head/helmet/space/akula_wetsuit/attackby(obj/item/hitting_item, mob/living/user)
+/obj/item/clothing/head/helmet/space/akula_wetsuit/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
 	. = ..()
-	if(!istype(hitting_item, /obj/item/clothing/head))
+	if(!istype(attacking_item, /obj/item/clothing/head))
 		return
-	var/obj/item/clothing/hitting_hat = hitting_item
+	var/obj/item/clothing/hitting_hat = attacking_item
 	if(hitting_hat.clothing_flags & STACKABLE_HELMET_EXEMPT)
 		balloon_alert(user, "doesn't fit!")
 		return

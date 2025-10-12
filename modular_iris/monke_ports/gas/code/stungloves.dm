@@ -46,7 +46,7 @@
 		return NONE
 	if(ishuman(target))
 		if (source.combat_mode)
-			return src.attack(target, source, BATON_ATTACKING) //Make sure we stun them, or at worst case, just prod them if no cell
+			return src.attack(target, source, !stun_on_harmbaton) //Make sure we stun them, or at worst case, just prod them if no cell
 	if(ismob(target))
 		if (source.combat_mode)
 			return src.attack(target, source) //Make sure we beat they ass

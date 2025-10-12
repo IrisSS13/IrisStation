@@ -35,6 +35,16 @@
 	eatverbs = list("bite", "chew", "gnaw", "swallow", "chomp")
 	w_class = WEIGHT_CLASS_SMALL
 	starting_reagent_purity = 1.0
+	var/fillet_name = "%NAME fillet"
+
+/obj/item/food/fishmeat/Initialize(mapload)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_FOOD_DONT_INHERIT_NAME_FROM_PROCESSED, INNATE_TRAIT)
+
+/obj/item/food/fishmeat/OnCreatedFromProcessing(mob/living/user, obj/item/work_tool, list/chosen_option, atom/original_atom)
+	. = ..()
+	name = replacetext(fillet_name, "%NAME", original_atom.name)
+	material_flags &= ~MATERIAL_ADD_PREFIX //don't double down on material prefixes
 
 /obj/item/food/fishmeat/quality
 	name = "quality fish fillet"
@@ -105,7 +115,7 @@
 	AddComponent(/datum/component/grillable, /obj/item/food/grilled_moonfish, rand(40 SECONDS, 50 SECONDS), TRUE, TRUE)
 
 /obj/item/food/fishmeat/gunner_jellyfish
-	name = "filleted gunner jellyfish"
+	name = "gunner jellyfish fillet"
 	desc = "A gunner jellyfish with the stingers removed. Mildly hallucinogenic when raw."
 	icon = 'icons/obj/food/lizard.dmi'
 	icon_state = "jellyfish_fillet"
@@ -115,10 +125,7 @@
 
 ///Premade gunner jellyfish fillets from supply orders. Contains the halluginogen that'd be normally from the fish trait.
 /obj/item/food/fishmeat/gunner_jellyfish/supply
-
-/obj/item/food/fishmeat/gunner_jellyfish/supply/Initialize(mapload)
-	food_reagents[/datum/reagent/toxin/mindbreaker/fish] = 2
-	return ..()
+	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 4, /datum/reagent/toxin/mindbreaker/fish = 2)
 
 /obj/item/food/fishmeat/armorfish
 	name = "cleaned armorfish"
@@ -126,6 +133,7 @@
 	icon = 'icons/obj/food/lizard.dmi'
 	icon_state = "armorfish_fillet"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 3)
+	fillet_name = "cleaned %NAME"
 
 ///donkfish fillets. The yuck reagent is now added by the fish trait of the same name.
 /obj/item/food/fishmeat/donkfish
@@ -140,6 +148,7 @@
 	icon = 'icons/obj/food/martian.dmi'
 	icon_state = "octopus_fillet"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 3)
+	fillet_name = "%NAME tentacle"
 
 /obj/item/food/fishmeat/octopus/make_grillable()
 	AddComponent(/datum/component/grillable, /obj/item/food/grilled_octopus, rand(15 SECONDS, 25 SECONDS), TRUE, TRUE)
@@ -315,6 +324,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	venue_value = FOOD_PRICE_NORMAL
 	crafting_complexity = FOOD_COMPLEXITY_4
+	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT)
 
 /obj/item/food/fish_poke
 	name = "fish poke"
@@ -420,6 +430,7 @@
 	foodtypes = MEAT | VEGETABLES
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_2
+	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT)
 
 /obj/item/food/bearsteak
 	name = "Filet migrawr"
@@ -436,12 +447,14 @@
 	w_class = WEIGHT_CLASS_SMALL
 	venue_value = FOOD_PRICE_EXOTIC
 	crafting_complexity = FOOD_COMPLEXITY_2
+	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT)
 
 /obj/item/food/raw_meatball
 	name = "raw meatball"
 	desc = "A great meal all round. Not a cord of wood. Kinda raw"
 	icon = 'icons/obj/food/meat.dmi'
 	icon_state = "raw_meatball"
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 2)
 	tastes = list("meat" = 1)
 	foodtypes = MEAT | RAW
@@ -486,6 +499,7 @@
 	icon = 'icons/obj/food/meat.dmi'
 	icon_state = "meatball"
 	inhand_icon_state = "meatball"
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 2)
 	tastes = list("meat" = 1)
 	foodtypes = MEAT
@@ -518,6 +532,7 @@
 	desc = "I'm.....NOT REAAADDYY."
 	icon = 'icons/obj/food/meat.dmi'
 	icon_state = "raw_patty"
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 2)
 	tastes = list("meat" = 1)
 	foodtypes = MEAT | RAW
@@ -555,6 +570,7 @@
 	desc = "The Nanotrasen patty is the patty for you and me!"
 	icon = 'icons/obj/food/meat.dmi'
 	icon_state = "patty"
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 2)
 	tastes = list("meat" = 1)
 	foodtypes = MEAT
@@ -599,6 +615,7 @@
 	//IRIS EDIT CHANGE END
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_1
+	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT)
 
 /obj/item/food/raw_sausage/make_grillable()
 	AddComponent(/datum/component/grillable, /obj/item/food/sausage, rand(60 SECONDS, 75 SECONDS), TRUE)
@@ -622,6 +639,7 @@
 	venue_value = FOOD_PRICE_CHEAP
 	crafting_complexity = FOOD_COMPLEXITY_2
 	custom_price = PAYCHECK_CREW * 0.6
+	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT)
 
 /obj/item/food/sausage/make_processable()
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/salami, 6, 3 SECONDS, table_required = TRUE,  screentip_verb = "Slice")
@@ -650,6 +668,7 @@
 	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_2
+	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT / 6)
 
 /obj/item/food/rawkhinkali
 	name = "raw khinkali"
@@ -666,6 +685,7 @@
 	foodtypes = MEAT|GRAIN|VEGETABLES
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_2
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
 
 /obj/item/food/rawkhinkali/make_grillable()
 	AddComponent(/datum/component/grillable, /obj/item/food/khinkali, rand(50 SECONDS, 60 SECONDS), TRUE)
@@ -686,6 +706,7 @@
 	foodtypes = MEAT|GRAIN|VEGETABLES
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_3
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
 
 /obj/item/food/meatbun
 	name = "meat bun"
@@ -701,6 +722,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	venue_value = FOOD_PRICE_CHEAP
 	crafting_complexity = FOOD_COMPLEXITY_3
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
 
 /obj/item/food/stewedsoymeat
 	name = "stewed soy meat"
@@ -746,6 +768,7 @@
 	foodtypes = MEAT|BUGS
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_2
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT * 2)
 
 /obj/item/food/sashimi
 	name = "spider sashimi"
@@ -785,6 +808,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	venue_value = FOOD_PRICE_CHEAP
 	crafting_complexity = FOOD_COMPLEXITY_1
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
 	var/meat_source = "\"chicken\""
 
 /obj/item/food/nugget/Initialize(mapload)
@@ -816,6 +840,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	crafting_complexity = FOOD_COMPLEXITY_3
 	custom_price = PAYCHECK_CREW
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
 
 /obj/item/food/bbqribs
 	name = "bbq ribs"
@@ -831,6 +856,7 @@
 	tastes = list("meat" = 3, "smokey sauce" = 1)
 	foodtypes = MEAT | SUGAR
 	crafting_complexity = FOOD_COMPLEXITY_2
+	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT * 2)
 
 /obj/item/food/meatclown
 	name = "meat clown"
@@ -846,6 +872,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	foodtypes = MEAT | FRUIT
 	crafting_complexity = FOOD_COMPLEXITY_2
+	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT)
 
 /obj/item/food/meatclown/Initialize(mapload)
 	. = ..()
@@ -864,6 +891,7 @@
 	foodtypes = MEAT|VEGETABLES|GRAIN|DAIRY
 	venue_value = FOOD_PRICE_NORMAL
 	crafting_complexity = FOOD_COMPLEXITY_3
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT * 2)
 
 //////////////////////////////////////////// KEBABS AND OTHER SKEWERS ////////////////////////////////////////////
 
@@ -871,6 +899,7 @@
 	trash_type = /obj/item/stack/rods
 	icon = 'icons/obj/food/meat.dmi'
 	icon_state = "kebab"
+	abstract_type = /obj/item/food/kebab
 	w_class = WEIGHT_CLASS_NORMAL
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 14)
 	tastes = list("meat" = 3, "metal" = 1)
@@ -887,6 +916,7 @@
 	tastes = list("tender meat" = 3, "metal" = 1)
 	foodtypes = MEAT | GORE
 	venue_value = FOOD_PRICE_CHEAP
+	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT * 2)
 
 /obj/item/food/kebab/monkey
 	name = "meat-kebab"
@@ -898,6 +928,7 @@
 	tastes = list("meat" = 3, "metal" = 1)
 	foodtypes = MEAT
 	venue_value = FOOD_PRICE_CHEAP
+	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT * 2)
 
 /obj/item/food/kebab/tofu
 	name = "tofu-kebab"
@@ -953,6 +984,7 @@
 	tastes = list("tex-mex" = 3, "cumin" = 2)
 	foodtypes = MEAT | VEGETABLES
 	crafting_complexity = FOOD_COMPLEXITY_3
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
 
 /obj/item/food/fried_chicken
 	name = "fried chicken"
@@ -965,6 +997,7 @@
 	junkiness = 25
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_3
+	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT)
 
 /obj/item/food/fried_chicken/Initialize(mapload)
 	. = ..()
@@ -988,6 +1021,7 @@
 	//basic ingredients, but a lot of them. just covering costs here
 	venue_value = FOOD_PRICE_NORMAL
 	crafting_complexity = FOOD_COMPLEXITY_4
+	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT)
 
 /obj/item/food/beef_wellington
 	name = "beef wellington"
@@ -1003,6 +1037,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	venue_value = FOOD_PRICE_EXOTIC
 	crafting_complexity = FOOD_COMPLEXITY_5
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT * 4)
 
 /obj/item/food/beef_wellington/make_processable()
 	AddElement(/datum/element/processable, TOOL_KNIFE,  /obj/item/food/beef_wellington_slice, 3, 3 SECONDS, table_required = TRUE,  screentip_verb = "Cut")
@@ -1021,9 +1056,10 @@
 	w_class = WEIGHT_CLASS_SMALL
 	venue_value = FOOD_PRICE_NORMAL
 	crafting_complexity = FOOD_COMPLEXITY_5
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT * (4/3))
 
 /obj/item/food/korta_wellington
-	name = "Kotra wellington"
+	name = "Korta wellington"
 	desc = "A luxurious log of beef, covered in a fine mushroom duxelle and pancetta ham, then bound in korta pastry."
 	icon = 'icons/obj/food/meat.dmi'
 	icon_state = "korta_wellington"
@@ -1036,6 +1072,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	venue_value = FOOD_PRICE_EXOTIC
 	crafting_complexity = FOOD_COMPLEXITY_5
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT * 4)
 
 /obj/item/food/korta_wellington/make_processable()
 	AddElement(/datum/element/processable, TOOL_KNIFE,  /obj/item/food/korta_wellington_slice, 3, 3 SECONDS, table_required = TRUE,  screentip_verb = "Cut")
@@ -1054,6 +1091,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	venue_value = FOOD_PRICE_NORMAL
 	crafting_complexity = FOOD_COMPLEXITY_5
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT * (4/3))
 
 /obj/item/food/roast_dinner
 	name = "roast dinner"
@@ -1069,6 +1107,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	venue_value = FOOD_PRICE_EXOTIC
 	crafting_complexity = FOOD_COMPLEXITY_5
+	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT * 2)
 
 /obj/item/food/roast_dinner/make_processable()
 	AddElement(/datum/element/processable, TOOL_KNIFE,  /obj/item/food/roast_slice, 3, 3 SECONDS, table_required = TRUE,  screentip_verb = "Cut")
@@ -1087,6 +1126,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	venue_value = FOOD_PRICE_NORMAL
 	crafting_complexity = FOOD_COMPLEXITY_5
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT * 2)
 
 /obj/item/food/roast_dinner_lizzy
 	name = "grain-free roast dinner"
@@ -1102,6 +1142,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	venue_value = FOOD_PRICE_EXOTIC
 	crafting_complexity = FOOD_COMPLEXITY_5
+	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT * 2)
 
 /obj/item/food/roast_dinner_lizzy/make_processable()
 	AddElement(/datum/element/processable, TOOL_KNIFE,  /obj/item/food/roast_slice_lizzy, 3, 3 SECONDS, table_required = TRUE,  screentip_verb = "Cut")
@@ -1120,6 +1161,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	venue_value = FOOD_PRICE_NORMAL
 	crafting_complexity = FOOD_COMPLEXITY_5
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT * 2)
 
 /obj/item/food/roast_dinner_tofu
 	name = "tofu roast dinner"
@@ -1168,6 +1210,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	venue_value = FOOD_PRICE_EXOTIC
 	crafting_complexity = FOOD_COMPLEXITY_5
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT * 4)
 
 /obj/item/food/raw_meatloaf
 	name = "raw meatloaf"
@@ -1183,6 +1226,7 @@
 	foodtypes = MEAT | RAW | VEGETABLES
 	w_class = WEIGHT_CLASS_NORMAL
 	crafting_complexity = FOOD_COMPLEXITY_3
+	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT * 2)
 
 /obj/item/food/raw_meatloaf/make_bakeable()
 	AddComponent(/datum/component/bakeable, /obj/item/food/meatloaf, rand(30 SECONDS, 40 SECONDS), TRUE, TRUE)
@@ -1201,6 +1245,7 @@
 	foodtypes = MEAT | VEGETABLES
 	w_class = WEIGHT_CLASS_NORMAL
 	crafting_complexity = FOOD_COMPLEXITY_3
+	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT * 2)
 
 /obj/item/food/meatloaf/make_processable()
 	AddElement(/datum/element/processable, TOOL_KNIFE,  /obj/item/food/meatloaf_slice, 4, 3 SECONDS, table_required = TRUE,  screentip_verb = "Cut")
@@ -1219,6 +1264,7 @@
 	foodtypes = MEAT | VEGETABLES
 	w_class = WEIGHT_CLASS_SMALL
 	crafting_complexity = FOOD_COMPLEXITY_4
+	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT / 2)
 
 /obj/item/food/sweet_and_sour_meatballs
 	name = "sweet and sour meatballs"
@@ -1233,6 +1279,7 @@
 	tastes = list("meat" = 5, "savory sauce" = 4, "tangy pineapple" = 3, "pepper" = 2)
 	foodtypes = MEAT | VEGETABLES | FRUIT | PINEAPPLE
 	crafting_complexity = FOOD_COMPLEXITY_3
+	custom_materials = list(/datum/material/meat = MEATSLAB_MATERIAL_AMOUNT)
 
 /obj/item/food/kebab/pineapple_skewer
 	name = "pineapple skewer"
@@ -1246,6 +1293,7 @@
 	tastes = list("juicy meat" = 4, "pineapple" = 3)
 	foodtypes = MEAT | FRUIT | PINEAPPLE
 	crafting_complexity = FOOD_COMPLEXITY_3
+	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT * 2)
 
 /obj/item/food/futomaki_sushi_roll
 	name = "futomaki sushi roll"

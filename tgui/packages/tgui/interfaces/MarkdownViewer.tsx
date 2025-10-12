@@ -31,10 +31,14 @@ export const MarkdownRenderer = (props: MarkdownRendererProps) => {
 
   content = marked(content, { async: false });
   if (sanitize) {
-    content = sanitizeText(content, /* advHtml = */ false);
+    const sanitized = sanitizeText(content, /* advHtml = */ false);
+    content =
+      typeof sanitized === 'object' && sanitized !== null
+        ? sanitized.sanitized
+        : sanitized;
   }
 
-  // eslint-disable-next-line react/no-danger
+  // biome-ignore lint/security/noDangerouslySetInnerHtml: ignore
   return <div dangerouslySetInnerHTML={{ __html: content }} />;
 };
 

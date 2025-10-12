@@ -18,7 +18,7 @@
 /// -14°C snow and ice turfs, a more breatheable coldroom atmos.
 #define COLD_ATMOS GAS_O2 + "=22;" + GAS_N2 + "=82;TEMP=259.15"
 /// -14°C kitchen coldroom, just might loss your tail; higher amount of mol to reach about 101.3 kpA
-#define KITCHEN_COLDROOM_ATMOS GAS_O2 + "=26;" + GAS_N2 + "=97;TEMP=259.15"
+#define KITCHEN_COLDROOM_ATMOS GAS_O2 + "=26;" + GAS_N2 + "=97;TEMP=261" //IRIS EDIT: temp to 261, OG: #define KITCHEN_COLDROOM_ATMOS GAS_O2 + "=26;" + GAS_N2 + "=97;TEMP=259.15"
 /// used in the holodeck burn test program
 #define BURNMIX_ATMOS GAS_O2 + "=2500;" + GAS_PLASMA + "=5000;TEMP=370"
 ///-153.15°C plasma air, used for burning people.

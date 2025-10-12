@@ -16,12 +16,6 @@
 	item_type = /obj/item/ammo_workbench_module/lethal
 	cost = PAYCHECK_COMMAND * 3
 
-// not a disk. adds print points
-/datum/armament_entry/company_import/vitezstvi/ammo_bench/reboot
-	name = "reusable module reauthenticator"
-	item_type = /obj/item/ammo_workbench_reboot
-	cost = PAYCHECK_CREW
-
 // disk but with the bits needed for EMP/fire bullets
 /datum/armament_entry/company_import/vitezstvi/ammo_bench/ammo_disk/lethal_gimmick
 	item_type = /obj/item/ammo_workbench_module/lethal_gimmick
@@ -49,10 +43,10 @@
 	item_type = /obj/item/flashlight/seclite
 
 /datum/armament_entry/company_import/vitezstvi/accessory/small_case
-	item_type = /obj/item/storage/toolbox/guncase/nova/pistol/empty
+	item_type = /obj/item/storage/toolbox/guncase/nova/pistol
 
 /datum/armament_entry/company_import/vitezstvi/accessory/large_case
-	item_type = /obj/item/storage/toolbox/guncase/nova/empty
+	item_type = /obj/item/storage/toolbox/guncase/nova
 	cost = PAYCHECK_COMMAND * 2
 
 /datum/armament_entry/company_import/vitezstvi/accessory/bandolier
@@ -94,6 +88,11 @@
 
 /datum/armament_entry/company_import/vitezstvi/ammo_boxes/auto10mm_rubber
 	item_type = /obj/item/ammo_box/c10mm/rubber
+
+/datum/armament_entry/company_import/vitezstvi/ammo_boxes/zaibas_ammo
+	item_type = /obj/item/ammo_box/pulse_cargo_box
+	//It's like, a lot of ammo compared to other packages; high-capacity universal ammo for all pulse plasma guns.
+	cost = PAYCHECK_COMMAND * 2
 
 /datum/armament_entry/company_import/vitezstvi/ammo_boxes/strilka_lethal
 	item_type = /obj/item/ammo_box/c310_cargo_box
@@ -150,13 +149,19 @@
 	cost = PAYCHECK_CREW
 
 /datum/armament_entry/company_import/vitezstvi/speedloader/detective_lethal
-	item_type = /obj/item/ammo_box/c38
+	item_type = /obj/item/ammo_box/speedloader/c38
 
 /datum/armament_entry/company_import/vitezstvi/speedloader/detective_dumdum
-	item_type = /obj/item/ammo_box/c38/dumdum
+	item_type = /obj/item/ammo_box/speedloader/c38/dumdum
 
 /datum/armament_entry/company_import/vitezstvi/speedloader/detective_bouncy
-	item_type = /obj/item/ammo_box/c38/match
+	item_type = /obj/item/ammo_box/speedloader/c38/match
+
+/datum/armament_entry/company_import/vitezstvi/speedloader/c35sol
+	item_type = /obj/item/ammo_box/speedloader/c35sol
+
+/datum/armament_entry/company_import/vitezstvi/speedloader/c585trappiste
+	item_type = /obj/item/ammo_box/speedloader/c585trappiste
 
 // Shotgun boxes
 
@@ -219,3 +224,14 @@
 /datum/armament_entry/company_import/vitezstvi/grenade_shells/phosphor
 	item_type = /obj/item/ammo_box/c980grenade/shrapnel/phosphor
 	restricted = TRUE
+
+// IRIS ADDITION START
+
+/datum/armament_entry/company_import/vitezstvi/misc
+	subcategory = "Miscellaneous"
+	cost = PAYCHECK_CREW
+
+/datum/armament_entry/company_import/vitezstvi/misc/harpoon
+	item_type = /obj/item/ammo_casing/harpoon
+
+// IRIS ADDITION END

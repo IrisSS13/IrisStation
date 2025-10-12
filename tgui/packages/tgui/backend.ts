@@ -13,12 +13,7 @@
 
 import { perf } from 'common/perf';
 import { createAction } from 'common/redux';
-import {
-  releaseHeldKeys,
-  startKeyPassthrough,
-  stopKeyPassthrough,
-} from 'tgui-core/hotkeys';
-import { BooleanLike } from 'tgui-core/react';
+import type { BooleanLike } from 'tgui-core/react';
 
 import { setupDrag } from './drag';
 import { focusMap } from './focus';
@@ -82,7 +77,7 @@ export const backendReducer = (state = initialState, action) => {
     // Merge shared states
     const shared = { ...state.shared };
     if (payload.shared) {
-      for (let key of Object.keys(payload.shared)) {
+      for (const key of Object.keys(payload.shared)) {
         const value = payload.shared[key];
         if (value === '') {
           shared[key] = undefined;
@@ -214,11 +209,12 @@ export const backendMiddleware = (store) => {
       suspendRenderer();
       clearInterval(suspendInterval);
       suspendInterval = undefined;
+      // Tiny window to not show previous content when resumed
       Byond.winset(Byond.windowId, {
+        size: '1x1',
+        pos: '1,1',
         'is-visible': false,
       });
-      stopKeyPassthrough();
-      releaseHeldKeys();
       setTimeout(() => focusMap());
     }
 
@@ -245,7 +241,6 @@ export const backendMiddleware = (store) => {
       logger.log('backend/update', payload);
       // Signal renderer that we have resumed
       resumeRenderer();
-      startKeyPassthrough();
       // Setup drag
       setupDrag();
       // We schedule this for the next tick here because resizing and unhiding
@@ -324,7 +319,7 @@ const chunkSplitter = {
   [Symbol.split]: (string: string) => {
     const charSeq = string[Symbol.iterator]().toArray();
     const length = charSeq.length;
-    let chunks: string[] = [];
+    const chunks: string[] = [];
     let startIndex = 0;
     let endIndex = 1024;
     while (startIndex < length) {
@@ -368,7 +363,7 @@ export const sendAct = (action: string, payload: object = {}) => {
 
   const stringifiedPayload = JSON.stringify(payload);
   const urlSize = Object.entries({
-    type: 'act/' + action,
+    type: `act/${action}`,
     payload: stringifiedPayload,
     tgui: 1,
     windowId: Byond.windowId,
@@ -379,18 +374,18 @@ export const sendAct = (action: string, payload: object = {}) => {
     '',
   ).length;
   if (urlSize > 2048) {
-    let chunks: string[] = stringifiedPayload.split(chunkSplitter);
+    const chunks: string[] = stringifiedPayload.split(chunkSplitter);
     const id = `${Date.now()}`;
     globalStore?.dispatch(backendCreatePayloadQueue({ id, chunks }));
     Byond.sendMessage('oversizedPayloadRequest', {
-      type: 'act/' + action,
+      type: `act/${action}`,
       id,
       chunkCount: chunks.length,
     });
     return;
   }
 
-  Byond.sendMessage('act/' + action, payload);
+  Byond.sendMessage(`act/${action}`, payload);
 };
 
 type BackendState<TData> = {

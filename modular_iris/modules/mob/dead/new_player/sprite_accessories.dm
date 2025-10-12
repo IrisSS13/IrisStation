@@ -244,7 +244,7 @@
 
 // temporary xeno tail fix till upstream does it bc synth said so
 /datum/sprite_accessory/tails/xeno
-	recommended_species = list(SPECIES_XENO)
+	recommended_species = list(SPECIES_XENO, SPECIES_POLYSMORPH)
 	feature_key_override = "tail_xeno"
 	color_src = USE_ONE_COLOR
 
@@ -266,16 +266,19 @@
 	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/ears.dmi'
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER, BACK_LAYER)
 
+/datum/sprite_accessory/ears/mutant/iris/large
+	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/ears_big.dmi'
+
 /datum/sprite_accessory/ears/mutant/iris/dog
 	name = "Dog"
 	icon_state = "dog"
 	color_src = USE_ONE_COLOR
 
-/datum/sprite_accessory/ears/mutant/iris/rabbit/upwards
+/datum/sprite_accessory/ears/mutant/iris/large/rabbit/upwards
 	name = "Rabbit (Upwards)"
 	icon_state = "rabbit"
 
-/datum/sprite_accessory/ears/mutant/iris/rabbit/bent
+/datum/sprite_accessory/ears/mutant/iris/large/rabbit/bent
 	name = "Rabbit (Bent)"
 	icon_state = "rabbit_bent"
 
@@ -572,23 +575,48 @@
 
 /datum/sprite_accessory/antenna/iris
 	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/ipc_antennas.dmi'
-	relevent_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
+	color_src = USE_ONE_COLOR
+	default_color = null
 
 /datum/sprite_accessory/antenna/iris/sidelights
 	name = "Sidelights"
 	icon_state = "sidelights"
+	color_src = USE_ONE_COLOR
 
 /datum/sprite_accessory/antenna/iris/tesla
 	name = "Tesla"
 	icon_state = "tesla"
+	color_src = USE_ONE_COLOR
 
 /datum/sprite_accessory/antenna/iris/droneeyes
 	name = "Drone Eyes"
 	icon_state = "droneeyes"
+	color_src = USE_ONE_COLOR
 
 /datum/sprite_accessory/antenna/iris/light
 	name = "Light"
 	icon_state = "light"
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/antenna/iris/circular
+	name = "Circular"
+	icon_state = "circular"
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/antenna/iris/comet
+	name = "Comet"
+	icon_state = "comet"
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/antenna/iris/zero
+	name = "Zero"
+	icon_state = "zero"
+	color_src = USE_MATRIXED_COLORS
+
+/datum/sprite_accessory/antenna/iris/cutesy
+	name = "Cutesy"
+	icon_state = "cutesy"
+	color_src = USE_MATRIXED_COLORS
 
 // SCREENS
 /datum/sprite_accessory/screen/iris

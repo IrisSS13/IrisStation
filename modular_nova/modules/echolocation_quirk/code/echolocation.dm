@@ -39,7 +39,7 @@
 	//IRIS EDIT ADDITION END
 
 	//IRIS EDIT CHANGE BEGIN - SLOWER_ECHOLOCATION_PREF
-	human_holder.AddComponent(/datum/component/echolocation, blocking_trait = TRAIT_DEAF, echo_range = 5, echo_group = client_echo_group, images_are_static = FALSE, use_echo = client_use_echo, show_own_outline = TRUE, cooldown_time = client_echo_speed)
+	human_holder.AddComponent(/datum/component/echolocation, blocking_trait = TRAIT_DEAF, echo_range = 5, echo_group = client_echo_group, images_are_static = FALSE, blinding = TRUE, use_echo = client_use_echo, show_own_outline = TRUE, cooldown_time = client_echo_speed)
 	//IRIS EDIT CHANGE END
 	esp = human_holder.GetComponent(/datum/component/echolocation)
 
@@ -56,7 +56,7 @@
 	var/datum/status_effect/grouped/blindness/blindness_status_effect = human_holder.has_status_effect(/datum/status_effect/grouped/blindness)
 	if(blindness_status_effect)
 		human_holder.remove_client_colour(REF(blindness_status_effect)) // get rid of the existing blind one
-	esp_color = human_holder.add_client_colour(/datum/client_colour/echolocation_custom, QUIRK_TRAIT)
+	esp_color = human_holder.add_client_colour(/datum/client_colour/echolocation_custom, REF(src))
 	var/col = process_chat_color(client_source?.prefs.read_preference(/datum/preference/color/echolocation_outline))
 	esp_color.priority = 1 // mirrors PRIORITY_ABSOLUTE def inside client_color.dm, stops pipes and stuff showing as different colours
 	esp_color.update_color(col)
@@ -81,7 +81,7 @@
 	if (!istype(echo_ears))
 		return
 	echo_ears.damage_multiplier = initial(echo_ears.damage_multiplier)
-	human_holder.remove_client_colour(QUIRK_TRAIT) // clean up the custom colour override we added
+	human_holder.remove_client_colour(REF(src)) // clean up the custom colour override we added
 
 /datum/client_colour/echolocation_custom
 

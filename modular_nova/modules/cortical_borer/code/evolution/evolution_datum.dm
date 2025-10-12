@@ -33,6 +33,6 @@
 	tier = 0
 	unlocked_evolutions = list(
 		/datum/borer_evolution/upgrade_injection,
-		/datum/borer_evolution/symbiote/willing_host,
+		/datum/borer_evolution/symbiote/minor_chemicals,
 		/datum/borer_evolution/hivelord/produce_offspring,
 	)

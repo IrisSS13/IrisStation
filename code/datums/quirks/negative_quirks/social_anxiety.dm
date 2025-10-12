@@ -11,10 +11,27 @@
 	mail_goodies = list(/obj/item/storage/pill_bottle/psicodine)
 	var/dumb_thing = TRUE
 
+	var/speech_block_chance = 50 // IRIS ADDITION, self explanatory
+
+// IRIS ADDITION START
+/datum/quirk_constant_data/social_anxiety
+	associated_typepath = /datum/quirk/social_anxiety
+	customization_options = list(/datum/preference/numeric/social_anxiety)
+// IRIS ADDITION END
+
 /datum/quirk/social_anxiety/add(client/client_source)
 	RegisterSignal(quirk_holder, COMSIG_MOB_EYECONTACT, PROC_REF(eye_contact))
 	RegisterSignal(quirk_holder, COMSIG_MOB_EXAMINATE, PROC_REF(looks_at_floor))
 	RegisterSignal(quirk_holder, COMSIG_MOB_SAY, PROC_REF(handle_speech))
+
+	// IRIS ADDITION START
+	var/stutter_speech_pref = client_source?.prefs.read_preference(/datum/preference/numeric/social_anxiety)
+	if(!isnull(stutter_speech_pref))
+		speech_block_chance = stutter_speech_pref
+	else
+		speech_block_chance = 50
+	// IRIS ADDITION END
+
 	quirk_holder.apply_status_effect(/datum/status_effect/speech/stutter/anxiety, INFINITY)
 
 /datum/quirk/social_anxiety/remove()
@@ -59,7 +76,7 @@
 			new_message += word
 		message = jointext(new_message, " ")
 
-	if(prob(min(50, (0.50 * moodmod)))) //Max 50% chance of not talking
+	if(prob(speech_block_chance)) //IRIS EDIT Original "if(prob(min(50, (0.50 * moodmod))))" | Applies block chance based on preference
 		if(dumb_thing)
 			to_chat(quirk_holder, span_userdanger("You think of a dumb thing you said a long time ago and scream internally."))
 			dumb_thing = FALSE //only once per life

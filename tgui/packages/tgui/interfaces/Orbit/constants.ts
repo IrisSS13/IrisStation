@@ -29,6 +29,7 @@ export const DEPARTMENT2COLOR: Record<string, Department> = {
       'Cargo Technician',
       'Customs Agent',
       'Shaft Miner',
+      'Explorer',
       'Quartermaster',
     ],
   },

@@ -4,10 +4,11 @@
 	icon = 'icons/obj/clothing/glasses.dmi'
 	lefthand_file = 'icons/mob/inhands/clothing/glasses_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/clothing/glasses_righthand.dmi'
+	abstract_type = /obj/item/clothing/glasses
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = ITEM_SLOT_EYES
-	strip_delay = 20
-	equip_delay_other = 25
+	strip_delay = 2 SECONDS
+	equip_delay_other = 2.5 SECONDS
 	resistance_flags = NONE
 	custom_materials = list(/datum/material/glass = SMALL_MATERIAL_AMOUNT*2.5)
 	gender = PLURAL
@@ -95,7 +96,6 @@
 	color_cutoffs = list(10, 35, 10)
 	glass_colour_type = /datum/client_colour/glass_colour/lightgreen
 	actions_types = list(/datum/action/item_action/toggle_nv)
-	forced_glass_color = TRUE
 
 /obj/item/clothing/glasses/meson/night/update_icon_state()
 	. = ..()
@@ -143,7 +143,6 @@
 	color_cutoffs = list(30, 5, 15)
 	glass_colour_type = /datum/client_colour/glass_colour/lightpurple
 	actions_types = list(/datum/action/item_action/toggle_nv)
-	forced_glass_color = TRUE
 
 /obj/item/clothing/glasses/science/night/update_icon_state()
 	. = ..()
@@ -160,15 +159,10 @@
 	color_cutoffs = list(10, 25, 10)
 	glass_colour_type = /datum/client_colour/glass_colour/lightgreen
 	actions_types = list(/datum/action/item_action/toggle_nv)
-	forced_glass_color = TRUE
 
 /obj/item/clothing/glasses/night/update_icon_state()
 	. = ..()
 	icon_state = length(color_cutoffs) ? initial(icon_state) : "night_off"
-
-/obj/item/clothing/glasses/night/colorless
-	desc = parent_type::desc + " Now with 50% less green!"
-	forced_glass_color = FALSE
 
 /obj/item/clothing/glasses/eyepatch
 	name = "eyepatch"
@@ -341,9 +335,9 @@
 	name = "thin prescription glasses"
 	desc = "More expensive, more fragile and much less practical, but oh so fashionable."
 	//IRIS EDIT: GAGSifies prescription glasses
-	worn_icon = 'modular_iris/modules/GAGS/icons/glasses/glasses_worn.dmi'
-	icon = 'modular_iris/modules/GAGS/icons/glasses/glasses.dmi'
-	icon_state = "glasses_thin_color"
+	icon = 'icons/map_icons/clothing/_clothing.dmi'
+	icon_state = "/obj/item/clothing/glasses/regular/thin"
+	post_init_icon_state = "glasses_thin_color"
 	greyscale_config = /datum/greyscale_config/glasses_thin_color
 	greyscale_config_worn = /datum/greyscale_config/glasses_thin_color/worn
 	greyscale_colors = "#0d0d0d#FFFFFF"
@@ -353,9 +347,9 @@
 	name = "jamjar glasses"
 	desc = "Also known as Virginity Protectors."
 	//IRIS EDIT: GAGSifies prescription glasses
-	worn_icon = 'modular_iris/modules/GAGS/icons/glasses/glasses_worn.dmi'
-	icon = 'modular_iris/modules/GAGS/icons/glasses/glasses.dmi'
-	icon_state = "glasses_jamjar_color"
+	icon = 'icons/map_icons/clothing/_clothing.dmi'
+	icon_state = "/obj/item/clothing/glasses/regular/jamjar"
+	post_init_icon_state = "glasses_jamjar_color"
 	greyscale_config = /datum/greyscale_config/glasses_jamjar_color
 	greyscale_config_worn = /datum/greyscale_config/glasses_jamjar_color/worn
 	greyscale_colors = "#575757#FFFFFF"
@@ -366,9 +360,9 @@
 	name = "prescription glasses"
 	desc = "Made by Uncool. Co."
 	//IRIS EDIT: GAGSifies prescription glasses
-	worn_icon = 'modular_iris/modules/GAGS/icons/glasses/glasses_worn.dmi'
-	icon = 'modular_iris/modules/GAGS/icons/glasses/glasses.dmi'
-	icon_state = "glasses_hipster_color"
+	icon = 'icons/map_icons/clothing/_clothing.dmi'
+	icon_state = "/obj/item/clothing/glasses/regular/hipster"
+	post_init_icon_state = "glasses_hipster_color"
 	greyscale_config = /datum/greyscale_config/glasses_hipster_color
 	greyscale_config_worn = /datum/greyscale_config/glasses_hipster_color/worn
 	greyscale_colors = "#464646#FFFFFF"
@@ -379,9 +373,9 @@
 	name = "circle glasses"
 	desc = "Why would you wear something so controversial yet so brave?"
 	//IRIS EDIT: GAGSifies prescription glasses
-	worn_icon = 'modular_iris/modules/GAGS/icons/glasses/glasses_worn.dmi'
-	icon = 'modular_iris/modules/GAGS/icons/glasses/glasses.dmi'
-	icon_state = "glasses_circle_color"
+	icon = 'icons/map_icons/clothing/_clothing.dmi'
+	icon_state = "/obj/item/clothing/glasses/regular/circle"
+	post_init_icon_state = "glasses_circle_color"
 	greyscale_config = /datum/greyscale_config/glasses_circle_color
 	greyscale_config_worn = /datum/greyscale_config/glasses_circle_color/worn
 	greyscale_colors = "#0d0d0d#FFFFFF"

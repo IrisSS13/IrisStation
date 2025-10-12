@@ -20,8 +20,9 @@
 	sharpness = SHARP_EDGED
 	armor_type = /datum/armor/item_knife
 	wound_bonus = 10
-	bare_wound_bonus = 20
+	exposed_wound_bonus = 20
 	tool_behaviour = TOOL_KNIFE
+	block_chance = 35 // IRIS ADDITION
 	/*
 	20 force, 10 wb, 20 bwb = 30, 50 against bare skin
 	compare/contrast force/wound bonuses with the captain's sabre, i guess

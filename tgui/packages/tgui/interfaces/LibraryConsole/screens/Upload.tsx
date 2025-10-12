@@ -13,7 +13,7 @@ import {
   Stack,
 } from 'tgui-core/components';
 
-import { LibraryConsoleData } from '../types';
+import type { LibraryConsoleData } from '../types';
 import { useLibraryContext } from '../useLibraryContext';
 
 export function Upload(props) {
@@ -44,8 +44,13 @@ export function Upload(props) {
     return <NoticeBox>Scan in a book to upload.</NoticeBox>;
   }
 
+  const sanitized = sanitizeText(cache_content);
   const contentHtml = {
-    __html: sanitizeText(cache_content),
+    __html:
+      typeof sanitized === 'object' && sanitized !== null
+        ? // biome-ignore lint/complexity/useLiteralKeys: <explanation>
+          sanitized['sanitized']
+        : sanitized,
   };
 
   return (
@@ -72,8 +77,7 @@ export function Upload(props) {
                     placeholder={cache_title || 'Title'}
                     mt={0.5}
                     width={22}
-                    expensive
-                    onChange={(value) =>
+                    onBlur={(value) =>
                       act('set_cache_title', {
                         title: value,
                       })
@@ -91,8 +95,7 @@ export function Upload(props) {
                     value={cache_author}
                     placeholder={cache_author || 'Author'}
                     mt={0.5}
-                    expensive
-                    onChange={(value) =>
+                    onBlur={(value) =>
                       act('set_cache_author', {
                         author: value,
                       })

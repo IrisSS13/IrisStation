@@ -57,6 +57,17 @@
 
 /datum/ai_behavior/hunt_target/interact_with_target/slime
 
+// IRIS ADDITION START
+/datum/ai_behavior/hunt_target/interact_with_target/slime/setup(datum/ai_controller/controller, hunting_target_key, hunting_cooldown_key)
+	. = ..()
+	if(!.)
+		return .
+	var/atom/hunt_target = controller.blackboard[hunting_target_key]
+	var/mob/living/basic/slime/hunter = controller.pawn
+	if(hunter.transformative_effect == SLIME_TYPE_BLUESPACE && hunter.powerlevel >= SLIME_MEDIUM_POWER)
+		do_teleport(hunter, get_turf(hunt_target), asoundin = 'sound/effects/phasein.ogg', channel = TELEPORT_CHANNEL_BLUESPACE)
+		hunter.powerlevel -= SLIME_MEDIUM_POWER
+// IRIS ADDITION END
 /datum/ai_behavior/hunt_target/interact_with_target/slime/target_caught(mob/living/basic/slime/hunter, mob/living/hunted)
 	if (!hunter.can_feed_on(hunted)) // Target is no longer edible
 		hunter.UnarmedAttack(hunted, TRUE)

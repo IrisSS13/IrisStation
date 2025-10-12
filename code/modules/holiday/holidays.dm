@@ -190,7 +190,7 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	)
 
 /datum/holiday/birthday/greet()
-	var/game_age = text2num(time2text(world.timeofday, "YYYY", world.timezone)) - 2003
+	var/game_age = text2num(time2text(world.timeofday, "YYYY")) - 2003
 	var/Fact
 	switch(game_age)
 		if(16)
@@ -398,6 +398,23 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 
 /datum/holiday/bee/getStationPrefix()
 	return pick("Bee","Honey","Hive","Africanized","Mead","Buzz")
+
+/datum/holiday/goth
+	name = "Goth Day"
+	begin_day = 22
+	begin_month = MAY
+	holiday_mail = list(
+		/obj/item/lipstick,
+		/obj/item/lipstick/black,
+		/obj/item/clothing/suit/costume/gothcoat,
+	)
+	holiday_colors = list(
+		COLOR_WHITE,
+		COLOR_BLACK,
+	)
+
+/datum/holiday/goth/getStationPrefix()
+	return pick("Goth", "Sanguine", "Tenebris", "Lacrimosa", "Umbra", "Noctis")
 
 // JUNE
 
@@ -1010,7 +1027,7 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 
 /datum/holiday/easter/shouldCelebrate(dd, mm, yyyy, ddd)
 	if(!begin_month)
-		current_year = text2num(time2text(world.timeofday, "YYYY", world.timezone))
+		current_year = text2num(time2text(world.timeofday, "YYYY"))
 		var/list/easterResults = EasterDate(current_year+year_offset)
 
 		begin_day = easterResults["day"]

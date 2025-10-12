@@ -16,7 +16,7 @@
 	name = "Poly"
 	desc = "Poly the Parrot. An expert on quantum cracker theory."
 	gold_core_spawnable = NO_SPAWN
-	speech_probability_rate = 5 //nerfs poly speech. that fucking bird that I hate. - IRIS EDIT
+	speech_probability_rate = 3 //nerfs poly speech. that fucking bird that I hate. - IRIS EDIT
 
 	/// Callback to save our memory at the end of the round.
 	var/datum/callback/roundend_callback = null

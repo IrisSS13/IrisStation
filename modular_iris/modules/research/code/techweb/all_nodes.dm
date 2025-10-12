@@ -44,3 +44,18 @@
 		"plantgene",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_5_POINTS)
+
+/datum/techweb_node/declassified_modules
+	id = TECHWEB_NODE_MOD_DECLASSIFIED
+	display_name = "Declassified Modular Suit"
+	description = "Modular Technology that was either reversed engineered or previously restricted to Nanotrasen's Higher-ups but later approved for normal research."
+	prereq_ids = list(TECHWEB_NODE_MOD_ANOMALY)
+	design_ids = list(
+		"mod_storage_bluespace",
+		"mod_shield_nt",
+		"mod_medbeam_nt",
+		)
+	required_items_to_unlock = list(/obj/item/mod/module/energy_shield/nanotrasen)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_5_POINTS * 2)
+	announce_channels = list(RADIO_CHANNEL_SCIENCE)
+	hidden = TRUE

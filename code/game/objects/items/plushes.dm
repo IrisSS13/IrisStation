@@ -125,7 +125,7 @@
 	else
 		to_chat(user, span_notice("You try to pet [src], but it has no stuffing. Aww..."))
 
-/obj/item/toy/plush/attackby(obj/item/I, mob/living/user, list/modifiers)
+/obj/item/toy/plush/attackby(obj/item/I, mob/living/user, list/modifiers, list/attack_modifiers)
 	if(I.get_sharpness())
 		if(!grenade)
 			if(!stuffed)
@@ -675,64 +675,6 @@
 	gender = FEMALE
 	squeak_override = list('sound/mobs/humanoids/moth/scream_moth.ogg'=1)
 
-/obj/item/toy/plush/goatplushie
-	name = "strange goat plushie"
-	icon_state = "goat"
-	desc = "Despite its cuddly appearance and plush nature, it will beat you up all the same. Goats never change."
-	squeak_override = list('sound/items/weapons/punch1.ogg'=1)
-	/// Whether or not this goat is currently taking in a monsterous doink
-	var/going_hard = FALSE
-	/// Whether or not this goat has been flattened like a funny pancake
-	var/splat = FALSE
-
-/obj/item/toy/plush/goatplushie/Initialize(mapload)
-	. = ..()
-	var/static/list/loc_connections = list(
-		COMSIG_TURF_INDUSTRIAL_LIFT_ENTER = PROC_REF(splat),
-	)
-	AddElement(/datum/element/connect_loc, loc_connections)
-
-/obj/item/toy/plush/goatplushie/attackby(obj/item/cigarette/rollie/fat_dart, mob/user, list/modifiers)
-	if(!istype(fat_dart))
-		return ..()
-	if(splat)
-		to_chat(user, span_notice("[src] doesn't seem to be able to go hard right now."))
-		return
-	if(going_hard)
-		to_chat(user, span_notice("[src] is already going too hard!"))
-		return
-	if(!fat_dart.lit)
-		to_chat(user, span_notice("You'll have to light that first!"))
-		return
-	to_chat(user, span_notice("You put [fat_dart] into [src]'s mouth."))
-	qdel(fat_dart)
-	going_hard = TRUE
-	update_icon(UPDATE_OVERLAYS)
-
-/obj/item/toy/plush/goatplushie/proc/splat(datum/source)
-	SIGNAL_HANDLER
-	if(splat)
-		return
-	if(going_hard)
-		going_hard = FALSE
-		update_icon(UPDATE_OVERLAYS)
-	icon_state = "goat_splat"
-	playsound(src, SFX_DESECRATION, 50, TRUE)
-	visible_message(span_danger("[src] gets absolutely flattened!"))
-	splat = TRUE
-
-/obj/item/toy/plush/goatplushie/examine()
-	. = ..()
-	if(splat)
-		. += span_notice("[src] might need medical attention.")
-	if(going_hard)
-		. += span_notice("[src] is going so hard, feel free to take a picture.")
-
-/obj/item/toy/plush/goatplushie/update_overlays()
-	. = ..()
-	if(going_hard)
-		. += "goat_dart"
-
 /obj/item/toy/plush/moth
 	name = "moth plushie"
 	desc = "A plushie depicting an adorable mothperson. It's a huggable bug!"
@@ -828,3 +770,62 @@
 		'sound/mobs/humanoids/human/scream/malescream_2.ogg' = 10, //10% chance to scream, rare but not abysmal
 		'sound/items/weapons/smash.ogg' = 90,
 		)
+
+/obj/item/toy/plush/horse
+	name = "horse plushie"
+	desc = "A squishy soft horse plushie. This one is bay with white socks."
+	icon_state = "horse"
+	attack_verb_continuous = list("whinnies", "gallops", "prances", "horses")  // Yes I'm using horse as a verb
+	attack_verb_simple = list("whinny", "gallop", "prance", "horse")
+
+/obj/item/toy/plush/unicorn
+	name = "unicorn plushie"
+	desc = "A squishy soft unicorn plushie. It has a magical aura."
+	icon_state = "unicorn"
+	attack_verb_continuous = list("whinnies", "gallops", "prances", "magicks")
+	attack_verb_simple = list("whinny", "gallop", "prance", "magick")
+
+/obj/item/toy/plush/monkey
+	name = "monkey plushie"
+	desc = "The tag reads: 'Oop eek! I'm a chimpanzee!', with 'Now in JUMBO SIZE!' on the flipside."
+	w_class = WEIGHT_CLASS_BULKY
+	throw_range = 2
+	throw_speed = 1
+	icon_state = "monkey"
+	inhand_icon_state = null
+	attack_verb_continuous = list("Oops", "Eeks")
+	attack_verb_simple = list("Oop", "Eek")
+	squeak_override = list(SFX_SCREECH=1)
+	/// if the monkey ate a mimana and has changed nationality
+	var/french = FALSE
+
+/obj/item/toy/plush/monkey/item_interaction(mob/living/feeder, obj/item/food/grown/banana/nana, list/modifiers)
+	if(!istype(nana))
+		return ..()
+	nana.forceMove(src) // go into the cotton stomach
+	to_chat(feeder, span_notice("You hand over the [nana] to [src] and watch as it eats..."))
+	playsound(src, 'sound/items/eatfood.ogg', 75, TRUE)
+	addtimer(CALLBACK(src, PROC_REF(eat), feeder, nana), 3 SECONDS)
+	return ITEM_INTERACT_SUCCESS
+
+/obj/item/toy/plush/monkey/proc/eat(mob/living/feeder, obj/item/food/grown/banana/nana)
+	if(istype(nana, /obj/item/food/grown/banana/bluespace))
+		do_teleport(src, get_turf(src), 15, channel = TELEPORT_CHANNEL_BLUESPACE)
+	else if(istype(nana, /obj/item/food/grown/banana/mime) && !french)
+		name = "peluche de singe"
+		desc = "L'étiquette indique: 'Oop eek! Je suis un chimpanzé!', avec 'Maintenant en TAILLE JUMBO!' sur l'autre face."
+		french = TRUE
+	// throw the peel at a random mob, or a random turf if there are none
+	var/obj/item/grown/bananapeel/peel = new nana.trash_type(get_turf(src))
+	var/list/oviewers = oviewers(peel.throw_range, src)
+	var/throw_src = src
+	// if a player holds the plushie, the throw source will be the player
+	if(isliving(loc))
+		oviewers = oviewers(loc)
+		throw_src = loc
+	if(oviewers.len > 0 && (locate(feeder) in oviewers))
+		oviewers -= feeder // remove feeder from targetables
+	peel.throw_at(oviewers.len == 0 ? get_ranged_target_turf(throw_src, pick(GLOB.alldirs), peel.throw_range) : pick(oviewers), peel.throw_range, peel.throw_speed, quickstart = FALSE)
+	playsound(src, 'sound/mobs/non-humanoids/gorilla/gorilla.ogg', 100, FALSE)
+	spasm_animation(5 SECONDS)
+	qdel(nana)

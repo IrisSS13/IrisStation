@@ -1,8 +1,8 @@
-GLOBAL_VAR_INIT(objective_egg_borer_number, 2)
-GLOBAL_VAR_INIT(objective_egg_egg_number, 5)
-GLOBAL_VAR_INIT(objective_willing_hosts, 2)
-GLOBAL_VAR_INIT(objective_blood_chem, 3)
-GLOBAL_VAR_INIT(objective_blood_borer, 3)
+GLOBAL_VAR_INIT(objective_egg_borer_number, 0)
+GLOBAL_VAR_INIT(objective_egg_egg_number, 0)
+GLOBAL_VAR_INIT(objective_willing_hosts, 0)
+GLOBAL_VAR_INIT(objective_blood_chem, 0)
+GLOBAL_VAR_INIT(objective_blood_borer, 0)
 
 GLOBAL_VAR_INIT(successful_egg_number, 0)
 GLOBAL_LIST_EMPTY(willing_hosts)
@@ -114,7 +114,6 @@ GLOBAL_LIST_EMPTY(cortical_borers)
 										/datum/reagent/lithium,
 										/datum/reagent/medicine/salglu_solution,
 										/datum/reagent/medicine/mutadone,
-										/datum/reagent/toxin/heparin,
 										/datum/reagent/drug/methamphetamine/borer_version,
 										/datum/reagent/medicine/morphine,
 										/datum/reagent/medicine/inacusiate,
@@ -212,12 +211,6 @@ GLOBAL_LIST_EMPTY(cortical_borers)
 
 /mob/living/basic/cortical_borer/Initialize(mapload)
 	. = ..()
-	AddComponent( \
-		/datum/component/squashable, \
-		squash_chance = 25, \
-		squash_damage = 25, \
-		squash_flags = SQUASHED_DONT_SQUASH_IN_CONTENTS, \
-	)
 	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT) //they need to be able to move around
 
 	var/matrix/borer_matrix = matrix(transform)
@@ -337,7 +330,7 @@ GLOBAL_LIST_EMPTY(cortical_borers)
 		return
 	if(ckey || key)
 		return
-	to_chat(user, span_warning("As a borer, you have the option to be friendly or not. Note that how you act will determine how a host responds!"))
+	to_chat(user, span_warning("As a borer, you have the option to help antagonists or not. Note that how you act will determine how a host responds!"))
 	to_chat(user, span_warning("You are a cortical borer! You can fear someone to make them stop moving, but make sure to inhabit them! You only grow/heal/talk when inside a host!"))
 	ckey = user.ckey
 	if(mind)

@@ -1,5 +1,6 @@
 /mob/living/silicon
 	gender = NEUTER
+	abstract_type = /mob/living/silicon
 	verb_say = "states"
 	verb_ask = "queries"
 	verb_exclaim = "declares"
@@ -82,6 +83,7 @@
 
 	add_traits(traits_to_apply, ROUNDSTART_TRAIT)
 	ADD_TRAIT(src, TRAIT_SILICON_EMOTES_ALLOWED, INNATE_TRAIT)
+	ADD_TRAIT(src, TRAIT_ANOSMIA, INNATE_TRAIT)
 	RegisterSignal(src, COMSIG_LIVING_ELECTROCUTE_ACT, PROC_REF(on_silicon_shocked))
 
 /mob/living/silicon/Destroy()
@@ -385,10 +387,6 @@
 /mob/living/silicon/proc/ai_roster()
 	if(!client)
 		return
-	if(world.time < client.crew_manifest_delay)
-		return
-	client.crew_manifest_delay = world.time + (1 SECONDS)
-
 	GLOB.manifest.ui_interact(src)
 
 /mob/living/silicon/proc/set_autosay() //For allowing the AI and borgs to set the radio behavior of auto announcements (state laws, arrivals).

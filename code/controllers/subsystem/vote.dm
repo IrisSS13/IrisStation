@@ -57,6 +57,7 @@ SUBSYSTEM_DEF(vote)
 	QDEL_LIST(generated_actions)
 
 	SStgui.update_uis(src)
+	SEND_SIGNAL(src, COMSIG_VOTE_ENDED) // IRIS ADDITION
 
 /**
  * Process the results of the vote.
@@ -244,6 +245,7 @@ SUBSYSTEM_DEF(vote)
 		if(current_vote.vote_sound && new_voter.prefs.read_preference(/datum/preference/toggle/sound_announcements))
 			SEND_SOUND(new_voter, sound(current_vote.vote_sound))
 
+	SEND_SIGNAL(src, COMSIG_VOTE_STARTED) // IRIS ADDITION
 	return TRUE
 
 /**
@@ -461,7 +463,7 @@ SUBSYSTEM_DEF(vote)
 /datum/action/vote/IsAvailable(feedback = FALSE)
 	return TRUE // Democracy is always available to the free people
 
-/datum/action/vote/Trigger(trigger_flags)
+/datum/action/vote/Trigger(mob/clicker, trigger_flags)
 	. = ..()
 	if(!.)
 		return

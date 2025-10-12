@@ -23,13 +23,32 @@
 
 	defender_slime.discipline_slime()
 
-/mob/living/basic/slime/attackby(obj/item/attacking_item, mob/living/user, list/modifiers)
+/mob/living/basic/slime/attackby(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
 
 	//Lets you feed slimes plasma. Checks before the passthrough force check
 	if(istype(attacking_item, /obj/item/stack/sheet/mineral/plasma) && stat == CONSCIOUS)
 		use_sheet(attacking_item, user)
 		return
 
+	// IRIS ADDITION START -- UNIQUE SLIMES
+	if(istype(attacking_item, /obj/item/crusher_trophy/legion_skull))
+		unique_mutate(SLIME_TYPE_BLACK, /datum/slime_type/unique/darkgrey, attacking_item)
+		return
+
+	if(istype(attacking_item, /obj/item/food/grown/holymelon))
+		var/list/turfs = RANGE_TURFS(1, get_turf(src))
+		var/grass_amount = 0
+		var/fairygrass_amount = 0
+		for(var/turf/turf as anything in turfs)
+			if(istype(turf, /turf/open/floor/grass/fairy))
+				fairygrass_amount++
+			else if(istype(turf, /turf/open/floor/grass))
+				grass_amount++
+
+		if(grass_amount > 2 && fairygrass_amount > 2)
+			unique_mutate(SLIME_TYPE_GREEN, /datum/slime_type/unique/lightgreen, attacking_item)
+		return
+	// IRIS ADDITION END
 	//Checks if the item passes through the slime first. Safe items can be used simply
 	if(check_item_passthrough(attacking_item, user))
 		return

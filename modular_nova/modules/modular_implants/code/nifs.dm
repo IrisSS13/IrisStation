@@ -514,7 +514,7 @@
 	new /obj/item/disk/nifsoft_uploader/shapeshifter(src)
 	new /obj/item/disk/nifsoft_uploader/summoner(src)
 	new /obj/item/disk/nifsoft_uploader/soulcatcher(src)
-	new /obj/item/disk/nifsoft_uploader/money_sense(src)
+	new /obj/item/disk/nifsoft_uploader/job/money_sense(src)
 
 /obj/item/storage/box/nif_ghost_box/ghost_role/PopulateContents()
 	. = ..()

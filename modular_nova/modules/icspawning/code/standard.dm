@@ -29,6 +29,15 @@
 	name = "\improper Bluespace Tech's belt"
 	w_class = WEIGHT_CLASS_TINY
 
+// IRIS ADDITION - Give BST better tools
+/obj/item/storage/belt/utility/chief/full/debug/PopulateContents()
+	SSwardrobe.provide_type(/obj/item/screwdriver/power, src)
+	SSwardrobe.provide_type(/obj/item/crowbar/power/syndicate, src)
+	SSwardrobe.provide_type(/obj/item/weldingtool/electric, src)
+	SSwardrobe.provide_type(/obj/item/multitool/abductor, src)	// so they know which wire does what
+	SSwardrobe.provide_type(/obj/item/stack/cable_coil, src)
+	SSwardrobe.provide_type(/obj/item/extinguisher/mini, src)
+
 /datum/outfit/debug/bst //Debug objs
 	name = "Bluespace Tech"
 	uniform = /obj/item/clothing/under/syndicate/combat
@@ -45,6 +54,8 @@
 		/obj/item/debug/omnitool = 1,
 		/obj/item/storage/box/stabilized = 1,
 		/obj/item/storage/hypospraykit/cmo/combat = 1,
+		/obj/item/summon_beacon/gas_miner/expanded/debug = 1,
+		/obj/item/choice_beacon/job_locker/debug = 1,
 	)
 
 /datum/outfit/admin/bst //Debug objs plus modsuit
@@ -63,6 +74,8 @@
 		/obj/item/debug/omnitool = 1,
 		/obj/item/storage/box/stabilized = 1,
 		/obj/item/storage/hypospraykit/cmo/combat = 1,
+		/obj/item/summon_beacon/gas_miner/expanded/debug = 1,
+		/obj/item/choice_beacon/job_locker/debug = 1,
 	)
 
 /obj/item/storage/part_replacer/bluespace/tier4/bst

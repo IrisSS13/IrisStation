@@ -50,7 +50,7 @@
 
 /obj/effect/portal/anom
 	name = "wormhole"
-	icon = 'icons/obj/anomaly.dmi'
+	icon = 'modular_iris/icons/effects/anomalies.dmi' // IRIS EDIT - REPLACED WITH A BETTER ONE - original: icon = 'icons/obj/anomaly.dmi'
 	icon_state = "anom"
 	layer = RIPPLE_LAYER
 	plane = ABOVE_GAME_PLANE
@@ -69,7 +69,7 @@
 /obj/effect/portal/newtonian_move(inertia_angle, instant = FALSE, start_delay = 0, drift_force = 0, controlled_cap = null)
 	return TRUE
 
-/obj/effect/portal/attackby(obj/item/W, mob/user, list/modifiers)
+/obj/effect/portal/attackby(obj/item/W, mob/user, list/modifiers, list/attack_modifiers)
 	if(user && Adjacent(user))
 		teleport(user)
 		return TRUE
