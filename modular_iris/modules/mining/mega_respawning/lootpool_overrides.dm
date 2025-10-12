@@ -1,8 +1,4 @@
 /mob/living/basic/boss/thing
-	loot = list(
-		/obj/item/keycard/thing_boss,
-		/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/the_thing
-	)
 	crusher_loot = list(
 		/obj/item/keycard/thing_boss,
 		/obj/item/crusher_trophy/flesh_glob,
