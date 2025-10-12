@@ -23,6 +23,8 @@
 		/obj/item/dice/fudge, // /obj/item/food/fudgedice
 		// NOVA EDIT START: unit test compliance
 		/obj/item/trash/vendor_trash, // base type because it's a joke subtype
+		//IRIS EDIT
+		/obj/item/food/grown/shell,
 	)
 
 	for(var/path in subtypesof(/obj/item/food))
