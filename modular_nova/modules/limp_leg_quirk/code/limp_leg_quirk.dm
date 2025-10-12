@@ -1,3 +1,5 @@
+/*
+
 /datum/quirk/item_quirk/limp_leg
 	name = "Limp Leg"
 	desc = "Your leg is limp, for one reason or another. A crutch helps you keep up with everyone else."
@@ -39,3 +41,5 @@
 /datum/quirk/item_quirk/limp_leg/remove()
 	REMOVE_TRAIT(quirk_holder, TRAIT_PARALYSIS_L_LEG, QUIRK_TRAIT)
 	REMOVE_TRAIT(quirk_holder, TRAIT_PARALYSIS_R_LEG, QUIRK_TRAIT)
+
+*/ // IRIS EDIT REMOVAL - OUR PORT IS BETTER
