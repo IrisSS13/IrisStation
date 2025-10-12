@@ -555,11 +555,8 @@
 		TRAIT_FORCED_STANDING,
 		TRAIT_HANDS_BLOCKED,
 		TRAIT_NO_SLIP_ALL,
+		TRAIT_LAVA_IMMUNE,
 	)
-	/// Has the module been upgraded with bileworm hide plating?
-	var/hide_upgrade = FALSE
-	/// How much hide is required to reinforce the MOD
-	var/hide_amount = 2 // These are rather rare as of now, should be increased later once other methods of crossing lava are removed
 
 /datum/armor/mod_sphere_transform
 	melee = 20 // Can get up to 70 armor when ash covered and ballin, which is as good as a HECK suit... but you can't really attack anymore
@@ -567,37 +564,13 @@
 
 /obj/item/mod/module/sphere_transform/on_install()
 	. = ..()
-	RegisterSignal(mod, COMSIG_ATOM_ITEM_INTERACTION, PROC_REF(on_item_interaction))
+	RegisterSignal(mod, COMSIG_ATOM_ITEM_INTERACTION)
 
 // Isn't supposed to happen outside of deletion but just in case
 /obj/item/mod/module/sphere_transform/on_uninstall(deleting)
 	. = ..()
 	// No need to drop the hide as we're supposed to be inbuilt and unremovable
 	UnregisterSignal(mod, COMSIG_ATOM_ITEM_INTERACTION)
-
-/obj/item/mod/module/sphere_transform/proc/on_item_interaction(atom/movable/source, mob/living/user, obj/item/item, modifiers)
-	SIGNAL_HANDLER
-
-	if(!istype(item, /obj/item/stack/sheet/animalhide/bileworm))
-		return NONE
-
-	if (hide_upgrade)
-		to_chat(user, span_warning("[mod] is already reinforced with bileworm skin!"))
-		return ITEM_INTERACT_BLOCKING
-
-	var/obj/item/stack/sheet/animalhide/bileworm/hide = item
-	if (!hide.use(hide_amount))
-		to_chat(user, span_warning("You need more hide to fully reinforce [mod]!"))
-		return ITEM_INTERACT_BLOCKING
-
-	hide_upgrade = TRUE
-	overlay_state_inactive = "module_bileworm_bracing"
-	user_traits += TRAIT_LAVA_IMMUNE
-	mod.balloon_alert(user, "plating reinforced!")
-	if (active)
-		ADD_TRAIT(mod.wearer, TRAIT_LAVA_IMMUNE, REF(src))
-	update_clothing_slots()
-	return ITEM_INTERACT_SUCCESS
 
 /obj/item/mod/module/sphere_transform/activate(mob/activator)
 	if(!mod.wearer.has_gravity())
