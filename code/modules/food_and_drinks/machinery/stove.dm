@@ -177,7 +177,7 @@
 	if(istype(tool, /obj/item/mod/control))
 		return NONE
 
-	return transfer_from_container_to_pot(item, user)
+	return transfer_from_container_to_pot(tool, user)
 
 /obj/item/reagent_containers/cup/soup_pot/attack_hand_secondary(mob/user, list/modifiers)
 	if(remove_first_ingredient(user))
