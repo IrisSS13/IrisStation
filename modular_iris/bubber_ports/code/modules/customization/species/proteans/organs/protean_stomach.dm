@@ -18,17 +18,17 @@
 
 /obj/item/organ/stomach/protean/Initialize(mapload)
 	. = ..() // Call the rest of the proc
-	metal = round(rand(PROTEAN_STOMACH_FULL/2, PROTEAN_STOMACH_FULL))
+	metal = PROTEAN_STOMACH_FULL // NOVA EDIT: Proteans spawn with full energy instead of random
 
 /obj/item/organ/stomach/protean/on_mob_insert(mob/living/carbon/receiver, special, movement_flags)
 	. = ..()
 	RegisterSignal(receiver, COMSIG_CARBON_ATTEMPT_EAT, PROC_REF(try_stomach_eat))
 	RegisterSignal(receiver, COMSIG_MOB_AFTER_APPLY_DAMAGE, PROC_REF(damage_listener))
 
-/obj/item/organ/stomach/protean/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
+/obj/item/organ/stomach/protean/on_mob_remove(mob/living/carbon/stomach_owner, special, movement_flags)
 	. = ..()
-	UnregisterSignal(organ_owner, COMSIG_CARBON_ATTEMPT_EAT)
-	UnregisterSignal(organ_owner, COMSIG_MOB_AFTER_APPLY_DAMAGE)
+	UnregisterSignal(stomach_owner, COMSIG_CARBON_ATTEMPT_EAT)
+	UnregisterSignal(stomach_owner, COMSIG_MOB_AFTER_APPLY_DAMAGE)
 
 /obj/item/organ/stomach/protean/on_life(seconds_per_tick, times_fired)
 	var/datum/species/protean/species = owner?.dna.species
@@ -99,5 +99,4 @@
 			owner.balloon_alert_to_viewers("[health_check]")
 
 #undef REGEN_TIME
-#undef PROTEAN_STOMACH_FULL
-#undef PROTEAN_STOMACH_FALTERING
+
