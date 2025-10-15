@@ -10,7 +10,7 @@
 /datum/loadout_item/pocket_items/plating
 	name = "Standard Plating"
 	item_path = /obj/item/mod/construction/plating
-	restricted_species = list(SPECIES_PROTEAN) // Might have to remove this
+	// restricted_species = list(SPECIES_PROTEAN) // Might have to remove this
 	group = "Species-Unique"
 
 /datum/loadout_item/pocket_items/plating/engineering
