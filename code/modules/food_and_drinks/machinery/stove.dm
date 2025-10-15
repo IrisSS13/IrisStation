@@ -174,7 +174,7 @@
 /* BUBBER IRIS EDIT BEGIN
 	Modsuits broken with transfer_from_container_to_pot(), still can be added with compression plate
 	But will be treated as not container, and added as whole thing to avoid bugs. */
-	if(istype(item, /obj/item/mod/control))
+	if(istype(tool, /obj/item/mod/control))
 		return NONE
 
 	return transfer_from_container_to_pot(item, user)
