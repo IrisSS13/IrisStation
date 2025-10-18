@@ -23,8 +23,20 @@
 		/obj/item/dice/fudge, // /obj/item/food/fudgedice
 		// NOVA EDIT START: unit test compliance
 		/obj/item/trash/vendor_trash, // base type because it's a joke subtype
-		//IRIS EDIT
-		/obj/item/food/grown/shell,
+		//IRIS EDIT START
+		/obj/item/stack/sheet/mineral/sandfruitcore,
+		/obj/item/stack/sheet/mineral/uraniberrycore,
+		/obj/item/stack/sheet/mineral/plasmaplumcore,
+		/obj/item/stack/sheet/mineral/bluegemdrupecore,
+		/obj/item/stack/sheet/mineral/agberginecore,
+		/obj/item/stack/sheet/mineral/auberginecore,
+		/obj/item/stack/sheet/mineral/dimantiscore,
+		/obj/item/stack/sheet/mineral/ferrotubercore,
+		/obj/item/stack/sheet/mineral/titanitubercore,
+		/obj/item/stack/sheet/mineral/adamapplecore,
+		/obj/item/stack/sheet/mineral/runescoopercore,
+		/obj/item/stack/sheet/mineral/bananiumberrycore
+		// IRIS EDIT END
 	)
 
 	for(var/path in subtypesof(/obj/item/food))
