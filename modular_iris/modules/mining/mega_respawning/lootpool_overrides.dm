@@ -1,10 +1,3 @@
-/mob/living/basic/boss/thing
-	crusher_loot = list(
-		/obj/item/keycard/thing_boss,
-		/obj/item/crusher_trophy/flesh_glob,
-		/obj/item/book/granter/crafting_recipe/dusting/summoning_flute/the_thing
-	)
-
 /mob/living/simple_animal/hostile/megafauna/blood_drunk_miner
 	crusher_loot = list(
 		/obj/item/melee/cleaving_saw,
