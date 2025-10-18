@@ -11618,10 +11618,7 @@
 /obj/machinery/door/airlock/vault{
 	name = "Circuit Lab"
 	},
-/obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/all/science/research,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/station/science/circuits)
 "jsM" = (
@@ -16293,6 +16290,13 @@
 "nBH" = (
 /turf/open/floor/iron/white,
 /area/station/science/lab)
+"nBU" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/falsewall/reinforced,
+/turf/open/floor/iron/dark,
+/area/station/science/research)
 "nBY" = (
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/iron,
@@ -16721,6 +16725,7 @@
 /area/station/security/prison)
 "nTI" = (
 /obj/machinery/firealarm/directional/north,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/circuit/green,
 /area/station/science/circuits)
 "nUd" = (
@@ -18160,13 +18165,11 @@
 /turf/open/floor/plating,
 /area/station/security/prison)
 "pqz" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 8
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/component_printer,
 /obj/item/multitool/circuit,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/station/science/circuits)
 "prl" = (
@@ -20168,7 +20171,6 @@
 /area/station/security/prison)
 "rcX" = (
 /obj/machinery/light/directional/east,
-/obj/effect/turf_decal/trimline/purple/filled/corner,
 /obj/machinery/button/door/directional/east{
 	req_access = list("robotics");
 	id = "mechbay";
@@ -22842,9 +22844,6 @@
 /turf/open/floor/iron/dark,
 /area/station/service/hydroponics)
 "tBp" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/landmark/start/cyborg,
 /turf/open/floor/circuit/green,
 /area/station/science/circuits)
@@ -25101,6 +25100,11 @@
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/port/aft)
+"vHp" = (
+/obj/effect/spawner/random/trash/graffiti,
+/obj/machinery/requests_console/auto_name/directional/south,
+/turf/open/floor/circuit/green,
+/area/station/science/circuits)
 "vHL" = (
 /obj/machinery/quantumpad{
 	map_pad_id = "Launch";
@@ -25521,7 +25525,9 @@
 /turf/closed/wall,
 /area/station/security/detectives_office)
 "wah" = (
-/obj/machinery/requests_console/auto_name/directional/south,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/circuit/green,
 /area/station/science/circuits)
 "wap" = (
@@ -26048,6 +26054,9 @@
 "wAj" = (
 /obj/structure/closet/emcloset,
 /obj/machinery/light/directional/north,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/mineral/titanium/purple,
 /area/station/science/research)
 "wBi" = (
@@ -57251,7 +57260,7 @@ yiv
 oDg
 dIz
 tBp
-ubj
+vHp
 hjv
 hjv
 pZL
@@ -57509,7 +57518,7 @@ oDg
 nTI
 pqz
 wah
-hjv
+nBU
 wAj
 hFg
 swb
