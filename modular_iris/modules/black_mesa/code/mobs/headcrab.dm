@@ -230,3 +230,28 @@
 /mob/living/basic/blackmesa/xen/headcrab/fast
 	speed = -2
 	desc = "Don't let it latch onto your hea-... hey, that's kinda cool. This one looks faster than usual."
+
+
+/mob/living/basic/blackmesa/xen/headcrab/lamarr
+	name = "Lamarr"
+	desc = "The Research Director's pet, a domesticated and debeaked headcrab. Keep away from teleporters!"
+
+	combat_mode = FALSE
+	faction = list(FACTION_NEUTRAL)
+	gold_core_spawnable = NO_SPAWN
+	is_zombie = TRUE // prevents from latching onto heads
+	response_help_continuous = "pets"
+	response_help_simple = "pet"
+	speak_emote = list("screeches", "hisses", "chitters")
+	gender = FEMALE
+	throw_at_range = 5 // halved
+
+/mob/living/basic/blackmesa/xen/headcrab/lamarr/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/pet_bonus, "chitter", /datum/mood_event/pet_animal)
+	add_traits(list(TRAIT_CATLIKE_GRACE, TRAIT_VENTCRAWLER_ALWAYS))
+
+/obj/structure/bed/dogbed/lamarr
+	desc = "A comfy-looking crab bed. You can even strap your pet in, in case the gravity turns off."
+	name = "Lamarr's bed"
+	anchored = TRUE

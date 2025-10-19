@@ -734,6 +734,8 @@ GLOBAL_DATUM_INIT(steal_item_handler, /datum/objective_item_handler, new())
 /datum/objective_item/steal/spy
 	objective_type = OBJECTIVE_ITEM_TYPE_SPY
 
+/* IRIS EDIT START
+
 /datum/objective_item/steal/spy/lamarr
 	name = "the Research Director's pet headcrab"
 	targetitem = /obj/item/clothing/mask/facehugger/lamarr
@@ -744,6 +746,8 @@ GLOBAL_DATUM_INIT(steal_item_handler, /datum/objective_item_handler, new())
 
 /obj/item/clothing/mask/facehugger/lamarr/add_stealing_item_objective()
 	return add_item_to_steal(src, /obj/item/clothing/mask/facehugger/lamarr)
+
+IRIS EDIT END */
 
 /datum/objective_item/steal/spy/disabler
 	name = "a disabler"

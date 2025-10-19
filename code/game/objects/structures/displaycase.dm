@@ -323,6 +323,14 @@
 	start_showpiece_type = /obj/item/clothing/mask/facehugger/lamarr
 	req_access = list(ACCESS_RD)
 
+/* IRIS EDIT START */
+/obj/structure/displaycase/labcage/Initialize(mapload)
+	. = ..()
+	new /mob/living/basic/blackmesa/xen/headcrab/lamarr(get_turf(src))
+	new /obj/structure/bed/dogbed/lamarr(get_turf(src))
+	del(src)
+/* IRIS EDIT END */
+
 /obj/structure/displaycase/noalert
 	alert = FALSE
 
