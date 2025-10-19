@@ -326,9 +326,10 @@
 /* IRIS EDIT START */
 /obj/structure/displaycase/labcage/Initialize(mapload)
 	. = ..()
-	new /mob/living/basic/blackmesa/xen/headcrab/lamarr(get_turf(src))
-	new /obj/structure/bed/dogbed/lamarr(get_turf(src))
-	qdel(src)
+	if(prob(50))
+		new /mob/living/basic/blackmesa/xen/headcrab/lamarr(get_turf(src))
+		new /obj/structure/bed/dogbed/lamarr(get_turf(src))
+		qdel(src)
 /* IRIS EDIT END */
 
 /obj/structure/displaycase/noalert
