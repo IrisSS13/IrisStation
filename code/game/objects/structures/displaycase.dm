@@ -328,7 +328,7 @@
 	. = ..()
 	new /mob/living/basic/blackmesa/xen/headcrab/lamarr(get_turf(src))
 	new /obj/structure/bed/dogbed/lamarr(get_turf(src))
-	del(src)
+	qdel(src)
 /* IRIS EDIT END */
 
 /obj/structure/displaycase/noalert
