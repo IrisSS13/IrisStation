@@ -252,6 +252,8 @@
 	add_traits(list(TRAIT_CATLIKE_GRACE, TRAIT_VENTCRAWLER_ALWAYS))
 
 /obj/structure/bed/dogbed/lamarr
+	icon_state = "headcrab_clean"
+	icon_living = "headcrab_clean"
 	desc = "A comfy-looking crab bed. You can even strap your pet in, in case the gravity turns off."
 	name = "Lamarr's bed"
 	anchored = TRUE
