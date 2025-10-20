@@ -107,6 +107,7 @@
 		module = new module(src)
 		install(module)
 	START_PROCESSING(SSobj, src)
+	AddElement(/datum/element/drag_pickup)
 
 /obj/item/mod/control/Destroy()
 	STOP_PROCESSING(SSobj, src)
