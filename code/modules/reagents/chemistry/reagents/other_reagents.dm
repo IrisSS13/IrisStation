@@ -230,6 +230,12 @@
 
 /datum/reagent/water/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
+
+	var/obj/item/organ/liver/liver = affected_mob.get_organ_slot(ORGAN_SLOT_LIVER)
+	if(liver?.damage && !IS_ROBOTIC_ORGAN(liver) && !(liver.organ_flags & ORGAN_FAILING))
+		var/healing_bonus = liver.healing_factor * liver.maxHealth
+		liver.apply_organ_damage(-healing_bonus * REM * seconds_per_tick)
+
 	var/water_adaptation = HAS_TRAIT(affected_mob, TRAIT_WATER_ADAPTATION)
 	if(affected_mob.blood_volume)
 		var/blood_restored = water_adaptation ? 0.3 : 0.1
@@ -2927,6 +2933,11 @@
 		if(drinker.mob_biotypes & MOB_ROBOTIC) // IRIS edit starrt
 			var/heal_amount = -2 * REM * seconds_per_tick //might as well keep this line as long as the previous
 			drinker.heal_bodypart_damage(heal_amount, heal_amount, required_bodytype = BODYTYPE_ROBOTIC) //IRIS edit end
+		// Slowly regulates your body temp
+		drinker.adjust_bodytemperature((drinker.get_body_temp_normal() - drinker.bodytemperature) / 5)
+		for(var/datum/reagent/reagent as anything in drinker.reagents.reagent_list)
+			if(reagent != src)
+				drinker.reagents.remove_reagent(reagent.type, 2 * reagent.purge_multiplier * REM * seconds_per_tick)
 	else
 		need_mob_update = drinker.adjustOrganLoss(ORGAN_SLOT_BRAIN, 3 * REM * seconds_per_tick, 150)
 		need_mob_update += drinker.adjustToxLoss(2 * REM * seconds_per_tick, updating_health = FALSE)

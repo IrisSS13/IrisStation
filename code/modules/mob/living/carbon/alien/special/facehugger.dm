@@ -263,6 +263,7 @@
 	if(user.get_item_by_slot(slot_flags) == src)
 		to_chat(user, span_userdanger("[src] is latched on too tight! Get help or wait for it to let go!"))
 		return FALSE
+	return ..()
 
 /obj/item/clothing/mask/facehugger/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	var/mob/living/carbon/human/wearer = loc

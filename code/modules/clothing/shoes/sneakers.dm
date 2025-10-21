@@ -171,6 +171,7 @@
 	if(user.get_item_by_slot(slot_flags) == src && attached_cuffs)
 		to_chat(user, span_warning("You need help taking these off!"))
 		return FALSE
+	return ..()
 
 /obj/item/clothing/shoes/sneakers/orange/mouse_drop_dragged(atom/over_object, mob/user)
 	if(ishuman(user))
