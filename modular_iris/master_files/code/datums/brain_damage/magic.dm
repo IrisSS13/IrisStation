@@ -1,3 +1,5 @@
+/* IRIS EDIT TEMPORARILY TURNED OFF WHILE TESTING TG NEW UPDATES TO STALKER
+
 //Stalker refactor as part of https://github.com/Monkestation/Monkestation2.0/pull/3730
 /datum/brain_trauma/magic/stalker
 	name = "Stalking Phantom"
@@ -91,3 +93,5 @@
 	gain_text = span_warning("You feel like the gods have released the hounds...")
 	lose_text = span_notice("You no longer feel the wrath of the gods watching you.")
 	max_stalkers = 10
+
+*/
