@@ -35,7 +35,7 @@
 /// 20degC
 #define T20C 293.15
 /// -14C - Temperature used for kitchen cold room, medical freezer, etc.
-#define COLD_ROOM_TEMP 259.15
+#define COLD_ROOM_TEMP 261
 
 /**
  *I feel the need to document what happens here. Basically this is used
