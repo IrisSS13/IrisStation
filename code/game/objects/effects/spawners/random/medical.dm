@@ -20,7 +20,7 @@
 		/obj/item/reagent_containers/syringe,
 	)
 
-/obj/effect/spawner/random/medical/organs
+/obj/effect/spawner/random/medical/organs // IRIS EDIT - REMOVES EMBYRO
 	name = "ayylien organ spawner"
 	icon_state = "eyes"
 	spawn_loot_count = 3
@@ -38,7 +38,6 @@
 		/obj/item/organ/monster_core/rush_gland = 2,
 		/obj/item/organ/monster_core/brimdust_sac = 2,
 		/obj/item/organ/heart/gland/ventcrawling = 1,
-		/obj/item/organ/body_egg/alien_embryo = 1,
 	)
 
 /obj/effect/spawner/random/medical/memeorgans

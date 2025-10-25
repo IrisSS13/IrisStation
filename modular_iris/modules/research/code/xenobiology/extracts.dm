@@ -1,10 +1,6 @@
 /obj/item/slime_extract/unique/cobalt
 	name = "cobalt slime extract"
 	icon_state = "cobalt-core"
-	activate_reagents = list(
-		/datum/reagent/blood,
-		/datum/reagent/toxin/plasma,
-	)
 
 /datum/chemical_reaction/slime/shockwave
 	results = list(/datum/reagent/sorium = 10)
@@ -45,10 +41,6 @@
 /obj/item/slime_extract/unique/darkgrey
 	name = "dark grey slime extract"
 	icon_state = "dark-grey-core"
-	activate_reagents = list(
-		/datum/reagent/toxin/plasma,
-		/datum/reagent/toxin/slimejelly,
-	)
 
 /datum/chemical_reaction/slime/legionification
 	required_reagents = list(/datum/reagent/toxin/plasma = 1)
@@ -79,11 +71,6 @@
 /obj/item/slime_extract/unique/crimson
 	name = "crimson slime extract"
 	icon_state = "crimson-core"
-	activate_reagents = list(
-		/datum/reagent/water,
-		/datum/reagent/toxin/plasma,
-		/datum/reagent/uranium,
-	)
 
 /datum/chemical_reaction/slime/oxygenflood
 	required_reagents = list(/datum/reagent/water = 1)
@@ -136,10 +123,6 @@
 /obj/item/slime_extract/unique/lightgreen
 	name = "light green slime extract"
 	icon_state = "light-green-core"
-	activate_reagents = list(
-		/datum/reagent/water,
-		/datum/reagent/blood,
-	)
 
 /datum/chemical_reaction/slime/plantfood
 	results = list(/datum/reagent/plantnutriment/slime_nutriment = 10)
