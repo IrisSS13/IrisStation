@@ -120,10 +120,12 @@
 	fire = 30
 	acid = 45
 
+/* //disabling this until someone fixes config on it
 /obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sec/blue
 	desc = "An outdated jacket in blue. Probably against uniform regulations."
 	icon_state = "/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sec/blue"
 	greyscale_colors = "#3f6e9e#eae3ce#17161f#3f6e9e"
+*/
 
 /obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/bridge_officer
 	name = "bridge officer's jacket"

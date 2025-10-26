@@ -76,7 +76,7 @@
 				/obj/item/clothing/head/security_cap = 4,
 				/obj/item/clothing/head/helmet/sec/white = 3,
 				/obj/item/clothing/suit/hooded/wintercoat/security/blue = 4,
-				/obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sec/blue = 4,
+				///obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/sec/blue = 4, temporary
 				/obj/item/clothing/suit/armor/vest/alt/sec/white = 3,
 				/obj/item/clothing/suit/armor/vest/brit = 3,
 				/obj/item/clothing/suit/armor/vest/jacket = 3,
