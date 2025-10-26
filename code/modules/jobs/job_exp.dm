@@ -71,6 +71,7 @@ GLOBAL_PROTECT(exp_to_update)
 		if(L.is_afk())
 			continue
 		L.update_exp_list(mins)
+		L.update_living_minutes(mins)
 
 /datum/controller/subsystem/blackbox/proc/update_exp_db()
 	set waitfor = FALSE
