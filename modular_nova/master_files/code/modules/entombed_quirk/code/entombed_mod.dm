@@ -13,7 +13,7 @@
 	slowdown_deployed = 0.95
 	//IRIS EDIT: Removed joint torsion to balance around new charge drain, added basic EMP Protections and Status Readout (Assorted Entombed Buffs)
 	inbuilt_modules = list(
-		/obj/item/mod/module/storage,
+		/obj/item/mod/module/storage/large_capacity,
 		/obj/item/mod/module/status_readout/entombed,
 		/obj/item/mod/module/emp_shield/entombed,
 	)
