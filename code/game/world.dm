@@ -211,7 +211,7 @@ GLOBAL_VAR(restart_counter)
 /world/proc/SetupLogs()
 	var/override_dir = params[OVERRIDE_LOG_DIRECTORY_PARAMETER]
 	if(!override_dir)
-		var/realtime = world.timeofday
+		var/realtime = world.realtime
 		var/texttime = time2text(realtime, "YYYY/MM/DD", TIMEZONE_UTC)
 		GLOB.log_directory = "data/logs/[texttime]/round-"
 		GLOB.picture_logging_prefix = "L_[time2text(realtime, "YYYYMMDD", TIMEZONE_UTC)]_"
