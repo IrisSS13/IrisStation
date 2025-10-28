@@ -643,6 +643,13 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/singletank_bom
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/roroco, 32)
 
+/obj/structure/sign/poster/contraband/roroco
+	name = "Roroco Gloves"
+	desc = "Roro says: Wear RoroCo insulated gloves, the safest brand on the market."
+	icon_state = "roroco"
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/roroco, 32)
+
 ///a special poster meant to fool people into thinking this is a bombable wall at a glance.
 /obj/structure/sign/poster/contraband/fake_bombable
 	name = "fake bombable poster"
@@ -829,6 +836,13 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/jovial, 32)
 	icon_state = "rolled_poster"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/bojack, 32)
+
+/obj/structure/sign/poster/contraband/double_rainbow
+	name = "Double Rainbow"
+	desc = "It's so bright and vivid! What does this mean?"
+	icon_state = "double_rainbow"
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/double_rainbow, 32)
 
 /obj/structure/sign/poster/contraband/double_rainbow
 	name = "Double Rainbow"

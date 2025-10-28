@@ -12,8 +12,8 @@
 	if(world.time - SSticker.round_start_time > 30 MINUTES)
 		return
 
-	if(SSjob.is_skeleton_engineering(3)) // Don't bother if there's command or a well staffed department, they -should- be paying attention.
-		SSsecurity_level.minimum_security_level(SEC_LEVEL_ORANGE, TRUE, FALSE) // Give the skeleton crew a warning
+	if(SSjob.is_skeleton_engineering(2)) // Don't bother if there's command or a well staffed department, they -should- be paying attention. //IRIS EDIT: 3 to 2
+		SSsecurity_level.minimum_security_level(SEC_LEVEL_ORANGE, FALSE, FALSE) // Give the skeleton crew a warning //IRIS EDIT: removed extended acccess
 		var/obj/machinery/announcement_system/system = get_announcement_system(null, sm)
 		if(system)
 			system.broadcast("The supermatter delamination early warning system has been triggered due to anomalous conditions. Please investigate the engine as soon as possible.", list(RADIO_CHANNEL_COMMAND))
