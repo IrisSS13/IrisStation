@@ -11,7 +11,9 @@
 		if(GLOB.client_minutes_in_round[voter.client.ckey] >= INGAME_TIME_NEEDED || voter.client?.holder)
 			return TRUE
 		else
+			to_chat(voter, span_warning("Cannot vote! You're either observing the game or didn't play for at least [INGAME_TIME_NEEDED] minutes!"))
 			return FALSE
+
 
 	return TRUE
 
