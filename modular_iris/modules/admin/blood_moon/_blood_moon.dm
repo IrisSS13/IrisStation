@@ -100,6 +100,14 @@ GLOBAL_DATUM(blood_moon_controller, /datum/blood_moon_controller)
 				message_admins("[key_name_admin(user)] changed light brightness to [new_brightness]")
 			return TRUE
 
+		if("update_fog_density")
+			var/new_density = params["density"]
+			if(!isnull(new_density))
+				update_fog_density(new_density)
+				log_admin("[key_name(user)] updated fog density to [new_density]")
+				message_admins("[key_name_admin(user)] updated fog density to [new_density]")
+			return TRUE
+
 		if("restore_all_lights")
 			restore_all_lights(user)
 			return TRUE
@@ -177,6 +185,12 @@ GLOBAL_DATUM(blood_moon_controller, /datum/blood_moon_controller)
 
 		// Send signal for other systems that use starlight color
 		SEND_GLOBAL_SIGNAL(COMSIG_STARLIGHT_COLOR_CHANGED, old_star_color, new_color)
+
+/// Update density of all existing fog instances
+/datum/blood_moon_controller/proc/update_fog_density(new_density)
+	for(var/obj/effect/blood_moon_fog/fog as anything in spawned_fog)
+		fog.set_fog_density(new_density)
+	log_admin("Updated fog density to [new_density] for [length(spawned_fog)] fog instances")
 
 /// Update parallax layer colors to match starlight
 /datum/blood_moon_controller/proc/update_parallax_colors(new_color)

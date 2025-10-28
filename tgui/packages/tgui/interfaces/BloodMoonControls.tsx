@@ -1,4 +1,11 @@
-import { Button, LabeledList, Section, Slider, Stack } from 'tgui-core/components';
+import * as React from 'react';
+import {
+  Button,
+  LabeledList,
+  Section,
+  Slider,
+  Stack,
+} from 'tgui-core/components';
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
@@ -22,8 +29,10 @@ export function BloodMoonControls(props) {
     current_light_brightness,
   } = data;
 
+  const [fogDensity, setFogDensity] = React.useState(150);
+
   const spawnFog = (type: 'room' | 'hallway', amount: number) => {
-    act('spawn_' + type + '_fog', { amount });
+    act(`spawn_${type}_fog`, { amount, fog_density: fogDensity });
   };
 
   return (
@@ -180,8 +189,25 @@ export function BloodMoonControls(props) {
           </Stack.Item>
 
           <Stack.Item>
-            <Section title="Fog Effects (spreading smoke)">
+            <Section title="Fog Effects">
               <Stack vertical>
+                <Stack.Item>
+                  <LabeledList>
+                    <LabeledList.Item label="Fog Density">
+                      <Slider
+                        value={fogDensity}
+                        minValue={0}
+                        maxValue={150}
+                        step={5}
+                        stepPixelSize={3}
+                        onChange={(e, value) => {
+                          setFogDensity(value);
+                          act('update_fog_density', { density: value });
+                        }}
+                      />
+                    </LabeledList.Item>
+                  </LabeledList>
+                </Stack.Item>
                 <Stack.Item>
                   <Stack>
                     <Stack.Item grow>

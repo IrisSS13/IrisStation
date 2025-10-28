@@ -11,12 +11,23 @@
 	layer = FLY_LAYER
 	plane = ABOVE_GAME_PLANE
 	alpha = 0
+	/// The opacity of the fog, from 0 (invisible) to 150 (fully opaque)
+	var/density_level = 150
 
-/obj/effect/blood_moon_fog/Initialize(mapload)
+/obj/effect/blood_moon_fog/Initialize(mapload, new_density)
 	. = ..()
+	if(!isnull(new_density))
+		set_fog_density(new_density)
+	else
+		set_fog_density(density_level)
 	add_atom_colour("#4D0000", FIXED_COLOUR_PRIORITY)
 	setDir(pick(GLOB.cardinals))
-	animate(src, alpha = 150, time = 3 SECONDS)
+
+/// Sets the density of the fog and updates its appearance
+/obj/effect/blood_moon_fog/proc/set_fog_density(new_density)
+	density_level = clamp(new_density, 0, 150)
+	animate(src, alpha = density_level, time = 3 SECONDS)
+	return density_level
 
 /// Helper proc to check if a turf is valid for fog spawning
 /datum/blood_moon_controller/proc/is_valid_fog_turf(turf/T)
@@ -31,7 +42,7 @@
 	return TRUE
 
 /// Spawn fog in Hallways and Maintenance from vents/scrubbers
-/datum/blood_moon_controller/proc/spawn_hallway_fog(mob/user, amount = 250)
+/datum/blood_moon_controller/proc/spawn_hallway_fog(mob/user, amount = 250, fog_density = 150)
 	var/count = 0
 	var/list/valid_turfs = list()
 	
@@ -46,7 +57,7 @@
 	valid_turfs = shuffle(valid_turfs)
 	for(var/i in 1 to min(amount, length(valid_turfs)))
 		var/turf/T = valid_turfs[i]
-		var/obj/effect/blood_moon_fog/F = new(T)
+		var/obj/effect/blood_moon_fog/F = new(T, fog_density)
 		spawned_fog += F
 		count++
 		if(count % 50 == 0)
@@ -72,7 +83,7 @@
 	message_admins("[key_name_admin(user)] cleared [count] fog clouds from [A.name]")
 
 /// Spawn fog in current area from doors (spreads into room)
-/datum/blood_moon_controller/proc/spawn_room_fog(mob/user, amount = 10)
+/datum/blood_moon_controller/proc/spawn_room_fog(mob/user, amount = 10, fog_density = 150)
 	var/list/valid_turfs = list()
 	var/area/user_area = get_area(user)
 	if(!user_area)
@@ -88,7 +99,7 @@
 	valid_turfs = shuffle(valid_turfs)
 	for(var/i in 1 to min(amount, length(valid_turfs)))
 		var/turf/T = valid_turfs[i]
-		var/obj/effect/blood_moon_fog/F = new(T)
+		var/obj/effect/blood_moon_fog/F = new(T, fog_density)
 		spawned_fog += F
 
 	var/actual_amount = min(amount, length(valid_turfs))
