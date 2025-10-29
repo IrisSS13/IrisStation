@@ -114,12 +114,14 @@ GLOBAL_DATUM(blood_moon_controller, /datum/blood_moon_controller)
 
 		if("spawn_hallway_fog")
 			var/amount = params["amount"] || 50
-			spawn_hallway_fog(user, amount)
+			var/fog_density = params["fog_density"]
+			spawn_hallway_fog(user, amount, fog_density)
 			return TRUE
 
 		if("spawn_room_fog")
 			var/amount = params["amount"] || 20
-			spawn_room_fog(user, amount)
+			var/fog_density = params["fog_density"]
+			spawn_room_fog(user, amount, fog_density)
 			return TRUE
 
 		if("clear_fog")
@@ -128,6 +130,10 @@ GLOBAL_DATUM(blood_moon_controller, /datum/blood_moon_controller)
 
 		if("clear_room_fog")
 			clear_room_fog(user)
+			return TRUE
+
+		if("pulse_fog")
+			pulse_fog()
 			return TRUE
 
 		if("rust_random_areas")
@@ -191,6 +197,12 @@ GLOBAL_DATUM(blood_moon_controller, /datum/blood_moon_controller)
 	for(var/obj/effect/blood_moon_fog/fog as anything in spawned_fog)
 		fog.set_fog_density(new_density)
 	log_admin("Updated fog density to [new_density] for [length(spawned_fog)] fog instances")
+
+/// Make all fog instances pulse
+/datum/blood_moon_controller/proc/pulse_fog()
+	for(var/obj/effect/blood_moon_fog/fog as anything in spawned_fog)
+		fog.pulse_fog()
+	log_admin("Pulsed [length(spawned_fog)] fog instances")
 
 /// Update parallax layer colors to match starlight
 /datum/blood_moon_controller/proc/update_parallax_colors(new_color)

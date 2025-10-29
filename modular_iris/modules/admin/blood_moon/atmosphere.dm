@@ -29,6 +29,22 @@
 	animate(src, alpha = density_level, time = 3 SECONDS)
 	return density_level
 
+/// Makes the fog pulse in a breathing-like pattern
+/obj/effect/blood_moon_fog/proc/pulse_fog()
+	// Initial quick inhale (fade in)
+	animate(src,
+		alpha = 150,
+		time = 10,
+		easing = SINE_EASING | EASE_OUT
+	)
+	// Final return to normal state
+	animate(
+		alpha = density_level,
+		time = 10,
+		easing = SINE_EASING | EASE_OUT
+	)
+	addtimer(CALLBACK(src, /atom/proc/remove_atom_colour, TEMPORARY_COLOUR_PRIORITY), 10 SECONDS)
+
 /// Helper proc to check if a turf is valid for fog spawning
 /datum/blood_moon_controller/proc/is_valid_fog_turf(turf/T)
 	if(locate(/obj/effect/blood_moon_fog) in T)
@@ -45,7 +61,7 @@
 /datum/blood_moon_controller/proc/spawn_hallway_fog(mob/user, amount = 250, fog_density = 150)
 	var/count = 0
 	var/list/valid_turfs = list()
-	
+
 	// Collect all turfs in hallways/maintenance
 	for(var/area/area_to_check in GLOB.areas)
 		if(istype(area_to_check, /area/station/hallway) || istype(area_to_check, /area/station/maintenance))

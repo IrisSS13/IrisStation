@@ -31,8 +31,8 @@ export function BloodMoonControls(props) {
 
   const [fogDensity, setFogDensity] = React.useState(150);
 
-  const spawnFog = (type: 'room' | 'hallway', amount: number) => {
-    act(`spawn_${type}_fog`, { amount, fog_density: fogDensity });
+  const spawnFog = (type: 'room' | 'hallway', amount: number, fog_density: number) => {
+    act(`spawn_${type}_fog`, { amount, fog_density });
   };
 
   return (
@@ -209,13 +209,25 @@ export function BloodMoonControls(props) {
                   </LabeledList>
                 </Stack.Item>
                 <Stack.Item>
+                  <Button
+                    fluid
+                    icon="wave-square"
+                    color="violet"
+                    onClick={() => act('pulse_fog')}
+                    tooltip="Make all fog pulse in intensity"
+                    mb={1}
+                  >
+                    Pulse Fog
+                  </Button>
+                </Stack.Item>
+                <Stack.Item>
                   <Stack>
                     <Stack.Item grow>
                       <Button
                         fluid
                         icon="cloud"
                         color="red"
-                        onClick={() => spawnFog('hallway', 250)}
+                        onClick={() => spawnFog('hallway', 250, fogDensity)}
                         tooltip="Spawn 250 fog clouds in hallways and maintenance"
                       >
                         Hallways & Maint: 250
@@ -226,7 +238,7 @@ export function BloodMoonControls(props) {
                         fluid
                         icon="cloud"
                         color="red"
-                        onClick={() => spawnFog('hallway', 500)}
+                        onClick={() => spawnFog('hallway', 500, fogDensity)}
                         tooltip="Spawn 500 fog clouds in hallways and maintenance"
                       >
                         Hallways & Maint: 500
@@ -241,7 +253,7 @@ export function BloodMoonControls(props) {
                         fluid
                         icon="door-open"
                         color="orange"
-                        onClick={() => spawnFog('room', 10)}
+                        onClick={() => spawnFog('room', 10, fogDensity)}
                         tooltip="Spawn 10 fog clouds in current room"
                       >
                         Room: 10
@@ -252,7 +264,7 @@ export function BloodMoonControls(props) {
                         fluid
                         icon="door-open"
                         color="orange"
-                        onClick={() => spawnFog('room', 20)}
+                        onClick={() => spawnFog('room', 20, fogDensity)}
                         tooltip="Spawn 20 fog clouds in current room"
                       >
                         Room: 20
