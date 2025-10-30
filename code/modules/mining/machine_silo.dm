@@ -84,7 +84,7 @@
 	)
 
 	if (!GLOB.ore_silo_default && mapload && is_station_level(z))
-		GLOB.ore_silo_default = src
+//		GLOB.ore_silo_default = src // IRIS REMOVAL -- removes ore silo linking
 		ID_required = TRUE
 
 	register_context()
@@ -124,7 +124,7 @@
 
 /obj/machinery/ore_silo/examine(mob/user)
 	. = ..()
-	. += span_notice("It can be linked to techfabs, circuit printers and protolathes with a multitool.")
+//	. += span_notice("It can be linked to techfabs, circuit printers and protolathes with a multitool.") // IRIS REMOVAL -- removes ore silo linking
 	. += span_notice("Its maintainence panel can be [EXAMINE_HINT("screwed")] [panel_open ? "closed" : "open"].")
 	if(panel_open)
 		. += span_notice("The whole machine can be [EXAMINE_HINT("pried")] apart.")
@@ -138,9 +138,11 @@
 		context[SCREENTIP_CONTEXT_LMB] = "[panel_open ? "Close" : "Open"] Panel"
 		return CONTEXTUAL_SCREENTIP_SET
 
+/* IRIS REMOVAL -- removes ore silo linking
 	if(held_item.tool_behaviour == TOOL_MULTITOOL)
 		context[SCREENTIP_CONTEXT_LMB] = "Log Silo"
 		return CONTEXTUAL_SCREENTIP_SET
+*/
 
 	if(panel_open && held_item.tool_behaviour == TOOL_CROWBAR)
 		context[SCREENTIP_CONTEXT_LMB] = "Deconstruct"
@@ -168,10 +170,12 @@
 	if(default_deconstruction_crowbar(tool))
 		return ITEM_INTERACT_SUCCESS
 
+/* IRIS REMOVAL -- removes ore silo linking
 /obj/machinery/ore_silo/multitool_act(mob/living/user, obj/item/multitool/I)
 	I.set_buffer(src)
 	balloon_alert(user, "saved to multitool buffer")
 	return ITEM_INTERACT_SUCCESS
+*/
 
 
 /**
