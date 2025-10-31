@@ -261,3 +261,30 @@
 	icon_keyboard = "syndie_key"
 	circuit = /obj/item/circuitboard/computer/ghostpad/tarkon
 	credits_account = ACCOUNT_TI
+
+// IRIS EDIT STARTS HERE
+
+/obj/item/circuitboard/machine/ghostpad/freighter
+	name = "Freighter Deepspace Sales Pad"
+	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
+	build_path = /obj/machinery/piratepad/ghostpad/freighter
+
+/obj/machinery/piratepad/ghostpad/freighter
+	name = "\improper independent deepspace sales pad"
+	desc = "A bluespace sales pad designed to sell goods to larger organisations and other groups who have pre-set prices for items."
+
+	circuit = /obj/item/circuitboard/machine/ghostpad/freighter
+
+/obj/item/circuitboard/computer/ghostpad/freighter
+	name = "Freighter Deepspace Sales Terminal"
+	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
+	build_path = /obj/machinery/computer/piratepad_control/ghostpad/freighter
+
+/obj/machinery/computer/piratepad_control/ghostpad/freighter
+	name = "\improper Freighter deepspace sales terminal"
+	desc = "A specialised civilian console usually connected to a nearby sales pad to transmit goods."
+	status_report = "Ready for delivery."
+	icon_screen = "civ_bounty"
+	icon_keyboard = "syndie_key"
+	circuit = /obj/item/circuitboard/computer/ghostpad/freighter
+	credits_account = ACCOUNT_INDIE_CARGO
