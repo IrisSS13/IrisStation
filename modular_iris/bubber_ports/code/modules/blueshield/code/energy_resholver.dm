@@ -17,6 +17,7 @@
 	throwforce = 15
 	ammo_type = list(/obj/item/ammo_casing/energy/disabler/hos, /obj/item/ammo_casing/energy/laser/hellfire)
 	ammo_x_offset = 1
+	shaded_charge = FALSE
 
 /obj/item/gun/energy/e_gun/blueshield/specop
 	name = "tactical energy revolver"
