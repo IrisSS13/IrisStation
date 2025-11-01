@@ -87,3 +87,14 @@
 /datum/sprite_accessory/synth_head/iris/zenghuspirit
 	name = "Zeng-Hu Pharmeceuticals Spirit"
 	icon_state = "zenghuspt" // Baystation
+
+// High-Vis
+/datum/sprite_accessory/synth_head/iris/highvis
+	name = "High-Vis"
+	icon = 'modular_iris/master_files/icons/mob/augmentation/highvisframe.dmi' // it seems like the way synth head+chassis and aug+ limb reskinning was done had them duplicate the sprites. so i did not do it that way because i didn't feel like it
+	icon_state = "robotic"
+
+/datum/sprite_accessory/synth_chassis/iris/highvis
+	name = "High-Vis"
+	icon = 'modular_iris/master_files/icons/mob/augmentation/highvisframe.dmi'
+	icon_state = "robotic"
