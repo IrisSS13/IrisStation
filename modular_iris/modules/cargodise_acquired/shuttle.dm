@@ -1,12 +1,15 @@
 /datum/map_template/shuttle/ruin/indie_freighter
 	prefix = "_maps/shuttles/iris/"
-	suffix = "indie_freighter"
+	port_id = "indie"
+	suffix = "freighter"
 	name = "Independent Freighter"
 	description = "A massive independent freighter that has faced boarding by a large force of pirates. Its crew lie in stasis, guns to-hand in their locked-down quarters."
 	admin_notes = "This bad boy is HUGE compared to even whiteships. Please spawn responsibly."
 
 /area/shuttle/indie_freighter
 	name = "Freighter"
+	requires_power = TRUE
+	area_limited_icon_smoothing = /area/shuttle/indie_freighter
 
 /area/shuttle/indie_freighter/bridge
 	name = "Freighter Bridge"
@@ -58,6 +61,7 @@
 
 /area/shuttle/indie_freighter/boarding_pod
 	name = "Embedded Boarding Pod"
+	area_limited_icon_smoothing = /area/shuttle/indie_freighter/boarding_pod
 
 /obj/machinery/computer/shuttle/freighter
 	name = "freighter helm console"
@@ -74,15 +78,15 @@
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/freighter
 	name = "freighter navigation console"
-	desc = "Used to set a specific destination location for the Freighter."
+	desc = "Used to set a specific destination for the Freighter."
 	shuttleId = "freighter"
 	lock_override = NONE
 	circuit = /obj/item/circuitboard/computer/freighter_nav
 	shuttlePortId = "freighter_custom"
 	jump_to_ports = list("freighter_home" = 1, "whiteship_home" = 1, "whiteship_z4" = 1, "whiteship_waystation" = 1)
 	view_range = 25
-	x_offset = 10
-	y_offset = -10
+	x_offset = 20
+	y_offset = -12
 	designate_time = 150 //this bad boy is HUGE. youre gonna need time. not as much time as ds-2 though the computers here dont suck
 
 /obj/item/circuitboard/computer/freighter_nav
