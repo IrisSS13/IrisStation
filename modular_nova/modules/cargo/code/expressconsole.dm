@@ -148,4 +148,3 @@
 	circuit = /obj/item/circuitboard/computer/cargo/express/ghost/freighter
 	req_access = list(ACCESS_CARGO)
 	cargo_account = ACCOUNT_INDIE_CARGO
-	landingzone = /area/shuttle/indie_freighter/cargo
