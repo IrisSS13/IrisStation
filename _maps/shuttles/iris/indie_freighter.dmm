@@ -6,7 +6,20 @@
 /obj/machinery/airalarm/directional/east,
 /obj/effect/mapping_helpers/airalarm/all_access,
 /obj/item/ammo_casing/shotgun/buckshot/spent,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron,
+/area/shuttle/indie_freighter/hallway)
+"ak" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/sign/poster/random/directional/west,
+/obj/structure/disposalpipe/segment{
+	dir = 2
+	},
+/obj/machinery/duct,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/catwalk_floor/iron,
 /area/shuttle/indie_freighter/hallway)
 "ax" = (
 /turf/closed/wall/mineral/titanium,
@@ -103,6 +116,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/engine)
 "bt" = (
@@ -174,15 +188,26 @@
 	},
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/mining)
-"bO" = (
-/obj/effect/turf_decal/siding/wood,
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
+"bR" = (
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = 5;
+	pixel_y = 6
 	},
-/obj/structure/cable,
-/obj/machinery/photocopier/gratis/prebuilt,
-/turf/open/floor/wood/large,
-/area/shuttle/indie_freighter/dorms)
+/obj/item/multitool{
+	pixel_x = -11;
+	pixel_y = -3
+	},
+/turf/open/floor/plating,
+/area/shuttle/indie_freighter/engine)
+"bS" = (
+/obj/machinery/power/shuttle_engine/propulsion{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/turf/open/floor/plating/airless,
+/area/shuttle/indie_freighter/maintenance/aft)
 "bT" = (
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/indie_freighter/dorms)
@@ -198,21 +223,6 @@
 /obj/item/chair/plastic,
 /turf/open/floor/plating/reinforced,
 /area/shuttle/indie_freighter/boarding_pod)
-"cf" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 4
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 8
-	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/disposalpipe/segment{
-	dir = 10
-	},
-/turf/open/floor/wood/large,
-/area/shuttle/indie_freighter/dorms)
 "ch" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -231,16 +241,13 @@
 	},
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/mining)
-"cn" = (
-/obj/effect/turf_decal/siding/wood,
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
+"cm" = (
+/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/modular_computer/preset/curator,
-/turf/open/floor/wood/large,
-/area/shuttle/indie_freighter/dorms)
+/obj/machinery/duct,
+/turf/open/floor/catwalk_floor/iron,
+/area/shuttle/indie_freighter/hallway)
 "co" = (
 /obj/effect/turf_decal/tile/yellow/half/contrasted{
 	dir = 4
@@ -310,6 +317,10 @@
 /obj/structure/girder/displaced,
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/mining)
+"cJ" = (
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer/layer4,
+/turf/open/floor/plating,
+/area/shuttle/indie_freighter/engine)
 "cV" = (
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
@@ -402,6 +413,17 @@
 	},
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/engine)
+"dD" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 2
+	},
+/obj/machinery/duct,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/catwalk_floor/iron,
+/area/shuttle/indie_freighter/hallway)
 "dG" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/turf_decal/tile/brown/half/contrasted{
@@ -409,10 +431,6 @@
 	},
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/mining)
-"dM" = (
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer/layer4,
-/turf/open/floor/plating,
-/area/shuttle/indie_freighter/engine)
 "dN" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -441,6 +459,7 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 1
 	},
+/obj/effect/turf_decal/bot_red,
 /turf/open/floor/engine/insulation,
 /area/shuttle/indie_freighter/engine)
 "ef" = (
@@ -453,15 +472,6 @@
 /obj/effect/turf_decal/stripes/corner,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/indie_freighter/boarding_pod)
-"el" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/disposalpipe/junction/flip{
-	dir = 4
-	},
-/turf/open/floor/catwalk_floor/iron,
-/area/shuttle/indie_freighter/hallway)
 "en" = (
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/chair/comfy/shuttle,
@@ -496,6 +506,16 @@
 "ev" = (
 /turf/closed/wall/r_wall/plastitanium/nodiagonal,
 /area/shuttle/indie_freighter/engine)
+"ew" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 2
+	},
+/obj/machinery/duct,
+/turf/open/floor/catwalk_floor/iron,
+/area/shuttle/indie_freighter/hallway)
 "ey" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/smooth_half{
@@ -519,6 +539,13 @@
 	},
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/mining)
+"eG" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
+	dir = 6
+	},
+/turf/open/floor/engine/insulation,
+/area/shuttle/indie_freighter/engine)
 "eJ" = (
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/indie_freighter/vault)
@@ -528,22 +555,6 @@
 /obj/structure/girder/displaced,
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/mining)
-"eL" = (
-/obj/structure/closet/crate/science{
-	req_access = list("science");
-	name = "Delivery - Nanotrasen Science Division"
-	},
-/obj/effect/spawner/random/exotic/technology,
-/obj/effect/spawner/random/exotic/technology,
-/obj/item/raw_anomaly_core/random,
-/obj/item/raw_anomaly_core/random,
-/obj/item/raw_anomaly_core/random,
-/obj/effect/spawner/random/exotic/tool,
-/obj/effect/spawner/random/exotic/tool,
-/obj/effect/turf_decal/delivery/white,
-/obj/item/storage/part_replacer/cargo,
-/turf/open/floor/iron/dark/smooth_large,
-/area/shuttle/indie_freighter/cargo)
 "eM" = (
 /obj/effect/turf_decal/vg_decals/atmos/plasma{
 	dir = 8
@@ -569,6 +580,7 @@
 	dir = 1;
 	anchored = 1
 	},
+/obj/effect/turf_decal/bot_white,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/maintenance/aft)
 "fh" = (
@@ -662,6 +674,25 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/mining)
+"fN" = (
+/obj/structure/disposalpipe/segment{
+	dir = 2
+	},
+/turf/open/floor/iron,
+/area/shuttle/indie_freighter/hallway)
+"fO" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/obj/machinery/duct,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/shuttle/indie_freighter/maintenance/aft)
 "fQ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -684,6 +715,21 @@
 /obj/effect/mapping_helpers/airlock/access/all/supply/general,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/electrical)
+"gh" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/turf/open/floor/wood/large,
+/area/shuttle/indie_freighter/dorms)
 "gj" = (
 /obj/machinery/camera/autoname/directional/south{
 	network = list("indie_freighter")
@@ -692,13 +738,6 @@
 /obj/structure/closet/crate/solarpanel_small,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/indie_freighter/engine)
-"gk" = (
-/obj/machinery/disposal/bin,
-/obj/structure/disposalpipe/trunk{
-	dir = 1
-	},
-/turf/open/floor/iron,
-/area/shuttle/indie_freighter/hallway)
 "gm" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -735,16 +774,6 @@
 /obj/effect/turf_decal/delivery/white,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/indie_freighter/cargo)
-"gE" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/duct,
-/turf/open/floor/catwalk_floor/iron,
-/area/shuttle/indie_freighter/hallway)
 "gH" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -860,6 +889,15 @@
 	},
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/dorms)
+"hi" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/junction/flip{
+	dir = 4
+	},
+/turf/open/floor/catwalk_floor/iron,
+/area/shuttle/indie_freighter/hallway)
 "hl" = (
 /obj/structure/closet/secure_closet/miner/unlocked,
 /obj/effect/mapping_helpers/broken_floor,
@@ -1002,6 +1040,17 @@
 /obj/item/clothing/suit/armor/vest,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/indie_freighter/cryogenics)
+"ir" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/sign/poster/random/directional/south,
+/obj/machinery/duct,
+/turf/open/floor/catwalk_floor/iron,
+/area/shuttle/indie_freighter/hallway)
 "is" = (
 /obj/machinery/light/small/directional/south,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -1014,6 +1063,13 @@
 	},
 /turf/open/floor/iron/showroomfloor,
 /area/shuttle/indie_freighter/canteen)
+"it" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/duct,
+/turf/open/floor/catwalk_floor/iron,
+/area/shuttle/indie_freighter/hallway)
 "iB" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/light/directional/east,
@@ -1034,7 +1090,12 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/dark/hidden,
 /obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/engine/insulation,
+/area/shuttle/indie_freighter/engine)
+"iU" = (
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
+/turf/open/floor/plating,
 /area/shuttle/indie_freighter/engine)
 "iY" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/brown/visible/layer4,
@@ -1054,36 +1115,6 @@
 /obj/structure/marker_beacon/burgundy,
 /turf/template_noop,
 /area/shuttle/indie_freighter/dorms)
-"jd" = (
-/obj/effect/turf_decal/tile/yellow/opposingcorners,
-/obj/structure/chair/comfy/shuttle{
-	dir = 1
-	},
-/obj/machinery/button/door/directional/north{
-	pixel_x = -9;
-	pixel_y = 24;
-	name = "Burn Chamber to Space";
-	id = "freighter_burn_vent"
-	},
-/obj/machinery/button/ignition{
-	id = "freighter_stirling_ignition";
-	pixel_y = 34;
-	pixel_x = 0
-	},
-/obj/machinery/button/door/directional/north{
-	id = "freighter_burn_maint";
-	name = "Burn Chamber Maintenance Bolts";
-	normaldoorcontrol = 1;
-	specialfunctions = 4
-	},
-/obj/machinery/button/door/directional/north{
-	name = "Generator Core Blast Doors";
-	id = "freighter_sterling_room";
-	pixel_x = 9;
-	pixel_y = 24
-	},
-/turf/open/floor/iron/dark,
-/area/shuttle/indie_freighter/engine)
 "jh" = (
 /obj/effect/turf_decal/tile/blue/anticorner/contrasted,
 /obj/structure/cable,
@@ -1101,6 +1132,7 @@
 	},
 /obj/structure/closet/radiation,
 /obj/effect/turf_decal/bot,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/indie_freighter/engine)
 "jm" = (
@@ -1145,14 +1177,6 @@
 /obj/structure/sign/departments/medbay/alt/directional/north,
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/hallway)
-"jz" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/disposalpipe/junction/yjunction,
-/obj/machinery/duct,
-/turf/open/floor/catwalk_floor/iron,
-/area/shuttle/indie_freighter/hallway)
 "jD" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
@@ -1163,17 +1187,6 @@
 /obj/machinery/vending/cola/black,
 /turf/open/floor/wood/large,
 /area/shuttle/indie_freighter/dorms)
-"jE" = (
-/obj/item/storage/toolbox/mechanical{
-	pixel_x = 5;
-	pixel_y = 6
-	},
-/obj/item/multitool{
-	pixel_x = -11;
-	pixel_y = -3
-	},
-/turf/open/floor/plating,
-/area/shuttle/indie_freighter/engine)
 "jI" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -1193,12 +1206,6 @@
 	},
 /obj/machinery/duct,
 /turf/open/floor/plating,
-/area/shuttle/indie_freighter/hallway)
-"jN" = (
-/obj/structure/disposalpipe/segment{
-	dir = 2
-	},
-/turf/open/floor/iron,
 /area/shuttle/indie_freighter/hallway)
 "jP" = (
 /turf/closed/wall/mineral/titanium/nodiagonal,
@@ -1241,6 +1248,7 @@
 /obj/effect/spawner/random/engineering/material,
 /obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/indie_freighter/mining)
 "kf" = (
@@ -1312,6 +1320,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/tile/yellow/opposingcorners,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/engine)
 "kr" = (
@@ -1352,6 +1361,23 @@
 /obj/machinery/biogenerator,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/shuttle/indie_freighter/hydro)
+"kR" = (
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 8
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/east,
+/turf/open/floor/plating,
+/area/shuttle/indie_freighter/maintenance/aft)
 "kT" = (
 /obj/machinery/atmospherics/miner/oxygen,
 /obj/machinery/atmospherics/components/unary/outlet_injector/on{
@@ -1468,15 +1494,6 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/cafeteria,
 /area/shuttle/indie_freighter/med)
-"lM" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/disposalpipe/segment{
-	dir = 2
-	},
-/turf/open/floor/catwalk_floor/iron,
-/area/shuttle/indie_freighter/hallway)
 "lT" = (
 /obj/machinery/door/window/survival_pod/left/directional/east,
 /obj/effect/turf_decal/tile/yellow/anticorner/contrasted{
@@ -1511,20 +1528,16 @@
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/indie_freighter/boarding_pod)
-"mc" = (
-/obj/machinery/atmospherics/components/binary/volume_pump/on{
-	dir = 1
-	},
-/turf/closed/wall/r_wall/plastitanium/nodiagonal,
-/area/shuttle/indie_freighter/engine)
 "mf" = (
-/obj/machinery/door/poddoor{
-	id = "freighter_sterling_room"
-	},
 /obj/structure/cable,
-/obj/machinery/nova/fan/self_powered,
-/turf/open/floor/plating,
-/area/shuttle/indie_freighter/engine)
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/junction/flip{
+	dir = 8
+	},
+/obj/machinery/duct,
+/turf/open/floor/catwalk_floor/iron,
+/area/shuttle/indie_freighter/hallway)
 "mh" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/smooth_half{
@@ -1550,6 +1563,15 @@
 /obj/structure/frame/machine/secured,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/mining)
+"mu" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/shuttle/indie_freighter/maintenance/aft)
 "mw" = (
 /obj/machinery/mineral/processing_unit_console{
 	pixel_y = -32
@@ -1583,6 +1605,16 @@
 	},
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/mining)
+"mG" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/duct,
+/turf/open/floor/catwalk_floor/iron,
+/area/shuttle/indie_freighter/hallway)
 "mH" = (
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/indie_freighter/boarding_pod)
@@ -1686,12 +1718,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/cargo)
-"np" = (
-/obj/structure/table/reinforced,
-/obj/machinery/door/firedoor/border_only,
-/obj/effect/spawner/random/food_or_drink/donkpockets,
-/turf/open/floor/iron/kitchen/small,
-/area/shuttle/indie_freighter/canteen)
 "nA" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/components/binary/pump/off/general/visible{
@@ -1774,6 +1800,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/machinery/light/directional/north,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/engine)
 "nV" = (
@@ -1847,6 +1874,9 @@
 /area/shuttle/indie_freighter/hallway)
 "ou" = (
 /obj/effect/spawner/structure/window/reinforced/shuttle,
+/obj/machinery/door/poddoor/shutters{
+	id = "freighter_hall_lockdown"
+	},
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/hallway)
 "oB" = (
@@ -1868,8 +1898,14 @@
 	dir = 2
 	},
 /obj/machinery/duct,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/catwalk_floor/iron,
 /area/shuttle/indie_freighter/hallway)
+"oE" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible/layer4,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/shuttle/indie_freighter/engine)
 "oF" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/junction{
 	dir = 8
@@ -1894,6 +1930,7 @@
 /obj/structure/closet/radiation,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/bot,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/indie_freighter/engine)
 "oM" = (
@@ -1995,11 +2032,15 @@
 	dir = 1
 	},
 /obj/machinery/airalarm/directional/south,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/indie_freighter/mining)
 "pD" = (
-/obj/machinery/atmospherics/pipe/heat_exchanging/junction/layer4,
-/turf/closed/wall/r_wall/plastitanium/nodiagonal,
+/obj/machinery/power/stirling_generator,
+/obj/structure/cable,
+/obj/effect/turf_decal/bot_red,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/engine/insulation,
 /area/shuttle/indie_freighter/engine)
 "pF" = (
 /obj/machinery/mineral/processing_unit,
@@ -2041,6 +2082,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/yellow/opposingcorners,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/engine)
 "pV" = (
@@ -2062,13 +2104,6 @@
 	},
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/hallway)
-"qa" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
-	dir = 6
-	},
-/turf/open/floor/engine/insulation,
-/area/shuttle/indie_freighter/engine)
 "qe" = (
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/catwalk_floor/iron_dark,
@@ -2094,15 +2129,22 @@
 "qz" = (
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/indie_freighter/hallway)
-"qB" = (
-/obj/structure/disposalpipe/trunk{
-	dir = 4
+"qC" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
 	},
-/obj/effect/turf_decal/stripes/end{
-	dir = 8
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/airlock/mining{
+	name = "Mining Bay"
 	},
-/turf/open/floor/plating/airless,
-/area/shuttle/indie_freighter/engine)
+/obj/structure/disposalpipe/segment{
+	dir = 2
+	},
+/turf/open/floor/plating,
+/area/shuttle/indie_freighter/mining)
 "qK" = (
 /obj/machinery/suit_storage_unit/engine,
 /obj/effect/turf_decal/bot,
@@ -2112,29 +2154,28 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/indie_freighter/electrical)
 "qN" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/turf/open/floor/plating,
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
+	dir = 5
+	},
+/turf/open/floor/engine/insulation,
 /area/shuttle/indie_freighter/engine)
 "qP" = (
+/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/stripes/corner{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/shuttle/indie_freighter/maintenance/aft)
-"qW" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/disposalpipe/junction/flip{
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/effect/mapping_helpers/apc/no_charge,
+/obj/effect/mapping_helpers/apc/unlocked,
+/obj/structure/disposalpipe/segment{
 	dir = 8
 	},
 /obj/machinery/duct,
-/turf/open/floor/catwalk_floor/iron,
-/area/shuttle/indie_freighter/hallway)
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/shuttle/indie_freighter/maintenance/aft)
 "ra" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/east,
 /obj/machinery/button/massdriver{
@@ -2271,17 +2312,6 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/engine)
-"sg" = (
-/obj/effect/turf_decal/tile/blue/opposingcorners{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/disposal/bin,
-/obj/structure/disposalpipe/trunk{
-	dir = 4
-	},
-/turf/open/floor/iron/cafeteria,
-/area/shuttle/indie_freighter/med)
 "sn" = (
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/indie_freighter/cryogenics)
@@ -2292,6 +2322,12 @@
 	},
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/hallway)
+"ss" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/carpet/grimey,
+/area/shuttle/indie_freighter/dorms)
 "st" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/effect/turf_decal/siding/wood{
@@ -2436,17 +2472,6 @@
 /obj/structure/filingcabinet,
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/cargo)
-"tu" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/light/directional/south,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/duct,
-/turf/open/floor/catwalk_floor/iron,
-/area/shuttle/indie_freighter/hallway)
 "tw" = (
 /obj/machinery/light/small/directional/east,
 /obj/effect/turf_decal/stripes/corner{
@@ -2469,6 +2494,14 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/machinery/door/poddoor/shutters/radiation/preopen{
+	id = "freighter_rad_lockdown"
+	},
+/obj/machinery/button/door/directional/west{
+	id = "freighter_rad_lockdown";
+	name = "Radiation Shutters Control"
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/engine)
 "tJ" = (
@@ -2500,16 +2533,6 @@
 	},
 /turf/open/floor/carpet/grimey,
 /area/shuttle/indie_freighter/dorms)
-"tU" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/disposalpipe/segment{
-	dir = 5
-	},
-/obj/machinery/duct,
-/turf/open/floor/catwalk_floor/iron,
-/area/shuttle/indie_freighter/hallway)
 "tX" = (
 /obj/machinery/atmospherics/components/binary/valve,
 /obj/machinery/conveyor_switch/oneway{
@@ -2529,6 +2552,12 @@
 	},
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/maintenance/aft)
+"tY" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/firedoor/border_only,
+/obj/effect/spawner/random/food_or_drink/donkpockets,
+/turf/open/floor/iron/kitchen/small,
+/area/shuttle/indie_freighter/canteen)
 "ua" = (
 /obj/effect/turf_decal/bot_white,
 /obj/structure/frame/computer{
@@ -2539,14 +2568,6 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/indie_freighter/cargo)
-"ui" = (
-/obj/structure/table/reinforced,
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/processor,
-/turf/open/floor/iron/kitchen/small,
-/area/shuttle/indie_freighter/canteen)
 "ul" = (
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/indie_freighter/engine)
@@ -2575,16 +2596,6 @@
 	},
 /turf/open/floor/iron/cafeteria,
 /area/shuttle/indie_freighter/med)
-"uw" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/disposalpipe/segment{
-	dir = 2
-	},
-/obj/machinery/duct,
-/turf/open/floor/catwalk_floor/iron,
-/area/shuttle/indie_freighter/hallway)
 "uz" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -2659,17 +2670,6 @@
 	},
 /turf/open/floor/plating/airless,
 /area/shuttle/indie_freighter/maintenance/aft)
-"uV" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/sign/poster/random/directional/south,
-/obj/machinery/duct,
-/turf/open/floor/catwalk_floor/iron,
-/area/shuttle/indie_freighter/hallway)
 "uX" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -2715,10 +2715,6 @@
 	},
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/boarding_pod)
-"vx" = (
-/obj/effect/spawner/random/trash/graffiti,
-/turf/closed/wall/mineral/titanium/nodiagonal,
-/area/shuttle/indie_freighter/maintenance/aft)
 "vy" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -2740,6 +2736,10 @@
 /obj/effect/turf_decal/delivery/white,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/indie_freighter/vault)
+"vI" = (
+/obj/effect/spawner/structure/window/reinforced/shuttle,
+/turf/open/floor/plating,
+/area/shuttle/indie_freighter/hallway)
 "vJ" = (
 /obj/effect/turf_decal/tile/blue/opposingcorners{
 	dir = 1
@@ -2759,21 +2759,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/wood/parquet,
 /area/shuttle/indie_freighter/dorms)
-"vT" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/airlock/mining{
-	name = "EVA Prep Room"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 2
-	},
-/turf/open/floor/plating,
-/area/shuttle/indie_freighter/mining)
 "vV" = (
 /obj/effect/turf_decal/tile/brown/half/contrasted,
 /obj/machinery/camera/autoname/directional/south{
@@ -2786,18 +2771,6 @@
 	},
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/mining)
-"vX" = (
-/obj/effect/turf_decal/tile/yellow/half/contrasted{
-	dir = 1
-	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/disposalpipe/segment{
-	dir = 8
-	},
-/turf/open/floor/iron/dark,
-/area/shuttle/indie_freighter/cargo)
 "vY" = (
 /obj/structure/cable,
 /obj/machinery/firealarm/directional/north,
@@ -2911,18 +2884,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /mob/living/basic/looter,
 /obj/effect/turf_decal/tile/yellow/opposingcorners,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/engine)
-"wR" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/disposalpipe/junction{
-	dir = 8
-	},
-/obj/machinery/duct,
-/turf/open/floor/catwalk_floor/iron,
-/area/shuttle/indie_freighter/hallway)
 "wZ" = (
 /obj/effect/turf_decal/tile/blue/opposingcorners{
 	dir = 1
@@ -2953,24 +2917,6 @@
 "xm" = (
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/indie_freighter/canteen)
-"xn" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/airlock/public/glass{
-	name = "Mess Hall"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/shuttle/indie_freighter/canteen)
 "xq" = (
 /obj/structure/marker_beacon/burgundy{
 	pixel_x = 13;
@@ -2979,10 +2925,7 @@
 /turf/closed/wall/r_wall/plastitanium/syndicate/nodiagonal,
 /area/shuttle/indie_freighter/boarding_pod)
 "xr" = (
-/obj/machinery/atmospherics/pipe/heat_exchanging/simple/layer4{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/dark/hidden,
+/obj/machinery/atmospherics/pipe/heat_exchanging/junction/layer4,
 /turf/closed/wall/r_wall/plastitanium/nodiagonal,
 /area/shuttle/indie_freighter/engine)
 "xv" = (
@@ -3062,40 +3005,48 @@
 /obj/machinery/griddle,
 /turf/open/floor/iron/kitchen/small,
 /area/shuttle/indie_freighter/canteen)
+"xQ" = (
+/obj/structure/closet/crate/science{
+	req_access = list("science");
+	name = "Delivery - Nanotrasen Science Division"
+	},
+/obj/effect/spawner/random/exotic/technology,
+/obj/effect/spawner/random/exotic/technology,
+/obj/item/raw_anomaly_core/random,
+/obj/item/raw_anomaly_core/random,
+/obj/item/raw_anomaly_core/random,
+/obj/effect/spawner/random/exotic/tool,
+/obj/effect/spawner/random/exotic/tool,
+/obj/effect/turf_decal/delivery/white,
+/obj/item/storage/part_replacer/cargo,
+/turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/indie_freighter/cargo)
 "xU" = (
 /obj/structure/closet/secure_closet/miner/unlocked,
 /obj/effect/turf_decal/tile/brown/anticorner/contrasted,
 /obj/item/mining_voucher,
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/mining)
-"xW" = (
-/obj/effect/turf_decal/siding/wood,
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/disposalpipe/segment{
-	dir = 2
-	},
-/turf/open/floor/wood/large,
-/area/shuttle/indie_freighter/dorms)
-"xY" = (
-/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
-/turf/open/floor/plating,
-/area/shuttle/indie_freighter/engine)
 "yg" = (
 /obj/machinery/power/shuttle_engine/propulsion{
 	dir = 8
 	},
 /turf/open/floor/plating/airless,
 /area/shuttle/indie_freighter/engine)
+"yj" = (
+/obj/machinery/door/poddoor{
+	id = "freighter_sterling_room"
+	},
+/obj/structure/cable,
+/obj/machinery/nova/fan/self_powered,
+/turf/open/floor/plating,
+/area/shuttle/indie_freighter/engine)
 "yn" = (
 /obj/machinery/camera/autoname/directional/east{
 	network = list("indie_freighter")
 	},
 /obj/item/ammo_casing/shotgun/buckshot/spent,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/hallway)
 "yp" = (
@@ -3103,6 +3054,7 @@
 /mob/living/basic/vox/ranged,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/effect/spawner/random/engineering/material,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/indie_freighter/mining)
 "yu" = (
@@ -3224,6 +3176,14 @@
 	},
 /turf/open/floor/engine,
 /area/shuttle/indie_freighter/cargo)
+"zq" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/machinery/processor,
+/turf/open/floor/iron/kitchen/small,
+/area/shuttle/indie_freighter/canteen)
 "zt" = (
 /obj/effect/turf_decal/tile/yellow/half/contrasted{
 	dir = 1
@@ -3232,7 +3192,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment{
-	dir = 9
+	dir = 8
 	},
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/cargo)
@@ -3272,6 +3232,15 @@
 /obj/item/mining_voucher,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/mining)
+"zP" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/turf/open/floor/catwalk_floor/iron,
+/area/shuttle/indie_freighter/hallway)
 "zQ" = (
 /obj/effect/turf_decal/delivery,
 /obj/machinery/power/smes,
@@ -3295,7 +3264,9 @@
 /obj/machinery/door/airlock/public/glass{
 	name = "Mess Hall"
 	},
-/obj/machinery/duct,
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/canteen)
 "zV" = (
@@ -3306,6 +3277,24 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/cargo)
+"Aa" = (
+/obj/effect/turf_decal/siding/wood,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/modular_computer/preset/curator,
+/turf/open/floor/wood/large,
+/area/shuttle/indie_freighter/dorms)
+"Ab" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/junction/yjunction,
+/obj/machinery/duct,
+/turf/open/floor/catwalk_floor/iron,
+/area/shuttle/indie_freighter/hallway)
 "Ac" = (
 /obj/effect/turf_decal/tile/blue/opposingcorners{
 	dir = 1
@@ -3315,13 +3304,6 @@
 	},
 /turf/open/floor/iron/cafeteria,
 /area/shuttle/indie_freighter/med)
-"Am" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/duct,
-/turf/open/floor/catwalk_floor/iron,
-/area/shuttle/indie_freighter/hallway)
 "An" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/structure/disposalpipe/trunk{
@@ -3349,6 +3331,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /obj/structure/sign/poster/official/wtf_is_co2/directional/north,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/engine)
 "Aw" = (
@@ -3372,6 +3355,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/cargo)
+"AC" = (
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/shuttle/indie_freighter/maintenance/aft)
 "AI" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/stripes/line,
@@ -3463,16 +3452,6 @@
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/carpet/grimey,
 /area/shuttle/indie_freighter/dorms)
-"Bi" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/obj/machinery/atmospherics/components/unary/outlet_injector/on{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
-	dir = 10
-	},
-/turf/open/floor/engine/insulation,
-/area/shuttle/indie_freighter/engine)
 "Bl" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
@@ -3652,7 +3631,9 @@
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/maintenance/aft)
 "Cs" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/engine)
 "Cv" = (
@@ -3684,6 +3665,37 @@
 	},
 /turf/open/floor/carpet/orange,
 /area/shuttle/indie_freighter/dorms)
+"CI" = (
+/obj/effect/turf_decal/tile/yellow/opposingcorners,
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/obj/machinery/button/door/directional/north{
+	pixel_x = -9;
+	pixel_y = 24;
+	name = "Burn Chamber to Space";
+	id = "freighter_burn_vent"
+	},
+/obj/machinery/button/ignition{
+	id = "freighter_stirling_ignition";
+	pixel_y = 34;
+	pixel_x = 0
+	},
+/obj/machinery/button/door/directional/north{
+	id = "freighter_burn_maint";
+	name = "Burn Chamber Maintenance Bolts";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
+	},
+/obj/machinery/button/door/directional/north{
+	name = "Generator Core Blast Doors";
+	id = "freighter_sterling_room";
+	pixel_x = 9;
+	pixel_y = 24
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark,
+/area/shuttle/indie_freighter/engine)
 "CO" = (
 /obj/effect/turf_decal/tile/brown/half/contrasted,
 /obj/structure/ore_box,
@@ -3701,15 +3713,6 @@
 /obj/machinery/oven/range,
 /turf/open/floor/iron/kitchen/small,
 /area/shuttle/indie_freighter/canteen)
-"CS" = (
-/obj/machinery/power/shuttle_engine/propulsion{
-	dir = 8
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 5
-	},
-/turf/open/floor/plating/airless,
-/area/shuttle/indie_freighter/maintenance/aft)
 "CV" = (
 /obj/effect/turf_decal/tile/yellow/half/contrasted{
 	dir = 1
@@ -3752,18 +3755,18 @@
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/cargo)
 "Dh" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/effect/turf_decal/stripes/line{
+/obj/effect/turf_decal/siding/wood,
+/obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/airlock/mining{
-	name = "Cargo Hold"
+/obj/structure/disposalpipe/segment{
+	dir = 2
 	},
-/turf/open/floor/plating,
-/area/shuttle/indie_freighter/cargo)
+/turf/open/floor/wood/large,
+/area/shuttle/indie_freighter/dorms)
 "Dt" = (
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced/spawner/directional/west,
@@ -3773,11 +3776,23 @@
 /area/shuttle/indie_freighter/canteen)
 "Dw" = (
 /obj/machinery/atmospherics/components/trinary/filter/flipped/layer4,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/engine)
 "Dy" = (
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/engine)
+"Dz" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/obj/machinery/duct,
+/turf/open/floor/catwalk_floor/iron,
+/area/shuttle/indie_freighter/hallway)
 "DG" = (
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 1
@@ -3873,6 +3888,7 @@
 /obj/item/circuitboard/machine/ore_silo,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/indie_freighter/mining)
 "Ej" = (
@@ -3917,11 +3933,30 @@
 	},
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/engine)
+"Et" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/button/door/directional/north{
+	id = "freighter_rad_lockdown";
+	name = "Radiation Shutter Override"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/shuttle/indie_freighter/engine)
 "EC" = (
 /obj/effect/turf_decal/delivery/white,
 /obj/structure/closet/crate/solarpanel_small,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/indie_freighter/cargo)
+"ED" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/obj/machinery/duct,
+/turf/open/floor/catwalk_floor/iron,
+/area/shuttle/indie_freighter/hallway)
 "EX" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -3954,9 +3989,20 @@
 /obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/engine)
+"Fk" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 2
+	},
+/obj/machinery/duct,
+/turf/open/floor/catwalk_floor/iron,
+/area/shuttle/indie_freighter/hallway)
 "Fr" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/engine)
 "Fs" = (
@@ -3964,6 +4010,7 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/engine)
 "FD" = (
@@ -3999,15 +4046,20 @@
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/indie_freighter/mining)
 "FJ" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/disposalpipe/segment{
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/machinery/duct,
-/turf/open/floor/catwalk_floor/iron,
-/area/shuttle/indie_freighter/hallway)
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/airlock/mining{
+	name = "EVA Prep Room"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2
+	},
+/turf/open/floor/plating,
+/area/shuttle/indie_freighter/mining)
 "FM" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/bot_blue,
@@ -4018,6 +4070,15 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/maintenance/fore)
+"FP" = (
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/end{
+	dir = 8
+	},
+/turf/open/floor/plating/airless,
+/area/shuttle/indie_freighter/engine)
 "FR" = (
 /obj/structure/lattice,
 /turf/template_noop,
@@ -4033,6 +4094,16 @@
 	},
 /turf/open/floor/plating/reinforced,
 /area/shuttle/indie_freighter/cargo)
+"FU" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 1
+	},
+/obj/machinery/duct,
+/turf/open/floor/catwalk_floor/iron,
+/area/shuttle/indie_freighter/hallway)
 "Gb" = (
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/cryogenics)
@@ -4044,6 +4115,10 @@
 /obj/structure/cable,
 /turf/open/floor/wood/large,
 /area/shuttle/indie_freighter/dorms)
+"Gg" = (
+/obj/effect/spawner/random/trash/graffiti,
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/shuttle/indie_freighter/maintenance/aft)
 "Gj" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
@@ -4110,13 +4185,18 @@
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/mining)
 "GF" = (
-/obj/machinery/power/stirling_generator,
 /obj/structure/cable,
-/turf/open/floor/engine/insulation,
-/area/shuttle/indie_freighter/engine)
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 2
+	},
+/turf/open/floor/catwalk_floor/iron,
+/area/shuttle/indie_freighter/hallway)
 "GG" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/tile/yellow/opposingcorners,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/engine)
 "GL" = (
@@ -4127,33 +4207,9 @@
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/wood/parquet,
 /area/shuttle/indie_freighter/dorms)
-"GO" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/duct,
-/turf/open/floor/catwalk_floor/iron,
-/area/shuttle/indie_freighter/hallway)
 "GU" = (
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/indie_freighter/bridge)
-"GZ" = (
-/obj/machinery/power/shuttle_engine/heater{
-	dir = 8
-	},
-/obj/structure/window/reinforced/survival_pod/spawner/directional/west,
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/window/reinforced/survival_pod/spawner/directional/east,
-/turf/open/floor/plating,
-/area/shuttle/indie_freighter/maintenance/aft)
 "Hb" = (
 /obj/machinery/airalarm/directional/north,
 /obj/effect/mapping_helpers/airalarm/all_access,
@@ -4243,6 +4299,13 @@
 /obj/effect/mapping_helpers/airlock/access/all/supply/general,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/cargo)
+"Hr" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/broken_machine,
+/obj/machinery/vending/imported/nt,
+/turf/open/floor/plating,
+/area/shuttle/indie_freighter/maintenance/aft)
 "Hw" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
 /obj/machinery/atmospherics/components/trinary/mixer/flipped/layer4{
@@ -4257,6 +4320,22 @@
 	},
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/engine)
+"HB" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/airlock/public/glass{
+	name = "Mess Hall"
+	},
+/obj/machinery/duct,
+/turf/open/floor/plating,
+/area/shuttle/indie_freighter/canteen)
 "HF" = (
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 8
@@ -4316,11 +4395,14 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/machinery/firealarm/directional/east,
 /obj/machinery/atmospherics/components/binary/volume_pump/on/layer2{
 	dir = 1;
 	name = "Waste to Recycling"
 	},
+/obj/machinery/door/poddoor/shutters/radiation/preopen{
+	id = "freighter_rad_lockdown"
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/engine)
 "Ia" = (
@@ -4348,6 +4430,7 @@
 	},
 /obj/machinery/firealarm/directional/east,
 /obj/machinery/light/directional/east,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/hallway)
 "Ik" = (
@@ -4415,6 +4498,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/dark/hidden,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/engine/insulation,
 /area/shuttle/indie_freighter/engine)
 "Iy" = (
@@ -4453,6 +4537,17 @@
 	},
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/bridge)
+"IM" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/light/directional/south,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/duct,
+/turf/open/floor/catwalk_floor/iron,
+/area/shuttle/indie_freighter/hallway)
 "IP" = (
 /obj/effect/turf_decal/tile/bar/opposingcorners{
 	dir = 8
@@ -4600,8 +4695,19 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 9
 	},
+/obj/effect/turf_decal/bot_red,
 /turf/open/floor/engine/insulation,
 /area/shuttle/indie_freighter/engine)
+"Kc" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners{
+	dir = 8
+	},
+/obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/turf/open/floor/iron/cafeteria,
+/area/shuttle/indie_freighter/canteen)
 "Kj" = (
 /obj/effect/turf_decal/tile/brown/anticorner/contrasted{
 	dir = 8
@@ -4648,13 +4754,6 @@
 	},
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/mining)
-"Kz" = (
-/obj/item/paper/crumpled{
-	pixel_x = -6;
-	pixel_y = 5
-	},
-/turf/open/floor/iron/dark,
-/area/shuttle/indie_freighter/cargo)
 "KC" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/green,
@@ -4699,6 +4798,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/tile/yellow/opposingcorners,
 /obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/engine)
 "KT" = (
@@ -4721,13 +4821,6 @@
 /obj/structure/marker_beacon/burgundy,
 /turf/open/space/basic,
 /area/shuttle/indie_freighter/engine)
-"Lc" = (
-/obj/effect/spawner/structure/window/reinforced/shuttle,
-/obj/machinery/door/poddoor/shutters{
-	id = "freighter_hall_lockdown"
-	},
-/turf/open/floor/plating,
-/area/shuttle/indie_freighter/hallway)
 "Lf" = (
 /obj/machinery/door/airlock/qm,
 /obj/effect/turf_decal/stripes/line{
@@ -4758,6 +4851,16 @@
 /obj/structure/chair/stool/bar/directional/south,
 /turf/open/floor/iron/cafeteria,
 /area/shuttle/indie_freighter/canteen)
+"Lp" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/duct,
+/turf/open/floor/iron/cafeteria,
+/area/shuttle/indie_freighter/canteen)
 "Lq" = (
 /obj/machinery/computer/piratepad_control/ghostpad/freighter,
 /obj/effect/mapping_helpers/broken_machine,
@@ -4774,16 +4877,6 @@
 	dir = 1
 	},
 /area/shuttle/indie_freighter/bridge)
-"Lx" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/disposalpipe/segment{
-	dir = 2
-	},
-/obj/machinery/duct,
-/turf/open/floor/catwalk_floor/iron,
-/area/shuttle/indie_freighter/hallway)
 "Ly" = (
 /obj/structure/closet/crate/engineering/electrical,
 /obj/item/stack/sheet/mineral/uranium/half,
@@ -4858,6 +4951,7 @@
 	network = list("indie_freighter")
 	},
 /obj/machinery/light/small/directional/west,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/indie_freighter/mining)
 "LQ" = (
@@ -4867,15 +4961,6 @@
 	},
 /turf/open/floor/iron/kitchen/small,
 /area/shuttle/indie_freighter/canteen)
-"LR" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/disposalpipe/segment{
-	dir = 8
-	},
-/turf/open/floor/catwalk_floor/iron,
-/area/shuttle/indie_freighter/hallway)
 "LS" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
@@ -4898,6 +4983,16 @@
 /obj/effect/turf_decal/bot_red,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
+/area/shuttle/indie_freighter/hallway)
+"Ma" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/junction{
+	dir = 8
+	},
+/obj/machinery/duct,
+/turf/open/floor/catwalk_floor/iron,
 /area/shuttle/indie_freighter/hallway)
 "Mb" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
@@ -4966,7 +5061,15 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/electrical)
-"Mu" = (
+"Mv" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon/burgundy,
+/turf/template_noop,
+/area/shuttle/indie_freighter/canteen)
+"Mw" = (
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/indie_freighter/cargo)
+"Mz" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -4977,47 +5080,18 @@
 /obj/machinery/computer/libraryconsole/bookmanagement,
 /turf/open/floor/wood/large,
 /area/shuttle/indie_freighter/dorms)
-"Mv" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/marker_beacon/burgundy,
-/turf/template_noop,
-/area/shuttle/indie_freighter/canteen)
-"Mw" = (
-/turf/closed/wall/mineral/titanium,
-/area/shuttle/indie_freighter/cargo)
-"Mz" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/power/apc/auto_name/directional/north,
-/obj/effect/mapping_helpers/apc/no_charge,
-/obj/effect/mapping_helpers/apc/unlocked,
-/obj/structure/disposalpipe/segment{
-	dir = 8
-	},
-/obj/machinery/duct,
-/obj/effect/turf_decal/stripes/corner{
-	dir = 1
-	},
-/turf/open/floor/plating,
-/area/shuttle/indie_freighter/maintenance/aft)
 "MB" = (
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/hallway)
 "MC" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/disposalpipe/segment{
-	dir = 5
-	},
-/obj/machinery/duct,
-/obj/effect/turf_decal/stripes/line{
+/obj/effect/turf_decal/siding/wood,
+/obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
-/turf/open/floor/plating,
-/area/shuttle/indie_freighter/maintenance/aft)
+/obj/structure/cable,
+/obj/machinery/photocopier/gratis/prebuilt,
+/turf/open/floor/wood/large,
+/area/shuttle/indie_freighter/dorms)
 "MG" = (
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/cargo)
@@ -5030,12 +5104,24 @@
 /area/shuttle/indie_freighter/mining)
 "ML" = (
 /obj/machinery/vending/imported/yangyu,
+/obj/effect/turf_decal/bot_white,
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/hallway)
 "MQ" = (
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/engine,
 /area/shuttle/indie_freighter/cargo)
+"MV" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
+/obj/machinery/atmospherics/components/unary/outlet_injector/on{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
+	dir = 10
+	},
+/obj/effect/turf_decal/bot_red,
+/turf/open/floor/engine/insulation,
+/area/shuttle/indie_freighter/engine)
 "MX" = (
 /obj/effect/turf_decal/tile/yellow/anticorner/contrasted{
 	dir = 4
@@ -5217,16 +5303,6 @@
 /obj/effect/spawner/structure/window/reinforced/shuttle,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/mining)
-"OG" = (
-/obj/effect/turf_decal/tile/bar/opposingcorners{
-	dir = 8
-	},
-/obj/machinery/disposal/bin,
-/obj/structure/disposalpipe/trunk{
-	dir = 8
-	},
-/turf/open/floor/iron/cafeteria,
-/area/shuttle/indie_freighter/canteen)
 "OL" = (
 /obj/effect/mob_spawn/ghost_role/human/lostcargo{
 	dir = 1
@@ -5246,6 +5322,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating/reinforced,
 /area/shuttle/indie_freighter/vault)
+"OV" = (
+/obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/shuttle/indie_freighter/hallway)
 "Pd" = (
 /obj/machinery/mass_driver{
 	id = "freighter_driver"
@@ -5255,8 +5338,16 @@
 	},
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/cargo)
+"Pf" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron,
+/area/shuttle/indie_freighter/hallway)
 "Pg" = (
 /obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/engine)
 "Ph" = (
@@ -5299,6 +5390,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /obj/machinery/door/airlock/maintenance_hatch,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/poddoor/shutters/radiation/preopen{
+	id = "freighter_rad_lockdown"
+	},
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/maintenance/aft)
 "Pv" = (
@@ -5337,12 +5431,6 @@
 	},
 /turf/open/floor/carpet/grimey,
 /area/shuttle/indie_freighter/dorms)
-"PG" = (
-/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
-	dir = 5
-	},
-/turf/open/floor/engine/insulation,
-/area/shuttle/indie_freighter/engine)
 "PI" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/disposalpipe/trunk{
@@ -5384,18 +5472,27 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/maintenance/fore)
+"PQ" = (
+/obj/item/paper/crumpled{
+	pixel_x = -6;
+	pixel_y = 5
+	},
+/turf/open/floor/iron/dark,
+/area/shuttle/indie_freighter/cargo)
 "Qf" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
 	},
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/engine)
 "Qn" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/engine)
 "Qp" = (
@@ -5430,6 +5527,7 @@
 "QL" = (
 /obj/structure/frame/machine/secured,
 /obj/effect/turf_decal/bot_white,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/indie_freighter/mining)
 "QO" = (
@@ -5441,6 +5539,18 @@
 /obj/structure/table/reinforced/rglass,
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/cryogenics)
+"QP" = (
+/obj/effect/turf_decal/tile/yellow/half/contrasted{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/turf/open/floor/iron/dark,
+/area/shuttle/indie_freighter/cargo)
 "QQ" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -5518,6 +5628,13 @@
 	},
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/mining)
+"RA" = (
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple/layer4{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/dark/hidden,
+/turf/closed/wall/r_wall/plastitanium/nodiagonal,
+/area/shuttle/indie_freighter/engine)
 "RD" = (
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/cable,
@@ -5620,6 +5737,10 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/machinery/door/poddoor/shutters/radiation/preopen{
+	id = "freighter_rad_lockdown"
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/engine)
 "Sn" = (
@@ -5654,8 +5775,27 @@
 /area/shuttle/indie_freighter/dorms)
 "SA" = (
 /obj/machinery/vending/imported/tiziran,
+/obj/effect/turf_decal/bot_white,
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/hallway)
+"SD" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/airlock/mining{
+	name = "Cargo Hold"
+	},
+/turf/open/floor/plating,
+/area/shuttle/indie_freighter/cargo)
+"SF" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/shuttle/indie_freighter/engine)
 "SJ" = (
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/indie_freighter/electrical)
@@ -5742,22 +5882,6 @@
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/kitchen/small,
 /area/shuttle/indie_freighter/canteen)
-"Tu" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/airlock/mining{
-	name = "Mining Bay"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 2
-	},
-/turf/open/floor/plating,
-/area/shuttle/indie_freighter/mining)
 "Tx" = (
 /obj/machinery/vending/hydroseeds,
 /obj/machinery/airalarm/directional/west,
@@ -5822,13 +5946,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/cargo)
-"Uk" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/mapping_helpers/broken_machine,
-/obj/machinery/vending/imported/nt,
-/turf/open/floor/plating,
-/area/shuttle/indie_freighter/maintenance/aft)
 "Ut" = (
 /obj/effect/turf_decal/tile/brown/anticorner/contrasted,
 /obj/structure/cable,
@@ -5842,16 +5959,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/catwalk_floor,
 /area/shuttle/indie_freighter/electrical)
-"Uv" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/disposalpipe/segment{
-	dir = 8
-	},
-/obj/machinery/duct,
-/turf/open/floor/catwalk_floor/iron,
-/area/shuttle/indie_freighter/hallway)
 "Uz" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -5924,12 +6031,6 @@
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/indie_freighter/armoury)
-"Vf" = (
-/obj/structure/disposalpipe/segment{
-	dir = 10
-	},
-/turf/closed/wall/mineral/titanium/nodiagonal,
-/area/shuttle/indie_freighter/maintenance/aft)
 "Vh" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
@@ -5966,6 +6067,7 @@
 "Vv" = (
 /mob/living/basic/looter/ranged,
 /obj/item/ammo_casing/shotgun/buckshot/spent,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/hallway)
 "Vw" = (
@@ -6013,6 +6115,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/components/unary/portables_connector/visible/layer4,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/engine)
 "VI" = (
@@ -6116,6 +6219,12 @@
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/indie_freighter/vault)
+"WE" = (
+/obj/machinery/atmospherics/components/binary/volume_pump/on{
+	dir = 1
+	},
+/turf/closed/wall/r_wall/plastitanium/nodiagonal,
+/area/shuttle/indie_freighter/engine)
 "WJ" = (
 /mob/living/basic/looter,
 /obj/effect/turf_decal/tile/brown{
@@ -6130,6 +6239,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/engine)
 "WP" = (
@@ -6218,12 +6328,6 @@
 	},
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/engine)
-"Xy" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/carpet/grimey,
-/area/shuttle/indie_freighter/dorms)
 "XI" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -6264,6 +6368,17 @@
 	},
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/dorms)
+"XZ" = (
+/obj/effect/turf_decal/tile/blue/opposingcorners{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/turf/open/floor/iron/cafeteria,
+/area/shuttle/indie_freighter/med)
 "Ye" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
@@ -6305,6 +6420,10 @@
 "Yv" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/geiger_counter{
+	pixel_x = -5;
+	pixel_y = 4
+	},
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/maintenance/aft)
 "Yz" = (
@@ -6396,6 +6515,7 @@
 "Za" = (
 /obj/machinery/light/directional/east,
 /obj/machinery/vending/imported/mothic,
+/obj/effect/turf_decal/bot_white,
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/hallway)
 "Zd" = (
@@ -6417,16 +6537,6 @@
 	dir = 8
 	},
 /turf/open/floor/wood/parquet,
-/area/shuttle/indie_freighter/canteen)
-"Zs" = (
-/obj/effect/turf_decal/tile/bar/opposingcorners{
-	dir = 8
-	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/duct,
-/turf/open/floor/iron/cafeteria,
 /area/shuttle/indie_freighter/canteen)
 "Zu" = (
 /obj/structure/cable,
@@ -6521,7 +6631,7 @@ KC
 aa
 "}
 (2,1,1) = {"
-qB
+FP
 aa
 Py
 uU
@@ -6531,9 +6641,9 @@ HF
 HF
 HF
 ev
-qa
+eG
 dX
-PG
+qN
 ev
 HF
 HF
@@ -6547,17 +6657,17 @@ FR
 aa
 "}
 (3,1,1) = {"
-Vf
-CS
+AC
+bS
 Py
 ds
 ds
 Py
 VH
+oE
 Cs
-qN
 Ff
-Bi
+MV
 ZH
 JY
 ev
@@ -6574,8 +6684,8 @@ aa
 "}
 (4,1,1) = {"
 Py
-GZ
-vx
+kR
+Gg
 tp
 tp
 Py
@@ -6583,12 +6693,12 @@ nT
 Dw
 fJ
 iY
-pD
+xr
 oF
 ev
 ev
-jd
-jE
+CI
+bR
 gj
 Qp
 Vm
@@ -6602,16 +6712,16 @@ aa
 Py
 An
 tX
-Uk
+Hr
 yG
 Py
 Av
-Xo
+SF
 Xo
 iY
-GF
+pD
 iT
-mf
+yj
 KL
 kp
 Cv
@@ -6628,16 +6738,16 @@ aa
 Py
 Kt
 gT
-qP
+mu
 Yv
 Pn
 Fr
 Xo
-dM
+cJ
 iY
-GF
+pD
 Iw
-xY
+iU
 GG
 wQ
 DZ
@@ -6654,16 +6764,16 @@ aa
 Py
 kj
 PI
-MC
+fO
 Co
 Py
-BE
+Et
 Xo
 sR
 iY
-pD
 xr
-mc
+RA
+WE
 sf
 EX
 oS
@@ -6680,7 +6790,7 @@ aa
 fq
 Py
 Py
-Mz
+qP
 fc
 Py
 ef
@@ -6813,15 +6923,15 @@ yM
 kn
 wF
 Xb
-Lx
-Rf
+Fk
+ak
 oD
-Lx
-Lx
-Lx
+dD
+Fk
+Fk
 KD
 Rf
-tU
+Dz
 aK
 gg
 Uu
@@ -6838,17 +6948,17 @@ up
 qz
 hT
 uX
-Lc
+ou
 MB
 uX
 MB
-xL
+Pf
 ae
 yn
 If
 Vv
-qW
-gk
+mf
+OV
 jZ
 Gk
 kZ
@@ -6899,7 +7009,7 @@ LI
 kb
 FG
 Pj
-Uv
+ED
 QH
 Ib
 Wl
@@ -6928,7 +7038,7 @@ MB
 Lz
 QH
 CV
-Kz
+PQ
 hr
 yW
 Ia
@@ -6951,7 +7061,7 @@ xI
 FG
 FG
 Em
-Uv
+ED
 QH
 nn
 Dg
@@ -6970,16 +7080,16 @@ FG
 JT
 uS
 Kj
-vT
+FJ
 Ej
 kx
 Kv
 Ry
-Tu
-lM
-wR
-Dh
-vX
+qC
+GF
+Ma
+SD
+zt
 XP
 go
 yP
@@ -7003,9 +7113,9 @@ ty
 ha
 OD
 Ip
-gE
+mG
 Oe
-vX
+zt
 ho
 XP
 XP
@@ -7031,7 +7141,7 @@ FG
 PB
 Me
 QH
-vX
+zt
 Dg
 jv
 sM
@@ -7055,9 +7165,9 @@ WJ
 ha
 OD
 fh
-gE
+mG
 Oe
-vX
+zt
 zF
 aN
 XP
@@ -7081,10 +7191,10 @@ sJ
 Ut
 gn
 uX
-qW
+mf
 Vh
-zt
-eL
+QP
+xQ
 XP
 ok
 xf
@@ -7107,7 +7217,7 @@ FG
 MK
 FG
 Ra
-Uv
+ED
 QH
 MX
 Uj
@@ -7159,7 +7269,7 @@ pF
 HJ
 FG
 RI
-Uv
+ED
 QH
 Cy
 qj
@@ -7260,7 +7370,7 @@ Rx
 vJ
 wZ
 IF
-sg
+XZ
 YQ
 MB
 gm
@@ -7288,7 +7398,7 @@ Fb
 YN
 AO
 bK
-FJ
+FU
 kE
 eJ
 Kn
@@ -7315,7 +7425,7 @@ IF
 Ph
 YQ
 Ip
-gE
+mG
 Ud
 OP
 Sb
@@ -7341,7 +7451,7 @@ Se
 Mh
 Mh
 JE
-gE
+mG
 eJ
 Kn
 Aq
@@ -7367,7 +7477,7 @@ PP
 lk
 Qz
 XI
-uV
+ir
 eJ
 Kn
 Kn
@@ -7393,7 +7503,7 @@ mW
 FM
 Mh
 zb
-tu
+IM
 eJ
 eJ
 eJ
@@ -7419,7 +7529,7 @@ Mh
 Mh
 Mh
 Ra
-gE
+mG
 qz
 QY
 df
@@ -7445,7 +7555,7 @@ Mb
 sB
 VA
 uz
-gE
+mG
 qz
 Ww
 br
@@ -7471,9 +7581,9 @@ gS
 RX
 Mh
 MB
-qW
+mf
 LC
-xW
+Dh
 JM
 Gf
 Cd
@@ -7498,8 +7608,8 @@ Mh
 Mh
 pZ
 jI
-ou
-cn
+vI
+Aa
 TO
 lI
 nM
@@ -7515,19 +7625,19 @@ qz
 qz
 nH
 Tk
-jN
-el
+fN
+hi
 It
 Hn
 so
 wD
 MB
 MB
-gE
+mG
 qz
-Mu
-Xy
-bO
+Mz
+ss
+MC
 Cd
 QO
 lj
@@ -7540,15 +7650,15 @@ bw
 Gv
 CX
 HQ
-Am
-Am
-jz
+it
+it
+Ab
 Pl
-uw
-uw
-uw
-uw
-uw
+ew
+ew
+ew
+ew
+ew
 Nq
 qz
 Gq
@@ -7566,9 +7676,9 @@ AS
 Jc
 qz
 Ra
-GO
+cm
 xL
-LR
+zP
 It
 MB
 MB
@@ -7578,7 +7688,7 @@ xL
 uX
 qz
 my
-cf
+gh
 Mo
 jP
 kk
@@ -7592,9 +7702,9 @@ qz
 qz
 qz
 xm
-zS
+HB
 ZM
-xn
+zS
 jR
 KJ
 rc
@@ -7646,7 +7756,7 @@ is
 xm
 he
 Oc
-OG
+Kc
 jR
 ZY
 nC
@@ -7670,7 +7780,7 @@ xm
 uP
 VI
 xm
-Zs
+Lp
 Xp
 jR
 jR
@@ -7696,7 +7806,7 @@ xm
 vY
 sA
 RD
-Zs
+Lp
 Oc
 jR
 LW
@@ -7773,7 +7883,7 @@ aa
 xm
 Tm
 bt
-np
+tY
 QW
 xl
 jR
@@ -7797,7 +7907,7 @@ aa
 (51,1,1) = {"
 aa
 xm
-ui
+zq
 LQ
 pj
 Lg
