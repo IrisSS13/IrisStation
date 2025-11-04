@@ -134,7 +134,10 @@ SUBSYSTEM_DEF(vote)
 		return
 	if(CONFIG_GET(flag/no_dead_vote) && voter.stat == DEAD && !voter.client?.holder)
 		return
-
+	//IRIS ADDITION START
+	if(!current_vote.can_mob_vote(voter))
+		return
+	//IRIS ADDITION END
 	// If user has already voted, remove their specific vote
 	if(voter.ckey in current_vote.choices_by_ckey)
 		var/their_old_vote = current_vote.choices_by_ckey[voter.ckey]
@@ -158,7 +161,10 @@ SUBSYSTEM_DEF(vote)
 		return
 	if(CONFIG_GET(flag/no_dead_vote) && voter.stat == DEAD && !voter.client?.holder)
 		return
-
+	//IRIS ADDITION START
+	if(!current_vote.can_mob_vote(voter))
+		return
+	//IRIS ADDITION END
 	else
 		voted += voter.ckey
 
