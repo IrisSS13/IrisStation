@@ -105,3 +105,8 @@
 	divide_ratio = 150 KILO WATTS
 	tax = 30
 	circuit = /obj/item/circuitboard/machine/powerator/freighter
+
+/obj/item/card/id/departmental_budget/indie
+	department_ID = ACCOUNT_INDIE_CARGO
+	department_name = ACCOUNT_INDIE_CARGO_NAME
+	icon_state = "eng_budget"
