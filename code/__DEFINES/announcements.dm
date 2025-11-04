@@ -9,3 +9,4 @@
 //Defines for newscaster news stations, the defined thing is what it'll be called in the Newscaster.
 #define NEWSCASTER_STATION_ANNOUNCEMENTS "Station Announcements"
 #define NEWSCASTER_SPACE_BETTING "SpaceBet"
+#define NEWSCASTER_ECONOMIC_UPDATES "Sector Economic Reports" // IRIS ADDITION
