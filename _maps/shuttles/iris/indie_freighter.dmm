@@ -699,6 +699,7 @@
 /obj/machinery/camera/autoname/directional/south{
 	network = list("indie_freighter")
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /turf/open/floor/catwalk_floor/iron,
 /area/shuttle/indie_freighter/hallway)
 "gg" = (
@@ -1303,7 +1304,6 @@
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/mining)
 "kn" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /obj/structure/cable,
 /obj/structure/disposalpipe/trunk{
 	dir = 2
@@ -1870,8 +1870,8 @@
 	pixel_x = 0;
 	pixel_y = 14
 	},
-/obj/machinery/atmospherics/components/unary/passive_vent,
-/turf/open/floor/plating/airless,
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
 /area/shuttle/indie_freighter/hallway)
 "ou" = (
 /obj/effect/spawner/structure/window/reinforced/shuttle,
@@ -1981,6 +1981,14 @@
 /obj/machinery/hydroponics/constructable,
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/indie_freighter/hydro)
+"pe" = (
+/obj/machinery/atmospherics/components/unary/passive_vent,
+/turf/open/floor/plating/airless,
+/area/shuttle/indie_freighter/hallway)
+"pj" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/iron/kitchen/small,
+/area/shuttle/indie_freighter/canteen)
 "pm" = (
 /obj/structure/girder/reinforced,
 /turf/open/floor/plating,
@@ -3105,6 +3113,12 @@
 	},
 /turf/open/floor/iron/smooth_edge,
 /area/shuttle/indie_freighter/hydro)
+"yM" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
+/turf/open/floor/catwalk_floor/iron,
+/area/shuttle/indie_freighter/hallway)
 "yP" = (
 /obj/effect/turf_decal/delivery/white,
 /obj/structure/closet/crate/nakamura,
@@ -4804,7 +4818,7 @@
 "KZ" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/burgundy,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/shuttle/indie_freighter/engine)
 "Lf" = (
 /obj/machinery/door/airlock/qm,
@@ -4886,6 +4900,10 @@
 	},
 /turf/open/floor/plating/airless,
 /area/shuttle/indie_freighter/boarding_pod)
+"LB" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/shuttle/indie_freighter/mining)
 "LC" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
@@ -4935,9 +4953,9 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/indie_freighter/mining)
 "LQ" = (
-/obj/structure/table/reinforced,
-/turf/open/floor/iron/kitchen/small,
-/area/shuttle/indie_freighter/canteen)
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/shuttle/indie_freighter/hallway)
 "LS" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
@@ -5244,6 +5262,13 @@
 /obj/effect/spawner/structure/window/reinforced/shuttle,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/cargo)
+"Of" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
+/turf/open/floor/catwalk_floor/iron,
+/area/shuttle/indie_freighter/hallway)
 "Og" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -6492,6 +6517,7 @@
 /obj/machinery/light/directional/east,
 /obj/machinery/vending/imported/mothic,
 /obj/effect/turf_decal/bot_white,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/hallway)
 "Zd" = (
@@ -6868,7 +6894,7 @@ aa
 "}
 (12,1,1) = {"
 sZ
-qz
+up
 qz
 qh
 kf
@@ -6895,7 +6921,7 @@ aa
 (13,1,1) = {"
 aa
 os
-qz
+up
 kn
 wF
 Xb
@@ -6920,10 +6946,10 @@ aa
 "}
 (14,1,1) = {"
 sZ
-qz
+up
 qz
 hT
-uX
+Of
 ou
 MB
 uX
@@ -6948,7 +6974,7 @@ aa
 BM
 ft
 LF
-XI
+yM
 fQ
 qz
 qz
@@ -7000,7 +7026,7 @@ Mw
 aa
 aa
 sZ
-qz
+LQ
 qz
 qz
 LX
@@ -7025,8 +7051,8 @@ QH
 (18,1,1) = {"
 aa
 aa
-aa
-FG
+pe
+LB
 FG
 FG
 FG
@@ -7833,7 +7859,7 @@ aa
 vg
 xO
 tc
-LQ
+pj
 BL
 bl
 jR
@@ -7884,8 +7910,8 @@ aa
 aa
 xm
 zq
-LQ
-LQ
+pj
+pj
 Lg
 NC
 jR
