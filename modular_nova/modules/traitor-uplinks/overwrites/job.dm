@@ -24,8 +24,10 @@
 	restricted_roles = list(JOB_SHAFT_MINER, JOB_CARGO_TECHNICIAN)
 //	cost = 5
 
+/* IRIS EDIT - allows it back
 /datum/uplink_item/role_restricted/mail_counterfeit_kit
 	purchasable_from = NONE //not sure what the story is
+*/ // IRIS EDIT END
 
 /datum/uplink_item/role_restricted/gorillacube
 	cost = /datum/uplink_item/low_cost::cost

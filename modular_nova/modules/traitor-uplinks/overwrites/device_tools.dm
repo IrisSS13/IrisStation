@@ -52,9 +52,10 @@
 /datum/uplink_item/device_tools/briefcase_launchpad
 	purchasable_from = NONE
 
+/* IRIS EDIT - allows it back
 /datum/uplink_item/device_tools/suspiciousphone
 	purchasable_from = NONE
-
+*/ // IRIS EDIT END
 
 // HIGH COST
 /datum/uplink_item/device_tools/syndicate_teleporter
