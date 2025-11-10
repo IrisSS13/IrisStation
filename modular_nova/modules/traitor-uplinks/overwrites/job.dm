@@ -8,9 +8,6 @@
 	cost = 1
 //	cost = 4
 
-/datum/uplink_item/role_restricted/explosive_hot_potato
-	purchasable_from = NONE //hilariously unfitting for the server
-
 /datum/uplink_item/role_restricted/clownsuperpin
 	cost = /datum/uplink_item/low_cost::cost
 //	cost = 7
@@ -23,11 +20,6 @@
 	cost = /datum/uplink_item/low_cost::cost
 	restricted_roles = list(JOB_SHAFT_MINER, JOB_CARGO_TECHNICIAN)
 //	cost = 5
-
-/* IRIS EDIT - allows it back
-/datum/uplink_item/role_restricted/mail_counterfeit_kit
-	purchasable_from = NONE //not sure what the story is
-*/ // IRIS EDIT END
 
 /datum/uplink_item/role_restricted/gorillacube
 	cost = /datum/uplink_item/low_cost::cost
@@ -88,10 +80,6 @@
 	cost = /datum/uplink_item/medium_cost::cost
 //	cost = 10
 
-/datum/uplink_item/role_restricted/spider_injector
-	purchasable_from = NONE //not sure what the story is
-
-
 // HIGH COST
 /datum/uplink_item/role_restricted/magillitis_serum
 	restricted_roles = list(JOB_GENETICIST, JOB_SCIENTIST, JOB_RESEARCH_DIRECTOR)
@@ -104,9 +92,3 @@
 /datum/uplink_item/role_restricted/clown_bomb
 	cost = /datum/uplink_item/high_cost::cost
 //	cost = 15
-
-/datum/uplink_item/role_restricted/his_grace
-	purchasable_from = NONE //low roleplay
-
-/datum/uplink_item/role_restricted/blastcannon
-	purchasable_from = NONE

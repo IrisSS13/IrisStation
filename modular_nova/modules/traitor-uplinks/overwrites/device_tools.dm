@@ -36,10 +36,6 @@
 	cost = /datum/uplink_item/low_cost::cost
 //	cost = 4
 
-/datum/uplink_item/device_tools/tram_remote
-	purchasable_from = NONE //not sure what the story is
-
-
 // MEDIUM COST
 /datum/uplink_item/device_tools/thermal
 	cost = /datum/uplink_item/medium_cost::cost
@@ -48,14 +44,6 @@
 /datum/uplink_item/device_tools/stimpack
 	cost = /datum/uplink_item/medium_cost::cost
 //	cost = 5
-
-/datum/uplink_item/device_tools/briefcase_launchpad
-	purchasable_from = NONE
-
-/* IRIS EDIT - allows it back
-/datum/uplink_item/device_tools/suspiciousphone
-	purchasable_from = NONE
-*/ // IRIS EDIT END
 
 // HIGH COST
 /datum/uplink_item/device_tools/syndicate_teleporter
