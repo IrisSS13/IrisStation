@@ -67,3 +67,9 @@
 /obj/item/toy/plush/nova/cat/white
 	name = "white cat plushie"
 	icon_state = "whitecat"
+
+/obj/item/toy/plush/nova/funniyellowrock
+	name = "squishy yellow rock"
+	desc = "A familiar looking yellow rock plushie. Touching it won't reduce you to dust. Probably."
+	icon_state = "plush_sm"
+	squeak_override = list('sound/machines/sm/accent/delam/1.ogg' = 1)
