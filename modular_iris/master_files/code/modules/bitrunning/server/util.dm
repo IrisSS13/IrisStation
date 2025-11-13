@@ -3,7 +3,7 @@
 	if(!valid_domains)
 		valid_domains = list()
 		for(var/datum/lazy_template/virtual_domain/available as anything in subtypesof(/datum/lazy_template/virtual_domain))
-			if(!(initial(available.domain_flags) & DOMAIN_TEST_ONLY) && \
+			if(!(initial(available.domain_flags) & DOMAIN_TEST_ONLY))
 				valid_domains[available] = 5
 
 	var/list/available_domains = valid_domains.Copy()
