@@ -56,7 +56,6 @@ GLOBAL_LIST_EMPTY(customizable_races)
 
 /datum/species/dullahan
 	mutant_bodyparts = list()
-	nova_stars_only = TRUE
 	outfit_important_for_life = /datum/outfit/dullahan
 
 /datum/species/dullahan/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only)
