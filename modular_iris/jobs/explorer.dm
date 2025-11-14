@@ -199,4 +199,5 @@
 /obj/machinery/suit_storage_unit/explorer
 	mask_type = /obj/item/clothing/mask/gas/atmos/frontier_colonist
 	mod_type = /obj/item/mod/control/pre_equipped/frontier_colonist
-	storage_type = /obj/item/tank/jetpack/oxygen
+	storage_type = /obj/item/tank/jetpack
+

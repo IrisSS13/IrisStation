@@ -24,5 +24,5 @@
 	cost = 5
 
 /datum/armament_entry/hecu/melee/nonlethal/kravmaga
-	item_type = /obj/item/clothing/gloves/krav_maga/combatglovesplus
+	item_type = /obj/item/clothing/gloves/kaza_ruk/combatglovesplus
 	cost = 10

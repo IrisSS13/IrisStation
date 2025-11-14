@@ -72,11 +72,12 @@
 	// Now we handle silicon and/or human, order doesn't matter as both obviously can't fire.
 	// If other variants of mob/living need to be handled at some point, put them here.
 	if(issilicon(holder))
-		flavor_text = preferences.read_preference(/datum/preference/text/silicon_flavor_text)
 		custom_species = "Silicon"
 		custom_species_lore = "A silicon unit, like a cyborg or pAI."
-		ooc_notes += preferences.read_preference(/datum/preference/text/ooc_notes)
-		headshot += preferences.read_preference(/datum/preference/text/headshot/silicon)
+		if(preferences)
+			flavor_text = preferences.read_preference(/datum/preference/text/silicon_flavor_text)
+			ooc_notes += preferences.read_preference(/datum/preference/text/ooc_notes)
+			headshot += preferences.read_preference(/datum/preference/text/headshot/silicon)
 
 // IRIS EDIT: Ghosts can see flavor text regardless of if it's obscured
 	if(ishuman(holder))

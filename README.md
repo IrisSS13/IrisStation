@@ -28,9 +28,10 @@ Space Station 13 is a paranoia-laden round-based roleplaying game set against th
 
 You are responsible for the testing of your content and providing proof of such in your pull request. You should not mark a pull request ready for review until you have actually tested it. Test merges are not for bug finding, they are for stress tests where local testing simply doesn't allow for this.
 
-## DEVELOPMENT FLOWCHART
+## DEVELOPMENT
 
-Please follow the modularisation guide, it makes it much easier for us to keep up to date with upstreams
+Please follow the modularisation guide, it makes it much easier for us to keep up to date with upstreams.
+
 [Modularisation Guide](./modular_nova/readme.md)
 
 ## DOWNLOADING

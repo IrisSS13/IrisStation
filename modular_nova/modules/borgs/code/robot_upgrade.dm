@@ -356,9 +356,8 @@
 	icon_state = "module_illegal"
 	new_model = /obj/item/robot_model/syndicatejack
 
-/obj/item/borg/upgrade/transform/syndicatejack/action(mob/living/silicon/robot/cyborg, user = usr) // Only usable on emagged cyborgs. In exchange. makes you unable to get locked down or detonated.
-	if(cyborg.emagged)
-		return ..()
+/obj/item/borg/upgrade/transform/syndicatejack/marauder
+	new_model = /obj/item/robot_model/syndicatejack/marauder
 
 /obj/item/borg/upgrade/cargo_papermanipulator
 	name = "Cargo Cyborg Paper Manipulator"

@@ -65,6 +65,16 @@
 	required_reagents = list(/datum/reagent/uranium/radium = 1)
 	required_container = /obj/item/slime_extract/green
 
+/datum/chemical_reaction/slime/slimefelinid
+	results = list(/datum/reagent/mutationtoxin/felinid = 1)
+	required_reagents = list(/datum/reagent/consumable/milk = 1)
+	required_container = /obj/item/slime_extract/green
+
+/datum/chemical_reaction/slime/slimemoth
+	results = list(/datum/reagent/mutationtoxin/moth = 1)
+	required_reagents = list(/datum/reagent/cellulose = 1)
+	required_container = /obj/item/slime_extract/green
+
 //Metal
 /datum/chemical_reaction/slime/slimemetal
 	required_reagents = list(/datum/reagent/toxin/plasma = 1)
@@ -254,7 +264,12 @@
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_SLIME | REACTION_TAG_DANGEROUS
 
 /datum/chemical_reaction/slime/slimeoverload/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
-	empulse(get_turf(holder.my_atom), 3, 5)
+	var/turf/turf = get_turf(holder.my_atom)
+	var/lastkey = holder.my_atom.fingerprintslast
+	empulse(get_turf(holder.my_atom), 3, 5, emp_source = src)
+	if(lastkey)
+		var/mob/toucher = get_mob_by_key(lastkey)
+		toucher.log_message("triggered EMP reaction at [AREACOORD(turf)].", LOG_GAME, log_globally = FALSE)
 	..()
 
 /datum/chemical_reaction/slime/slimecell

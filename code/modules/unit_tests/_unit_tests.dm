@@ -87,6 +87,7 @@
 #define EASY_ALLOCATE(arguments...) allocate(__IMPLIED_TYPE__, run_loc_floor_bottom_left, ##arguments)
 
 // BEGIN_INCLUDE
+#include "aas_configs.dm"
 #include "abductor_baton_spell.dm"
 #include "ablative_hud.dm"
 #include "achievements.dm"
@@ -174,6 +175,7 @@
 #include "gloves_and_shoes_armor.dm"
 #include "greyscale_config.dm"
 #include "hallucination_icons.dm"
+#include "heretic_knowledge.dm"
 #include "heretic_rituals.dm"
 #include "high_five.dm"
 #include "holder_loving.dm"
@@ -306,6 +308,7 @@
 #include "stuns.dm"
 #include "style_hotswapping.dm"
 #include "subsystem_init.dm"
+#include "suit_sensor.dm"
 #include "suit_storage_icons.dm"
 #include "surgeries.dm"
 #include "syringe_gun.dm"
