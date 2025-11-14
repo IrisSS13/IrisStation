@@ -293,7 +293,6 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/obj/structure/sign/departments/drop/directional/east,
 /turf/open/floor/engine,
 /area/shuttle/indie_freighter/cargo)
 "cC" = (
@@ -568,6 +567,10 @@
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/engine/plasma,
 /area/shuttle/indie_freighter/engine)
+"eQ" = (
+/obj/structure/sign/departments/drop,
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/shuttle/indie_freighter/vault)
 "eS" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -669,6 +672,7 @@
 /obj/item/clothing/under/plasmaman/cargo,
 /obj/item/clothing/under/plasmaman/mining,
 /obj/item/clothing/under/plasmaman/mining,
+/obj/machinery/digital_clock/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/indie_freighter/cryogenics)
 "fI" = (
@@ -963,6 +967,7 @@
 	},
 /obj/item/storage/medkit/regular,
 /obj/machinery/firealarm/directional/west,
+/obj/machinery/digital_clock/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/indie_freighter/cryogenics)
 "hx" = (
@@ -3113,18 +3118,6 @@
 	dir = 1
 	},
 /area/shuttle/indie_freighter/hydro)
-"yz" = (
-/obj/effect/turf_decal/delivery/white,
-/obj/structure/closet/crate/cargo{
-	name = "frontier communications crate"
-	},
-/obj/item/radio/headset/headset_frontier_colonist,
-/obj/item/radio/headset/headset_frontier_colonist,
-/obj/item/radio/headset/headset_frontier_colonist,
-/obj/item/radio/headset/headset_frontier_colonist,
-/obj/item/radio/headset/headset_frontier_colonist,
-/turf/open/floor/iron/dark/smooth_large,
-/area/shuttle/indie_freighter/cargo)
 "yA" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/effect/turf_decal/siding/wood{
@@ -3349,6 +3342,13 @@
 	},
 /turf/open/floor/iron/cafeteria,
 /area/shuttle/indie_freighter/med)
+"Ag" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners{
+	dir = 8
+	},
+/obj/structure/sign/clock/directional/south,
+/turf/open/floor/iron/cafeteria,
+/area/shuttle/indie_freighter/canteen)
 "An" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/structure/disposalpipe/trunk{
@@ -4323,6 +4323,11 @@
 	pixel_y = 9
 	},
 /obj/structure/cable,
+/obj/item/storage/box/nif_ghost_box/ghost_role,
+/obj/item/storage/box/nif_ghost_box/ghost_role,
+/obj/item/storage/box/nif_ghost_box/ghost_role,
+/obj/item/storage/box/nif_ghost_box/ghost_role,
+/obj/item/storage/box/nif_ghost_box/ghost_role,
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/cryogenics)
 "Hg" = (
@@ -4540,6 +4545,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
+/obj/structure/sign/clock/directional/south,
 /turf/open/floor/carpet/orange,
 /area/shuttle/indie_freighter/dorms)
 "Io" = (
@@ -4955,6 +4961,7 @@
 "Lq" = (
 /obj/machinery/computer/piratepad_control/ghostpad/freighter,
 /obj/effect/mapping_helpers/broken_machine,
+/obj/machinery/digital_clock/directional/north,
 /turf/open/floor/mineral/titanium/yellow,
 /area/shuttle/indie_freighter/cargo)
 "Lt" = (
@@ -5316,6 +5323,11 @@
 /obj/structure/closet/emcloset/wall{
 	pixel_y = 26
 	},
+/obj/structure/grandfatherclock{
+	anchored = 1;
+	pixel_x = -8;
+	pixel_y = 0
+	},
 /turf/open/floor/wood/parquet,
 /area/shuttle/indie_freighter/dorms)
 "NM" = (
@@ -5413,6 +5425,18 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating/reinforced,
 /area/shuttle/indie_freighter/vault)
+"OQ" = (
+/obj/effect/turf_decal/delivery/white,
+/obj/structure/closet/crate/cargo{
+	name = "frontier communications crate"
+	},
+/obj/item/radio/headset/headset_frontier_colonist,
+/obj/item/radio/headset/headset_frontier_colonist,
+/obj/item/radio/headset/headset_frontier_colonist,
+/obj/item/radio/headset/headset_frontier_colonist,
+/obj/item/radio/headset/headset_frontier_colonist,
+/turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/indie_freighter/cargo)
 "OV" = (
 /obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk{
@@ -5632,12 +5656,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/indie_freighter/mining)
 "QO" = (
-/obj/item/storage/box/nif_ghost_box/ghost_role,
-/obj/item/storage/box/nif_ghost_box/ghost_role,
-/obj/item/storage/box/nif_ghost_box/ghost_role,
-/obj/item/storage/box/nif_ghost_box/ghost_role,
-/obj/item/storage/box/nif_ghost_box/ghost_role,
-/obj/structure/table/reinforced/rglass,
+/obj/machinery/cryopod,
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/cryogenics)
 "QP" = (
@@ -7213,7 +7232,7 @@ GF
 Ma
 SD
 zt
-yz
+OQ
 go
 yP
 DM
@@ -7475,7 +7494,7 @@ eJ
 eJ
 eJ
 eJ
-eJ
+eQ
 QH
 Hq
 QH
@@ -7930,7 +7949,7 @@ vY
 sA
 RD
 Lp
-Oc
+Ag
 jR
 LW
 fw
