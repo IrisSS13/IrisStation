@@ -657,6 +657,18 @@
 	id = "freighter_hall_lockdown";
 	name = "Hallway Lockdown Override"
 	},
+/obj/item/clothing/head/helmet/space/plasmaman/mining,
+/obj/item/clothing/head/helmet/space/plasmaman/mining,
+/obj/item/clothing/head/helmet/space/plasmaman/cargo,
+/obj/item/clothing/head/helmet/space/plasmaman/cargo,
+/obj/item/tank/internals/plasmaman/belt/full,
+/obj/item/tank/internals/plasmaman/belt/full,
+/obj/item/tank/internals/plasmaman/belt/full,
+/obj/item/tank/internals/plasmaman/belt/full,
+/obj/item/clothing/under/plasmaman/cargo,
+/obj/item/clothing/under/plasmaman/cargo,
+/obj/item/clothing/under/plasmaman/mining,
+/obj/item/clothing/under/plasmaman/mining,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/indie_freighter/cryogenics)
 "fI" = (
@@ -1286,21 +1298,16 @@
 /area/shuttle/indie_freighter/maintenance/aft)
 "kk" = (
 /obj/structure/table/reinforced/rglass,
-/obj/item/clothing/under/plasmaman/mining,
-/obj/item/clothing/under/plasmaman/mining,
-/obj/item/clothing/under/plasmaman/cargo,
-/obj/item/clothing/under/plasmaman/cargo,
-/obj/item/tank/internals/plasmaman/belt/full,
-/obj/item/tank/internals/plasmaman/belt/full,
-/obj/item/tank/internals/plasmaman/belt/full,
-/obj/item/tank/internals/plasmaman/belt/full,
-/obj/item/clothing/head/helmet/space/plasmaman/cargo,
-/obj/item/clothing/head/helmet/space/plasmaman/cargo,
-/obj/item/clothing/head/helmet/space/plasmaman/mining,
-/obj/item/clothing/head/helmet/space/plasmaman/mining,
 /obj/item/storage/belt/utility/full/engi{
 	pixel_x = 0;
 	pixel_y = -13
+	},
+/obj/machinery/computer/cryopod{
+	icon = 'icons/obj/machines/computer.dmi';
+	icon_screen = "library";
+	icon_state = "oldcomp";
+	name = "cryogenic oversight terminal";
+	desc = "An interface hastily connected to the cryogenic stasis system."
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/indie_freighter/cryogenics)
@@ -3106,6 +3113,18 @@
 	dir = 1
 	},
 /area/shuttle/indie_freighter/hydro)
+"yz" = (
+/obj/effect/turf_decal/delivery/white,
+/obj/structure/closet/crate/cargo{
+	name = "frontier communications crate"
+	},
+/obj/item/radio/headset/headset_frontier_colonist,
+/obj/item/radio/headset/headset_frontier_colonist,
+/obj/item/radio/headset/headset_frontier_colonist,
+/obj/item/radio/headset/headset_frontier_colonist,
+/obj/item/radio/headset/headset_frontier_colonist,
+/turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/indie_freighter/cargo)
 "yA" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/effect/turf_decal/siding/wood{
@@ -4270,6 +4289,7 @@
 "Hb" = (
 /obj/machinery/airalarm/directional/north,
 /obj/effect/mapping_helpers/airalarm/all_access,
+/obj/machinery/cryopod,
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/cryogenics)
 "Hd" = (
@@ -6236,18 +6256,6 @@
 /obj/structure/barricade/security,
 /turf/open/floor/engine,
 /area/shuttle/indie_freighter/cargo)
-"Wg" = (
-/obj/effect/turf_decal/delivery/white,
-/obj/structure/closet/crate/cargo{
-	name = "frontier communications crate"
-	},
-/obj/item/radio/headset/headset_frontier_colonist,
-/obj/item/radio/headset/headset_frontier_colonist,
-/obj/item/radio/headset/headset_frontier_colonist,
-/obj/item/radio/headset/headset_frontier_colonist,
-/obj/item/radio/headset/headset_frontier_colonist,
-/turf/open/floor/iron/dark/smooth_large,
-/area/shuttle/indie_freighter/cargo)
 "Wl" = (
 /obj/effect/turf_decal/tile/yellow/half/contrasted{
 	dir = 8
@@ -7205,7 +7213,7 @@ GF
 Ma
 SD
 zt
-Wg
+yz
 go
 yP
 DM
