@@ -13,6 +13,10 @@
 #define ACCOUNT_TI "TI"
 #define ACCOUNT_TI_NAME "Tarkon Industries Budget"
 
+// Relevant budget for the Independent Freighter! (IRIS EDIT)
+#define ACCOUNT_INDIE_CARGO "INDIE_CARGO"
+#define ACCOUNT_INDIE_CARGO_NAME "Ship Budget"
+
 #define DS2_JOB_ENFORCER 15
 #define DS2_JOB_ENGINEER 16
 #define DS2_JOB_SERVICE 17
