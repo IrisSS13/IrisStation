@@ -1,5 +1,4 @@
 #define US_EAST_RELAY_ADDR "byond://useast.irisstation.lol:4200"
-#define US_WEST_RELAY_ADDR "byond://uswest.irisstation.lol:4200"
 #define US_CENTRAL_RELAY_ADDR "byond://uscentral.irisstation.lol:4200"
 #define CANADA_RELAY_ADDR "byond://canada.irisstation.lol:4200"
 #define SYDNEY_RELAY_ADDR "byond://sydney.irisstation.lol:4200"
@@ -7,7 +6,6 @@
 #define NO_RELAY_ADDR "byond://play.irisstation.lol:4200"
 
 #define US_EAST_RELAY "Connect to US-East (Virginia)"
-#define US_WEST_RELAY "Connect to US-West (California)"
 #define US_CENTRAL_RELAY "Connect to US-Central (Oklahoma)"
 #define CANADA_RELAY "Connect to Canada (Beauharnois)"
 #define SYDNEY_RELAY "Connect to Sydney (Australia)"
@@ -17,7 +15,6 @@
 /client/verb/go2relay()
 	var/list/static/relays = list(
 		US_EAST_RELAY,
-		US_WEST_RELAY,
 		US_CENTRAL_RELAY,
 		CANADA_RELAY,
 		SYDNEY_RELAY,
@@ -29,8 +26,6 @@
 	switch(choice)
 		if(US_EAST_RELAY)
 			destination = US_EAST_RELAY_ADDR
-		if(US_WEST_RELAY)
-			destination = US_WEST_RELAY_ADDR
 		if(US_CENTRAL_RELAY)
 			destination = US_CENTRAL_RELAY_ADDR
 		if(CANADA_RELAY)
@@ -49,7 +44,6 @@
 		usr << "You didn't select a relay."
 
 #undef US_EAST_RELAY_ADDR
-#undef US_WEST_RELAY_ADDR
 #undef US_CENTRAL_RELAY_ADDR
 #undef CANADA_RELAY_ADDR
 #undef SYDNEY_RELAY_ADDR
@@ -57,7 +51,6 @@
 #undef NO_RELAY_ADDR
 
 #undef US_EAST_RELAY
-#undef US_WEST_RELAY
 #undef US_CENTRAL_RELAY
 #undef CANADA_RELAY
 #undef SYDNEY_RELAY
