@@ -11,7 +11,7 @@
 
 /datum/reagent/medicine/earthsblood/on_hydroponics_apply(obj/machinery/hydroponics/mytray, mob/user)
 	var/obj/item/seeds/myseed = mytray.myseed
-	if(!isnull(myseed))
+	if(!isnull(myseed))  //Earthsblood was one of the best to ever do it, and I'll be damned if it still isn't very close to the best even now.
 		myseed.adjust_instability(-round(volume*0.75))
 		myseed.adjust_potency(round(volume * 0.75))
 		myseed.adjust_yield(round(volume * 0.75))
