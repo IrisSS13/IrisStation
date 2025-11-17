@@ -188,7 +188,7 @@ GLOBAL_LIST(holidays)
 		var/datum/holiday/holiday = new holiday_type()
 		var/delete_holiday = TRUE
 		for(var/timezone in holiday.timezones)
-			var/time_in_timezone = world.realtime + timezone HOURS
+			var/time_in_timezone = world.timeofday + timezone HOURS
 			
 			var/YYYY = text2num(time2text(time_in_timezone, "YYYY")) // get the current year
 			var/MM = text2num(time2text(time_in_timezone, "MM")) // get the current month
