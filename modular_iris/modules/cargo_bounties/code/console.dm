@@ -97,8 +97,17 @@
 				printer_ready = world.time + PRINTER_TIMEOUT
 				new /obj/item/paper/bounty_printout(get_turf(src), GLOB.cargo_bounties)
 
-/datum/export/bounty/applies_to(obj/exported_item, apply_elastic = TRUE, export_market)
-	if(export_market != sales_market)
+/datum/export/bounty/applies_to(obj/exported_item, apply_elastic = TRUE, list/export_markets)
+	if(exported_item.flags_1 & HOLOGRAM_1)
+		return FALSE
+
+	var/valid_market = FALSE
+	for(var/found_market in export_markets)
+		if(found_market == sales_market)
+			valid_market = TRUE
+			break
+
+	if(!valid_market)
 		return FALSE
 
 	for(var/datum/bounty/cargo_bounty as anything in GLOB.cargo_bounties)
