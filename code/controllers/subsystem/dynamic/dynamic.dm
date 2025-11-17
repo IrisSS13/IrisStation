@@ -60,7 +60,7 @@ SUBSYSTEM_DEF(dynamic)
 	var/antag_events_enabled = TRUE
 
 /datum/controller/subsystem/dynamic/fire(resumed)
-	if(!COOLDOWN_FINISHED(src, midround_cooldown) || EMERGENCY_PAST_POINT_OF_NO_RETURN)
+	if(!COOLDOWN_FINISHED(src, midround_cooldown) || EMERGENCY_PAST_POINT_OF_NO_RETURN || !antag_events_enabled)
 		return
 
 	if(COOLDOWN_FINISHED(src, light_ruleset_start))
@@ -490,7 +490,7 @@ SUBSYSTEM_DEF(dynamic)
 		queued.execute()
 		return
 
-	if(COOLDOWN_FINISHED(src, latejoin_ruleset_start) && COOLDOWN_FINISHED(src, latejoin_cooldown))
+	if(antag_events_enabled && COOLDOWN_FINISHED(src, latejoin_ruleset_start) && COOLDOWN_FINISHED(src, latejoin_cooldown))
 		if(try_spawn_latejoin(latejoiner))
 			return
 
