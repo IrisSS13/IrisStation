@@ -7,9 +7,6 @@
 /datum/uplink_item/stealthy_tools/mulligan
 	purchasable_from = NONE //broken & pending rework
 
-/datum/uplink_item/stealthy_tools/mail_counterfeit
-	purchasable_from = NONE //not sure what the story is
-
 /datum/uplink_item/stealthy_tools/forensics_spofer
 	cost = /datum/uplink_item/low_cost::cost
 //	cost = 5

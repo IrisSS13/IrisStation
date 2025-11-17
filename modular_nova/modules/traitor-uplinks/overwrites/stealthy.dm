@@ -22,7 +22,3 @@
 	cost = /datum/uplink_item/medium_cost/weaponry::cost
 //	cost = 7
 
-
-// HIGH COST
-/datum/uplink_item/stealthy_weapons/romerol_kit
-	purchasable_from = NONE
