@@ -2581,6 +2581,16 @@ This is all our modular PDAs, ITS LARGE!
 	name = "Antique Seecloak (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
 
+/datum/greyscale_config/antique_matroncloak
+	name = "Antique Seecloak"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/neck/matroncloak.json'
+
+/datum/greyscale_config/antique_matroncloak/worn
+	name = "Antique Seecloak (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/neck.dmi'
+
+
 /datum/greyscale_config/antique_xylixcloak
 	name = "Antique Seecloak"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/neck.dmi'
