@@ -1,6 +1,6 @@
 /obj/item/melee/breaching_hammer
 	name = "D-4 tactical hammer"
-	desc = "A metallic-plastic composite breaching hammer, looks like a whack with this would severly harm or tire someone."
+	desc = "A metallic-plastic composite breaching hammer, looks like a whack with this would severly harm or tire someone. Won't do much when alone."
 	icon = 'modular_nova/modules/sec_haul/icons/peacekeeper/peacekeeper_items.dmi'
 	icon_state = "peacekeeper_hammer"
 	inhand_icon_state = "peacekeeper_hammer"
@@ -10,7 +10,7 @@
 	slot_flags = ITEM_SLOT_BELT
 	force = 15
 	throwforce = 10
-	w_class = WEIGHT_CLASS_NORMAL
+	w_class = WEIGHT_CLASS_BULKY
 	attack_verb_continuous = list("whacks","breaches","bulldozes","flings","thwachs")
 	attack_verb_simple = list("breach","hammer","whack","slap","thwach","fling")
 	/// Delay between door hits
