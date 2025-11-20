@@ -201,12 +201,6 @@
 "bT" = (
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/indie_freighter/dorms)
-"bW" = (
-/obj/structure/chair/plastic{
-	dir = 1
-	},
-/turf/open/floor/iron,
-/area/shuttle/indie_freighter/mining)
 "ch" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/hidden,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -824,6 +818,12 @@
 	},
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/maintenance/aft)
+"gV" = (
+/obj/structure/chair/plastic{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/shuttle/indie_freighter/mining)
 "ha" = (
 /obj/effect/turf_decal/tile/brown/half/contrasted,
 /turf/open/floor/iron,
@@ -840,13 +840,6 @@
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/shuttle/indie_freighter/hydro)
-"hd" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/obj/effect/turf_decal/tile/brown/half/contrasted{
-	dir = 4
-	},
-/turf/open/floor/iron,
-/area/shuttle/indie_freighter/mining)
 "he" = (
 /obj/effect/turf_decal/tile/bar/opposingcorners{
 	dir = 8
@@ -944,23 +937,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/bridge)
-"hL" = (
-/obj/effect/turf_decal/delivery/white,
-/obj/item/gun/energy/laser/hellgun,
-/obj/item/reagent_containers/hypospray/medipen/stimpack,
-/obj/item/grenade/barrier,
-/obj/item/grenade/barrier,
-/obj/structure/closet/crate/secure/gear{
-	name = "Delivery - Lopland Security";
-	desc = "A secure gear crate. This one seems to have a fault in its access controller."
-	},
-/obj/item/knife/combat,
-/obj/item/clothing/under/syndicate/combat,
-/obj/item/grenade/barrier,
-/obj/item/grenade/barrier,
-/obj/item/grenade/barrier,
-/turf/open/floor/iron/dark/smooth_large,
-/area/shuttle/indie_freighter/cargo)
 "hP" = (
 /obj/structure/closet/freighterammo,
 /obj/item/ammo_box/magazine/c40sol_rifle,
@@ -1459,6 +1435,23 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/wood/large,
 /area/shuttle/indie_freighter/dorms)
+"lJ" = (
+/obj/effect/turf_decal/delivery/white,
+/obj/item/gun/energy/laser/hellgun,
+/obj/item/reagent_containers/hypospray/medipen/stimpack,
+/obj/item/grenade/barrier,
+/obj/item/grenade/barrier,
+/obj/structure/closet/crate/secure/gear{
+	name = "Delivery - Lopland Security";
+	req_access = list("armory")
+	},
+/obj/item/knife/combat,
+/obj/item/clothing/under/syndicate/combat,
+/obj/item/grenade/barrier,
+/obj/item/grenade/barrier,
+/obj/item/grenade/barrier,
+/turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/indie_freighter/cargo)
 "lK" = (
 /obj/effect/turf_decal/tile/blue/opposingcorners{
 	dir = 1
@@ -4999,7 +4992,8 @@
 /turf/open/floor/wood/large,
 /area/shuttle/indie_freighter/dorms)
 "Mq" = (
-/obj/effect/turf_decal/tile/brown/anticorner/contrasted{
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/effect/turf_decal/tile/brown/half/contrasted{
 	dir = 4
 	},
 /turf/open/floor/iron,
@@ -6371,6 +6365,12 @@
 /obj/effect/turf_decal/recharge,
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/indie_freighter/mining)
+"YE" = (
+/obj/effect/turf_decal/tile/brown/anticorner/contrasted{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/shuttle/indie_freighter/mining)
 "YI" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -7123,7 +7123,7 @@ mf
 Vh
 QP
 xQ
-hL
+lJ
 ok
 xf
 EC
@@ -7240,7 +7240,7 @@ aa
 FG
 Wy
 oR
-bW
+gV
 Hi
 Rx
 Mi
@@ -7266,7 +7266,7 @@ aa
 FG
 ek
 lX
-bW
+gV
 El
 Rx
 sN
@@ -7316,8 +7316,8 @@ aa
 aa
 aa
 FG
+YE
 Mq
-hd
 wE
 eK
 Rx
