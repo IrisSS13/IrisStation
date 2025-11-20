@@ -487,23 +487,6 @@
 /obj/structure/table/wood,
 /turf/open/floor/wood/large,
 /area/shuttle/indie_freighter/dorms)
-"eu" = (
-/obj/effect/turf_decal/delivery/white,
-/obj/item/gun/energy/laser/hellgun,
-/obj/item/reagent_containers/hypospray/medipen/stimpack,
-/obj/item/grenade/barrier,
-/obj/item/grenade/barrier,
-/obj/structure/closet/crate/secure/gear{
-	name = "Delivery - Lopland Security";
-	desc = "A secure gear crate. This one seems to have a fault in its access controller."
-	},
-/obj/item/knife/combat,
-/obj/item/clothing/under/syndicate/combat,
-/obj/item/grenade/barrier,
-/obj/item/grenade/barrier,
-/obj/item/grenade/barrier,
-/turf/open/floor/iron/dark/smooth_large,
-/area/shuttle/indie_freighter/cargo)
 "ev" = (
 /turf/closed/wall/r_wall/plastitanium/nodiagonal,
 /area/shuttle/indie_freighter/engine)
@@ -857,6 +840,13 @@
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/shuttle/indie_freighter/hydro)
+"hd" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/effect/turf_decal/tile/brown/half/contrasted{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/shuttle/indie_freighter/mining)
 "he" = (
 /obj/effect/turf_decal/tile/bar/opposingcorners{
 	dir = 8
@@ -954,6 +944,23 @@
 	},
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/bridge)
+"hL" = (
+/obj/effect/turf_decal/delivery/white,
+/obj/item/gun/energy/laser/hellgun,
+/obj/item/reagent_containers/hypospray/medipen/stimpack,
+/obj/item/grenade/barrier,
+/obj/item/grenade/barrier,
+/obj/structure/closet/crate/secure/gear{
+	name = "Delivery - Lopland Security";
+	desc = "A secure gear crate. This one seems to have a fault in its access controller."
+	},
+/obj/item/knife/combat,
+/obj/item/clothing/under/syndicate/combat,
+/obj/item/grenade/barrier,
+/obj/item/grenade/barrier,
+/obj/item/grenade/barrier,
+/turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/indie_freighter/cargo)
 "hP" = (
 /obj/structure/closet/freighterammo,
 /obj/item/ammo_box/magazine/c40sol_rifle,
@@ -2184,6 +2191,10 @@
 	},
 /turf/open/floor/engine,
 /area/shuttle/indie_freighter/cargo)
+"rH" = (
+/obj/machinery/light/small/directional/south,
+/turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/indie_freighter/electrical)
 "rK" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
@@ -2253,10 +2264,6 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/engine)
-"sk" = (
-/obj/machinery/light/small/directional/south,
-/turf/open/floor/iron/dark/smooth_large,
-/area/shuttle/indie_freighter/electrical)
 "sn" = (
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/indie_freighter/cryogenics)
@@ -4992,8 +4999,7 @@
 /turf/open/floor/wood/large,
 /area/shuttle/indie_freighter/dorms)
 "Mq" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/obj/effect/turf_decal/tile/brown/half/contrasted{
+/obj/effect/turf_decal/tile/brown/anticorner/contrasted{
 	dir = 4
 	},
 /turf/open/floor/iron,
@@ -5208,10 +5214,10 @@
 /obj/effect/turf_decal/tile/blue/anticorner/contrasted{
 	dir = 1
 	},
-/obj/machinery/suit_storage_unit/open,
 /obj/machinery/camera/autoname/directional/west{
 	network = list("indie_freighter")
 	},
+/obj/machinery/suit_storage_unit/explorer,
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/bridge)
 "Oe" = (
@@ -6034,12 +6040,6 @@
 	},
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/hallway)
-"Vw" = (
-/obj/effect/turf_decal/tile/brown/anticorner/contrasted{
-	dir = 4
-	},
-/turf/open/floor/iron,
-/area/shuttle/indie_freighter/mining)
 "Vz" = (
 /obj/effect/turf_decal/tile/yellow/anticorner/contrasted,
 /obj/machinery/button/door/directional/south{
@@ -6815,7 +6815,7 @@ Ku
 Ho
 Uu
 Gs
-sk
+rH
 SJ
 "}
 (12,1,1) = {"
@@ -6867,7 +6867,7 @@ Uu
 Uu
 Uu
 XT
-sk
+rH
 SJ
 "}
 (14,1,1) = {"
@@ -7123,7 +7123,7 @@ mf
 Vh
 QP
 xQ
-eu
+hL
 ok
 xf
 EC
@@ -7316,8 +7316,8 @@ aa
 aa
 aa
 FG
-Vw
 Mq
+hd
 wE
 eK
 Rx
