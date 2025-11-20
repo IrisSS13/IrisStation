@@ -440,6 +440,13 @@
 /obj/machinery/light/directional/north,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/engine)
+"ek" = (
+/obj/effect/turf_decal/tile/brown/half/contrasted{
+	dir = 1
+	},
+/obj/structure/chair/plastic,
+/turf/open/floor/iron,
+/area/shuttle/indie_freighter/mining)
 "en" = (
 /obj/effect/spawner/structure/window/reinforced/shuttle,
 /obj/structure/cable,
@@ -832,6 +839,11 @@
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/shuttle/indie_freighter/hydro)
+"hd" = (
+/obj/effect/turf_decal/delivery/white,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/indie_freighter/cargo)
 "he" = (
 /obj/effect/turf_decal/tile/bar/opposingcorners{
 	dir = 8
@@ -929,11 +941,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/bridge)
-"hL" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron,
-/area/shuttle/indie_freighter/mining)
 "hP" = (
 /obj/item/ammo_box/magazine/c40sol_rifle,
 /obj/item/ammo_box/magazine/c40sol_rifle,
@@ -944,8 +951,6 @@
 /obj/item/ammo_box/advanced/s12gauge,
 /obj/item/ammo_box/advanced/s12gauge/buckshot,
 /obj/item/ammo_box/advanced/s12gauge/rubber,
-/obj/item/ammo_box/magazine/pulse,
-/obj/item/ammo_box/magazine/pulse,
 /obj/item/ammo_box/magazine/pulse,
 /obj/item/ammo_box/magazine/pulse,
 /obj/item/ammo_box/magazine/pulse,
@@ -1396,6 +1401,8 @@
 /turf/open/floor/carpet/grimey,
 /area/shuttle/indie_freighter/bridge)
 "ly" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/mining)
 "lB" = (
@@ -1469,22 +1476,12 @@
 /turf/open/floor/engine/plasma,
 /area/shuttle/indie_freighter/engine)
 "mb" = (
-/obj/effect/turf_decal/delivery/white,
-/obj/item/gun/energy/laser/hellgun,
-/obj/item/reagent_containers/hypospray/medipen/stimpack,
-/obj/item/grenade/barrier,
-/obj/item/grenade/barrier,
-/obj/structure/closet/crate/secure/gear{
-	name = "Delivery - Lopland Security";
-	req_access = list("armory")
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
 	},
-/obj/item/knife/combat,
-/obj/item/clothing/under/syndicate/combat,
-/obj/item/grenade/barrier,
-/obj/item/grenade/barrier,
-/obj/item/grenade/barrier,
-/turf/open/floor/iron/dark/smooth_large,
-/area/shuttle/indie_freighter/cargo)
+/obj/structure/extinguisher_cabinet/directional/east,
+/turf/open/floor/iron,
+/area/shuttle/indie_freighter/hallway)
 "mf" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -1695,7 +1692,7 @@
 /area/shuttle/indie_freighter/armoury)
 "nD" = (
 /obj/effect/turf_decal/delivery/white,
-/obj/structure/reagent_dispensers/foamtank,
+/obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/indie_freighter/cargo)
 "nH" = (
@@ -1763,16 +1760,8 @@
 /turf/open/floor/wood/parquet,
 /area/shuttle/indie_freighter/dorms)
 "oi" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/duct,
-/obj/structure/extinguisher_cabinet/directional/south,
-/turf/open/floor/catwalk_floor/iron,
-/area/shuttle/indie_freighter/hallway)
+/turf/open/floor/iron,
+/area/shuttle/indie_freighter/mining)
 "ok" = (
 /obj/structure/closet/crate/secure/gear{
 	name = "Delivery - Central Command Frontier Division";
@@ -2185,10 +2174,6 @@
 	},
 /turf/open/floor/engine,
 /area/shuttle/indie_freighter/cargo)
-"rH" = (
-/obj/machinery/light/small/directional/south,
-/turf/open/floor/iron/dark/smooth_large,
-/area/shuttle/indie_freighter/electrical)
 "rK" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
@@ -2259,12 +2244,9 @@
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/engine)
 "sk" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 8
-	},
-/obj/structure/extinguisher_cabinet/directional/east,
-/turf/open/floor/iron,
-/area/shuttle/indie_freighter/hallway)
+/obj/machinery/light/small/directional/south,
+/turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/indie_freighter/electrical)
 "sn" = (
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/indie_freighter/cryogenics)
@@ -2859,8 +2841,9 @@
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/indie_freighter/canteen)
 "xq" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/effect/turf_decal/tile/brown/anticorner/contrasted{
+	dir = 4
+	},
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/mining)
 "xr" = (
@@ -4566,6 +4549,12 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/shuttle/indie_freighter/engine)
+"Jz" = (
+/obj/machinery/airalarm/directional/north,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/obj/structure/extinguisher_cabinet/directional/east,
+/turf/open/floor/iron,
+/area/shuttle/indie_freighter/hallway)
 "JE" = (
 /obj/machinery/camera/autoname/directional/north{
 	network = list("indie_freighter")
@@ -4994,9 +4983,8 @@
 /turf/open/floor/wood/large,
 /area/shuttle/indie_freighter/dorms)
 "Mq" = (
-/obj/effect/turf_decal/tile/brown/anticorner/contrasted{
-	dir = 4
-	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/mining)
 "Mr" = (
@@ -6046,12 +6034,6 @@
 	},
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/hallway)
-"Vw" = (
-/obj/machinery/airalarm/directional/north,
-/obj/effect/mapping_helpers/airalarm/all_access,
-/obj/structure/extinguisher_cabinet/directional/east,
-/turf/open/floor/iron,
-/area/shuttle/indie_freighter/hallway)
 "Vz" = (
 /obj/effect/turf_decal/tile/yellow/anticorner/contrasted,
 /obj/machinery/button/door/directional/south{
@@ -6159,12 +6141,16 @@
 /turf/open/floor/wood/large,
 /area/shuttle/indie_freighter/dorms)
 "Wy" = (
-/obj/effect/turf_decal/tile/brown/half/contrasted{
-	dir = 1
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
-/obj/structure/chair/plastic,
-/turf/open/floor/iron,
-/area/shuttle/indie_freighter/mining)
+/obj/machinery/duct,
+/obj/structure/extinguisher_cabinet/directional/south,
+/turf/open/floor/catwalk_floor/iron,
+/area/shuttle/indie_freighter/hallway)
 "WD" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -6217,7 +6203,19 @@
 /area/shuttle/indie_freighter/cryogenics)
 "WX" = (
 /obj/effect/turf_decal/delivery/white,
-/obj/structure/reagent_dispensers/watertank,
+/obj/item/gun/energy/laser/hellgun,
+/obj/item/reagent_containers/hypospray/medipen/stimpack,
+/obj/item/grenade/barrier,
+/obj/item/grenade/barrier,
+/obj/structure/closet/crate/secure/gear{
+	name = "Delivery - Lopland Security";
+	req_access = list("armory")
+	},
+/obj/item/knife/combat,
+/obj/item/clothing/under/syndicate/combat,
+/obj/item/grenade/barrier,
+/obj/item/grenade/barrier,
+/obj/item/grenade/barrier,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/indie_freighter/cargo)
 "Xb" = (
@@ -6374,7 +6372,7 @@
 /area/shuttle/indie_freighter/med)
 "Ym" = (
 /obj/effect/turf_decal/delivery/white,
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/reagent_dispensers/foamtank,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/indie_freighter/cargo)
 "Yv" = (
@@ -6837,7 +6835,7 @@ Ku
 Ho
 Uu
 Gs
-rH
+sk
 SJ
 "}
 (12,1,1) = {"
@@ -6889,7 +6887,7 @@ Uu
 Uu
 Uu
 XT
-rH
+sk
 SJ
 "}
 (14,1,1) = {"
@@ -6901,7 +6899,7 @@ Of
 ou
 MB
 uX
-sk
+mb
 Pf
 ae
 yn
@@ -7044,7 +7042,7 @@ QC
 go
 yP
 DM
-nD
+Ym
 Fe
 FS
 "}
@@ -7054,7 +7052,7 @@ lb
 gL
 FG
 oM
-ly
+oi
 vt
 OD
 fL
@@ -7106,7 +7104,7 @@ QQ
 VT
 UX
 oB
-ly
+oi
 vt
 OD
 fL
@@ -7120,9 +7118,9 @@ Oe
 zt
 zF
 aN
-WX
+nD
 Xi
-Ym
+hd
 Fe
 FS
 "}
@@ -7145,7 +7143,7 @@ mf
 Vh
 QP
 xQ
-mb
+WX
 ok
 xf
 EC
@@ -7209,7 +7207,7 @@ aa
 aa
 FG
 pm
-ly
+oi
 um
 kl
 FG
@@ -7260,7 +7258,7 @@ QH
 aa
 aa
 FG
-Wy
+ek
 oR
 gV
 Hi
@@ -7286,7 +7284,7 @@ QH
 aa
 aa
 FG
-Wy
+ek
 lX
 gV
 El
@@ -7313,8 +7311,8 @@ aa
 aa
 Iq
 fL
-xq
-hL
+ly
+Mq
 Sq
 Rx
 vJ
@@ -7338,7 +7336,7 @@ aa
 aa
 aa
 FG
-Mq
+xq
 wE
 wE
 eK
@@ -7583,7 +7581,7 @@ so
 wD
 MB
 MB
-oi
+Wy
 qz
 Mz
 ss
@@ -7625,7 +7623,7 @@ up
 AS
 Jc
 qz
-Vw
+Jz
 cm
 xL
 zP
