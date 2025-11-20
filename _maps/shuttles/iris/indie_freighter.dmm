@@ -441,13 +441,6 @@
 /obj/machinery/light/directional/north,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/engine)
-"ek" = (
-/obj/effect/turf_decal/tile/brown/half/contrasted{
-	dir = 1
-	},
-/obj/structure/chair/plastic,
-/turf/open/floor/iron,
-/area/shuttle/indie_freighter/mining)
 "en" = (
 /obj/effect/spawner/structure/window/reinforced/shuttle,
 /obj/structure/cable,
@@ -839,12 +832,6 @@
 	},
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/shuttle/indie_freighter/hydro)
-"hd" = (
-/obj/effect/turf_decal/tile/brown/anticorner/contrasted{
-	dir = 4
-	},
-/turf/open/floor/iron,
-/area/shuttle/indie_freighter/mining)
 "he" = (
 /obj/effect/turf_decal/tile/bar/opposingcorners{
 	dir = 8
@@ -1433,10 +1420,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/wood/large,
 /area/shuttle/indie_freighter/dorms)
-"lJ" = (
-/obj/structure/cable,
-/turf/open/floor/iron,
-/area/shuttle/indie_freighter/mining)
 "lK" = (
 /obj/effect/turf_decal/tile/blue/opposingcorners{
 	dir = 1
@@ -1468,6 +1451,23 @@
 	},
 /turf/open/floor/engine/plasma,
 /area/shuttle/indie_freighter/engine)
+"mb" = (
+/obj/effect/turf_decal/delivery/white,
+/obj/item/gun/energy/laser/hellgun,
+/obj/item/reagent_containers/hypospray/medipen/stimpack,
+/obj/item/grenade/barrier,
+/obj/item/grenade/barrier,
+/obj/structure/closet/crate/secure/gear{
+	name = "Delivery - Lopland Security";
+	req_access = list("armory")
+	},
+/obj/item/knife/combat,
+/obj/item/clothing/under/syndicate/combat,
+/obj/item/grenade/barrier,
+/obj/item/grenade/barrier,
+/obj/item/grenade/barrier,
+/turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/indie_freighter/cargo)
 "mf" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -4976,8 +4976,9 @@
 /turf/open/floor/wood/large,
 /area/shuttle/indie_freighter/dorms)
 "Mq" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/tile/brown/anticorner/contrasted{
+	dir = 4
+	},
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/mining)
 "Mr" = (
@@ -5624,6 +5625,10 @@
 /obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/iron/showroomfloor,
 /area/shuttle/indie_freighter/maintenance/fore)
+"RY" = (
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/shuttle/indie_freighter/mining)
 "Sb" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -6123,7 +6128,6 @@
 	dir = 1
 	},
 /obj/structure/chair/plastic,
-/obj/item/stack/spacecash/c50,
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/mining)
 "WD" = (
@@ -6329,7 +6333,7 @@
 /area/shuttle/indie_freighter/med)
 "Ym" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/mining)
 "Yv" = (
@@ -6349,22 +6353,10 @@
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/indie_freighter/mining)
 "YE" = (
-/obj/effect/turf_decal/delivery/white,
-/obj/item/gun/energy/laser/hellgun,
-/obj/item/reagent_containers/hypospray/medipen/stimpack,
-/obj/item/grenade/barrier,
-/obj/item/grenade/barrier,
-/obj/structure/closet/crate/secure/gear{
-	name = "Delivery - Lopland Security";
-	req_access = list("armory")
-	},
-/obj/item/knife/combat,
-/obj/item/clothing/under/syndicate/combat,
-/obj/item/grenade/barrier,
-/obj/item/grenade/barrier,
-/obj/item/grenade/barrier,
-/turf/open/floor/iron/dark/smooth_large,
-/area/shuttle/indie_freighter/cargo)
+/obj/structure/cable,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/iron,
+/area/shuttle/indie_freighter/mining)
 "YI" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -7117,7 +7109,7 @@ mf
 Vh
 QP
 xQ
-YE
+mb
 ok
 xf
 EC
@@ -7207,8 +7199,8 @@ aa
 aa
 en
 fL
-lJ
-lJ
+RY
+RY
 bN
 Rx
 Rx
@@ -7258,7 +7250,7 @@ QH
 aa
 aa
 FG
-ek
+Wy
 lX
 gV
 El
@@ -7285,8 +7277,8 @@ aa
 aa
 Iq
 fL
+YE
 Ym
-Mq
 Sq
 Rx
 vJ
@@ -7310,7 +7302,7 @@ aa
 aa
 aa
 FG
-hd
+Mq
 wE
 wE
 eK
