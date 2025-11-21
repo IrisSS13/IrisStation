@@ -21,6 +21,7 @@
 	blacklisted_roles = list(JOB_PRISONER)
 
 /*
+/*
 *	GHETTO GUNS
 */
 
@@ -83,3 +84,5 @@
 /datum/loadout_item/weapons/forgeweapons/staff
 	name = /obj/item/forging/reagent_weapon/staff::name
 	item_path = /obj/item/forging/reagent_weapon/staff
+
+*/ // IRIS EDIT - DISABLING FOR NOW
