@@ -58,8 +58,7 @@
 		/obj/item/flashlight/flare = 15,
 		/obj/item/tank/internals/emergency_oxygen/engi = 5,
 		/obj/item/reagent_containers/hypospray/medipen/deforest/morpital = 3,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/coagulants = 3,
-		/obj/item/trench_tool = 1
+		/obj/item/reagent_containers/hypospray/medipen/deforest/coagulants = 3
 	)
 
 /datum/outfit/job/explorer
