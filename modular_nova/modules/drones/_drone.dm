@@ -60,7 +60,12 @@
 	speak_emote = list("chirps", "clicks", "buzzes", "chitters", "beeps softly", "pings")
 	// So that drones can do things without worrying about stuff
 	shy = FALSE
+	// So drones aren't forced to carry around a nodrop toolbox essentially, and so drones don't have to choose between a multitool and an upgraded welder
+	// Adds things to hopefully reduce drones raiding atmos or engineering
+	// Sets our new storage
+	default_storage = /obj/item/storage/backpack/duffelbag/drone
 
+/* IRIS EDIT START - Disables laws - using tg default
 	//
 	// Drone Laws and Chain of Command
 	//
@@ -107,11 +112,7 @@
 			"Prefix your message with :b to speak in I/O / Silicon Radio." \
 		) + "\n" + \
 		span_boldwarning("When in doubt, make an Admin Help.")
-
-	// So drones aren't forced to carry around a nodrop toolbox essentially, and so drones don't have to choose between a multitool and an upgraded welder
-	// Adds things to hopefully reduce drones raiding atmos or engineering
-	// Sets our new storage
-	default_storage = /obj/item/storage/backpack/duffelbag/drone
+*/ // IRIS EDIT END
 
 // Then populates the drone duffelbag with our extra items
 // Overwrites original proc because new tools means overwrites, also reorganization because :>
