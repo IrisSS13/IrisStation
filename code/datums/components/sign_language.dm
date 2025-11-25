@@ -111,12 +111,7 @@
 	carbon_parent.verb_whisper = initial(carbon_parent.verb_whisper)
 	carbon_parent.verb_sing = initial(carbon_parent.verb_sing)
 	carbon_parent.verb_yell = initial(carbon_parent.verb_yell)
-
-	var/bubble_icon = get_parent_bubble_icon(carbon_parent)
-	if(bubble_icon)
-		carbon_parent.bubble_icon = bubble_icon
-	else
-		carbon_parent.bubble_icon = initial(carbon_parent.bubble_icon)
+	carbon_parent.bubble_icon = get_parent_bubble_icon(carbon_parent)
 
 	UnregisterSignal(carbon_parent, list(
 		COMSIG_CARBON_GAIN_ORGAN,
