@@ -133,9 +133,12 @@
 /// Retrieves the highest priority bubble icon for the parent carbon, if any.
 /// Copy of /datum/component/bubble_icon_override/proc/get_bubble_icon(mob/living/target)
 /datum/component/sign_language/proc/get_parent_bubble_icon(mob/living/carbon/carbon_parent)
+	if(QDELETED(parent))
+		return
 	var/list/holder = list(null)
 	SEND_SIGNAL(carbon_parent, COMSIG_GET_BUBBLE_ICON, holder)
-	return holder[1]
+	var/bubble_icon = holder[1]
+	return bubble_icon || initial(carbon_parent.bubble_icon)
 
 ///Signal proc for [COMSIG_CARBON_GAIN_ORGAN]
 ///Applies the new say mod to any tongues that have appeared!
