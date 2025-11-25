@@ -111,7 +111,7 @@
 	carbon_parent.verb_whisper = initial(carbon_parent.verb_whisper)
 	carbon_parent.verb_sing = initial(carbon_parent.verb_sing)
 	carbon_parent.verb_yell = initial(carbon_parent.verb_yell)
-	carbon_parent.bubble_icon = get_parent_bubble_icon(carbon_parent)
+	carbon_parent.bubble_icon = get_parent_bubble_icon(carbon_parent) //IRIS EDIT, originally carbon_parent.bubble_icon = initial(carbon_parent.bubble_icon)
 
 	UnregisterSignal(carbon_parent, list(
 		COMSIG_CARBON_GAIN_ORGAN,
@@ -124,7 +124,7 @@
 	))
 	return TRUE
 
-
+///IRIS EDIT START
 /// Retrieves the highest priority bubble icon for the parent carbon, if any.
 /// Copy of /datum/component/bubble_icon_override/proc/get_bubble_icon(mob/living/target)
 /datum/component/sign_language/proc/get_parent_bubble_icon(mob/living/carbon/carbon_parent)
@@ -132,6 +132,7 @@
 	SEND_SIGNAL(carbon_parent, COMSIG_GET_BUBBLE_ICON, holder)
 	var/bubble_icon = holder[1]
 	return bubble_icon || initial(carbon_parent.bubble_icon)
+///IRIS EDIT END
 
 ///Signal proc for [COMSIG_CARBON_GAIN_ORGAN]
 ///Applies the new say mod to any tongues that have appeared!
