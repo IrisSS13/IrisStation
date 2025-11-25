@@ -131,6 +131,7 @@
 
 
 /// Retrieves the highest priority bubble icon for the parent carbon, if any.
+/// Copy of /datum/component/bubble_icon_override/proc/get_bubble_icon(mob/living/target)
 /datum/component/sign_language/proc/get_parent_bubble_icon(mob/living/carbon/carbon_parent)
 	var/list/holder = list(null)
 	SEND_SIGNAL(carbon_parent, COMSIG_GET_BUBBLE_ICON, holder)
