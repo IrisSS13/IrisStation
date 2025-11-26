@@ -97,6 +97,11 @@
 				printer_ready = world.time + PRINTER_TIMEOUT
 				new /obj/item/paper/bounty_printout(get_turf(src), GLOB.cargo_bounties)
 
+/datum/export/bounty
+	cost = 1
+	unit_name = "fluff bounty"
+	export_types = list(/obj/item/toy/plush/iris)
+
 /datum/export/bounty/applies_to(obj/exported_item, apply_elastic = TRUE, list/export_markets)
 	if(exported_item.flags_1 & HOLOGRAM_1)
 		return FALSE
