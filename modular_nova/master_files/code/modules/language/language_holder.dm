@@ -98,6 +98,6 @@ GLOBAL_DATUM_INIT(language_holder_adjustor, /datum/language_holder_adjustor, new
 	if(owner) // may be initialized without one, especially during init
 		get_selected_language()
 
-/datum/language_holder/drone_nova
-	understood_languages = list(/datum/language/machine = list(LANGUAGE_ATOM), /datum/language/common = list(LANGUAGE_ATOM))
-	spoken_languages = list(/datum/language/machine = list(LANGUAGE_ATOM))
+/datum/language_holder/drone_nova //IRIS EDIT - CHANGES LANGUAGE FROM MACHINE TO DRONE
+	understood_languages = list(/datum/language/drone = list(LANGUAGE_ATOM), /datum/language/common = list(LANGUAGE_ATOM))
+	spoken_languages = list(/datum/language/drone = list(LANGUAGE_ATOM))
