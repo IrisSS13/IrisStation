@@ -196,6 +196,11 @@
 		new_record.theory_radius["outer_radius"] = orig_heavy_range
 		new_record.theory_radius["shockwave_radius"] = orig_light_range
 
+		//IRIS EDIT START
+		if(bonus_explosion_points())
+			messages += "Explosion details and mixture analyzed and sold to the highest bidder for [TECHWEB_POINTS_1_HOUR] research points."
+		//IRIS EDIT END
+
 	for(var/message in messages)
 		say(message)
 
