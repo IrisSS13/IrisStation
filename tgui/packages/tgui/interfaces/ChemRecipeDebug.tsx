@@ -120,7 +120,6 @@ export const ChemRecipeDebug = (props) => {
                   <LabeledList>
                     <LabeledList.Item label="Temperature">
                       <NumberInput
-                        tickWhileDragging
                         width="65px"
                         step={1}
                         stepPixelSize={3}
@@ -168,7 +167,6 @@ export const ChemRecipeDebug = (props) => {
                   <LabeledList>
                     <LabeledList.Item label={<Box width="82px">PH:</Box>}>
                       <NumberInput
-                        tickWhileDragging
                         width="65px"
                         step={1}
                         stepPixelSize={3}
@@ -202,7 +200,6 @@ export const ChemRecipeDebug = (props) => {
                   <LabeledList>
                     <LabeledList.Item label={<Box width="82px">Purity:</Box>}>
                       <NumberInput
-                        tickWhileDragging
                         width="65px"
                         step={0.01}
                         stepPixelSize={3}
@@ -236,7 +233,6 @@ export const ChemRecipeDebug = (props) => {
                   <LabeledList>
                     <LabeledList.Item label="Volume Mulx">
                       <NumberInput
-                        tickWhileDragging
                         width="65px"
                         step={1}
                         stepPixelSize={3}
@@ -368,7 +364,6 @@ export const ChemRecipeDebug = (props) => {
                   <LabeledList>
                     <LabeledList.Item label={<Box width="57px">Value:</Box>}>
                       <NumberInput
-                        tickWhileDragging
                         width="65px"
                         step={0.1}
                         stepPixelSize={3}

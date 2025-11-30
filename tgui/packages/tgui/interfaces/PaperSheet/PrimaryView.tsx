@@ -114,8 +114,8 @@ export class PrimaryView extends Component {
                         const result = sanitizeText(textAreaText, false);
                         if (typeof result === 'object' && result !== null) {
                           act('add_text', {
-                            text: result['sanitized'],
-                            blocked_summary: result['blockedSummary'],
+                            text: result.sanitized,
+                            blocked_summary: result.blockedSummary,
                           });
                         } else {
                           act('add_text', { text: result });

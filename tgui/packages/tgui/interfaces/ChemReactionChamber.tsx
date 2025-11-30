@@ -50,7 +50,6 @@ export const ChemReactionChamber = (props) => {
                   <Stack.Item mt={0.3}>{'Target:'}</Stack.Item>
                   <Stack.Item>
                     <NumberInput
-                      tickWhileDragging
                       width="65px"
                       unit="K"
                       step={10}
@@ -157,7 +156,6 @@ export const ChemReactionChamber = (props) => {
                   <LabeledList>
                     <LabeledList.Item label="Acidic pH limit">
                       <NumberInput
-                        tickWhileDragging
                         value={reagentAcidic}
                         minValue={0}
                         maxValue={14}
@@ -173,7 +171,6 @@ export const ChemReactionChamber = (props) => {
                     </LabeledList.Item>
                     <LabeledList.Item label="Alkaline pH limit">
                       <NumberInput
-                        tickWhileDragging
                         value={reagentAlkaline}
                         minValue={0}
                         maxValue={14}
@@ -207,7 +204,6 @@ export const ChemReactionChamber = (props) => {
                     </Stack.Item>
                     <Stack.Item>
                       <NumberInput
-                        tickWhileDragging
                         value={reagentQuantity}
                         minValue={1}
                         maxValue={100}

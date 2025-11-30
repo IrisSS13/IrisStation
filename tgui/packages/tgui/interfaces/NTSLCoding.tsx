@@ -8,7 +8,7 @@ import {
   Tabs,
   TextArea,
 } from 'tgui-core/components';
-import { BooleanLike } from 'tgui-core/react';
+import type { BooleanLike } from 'tgui-core/react';
 
 import { useBackend, useLocalState } from '../backend';
 import { RADIO_CHANNELS } from '../constants';

@@ -78,7 +78,6 @@ const RangeDisplay = (props) => {
       />
       <NumberInput
         animated
-        tickWhileDragging
         width="35px"
         step={1}
         stepPixelSize={5}

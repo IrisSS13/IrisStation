@@ -235,7 +235,6 @@ export const HypertorusWasteRemove = (props) => {
         >
           <NumberInput
             animated
-            tickWhileDragging
             value={mod_filtering_rate}
             unit="mol/s"
             step={1}
