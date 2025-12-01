@@ -47,6 +47,7 @@ const TurbineDisplay = (props) => {
         <LabeledList.Item label="Intake Regulator">
           <NumberInput
             animated
+            tickWhileDragging
             value={data.regulator * 100}
             unit="%"
             step={1}

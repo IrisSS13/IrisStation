@@ -36,6 +36,7 @@ export const SignalerContent = (props) => {
         <Stack.Item>
           <NumberInput
             animated
+            tickWhileDragging
             unit="kHz"
             step={0.2}
             stepPixelSize={6}
@@ -71,6 +72,7 @@ export const SignalerContent = (props) => {
         <Stack.Item>
           <NumberInput
             animated
+            tickWhileDragging
             step={1}
             stepPixelSize={6}
             minValue={1}
