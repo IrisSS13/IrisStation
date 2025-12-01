@@ -296,7 +296,7 @@
 */
 
 /datum/sprite_accessory/wings/moth
-	// icon = 'icons/mob/human/species/moth/moth_wings.dmi' - Needs new icon to suit new naming convention - IRIS EDIT DISABLED
+	icon = 'icons/mob/human/species/moth/moth_wings.dmi' // Needs new icon to suit new naming convention
 	default_color = "#FFFFFF"
 	recommended_species = list(SPECIES_MOTH, SPECIES_MAMMAL, SPECIES_INSECT) // Mammals too, I guess. They wont get flight though, see the wing organs for that logic
 	organ_type = /obj/item/organ/wings/moth

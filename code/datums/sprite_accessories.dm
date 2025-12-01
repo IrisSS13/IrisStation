@@ -2337,8 +2337,8 @@ GLOBAL_LIST_EMPTY(blended_hair_icons_cache)
 	name = "Round"
 	icon_state = "round"
 
-/datum/sprite_accessory/moth_wings //IRIS EDIT - changes moth_wings.dmi to ours
-	icon = 'modular_iris/master_files/icons/mob/sprite_accessory/upstream_moth_wings.dmi' //ORIGINALLY 'icons/mob/human/species/moth/moth_wings.dmi'
+/datum/sprite_accessory/moth_wings
+	icon = 'icons/mob/human/species/moth/moth_wings.dmi'
 	color_src = null
 	em_block = TRUE
 
