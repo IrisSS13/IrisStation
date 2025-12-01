@@ -142,7 +142,6 @@ export const Reflector = (props) => {
               <LabeledControls>
                 <LabeledControls.Item ml={0.5} label="Set rotation">
                   <NumberInput
-                    tickWhileDragging
                     value={rotation_angle}
                     unit="degrees"
                     minValue={0}

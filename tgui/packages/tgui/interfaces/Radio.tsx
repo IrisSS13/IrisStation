@@ -74,7 +74,6 @@ export const Radio = (props) => {
               )) || (
                 <NumberInput
                   animated
-                  tickWhileDragging
                   unit="kHz"
                   step={0.2}
                   stepPixelSize={10}
