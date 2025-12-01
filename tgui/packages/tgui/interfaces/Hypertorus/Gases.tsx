@@ -118,7 +118,6 @@ const GasList = (props: GasListProps) => {
         />
         <NumberInput
           animated
-          tickWhileDragging
           step={1}
           value={parseFloat(data[input_rate])}
           unit="mol/s"

@@ -54,7 +54,6 @@ export const FloatGenerator = (props: FloatGeneratorProps) => {
           <Stack.Item>
             <NumberInput
               animated
-              tickWhileDragging
               minValue={-Infinity}
               maxValue={Infinity}
               step={1}
@@ -178,7 +177,6 @@ export const EntryGeneratorNumbersList = (
           <Stack.Item>
             <NumberInput
               animated
-              tickWhileDragging
               minValue={-Infinity}
               maxValue={Infinity}
               step={1}
@@ -201,7 +199,6 @@ export const EntryGeneratorNumbersList = (
           <Stack.Item>
             <NumberInput
               animated
-              tickWhileDragging
               minValue={-Infinity}
               maxValue={Infinity}
               step={1}
@@ -215,7 +212,6 @@ export const EntryGeneratorNumbersList = (
             />
             <NumberInput
               animated
-              tickWhileDragging
               minValue={-Infinity}
               maxValue={Infinity}
               step={1}
@@ -230,7 +226,6 @@ export const EntryGeneratorNumbersList = (
             {allow_z ? (
               <NumberInput
                 animated
-                tickWhileDragging
                 minValue={-Infinity}
                 maxValue={Infinity}
                 step={1}

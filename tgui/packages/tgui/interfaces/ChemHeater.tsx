@@ -226,7 +226,6 @@ export const ChemHeater = (props) => {
               <Table.Cell />
               <Table.Cell>
                 <NumberInput
-                  tickWhileDragging
                   width="45px"
                   unit="u"
                   step={1}
@@ -248,7 +247,6 @@ export const ChemHeater = (props) => {
               </Table.Cell>
               <Table.Cell>
                 <NumberInput
-                  tickWhileDragging
                   width="65px"
                   unit="K"
                   step={10}

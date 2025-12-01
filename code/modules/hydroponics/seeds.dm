@@ -356,18 +356,31 @@
 		min_yield = FUNGAL_METAB_YIELD_MIN
 
 	yield = clamp(yield + adjustamt, min_yield, max_yield)
+	var/datum/plant_gene/core/C = get_gene(/datum/plant_gene/core/yield)
+	if(C)
+		C.value = yield
 
 /**
  * Adjusts seed lifespan up or down according to adjustamt. (Max 100)
  */
 /obj/item/seeds/proc/adjust_lifespan(adjustamt)
 	lifespan = clamp(lifespan + adjustamt, 10, MAX_PLANT_LIFESPAN)
+	// IRIS EDIT ADDITION START - Synchs core genes and plant stats
+	var/datum/plant_gene/core/C = get_gene(/datum/plant_gene/core/lifespan)
+	if(C)
+		C.value = lifespan
+	// IRIS EDIT ADDITION END
 
 /**
  * Adjusts seed endurance up or down according to adjustamt. (Max 100)
  */
 /obj/item/seeds/proc/adjust_endurance(adjustamt)
 	endurance = clamp(endurance + adjustamt, MIN_PLANT_ENDURANCE, MAX_PLANT_ENDURANCE)
+	// IRIS EDIT ADDITION START - Synchs core genes and plant stats
+	var/datum/plant_gene/core/C = get_gene(/datum/plant_gene/core/endurance)
+	if(C)
+		C.value = endurance
+	// IRIS EDIT ADDITION END
 
 /**
  * Adjusts seed production seed up or down according to adjustamt. (Max 10)
@@ -376,6 +389,11 @@
 	if(yield == -1)
 		return
 	production = clamp(production + adjustamt, 1, MAX_PLANT_PRODUCTION)
+	// IRIS EDIT ADDITION START - Synchs core genes and plant stats
+	var/datum/plant_gene/core/C = get_gene(/datum/plant_gene/core/production)
+	if(C)
+		C.value = production
+	// IRIS EDIT ADDITION END
 
 /**
  * Adjusts seed potency up or down according to adjustamt. (Max 100)
@@ -384,6 +402,11 @@
 	if(potency == -1)
 		return
 	potency = clamp(potency + adjustamt, 0, MAX_PLANT_POTENCY)
+	// IRIS EDIT ADDITION START - Synchs core genes and plant stats
+	var/datum/plant_gene/core/C = get_gene(/datum/plant_gene/core/potency)
+	if(C)
+		C.value = potency
+	// IRIS EDIT ADDITION END
 
 /**
  * Adjusts seed instability up or down according to adjustamt. (Max 100)
@@ -392,18 +415,33 @@
 	if(instability == -1)
 		return
 	instability = clamp(instability + adjustamt, 0, MAX_PLANT_INSTABILITY)
+	// IRIS EDIT ADDITION START - Synchs core genes and plant stats (this one is technically uneeded but why not)
+	var/datum/plant_gene/core/C = get_gene(/datum/plant_gene/core/instability)
+	if(C)
+		C.value = instability
+	// IRIS EDIT ADDITION END
 
 /**
  * Adjusts seed weed grwoth speed up or down according to adjustamt. (Max 10)
  */
 /obj/item/seeds/proc/adjust_weed_rate(adjustamt)
 	weed_rate = clamp(weed_rate + adjustamt, 0, MAX_PLANT_WEEDRATE)
+	// IRIS EDIT ADDITION START - Synchs core genes and plant stats
+	var/datum/plant_gene/core/C = get_gene(/datum/plant_gene/core/weed_rate)
+	if(C)
+		C.value = weed_rate
+	// IRIS EDIT ADDITION END
 
 /**
  * Adjusts seed weed chance up or down according to adjustamt. (Max 67%)
  */
 /obj/item/seeds/proc/adjust_weed_chance(adjustamt)
 	weed_chance = clamp(weed_chance + adjustamt, 0, MAX_PLANT_WEEDCHANCE)
+	// IRIS EDIT ADDITION START - Synchs core genes and plant stats
+	var/datum/plant_gene/core/C = get_gene(/datum/plant_gene/core/weed_chance)
+	if(C)
+		C.value = weed_chance
+	// IRIS EDIT ADDITION END
 
 //Directly setting stats
 
@@ -424,18 +462,33 @@
 		min_yield = FUNGAL_METAB_YIELD_MIN
 
 	yield = clamp(adjustamt, min_yield, max_yield)
+	// IRIS EDIT ADDITION START - Synchs core genes and plant stats
+	var/datum/plant_gene/core/C = get_gene(/datum/plant_gene/core/yield)
+	if(C)
+		C.value = yield
+	// IRIS EDIT ADDITION END
 
 /**
  * Sets the plant's lifespan stat to the value of adjustamt. (Max 100)
  */
 /obj/item/seeds/proc/set_lifespan(adjustamt)
 	lifespan = clamp(adjustamt, 10, MAX_PLANT_LIFESPAN)
+	// IRIS EDIT ADDITION START - Synchs core genes and plant stats
+	var/datum/plant_gene/core/C = get_gene(/datum/plant_gene/core/lifespan)
+	if(C)
+		C.value = lifespan
+	// IRIS EDIT ADDITION END
 
 /**
  * Sets the plant's endurance stat to the value of adjustamt. (Max 100)
  */
 /obj/item/seeds/proc/set_endurance(adjustamt)
 	endurance = clamp(adjustamt, MIN_PLANT_ENDURANCE, MAX_PLANT_ENDURANCE)
+	// IRIS EDIT ADDITION START - Synchs core genes and plant stats
+	var/datum/plant_gene/core/C = get_gene(/datum/plant_gene/core/endurance)
+	if(C)
+		C.value = endurance
+	// IRIS EDIT ADDITION END
 
 /**
  * Sets the plant's production stat to the value of adjustamt. (Max 10)
@@ -444,6 +497,11 @@
 	if(yield == -1)
 		return
 	production = clamp(adjustamt, 1, MAX_PLANT_PRODUCTION)
+	// IRIS EDIT ADDITION START - Synchs core genes and plant stats
+	var/datum/plant_gene/core/C = get_gene(/datum/plant_gene/core/production)
+	if(C)
+		C.value = production
+	// IRIS EDIT ADDITION END
 
 /**
  * Sets the plant's potency stat to the value of adjustamt. (Max 100)
@@ -452,6 +510,11 @@
 	if(potency == -1)
 		return
 	potency = clamp(adjustamt, 0, MAX_PLANT_POTENCY)
+	// IRIS EDIT ADDITION START - Synchs core genes and plant stats
+	var/datum/plant_gene/core/C = get_gene(/datum/plant_gene/core/potency)
+	if(C)
+		C.value = potency
+	// IRIS EDIT ADDITION END
 
 /**
  * Sets the plant's instability stat to the value of adjustamt. (Max 100)
@@ -460,18 +523,34 @@
 	if(instability == -1)
 		return
 	instability = clamp(adjustamt, 0, MAX_PLANT_INSTABILITY)
+	// IRIS EDIT ADDITION START - Synchs core genes and plant stats
+	var/datum/plant_gene/core/C = get_gene(/datum/plant_gene/core/instability)
+	if(C)
+		C.value = instability
+	// IRIS EDIT ADDITION END
+
 
 /**
  * Sets the plant's weed production rate to the value of adjustamt. (Max 10)
  */
 /obj/item/seeds/proc/set_weed_rate(adjustamt)
 	weed_rate = clamp(adjustamt, 0, MAX_PLANT_WEEDRATE)
+	// IRIS EDIT ADDITION START - Synchs core genes and plant stats
+	var/datum/plant_gene/core/C = get_gene(/datum/plant_gene/core/weed_rate)
+	if(C)
+		C.value = weed_rate
+	// IRIS EDIT ADDITION END
 
 /**
  * Sets the plant's weed growth percentage to the value of adjustamt. (Max 67%)
  */
 /obj/item/seeds/proc/set_weed_chance(adjustamt)
 	weed_chance = clamp(adjustamt, 0, MAX_PLANT_WEEDCHANCE)
+	// IRIS EDIT ADDITION START - Synchs core genes and plant stats
+	var/datum/plant_gene/core/C = get_gene(/datum/plant_gene/core/weed_chance)
+	if(C)
+		C.value = weed_chance
+	// IRIS EDIT ADDITION END
 
 /**
  * Override for seeds with unique text for their analyzer. (No newlines at the start or end of unique text!)

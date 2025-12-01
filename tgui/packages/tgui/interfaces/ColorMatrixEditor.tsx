@@ -41,7 +41,6 @@ export const ColorMatrixEditor = (props) => {
                                 {`${PREFIXES[row]}${PREFIXES[col]}:`}
                               </Box>
                               <NumberInput
-                                tickWhileDragging
                                 minValue={-Infinity}
                                 maxValue={+Infinity}
                                 value={currentColor[row * 4 + col]}
