@@ -96,25 +96,6 @@
 /datum/dna_block/feature/mutant/taur
 	feature_key = FEATURE_TAUR
 
-// Yes, that means you can change them via genetics. Needed to be here for polymorphism
-/datum/dna_block/feature/mutant/penis
-	feature_key = FEATURE_PENIS
-
-/datum/dna_block/feature/mutant/testicles
-	feature_key = FEATURE_TESTICLES
-
-/datum/dna_block/feature/mutant/vagina
-	feature_key = FEATURE_VAGINA
-
-/datum/dna_block/feature/mutant/womb
-	feature_key = FEATURE_WOMB
-
-/datum/dna_block/feature/mutant/anus
-	feature_key = FEATURE_ANUS
-
-/datum/dna_block/feature/mutant/breasts
-	feature_key = FEATURE_BREASTS
-
 #undef FEATURE_HASH_PART_START
 #undef FEATURE_HASH_PART_END
 #undef FEATURE_HASH_COLOR1_START
