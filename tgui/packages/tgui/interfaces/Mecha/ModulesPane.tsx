@@ -652,7 +652,6 @@ const SnowflakeRadio = (props) => {
       <LabeledList.Item label="Frequency">
         <NumberInput
           animated
-          tickWhileDragging
           unit="kHz"
           step={0.2}
           stepPixelSize={10}

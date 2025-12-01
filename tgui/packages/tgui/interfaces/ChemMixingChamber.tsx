@@ -46,7 +46,6 @@ export const ChemMixingChamber = (props) => {
                   <Stack.Item mt={0.3}>{'Target:'}</Stack.Item>
                   <Stack.Item>
                     <NumberInput
-                      tickWhileDragging
                       width="65px"
                       unit="K"
                       step={10}
@@ -120,7 +119,6 @@ export const ChemMixingChamber = (props) => {
                     </Stack.Item>
                     <Stack.Item>
                       <NumberInput
-                        tickWhileDragging
                         value={reagentQuantity}
                         minValue={1}
                         maxValue={100}

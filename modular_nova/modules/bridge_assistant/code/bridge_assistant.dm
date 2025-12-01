@@ -22,8 +22,8 @@
 	name = "Bridge Officer"
 
 	id = /obj/item/card/id/advanced/silver
-	uniform = /obj/item/clothing/under/rank/civilian/lawyer/greensuit
-	neck = /obj/item/clothing/neck/bowtie/green
+	uniform = /obj/item/clothing/under/rank/bridge_officer // IRIS EDIT - swapped to the BO jumpsuit
+	neck = null // IRIS EDIT - removed
 	ears = /obj/item/radio/headset/bridge_officer
 	belt = /obj/item/modular_computer/pda/bridge_assistant
 	l_pocket = /obj/item/melee/baton/telescopic/bronze
@@ -37,11 +37,13 @@
 	gloves = null
 	head = null
 
+/* IRIS EDIT START - REMOVAL
 /datum/outfit/job/bridge_assistant/post_equip(mob/living/carbon/human/user, visuals_only = FALSE)
 	. = ..()
 	//give em a waistcoat
 	var/obj/item/clothing/under/undersuit = user.w_uniform
 	undersuit.attach_accessory(new /obj/item/clothing/accessory/waistcoat(user))
+IRIS EDIT END */
 
 /datum/outfit/job/bridge_assistant/plasmaman
 	name = "Bridge Officer (Plasmaman)"
@@ -97,7 +99,8 @@
 //pda
 /obj/item/modular_computer/pda/bridge_assistant
 	name = "bridge officer PDA"
-	greyscale_colors = "#69E062#E26F41"
+	greyscale_colors = "#374f7e#FCFCFD#FCFCFD" // IRIS EDIT - made the colors match the jumpsuit
+	greyscale_config = /datum/greyscale_config/tablet/stripe_double // IRIS EDIT - changed the config to /stripe_double
 	starting_programs = list(
 		/datum/computer_file/program/status,
 	)

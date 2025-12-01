@@ -119,9 +119,7 @@ const ProductCategory = (props) => {
                 <Box opacity={0.85} textAlign="center" bold>
                   This NIFSoft carries between shifts
                 </Box>
-              ) : (
-                <> </>
-              )}
+              ) : null}
               <br />
             </Section>
           </Flex.Item>
