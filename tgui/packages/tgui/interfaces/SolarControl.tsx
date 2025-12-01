@@ -152,6 +152,7 @@ export const SolarControl = (props) => {
               <Icon mr={1} name="arrow-up" rotation={azimuth_current} />
               {(tracking_state === 0 || tracking_state === 1) && (
                 <NumberInput
+                  tickWhileDragging
                   width="52px"
                   unit="°"
                   step={1}
@@ -164,6 +165,7 @@ export const SolarControl = (props) => {
               )}
               {tracking_state === 1 && (
                 <NumberInput
+                  tickWhileDragging
                   width="80px"
                   unit="°/m"
                   step={0.01}
