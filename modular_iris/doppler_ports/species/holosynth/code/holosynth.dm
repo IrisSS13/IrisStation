@@ -99,7 +99,7 @@
 		A niche choice more popular among wealthy customers (silicon and uploaded organics alike) - their lack of robustness makes them somewhat inept for physical activity but they are excellent at scouting or clerical work.",
 
 		 "As of late the design of the required holoprojection equipment has shrunk considerably. \
-		 With an electromagnetic controller suite, hologram projection aparatus, and a ball point writing implement all fitting into the sleek pen chassis."
+		 With an electromagnetic controller suite, hologram projection aparatus, and a ball point writing implement all fitting into the sleek pen chassis. Holosynths were traditionally once human, but any species can become a hologram."
 	)
 
 //Character creation Perks
