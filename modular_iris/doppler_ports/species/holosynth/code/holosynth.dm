@@ -23,6 +23,7 @@
 		TRAIT_ROBOTIC_DNA_ORGANS,
 		TRAIT_HOLOSYNTH
 	)
+	coldmod = 1.5
 	gib_anim = "liquify"
 	bodypart_overrides = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/synth,
