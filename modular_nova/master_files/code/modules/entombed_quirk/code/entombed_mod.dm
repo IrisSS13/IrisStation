@@ -8,12 +8,13 @@
 	resistance_flags = FIRE_PROOF | ACID_PROOF // It is better to die for the Emperor than live for yourself.
 	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
 	siemens_coefficient = 0
-	complexity_max = DEFAULT_MAX_COMPLEXITY //IRIS EDIT: Increased complexity to base value (Assorted Entombed Buffs)
-	charge_drain = DEFAULT_CHARGE_DRAIN * 0.6  // IRIS EDIT: Slower charge drain (Assorted Entombed Buffs)
+	complexity_max = DEFAULT_MAX_COMPLEXITY - 5
+	charge_drain = DEFAULT_CHARGE_DRAIN / 2
 	slowdown_deployed = 0.95
 	//IRIS EDIT: Removed joint torsion to balance around new charge drain, added basic EMP Protections and Status Readout (Assorted Entombed Buffs)
 	inbuilt_modules = list(
 		/obj/item/mod/module/storage/large_capacity,
+		/obj/item/mod/module/joint_torsion/entombed,
 		/obj/item/mod/module/status_readout/entombed,
 		/obj/item/mod/module/emp_shield/entombed,
 	)
@@ -49,9 +50,12 @@
 	acid = ARMOR_LEVEL_WEAK
 	wound = WOUND_ARMOR_WEAK
 
-//IRIS EDIT: Kills /obj/item/mod/module/joint_torsion/entombed
-
-// ENTOMBED SPECIALTY MODULES
+/obj/item/mod/module/joint_torsion/entombed
+	name = "internal joint torsion adaptation"
+	desc = "Your adaptation to life in this MODsuit shell allows you to ambulate in such a way that your movements recharge the suit's internal batteries slightly, but only while under the effect of gravity."
+	removable = FALSE
+	complexity = 0
+	power_per_step = DEFAULT_CHARGE_DRAIN * 0.6
 
 /obj/item/mod/module/plasma_stabilizer/entombed
 	name = "colony-stabilized interior seal"
