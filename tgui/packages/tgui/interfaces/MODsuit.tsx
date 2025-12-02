@@ -62,7 +62,7 @@ type SuitStatus = {
   link_id: string;
   link_freq: string;
   link_call: string;
-  hardlight_theme:string;
+  hardlight_theme: string;
 };
 
 type UserStatus = {
@@ -499,7 +499,7 @@ const HardwareSection = (props) => {
     royal_purple: 'Royal Purple',
     hazard_orange: 'Hazard Orange',
     cosmic_blue: 'Cosmic Blue',
-  }
+  };
   return (
     <Section title="Hardware" style={{ textTransform: 'capitalize' }}>
       <LabeledList>
@@ -509,14 +509,14 @@ const HardwareSection = (props) => {
         </LabeledList.Item>
         <LabeledList.Item label="Hardlight Theme">
           <Dropdown
-            selected={hardlight_display_names[hardlight_theme] || hardlight_theme}
+            selected={
+              hardlight_display_names[hardlight_theme] || hardlight_theme
+            }
             options={hardlight_options.map((theme) => ({
               value: theme,
               displayText: hardlight_display_names[theme] || theme,
             }))}
-            onSelected={(value) =>
-              act('set_hardlight', { theme: value })
-            }
+            onSelected={(value) => act('set_hardlight', { theme: value })}
           />
         </LabeledList.Item>
         <ModParts />
