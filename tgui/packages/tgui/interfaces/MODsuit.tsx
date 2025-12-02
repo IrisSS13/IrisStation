@@ -62,6 +62,7 @@ type SuitStatus = {
   link_id: string;
   link_freq: string;
   link_call: string;
+  hardlight_theme:string;
 };
 
 type UserStatus = {
@@ -478,13 +479,45 @@ const SuitStatusSection = (props) => {
 const HardwareSection = (props) => {
   const { act, data } = useBackend<MODsuitData>();
   const { control } = data;
-  const { ai_name, core_name } = data.suit_status;
+  const { ai_name, core_name, hardlight_theme } = data.suit_status;
+  const hardlight_options = [
+    'standard_blue',
+    'alert_amber',
+    'contractor_red',
+    'extrashield_green',
+    'evil_green',
+    'royal_purple',
+    'hazard_orange',
+    'cosmic_blue',
+  ];
+  const hardlight_display_names = {
+    standard_blue: 'Standard Blue',
+    alert_amber: 'Alert Amber',
+    contractor_red: 'Contractor Red',
+    extrashield_green: 'Extrashield Green',
+    evil_green: 'Evil Green',
+    royal_purple: 'Royal Purple',
+    hazard_orange: 'Hazard Orange',
+    cosmic_blue: 'Cosmic Blue',
+  }
   return (
     <Section title="Hardware" style={{ textTransform: 'capitalize' }}>
       <LabeledList>
         <LabeledList.Item label="Control Unit">{control}</LabeledList.Item>
         <LabeledList.Item label="Core">
           {core_name || 'No Core Detected'}
+        </LabeledList.Item>
+        <LabeledList.Item label="Hardlight Theme">
+          <Dropdown
+            selected={hardlight_display_names[hardlight_theme] || hardlight_theme}
+            options={hardlight_options.map((theme) => ({
+              value: theme,
+              displayText: hardlight_display_names[theme] || theme,
+            }))}
+            onSelected={(value) =>
+              act('set_hardlight', { theme: value })
+            }
+          />
         </LabeledList.Item>
         <ModParts />
         <LabeledList.Item label="AI Assistant">
