@@ -18,6 +18,7 @@ SUBSYSTEM_DEF(economy)
 										ACCOUNT_INT = ACCOUNT_INT_NAME,
 										ACCOUNT_TI = ACCOUNT_TI_NAME,
 										// NOVA EDIT ADDITION END
+										ACCOUNT_INDIE_CARGO = ACCOUNT_INDIE_CARGO_NAME, //IRIS EDIT, you will not BELIEVE how much shit i had to sift through to find this file. i need to start reading documentation
 										ACCOUNT_SEC = ACCOUNT_SEC_NAME)
 	var/list/departmental_accounts = list()
 	/**

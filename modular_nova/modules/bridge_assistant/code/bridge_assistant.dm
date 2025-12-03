@@ -91,10 +91,12 @@ IRIS EDIT END */
 	name = "green bow tie"
 	greyscale_colors = "#70b46e"
 
+// IRIS EDIT START - commented out
 //trim
-/datum/id_trim/job/bridge_assistant
-	department_color = COLOR_SERVICE_LIME
-	subdepartment_color = COLOR_COMMAND_BLUE
+// /datum/id_trim/job/bridge_assistant
+// 	department_color = COLOR_SERVICE_LIME
+// 	subdepartment_color = COLOR_COMMAND_BLUE
+// IRIS EDIT END
 
 //pda
 /obj/item/modular_computer/pda/bridge_assistant
