@@ -23,7 +23,6 @@
 		TRAIT_ROBOTIC_DNA_ORGANS,
 		TRAIT_HOLOSYNTH
 	)
-	coldmod = 1.5
 	gib_anim = "liquify"
 	bodypart_overrides = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/synth,
@@ -96,11 +95,11 @@
 // Lore Box
 /datum/species/synthetic/holosynth/get_species_lore()
 	return list(\
-		"Somewhere between an android and a hologram, these semi-physical autonomous units are extremely vulnerable to heat and electricity \
+		"Somewhere between an android and a hologram, these semi-physical autonomous units are extremely vulnerable to heat and electricity. \
 		A niche choice more popular among wealthy customers (silicon and uploaded organics alike) - their lack of robustness makes them somewhat inept for physical activity but they are excellent at scouting or clerical work.",
 
 		 "As of late the design of the required holoprojection equipment has shrunk considerably. \
-		 With an electromagnetic controller suite, hologram projection aparatus, and a ball point writing implement all fitting into the sleek pen chassis. Holosynths were traditionally once human, but any species can become a hologram."
+		 With an electromagnetic controller suite, hologram projection aparatus, and a ball point writing implement all fitting into the sleek pen chassis. Holosynths are traditionally once human, but any species can become a hologram."
 	)
 
 //Character creation Perks
