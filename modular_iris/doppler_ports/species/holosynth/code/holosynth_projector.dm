@@ -106,7 +106,7 @@
 		linked_mob.apply_status_effect(/datum/status_effect/holosynth_dissolving)
 		linked_mob.visible_message(
 			span_danger("[linked_mob]'s whole body begins to flicker, shudder and fall apart!"),
- 			span_userdanger("You feel your projector being destroyed! Your form loses cohesion!")
+			span_userdanger("You feel your projector being destroyed! Your form loses cohesion!")
 		)
 	. = ..()
 
