@@ -3,7 +3,7 @@
 /datum/loadout_item/toys/plush
 	group = "Plushies"
 	abstract_type = /datum/loadout_item/toys/plush
-	can_be_named = TRUE
+	loadout_flags = parent_type::loadout_flags | LOADOUT_FLAG_ALLOW_NAMING
 
 /datum/loadout_item/toys/plush/bee
 	name = "Bee Plushie"
@@ -104,3 +104,11 @@
 /datum/loadout_item/toys/plush/whitecat
 	name = "White Cat Plushie"
 	item_path = /obj/item/toy/plush/nova/cat/white
+
+/datum/loadout_item/toys/plush/fkinbnuuy
+	name = "Heckin Bnuuy"
+	item_path = /obj/item/toy/plush/nova/fkinbnuuy
+
+/datum/loadout_item/toys/plush/funniyellowrock
+	name = "Squishy Yellow Rock"
+	item_path = /obj/item/toy/plush/nova/funniyellowrock

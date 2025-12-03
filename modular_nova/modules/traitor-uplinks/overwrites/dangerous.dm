@@ -24,6 +24,10 @@
 	cost = /datum/uplink_item/low_cost/weaponry::cost
 //	cost = 6
 
+/datum/uplink_item/dangerous/cat
+	purchasable_from = NONE //low roleplay
+
+
 // MEDIUM COST
 /datum/uplink_item/dangerous/rapid
 	cost = /datum/uplink_item/medium_cost/weaponry::cost

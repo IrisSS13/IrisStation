@@ -67,3 +67,17 @@
 /obj/item/toy/plush/nova/cat/white
 	name = "white cat plushie"
 	icon_state = "whitecat"
+
+/obj/item/toy/plush/nova/funniyellowrock
+	name = "squishy yellow rock"
+	desc = "A familiar looking yellow rock plushie. Touching it won't reduce you to dust. Probably."
+	icon_state = "plush_sm"
+	squeak_override = list('sound/machines/sm/accent/delam/1.ogg' = 1)
+
+/obj/item/toy/plush/nova/fkinbnuuy
+	name = "heckin bnuuy"
+	desc = "A small bunny plushie with black beady eyes. The nametag appears to be misspelled?"
+	icon_state = "plush_bnuuy"
+	attack_verb_continuous = list("cuddles", "squeaks")
+	attack_verb_simple = list("cuddle", "squeak")
+	squeak_override = list('modular_nova/modules/customization/game/objects/items/sound/deerplush.ogg' = 1)

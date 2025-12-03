@@ -56,9 +56,9 @@
 	job_flags = STATION_JOB_FLAGS | JOB_ANTAG_PROTECTED
 	mail_goodies = list(
 		/obj/item/flashlight/flare = 15,
-		/obj/item/tank/internals/emergency_oxygen = 5,
-		/obj/item/gas_filter = 5,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/morpital = 1
+		/obj/item/tank/internals/emergency_oxygen/engi = 5,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/morpital = 3,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/coagulants = 3
 	)
 
 /datum/outfit/job/explorer
@@ -199,4 +199,5 @@
 /obj/machinery/suit_storage_unit/explorer
 	mask_type = /obj/item/clothing/mask/gas/atmos/frontier_colonist
 	mod_type = /obj/item/mod/control/pre_equipped/frontier_colonist
-	storage_type = /obj/item/tank/jetpack/oxygen
+	storage_type = /obj/item/tank/jetpack
+
