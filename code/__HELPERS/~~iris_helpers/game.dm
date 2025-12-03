@@ -11,3 +11,20 @@
 		eligible_lockers += closet
 	if(length(eligible_lockers))
 		return pick(eligible_lockers)
+
+///Get active station players who are playing excluding all ghosts
+/proc/get_active_player_list_deathmatch()
+	var/list/alive_players = list()
+	for(var/mob/player_mob as anything in GLOB.player_list)
+		if(!player_mob?.client)
+			continue
+		if(isnewplayer(player_mob)) // exclude people in the lobby
+			continue
+		if(isobserver(player_mob)) // exclude all ghosts
+			continue
+		alive_players += player_mob
+	return alive_players
+
+///Counts active station players who are playing excluding ghosts
+/proc/get_active_player_count_deathmatch()
+	return length(get_active_player_list_deathmatch())
