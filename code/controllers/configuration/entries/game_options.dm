@@ -492,7 +492,7 @@
 
 /// Max personalities you can have at once
 /datum/config_entry/number/max_personalities
-	default = 5
+	default = 10 // IRIS EDIT
 
 /**
  * A config that skews with the random spawners weights

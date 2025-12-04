@@ -166,6 +166,7 @@ GLOBAL_LIST_EMPTY(request_list)
 
 /datum/feed_network/New()
 	create_feed_channel(NEWSCASTER_STATION_ANNOUNCEMENTS, "SS13", "Company news, staff announcements, and all the latest information. Have a secure shift!", locked = TRUE)
+	create_feed_channel(NEWSCASTER_ECONOMIC_UPDATES, "NT Economist Division", "All the latest information about sector prices.", locked = TRUE) // IRIS ADDITION
 	create_feed_channel(NEWSCASTER_SPACE_BETTING, "NtOS", "News from the SpaceBet PDA App! Download now and make your own bets!", locked = TRUE)
 	wanted_issue = new /datum/wanted_message
 

@@ -66,7 +66,7 @@ export const NifPanel = (props) => {
                         title={
                           <>
                             {<Icon name={nifsoft.ui_icon} />}
-                            {nifsoft.name + '  '}
+                            {`${nifsoft.name}  `}
                           </>
                         }
                         buttons={
@@ -145,9 +145,7 @@ export const NifPanel = (props) => {
                               }
                             />
                           </box>
-                        ) : (
-                          <> </>
-                        )}
+                        ) : null}
                         <box>
                           <br />
                           <Button.Confirm
