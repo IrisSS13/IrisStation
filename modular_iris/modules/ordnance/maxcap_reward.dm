@@ -17,5 +17,4 @@
 		stored_research.add_point_list(list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_POINTS_1_HOUR))
 		stored_research.maxcap_reward_gained = TRUE
 		return TRUE
-	else
-		return FALSE
+	return FALSE
