@@ -1,12 +1,12 @@
 
-#define COFFIN_HEALING_COST 0.5
+#define COFFIN_HEALING_COST 0.2
 
 /datum/quirk/sol_weakness
 	name = "Sol Weakness"
 	icon = FA_ICON_SUN
 	desc = "Your sub-species of the Hemophage virus renders you weak to Solar radiation, \
-		you will have to hide in a coffin or a closet during the day, or risk burning to a crisp. \
-		Thankfully, you will also heal your wounds at half cost in a coffin."
+	you will have to hide in a coffin or a closet during the day, or risk burning to a crisp. \
+		Thankfully, you have the ability to heal inside a coffin at a significantly lower rate of blood."
 	gain_text = span_warning("You feel a sudden weakness in your body, and a burning sensation on your skin. \
 		You should find a coffin to hide in during the day.")
 	lose_text = span_notice("You feel safe in Sol's embrace once more.")
@@ -32,7 +32,7 @@
 	SSsunlight.remove_sun_sufferer(quirk_holder)
 	UnregisterSignal(SSsunlight, list(COMSIG_SOL_RISE_TICK, COMSIG_SOL_WARNING_GIVEN))
 
-/datum/quirk/sol_weakness/proc/on_blood_healing(mob/owner, seconds_between_ticks, datum/status_effect/blood_regen_active/effect)
+/datum/quirk/sol_weakness/proc/on_blood_healing(mob/living/owner, seconds_between_ticks, datum/status_effect/blood_regen_active/effect)
 	if(effect && in_coffin())
 		// cheaper healing as long as you're in a coffin
 		effect.cost_blood = COFFIN_HEALING_COST
