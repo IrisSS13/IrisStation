@@ -211,6 +211,24 @@
 	icon = 'modular_nova/modules/customization/modules/mob/living/carbon/human/species/hemophage/icons/screen_alert.dmi'
 	icon_state = "slave_to_the_tumor"
 
+// IRIS EDIT - adds back regen effect
+
+/datum/status_effect/blood_regen_active
+	id = "blood_regen_active"
+	status_type = STATUS_EFFECT_UNIQUE
+	processing_speed = STATUS_EFFECT_NORMAL_PROCESS
+	alert_type = /atom/movable/screen/alert/status_effect/blood_regen_active
+	/// Current multiplier for how much blood they spend healing themselves for every point of damage healed.
+	var/blood_to_health_multiplier = 1
+	var/cost_blood = 1
+
+/atom/movable/screen/alert/status_effect/blood_regen_active
+	name = "Enhanced Regeneration"
+	desc = "Being in a sufficiently dark location allows your tumor to allocate more energy to enhancing your body's natural regeneration, at the cost of blood volume proportional to the damage healed."
+	icon = 'icons/hud/screen_alert.dmi'
+	icon_state = "template"
+
+// IRIS EDIT END
 
 #undef BLOOD_REGEN_BRUTE_AMOUNT
 #undef BLOOD_REGEN_BURN_AMOUNT
