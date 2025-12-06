@@ -36,6 +36,7 @@
 	glasses = null
 	gloves = null
 	head = null
+	pda_slot = ITEM_SLOT_BELT
 
 /* IRIS EDIT START - REMOVAL
 /datum/outfit/job/bridge_assistant/post_equip(mob/living/carbon/human/user, visuals_only = FALSE)
@@ -52,10 +53,10 @@ IRIS EDIT END */
 	head = /obj/item/clothing/head/helmet/space/plasmaman
 	neck = /obj/item/clothing/neck/bowtie/green
 	ears = /obj/item/radio/headset/bridge_officer
-	belt = /obj/item/modular_computer/pda/bridge_assistant
 	l_pocket = /obj/item/melee/baton/telescopic/bronze
 	r_pocket = /obj/item/gun/energy/e_gun/mini
 	backpack_contents = list(
+		/obj/item/modular_computer/pda/bridge_assistant = 1,
 		/obj/item/choice_beacon/job_locker/bridge_officer = 1,
 		/obj/item/choice_beacon/coffee = 1,
 	)
