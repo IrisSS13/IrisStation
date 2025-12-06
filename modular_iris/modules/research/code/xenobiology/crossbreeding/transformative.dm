@@ -60,7 +60,7 @@
 
 	switch(transformative_effect)
 		if(SLIME_TYPE_PURPLE)
-			adjustBruteLoss(-0.25 * seconds_per_tick)
+			adjust_brute_loss(-0.25 * seconds_per_tick)
 
 		if(SLIME_TYPE_DARK_PURPLE)
 			var/datum/gas_mixture/environment = loc.return_air()
@@ -70,7 +70,7 @@
 					environment.gases[/datum/gas/plasma][MOLES] -= amount
 					environment.assert_gas(/datum/gas/oxygen)
 					environment.gases[/datum/gas/oxygen][MOLES] += amount
-					adjustBruteLoss(-amount * 0.1) // Technically better than purple, technically.
+					adjust_brute_loss(-amount * 0.1) // Technically better than purple, technically.
 					environment.garbage_collect()
 
 		if(SLIME_TYPE_RAINBOW)
@@ -171,7 +171,7 @@
 /mob/living/basic/slime/apply_water()
 	if(transformative_effect != SLIME_TYPE_DARK_BLUE)
 		return ..()
-	adjustBruteLoss(rand(7.5, 10))
+	adjust_brute_loss(rand(7.5, 10))
 	discipline_slime()
 
 /mob/living/basic/slime/apply_damage(

@@ -38,6 +38,7 @@
 		/mob/living/proc/emote_laugh,
 		/mob/living/proc/emote_look,
 		/mob/living/proc/emote_nod,
+		/mob/living/proc/emote_nodnod,
 		/mob/living/proc/emote_point,
 		/mob/living/proc/emote_pout,
 		/mob/living/proc/emote_scream,
@@ -148,7 +149,9 @@
 		/mob/living/proc/emote_honk1,
 		/mob/living/proc/emote_mggaow,
 		/mob/living/proc/emote_mrrp,
-		/mob/living/proc/emote_prbt
+		/mob/living/proc/emote_prbt,
+		/mob/living/proc/emote_yip,
+		/mob/living/proc/emote_whine
 	)
 	all_emotes += nova_living_emotes
 
@@ -346,6 +349,7 @@
 	set category = "Emotes"
 	usr.emote("giggle", intentional = TRUE)
 
+
 /mob/living/proc/emote_glare()
 	set name = "~ Glare"
 	set category = "Emotes"
@@ -390,6 +394,11 @@
 	set name = "~ Nod"
 	set category = "Emotes"
 	usr.emote("nod", intentional = TRUE)
+
+/mob/living/proc/emote_nodnod()
+	set name = "~ Nodnod"
+	set category = "Emotes"
+	usr.emote("nod2", intentional = TRUE)
 
 /mob/living/proc/emote_point()
 	set name = "~ Point"
@@ -656,6 +665,16 @@
 	set name = "> Awoo"
 	set category = "Emotes+"
 	usr.emote("awoo", intentional = TRUE)
+
+/mob/living/proc/emote_yip()
+	set name = "> Yip"
+	set category = "Emotes+"
+	usr.emote("yip", intentional = TRUE)
+
+/mob/living/proc/emote_whine()
+	set name = "> Fox Whine"
+	set category = "Emotes+"
+	usr.emote("whine", intentional = TRUE)
 
 /mob/living/proc/emote_nya()
 	set name = "> Nya"

@@ -94,12 +94,18 @@
  */
 /datum/emote/proc/run_emote(mob/user, params, type_override, intentional = FALSE)
 	var/msg = select_message_type(user, message, intentional)
-	if(params && message_param)
-		msg = select_param(user, params)
+	if(params)
+		if(message_param)
+			msg = select_param(user, params)
+		else
+			msg = params
 
 	msg = replace_pronoun(user, msg)
 	if(!msg)
 		return
+
+	/// Use the type override if it exists
+	var/running_emote_type = type_override || emote_type
 
 	if(user.client)
 		user.log_message(msg, LOG_EMOTE)
@@ -108,16 +114,21 @@
 	if(tmp_sound && should_play_sound(user, intentional) && TIMER_COOLDOWN_FINISHED(user, "general_emote_audio_cooldown") && TIMER_COOLDOWN_FINISHED(user, type))
 		TIMER_COOLDOWN_START(user, type, specific_emote_audio_cooldown)
 		TIMER_COOLDOWN_START(user, "general_emote_audio_cooldown", general_emote_audio_cooldown)
-		playsound(source = user,soundin = tmp_sound,vol = 50, vary = vary, ignore_walls = sound_wall_ignore)
+		var/frequency = null
+		if (affected_by_pitch && SStts.tts_enabled && SStts.pitch_enabled)
+			frequency = rand(MIN_EMOTE_PITCH, MAX_EMOTE_PITCH) * (1 + sqrt(abs(user.pitch)) * SIGN(user.pitch) * EMOTE_TTS_PITCH_MULTIPLIER)
+		else if(vary)
+			frequency = rand(MIN_EMOTE_PITCH, MAX_EMOTE_PITCH)
+		playsound(source = user, soundin = tmp_sound,vol = 50, vary = FALSE, ignore_walls = sound_wall_ignore, frequency = frequency)
 
-	var/is_important = emote_type & EMOTE_IMPORTANT
-	var/is_visual = emote_type & EMOTE_VISIBLE
-	var/is_audible = emote_type & EMOTE_AUDIBLE
+	var/is_important = running_emote_type & EMOTE_IMPORTANT
+	var/is_visual = running_emote_type & EMOTE_VISIBLE
+	var/is_audible = running_emote_type & EMOTE_AUDIBLE
 	var/space = should_have_space_before_emote(html_decode(msg)[1]) ? " " : "" // NOVA EDIT ADDITION
 	var/additional_message_flags = get_message_flags(intentional)
 
 	// Emote doesn't get printed to chat, runechat only
-	if(emote_type & EMOTE_RUNECHAT)
+	if(running_emote_type & EMOTE_RUNECHAT)
 		for(var/mob/viewer as anything in viewers(user))
 			if(isnull(viewer.client))
 				continue
