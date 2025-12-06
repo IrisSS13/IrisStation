@@ -140,11 +140,11 @@ Due to some fuckery with how these templates work; the bottom left turf of your 
 	landing_zone_x_offset = 7
 	landing_zone_y_offset = 1
 
-/datum/map_template/condo/mountainside_apartment
-	name = "Condo - Mountainside Apartment"
-	mappath = "modular_nova/modules/condos/_maps/apartment_mountainside.dmm"
-	landing_zone_x_offset = 14
-	landing_zone_y_offset = 4
+// /datum/map_template/condo/mountainside_apartment //IRIS EDIT: doesnt seem too bad so can probably be salvaged, but definitely needs a lot of a rework to fit iris
+//	name = "Condo - Mountainside Apartment"
+//	mappath = "modular_nova/modules/condos/_maps/apartment_mountainside.dmm"
+//	landing_zone_x_offset = 14
+//	landing_zone_y_offset = 4
 
 /datum/map_template/condo/mountainside_fortuneteller
 	name = "Condo - Fortune Teller Apartment"
@@ -158,11 +158,11 @@ Due to some fuckery with how these templates work; the bottom left turf of your 
 	landing_zone_x_offset = 17
 	landing_zone_y_offset = 3
 
-/datum/map_template/condo/mountainside_dragonlair
-	name = "Condo - Dragon's Lair"
-	mappath = "modular_nova/modules/condos/_maps/apartment_dragonslair.dmm"
-	landing_zone_x_offset = 5
-	landing_zone_y_offset = 11
+// /datum/map_template/condo/mountainside_dragonlair //IRIS EDIT: absolutely not
+// 	name = "Condo - Dragon's Lair"
+// 	mappath = "modular_nova/modules/condos/_maps/apartment_dragonslair.dmm"
+// 	landing_zone_x_offset = 5
+// 	landing_zone_y_offset = 11
 
 /datum/map_template/condo/deepspace_ship
 	name = "Condo - Deepspace Ship"
