@@ -158,6 +158,10 @@
 	name = "Fluffy Long Ponytail"
 	icon_state = "hair_fluffypony"
 
+/datum/sprite_accessory/hair/iris/mia // from Citadel
+	name = "Mia"
+	icon_state = "hair_mia"
+
 // TAILS
 
 /datum/sprite_accessory/tails/mammal/iris
