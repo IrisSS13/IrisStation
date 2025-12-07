@@ -23,7 +23,6 @@
 		TRAIT_ROBOTIC_DNA_ORGANS,
 		TRAIT_HOLOSYNTH
 	)
-	gib_anim = "liquify"
 	bodypart_overrides = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/synth,
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/synth,
