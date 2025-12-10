@@ -182,8 +182,13 @@
 		copied_appearance.pixel_x = 0
 		copied_appearance.pixel_y = 0
 		copied_appearance.transform = matrix()
+		copied_appearance.layer = ECHO_LAYER // IRIS EDIT: clamp any topdown/top-layer values so pipes/wires don't render above mobs
 	if(input.icon && input.icon_state)
-		saved_appearances["[input.icon]-[input.icon_state]"] = copied_appearance
+		// IRIS EDIT START
+		// only cache static appearances to avoid mixing layer overrides
+		if(images_are_static)
+			saved_appearances["[input.icon]-[input.icon_state]"] = copied_appearance
+		// IRIS EDIT END
 	return copied_appearance
 
 /datum/component/echolocation/proc/fade_images(from_when)
