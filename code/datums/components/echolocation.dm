@@ -152,15 +152,17 @@
 			continue
 		if(receivers[echolocate_receiver][input])
 			var/previous_image = receivers[echolocate_receiver][input]["image"]
-			// If the client reattached, ensure the stored image is present in their images list
+			// IRIS EDIT START
+			// if the client reattached, ensure the stored image is present in their images list
 			if(echolocate_receiver.client && !(previous_image in echolocate_receiver.client.images))
 				echolocate_receiver.client.images += previous_image
+			// IRIS EDIT END
 			fade_ins |= previous_image
 			receivers[echolocate_receiver][input] = list("image" = previous_image, "time" = current_time)
 		else
 			if(echolocate_receiver.client)
 				echolocate_receiver.client.images += final_image
-				receivers[echolocate_receiver][input] = list("image" = final_image, "time" = current_time)
+			receivers[echolocate_receiver][input] = list("image" = final_image, "time" = current_time)
 	for(var/image_echo in fade_ins)
 		animate(image_echo, alpha = 255, time = fade_in_time)
 
@@ -186,6 +188,7 @@
 	if(input.icon && input.icon_state)
 		// IRIS EDIT START
 		// only cache static appearances to avoid mixing layer overrides
+		// remove if conditional to revert to original code
 		if(images_are_static)
 			saved_appearances["[input.icon]-[input.icon_state]"] = copied_appearance
 		// IRIS EDIT END
