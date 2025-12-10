@@ -147,11 +147,14 @@
 		cloned_appearance.pixel_y = input_appearance.pixel_y
 		cloned_appearance.transform = input_appearance.transform
 		input_appearance = cloned_appearance
+	// IRIS EDIT END
 	var/image/final_image = image(input_appearance)
+	// IRIS EDIT START: normally just final_image.layer += EFFECTS_LAYER
 	if(!images_are_static)
-		final_image.layer = ECHO_LAYER + EFFECTS_LAYER
+		final_image.layer = ECHO_LAYER + EFFECTS_LAYER // force dynamic objects to be above
 	else
 		final_image.layer += EFFECTS_LAYER
+	// IRIS EDIT END
 	final_image.plane = FULLSCREEN_PLANE
 	final_image.loc = images_are_static ? get_turf(input) : input
 	final_image.dir = input.dir
