@@ -132,8 +132,26 @@
 	addtimer(CALLBACK(src, PROC_REF(fade_images), current_time), image_expiry_time)
 
 /datum/component/echolocation/proc/show_image(image/input_appearance, atom/input, current_time)
+	// IRIS EDIT START
+	// clone mutable appearances and reassign to avoid shared state issues
+	// a bit more memory use but whatever shouldn't be too bad
+	// copied bits that were used elsewhere in echolocate code
+	if(istype(input_appearance, /mutable_appearance) && !images_are_static)
+		var/mutable_appearance/cloned_appearance = new /mutable_appearance()
+		cloned_appearance.appearance = input_appearance.appearance
+		cloned_appearance.icon = input_appearance.icon
+		cloned_appearance.icon_state = input_appearance.icon_state
+		cloned_appearance.color = input_appearance.color
+		cloned_appearance.filters = input_appearance.filters
+		cloned_appearance.pixel_x = input_appearance.pixel_x
+		cloned_appearance.pixel_y = input_appearance.pixel_y
+		cloned_appearance.transform = input_appearance.transform
+		input_appearance = cloned_appearance
 	var/image/final_image = image(input_appearance)
-	final_image.layer += EFFECTS_LAYER
+	if(!images_are_static)
+		final_image.layer = ECHO_LAYER + EFFECTS_LAYER
+	else
+		final_image.layer += EFFECTS_LAYER
 	final_image.plane = FULLSCREEN_PLANE
 	final_image.loc = images_are_static ? get_turf(input) : input
 	final_image.dir = input.dir
@@ -184,14 +202,8 @@
 		copied_appearance.pixel_x = 0
 		copied_appearance.pixel_y = 0
 		copied_appearance.transform = matrix()
-		copied_appearance.layer = ECHO_LAYER // IRIS EDIT: clamp any topdown/top-layer values so pipes/wires don't render above mobs
 	if(input.icon && input.icon_state)
-		// IRIS EDIT START
-		// only cache static appearances to avoid mixing layer overrides
-		// remove if conditional to revert to original code
-		if(images_are_static)
-			saved_appearances["[input.icon]-[input.icon_state]"] = copied_appearance
-		// IRIS EDIT END
+		saved_appearances["[input.icon]-[input.icon_state]"] = copied_appearance
 	return copied_appearance
 
 /datum/component/echolocation/proc/fade_images(from_when)
