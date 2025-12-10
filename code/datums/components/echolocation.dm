@@ -152,12 +152,15 @@
 			continue
 		if(receivers[echolocate_receiver][input])
 			var/previous_image = receivers[echolocate_receiver][input]["image"]
+			// If the client reattached, ensure the stored image is present in their images list
+			if(echolocate_receiver.client && !(previous_image in echolocate_receiver.client.images))
+				echolocate_receiver.client.images += previous_image
 			fade_ins |= previous_image
 			receivers[echolocate_receiver][input] = list("image" = previous_image, "time" = current_time)
 		else
 			if(echolocate_receiver.client)
 				echolocate_receiver.client.images += final_image
-			receivers[echolocate_receiver][input] = list("image" = final_image, "time" = current_time)
+				receivers[echolocate_receiver][input] = list("image" = final_image, "time" = current_time)
 	for(var/image_echo in fade_ins)
 		animate(image_echo, alpha = 255, time = fade_in_time)
 
