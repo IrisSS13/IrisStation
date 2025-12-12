@@ -93,6 +93,10 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 	var/list/data_by_z = list()
 	/// Cache of last update time for each z-level
 	var/list/last_update = list()
+	// IRIS EDIT ADDITION START - Offline Sensors from https://github.com/BeeStation/BeeStation-Hornet/pull/13771
+	/// The last update for the crew-member
+	var/list/outdated_update = list()
+	// IRIS EDIT ADDITION END
 	/// Map of job to ID for sorting purposes
 	var/list/jobs = list(
 		// Note that jobs divisible by 10 are considered heads of staff, and bolded
@@ -200,6 +204,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 	. = list(
 		"sensors" = update_data(z),
 		"link_allowed" = HAS_AI_ACCESS(user),
+		"time" = world.time, // IRIS ADDITION - Offline Sensors from https://github.com/BeeStation/BeeStation-Hornet/pull/13771
 	)
 
 /datum/crewmonitor/proc/update_data(z)
@@ -207,6 +212,9 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		return data_by_z["[z]"]
 
 	var/list/results = list()
+
+	var/list/valid_refs = list() // IRIS ADDITION - Offline Sensors from https://github.com/BeeStation/BeeStation-Hornet/pull/13771
+
 	for(var/tracked_mob in GLOB.suit_sensors_list)
 		if(!tracked_mob)
 			stack_trace("Null entry in suit sensors list.")
@@ -251,6 +259,8 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 			"ref" = REF(tracked_living_mob),
 			"name" = "Unknown",
 			"ijob" = UNKNOWN_JOB_ID,
+			"last_update" = world.time, // IRIS ADDITION
+			"missing" = FALSE, // - Offline Sensors from https://github.com/BeeStation/BeeStation-Hornet/pull/13771
 		)
 
 		// ID and id-related data
@@ -302,7 +312,32 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		if (sensor_mode >= SENSOR_COORDS)
 			entry["area"] = get_area_name(tracked_living_mob, format_text = TRUE)
 
+//IRIS ADDITION START - Offline Sensors from https://github.com/BeeStation/BeeStation-Hornet/pull/13771
+		/// Update the tracked entry
+		if (id_card?.registered_name && find_record(id_card.registered_name, GLOB.manifest.general))
+			outdated_update[id_card.registered_name] = list(
+				"name" = id_card.registered_name,
+				"last_update" = world.time
+			)
+			valid_refs[id_card.registered_name] = TRUE
+
 		results[++results.len] = entry
+
+	for (var/outdated_ref in outdated_update)
+		if (valid_refs[outdated_ref])
+			continue
+		var/list/last_results = outdated_update[outdated_ref]
+		// Deleted from the records, cryo'd or malicious intent. Remove the target
+		if (!find_record(last_results["name"], GLOB.manifest.general))
+			outdated_update -= outdated_ref
+			continue
+		results[++results.len] = list(
+			"ref" = outdated_ref,
+			"name" = last_results["name"],
+			"last_update" = last_results["last_update"],
+			"missing" = TRUE
+		)
+// IRIS ADDITION END
 
 	// Cache result
 	data_by_z["[z]"] = results
