@@ -57,6 +57,10 @@
 		if(DO_CHANNEL)
 			client.mob.do_verb(entry)
 		// NOVA EDIT ADDITION END
+		// IRIS EDIT ADDITION START - NTNRC (ported from https://github.com/DopplerShift13/DopplerShift/pull/371)
+		if(IRC_CHANNEL)
+			client.mob.irc_verb(entry)
+		// IRIS EDIT ADDITION END
 	return FALSE
 
 /**
