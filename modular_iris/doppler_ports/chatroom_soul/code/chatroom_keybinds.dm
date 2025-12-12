@@ -1,5 +1,5 @@
 /datum/keybinding/client/communication/IRC
-	hotkey_keys = list("ShiftY")
+	hotkey_keys = list("Shift;")
 	name = IRC_CHANNEL
 	full_name = "IRC"
 	keybind_signal = COMSIG_KB_CLIENT_IRC_DOWN
