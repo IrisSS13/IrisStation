@@ -28,6 +28,8 @@
 		"interface_break" = interface_break,
 		// Modules
 		"complexity" = complexity,
+		// IRIS ADDITION - Hardlight theme
+		"hardlight_theme" = theme.hardlight_theme,
 	)
 	data["suit_status"] = suit_status
 	// User information
@@ -131,4 +133,17 @@
 			if (!ishuman(ui.user))
 				return
 			remove_pai(ui.user)
+
+		// IRIS ADDITION START: MODsuit hardlight theme update
+		if("set_hardlight")
+			var/new_theme = params["theme"]
+			if(!new_theme)
+				return
+			theme.hardlight_theme = new_theme
+			if(wearer)
+				wearer.icon_render_keys.Cut()
+				wearer.update_body_parts()
+			balloon_alert(ui.user, "hardlight theme set to [new_theme]")
+		// IRIS ADDITION END
+
 	return TRUE
