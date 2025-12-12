@@ -160,6 +160,11 @@
 		if("PRG_setpassword")
 			if(!authed)
 				return
+			// IRIS EDIT ADDITION START - NTNRC_FOR_ALL (ported from https://github.com/DopplerShift13/DopplerShift/pull/205)
+			if(channel.strong) // Block setting passwords on important channels
+				computer.visible_message(span_warning("Warning. May not set a password on common channels."))
+				return
+			// IRIS EDIT ADDITION END - NTNRC_FOR_ALL
 			var/new_password = sanitize(params["new_password"])
 			if(!authed)
 				return

@@ -48,6 +48,7 @@
 		/datum/computer_file/program/crew_manifest,
 		/datum/computer_file/program/crew_self_serve, // NOVA EDIT ADDITION - Adds punch clock app to all base tablets
 		/datum/computer_file/program/maintenance/camera, // NOVA EDIT ADDITION - Adds camera to all base tablets
+		/datum/computer_file/program/chatclient, // IRIS EDIT ADDITION - NTNRC_FOR_ALL (ported from https://github.com/DopplerShift13/DopplerShift/pull/205)
 	)
 	///List of items that can be stored in a PDA
 	var/static/list/contained_item = list(
