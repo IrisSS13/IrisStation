@@ -8,7 +8,7 @@
 	medical_record_text = "Patient suffers from asthma."
 	hardcore_value = 2
 	quirk_flags = QUIRK_HUMAN_ONLY
-	mail_goodies = list(/obj/item/reagent_containers/inhaler_canister/albuterol)
+	mail_goodies = list(/obj/item/reagent_containers/inhaler_canister/albuterol, /obj/item/healthanalyzer/simple/disease) //IRIS EDIT - adds simple healthanalyzer for disease
 
 	/// At this percentage of inflammation, our lung pressure mult reaches 0. From 0-1.
 	var/hit_max_mult_at_inflammation_percent = 0.9
@@ -60,17 +60,18 @@
 		/datum/disease/asthma_attack/critical = 1, // this can quickly kill you, so its rarity is justified
 	)
 
-/datum/quirk/item_quirk/asthma/add_unique(client/client_source)
-	. = ..()
-
-	var/obj/item/inhaler/albuterol/asthma/rescue_inhaler = new(get_turf(quirk_holder))
-	give_item_to_holder(rescue_inhaler, list(LOCATION_BACKPACK, LOCATION_HANDS), flavour_text = "You can use this to quickly relieve the symptoms of your asthma.")
-
+/datum/quirk/item_quirk/asthma/add(client/client_source)
 	RegisterSignal(quirk_holder, COMSIG_CARBON_EXPOSED_TO_SMOKE, PROC_REF(holder_exposed_to_smoke))
 	RegisterSignal(quirk_holder, COMSIG_CARBON_LOSE_ORGAN, PROC_REF(organ_removed))
 	RegisterSignal(quirk_holder, COMSIG_ATOM_EXPOSE_REAGENTS, PROC_REF(exposed_to_reagents))
 	RegisterSignal(quirk_holder, COMSIG_LIVING_POST_FULLY_HEAL, PROC_REF(on_full_heal))
 	RegisterSignal(quirk_holder, COMSIG_LIVING_LIFE, PROC_REF(on_life))
+
+/datum/quirk/item_quirk/asthma/add_unique(client/client_source)
+	. = ..()
+
+	var/obj/item/inhaler/albuterol/asthma/rescue_inhaler = new(get_turf(quirk_holder))
+	give_item_to_holder(rescue_inhaler, list(LOCATION_BACKPACK, LOCATION_HANDS), flavour_text = "You can use this to quickly relieve the symptoms of your asthma.")
 
 	COOLDOWN_START(src, next_attack_cooldown, time_first_attack_can_happen)
 

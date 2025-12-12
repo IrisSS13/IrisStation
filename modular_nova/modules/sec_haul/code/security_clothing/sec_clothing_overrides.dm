@@ -87,6 +87,10 @@
 		/obj/item/ammo_box/speedloader,
 		/obj/item/gun/energy/recharge/kinetic_accelerator/variant/glock,
 		// NOVA EDIT ADDITION END
+		// IRIS EDIT ADDITION START
+		/obj/item/universal_scanner,
+		/obj/item/gun/energy/e_gun/blueshield,
+		// IRIS EDIT ADDITION END
 	))
 
 /obj/item/storage/belt/holster/detective
@@ -285,7 +289,7 @@
 		),
 	)
 
-/obj/item/clothing/gloves/krav_maga/sec
+/obj/item/clothing/gloves/kaza_ruk/sec
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
 		"Red Variant" = list(

@@ -46,7 +46,6 @@ export const EntryFloat = (props: EntryFloatProps) => {
       />
       <NumberInput
         animated
-        tickWhileDragging
         value={float}
         minValue={0}
         maxValue={Infinity}
@@ -75,7 +74,6 @@ export const EntryCoord = (props: EntryCoordProps) => {
       />
       <NumberInput
         animated
-        tickWhileDragging
         minValue={-Infinity}
         maxValue={Infinity}
         step={1}
@@ -89,7 +87,6 @@ export const EntryCoord = (props: EntryCoordProps) => {
       />
       <NumberInput
         animated
-        tickWhileDragging
         minValue={-Infinity}
         maxValue={Infinity}
         step={1}
@@ -103,7 +100,6 @@ export const EntryCoord = (props: EntryCoordProps) => {
       />
       <NumberInput
         animated
-        tickWhileDragging
         minValue={-Infinity}
         maxValue={Infinity}
         step={1}
@@ -262,7 +258,6 @@ export const EntryTransform = (props: EntryTransformProps) => {
           {transform?.map((value, index) => (
             <NumberInput
               animated
-              tickWhileDragging
               key={index}
               value={value}
               minValue={0}
@@ -308,7 +303,6 @@ export const EntryIcon = (props: EntryIconStateProps) => {
               <Stack.Item>
                 <NumberInput
                   animated
-                  tickWhileDragging
                   minValue={0}
                   maxValue={Infinity}
                   step={1}
@@ -400,7 +394,6 @@ export const EntryIconState = (props: EntryIconStateProps) => {
               <Stack.Item>
                 <NumberInput
                   animated
-                  tickWhileDragging
                   minValue={0}
                   maxValue={Infinity}
                   step={1}
