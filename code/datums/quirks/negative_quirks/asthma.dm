@@ -8,7 +8,7 @@
 	medical_record_text = "Patient suffers from asthma."
 	hardcore_value = 2
 	quirk_flags = QUIRK_HUMAN_ONLY
-	mail_goodies = list(/obj/item/reagent_containers/inhaler_canister/albuterol)
+	mail_goodies = list(/obj/item/reagent_containers/inhaler_canister/albuterol, /obj/item/healthanalyzer/simple/disease) //IRIS EDIT - adds simple healthanalyzer for disease
 
 	/// At this percentage of inflammation, our lung pressure mult reaches 0. From 0-1.
 	var/hit_max_mult_at_inflammation_percent = 0.9
