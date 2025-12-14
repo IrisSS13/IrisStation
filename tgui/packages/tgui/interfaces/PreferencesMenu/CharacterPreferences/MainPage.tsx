@@ -477,15 +477,6 @@ export function MainPage(props: MainPageProps) {
   const [vocalsInputOpen, setVocalsInputOpen] = useState(false); // NOVA EDIT ADDITION
   const [randomToggleEnabled] = useRandomToggleState();
 
-  // IRIS EDIT BEGIN: SWAPPABLE PREF MENUS - SKYRAT PORT
-  enum PrefPage {
-    Visual, // The visual parts
-    Lore, // Lore, Flavor Text, Age, Records
-  }
-
-  const [currentPrefPage, setCurrentPrefPage] = useState(PrefPage.Visual);
-  // IRIS EDIT END - SKYRAT PORT
-
   const serverData = useServerPrefs();
 
   const currentSpeciesData =
@@ -758,7 +749,7 @@ export function MainPage(props: MainPageProps) {
                   page={PrefPage.Profile}
                   setPage={setCurrentPrefPage}
                 >
-                  Character Profile
+                  Character Lore
                 </PageButton>
               </Stack.Item>
             </Stack>
