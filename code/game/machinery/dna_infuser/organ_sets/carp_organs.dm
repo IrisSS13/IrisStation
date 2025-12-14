@@ -108,6 +108,10 @@
 	icon_state = "carptooth"
 	icon_angle = -45
 
+/obj/item/knife/carp/Initialize(mapload)
+	. = ..()
+	transform = transform.Scale(0.75, 0.75)
+
 ///carp brain. you need to occasionally go to a new zlevel. think of it as... walking your dog!
 /obj/item/organ/brain/carp
 	name = "mutated carp-brain"
