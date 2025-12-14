@@ -11,6 +11,7 @@
 	icon = 'modular_nova/modules/tribal_extended/icons/items_and_weapons.dmi'
 	icon_state = "blow_horn"
 	/// IRIS EDIT: Gives horns worn icons; START OF EDIT.
+	worn_icon = 'modular_iris/modules/ashwalkers/icons/items_and_weapons.dmi'
 	worn_icon_state = "horn"
 	resistance_flags = FLAMMABLE
 	/// IRIS EDIT: Adds slot_flag for the neck.
