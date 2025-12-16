@@ -10,7 +10,7 @@
 	name = "Meteor Wave: ICES"
 	typepath = /datum/round_event/meteor_wave/ices
 	weight = 16
-	min_players = 40
+	min_players = 15 //IRIS EDIT
 	max_occurrences = 1
 	earliest_start = 75 MINUTES
 	category = EVENT_CATEGORY_SPACE
