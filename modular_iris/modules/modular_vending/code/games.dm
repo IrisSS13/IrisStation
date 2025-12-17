@@ -14,12 +14,12 @@
 				/obj/item/sticker/smile = 3,
 				/obj/item/sticker/frown = 3,
 				// Directions
-				/obj/item/sticker/left_arrow = 3,
 				/obj/item/sticker/right_arrow = 3,
+				/obj/item/sticker/left_arrow = 3,
 				// Misc
 				/obj/item/sticker/star = 3,
 				/obj/item/sticker/heart = 3,
-				/obj/item/sticker/googly = 3,
+				/obj/item/sticker/googly = 4,
 				// Plushies
 				/obj/item/sticker/pslime = 3,
 				/obj/item/sticker/pliz = 3,
