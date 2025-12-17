@@ -2,11 +2,15 @@
 	var/datum/species_traits = GLOB.species_prototypes[mob_species].inherent_traits
 	if(TRAIT_SYNTHETIC in species_traits)
 		return FALSE
+	if(TRAIT_HOLOSYNTH in species_traits)
+		return FALSE
 	return ..()
 
 /datum/quirk/body_purist/is_species_appropriate(datum/species/mob_species)
 	var/datum/species_traits = GLOB.species_prototypes[mob_species].inherent_traits
 	if(TRAIT_SYNTHETIC in species_traits)
+		return FALSE
+	if(TRAIT_HOLOSYNTH in species_traits)
 		return FALSE
 	return ..()
 
@@ -14,11 +18,15 @@
 	var/datum/species_traits = GLOB.species_prototypes[mob_species].inherent_traits
 	if(TRAIT_SYNTHETIC in species_traits)
 		return FALSE
+	if(TRAIT_HOLOSYNTH in species_traits)
+		return FALSE
 	return ..()
 
 /datum/quirk/hard_soles/is_species_appropriate(datum/species/mob_species) //SYNTHETICS have this
 	var/datum/species_traits = GLOB.species_prototypes[mob_species].inherent_traits
 	if(TRAIT_SYNTHETIC in species_traits)
+		return FALSE
+	if(TRAIT_HOLOSYNTH in species_traits)
 		return FALSE
 	return ..()
 
@@ -26,11 +34,15 @@
 	var/datum/species_traits = GLOB.species_prototypes[mob_species].inherent_traits
 	if(TRAIT_SYNTHETIC in species_traits)
 		return FALSE
+	if(TRAIT_HOLOSYNTH in species_traits)
+		return FALSE
 	return ..()
 
 /datum/quirk/genetic_mutation/is_species_appropriate(datum/species/mob_species) //synthetic got no DNA
 	var/datum/species_traits = GLOB.species_prototypes[mob_species].inherent_traits
 	if(TRAIT_SYNTHETIC in species_traits)
+		return FALSE
+	if(TRAIT_HOLOSYNTH in species_traits)
 		return FALSE
 	return ..()
 
@@ -38,11 +50,15 @@
 	var/datum/species_traits = GLOB.species_prototypes[mob_species].inherent_traits
 	if(TRAIT_SYNTHETIC in species_traits)
 		return FALSE
+	if(TRAIT_HOLOSYNTH in species_traits)
+		return FALSE
 	return ..()
 
 /datum/quirk/item_quirk/breather/water_breather/is_species_appropriate(datum/species/mob_species) //synthetics can already do this
 	var/datum/species_traits = GLOB.species_prototypes[mob_species].inherent_traits
 	if(TRAIT_SYNTHETIC in species_traits)
+		return FALSE
+	if(TRAIT_HOLOSYNTH in species_traits)
 		return FALSE
 	return ..()
 
@@ -68,11 +84,15 @@
 	var/datum/species_traits = GLOB.species_prototypes[mob_species].inherent_traits
 	if(TRAIT_SYNTHETIC in species_traits)
 		return FALSE
+	if(TRAIT_HOLOSYNTH in species_traits)
+		return FALSE
 	return ..()
 
 /datum/quirk/item_quirk/anosmia/is_species_appropriate(datum/species/mob_species) //synthetics can't smell shit to begin with
 	var/datum/species_traits = GLOB.species_prototypes[mob_species].inherent_traits
 	if(TRAIT_SYNTHETIC in species_traits)
+		return FALSE
+	if(TRAIT_HOLOSYNTH in species_traits)
 		return FALSE
 	return ..()
 
@@ -86,10 +106,20 @@
 	var/datum/species_traits = GLOB.species_prototypes[mob_species].inherent_traits
 	if(TRAIT_SYNTHETIC in species_traits)
 		return FALSE
+	if(TRAIT_HOLOSYNTH in species_traits)
+		return FALSE
 	return ..()
 
 /datum/quirk/item_quirk/asthma/is_species_appropriate(datum/species/mob_species)
 	var/datum/species_traits = GLOB.species_prototypes[mob_species].inherent_traits
 	if(TRAIT_SYNTHETIC in species_traits)
+		return FALSE
+	if(TRAIT_HOLOSYNTH in species_traits)
+		return FALSE
+	return ..()
+
+/datum/quirk/equipping/entombed/is_species_appropriate(datum/species/mob_species) // go thru glass and ur modsuit goes off u, killing you
+	var/datum/species_traits = GLOB.species_prototypes[mob_species].inherent_traits
+	if(TRAIT_HOLOSYNTH in species_traits)
 		return FALSE
 	return ..()
