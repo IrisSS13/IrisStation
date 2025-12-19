@@ -1,4 +1,4 @@
-/* /datum/antagonist/santa
+/datum/antagonist/santa
 	name = "\improper Santa"
 	show_in_antagpanel = FALSE
 	show_name_in_check_antagonists = TRUE
@@ -31,5 +31,3 @@
 	santa_objective.completed = TRUE //lets cut our santas some slack.
 	santa_objective.owner = owner
 	objectives |= santa_objective
-
-*/
