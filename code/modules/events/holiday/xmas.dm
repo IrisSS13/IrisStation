@@ -53,7 +53,7 @@
 	/// Christmas tree, no presents included.
 	var/festive_tree = /obj/structure/flora/tree/pine/xmas
 	/// Christmas tree, presents included.
-	var/christmas_tree = /obj/structure/flora/tree/pine/xmas/presents
+	var/christmas_tree = /obj/structure/flora/tree/pine/xmas/presents/safe/unlimited //IRIS EDIT - adds the safe version - original: /obj/structure/flora/tree/pine/xmas/presents
 
 /obj/effect/spawner/xmastree/Initialize(mapload)
 	. = ..()
@@ -92,3 +92,4 @@
 	santa.PossessByPlayer(chosen_one.key)
 	var/datum/antagonist/santa/A = new
 	santa.mind.add_antag_datum(A)
+
