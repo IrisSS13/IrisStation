@@ -67,7 +67,6 @@
 	festive_tree = /obj/structure/festivus
 	christmas_tree = null
 
-/*
 /datum/round_event_control/santa
 	name = "Visit by Santa"
 	holidayID = CHRISTMAS
@@ -94,4 +93,3 @@
 	var/datum/antagonist/santa/A = new
 	santa.mind.add_antag_datum(A)
 
-*/ // IRIS EDIT - KILLS SANTA

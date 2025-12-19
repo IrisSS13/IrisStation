@@ -1,11 +1,11 @@
-/datum/outfit/santa //ho ho ho!
+/datum/outfit/santa //ho ho ho! - IRIS EDIT - gifts should be safe now instead of literally anything
 	name = "Santa Claus"
 
 	uniform = /obj/item/clothing/under/color/red
 	suit = /obj/item/clothing/suit/space/santa
 	back = /obj/item/storage/backpack/santabag
 	backpack_contents = list(
-		/obj/item/gift/anything = 5,
+		/obj/item/gift = 5,
 	)
 	gloves = /obj/item/clothing/gloves/color/red
 	head = /obj/item/clothing/head/helmet/space/santahat/beardless
