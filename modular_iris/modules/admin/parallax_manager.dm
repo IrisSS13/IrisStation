@@ -18,7 +18,7 @@ GLOBAL_DATUM(parallax_manager, /datum/parallax_manager)
 	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_LOGGED_IN, PROC_REF(on_mob_login))
 
 /datum/parallax_manager/Destroy(force)
-	UnregisterSignal(SSdcs, list(COMSIG_GLOB_MOB_LOGGED_IN))
+	UnregisterSignal(SSdcs, COMSIG_GLOB_MOB_LOGGED_IN)
 	. = ..(force)
 
 /datum/parallax_manager/proc/get_parallax_type_icon_state(var/typ)
@@ -271,7 +271,6 @@ GLOBAL_DATUM(parallax_manager, /datum/parallax_manager)
 				if(persist_icon || persist_state)
 					screenmob.hud_used.create_custom_parallax(screenmob, persist_icon, persist_state, persist_color_mode, persist_mode)
 					icon_applied = TRUE
-					// Ensure `layer_1`-only mode removes other layers even if stored `mode` is missing
 					if(persist_mode == "layer_1" || (persist_mode == null && persist_icon))
 						for(var/i = length(C.parallax_layers); i >= 1; i--)
 							var/atom/movable/screen/parallax_layer/layer = C.parallax_layers[i]
@@ -296,11 +295,11 @@ GLOBAL_DATUM(parallax_manager, /datum/parallax_manager)
 		var/g_mode = length(global_override) >= 6 ? global_override[6] : null
 
 		if(g_icon || g_state || g_color_mode || g_mode)
-				if(screenmob.hud_used)
-					screenmob.hud_used.create_custom_parallax(screenmob, g_icon, g_state, g_color_mode, g_mode)
-				else
-					screenmob.hud_used?.create_parallax(screenmob)
-					screenmob.hud_used?.create_custom_parallax(screenmob, g_icon, g_state, g_color_mode, g_mode)
+			if(screenmob.hud_used)
+				screenmob.hud_used.create_custom_parallax(screenmob, g_icon, g_state, g_color_mode, g_mode)
+			else
+				screenmob.hud_used?.create_parallax(screenmob)
+				screenmob.hud_used?.create_custom_parallax(screenmob, g_icon, g_state, g_color_mode, g_mode)
 		else
 			regenerate_parallax_overlays(screenmob)
 		return TRUE

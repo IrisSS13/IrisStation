@@ -6,8 +6,8 @@
 		return FALSE
 	var/list/PARALLAX_DEFAULT_LAYER_ICONS = new
 	if(islist(GLOB.parallax_manager.roundstart_parallax_defaults) && length(GLOB.parallax_manager.roundstart_parallax_defaults))
-		for(var/ri = 1; ri <= length(GLOB.parallax_manager.roundstart_parallax_defaults); ri++)
-			var/entry = GLOB.parallax_manager.roundstart_parallax_defaults[ri]
+		for(var/i = 1; i <= length(GLOB.parallax_manager.roundstart_parallax_defaults); i++)
+			var/entry = GLOB.parallax_manager.roundstart_parallax_defaults[i]
 			if(islist(entry) && length(entry) >= 3)
 				var/iconp = entry[2] || ""
 				var/iconst = entry[3] || ""
