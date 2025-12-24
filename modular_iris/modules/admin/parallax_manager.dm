@@ -263,14 +263,12 @@ GLOBAL_DATUM(parallax_manager, /datum/parallax_manager)
 		for(var/mi = 1; mi <= length(roundstart_parallax_mob_overrides); mi++)
 			var/override_entry = roundstart_parallax_mob_overrides[mi]
 			if(override_entry[1] == matching_key)
-				var/icon_applied = FALSE
 				var/persist_icon = length(override_entry) >= 4 ? override_entry[4] : null
 				var/persist_state = length(override_entry) >= 5 ? override_entry[5] : null
 				var/persist_color_mode = length(override_entry) >= 6 ? override_entry[6] : null
 				var/persist_mode = length(override_entry) >= 7 ? override_entry[7] : null
 				if(persist_icon || persist_state)
 					screenmob.hud_used.create_custom_parallax(screenmob, persist_icon, persist_state, persist_color_mode, persist_mode)
-					icon_applied = TRUE
 					if(persist_mode == "layer_1" || (persist_mode == null && persist_icon))
 						for(var/i = length(C.parallax_layers); i >= 1; i--)
 							var/atom/movable/screen/parallax_layer/layer = C.parallax_layers[i]
