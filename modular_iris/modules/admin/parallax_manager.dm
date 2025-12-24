@@ -16,9 +16,12 @@ GLOBAL_DATUM(parallax_manager, /datum/parallax_manager)
 	. = ..()
 	// reapply overrides when players finish Login()
 	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_LOGGED_IN, PROC_REF(on_mob_login))
+	// also reapply when new mobs are created (covers respawns/mob replacements)
+	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_CREATED, PROC_REF(on_mob_login))
 
 /datum/parallax_manager/Destroy(force)
 	UnregisterSignal(SSdcs, COMSIG_GLOB_MOB_LOGGED_IN)
+	UnregisterSignal(SSdcs, COMSIG_GLOB_MOB_CREATED)
 	. = ..(force)
 
 /datum/parallax_manager/proc/get_parallax_type_icon_state(var/typ)
