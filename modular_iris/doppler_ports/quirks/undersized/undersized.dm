@@ -178,6 +178,8 @@
 	return TRUE
 
 /datum/component/emshranked
+	var/old_name
+	var/old_transform
 	// This component is used to mark items that have been shrinked by the Oversized quirk's spell.
 	// It's used to prevent the spell from shrunked the same item multiple times.
 
@@ -185,8 +187,8 @@
 	if(!isatom(parent))
 		return COMPONENT_INCOMPATIBLE
 	var/atom/parent_atom = parent
-	var/static/old_name = parent_atom.name
-	var/static/old_transform = parent_atom.transform
+	old_name = parent_atom.name
+	old_transform = parent_atom.transform
 	parent_atom.transform = parent_atom.transform.Scale(0.8, 0.8)
 	if(istype(parent_atom, /atom/movable))
 		parent_atom.name = "tiny [parent_atom.name]"
