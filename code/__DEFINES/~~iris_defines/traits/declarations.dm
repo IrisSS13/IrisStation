@@ -45,6 +45,9 @@
 /// Gives us medium night vision, same as thermal but without seeing through walls
 #define TRAIT_MEDIUM_NIGHT_VISION "medium_night_vision"
 
+//// The trait for undersized quirk
+#define TRAIT_UNDERSIZED "undersized"
+
 //Trait sources
 
 //Special trait source for illiteracy granted by farsightedness, part of https://github.com/lizardqueenlexi/orbstation/pull/254
