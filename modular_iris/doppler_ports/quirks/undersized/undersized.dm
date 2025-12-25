@@ -185,8 +185,8 @@
 	if(!isatom(parent))
 		return COMPONENT_INCOMPATIBLE
 	var/atom/parent_atom = parent
-	var/old_name = parent_atom.name
-	var/old_transform = parent_atom.transform
+	var/static/old_name = parent_atom.name
+	var/static/old_transform = parent_atom.transform
 	parent_atom.transform = parent_atom.transform.Scale(0.8, 0.8)
 	if(istype(parent_atom, /atom/movable))
 		parent_atom.name = "tiny [parent_atom.name]"
