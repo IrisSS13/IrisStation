@@ -25,7 +25,7 @@ ADMIN_VERB(apply_parallax, R_FUN, "Parallax", "Apply a parallax overlay to playe
 				default_icon_state = default_entry[3] || ""
 	var/quick_choice = tgui_input_list(holder, "Quick Action", "Quick Action", list("Continue", "Clear Global Override"))
 	if(quick_choice == "Clear Global Override")
-		GLOB.parallax_manager.clear_parallax_global_override(TRUE)
+		GLOB.parallax_manager.clear_parallax_global_override()
 		message_admins("[key_name_admin(usr)] cleared the global parallax override.")
 		log_admin("[key_name(usr)] cleared the global parallax override.")
 		return
@@ -125,36 +125,39 @@ ADMIN_VERB(apply_parallax, R_FUN, "Parallax", "Apply a parallax overlay to playe
 	if(!future_choice)
 		return
 
-	var/apply_now_glob = FALSE
+	var/confirmed_global = FALSE
 	if(future_choice == "Yes - Make Global")
-		var/apply_now_choice = tgui_input_list(holder, "Also apply now to current players?", "Apply Now", list("No", "Yes - apply now"))
-		if(!apply_now_choice)
-			return
-		apply_now_glob = (apply_now_choice == "Yes - apply now")
+		var/confirm_global = tgui_alert(holder, "Setting a global parallax override will affect future joiners and will be applied immediately to current players.\n\nDo you want to set this as the global override?", "Confirm Global Override", list("Set Global Override", "Cancel"))
+		if(!confirm_global || confirm_global == "Cancel")
+			to_chat(holder, span_warning("Global parallax override cancelled."), confidential = TRUE)
+			future_choice = "No"
+		else
+			GLOB.parallax_manager.set_parallax_global_override(icon_path, icon_state, null, null, color_mode, mode_param)
+			message_admins("[key_name_admin(usr)] set a global parallax override.")
+			log_admin("[key_name(usr)] set global parallax override: [icon_path], [icon_state], colour_mode=[color_mode]")
+			confirmed_global = TRUE
 
 	if(choice == "All Connected Users")
-		for(var/i = 1; i <= GLOB.player_list.len; i++)
-			var/mob/player = GLOB.player_list[i]
-			if(!player || QDELETED(player))
-				continue
-			if(!istype(player, /mob))
-				continue
-			if(!player.client || !player.hud_used)
-				continue
-			player.hud_used.create_custom_parallax(player, icon_path, icon_state, color_mode, mode_param)
-			player.hud_used.update_parallax(player)
-		if(future_choice == "Yes - Make Global")
-			var/confirm_all = tgui_alert(holder, "Setting a global parallax override will affect future joiners and may affect current players if 'Apply now' is selected.\n\nDo you want to set this as the global override?", "Confirm Global Override", list("Set Global Override", "Cancel"))
-			if(!confirm_all || confirm_all == "Cancel")
-				to_chat(holder, span_warning("Global parallax override cancelled."), confidential = TRUE)
-			else
-				GLOB.parallax_manager.set_parallax_global_override(icon_path, icon_state, null, null, color_mode, mode_param, apply_now_glob)
-				message_admins("[key_name_admin(usr)] set a global parallax override.")
-				log_admin("[key_name(usr)] set global parallax override: [icon_path], [icon_state], colour_mode=[color_mode]")
+		if(!confirmed_global)
+			for(var/i = 1; i <= GLOB.player_list.len; i++)
+				var/mob/player = GLOB.player_list[i]
+				if(!player || QDELETED(player))
+					continue
+				if(!istype(player, /mob))
+					continue
+				if(!player.client || !player.hud_used)
+					continue
+				player.hud_used.create_custom_parallax(player, icon_path, icon_state, color_mode, mode_param)
+				player.hud_used.update_parallax(player)
 
-		SSblackbox.record_feedback("nested tally", "admin_parallax_used", 1, list("Parallax All", icon_path, icon_state, color_mode))
-		message_admins("[key_name_admin(usr)] applied parallax to all connected users.")
-		log_admin("[key_name(usr)] applied parallax to all connected users. icon: [icon_path], state: [icon_state], colour_mode: [color_mode]")
+		if(confirmed_global)
+			SSblackbox.record_feedback("nested tally", "admin_parallax_used", 1, list("Parallax All (via global)", icon_path, icon_state, color_mode))
+		else
+			SSblackbox.record_feedback("nested tally", "admin_parallax_used", 1, list("Parallax All", icon_path, icon_state, color_mode))
+
+		if(!confirmed_global)
+			message_admins("[key_name_admin(usr)] applied parallax to all connected users.")
+			log_admin("[key_name(usr)] applied parallax to all connected users. icon: [icon_path], state: [icon_state], colour_mode: [color_mode]")
 		return
 
 	if(choice == "Single Mob")
@@ -177,17 +180,12 @@ ADMIN_VERB(apply_parallax, R_FUN, "Parallax", "Apply a parallax overlay to playe
 			to_chat(holder, span_warning("Target has no HUD or client."), confidential = TRUE)
 			return
 
-		target_mob.hud_used.create_custom_parallax(target_mob, icon_path, icon_state, color_mode, mode_param)
-		target_mob.hud_used.update_parallax(target_mob)
-		if(future_choice == "Yes - Make Global")
-			var/confirm = tgui_alert(holder, "Setting a global parallax override will affect future joiners and may affect current players if 'Apply now' is selected.\n\nDo you want to set this as the global override?", "Confirm Global Override", list("Set Global Override", "Cancel"))
-			if(!confirm || confirm == "Cancel")
-				to_chat(holder, span_warning("Global parallax override cancelled."), confidential = TRUE)
-			else
-				GLOB.parallax_manager.set_parallax_global_override(icon_path, icon_state, null, null, color_mode, mode_param, apply_now_glob)
-				message_admins("[key_name_admin(usr)] set a global parallax override.")
-				log_admin("[key_name(usr)] set global parallax override: [icon_path], [icon_state], colour_mode=[color_mode]")
-		SSblackbox.record_feedback("nested tally", "admin_parallax_used", 1, list("Parallax Single", key_name(target_mob), icon_path, icon_state, color_mode))
-		message_admins("[key_name_admin(usr)] applied parallax to [key_name(target_mob)].")
-		log_admin("[key_name(usr)] applied parallax to [key_name(target_mob)]. icon: [icon_path], state: [icon_state], colour_mode: [color_mode]")
+		if(!confirmed_global)
+			target_mob.hud_used.create_custom_parallax(target_mob, icon_path, icon_state, color_mode, mode_param)
+			target_mob.hud_used.update_parallax(target_mob)
+			SSblackbox.record_feedback("nested tally", "admin_parallax_used", 1, list("Parallax Single", key_name(target_mob), icon_path, icon_state, color_mode))
+			message_admins("[key_name_admin(usr)] applied parallax to [key_name(target_mob)].")
+			log_admin("[key_name(usr)] applied parallax to [key_name(target_mob)]. icon: [icon_path], state: [icon_state], colour_mode: [color_mode]")
+		else
+			SSblackbox.record_feedback("nested tally", "admin_parallax_used", 1, list("Parallax Single (via global)", key_name(target_mob), icon_path, icon_state, color_mode))
 		return

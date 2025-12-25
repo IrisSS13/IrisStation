@@ -15,8 +15,11 @@
 				PARALLAX_DEFAULT_LAYER_ICONS += list(list(iconp, iconst, col))
 	else
 		PARALLAX_DEFAULT_LAYER_ICONS = list()
-	var/old_base = initial(GLOB.base_starlight_color)
+	// capture the current base starlight so we can restore it later
+	var/old_base = GLOB.base_starlight_color
 
+	// clear cached templates so rebuilding won't reuse defaults that can overwrite customizations
+	C.parallax_layers_cached = null
 	// need this to get the overlays
 	src.remove_parallax(screenmob)
 	src.create_parallax(screenmob, icon_path, icon_state, mode)
@@ -67,14 +70,14 @@
 				found = mi
 				break
 		if(found)
-			GLOB.parallax_manager.roundstart_parallax_mob_overrides[found][4] = icon_path
-			GLOB.parallax_manager.roundstart_parallax_mob_overrides[found][5] = icon_state
-			GLOB.parallax_manager.roundstart_parallax_mob_overrides[found][6] = color_mode
-			GLOB.parallax_manager.roundstart_parallax_mob_overrides[found][7] = mode
+			GLOB.parallax_manager.roundstart_parallax_mob_overrides[found][2] = icon_path
+			GLOB.parallax_manager.roundstart_parallax_mob_overrides[found][3] = icon_state
+			GLOB.parallax_manager.roundstart_parallax_mob_overrides[found][4] = color_mode
+			GLOB.parallax_manager.roundstart_parallax_mob_overrides[found][5] = mode
 		else
-			GLOB.parallax_manager.roundstart_parallax_mob_overrides += list(list(ckey, null, null, icon_path, icon_state, color_mode, mode))
+			GLOB.parallax_manager.roundstart_parallax_mob_overrides += list(list(ckey, icon_path, icon_state, color_mode, mode))
 	else
-		GLOB.parallax_manager.roundstart_parallax_mob_overrides = list(list(ckey, null, null, icon_path, icon_state, color_mode, mode))
+		GLOB.parallax_manager.roundstart_parallax_mob_overrides = list(list(ckey, icon_path, icon_state, color_mode, mode))
 
 	var/plane_masters = screenmob.hud_used.get_true_plane_masters(PLANE_SPACE)
 	for(var/pi = 1; pi <= length(plane_masters); pi++)
@@ -118,7 +121,6 @@
 					if(i <= length(PARALLAX_DEFAULT_LAYER_ICONS))
 						default = PARALLAX_DEFAULT_LAYER_ICONS[i]
 					if(default)
-						// support either [icon, state] or [[icon, state]] forms
 						var/list/pair = null
 						if(islist(default) && length(default) && islist(default[1]))
 							pair = default[1]

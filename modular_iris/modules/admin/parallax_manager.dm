@@ -3,26 +3,61 @@
 GLOBAL_DATUM(parallax_manager, /datum/parallax_manager)
 
 /datum/parallax_manager
-	var/list/roundstart_parallax_defaults = null
-	var/roundstart_parallax_base = null
+	var/list/roundstart_parallax_defaults = null // saved per-layer defaults (type, icon, state, optional colour/offsets)
+	var/roundstart_parallax_base = null // captured base starlight colour at roundstart
 	var/list/roundstart_plane_master_color = null
 	var/roundstart_skybox_starlight = null
 	var/roundstart_parallax_planet_x_offset = null
 	var/roundstart_parallax_planet_y_offset = null
-	var/list/roundstart_parallax_mob_overrides = list()
-	var/roundstart_parallax_global_override = null
+	var/list/roundstart_parallax_mob_overrides = list() // per-mob persisted overrides: [ckey, icon, state, color_mode, mode]
+	var/roundstart_parallax_global_override = null // global override tuple: [icon, state, planet_x, planet_y, color_mode, mode]
+	var/list/applied_parallax_hud_locks = list()
 
 /datum/parallax_manager/New()
 	. = ..()
-	// reapply overrides when players finish Login()
 	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_LOGGED_IN, PROC_REF(on_mob_login))
-	// also reapply when new mobs are created (covers respawns/mob replacements)
 	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_CREATED, PROC_REF(on_mob_login))
+
 
 /datum/parallax_manager/Destroy(force)
 	UnregisterSignal(SSdcs, COMSIG_GLOB_MOB_LOGGED_IN)
 	UnregisterSignal(SSdcs, COMSIG_GLOB_MOB_CREATED)
 	. = ..(force)
+
+/datum/parallax_manager/proc/lock_parallax_hud(mob/screenmob)
+	if(!screenmob)
+		return FALSE
+	if(!istype(applied_parallax_hud_locks, /list))
+		applied_parallax_hud_locks = list()
+	// avoid duplicates
+	for(var/i = 1; i <= length(applied_parallax_hud_locks); i++)
+		if(applied_parallax_hud_locks[i] == screenmob)
+			return TRUE
+	applied_parallax_hud_locks += screenmob
+	return TRUE
+
+
+/datum/parallax_manager/proc/unlock_parallax_hud(mob/screenmob)
+	if(!screenmob)
+		return FALSE
+	if(!istype(applied_parallax_hud_locks, /list))
+		return FALSE
+	for(var/i = length(applied_parallax_hud_locks); i >= 1; i--)
+		if(applied_parallax_hud_locks[i] == screenmob)
+			applied_parallax_hud_locks.Cut(i)
+			return TRUE
+	return FALSE
+
+
+/datum/parallax_manager/proc/is_parallax_hud_locked(mob/screenmob)
+	if(!screenmob)
+		return FALSE
+	if(!istype(applied_parallax_hud_locks, /list))
+		return FALSE
+	for(var/i = 1; i <= length(applied_parallax_hud_locks); i++)
+		if(applied_parallax_hud_locks[i] == screenmob)
+			return TRUE
+	return FALSE
 
 /datum/parallax_manager/proc/get_parallax_type_icon_state(var/typ)
 	if(!typ)
@@ -34,6 +69,86 @@ GLOBAL_DATUM(parallax_manager, /datum/parallax_manager)
 	var/iconst = typ_instance.icon_state || ""
 	qdel(typ_instance)
 	return list(iconpath, iconst)
+
+
+/datum/parallax_manager/proc/find_mob_override_index(var/ckey)
+	if(!istype(roundstart_parallax_mob_overrides, /list))
+		return 0
+	for(var/i = 1; i <= length(roundstart_parallax_mob_overrides); i++)
+		if(roundstart_parallax_mob_overrides[i][1] == ckey)
+			return i
+	return 0
+
+
+/datum/parallax_manager/proc/get_mob_override_entry(var/ckey)
+	var/index = find_mob_override_index(ckey)
+	if(index)
+		return roundstart_parallax_mob_overrides[index]
+	return null
+
+
+/datum/parallax_manager/proc/apply_icon_to_layers(client/C, icon_path, icon_state, mode)
+	if(!C || !length(C.parallax_layers))
+		return FALSE
+	var/view = C.view || world.view
+	if(mode == "layer_1")
+		for(var/i = 1; i <= length(C.parallax_layers); i++)
+			var/atom/movable/screen/parallax_layer/layer = C.parallax_layers[i]
+			if(!layer)
+				continue
+			if(istype(layer, /atom/movable/screen/parallax_layer/layer_1))
+				layer.icon = icon(icon_path, icon_state)
+				layer.icon_state = icon_state
+				layer.update_o(view)
+				break
+		return TRUE
+	for(var/i = 1; i <= length(C.parallax_layers); i++)
+		var/atom/movable/screen/parallax_layer/layer = C.parallax_layers[i]
+		if(!layer)
+			continue
+		layer.icon = icon(icon_path, icon_state)
+		layer.icon_state = icon_state
+		layer.update_o(view)
+	return TRUE
+
+
+/datum/parallax_manager/proc/apply_color_mode(client/C, color_mode, mob/screenmob)
+	if(!C)
+		return FALSE
+	if(color_mode == "remove")
+		for(var/i = 1; i <= length(C.parallax_layers); i++)
+			var/atom/movable/screen/parallax_layer/layer = C.parallax_layers[i]
+			if(layer)
+				layer.remove_atom_colour(ADMIN_COLOUR_PRIORITY)
+		if(roundstart_parallax_base)
+			set_base_starlight(roundstart_parallax_base)
+		else if(roundstart_skybox_starlight)
+			set_base_starlight(roundstart_skybox_starlight)
+		regenerate_parallax_overlays(screenmob)
+		return TRUE
+
+	// default: restore roundstart base if present
+	if(color_mode == null || color_mode == "default")
+		if(roundstart_parallax_base)
+			set_base_starlight(roundstart_parallax_base)
+		else if(roundstart_skybox_starlight)
+			set_base_starlight(roundstart_skybox_starlight)
+
+	if(color_mode && color_mode != "default" && color_mode != "remove")
+		var/parsed_color = color_mode
+		var/atom/movable/screen/parallax_layer/target_layer = null
+		for(var/i = 1; i <= length(C.parallax_layers); i++)
+			var/atom/movable/screen/parallax_layer/layer = C.parallax_layers[i]
+			if(istype(layer, /atom/movable/screen/parallax_layer/layer_1))
+				target_layer = layer
+				break
+		if(!target_layer)
+			target_layer = C.parallax_layers[1]
+		if(target_layer)
+			target_layer.add_atom_colour(parsed_color, ADMIN_COLOUR_PRIORITY)
+		regenerate_parallax_overlays(screenmob)
+		return TRUE
+
 
 /datum/parallax_manager/proc/save_roundstart_parallax_defaults()
 	var/list/defaults = list()
@@ -130,8 +245,10 @@ GLOBAL_DATUM(parallax_manager, /datum/parallax_manager)
 		if(cl?.mob?.hud_used)
 			var/list/pms = cl.mob.hud_used.get_true_plane_masters(PLANE_SPACE)
 			if(length(pms))
-				roundstart_plane_master_color = pms[1].color
-				break
+				var/atom/movable/screen/plane_master/pm = pms[1]
+				if(pm)
+					roundstart_plane_master_color = pm.color
+					break
 
 	if(istype(SSparallax, /datum/controller/subsystem/parallax))
 		roundstart_parallax_planet_x_offset = SSparallax.planet_x_offset
@@ -148,6 +265,8 @@ GLOBAL_DATUM(parallax_manager, /datum/parallax_manager)
 	var/client/C = screenmob.client
 	if(!C)
 		return FALSE
+	// clear any previous override lock when restoring defaults
+	unlock_parallax_hud(screenmob)
 
 	// recreate parallax layers so we have the full set to restore
 	if(screenmob.hud_used)
@@ -161,7 +280,6 @@ GLOBAL_DATUM(parallax_manager, /datum/parallax_manager)
 	else
 		defaults = list()
 
-
 	var/view = screenmob.client.view || world.view
 
 	// ensure overrides survive client restarts
@@ -173,10 +291,9 @@ GLOBAL_DATUM(parallax_manager, /datum/parallax_manager)
 		if(roundstart_parallax_mob_overrides[mi][1] == ckey)
 			found = mi
 			break
+	// nuke existing override so we can reapply if needed
 	if(found)
-		roundstart_parallax_mob_overrides[found] = list(ckey, null, null)
-	else
-		roundstart_parallax_mob_overrides += list(list(ckey, null, null))
+		roundstart_parallax_mob_overrides.Cut(found)
 
 	for(var/i = 1; i <= length(C.parallax_layers); i++)
 		var/atom/movable/screen/parallax_layer/layer = C.parallax_layers[i]
@@ -266,10 +383,10 @@ GLOBAL_DATUM(parallax_manager, /datum/parallax_manager)
 		for(var/mi = 1; mi <= length(roundstart_parallax_mob_overrides); mi++)
 			var/override_entry = roundstart_parallax_mob_overrides[mi]
 			if(override_entry[1] == matching_key)
-				var/persist_icon = length(override_entry) >= 4 ? override_entry[4] : null
-				var/persist_state = length(override_entry) >= 5 ? override_entry[5] : null
-				var/persist_color_mode = length(override_entry) >= 6 ? override_entry[6] : null
-				var/persist_mode = length(override_entry) >= 7 ? override_entry[7] : null
+				var/persist_icon = length(override_entry) >= 2 ? override_entry[2] : null
+				var/persist_state = length(override_entry) >= 3 ? override_entry[3] : null
+				var/persist_color_mode = length(override_entry) >= 4 ? override_entry[4] : null
+				var/persist_mode = length(override_entry) >= 5 ? override_entry[5] : null
 				if(persist_icon || persist_state)
 					screenmob.hud_used.create_custom_parallax(screenmob, persist_icon, persist_state, persist_color_mode, persist_mode)
 					if(persist_mode == "layer_1" || (persist_mode == null && persist_icon))
@@ -308,26 +425,67 @@ GLOBAL_DATUM(parallax_manager, /datum/parallax_manager)
 	return applied
 
 
-/datum/parallax_manager/proc/set_parallax_global_override(icon_path = null, icon_state = null, planet_x = null, planet_y = null, color_mode = null, mode = null, apply_now = FALSE)
+/datum/parallax_manager/proc/apply_overrides_to_new_hud(mob/screenmob)
+	if(!screenmob)
+		return FALSE
+	var/client/C = screenmob.client
+	if(!C)
+		return FALSE
+	var/matching_key = C.ckey || key_name(screenmob)
+	var/entry = null
+	// check per-mob overrides first
+	if(istype(roundstart_parallax_mob_overrides, /list))
+		for(var/mi = 1; mi <= length(roundstart_parallax_mob_overrides); mi++)
+			if(roundstart_parallax_mob_overrides[mi][1] == matching_key)
+				entry = roundstart_parallax_mob_overrides[mi]
+				break
+	// fallback to global
+	if(!entry && roundstart_parallax_global_override)
+		entry = roundstart_parallax_global_override
+	if(!entry)
+		return FALSE
+	// entry may be either a per-mob override ([ckey, icon, state, color_mode, mode])
+	// or a global override ([icon, state, planet_x, planet_y, color_mode, mode]).
+	var/icon_path = null
+	var/icon_state = null
+	var/color_mode = null
+	var/mode = null
+	if(entry[1] == matching_key)
+		icon_path = length(entry) >= 2 ? entry[2] : null
+		icon_state = length(entry) >= 3 ? entry[3] : null
+		color_mode = length(entry) >= 4 ? entry[4] : null
+		mode = length(entry) >= 5 ? entry[5] : null
+	else
+		icon_path = entry[1]
+		icon_state = length(entry) >= 2 ? entry[2] : null
+		color_mode = length(entry) >= 5 ? entry[5] : null
+		mode = length(entry) >= 6 ? entry[6] : null
+	if(!screenmob.hud_used)
+		screenmob.create_mob_hud()
+	if(!length(C.parallax_layers))
+		screenmob.hud_used.create_parallax(screenmob)
+	// if mode requests layer_1 only, remove other layers
+	if(mode == "layer_1" || (mode == null && icon_path))
+		for(var/i = length(C.parallax_layers); i >= 1; i--)
+			var/atom/movable/screen/parallax_layer/layer = C.parallax_layers[i]
+			if(!layer)
+				continue
+			if(!istype(layer, /atom/movable/screen/parallax_layer/layer_1))
+				C.parallax_layers.Cut(i)
+				if(C.parallax_rock)
+					C.parallax_rock.vis_contents -= layer
+				qdel(layer)
+		// clear cached templates so create_parallax will rebuild them fresh
+		C.parallax_layers_cached = null
+	if(icon_path)
+		apply_icon_to_layers(C, icon_path, icon_state, mode)
+	apply_color_mode(C, color_mode, screenmob)
+	lock_parallax_hud(screenmob)
+	return TRUE
+
+/datum/parallax_manager/proc/set_parallax_global_override(icon_path = null, icon_state = null, planet_x = null, planet_y = null, color_mode = null, mode = null)
 	roundstart_parallax_global_override = list(icon_path, icon_state, planet_x, planet_y, color_mode, mode)
 	log_admin("Global parallax override set: [icon_path], state=[icon_state], px=[planet_x], py=[planet_y], color=[color_mode], mode=[mode]")
-	if(apply_now)
-		apply_global_parallax_override_now()
-	return TRUE
-
-
-/datum/parallax_manager/proc/clear_parallax_global_override(apply_now = FALSE)
-	roundstart_parallax_global_override = null
-	log_admin("Global parallax override cleared")
-	if(apply_now)
-		for(var/ci = 1; ci <= length(GLOB.clients); ci++)
-			var/client/cl = GLOB.clients[ci]
-			if(cl && cl.mob && cl.mob.hud_used)
-				restore_parallax_defaults(cl.mob)
-	return TRUE
-
-
-/datum/parallax_manager/proc/apply_global_parallax_override_now()
 	if(!roundstart_parallax_global_override)
 		return 0
 	var/count = 0
@@ -342,21 +500,56 @@ GLOBAL_DATUM(parallax_manager, /datum/parallax_manager)
 		if(!cl || !cl.mob)
 			continue
 		var/mob/sm = cl.mob
-
-		if(sm.hud_used)
-			sm.hud_used.create_custom_parallax(sm, g_icon, g_state, g_col, g_mode)
-		else
-			sm.hud_used?.create_parallax(sm)
-			sm.hud_used?.create_custom_parallax(sm, g_icon, g_state, g_col, g_mode)
+		var/client/C = cl
+		if(!sm.hud_used)
+			sm.create_mob_hud()
+		if(g_mode == "layer_1" || (g_mode == null && g_icon))
+			// remove non-layer_1 if requested
+			for(var/i = length(C.parallax_layers); i >= 1; i--)
+				var/atom/movable/screen/parallax_layer/layer = C.parallax_layers[i]
+				if(!layer)
+					continue
+				if(!istype(layer, /atom/movable/screen/parallax_layer/layer_1))
+					C.parallax_layers.Cut(i)
+					if(C.parallax_rock)
+						C.parallax_rock.vis_contents -= layer
+					qdel(layer)
+				C.parallax_layers_cached = null
+		// apply icon and color
+		if(g_icon)
+			apply_icon_to_layers(C, g_icon, g_state, g_mode)
+		apply_color_mode(C, g_col, sm)
 		count++
 	SSblackbox.record_feedback("tally", "parallax_global_applied", count, list("icon" = g_icon, "state" = g_state, "mode" = g_mode, "color" = g_col))
 	log_admin("Applied global parallax override to [count] clients")
-	return count
+	return TRUE
+
+
+
+/datum/parallax_manager/proc/clear_parallax_global_override()
+	roundstart_parallax_global_override = null
+	log_admin("Global parallax override cleared")
+	for(var/ci = 1; ci <= length(GLOB.clients); ci++)
+		var/client/cl = GLOB.clients[ci]
+		if(cl && cl.mob && cl.mob.hud_used)
+			restore_parallax_defaults(cl.mob)
+	return TRUE
 
 /datum/parallax_manager/proc/on_mob_login(datum/source, mob/new_login)
 	SIGNAL_HANDLER
 	if(!new_login)
 		return
 	if(new_login.client)
-		if(GLOB.parallax_manager)
-			GLOB.parallax_manager.reapply_parallax_overrides(new_login)
+		if(new_login.hud_used)
+			GLOB.parallax_manager?.reapply_parallax_overrides(new_login)
+		else
+			RegisterSignal(new_login, COMSIG_MOB_HUD_CREATED, PROC_REF(on_mob_hud_created))
+	return
+
+/datum/parallax_manager/proc/on_mob_hud_created(datum/source, mob/screenmob)
+	SIGNAL_HANDLER
+	if(!screenmob)
+		return
+	if(GLOB.parallax_manager)
+		reapply_parallax_overrides(screenmob)
+	UnregisterSignal(screenmob, COMSIG_MOB_HUD_CREATED)
