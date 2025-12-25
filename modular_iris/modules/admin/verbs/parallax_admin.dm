@@ -63,7 +63,7 @@ ADMIN_VERB(apply_parallax, R_FUN, "Parallax", "Apply a parallax overlay to playe
 				for(var/mob/candidate_mob as anything in GLOB.player_list)
 					if(key_name(candidate_mob) == selected || candidate_mob.real_name == selected)
 						target_mob = candidate_mob
-							break
+						break
 
 			if(!target_mob || !target_mob.hud_used)
 				to_chat(holder, span_warning("Target has no HUD or client."), confidential = TRUE)
