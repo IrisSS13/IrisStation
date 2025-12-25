@@ -251,7 +251,7 @@
 			// IRIS EDIT START
 			// ENTIRE BLOCK USED TO BE
 			//if(receivers[echolocate_receiver][rendered_atom]["time"] <= from_when && echolocate_receiver.client)
-            //	echolocate_receiver.client.images -= receivers[echolocate_receiver][rendered_atom]["image"]
+			//echolocate_receiver.client.images -= receivers[echolocate_receiver][rendered_atom]["image"]
 			var/entry = receivers[echolocate_receiver][rendered_atom]
 			var/remove_image = FALSE
 			// remove by expiry time
