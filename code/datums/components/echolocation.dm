@@ -170,8 +170,11 @@
 	for(var/mob/living/echolocate_receiver as anything in receivers)
 		if(!show_own_outline && echolocate_receiver == input)
 			continue
-		if(receivers[echolocate_receiver][input])
 		// IRIS EDIT START
+		// allow stash restore to short-circuit creating a new image
+		if(try_restore_from_stash(echolocate_receiver, input))
+			continue
+		if(receivers[echolocate_receiver][input])
 			var/previous_image = receivers[echolocate_receiver][input]["image"]
 			// short circuit if image expiry time is longer than ping cooldown time
 			if(image_expiry_time > cooldown_time)
@@ -245,8 +248,26 @@
 /datum/component/echolocation/proc/delete_images(from_when)
 	for(var/mob/living/echolocate_receiver as anything in receivers)
 		for(var/atom/rendered_atom as anything in receivers[echolocate_receiver])
-			if(receivers[echolocate_receiver][rendered_atom]["time"] <= from_when && echolocate_receiver.client)
-				echolocate_receiver.client.images -= receivers[echolocate_receiver][rendered_atom]["image"]
+			// IRIS EDIT START
+			// ENTIRE BLOCK USED TO BE
+			//if(receivers[echolocate_receiver][rendered_atom]["time"] <= from_when && echolocate_receiver.client)
+            //	echolocate_receiver.client.images -= receivers[echolocate_receiver][rendered_atom]["image"]
+			var/entry = receivers[echolocate_receiver][rendered_atom]
+			var/remove_image = FALSE
+			// remove by expiry time
+			if(entry["time"] <= from_when)
+				remove_image = TRUE
+			else
+				// if the receiver moved to a different z-level, attempt to stash
+				if(rendered_atom && echolocate_receiver && (rendered_atom.z != echolocate_receiver.z))
+					if(try_stash_entry(echolocate_receiver, rendered_atom, entry, from_when))
+						// stashed; ensure we remove from active receivers mapping
+						receivers[echolocate_receiver] -= rendered_atom
+					else
+						remove_image = TRUE
+			if(remove_image && echolocate_receiver.client)
+				echolocate_receiver.client.images -= entry["image"]
+			// IRIS EDIT END
 				receivers[echolocate_receiver] -= rendered_atom
 		if(!length(receivers[echolocate_receiver]))
 			receivers -= echolocate_receiver
@@ -255,6 +276,8 @@
 	// timestamp can schedule their own fade if needed.
 	if(scheduled_fades[from_when])
 		scheduled_fades -= from_when
+	// allow modular extensions to clean up any stashed images for this timestamp
+	cleanup_stash(from_when)
 	// IRIS EDIT END
 
 /atom/movable/screen/fullscreen/echo
