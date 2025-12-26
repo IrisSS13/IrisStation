@@ -1,5 +1,5 @@
 /datum/surgery/advanced/lobotomy
-	name = "Lobotomy"
+	name = "Invasive Neurological Tissue Repair"
 	desc = "An invasive surgical procedure which guarantees removal of almost all brain traumas, but might cause another permanent trauma in return."
 	surgery_flags = SURGERY_MORBID_CURIOSITY
 	possible_locs = list(BODY_ZONE_HEAD)
@@ -35,7 +35,7 @@
 	return TRUE
 
 /datum/surgery_step/lobotomize
-	name = "perform lobotomy (scalpel)"
+	name = "perform invasive neurological tissue repair (scalpel)"
 	implements = list(
 		TOOL_SCALPEL = 85,
 		/obj/item/melee/energy/sword = 55,
@@ -70,8 +70,8 @@
 	display_results(
 		user,
 		target,
-		span_notice("You begin to perform a lobotomy on [target]'s brain..."),
-		span_notice("[user] begins to perform a lobotomy on [target]'s brain."),
+		span_notice("You begin to perform the invasive repair on [target]'s brain..."),
+		span_notice("[user] begins to perform the invasive repair on [target]'s brain."),
 		span_notice("[user] begins to perform surgery on [target]'s brain."),
 	)
 	display_pain(target, "Your head pounds with unimaginable pain!")
@@ -80,8 +80,8 @@
 	display_results(
 		user,
 		target,
-		span_notice("You succeed in lobotomizing [target]."),
-		span_notice("[user] successfully lobotomizes [target]!"),
+		span_notice("You succeed in invasively repairing [target]'s brain."),
+		span_notice("[user] invasively repairs [target]'s brain!"),
 		span_notice("[user] completes the surgery on [target]'s brain."),
 	)
 	display_pain(target, "Your head goes totally numb for a moment, the pain is overwhelming!")
@@ -109,7 +109,7 @@
 			user,
 			target,
 			span_warning("You remove the wrong part, causing more damage!"),
-			span_notice("[user] successfully lobotomizes [target]!"),
+			span_notice("[user] invasively repairs [target]!"),
 			span_notice("[user] completes the surgery on [target]'s brain."),
 		)
 		display_pain(target, "The pain in your head only seems to get worse!")
