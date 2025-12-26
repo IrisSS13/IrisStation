@@ -3,6 +3,30 @@
 	category_ui_icon = FA_ICON_USER_SECRET
 	type_to_generate = /datum/loadout_item/suit
 	tab_order = /datum/loadout_category/head::tab_order + 3
+	// IRIS EDIT ADDITION START: Allows you to grab a second suit from loadout
+	VAR_PRIVATE/max_allowed = 2
+
+/datum/loadout_category/suits/New()
+	. = ..()
+	category_info = "([max_allowed] allowed)"
+
+/datum/loadout_category/suits/handle_duplicate_entires(
+	datum/preference_middleware/loadout/manager,
+	datum/loadout_item/conflicting_item,
+	datum/loadout_item/added_item,
+	list/datum/loadout_item/all_loadout_items,
+)
+	var/list/datum/loadout_item/suit/other_suits = list()
+	for(var/datum/loadout_item/suit/other_suit in all_loadout_items)
+		other_suits += other_suit
+
+	if(length(other_suits) >= max_allowed)
+		// We only need to deselect something if we're above the limit
+		// (And if we are we prioritize the first item found, FIFO)
+		manager.deselect_item(other_suits[1])
+	return TRUE
+
+	//IRIS EDIT ADDITION END
 
 /datum/loadout_item/suit
 	abstract_type = /datum/loadout_item/suit
