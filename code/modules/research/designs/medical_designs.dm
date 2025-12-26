@@ -1187,7 +1187,7 @@
 	research_icon_state = "surgery_any"
 	var/surgery
 
-/datum/design/surgery/lobotomy
+/datum/design/surgery/lobotomy //IRIS EDIT - renames lobotomy to Invasive Neurological Tissue Repair
 	name = "Invasive Neurological Tissue Repair"
 	desc = "An invasive surgical procedure which guarantees removal of almost all brain traumas, but might cause another permanent trauma in return."
 	id = "surgery_lobotomy"

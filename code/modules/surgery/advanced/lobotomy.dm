@@ -1,4 +1,4 @@
-/datum/surgery/advanced/lobotomy
+/datum/surgery/advanced/lobotomy //IRIS EDIT - renames lobotomy to Invasive Neurological Tissue Repair
 	name = "Invasive Neurological Tissue Repair"
 	desc = "An invasive surgical procedure which guarantees removal of almost all brain traumas, but might cause another permanent trauma in return."
 	surgery_flags = SURGERY_MORBID_CURIOSITY
@@ -34,7 +34,7 @@
 		return FALSE
 	return TRUE
 
-/datum/surgery_step/lobotomize
+/datum/surgery_step/lobotomize //IRIS EDIT - renames lobotomy to Invasive Neurological Tissue Repair
 	name = "perform invasive neurological tissue repair (scalpel)"
 	implements = list(
 		TOOL_SCALPEL = 85,
@@ -66,7 +66,7 @@
 		return FALSE
 	return TRUE
 
-/datum/surgery_step/lobotomize/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
+/datum/surgery_step/lobotomize/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery) //IRIS EDIT - renames lobotomy to Invasive Neurological Tissue Repair
 	display_results(
 		user,
 		target,
@@ -76,7 +76,7 @@
 	)
 	display_pain(target, "Your head pounds with unimaginable pain!")
 
-/datum/surgery_step/lobotomize/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
+/datum/surgery_step/lobotomize/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE) //IRIS EDIT - renames lobotomy to Invasive Neurological Tissue Repair
 	display_results(
 		user,
 		target,
@@ -102,7 +102,7 @@
 				target.gain_trauma_type(BRAIN_TRAUMA_SPECIAL, TRAUMA_RESILIENCE_MAGIC)
 	return ..()
 
-/datum/surgery_step/lobotomize/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
+/datum/surgery_step/lobotomize/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery) //IRIS EDIT - renames lobotomy to Invasive Neurological Tissue Repair
 	var/obj/item/organ/brain/target_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(target_brain)
 		display_results(
