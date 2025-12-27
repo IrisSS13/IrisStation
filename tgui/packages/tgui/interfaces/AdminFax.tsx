@@ -21,11 +21,11 @@ type Data = {
 };
 
 const paperNameOptions = [
-  'Nanotrasen Official Report',
+  'CentCom Official Report',
   'Syndicate Report',
 ] as const;
 
-const fromWhoOptions = ['Nanotrasen', 'Syndicate'] as const;
+const fromWhoOptions = ['Central Command', 'Syndicate'] as const;
 
 export function AdminFax(props) {
   const { act, data } = useBackend<Data>();
@@ -251,7 +251,7 @@ function SourceButtons(props: SourceButtonsProps) {
       <Stack fill>
         <Stack.Item grow>
           <Button fluid icon="n" onClick={() => stateSetter(options[0])}>
-            Nanotrasen
+            Central Command
           </Button>
         </Stack.Item>
         <Stack.Item grow>
