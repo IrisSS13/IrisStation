@@ -17,9 +17,9 @@
 	list/datum/loadout_item/all_loadout_items,
 )
 	var/list/datum/loadout_item/suit/other_suits = list()
-    for(var/datum/loadout_item/other_suit in all_loadout_items)
-        if(istype(other_suit, /datum/loadout_item/suit) && other_suit.category == src)
-            other_suits += other_suit
+	for(var/datum/loadout_item/other_suit in all_loadout_items)
+		if(istype(other_suit, /datum/loadout_item/suit) && other_suit.category == src)
+			other_suits += other_suit
 
 	if(length(other_suits) >= max_allowed)
 		// We only need to deselect something if we're above the limit
