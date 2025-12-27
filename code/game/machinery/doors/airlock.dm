@@ -1336,9 +1336,6 @@
 	if(density && !open(BYPASS_DOOR_CHECKS))
 		to_chat(user, span_warning("Despite your attempts, [src] refuses to open."))
 
-/obj/machinery/door/airlock/try_to_crowbar_secondary(obj/item/acting_object, mob/user)
-	try_to_crowbar(null, user, FALSE)
-
 //IRIS ADDITION START: Fake ID interaction as part of https://github.com/Monkestation/MonkeStation/pull/806
 /obj/machinery/door/airlock/proc/open_with_fake_card(obj/card, mob/user)
 	add_fingerprint(user)
@@ -2483,6 +2480,7 @@
 	aiControlDisabled = AI_WIRE_DISABLED
 	req_access = list(ACCESS_BLOODCULT)
 	damage_deflection = 10
+	custom_materials = list(/datum/material/runedmetal = SHEET_MATERIAL_AMOUNT)
 	var/openingoverlaytype = /obj/effect/temp_visual/cult/door
 	var/friendly = FALSE
 	var/stealthy = FALSE
