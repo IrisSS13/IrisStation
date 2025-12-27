@@ -107,6 +107,7 @@
 	desc = "Looks sharp. Sharp enough to poke someone's eye out. Holy fuck it's big."
 	icon_state = "carptooth"
 	icon_angle = -45
+// IRIS EDIT START - carp tooth is now 75% size
 
 /obj/item/knife/carp/Initialize(mapload)
 	. = ..()
