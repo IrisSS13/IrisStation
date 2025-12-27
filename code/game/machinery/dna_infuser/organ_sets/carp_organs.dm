@@ -107,7 +107,13 @@
 	desc = "Looks sharp. Sharp enough to poke someone's eye out. Holy fuck it's big."
 	icon_state = "carptooth"
 	icon_angle = -45
+// IRIS EDIT START - carp tooth is now 75% size
 
+/obj/item/knife/carp/Initialize(mapload)
+	. = ..()
+	transform = transform.Scale(0.75, 0.75)
+
+// IRIS EDIT END
 ///carp brain. you need to occasionally go to a new zlevel. think of it as... walking your dog!
 /obj/item/organ/brain/carp
 	name = "mutated carp-brain"
