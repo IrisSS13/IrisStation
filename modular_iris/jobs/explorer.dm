@@ -29,7 +29,6 @@
 	title = JOB_EXPLORER
 	description = "Explore deep space. Partake in the Gateway program. \
 		Meet the strangest people. Acquire rare loot."
-	department_head = list(JOB_QUARTERMASTER)
 	faction = FACTION_STATION
 	total_positions = 3
 	spawn_positions = 3

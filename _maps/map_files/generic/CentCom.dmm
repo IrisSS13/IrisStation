@@ -1148,7 +1148,7 @@
 	id = "tdomeflash";
 	name = "Thunderdome Flash"
 	},
-/turf/open/floor/circuit/green,
+/turf/closed/wall,
 /area/centcom/tdome/arena)
 "fc" = (
 /obj/effect/turf_decal/delivery,
@@ -1899,8 +1899,11 @@
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/admin)
 "in" = (
-/obj/structure/sign/nanotrasen,
-/turf/closed/indestructible/riveted,
+/obj/effect/turf_decal/tile/green{
+	dir = 1
+	},
+/obj/structure/sign/nanotrasen/directional/north,
+/turf/open/floor/iron,
 /area/centcom/central_command_areas/control)
 "io" = (
 /turf/closed/indestructible/riveted,
@@ -2114,6 +2117,7 @@
 	},
 /obj/structure/closet/secure_closet/ert_med,
 /obj/effect/turf_decal/stripes/line,
+/obj/structure/sign/warning/vacuum/external/directional/south,
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/armory)
 "jM" = (
@@ -4892,9 +4896,8 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
-	dir = 1
+	dir = 8
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/evacuation/ship)
@@ -5106,6 +5109,15 @@
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/supplypod/loading/two)
 "zO" = (
+/obj/structure/rack,
+/obj/item/clothing/under/color/red,
+/obj/item/clothing/shoes/sneakers/brown,
+/obj/item/clothing/suit/armor/tdome/red,
+/obj/item/clothing/head/helmet/thunderdome,
+/obj/item/melee/baton/security/loaded,
+/obj/item/melee/energy/sword/saber/red,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/light_emitter/thunderdome,
 /obj/machinery/camera/directional/north{
 	c_tag = "Red Team";
 	network = list("thunder");
@@ -5113,9 +5125,6 @@
 	pixel_y = -9;
 	resistance_flags = 64
 	},
-/obj/effect/landmark/thunderdome/two,
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/obj/effect/light_emitter/thunderdome,
 /turf/open/floor/iron,
 /area/centcom/tdome/arena)
 "zP" = (
@@ -5873,8 +5882,10 @@
 /turf/closed/indestructible/riveted,
 /area/centcom/ai_multicam_room)
 "Dj" = (
-/obj/structure/sign/nanotrasen,
-/turf/closed/indestructible/riveted,
+/obj/effect/landmark/prisonwarp,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/structure/sign/nanotrasen/directional/north,
+/turf/open/indestructible/dark,
 /area/centcom/central_command_areas/prison/cells)
 "Dl" = (
 /obj/structure/table/wood/fancy/royalblack,
@@ -6494,9 +6505,6 @@
 /turf/open/floor/iron/large,
 /area/centcom/central_command_areas/ferry)
 "Ff" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
-	dir = 8
-	},
 /turf/open/floor/carpet/red,
 /area/centcom/central_command_areas/evacuation/ship)
 "Fj" = (
@@ -7569,10 +7577,11 @@
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/bar)
 "Jq" = (
+/obj/effect/light_emitter/thunderdome,
 /obj/machinery/camera/motion/thunderdome{
 	pixel_x = 10
 	},
-/turf/open/floor/circuit/green,
+/turf/open/floor/iron,
 /area/centcom/tdome/arena)
 "Jr" = (
 /obj/effect/turf_decal/stripes/line{
@@ -7817,6 +7826,20 @@
 	},
 /turf/open/floor/iron,
 /area/centcom/tdome/observation)
+"Kf" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Administrative Storage"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/access/all/admin/officer,
+/turf/open/floor/iron,
+/area/centcom/central_command_areas/admin)
 "Kg" = (
 /obj/item/radio/intercom/directional/north,
 /obj/structure/chair,
@@ -9638,6 +9661,15 @@
 /turf/open/floor/iron/dark,
 /area/centcom)
 "RQ" = (
+/obj/structure/rack,
+/obj/item/clothing/under/color/green,
+/obj/item/clothing/shoes/sneakers/brown,
+/obj/item/clothing/suit/armor/tdome/green,
+/obj/item/clothing/head/helmet/thunderdome,
+/obj/item/melee/baton/security/loaded,
+/obj/item/melee/energy/sword/saber/green,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/light_emitter/thunderdome,
 /obj/machinery/camera/directional/north{
 	c_tag = "Green Team";
 	network = list("thunder");
@@ -9645,9 +9677,6 @@
 	pixel_y = -10;
 	resistance_flags = 64
 	},
-/obj/effect/landmark/thunderdome/one,
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/obj/effect/light_emitter/thunderdome,
 /turf/open/floor/iron,
 /area/centcom/tdome/arena)
 "RS" = (
@@ -50056,11 +50085,11 @@ uf
 Sz
 Sz
 uf
-el
+zO
 kC
 bR
 HK
-zO
+HK
 HK
 HK
 pb
@@ -52888,10 +52917,10 @@ Ef
 NY
 NY
 fb
+Ji
+NY
+NY
 Jq
-NY
-NY
-Ef
 uE
 mE
 qk
@@ -55710,11 +55739,11 @@ uf
 Sz
 Sz
 uf
-Ka
+RQ
 kC
 dj
 Mf
-RQ
+Mf
 Mf
 Mf
 Zi
