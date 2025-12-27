@@ -113,6 +113,7 @@
 	. = ..()
 	transform = transform.Scale(0.75, 0.75)
 
+// IRIS EDIT END
 ///carp brain. you need to occasionally go to a new zlevel. think of it as... walking your dog!
 /obj/item/organ/brain/carp
 	name = "mutated carp-brain"
