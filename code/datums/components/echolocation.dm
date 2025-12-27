@@ -129,12 +129,32 @@
 			receivers[viewer] = list()
 	for(var/atom/filtered_atom as anything in filtered)
 		show_image(saved_appearances["[filtered_atom.icon]-[filtered_atom.icon_state]"] || generate_appearance(filtered_atom), filtered_atom, current_time)
-	addtimer(CALLBACK(src, PROC_REF(fade_images), current_time), image_expiry_time)
+	// addtimer(CALLBACK(src, PROC_REF(fade_images), current_time), image_expiry_time) IRIS EDIT, moved to show_image
 
 /datum/component/echolocation/proc/show_image(image/input_appearance, atom/input, current_time)
+	// IRIS EDIT START
+	// clone mutable appearances and reassign to avoid shared state issues
+	// a bit more memory use but whatever shouldn't be too bad
+	// copied bits that were used elsewhere in echolocate code
+	if(istype(input_appearance, /mutable_appearance) && !images_are_static)
+		var/mutable_appearance/cloned_appearance = new /mutable_appearance()
+		cloned_appearance.appearance = input_appearance.appearance
+		cloned_appearance.icon = input_appearance.icon
+		cloned_appearance.icon_state = input_appearance.icon_state
+		cloned_appearance.color = input_appearance.color
+		cloned_appearance.filters = input_appearance.filters
+		cloned_appearance.pixel_x = input_appearance.pixel_x
+		cloned_appearance.pixel_y = input_appearance.pixel_y
+		cloned_appearance.transform = input_appearance.transform
+		input_appearance = cloned_appearance
 	var/image/final_image = image(input_appearance)
-	final_image.layer += EFFECTS_LAYER
 	final_image.plane = FULLSCREEN_PLANE
+	if(final_image.layer > EFFECTS_LAYER) // IRIS EDIT CHANGE - only adjust if above EFFECTS_LAYER
+		final_image.layer = input.layer - (EFFECTS_LAYER + ECHO_LAYER)
+	else
+		final_image.layer += EFFECTS_LAYER + ECHO_LAYER
+	// IRIS EDIT END
+
 	final_image.loc = images_are_static ? get_turf(input) : input
 	final_image.dir = input.dir
 	final_image.alpha = 0
@@ -146,18 +166,50 @@
 	if(HAS_TRAIT_FROM(input, TRAIT_ECHOLOCATION_RECEIVER, echo_group) && input != echolocator) //mark other echolocation with full white, except ourselves
 	// NOVA EDIT ADDITION END
 		final_image.color = white_matrix
-	var/list/fade_ins = list(final_image)
+	var/list/fade_ins = list()
 	for(var/mob/living/echolocate_receiver as anything in receivers)
-		if(!show_own_outline && echolocate_receiver == input) // NOVA EDIT CHANGE - ORIGINAL: if(echolocate_receiver == input)
+		if(!show_own_outline && echolocate_receiver == input)
+			continue
+		// IRIS EDIT START
+		// allow stash restore to short-circuit creating a new image
+		if(try_restore_from_stash(echolocate_receiver, input))
 			continue
 		if(receivers[echolocate_receiver][input])
 			var/previous_image = receivers[echolocate_receiver][input]["image"]
-			fade_ins |= previous_image
-			receivers[echolocate_receiver][input] = list("image" = previous_image, "time" = current_time)
+			// short circuit if image expiry time is longer than ping cooldown time
+			if(image_expiry_time > cooldown_time)
+				// remove previous image if present and show new image
+				if(echolocate_receiver.client && (previous_image in echolocate_receiver.client.images))
+					echolocate_receiver.client.images -= previous_image
+				if(echolocate_receiver.client && !(final_image in echolocate_receiver.client.images))
+					echolocate_receiver.client.images += final_image
+				receivers[echolocate_receiver][input] = list("image" = final_image, "time" = current_time)
+				final_image.alpha = 255
+				if(!scheduled_fades[current_time])
+					scheduled_fades[current_time] = TRUE
+					addtimer(CALLBACK(src, PROC_REF(fade_images), current_time), image_expiry_time)
+			else // normal behavior
+				if(previous_image)
+					animate(previous_image, alpha = 0, time = fade_out_time)
+					addtimer(CALLBACK(src, PROC_REF(delete_single_image), list(echolocate_receiver, previous_image)), fade_out_time)
+				if(!scheduled_fades[current_time])
+					scheduled_fades[current_time] = TRUE
+					addtimer(CALLBACK(src, PROC_REF(fade_images), current_time), image_expiry_time + fade_in_time)
+				if(echolocate_receiver.client && !(final_image in echolocate_receiver.client.images))
+					echolocate_receiver.client.images += final_image
+				receivers[echolocate_receiver][input] = list("image" = final_image, "time" = current_time)
+				fade_ins |= final_image
 		else
-			if(echolocate_receiver.client)
+			if(echolocate_receiver.client && !(final_image in echolocate_receiver.client.images))
 				echolocate_receiver.client.images += final_image
 			receivers[echolocate_receiver][input] = list("image" = final_image, "time" = current_time)
+			fade_ins |= final_image
+			// ensure newly spawned images get scheduled for fade/cleanup,
+			// prevents queued images from preventing initial from getting cleaned up
+			if(!scheduled_fades[current_time])
+				scheduled_fades[current_time] = TRUE
+				addtimer(CALLBACK(src, PROC_REF(fade_images), current_time), image_expiry_time + fade_in_time)
+		// IRIS EDIT END
 	for(var/image_echo in fade_ins)
 		animate(image_echo, alpha = 255, time = fade_in_time)
 
@@ -196,11 +248,37 @@
 /datum/component/echolocation/proc/delete_images(from_when)
 	for(var/mob/living/echolocate_receiver as anything in receivers)
 		for(var/atom/rendered_atom as anything in receivers[echolocate_receiver])
-			if(receivers[echolocate_receiver][rendered_atom]["time"] <= from_when && echolocate_receiver.client)
-				echolocate_receiver.client.images -= receivers[echolocate_receiver][rendered_atom]["image"]
+			// IRIS EDIT START
+			// ENTIRE BLOCK USED TO BE
+			//if(receivers[echolocate_receiver][rendered_atom]["time"] <= from_when && echolocate_receiver.client)
+			//echolocate_receiver.client.images -= receivers[echolocate_receiver][rendered_atom]["image"]
+			var/entry = receivers[echolocate_receiver][rendered_atom]
+			var/remove_image = FALSE
+			// remove by expiry time
+			if(entry["time"] <= from_when)
+				remove_image = TRUE
+			else
+				// if the receiver moved to a different z-level, attempt to stash
+				if(rendered_atom && echolocate_receiver && (rendered_atom.z != echolocate_receiver.z))
+					if(try_stash_entry(echolocate_receiver, rendered_atom, entry, from_when))
+						// stashed; ensure we remove from active receivers mapping
+						receivers[echolocate_receiver] -= rendered_atom
+					else
+						remove_image = TRUE
+			if(remove_image && echolocate_receiver.client)
+				echolocate_receiver.client.images -= entry["image"]
+			// IRIS EDIT END
 				receivers[echolocate_receiver] -= rendered_atom
 		if(!length(receivers[echolocate_receiver]))
 			receivers -= echolocate_receiver
+	// IRIS EDIT START
+	// clear dedupe marker for this from_when so future images with the same
+	// timestamp can schedule their own fade if needed.
+	if(scheduled_fades[from_when])
+		scheduled_fades -= from_when
+	// allow modular extensions to clean up any stashed images for this timestamp
+	cleanup_stash(from_when)
+	// IRIS EDIT END
 
 /atom/movable/screen/fullscreen/echo
 	icon_state = "echo"
