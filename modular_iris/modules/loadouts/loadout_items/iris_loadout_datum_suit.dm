@@ -26,6 +26,10 @@
 	restricted_roles = list(JOB_BARTENDER)
 	group = "Job-Locked"
 
+/datum/loadout_item/suit/techpriest
+	name = "Techpriest Robes"
+	item_path = /obj/item/clothing/suit/hooded/techpriest
+
 // NABBER ITEMS
 /datum/loadout_item/suit/nabberponcho
 	name = "Giant Poncho"
