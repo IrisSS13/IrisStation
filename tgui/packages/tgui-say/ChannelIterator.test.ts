@@ -18,6 +18,9 @@ describe('ChannelIterator', () => {
     expect(channelIterator.next()).toBe('LOOC');
     expect(channelIterator.next()).toBe('Do');
     // NOVA EDIT ADDITION END
+    // IRIS EDIT ADDITION START
+    expect(channelIterator.next()).toBe('IRC'); // ported from https://github.com/DopplerShift13/DopplerShift/pull/371
+    // IRIS EDIT ADDITION END
     expect(channelIterator.next()).toBe('OOC');
     expect(channelIterator.next()).toBe('Say'); // Admin is blacklisted so it should be skipped
   });
