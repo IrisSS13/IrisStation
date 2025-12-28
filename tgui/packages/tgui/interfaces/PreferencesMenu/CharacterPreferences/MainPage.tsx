@@ -767,7 +767,6 @@ export function MainPage(props: MainPageProps) {
               Delete Character
             </Button>
           </Box>
-          {/* IRIS EDIT END: Swappable pref menus -SKYRAT PORT*/}
         </Stack.Item>
         {/* NOVA EDIT ADDITION END: Swappable pref menus */}
       </Stack>
