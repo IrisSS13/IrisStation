@@ -79,7 +79,7 @@
 	cooldown_time = 5 SECONDS
 	webbing_time = 3 SECONDS
 
-// Ranged hook attack for Scion, extremely long cooldown.
+// Ranged hook attack for Scion,  long cooldown.
 /datum/action/cooldown/spell/pointed/projectile/chosmhook
 	name = "chosm hook"
 	desc = "Launch at your prey to pull them in closer."
@@ -88,7 +88,7 @@
 	background_icon_state = "bg_alien"
 	overlay_icon_state = "bg_alien_border"
 
-	cooldown_time = 3 MINUTES
+	cooldown_time = 1 MINUTES
 	spell_requirements = NONE
 
 	active_msg = "You prepare to launch a chosm hook at your target!"
@@ -115,13 +115,14 @@
 	background_icon_state = "bg_alien"
 	overlay_icon_state = "bg_alien_border"
 
-	cooldown_time = 10 SECONDS
+	cooldown_time = 13 SECONDS
 	spell_requirements = NONE
 
 	active_msg = "You prepare to spit volatile essence at your target!"
 	cast_range = 10
 	projectile_type = /obj/projectile/volatile_essence
 
+// The Projectile for the Spit
 /obj/projectile/volatile_essence
 	name = "volatile essence"
 	icon = 'modular_iris/icons/mob/simple/chosm_projectiles.dmi'
@@ -131,19 +132,25 @@
 	projectile_phasing =  PASSTABLE | PASSGRILLE | PASSSTRUCTURE
 	reflectable = FALSE
 	stutter = 8 SECONDS
-	stamina = 10
+	stamina = 30
 
 // Fool Charge ability
 /datum/action/cooldown/mob_cooldown/charge/basic_charge/chosm_charge
 	name = "Chosmic Charge"
-	cooldown_time = 3 SECONDS
-	charge_delay = 0.5 SECONDS
-	charge_distance = 6
+	cooldown_time = 8 SECONDS
+	charge_delay = 0.3 SECONDS
+	charge_distance = 7
 	melee_cooldown_time = 0
 	/// Amount of time to stun self upon impact
 	recoil_duration = 0.3 SECONDS
 	/// Amount of time to knock over an impacted target
 	knockdown_duration = 1 SECONDS
+
+
+/datum/action/cooldown/mob_cooldown/goliath_tentacles/chosm
+	cooldown_time = 20 SECONDS
+	max_range = 8
+
 
 
 // FUCK WHY AM I TRYING TO ADD THIS!!! KILL ME!!
@@ -234,9 +241,9 @@
 	var/mob_types = list(/mob/living/basic/daemons/chosm_entities/vacant/drudge, /mob/living/basic/daemons/chosm_entities/vacant/scion, /mob/living/basic/daemons/chosm_entities/vacant/fool)
 	var/obj/effect/abstract/particle_holder/spooky_particles
 	///the minimum time it takes for another weed to spread from this one
-	var/minimum_growtime = 5 SECONDS
+	var/minimum_growtime = 8 SECONDS
 	///the maximum time it takes for another weed to spread from this one
-	var/maximum_growtime = 10 SECONDS
+	var/maximum_growtime = 18 SECONDS
 	//the cooldown between each growth
 	COOLDOWN_DECLARE(growtime)
 
@@ -257,7 +264,7 @@
 		spawn_time = 60 SECONDS, \
 		max_spawned = 5, \
 		faction = list(FACTION_NETHER) , \
-		spawn_text = "Something wicked emerges from", \
+		spawn_text = "emerges from", \
 		spawn_callback = CALLBACK(src, PROC_REF(on_mob_spawn)), \
 	)
 	return INITIALIZE_HINT_LATELOAD
@@ -307,11 +314,11 @@
 	name = "Create Cyst"
 	desc = "Create a Chosm Cyst. Spread the Devouring."
 	button_icon = 'modular_iris/modules/daemons/icons/chosm_nexus.dmi'
-	cooldown_time = 5 MINUTES
+	cooldown_time = 3 MINUTES
 	button_icon_state = "cyst"
 
-/datum/action/cooldown/mob_cooldown/lay_membrane/create_cyst/vacant
-	cooldown_time = 5 MINUTES
+/datum/action/cooldown/mob_cooldown/lay_membrane/create_cyst/vacant // This can be removed I think. Looks pointless.
+	cooldown_time = 3 MINUTES
 
 /datum/action/cooldown/mob_cooldown/lay_membrane/create_cyst/plant_web(turf/target_turf, obj/structure/chosm/membrane/existing_web)
 	new /obj/structure/chosm/membrane/alive/chosm_nexus/chosm_cyst(target_turf) // TO BE VERY CLEAR THIS CODE IS SAYING WHAT THE NEXUS IS GOING TO CREATE.

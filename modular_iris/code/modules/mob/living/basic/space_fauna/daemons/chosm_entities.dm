@@ -31,7 +31,7 @@
 	response_help_continuous = "pets"
 	response_help_simple = "pet"
 	speak_emote = list("echoes")
-	initial_language_holder = /datum/language_holder/human_basic
+	initial_language_holder = /datum/language_holder/shadowpeople
 	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 0, STAMINA = 0, OXY = 0)
 	attack_verb_continuous = "strikes"
 	attack_verb_simple = "strike"
@@ -52,7 +52,7 @@
 
 /mob/living/basic/daemons/chosm_entities/vacant/Initialize(mapload)
 	. = ..()
-	add_traits(list(TRAIT_WEB_SURFER, TRAIT_FENCE_CLIMBER), INNATE_TRAIT) // This is required due to how I've implemented Membranes. Anyone with the Web Surfer trait can just walk over them.
+	add_traits(list(TRAIT_WEB_SURFER, TRAIT_FENCE_CLIMBER, TRAIT_TENTACLE_IMMUNE), INNATE_TRAIT) // This is required due to how I've implemented Membranes. Anyone with the Web Surfer trait can just walk over them.
 	grant_actions_by_list(innate_actions)
 	transform = transform.Scale(0.8, 0.8)
 	// Actually adding the lay_membrane ability to all children of this mob type. This is extremely useful because of how modifiable it is.
@@ -60,6 +60,12 @@
 	webbing.webbing_time *= web_speed
 	webbing.Grant(src)
 	ai_controller?.set_blackboard_key(BB_SPIDER_WEB_ACTION, webbing)
+	var/static/list/other_innate_actions = list(
+		/datum/action/adjust_vision/bileworm = null,
+	)
+	grant_actions_by_list(other_innate_actions)
+	update_appearance(UPDATE_OVERLAYS)
+	AddComponent(/datum/component/seethrough_mob)
 
 // Grunt, should have middling stats overall.
 /mob/living/basic/daemons/chosm_entities/vacant/drudge
@@ -70,18 +76,22 @@
 	icon_living = "drudge"
 	icon_dead = "drudge_dead"
 	gender = MALE
-	maxHealth = 200
-	health = 200
+	maxHealth = 225
+	health = 225
 	melee_damage_lower = 20
 	melee_damage_upper = 25
-	obj_damage = 40
+	obj_damage = 35
 	speed = 0.8
-	innate_actions = null //list()
+	innate_actions = list(
+	/datum/action/cooldown/spell/pointed/projectile/chosm_spit
+	)
 
 /mob/living/basic/daemons/chosm_entities/vacant/drudge/Initialize(mapload)
 	. = ..()
+	add_traits(list(TRAIT_THERMAL_VISION), INNATE_TRAIT)
 	AddElement(/datum/element/web_walker)
 	transform = transform.Scale(0.8, 0.8)
+
 
 
 // Glass-Cannon charger. High damage, low health. High speed.
@@ -93,20 +103,23 @@
 	icon_living = "fool"
 	icon_dead = "fool_dead"
 	gender = MALE
-	maxHealth = 100
-	health = 100
+	maxHealth = 125
+	health = 125
 	pixel_y = -10
 	melee_damage_lower = 40
 	melee_damage_upper = 45
-	obj_damage = 50
+	obj_damage = 40
 	speed = 0.4
+	var/datum/action/cooldown/mob_cooldown/goliath_tentacles/chosm/tentacles
 	innate_actions = list(
-	/datum/action/cooldown/mob_cooldown/charge/basic_charge/chosm_charge) // While I would like to add more pizazz to this maybe in the future, for now this is fine as just a basic charge.
+	/datum/action/cooldown/mob_cooldown/charge/basic_charge/chosm_charge,) // While I would like to add more pizazz to this maybe in the future, for now this is fine as just a basic charge.
 
 /mob/living/basic/daemons/chosm_entities/vacant/fool/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/web_walker)
 	transform = transform.Scale(0.9, 0.9)
+	tentacles = new (src)
+	tentacles.Grant(src)
 
 
 
@@ -119,8 +132,8 @@
 	icon_living = "scion"
 	icon_dead = "scion_dead"
 	gender = FEMALE
-	maxHealth = 150
-	health = 150
+	maxHealth = 90
+	health = 90
 	melee_damage_lower = 15
 	melee_damage_upper = 20
 	wound_bonus = 25
@@ -132,7 +145,6 @@
 	speed = 1 // Pretty bad speed stat, they shouldn't be moving away from the Nexus anyways.
 	innate_actions = list(
 	/datum/action/cooldown/spell/pointed/projectile/chosmhook,
-	/datum/action/cooldown/spell/pointed/projectile/chosm_spit,
 	/datum/action/cooldown/mob_cooldown/lay_membrane/create_cyst,
 
 

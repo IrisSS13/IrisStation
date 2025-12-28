@@ -6,7 +6,7 @@
 	desc = "A sinuous dark-tyrian mass of interwoven tissue."
 	anchored = TRUE
 	density = FALSE
-	max_integrity = 15
+	max_integrity = 5
 
 /obj/structure/chosm/Initialize(mapload)
 	. = ..()
