@@ -161,6 +161,7 @@
 /obj/item/market_uplink/blackmarket/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_CONTRABAND, INNATE_TRAIT)
+
 // IRIS EDIT: Reimplements /obj/item/stock_parts/subspace/amplifier as a requirement for uplink construction
 /datum/crafting_recipe/blackmarket_uplink
 	name = "Black Market Uplink"
@@ -176,6 +177,7 @@
 		/obj/item/analyzer = 1
 	)
 	category = CAT_EQUIPMENT
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.69, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 3.4)
 
 /datum/crafting_recipe/blackmarket_uplink/New()
 	..()

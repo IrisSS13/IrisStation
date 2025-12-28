@@ -53,3 +53,4 @@
 	time = 10 SECONDS
 	category = CAT_STRUCTURE
 	tool_behaviors = list(TOOL_WELDER)
+	custom_materials = list(/datum/material/alloy/plastitanium = SHEET_MATERIAL_AMOUNT * 10, /datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.5, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 0.5)
