@@ -297,8 +297,6 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 		if(skin_chosen in equipped_item.unique_reskin)
 			equipped_item.current_skin = skin_chosen
 			equipped_item.icon_state = equipped_item.unique_reskin[skin_chosen]
-			// IRIS EDIT - Makes our pretty description visible to other players, part of https://github.com/DopplerShift13/DopplerShift/pull/345
-			equipped_item.AddElement(/datum/element/examined_when_worn)
 			if(istype(equipped_item, /obj/item/clothing/accessory))
 				// Snowflake handing for accessories, because we need to update the thing it's attached to instead
 				if(isclothing(equipped_item.loc))
