@@ -14,6 +14,10 @@
 	},
 /turf/open/floor/engine,
 /area/station/cargo/exploration_office)
+"e" = (
+/obj/machinery/computer/anchor_controller,
+/turf/open/floor/iron/smooth_large,
+/area/station/cargo/exploration_office)
 "g" = (
 /obj/structure/extinguisher_cabinet/directional/west,
 /obj/machinery/firealarm/directional/south,
@@ -21,6 +25,11 @@
 	dir = 10
 	},
 /turf/open/floor/engine,
+/area/station/cargo/exploration_office)
+"h" = (
+/obj/structure/table/reinforced,
+/obj/machinery/cell_charger,
+/turf/open/floor/iron/smooth_large,
 /area/station/cargo/exploration_office)
 "k" = (
 /obj/structure/lattice/catwalk,
@@ -34,15 +43,8 @@
 /turf/closed/wall,
 /area/station/maintenance/port/fore)
 "o" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing{
-	dir = 4
-	},
-/obj/structure/marker_beacon/indigo{
-	pixel_x = -12;
-	pixel_y = -12
-	},
-/turf/open/space/basic,
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
 /area/space/nearstation)
 "p" = (
 /obj/structure/lattice/catwalk,
@@ -130,9 +132,10 @@
 /area/station/cargo/exploration_office)
 "z" = (
 /obj/structure/cable,
-/obj/effect/landmark/start/explorer,
-/obj/structure/chair/office{
-	dir = 8
+/obj/structure/table/reinforced,
+/obj/machinery/recharger{
+	pixel_x = -6;
+	pixel_y = 14
 	},
 /turf/open/floor/iron/smooth_large,
 /area/station/cargo/exploration_office)
@@ -143,14 +146,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
-	},
-/obj/structure/table/reinforced,
-/obj/machinery/cell_charger{
-	pixel_x = 3;
-	pixel_y = 6
-	},
-/obj/machinery/recharger{
-	pixel_x = -9
 	},
 /turf/open/floor/engine,
 /area/station/cargo/exploration_office)
@@ -175,12 +170,10 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
-/obj/machinery/computer/anchor_controller{
-	dir = 4
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
+/obj/effect/landmark/start/explorer,
 /turf/open/floor/engine,
 /area/station/cargo/exploration_office)
 "E" = (
@@ -189,16 +182,21 @@
 /area/space/nearstation)
 "F" = (
 /obj/structure/lattice/catwalk,
-/obj/structure/railing/corner/end{
-	dir = 8
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/marker_beacon/indigo{
+	pixel_x = -12;
+	pixel_y = -12
 	},
 /turf/open/space/basic,
-/area/space/nearstation)
+/area/template_noop)
 "G" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
-/obj/structure/tank_dispenser/oxygen,
 /obj/machinery/light/small/directional/south,
+/obj/effect/turf_decal/bot,
+/obj/machinery/suit_storage_unit/explorer,
 /turf/open/floor/iron/smooth_large,
 /area/station/cargo/exploration_office)
 "H" = (
@@ -315,10 +313,10 @@ a
 a
 "}
 (4,1,1) = {"
-J
 k
 b
-s
+o
+e
 D
 d
 I
@@ -328,10 +326,10 @@ H
 a
 "}
 (5,1,1) = {"
-F
 b
 T
-s
+o
+h
 z
 x
 r
@@ -341,9 +339,9 @@ a
 a
 "}
 (6,1,1) = {"
-a
-o
+F
 Q
+o
 s
 s
 P
