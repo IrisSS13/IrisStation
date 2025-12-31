@@ -9,7 +9,6 @@
 	result = /obj/item/summoning_flute
 	category = CAT_MISC
 	crafting_flags = CRAFT_MUST_BE_LEARNED
-	custom_materials = list(/datum/material/bone = SHEET_MATERIAL_AMOUNT * 2.1)
 
 /datum/crafting_recipe/summoning_flute/drake
 	name = "Summoning Flute (Ash Drake)"

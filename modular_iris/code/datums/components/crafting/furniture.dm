@@ -5,7 +5,6 @@
 	)
 	result = /obj/item/sign/flag/pride/gay
 	category = CAT_FURNITURE
-	custom_materials = null
 
 /datum/crafting_recipe/acepride
 	name = "ace pride flag"
@@ -14,7 +13,6 @@
 	)
 	result = /obj/item/sign/flag/pride/ace
 	category = CAT_FURNITURE
-	custom_materials = null
 
 /datum/crafting_recipe/bipride
 	name = "bi pride flag"
@@ -23,7 +21,6 @@
 	)
 	result = /obj/item/sign/flag/pride/bi
 	category = CAT_FURNITURE
-	custom_materials = null
 
 /datum/crafting_recipe/lesbianpride
 	name = "lesbian pride flag"
@@ -32,7 +29,6 @@
 	)
 	result = /obj/item/sign/flag/pride/lesbian
 	category = CAT_FURNITURE
-	custom_materials = null
 
 /datum/crafting_recipe/panpride
 	name = "pan pride flag"
@@ -41,7 +37,6 @@
 	)
 	result = /obj/item/sign/flag/pride/pan
 	category = CAT_FURNITURE
-	custom_materials = null
 
 /datum/crafting_recipe/transpride
 	name = "trans pride flag"
@@ -50,4 +45,3 @@
 	)
 	result = /obj/item/sign/flag/pride/trans
 	category = CAT_FURNITURE
-	custom_materials = null
