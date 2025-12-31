@@ -21,7 +21,7 @@
 	//Need this to happen post timer but pre move. Otherwise touching glass will instantly strip ppl
 	for(var/obj/item/I in ascarbon.get_equipped_items(TRUE))
 		var/slot = ascarbon.get_slot_by_item(I)
-		// The intent: let's not drop items that are in the belt, id, or pockets, etc.
+		// The intent: let's not drop items that are in the id, or pockets, etc.
 		if(slot & (ITEM_SLOT_ID | ITEM_SLOT_LPOCKET | ITEM_SLOT_RPOCKET))
 			continue
 		ascarbon.dropItemToGround(I)
