@@ -19,13 +19,18 @@
 	passwindow_on(owner, type)
 
 	//Need this to happen post timer but pre move. Otherwise touching glass will instantly strip ppl
-	owner.unequip_everything()
+	for(var/obj/item/I in ascarbon.get_equipped_items(TRUE))
+		var/slot = ascarbon.get_slot_by_item(I)
+		// The intent: let's not drop items that are in the belt, id, or pockets, etc.
+		if(slot & (ITEM_SLOT_BELT | ITEM_SLOT_ID | ITEM_SLOT_ICLOTHING | ITEM_SLOT_LPOCKET | ITEM_SLOT_RPOCKET))
+			continue
+		ascarbon.dropItemToGround(I)
 
 	//We need to do this twice if it's a full window bc otherwise they could reach behind them for their items
-	var/dirToMove = get_dir(owner, bumpee)
-	try_move_adjacent(owner, dirToMove)
+	var/dirToMove = get_dir(owner, bumpee) || owner.dir
+	step(owner, dirToMove)
 	if(wumpee.fulltile)
-		try_move_adjacent(owner, dirToMove)
+		step(owner, dirToMove)
 
 	passwindow_off(owner, type)
 
