@@ -259,7 +259,7 @@
 	else
 		return span_info("This one is completely devoid of life.")
 
-/obj/item/organ/brain/get_status_appendix(advanced, add_tooltips)
+/obj/item/organ/brain/get_status_appendix(advanced, add_tooltips) //IRIS EDIT - renames lobotomy to Invasive Neurological Tissue Repair
 	var/list/trauma_text
 	for(var/datum/brain_trauma/trauma as anything in traumas)
 		var/trauma_desc = ""
@@ -269,7 +269,7 @@
 			if(TRAUMA_RESILIENCE_SURGERY)
 				trauma_desc = conditional_tooltip("Severe ", "Repair via brain surgery.", add_tooltips)
 			if(TRAUMA_RESILIENCE_LOBOTOMY)
-				trauma_desc = conditional_tooltip("Deep-rooted ", "Repair via Lobotomy.", add_tooltips)
+				trauma_desc = conditional_tooltip("Deep-rooted ", "Repair via Invasive Neurological Tissue Repair.", add_tooltips)
 			if(TRAUMA_RESILIENCE_WOUND)
 				trauma_desc = conditional_tooltip("Fracture-derived ", "Repair via treatment of wounds afflicting the head.", add_tooltips)
 			if(TRAUMA_RESILIENCE_MAGIC)

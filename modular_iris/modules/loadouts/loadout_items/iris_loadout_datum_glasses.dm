@@ -9,3 +9,11 @@
 /datum/loadout_item/glasses/prescription_glasses/thin/transparent
 	name = "Transparent Thin Glasses"
 	item_path = /obj/item/clothing/glasses/regular/thin/transparent
+
+/datum/loadout_item/glasses/hud/stealing/get_item_information()
+	. = ..()
+	.[FA_ICON_LINK] = "Takes in properties of other glasses!"
+
+/datum/loadout_item/glasses/hud/stealing/techno_visor
+	name = "Techno-Visor"
+	item_path = /obj/item/clothing/glasses/techno_visor

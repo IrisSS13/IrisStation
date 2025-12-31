@@ -65,7 +65,7 @@
 /obj/item/fish_analyzer/interact_with_atom(atom/target, mob/living/user, list/modifiers)
 	if(!isfish(target) && !HAS_TRAIT(target, TRAIT_IS_AQUARIUM))
 		return NONE
-	if(!user.can_read(src) || user.is_blind())
+	if(!user.can_read(src)) // IRIS EDIT: LET THE BLIND FISH. Original code: if(!user.can_read(src) || user.is_blind())
 		return ITEM_INTERACT_BLOCKING
 
 	SEND_SIGNAL(src, COMSIG_FISH_ANALYZER_ANALYZE_STATUS, target, user)

@@ -847,7 +847,7 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	begin_month = DECEMBER
 	end_day = 27
 	holiday_hat = /obj/item/clothing/head/costume/santa
-	no_mail_holiday = TRUE
+	no_mail_holiday = FALSE //IRIS EDIT - the mail must go on
 	holiday_colors = list(
 		COLOR_CHRISTMAS_GREEN,
 		COLOR_CHRISTMAS_RED,
@@ -986,13 +986,13 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 
 // HOLIDAY ADDONS
 
-/datum/holiday/xmas/celebrate()
+/datum/holiday/xmas/celebrate() // IRIS EDIT - KILLS ANYTHING GIFTS
 	. = ..()
 	SSticker.OnRoundstart(CALLBACK(src, PROC_REF(roundstart_celebrate)))
 	GLOB.maintenance_loot += list(
 		list(
 			/obj/item/clothing/head/costume/santa = 1,
-			/obj/item/gift/anything = 1,
+			/obj/item/gift = 1,
 			/obj/item/toy/xmas_cracker = 3,
 		) = maint_holiday_weight,
 	)

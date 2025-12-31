@@ -108,7 +108,7 @@
 	user.visible_message(span_suicide("[user] places [src] over [user.p_their()] head and pulls it tight! It looks like [user.p_they()] [user.p_are()]n't in the Christmas spirit..."))
 	return OXYLOSS
 
-/obj/item/storage/backpack/santabag/proc/regenerate_presents()
+/obj/item/storage/backpack/santabag/proc/regenerate_presents() // IRIS EDIT - CHANGES /obj/item/gift/anything to normal vers
 	addtimer(CALLBACK(src, PROC_REF(regenerate_presents)), 30 SECONDS)
 
 	var/mob/user = get(loc, /mob)
@@ -116,7 +116,7 @@
 		return
 	if(HAS_MIND_TRAIT(user, TRAIT_CANNOT_OPEN_PRESENTS))
 		var/turf/floor = get_turf(src)
-		var/obj/item/thing = new /obj/item/gift/anything(floor)
+		var/obj/item/thing = new /obj/item/gift(floor)
 		if(!atom_storage.attempt_insert(thing, user, override = TRUE, force = STORAGE_SOFT_LOCKED))
 			qdel(thing)
 
