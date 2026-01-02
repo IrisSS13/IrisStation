@@ -121,7 +121,7 @@
 
 /// Is the job of the inserted ID being worked by a job that in an important department? If so, this proc will return TRUE.
 /datum/computer_file/program/crew_self_serve/proc/is_job_important(obj/item/card/id/id_card)
-	/* IRIS REMOVAL
+	/* // IRIS EDIT REMOVAL START 
 	if(!istype(id_card))
 		return FALSE
 
