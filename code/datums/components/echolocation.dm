@@ -216,7 +216,8 @@
 /datum/component/echolocation/proc/generate_appearance(atom/input)
 	var/use_outline = TRUE
 	var/mutable_appearance/copied_appearance = new /mutable_appearance()
-	copied_appearance.appearance = input
+	if(!danger_turfs[input.type]) // IRIS EDIT only keep appearance for non danger turfs
+		copied_appearance.appearance = input
 	if(istype(input, /obj/machinery/door/airlock)) //i hate you
 		copied_appearance.cut_overlays()
 		copied_appearance.icon_state = "closed"
