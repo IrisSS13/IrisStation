@@ -127,8 +127,13 @@
 			continue
 		if(HAS_TRAIT_FROM(viewer, TRAIT_ECHOLOCATION_RECEIVER, echo_group) && isnull(receivers[viewer]))
 			receivers[viewer] = list()
+	// IRIS EDIT START don't cache danger turfs, always generate fresh appearance
 	for(var/atom/filtered_atom as anything in filtered)
-		show_image(saved_appearances["[filtered_atom.icon]-[filtered_atom.icon_state]"] || generate_appearance(filtered_atom), filtered_atom, current_time)
+		if(danger_turfs[filtered_atom.type])
+			show_image(generate_appearance(filtered_atom, TRUE), filtered_atom, current_time)
+		else
+			show_image(saved_appearances["[filtered_atom.icon]-[filtered_atom.icon_state]"] || generate_appearance(filtered_atom), filtered_atom, current_time)
+	// IRIS EDIT END
 	// addtimer(CALLBACK(src, PROC_REF(fade_images), current_time), image_expiry_time) IRIS EDIT, moved to show_image
 
 /datum/component/echolocation/proc/show_image(image/input_appearance, atom/input, current_time)
@@ -213,7 +218,7 @@
 	for(var/image_echo in fade_ins)
 		animate(image_echo, alpha = 255, time = fade_in_time)
 
-/datum/component/echolocation/proc/generate_appearance(atom/input)
+/datum/component/echolocation/proc/generate_appearance(atom/input, nocache = FALSE)
 	var/use_outline = TRUE
 	var/mutable_appearance/copied_appearance = new /mutable_appearance()
 	if(!danger_turfs[input.type]) // IRIS EDIT only keep appearance for non danger turfs
@@ -232,7 +237,7 @@
 		copied_appearance.pixel_x = 0
 		copied_appearance.pixel_y = 0
 		copied_appearance.transform = matrix()
-	if(input.icon && input.icon_state)
+	if(input.icon && input.icon_state && !nocache)
 		saved_appearances["[input.icon]-[input.icon_state]"] = copied_appearance
 	return copied_appearance
 
