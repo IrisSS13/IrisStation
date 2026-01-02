@@ -153,7 +153,7 @@
 
 /datum/station_trait/quick_shuttle/on_round_start()
 	. = ..()
-	SSshuttle.supply.callTime *= 0.5
+	SSshuttle.supply?.callTime *= 0.5 // The supply shuttle docking port can not exist on debug stations. // IRIS EDIT CHANGE - ORIGINAL: SSshuttle.supply.callTime *= 0.5
 
 /datum/station_trait/deathrattle_department
 	name = "deathrattled department"
