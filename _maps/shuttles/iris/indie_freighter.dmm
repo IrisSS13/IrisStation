@@ -56,7 +56,9 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/machinery/door/airlock/hydroponics,
+/obj/machinery/door/airlock/hydroponics{
+	name = "Hydroponics"
+	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -402,7 +404,9 @@
 /obj/effect/turf_decal/tile/brown/half/contrasted{
 	dir = 8
 	},
-/obj/structure/closet/secure_closet/miner/unlocked,
+/obj/structure/closet/secure_closet/miner{
+	req_access = list("freighter_general")
+	},
 /obj/item/mining_voucher,
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/mining)
@@ -1035,7 +1039,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/window/survival_pod/left/directional/east,
+/obj/machinery/door/window/survival_pod/left/directional/east{
+	req_access = list("freighter_general")
+	},
 /turf/open/floor/iron/showroomfloor,
 /area/shuttle/indie_freighter/canteen)
 "it" = (
@@ -1127,7 +1133,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/airlock/qm{
 	id_tag = "freighter_qm_dorm_bolts";
-	name = "Captain's Quarters"
+	name = "Foreman's Quarters"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/freighter/command,
 /turf/open/floor/plating,
@@ -1453,7 +1459,9 @@
 /turf/open/floor/iron/cafeteria,
 /area/shuttle/indie_freighter/med)
 "lT" = (
-/obj/machinery/door/window/survival_pod/left/directional/east,
+/obj/machinery/door/window/survival_pod/left/directional/east{
+	req_access = list("freighter_general")
+	},
 /obj/effect/turf_decal/tile/yellow/anticorner/contrasted{
 	dir = 4
 	},
@@ -1939,7 +1947,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/button/door/directional/north{
 	name = "Desk Shutters";
-	id = "freighter_armoury_desk"
+	id = "freighter_armoury_desk";
+	req_access = list("freighter_command")
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/indie_freighter/armoury)
@@ -2501,7 +2510,8 @@
 	network = list("indie_freighter")
 	},
 /obj/machinery/computer/rdconsole{
-	dir = 4
+	dir = 4;
+	req_access = list("freighter_general")
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/indie_freighter/cargo)
@@ -2525,7 +2535,7 @@
 	dir = 1
 	},
 /obj/structure/closet/secure_closet/medical1{
-	req_access = null
+	req_access = list("freighter_general")
 	},
 /turf/open/floor/iron/cafeteria,
 /area/shuttle/indie_freighter/med)
@@ -2903,7 +2913,9 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/machinery/door/airlock/highsecurity,
+/obj/machinery/door/airlock/highsecurity{
+	name = "Ore Silo"
+	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/mapping_helpers/airlock/access/all/freighter/command,
@@ -3159,7 +3171,9 @@
 /obj/effect/turf_decal/tile/brown/anticorner/contrasted{
 	dir = 1
 	},
-/obj/structure/closet/secure_closet/miner/unlocked,
+/obj/structure/closet/secure_closet/miner{
+	req_access = list("freighter_general")
+	},
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/mining)
 "zP" = (
@@ -3513,7 +3527,9 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
-/obj/structure/closet/secure_closet/personal/cabinet,
+/obj/structure/closet/secure_closet/personal/cabinet{
+	req_access = list("freighter_command")
+	},
 /obj/item/ammo_box/magazine/zashch,
 /obj/item/ammo_box/magazine/zashch,
 /obj/item/gun/ballistic/automatic/pistol/zashch,
@@ -4333,7 +4349,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/button/door/directional/south{
 	id = "freighter_armoury_entry_shutter";
-	name = "Armoury Entrance Shutters"
+	name = "Armoury Entrance Shutters";
+	req_access = list("freighter_command")
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/indie_freighter/armoury)
@@ -4754,7 +4771,9 @@
 /turf/template_noop,
 /area/shuttle/indie_freighter/engine)
 "Lf" = (
-/obj/machinery/door/airlock/qm,
+/obj/machinery/door/airlock/qm/glass{
+	name = "Foreman's Quarters"
+	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
@@ -5252,7 +5271,9 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/obj/machinery/door/airlock/vault,
+/obj/machinery/door/airlock/vault{
+	name = "Vault"
+	},
 /obj/effect/mapping_helpers/airlock/access/all/freighter/command,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -5407,7 +5428,8 @@
 /area/shuttle/indie_freighter/maintenance/fore)
 "PS" = (
 /obj/machinery/door/window/survival_pod/left/directional/north{
-	name = "Telecommunications"
+	name = "Telecommunications";
+	req_access = list("freighter_general")
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/indie_freighter/electrical)
@@ -5588,7 +5610,9 @@
 /obj/effect/mapping_helpers/apc/unlocked,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/window/left,
+/obj/machinery/door/window/left{
+	req_access = list("freighter_general")
+	},
 /obj/machinery/duct,
 /turf/open/floor/iron/kitchen/small,
 /area/shuttle/indie_freighter/canteen)
@@ -5928,7 +5952,9 @@
 	},
 /obj/machinery/light/directional/west,
 /obj/item/mining_voucher,
-/obj/structure/closet/secure_closet/miner/unlocked,
+/obj/structure/closet/secure_closet/miner{
+	req_access = list("freighter_general")
+	},
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/mining)
 "UI" = (
@@ -6036,7 +6062,8 @@
 "Vz" = (
 /obj/effect/turf_decal/tile/yellow/anticorner/contrasted,
 /obj/machinery/button/door/directional/south{
-	id = "freighter_cargo_door"
+	id = "freighter_cargo_door";
+	req_access = list("freighter_general")
 	},
 /obj/machinery/suit_storage_unit/industrial/loader,
 /turf/open/floor/iron/dark,
@@ -6049,7 +6076,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/airlock/bathroom{
-	id_tag = "freighter_shitter"
+	id_tag = "freighter_shitter";
+	name = "Bathroom"
 	},
 /obj/machinery/duct,
 /turf/open/floor/plating,
@@ -6286,7 +6314,7 @@
 "XN" = (
 /obj/machinery/door/airlock/qm{
 	id_tag = "freighter_qm_dorm_bolts";
-	name = "Captain's Quarters"
+	name = "Foreman's Quarters"
 	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 8

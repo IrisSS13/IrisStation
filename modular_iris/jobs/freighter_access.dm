@@ -4,7 +4,7 @@
 /datum/id_trim/away/freighter
 	department_color = COLOR_CARGO_BROWN
 	subdepartment_color = COLOR_CARGO_BROWN
-	access = list(ACCESS_FREIGHTER_GENERAL)
+	access = list(ACCESS_FREIGHTER_GENERAL, ACCESS_MINERAL_STOREROOM, ACCESS_MECH_SCIENCE)
 
 /datum/id_trim/away/freighter/cargo
 	assignment = "Johnson & Co Deckhand"
@@ -26,7 +26,7 @@
 	assignment = "Johnson & Co Foreman"
 	trim_state = "trim_captain"
 	sechud_icon_state = SECHUD_FREIGHTER_FOREMAN
-	access = list(ACCESS_FREIGHTER_GENERAL, ACCESS_FREIGHTER_COMMAND)
+	access = list(ACCESS_FREIGHTER_GENERAL, ACCESS_MINERAL_STOREROOM, ACCESS_MECH_SCIENCE, ACCESS_FREIGHTER_COMMAND)
 	big_pointer = TRUE
 
 /datum/outfit/freighter_boss
