@@ -2442,7 +2442,8 @@
 	},
 /obj/machinery/button/door/directional/west{
 	id = "freighter_rad_lockdown";
-	name = "Radiation Shutters Control"
+	name = "Radiation Shutters Control";
+	req_access = list("freighter_general")
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -3895,7 +3896,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/button/door/directional/north{
 	id = "freighter_rad_lockdown";
-	name = "Radiation Shutter Override"
+	name = "Radiation Shutter Override";
+	req_access = list("freighter_general")
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -4238,7 +4240,7 @@
 /area/shuttle/indie_freighter/hallway)
 "Ho" = (
 /obj/machinery/computer/apc_control{
-	req_access = list("cargo");
+	req_access = list("freighter_general");
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/yellow/opposingcorners,
