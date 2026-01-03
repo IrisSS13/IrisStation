@@ -15,12 +15,7 @@
 	phone_component = phone_comp
 	holder = phone_holder
 
-	// Validate that we have a proper holder
-	if(!holder)
-		stack_trace("Handset initialized without proper holder!")
-		return INITIALIZE_HINT_QDEL
-
-	// Don't setup tether here - handset starts in nullspace
+	// Handset starts in nullspace, holder is optional during initialization
 
 /// Checks if handset is within range of phone base
 /obj/item/handset/proc/check_range()
