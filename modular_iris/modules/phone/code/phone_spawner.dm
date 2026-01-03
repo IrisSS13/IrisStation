@@ -28,7 +28,3 @@
 /datum/area_spawn/phone_nt_rep
 	target_areas = list(/area/station/command/heads_quarters/nt_rep)
 	desired_atom = /obj/machinery/phone_base/rotary/head_of_staff/no_dnd
-
-/datum/area_spawn/phone_blueshield
-	target_areas = list(/area/station/command/heads_quarters/blueshield)
-	desired_atom = /obj/machinery/phone_base/rotary/head_of_staff
