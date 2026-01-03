@@ -121,7 +121,7 @@
 #define MAX_CHARTER_LEN 80
 #define MAX_PLAQUE_LEN 144
 #define MAX_LABEL_LEN 64
-#define MAX_DESC_LEN 280
+#define MAX_DESC_LEN 600 //IRIS EDIT CHANGE - ORIGINAL 280 - What's the worst that could happen? :clueless:
 #define MAX_AAS_LENGTH 168
 
 // Audio/Visual Flags. Used to determine what sense are required to notice a message.
