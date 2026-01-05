@@ -146,5 +146,5 @@
 	name = "\improper Independent Express Supply Console"
 	desc = "A specialized express cargo console, linked to the open market. This one specifically is programmed to deliver all orders via high-speed railgun pods, capable of making a delivery in mere seconds no matter how far away they are."
 	circuit = /obj/item/circuitboard/computer/cargo/express/ghost/freighter
-	req_access = list(ACCESS_CARGO)
+	req_access = list(ACCESS_FREIGHTER_GENERAL)
 	cargo_account = ACCOUNT_INDIE_CARGO
