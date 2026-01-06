@@ -26,8 +26,7 @@
 	buckle_lying = 0
 	mob_size = MOB_SIZE_LARGE
 	buckle_prevents_pull = TRUE // No pulling loaded shit
-	// IRIS EDIT REMOVAL: allows MULES to be possessed roundstart, because we wuv our players
-	// bot_mode_flags = ~BOT_MODE_ROUNDSTART_POSSESSION
+	bot_mode_flags = ~BOT_MODE_ROUNDSTART_POSSESSION
 	req_one_access = list(ACCESS_ROBOTICS, ACCESS_CARGO)
 	radio_key = /obj/item/encryptionkey/headset_cargo
 	radio_channel = RADIO_CHANNEL_SUPPLY
