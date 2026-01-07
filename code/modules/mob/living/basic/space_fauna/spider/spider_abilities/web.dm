@@ -177,7 +177,7 @@
 	name = "Spin reflective silk screen"
 	desc = "Spin a web to reflect missiles from the nest."
 	button_icon_state = "spider_mirror"
-	cooldown_time = 30 SECONDS
+	cooldown_time = 60 SECONDS // IRIS EDIT
 	webbing_time = 4 SECONDS
 
 /datum/action/cooldown/mob_cooldown/lay_web/web_reflector/obstructed_by_other_web()

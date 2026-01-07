@@ -160,10 +160,17 @@
 	sealed = TRUE
 	has_frill = FALSE
 	can_atmos_pass = ATMOS_PASS_NO
+	resistance_flags = FIRE_PROOF
 
 /obj/structure/spider/stickyweb/sealed/Initialize(mapload)
 	. = ..()
 	air_update_turf(TRUE, TRUE)
+
+/obj/structure/spider/stickyweb/sealed/atmos_expose(datum/gas_mixture/air, exposed_temperature)
+	return
+
+/obj/structure/spider/should_atmos_process(datum/gas_mixture/air, exposed_temperature)
+	return FALSE
 
 /// Walls which reflects lasers
 /obj/structure/spider/stickyweb/sealed/reflector
