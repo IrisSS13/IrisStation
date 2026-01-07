@@ -37,12 +37,10 @@
 /datum/augment_item/implant/l_arm
 	slot = AUGMENT_SLOT_LEFT_ARM_IMPLANT
 
-/* // IRIS EDIT START - NO
 /datum/augment_item/implant/l_arm/mantis_blade_left
 	name = "Left Obsolete Mantis Blade"
 	cost = 8
 	path = /obj/item/organ/cyberimp/arm/toolkit/armblade/early/l
-*/
 
 /datum/augment_item/implant/l_arm/charging_implant
 	name = "Left Charging Cord Implant"
@@ -107,12 +105,10 @@
 /datum/augment_item/implant/r_arm
 	slot = AUGMENT_SLOT_RIGHT_ARM_IMPLANT
 
-/* // IRIS EDIT START - NO
 /datum/augment_item/implant/r_arm/mantis_blade_right
 	name = "Right Obsolete Mantis Blade"
 	cost = 8
 	path = /obj/item/organ/cyberimp/arm/toolkit/armblade/early
-*/ // IRIS EDIT END - NO
 
 /datum/augment_item/implant/r_arm/charging_implant
 	name = "Right Charging Cord Implant"
