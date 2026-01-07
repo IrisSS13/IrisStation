@@ -4,3 +4,4 @@
 #define FACTION_HECU "hecu"
 #define FACTION_BLACKOPS "blackops"
 #define FACTION_BLACKMESA "blackmesa"
+#define FACTION_DIONA "diona" /// Diona nymphs

@@ -117,6 +117,16 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	feature_list[FEATURE_TAIL_FISH] = INIT_ACCESSORY(/datum/sprite_accessory/tails/fish)
 	feature_list[FEATURE_TAIL_MONKEY] = INIT_ACCESSORY(/datum/sprite_accessory/tails/monkey)
 	feature_list[FEATURE_TAIL_XENO] = INIT_ACCESSORY(/datum/sprite_accessory/tails/xeno)
+	// IRIS EDIT ADDITION START - Diona
+	feature_list[FEATURE_DIONA_LEAVES] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/diona_leaves)
+	feature_list[FEATURE_DIONA_THORNS] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/diona_thorns)
+	feature_list[FEATURE_DIONA_FLOWERS] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/diona_flowers)
+	feature_list[FEATURE_DIONA_MOSS] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/diona_moss)
+	feature_list[FEATURE_DIONA_MUSHROOM] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/diona_mushroom)
+	feature_list[FEATURE_DIONA_ANTENNAE] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/diona_antennae)
+	feature_list[FEATURE_DIONA_EYES] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/diona_eyes)
+	feature_list[FEATURE_DIONA_PBODY] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/diona_pbody)
+	// IRIS EDIT ADDITION END
 
 /// This proc just initializes all /datum/sprite_accessory/hair_gradient into an list indexed by gradient-style name
 /datum/controller/subsystem/accessories/proc/init_hair_gradients()

@@ -1,3 +1,5 @@
+#define SPECIES_DIONA "diona"
+
 #define BLOOD_TYPE_NABBER "H"
 #define BLOOD_TYPE_VOX "VO"
 #define BLOOD_TYPE_INSECT "I"

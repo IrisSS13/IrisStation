@@ -80,6 +80,17 @@
 #define FEATURE_TAILSPINES "tailspines" // Different from regular spines, these appear on tails
 #define FEATURE_LEGS "legs"
 
+// IRIS EDIT ADDITION START - Diona
+#define FEATURE_DIONA_LEAVES "diona_leaves"
+#define FEATURE_DIONA_THORNS "diona_thorns"
+#define FEATURE_DIONA_FLOWERS "diona_flowers"
+#define FEATURE_DIONA_MOSS "diona_moss"
+#define FEATURE_DIONA_MUSHROOM "diona_mushroom"
+#define FEATURE_DIONA_ANTENNAE "diona_antennae"
+#define FEATURE_DIONA_EYES "diona_eyes"
+#define FEATURE_DIONA_PBODY "diona_pbody"
+// IRIS EDIT ADDITION END
+
 ///flag for the transfer_flag argument from dna/proc/copy_dna(). This one makes it so the SE is copied too.
 #define COPY_DNA_SE (1<<0)
 ///flag for the transfer_flag argument from dna/proc/copy_dna(). This one copies the species.
@@ -118,6 +129,13 @@
 //iris winged gizzard edit
 #define	ORGAN_SLOT_GIZZARD "gizzard"
 //end iris gizzard edit
+// IRIS EDIT ADDITION START - Diona
+#define ORGAN_SLOT_R_ARM_NYMPH "r_arm_nymph"
+#define ORGAN_SLOT_L_ARM_NYMPH "l_arm_nymph"
+#define ORGAN_SLOT_R_LEG_NYMPH "r_leg_nymph"
+#define ORGAN_SLOT_L_LEG_NYMPH "l_leg_nymph"
+#define ORGAN_SLOT_CHEST_NYMPH "chest_nymph"
+// IRIS EDIT ADDITION END
 
 /// Organ slot external
 #define ORGAN_SLOT_EXTERNAL_TAIL "tail"
