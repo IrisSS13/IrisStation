@@ -371,7 +371,7 @@
 	melee_damage_upper = 40
 	obj_damage = 100
 	damage_coeff = list(BRUTE = 1, BURN = 1.25, TOX = 1, STAMINA = 0, OXY = 1)
-	speed = 6
+	speed = 5 // IRIS EDIT
 	player_speed_modifier = -5.5 // Doesn't seem that slow but it gets a debuff off web
 	mob_size = MOB_SIZE_LARGE
 	gold_core_spawnable = NO_SPAWN
