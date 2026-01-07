@@ -43,7 +43,7 @@
 	var/turf/our_turf = get_turf(src)
 	for(var/mob/mob_with_client in listeners)
 		if(!mob_with_client.client)
-			return
+			continue // IRIS EDIT CHANGE - ORIGINAL: return
 		var/user_volume_pref = mob_with_client.client.prefs.read_preference(/datum/preference/numeric/volume/sound_blooper_volume) // If we have a client adjust the volume to their prefs before playing the blooper
 		var/scaled_volume = volume * (user_volume_pref / 100)
 		mob_with_client.playsound_local(our_turf, vol = scaled_volume, vary = TRUE, frequency = pitch, max_distance = distance, falloff_distance = 0, falloff_exponent = BLOOPER_SOUND_FALLOFF_EXPONENT, sound_to_use = blooper, distance_multiplier = 1)

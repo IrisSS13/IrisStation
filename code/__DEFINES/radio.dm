@@ -78,7 +78,7 @@
 #define RADIO_COLOR_YELLOW "#d1ba22"
 
 
-#define MIN_FREE_FREQ 1201 // -------------------------------------------------
+#define MIN_FREE_FREQ 1341 // IRIS EDIT - upped to 1341 so admin freqs arent available
 // Frequencies are always odd numbers and range from 1201 to 1599.
 
 #define FREQ_UPLINK 1211	// Dummy loopback frequency, used for radio uplink. Not seen in game.

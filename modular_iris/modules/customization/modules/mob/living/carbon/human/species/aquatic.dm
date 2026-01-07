@@ -13,6 +13,7 @@
 	mutantbrain = /obj/item/organ/brain/carp/akula
 	mutantheart = /obj/item/organ/heart/carp/akula
 	mutantlungs = /obj/item/organ/lungs/carp/akula
+	smoker_lungs = /obj/item/organ/lungs/carp/akula/akula_smoker
 	mutanttongue = /obj/item/organ/tongue/carp/akula
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,

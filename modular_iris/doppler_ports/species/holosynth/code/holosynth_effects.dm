@@ -23,7 +23,11 @@
 
 
 /datum/component/holosynth_effects/proc/make_hologram_glowless()
-	parent_as_human.add_filter("HOLO: Color and Transparent", 1, color_matrix_filter(rgb(125,180,225, HOLOSYNTH_OPACITY * 255)))
+	// allow players to customize holo colour via preferences; fall back to stored DNA value or the original blueish holo color
+	var/col_pref = parent_as_human.client?.prefs?.read_preference(/datum/preference/color/mutant/holosynth_color)
+	var/color_hex = col_pref || parent_as_human.dna?.features["holo_color"] || rgb(125,180,225)
+	var/list/rgb_list = rgb2num(color_hex)
+	parent_as_human.add_filter("HOLO: Color and Transparent", 1, color_matrix_filter(rgb(rgb_list[1], rgb_list[2], rgb_list[3], HOLOSYNTH_OPACITY * 255)))
 	var/atom/movable/scanline = new(null)
 	scanline.icon = 'icons/effects/effects.dmi'
 	scanline.icon_state = "scanline"
