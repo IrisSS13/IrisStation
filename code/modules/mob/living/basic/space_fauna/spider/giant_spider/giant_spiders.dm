@@ -48,7 +48,7 @@
 	melee_damage_upper = 30
 	speed = 5
 	player_speed_modifier = -3.1
-	menu_description = "Slow spider, with a strong disarming pull and above average health and damage."
+	menu_description = "Slow spider, with an average health and damage, a strong disarming pull and a ranged slowdown." // IRIS EDIT
 	innate_actions = list(
 		/datum/action/cooldown/mob_cooldown/sneak/spider,
 		/datum/action/cooldown/spell/pointed/projectile/web_restraints,
@@ -74,14 +74,14 @@
 	icon_living = "guard"
 	icon_dead = "guard_dead"
 	gender = FEMALE
-	maxHealth = 160
-	health = 160
+	maxHealth = 125 // IRIS EDIT
+	health = 125 // IRIS EDIT
 	melee_damage_lower = 20
 	melee_damage_upper = 25
 	obj_damage = 30 // IRIS EDIT
-	speed = 5
+	speed = 4 // IRIS EDIT
 	player_speed_modifier = -4
-	menu_description = "Tanky and strong able to shed a carcass for protection."
+	menu_description = "Average health, damage and speed." // IRIS EDIT
 	//innate_actions = list(/datum/action/cooldown/mob_cooldown/web_effigy) //IRIS REMOVAL
 
 /mob/living/basic/spider/giant/guard/Initialize(mapload)
@@ -182,9 +182,10 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_MEDICAL_HUD, INNATE_TRAIT)
 
+//IRIS EDIT: Heals damage more
 	AddComponent(/datum/component/healing_touch,\
-		heal_brute = 20,\ // IRIS EDIT
-		heal_burn = 20,\ // IRIS EDIT
+		heal_brute = 20,\
+		heal_burn = 20,\
 		heal_time = 2.5 SECONDS,\
 		interaction_key = DOAFTER_SOURCE_SPIDER,\
 		valid_targets_typecache = typecacheof(list(/mob/living/basic/spider/giant)),\
@@ -221,7 +222,7 @@
 	speed = 4
 	player_speed_modifier = -3.1
 	web_type = /datum/action/cooldown/mob_cooldown/lay_web/sealer
-	menu_description = "Average speed spider with self healing abilities and multiple web types to reinforce the nest with little to no damage and low health."
+	menu_description = "Average speed spider with self healing abilities, multiple web types to reinforce the nest, low damage and average health." // IRIS EDIT
 	innate_actions = list(
 		/datum/action/cooldown/mob_cooldown/lay_web/solid_web,
 		/datum/action/cooldown/mob_cooldown/lay_web/sticky_web,
@@ -269,11 +270,11 @@
 	health = 300 // IRIS EDIT
 	//damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, STAMINA = 1, OXY = 1) // IRIS REMOVAL
 	melee_damage_lower = 25 // IRIS EDIT
-	melee_damage_upper = 40 // IRIS EDIT
+	melee_damage_upper = 30 // IRIS EDIT
 	obj_damage = 30 // IRIS EDIT
 	speed = 5
 	player_speed_modifier = -4
-	menu_description = "Extremely tanky with very poor offence. Able to self heal and lay reflective silk screens."
+	menu_description = "High health and damage. Low speed." // IRIS EDIT
 
 /mob/living/basic/spider/giant/tank/Initialize(mapload)
 	. = ..()
