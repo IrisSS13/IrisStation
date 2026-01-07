@@ -41,8 +41,8 @@
 	icon_living = "ambush"
 	icon_dead = "ambush_dead"
 	gender = FEMALE
-	maxHealth = 125
-	health = 125
+	maxHealth = 100 // IRIS EDIT
+	health = 100 // IRIS EDIT
 	obj_damage = 30 // IRIS EDIT
 	melee_damage_lower = 5 // IRIS EDIT
 	melee_damage_upper = 10 // IRIS EDIT
