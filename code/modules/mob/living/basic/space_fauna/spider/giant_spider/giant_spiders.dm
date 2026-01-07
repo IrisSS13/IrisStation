@@ -44,9 +44,9 @@
 	maxHealth = 125
 	health = 125
 	obj_damage = 30 // IRIS EDIT
-	melee_damage_lower = 10 // IRIS EDIT
-	melee_damage_upper = 15 // IRIS EDIT
-	poison_per_bite = 10 // IRIS ADDITION
+	melee_damage_lower = 5 // IRIS EDIT
+	melee_damage_upper = 10 // IRIS EDIT
+	poison_per_bite = 5 // IRIS ADDITION
 	poison_type = /datum/reagent/toxin/staminatoxin // IRIS ADDITION
 	speed = 3
 	player_speed_modifier = -3.1
@@ -60,7 +60,7 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_STRONG_GRABBER, INNATE_TRAIT)
 
-	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/slow_web)
+	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/average_web) // IRIS EDIT: slow_web -> average_web
 
 /**
  * ### Guard Spider
