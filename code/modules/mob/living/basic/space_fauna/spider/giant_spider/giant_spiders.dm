@@ -172,7 +172,8 @@
 	player_speed_modifier = -3.1
 	web_speed = 0.25
 	web_type = /datum/action/cooldown/mob_cooldown/lay_web/sealer
-	menu_description = "Avarage speed spider able to heal other spiders and itself together with a fast web laying capability, has low damage and health."
+	menu_description = "A weak spider able to heal other spiders, lay faster webs and shed an effigy." // IRIS EDIT
+	innate_actions = list(/datum/action/cooldown/mob_cooldown/web_effigy) // IRIS ADDITION
 
 ///Used in the caves away mission.
 /mob/living/basic/spider/giant/nurse/away_caves
