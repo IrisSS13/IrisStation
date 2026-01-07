@@ -43,16 +43,17 @@
 	gender = FEMALE
 	maxHealth = 125
 	health = 125
-	obj_damage = 30
-	melee_damage_lower = 25
-	melee_damage_upper = 30
-	speed = 5
+	obj_damage = 30 // IRIS EDIT
+	melee_damage_lower = 10 // IRIS EDIT
+	melee_damage_upper = 15 // IRIS EDIT
+	poison_per_bite = 10 // IRIS ADDITION
+	poison_type = /datum/reagent/toxin/staminatoxin // IRIS ADDITION
+	speed = 3
 	player_speed_modifier = -3.1
-	menu_description = "Slow spider, with an average health and damage, a strong disarming pull and a ranged slowdown." // IRIS EDIT
+	menu_description = "Fast spider with an average health, a strong disarming pull and a ranged slowdown." // IRIS EDIT
 	innate_actions = list(
 		/datum/action/cooldown/mob_cooldown/sneak/spider,
-		/datum/action/cooldown/spell/pointed/projectile/web_restraints,
-		/datum/action/cooldown/mob_cooldown/spider_leap,
+		/datum/action/cooldown/spell/pointed/projectile/web_restraints, // IRIS ADDITION
 		)
 
 /mob/living/basic/spider/giant/ambush/Initialize(mapload)
