@@ -75,8 +75,8 @@
 	icon_living = "guard"
 	icon_dead = "guard_dead"
 	gender = FEMALE
-	maxHealth = 125 // IRIS EDIT
-	health = 125 // IRIS EDIT
+	maxHealth = 120 // IRIS EDIT
+	health = 120 // IRIS EDIT
 	melee_damage_lower = 20
 	melee_damage_upper = 25
 	obj_damage = 30 // IRIS EDIT
@@ -334,7 +334,7 @@
 	wound_bonus = 25
 	exposed_wound_bonus = 50
 	sharpness = SHARP_EDGED
-	obj_damage = 60
+	obj_damage = 120
 	web_speed = 0.25
 	limb_destroyer = 50
 	speed = 5
@@ -370,27 +370,33 @@
 	health = 400
 	melee_damage_lower = 35
 	melee_damage_upper = 40
-	obj_damage = 100
+	obj_damage = 50
 	damage_coeff = list(BRUTE = 1, BURN = 1.25, TOX = 1, STAMINA = 0, OXY = 1)
 	speed = 5 // IRIS EDIT
 	player_speed_modifier = -5.5 // Doesn't seem that slow but it gets a debuff off web
 	mob_size = MOB_SIZE_LARGE
 	gold_core_spawnable = NO_SPAWN
-	web_speed = 0.7
+	//web_speed = 0.7 // IRIS EDIT
 	web_type = /datum/action/cooldown/mob_cooldown/lay_web/sealer
 	sight = SEE_MOBS // IRIS ADDITION
 	menu_description = "Tank spider variant with an enormous amount of health and damage, but is very slow when not on webbing. It also has a charge ability to close distance with a target after a small windup."
 	innate_actions = list(
-		///datum/action/cooldown/mob_cooldown/charge/basic_charge, // IRIS EDIT: its defined below, shows twice in-game
+		///datum/action/cooldown/mob_cooldown/charge/basic_charge/tarantula, // IRIS REMOVAL: its defined twice for whatever reason
 		/datum/action/cooldown/mob_cooldown/lay_web/solid_web,
 		/datum/action/cooldown/mob_cooldown/lay_web/web_passage,
 	)
 	/// Charging ability, kept seperate from innate_actions due to implementation details
-	var/datum/action/cooldown/mob_cooldown/charge/basic_charge/charge
+	var/datum/action/cooldown/mob_cooldown/charge/basic_charge/tarantula/charge // IRIS EDIT
+
+// IRIS ADDITION START
+/datum/action/cooldown/mob_cooldown/charge/basic_charge/tarantula
+	charge_delay = 1 SECONDS
+	cooldown_time = 15 SECONDS
+// IRIS ADDITION END
 
 /mob/living/basic/spider/giant/tarantula/Initialize(mapload)
 	. = ..()
-	charge = new /datum/action/cooldown/mob_cooldown/charge/basic_charge()
+	charge = new /datum/action/cooldown/mob_cooldown/charge/basic_charge/tarantula() // IRIS EDIT
 	charge.Grant(src)
 
 	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/slow_web)
@@ -425,7 +431,7 @@
 	speed = 3 // IRIS EDIT
 	player_speed_modifier = -2.5
 	gold_core_spawnable = NO_SPAWN
-	menu_description = "Assassin spider variant with an unmatched speed and very deadly poison, but has very low amount of health and damage."
+	menu_description = "Fast spider with a lethal venom, but has less health and damage." // IRIS EDIT
 	innate_actions = list(
 		/datum/action/cooldown/mob_cooldown/defensive_mode,
 	)
