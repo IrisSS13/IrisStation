@@ -2,6 +2,7 @@
 // Each head gets their own entry to ensure phones spawn in ALL quarters, not just one random one
 
 /datum/area_spawn/phone
+	target_areas = list()
 	blacklisted_stations = list("Biodome", "Kilo Station", "Oshan", "Ouroboros", "Snowglobe Station", "Runtime Station", "MultiZ Debug", "Gateway Test", "Blueshift", "Minimal Runtime Station")
 
 /datum/area_spawn/phone/ce
