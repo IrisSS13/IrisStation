@@ -381,10 +381,9 @@
 	web_type = /datum/action/cooldown/mob_cooldown/lay_web/sealer
 	sight = SEE_MOBS // IRIS ADDITION
 	menu_description = "Tank spider variant with an enormous amount of health and damage, but is very slow when not on webbing. It also has a charge ability to close distance with a target after a small windup."
-	/* IRIS REMOVAL START
 	innate_actions = list(
-		/datum/action/cooldown/mob_cooldown/charge/basic_charge/tarantula,
-		/datum/action/cooldown/mob_cooldown/lay_web/solid_web,
+		///datum/action/cooldown/mob_cooldown/charge/basic_charge/tarantula, // IRIS REMOVAL: duplicate
+		///datum/action/cooldown/mob_cooldown/lay_web/solid_web, // IRIS REMOVAL
 		/datum/action/cooldown/mob_cooldown/lay_web/web_passage,
 	) IRIS REMOVAL END */
 	/// Charging ability, kept seperate from innate_actions due to implementation details
