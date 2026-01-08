@@ -77,7 +77,6 @@
 	reqs = list(/obj/item/stack/sheet/mineral/wood = 10)
 	time = 60
 	category = CAT_MISC
-	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 10)
 
 /obj/machinery/compostbin
 	name = "compost bin"
@@ -96,6 +95,7 @@
 	var/processed_items_per_cycle = 5
 	var/max_items = 20
 	var/current_item_count = 0
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 10)
 
 
 /obj/machinery/compostbin/Initialize(mapload)
