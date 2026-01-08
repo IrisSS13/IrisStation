@@ -385,7 +385,7 @@
 		///datum/action/cooldown/mob_cooldown/charge/basic_charge/tarantula, // IRIS REMOVAL: duplicate
 		///datum/action/cooldown/mob_cooldown/lay_web/solid_web, // IRIS REMOVAL
 		/datum/action/cooldown/mob_cooldown/lay_web/web_passage,
-	) IRIS REMOVAL END */
+	)
 	/// Charging ability, kept seperate from innate_actions due to implementation details
 	var/datum/action/cooldown/mob_cooldown/charge/basic_charge/tarantula/charge // IRIS EDIT
 
