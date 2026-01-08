@@ -12,6 +12,7 @@
 	self_sustaining = 0
 	maxnutri = 30
 	maxwater = 300
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 10, /datum/material/sandstone = SHEET_MATERIAL_AMOUNT * 5)
 
 /datum/crafting_recipe/soilbin
 	name = "Primitive soilbin"
@@ -44,6 +45,7 @@
 	self_sustaining = 1
 	maxnutri = 50
 	maxwater = 500
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 10, /datum/material/sandstone = SHEET_MATERIAL_AMOUNT * 5)
 
 /obj/machinery/hydroponics/soil/soilbin/gaia/click_ctrl(mob/user)
 	if(!anchored)
@@ -75,6 +77,7 @@
 	reqs = list(/obj/item/stack/sheet/mineral/wood = 10)
 	time = 60
 	category = CAT_MISC
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 10)
 
 /obj/machinery/compostbin
 	name = "compost bin"
@@ -309,6 +312,7 @@
 	desc = "Some shoddy looking secateurs, they look sturdy enough to get a graft... or poke someone in both eyes at once!"
 	icon = 'modular_iris/modules/primitive_production/icons/prim_fun.dmi'
 	icon_state = "woodensecateurs"
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 6, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 2)
 
 /datum/crafting_recipe/secateur
 	name = "Primitive secateurs"
