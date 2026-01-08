@@ -340,12 +340,13 @@
 	speed = 5
 	player_speed_modifier = -4
 	sight = SEE_TURFS
+	web_type = /datum/action/cooldown/mob_cooldown/lay_web/sealer // IRIS ADDITION
 	menu_description = "Has the ability to destroy walls and limbs, and to send warnings to the nest."
 
 /mob/living/basic/spider/giant/breacher/Initialize(mapload)
 	. = ..()
-	var/datum/action/cooldown/mob_cooldown/lay_web/solid_web/web_solid = new(src)
-	web_solid.Grant(src)
+	var/datum/action/cooldown/mob_cooldown/lay_web/web_passage/web_passage = new(src) // IRIS EDIT
+	web_passage.Grant(src) // IRIS EDIT
 
 	var/datum/action/cooldown/mob_cooldown/command_spiders/warning_spiders/spiders_warning = new(src)
 	spiders_warning.Grant(src)
@@ -380,11 +381,12 @@
 	web_type = /datum/action/cooldown/mob_cooldown/lay_web/sealer
 	sight = SEE_MOBS // IRIS ADDITION
 	menu_description = "Tank spider variant with an enormous amount of health and damage, but is very slow when not on webbing. It also has a charge ability to close distance with a target after a small windup."
+	/* IRIS REMOVAL START
 	innate_actions = list(
-		///datum/action/cooldown/mob_cooldown/charge/basic_charge/tarantula, // IRIS REMOVAL: its defined twice for whatever reason
+		/datum/action/cooldown/mob_cooldown/charge/basic_charge/tarantula,
 		/datum/action/cooldown/mob_cooldown/lay_web/solid_web,
 		/datum/action/cooldown/mob_cooldown/lay_web/web_passage,
-	)
+	) IRIS REMOVAL END */
 	/// Charging ability, kept seperate from innate_actions due to implementation details
 	var/datum/action/cooldown/mob_cooldown/charge/basic_charge/tarantula/charge // IRIS EDIT
 
