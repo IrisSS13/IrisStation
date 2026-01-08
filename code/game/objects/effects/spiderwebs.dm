@@ -270,7 +270,7 @@
 	. = ..()
 	pixel_x = -9
 	pixel_y = -9
-	add_filter(SPIDER_WEB_TINT, 10, list("type" = "outline", "color" = "#ac0000ff", "size" = 0.1))
+	//add_filter(SPIDER_WEB_TINT, 10, list("type" = "outline", "color" = "#ac0000ff", "size" = 0.1)) // IRIS REMOVAL
 	AddComponent(/datum/component/caltrop, min_damage = 20, max_damage = 30, flags = CALTROP_NOSTUN | CALTROP_BYPASS_SHOES)
 
 /obj/structure/spider/effigy
