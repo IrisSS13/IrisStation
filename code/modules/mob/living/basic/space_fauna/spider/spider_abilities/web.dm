@@ -108,7 +108,7 @@
 
 /datum/action/cooldown/mob_cooldown/lay_web/web_passage
 	name = "Spin Web Passage"
-	desc = "Spin a web passage to hide the nest from prey view."
+	desc = "Spin a web passage to hide the nest from prey view and block fires from spreading." // IRIS EDIT
 	button_icon_state = "spider_roof"
 	cooldown_time = 0 SECONDS
 	webbing_time = 4 SECONDS
