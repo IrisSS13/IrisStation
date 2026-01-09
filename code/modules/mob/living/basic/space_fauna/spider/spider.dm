@@ -85,10 +85,10 @@
 	ai_controller?.set_blackboard_key(BB_SPIDER_WEB_ACTION, webbing)
 
 	// IRIS EDIT START - Makes player-controlled spiders unable to attack each other.
-	AddElement(/datum/element/prevent_attacking_of_player_types, \
+	/*AddElement(/datum/element/prevent_attacking_of_player_types, \
 		typecacheof(list(/mob/living/basic/spider)), \
 		"Wait! That's your fellow spider."\
-	)
+	)*/
 	// IRIS EDIT END
 
 /mob/living/basic/spider/Login()
