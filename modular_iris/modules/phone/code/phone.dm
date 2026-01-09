@@ -618,8 +618,11 @@ GLOBAL_LIST_EMPTY_TYPED(phones, /datum/component/phone)
 
 	var/mob/listener = phone_handset.loc
 
-	// Use exact holopad approach - call listener.Hear() with all parameters
-	listener.Hear(speaker, message_language, message, null, null, null, spans, message_mods, message_range = INFINITY)
+	// Ghosts with hearing disabled shouldn't receive phone messages
+	if(listener.stat == DEAD && listener.client && !(get_chat_toggles(listener.client) & CHAT_GHOSTEARS))
+		return
+
+	listener.Hear(speaker, message_language, span_purple("[message]"), null, null, null, null, message_mods, message_range = INFINITY)
 
 /// Returns the current user of the phone (mob holding handset)
 /datum/component/phone/proc/get_user()
