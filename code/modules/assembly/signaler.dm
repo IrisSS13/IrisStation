@@ -37,14 +37,13 @@
 	suicide_mob = REF(user)
 	return MANUAL_SUICIDE_NONLETHAL
 
-/obj/item/assembly/signaler/proc/manual_suicide(datum/mind/suicidee)
-	var/mob/living/user = suicidee.current
+/obj/item/assembly/signaler/proc/manual_suicide()
+	var/mob/living/user = suicider.current
 	if(!istype(user))
 		return
-	if(suicide_mob == REF(user))
-		user.visible_message(span_suicide("[user]'s [src] receives a signal, killing [user.p_them()] instantly!"))
-	else
-		user.visible_message(span_suicide("[user]'s [src] receives a signal and [user.p_they()] die[user.p_s()] like a gamer!"))
+	if(suicide_mob != REF(user))
+		return
+	user.visible_message(span_suicide("[user]'s [src] receives a signal, killing [user.p_them()] instantly!"))
 	user.set_suicide(TRUE)
 	user.adjustOxyLoss(200)//it sends an electrical pulse to their heart, killing them. or something.
 	user.death(FALSE)
@@ -148,7 +147,7 @@
 	if(!radio_connection)
 		return
 
-	var/time = time2text(world.realtime, "hh:mm:ss", TIMEZONE_UTC)
+	var/time = time_stamp()
 	var/turf/T = get_turf(src)
 
 	var/logging_data = "[time] <B>:</B> [key_name(usr)] used [src] @ location ([T.x],[T.y],[T.z]) <B>:</B> [format_frequency(frequency)]/[code]"
@@ -164,7 +163,7 @@
 	if(signal.data["code"] != code)
 		return
 	if(suicider)
-		manual_suicide(suicider)
+		manual_suicide()
 		return
 
 	// If the holder is a TTV, we want to store the last received signal to incorporate it into TTV logging, else wipe it.

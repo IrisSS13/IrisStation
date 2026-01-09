@@ -50,7 +50,7 @@
 
 /obj/effect/portal/anom
 	name = "wormhole"
-	icon = 'icons/obj/anomaly.dmi'
+	icon = 'modular_iris/icons/effects/anomalies.dmi' // IRIS EDIT - REPLACED WITH A BETTER ONE - original: icon = 'icons/obj/anomaly.dmi'
 	icon_state = "anom"
 	layer = RIPPLE_LAYER
 	plane = ABOVE_GAME_PLANE
@@ -135,10 +135,10 @@
 		return ..()
 	return BULLET_ACT_FORCE_PIERCE
 
-/obj/effect/portal/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
-	if (!teleport(hitting_projectile, force = TRUE))
-		return ..()
-	return BULLET_ACT_FORCE_PIERCE
+/obj/effect/portal/projectile_hit(obj/projectile/hitting_projectile, def_zone, piercing_hit, blocked)
+	if (teleport(hitting_projectile, force = TRUE))
+		return BULLET_ACT_FORCE_PIERCE
+	return ..()
 
 /obj/effect/portal/proc/teleport(atom/movable/moving, force = FALSE)
 	if(!force && (!istype(moving) || iseffect(moving) || (ismecha(moving) && !mech_sized) || (!isobj(moving) && !ismob(moving)))) //Things that shouldn't teleport.

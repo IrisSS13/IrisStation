@@ -57,7 +57,7 @@
 	suit = /obj/item/clothing/suit/toggle/jacket/nova/colorable_bomber/tcomm
 	neck = /obj/item/clothing/neck/link_scryer
 	belt = /obj/item/screwdriver
-	ears = /obj/item/radio/headset/headset_eng
+	ears = /obj/item/radio/headset/headset_eng/telecomms_specialist // IRIS EDIT - original: /obj/item/radio/headset/headset_eng
 	head = /obj/item/clothing/head/utility/hardhat/dblue
 	shoes = /obj/item/clothing/shoes/laceup
 	l_pocket = /obj/item/modular_computer/pda/telecomms

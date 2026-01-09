@@ -75,7 +75,7 @@
 
 		if(SLIME_TYPE_RAINBOW)
 			if(prob(2.5 * seconds_per_tick))
-				random_colour()
+				set_slime_type()
 
 /mob/living/basic/slime/proc/transform_effect(mob/living/user)
 	regenerate_icons()

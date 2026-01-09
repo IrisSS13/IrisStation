@@ -13,7 +13,7 @@ type MarkdownViewerData = {
 export const MarkdownViewer = (_: any) => {
   const { data } = useBackend<MarkdownViewerData>();
   return (
-    <Window theme="paper" title={data.title} width={300} height={300}>
+    <Window theme="paper" title={data.title} width={420} height={500}>
       <Window.Content scrollable backgroundColor={'#FFFFFF'}>
         <MarkdownRenderer content={data.content} />
       </Window.Content>
@@ -38,7 +38,7 @@ export const MarkdownRenderer = (props: MarkdownRendererProps) => {
         : sanitized;
   }
 
-  // eslint-disable-next-line react/no-danger
+  // biome-ignore lint/security/noDangerouslySetInnerHtml: ignore
   return <div dangerouslySetInnerHTML={{ __html: content }} />;
 };
 

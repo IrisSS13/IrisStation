@@ -183,7 +183,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 
 /obj/item/radio/headset/syndicate/alt/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
+	AddComponent(/datum/component/wearertargeting/earprotection)
 
 /obj/item/radio/headset/syndicate/alt/leader
 	name = "team leader headset"
@@ -207,7 +207,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 
 /obj/item/radio/headset/headset_sec/alt/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
+	AddComponent(/datum/component/wearertargeting/earprotection)
 
 /obj/item/radio/headset/headset_eng
 	name = "engineering radio headset"
@@ -290,7 +290,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 
 /obj/item/radio/headset/heads/captain/alt/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
+	AddComponent(/datum/component/wearertargeting/earprotection)
 
 /obj/item/radio/headset/heads/rd
 	name = "\proper the research director's headset"
@@ -322,7 +322,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 
 /obj/item/radio/headset/heads/hos/alt/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
+	AddComponent(/datum/component/wearertargeting/earprotection)
 
 /obj/item/radio/headset/heads/ce
 	name = "\proper the chief engineer's headset"
@@ -367,7 +367,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	// "puts the antenna down" while the headset is off
 	overlay_speaker_idle = "headset_up"
 	overlay_mic_idle = "headset_up"
-	keyslot = /obj/item/encryptionkey/headset_mining
+//keyslot = /obj/item/encryptionkey/headset_mining // IRIS REMOVAL - Removed miners having science comms
 
 /obj/item/radio/headset/headset_cargo/mining/Initialize(mapload)
 	. = ..()
@@ -414,7 +414,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 
 /obj/item/radio/headset/headset_cent/alt/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
+	AddComponent(/datum/component/wearertargeting/earprotection)
 
 /obj/item/radio/headset/headset_cent/alt/leader
 	command = TRUE

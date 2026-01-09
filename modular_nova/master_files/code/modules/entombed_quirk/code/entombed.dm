@@ -95,6 +95,10 @@
 		modsuit.icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi'
 		modsuit.worn_icon = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi'
 
+	else if(modsuit.skin == "voskhod")
+		modsuit.icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi'
+		modsuit.worn_icon = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi'
+
 	var/modsuit_name = client_source?.prefs.read_preference(/datum/preference/text/entombed_mod_name)
 	if (modsuit_name)
 		modsuit.name = modsuit_name
@@ -116,6 +120,10 @@
 			part.worn_icon = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi'
 
 		else if(modsuit.skin == "tarkon") // Same as above, not smart enough to do the refactoring
+			part.icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi'
+			part.worn_icon = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi'
+
+		else if(modsuit.skin == "voskhod")
 			part.icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi'
 			part.worn_icon = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi'
 
@@ -199,6 +207,11 @@
 		"Security",
 		"Colonist",
 		"Tarkon",
+		"Asteroid",
+		"Research",
+		"Rescue",
+		"Safeguard",
+		"Voskhod",
 	)
 
 /datum/preference/choiced/entombed_skin/create_default_value()

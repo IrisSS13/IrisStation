@@ -28,14 +28,25 @@
 /area/space/nearstation)
 "f" = (
 /obj/machinery/light/directional/north,
-/obj/structure/table/reinforced,
-/obj/machinery/cell_charger,
-/turf/open/floor/iron/dark,
+/obj/machinery/suit_storage_unit/explorer,
+/obj/effect/turf_decal/box/corners,
+/obj/effect/turf_decal/box/corners{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/brick_aligned_half{
+	dir = 1
+	},
 /area/station/cargo/exploration_office)
 "g" = (
-/obj/structure/tank_dispenser/oxygen,
 /obj/machinery/camera/autoname/directional/west,
-/turf/open/floor/iron/dark,
+/obj/machinery/suit_storage_unit/explorer,
+/obj/effect/turf_decal/box/corners,
+/obj/effect/turf_decal/box/corners{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/brick_aligned_half{
+	dir = 1
+	},
 /area/station/cargo/exploration_office)
 "h" = (
 /turf/open/floor/iron/dark,
@@ -67,7 +78,17 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/cargo/exploration_office)
+"l" = (
+/obj/structure/table/reinforced,
+/obj/machinery/cell_charger,
+/turf/open/floor/iron/dark,
+/area/station/cargo/exploration_office)
 "m" = (
+/obj/machinery/camera/autoname/directional/east,
+/obj/structure/sign/warning/vacuum/external/directional/east,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
 /obj/structure/rack,
 /obj/item/multitool{
 	pixel_x = -7;
@@ -77,35 +98,26 @@
 	pixel_x = -6;
 	pixel_y = -2
 	},
-/obj/machinery/camera/autoname/directional/east,
-/obj/structure/sign/warning/vacuum/external/directional/east,
 /obj/item/stack/rods/twentyfive{
 	pixel_x = 4
-	},
-/obj/effect/turf_decal/stripes/corner{
-	dir = 4
 	},
 /turf/open/floor/iron/dark,
 /area/station/cargo/exploration_office)
 "n" = (
-/obj/structure/bed/dogbed{
-	name = "Lem's bed";
-	desc = "A comfy-looking cat bed. You can even strap your pet in, in case the gravity turns off."
-	},
-/mob/living/basic/pet/cat/space{
-	name = "Lem";
-	gender = "male";
-	unique_pet = 1;
-	desc = "He's kittened out for space exploration."
-	},
 /obj/effect/turf_decal/trimline/brown/line{
 	dir = 8
 	},
+/obj/structure/closet/crate/bin,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
 /turf/open/floor/iron/dark,
 /area/station/cargo/exploration_office)
 "o" = (
-/obj/machinery/suit_storage_unit/explorer,
-/obj/effect/turf_decal/bot,
+/obj/structure/table/reinforced,
+/obj/machinery/recharger{
+	pixel_x = 6;
+	pixel_y = 3
+	},
 /turf/open/floor/iron/dark,
 /area/station/cargo/exploration_office)
 "p" = (
@@ -265,6 +277,7 @@
 /obj/effect/turf_decal/trimline/brown/line{
 	dir = 8
 	},
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/open/floor/iron/dark,
 /area/station/cargo/exploration_office)
 "J" = (
@@ -273,9 +286,16 @@
 /area/station/cargo/exploration_office)
 "K" = (
 /obj/machinery/light/directional/south,
-/obj/structure/closet/crate/bin,
-/obj/effect/spawner/random/trash/garbage,
-/obj/effect/spawner/random/trash/garbage,
+/obj/structure/bed/dogbed{
+	name = "Lem's bed";
+	desc = "A comfy-looking cat bed. You can even strap your pet in, in case the gravity turns off."
+	},
+/mob/living/basic/pet/cat/space{
+	name = "Lem";
+	gender = "male";
+	unique_pet = 1;
+	desc = "He's kittened out for space exploration."
+	},
 /turf/open/floor/iron/dark,
 /area/station/cargo/exploration_office)
 "L" = (
@@ -284,7 +304,7 @@
 /turf/open/floor/engine,
 /area/station/cargo/exploration_office)
 "M" = (
-/turf/open/floor/plating,
+/turf/open/floor/engine/hull/reinforced,
 /area/space/nearstation)
 "N" = (
 /obj/structure/lattice/catwalk,
@@ -355,9 +375,14 @@
 "X" = (
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/effect/turf_decal/delivery,
-/turf/open/floor/iron/dark,
+/obj/machinery/suit_storage_unit/explorer,
+/obj/effect/turf_decal/box/corners,
+/obj/effect/turf_decal/box/corners{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/brick_aligned_half{
+	dir = 1
+	},
 /area/station/cargo/exploration_office)
 "Y" = (
 /obj/machinery/firealarm/directional/east,
@@ -368,18 +393,11 @@
 /area/station/cargo/exploration_office)
 "Z" = (
 /obj/effect/decal/cleanable/cobweb,
-/obj/structure/table/reinforced,
-/obj/item/paper_bin{
-	pixel_y = 4;
-	pixel_x = -7
-	},
-/obj/machinery/recharger{
-	pixel_x = 6;
-	pixel_y = 3
-	},
-/obj/item/pen,
 /obj/effect/turf_decal/siding/dark{
 	dir = 9
+	},
+/obj/machinery/computer/cargo/request{
+	dir = 4
 	},
 /turf/open/floor/iron/dark/small,
 /area/station/cargo/exploration_office)
@@ -477,7 +495,7 @@ U
 "}
 (8,1,1) = {"
 a
-o
+l
 o
 U
 J

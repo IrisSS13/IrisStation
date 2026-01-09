@@ -56,9 +56,9 @@
 	job_flags = STATION_JOB_FLAGS | JOB_ANTAG_PROTECTED
 	mail_goodies = list(
 		/obj/item/flashlight/flare = 15,
-		/obj/item/tank/internals/emergency_oxygen = 5,
-		/obj/item/gas_filter = 5,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/morpital = 1
+		/obj/item/tank/internals/emergency_oxygen/engi = 5,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/morpital = 3,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/coagulants = 3
 	)
 
 /datum/outfit/job/explorer
@@ -127,15 +127,37 @@
 	icon_state = "explorer_aid"
 	desc = "A repainted mining wound analyzer made by MeLo-Tech and used to diagnose injuries and recommend treatment for serious wounds. While it might not sound very informative for it to be able to tell you if you have a gaping hole in your body or not, it applies a temporary holoimage near the wound with information that is guaranteed to double the efficacy and speed of treatment. Just like with the mining one, the antenna is just for aesthetic and doesn't actually do anything!"
 
-/* Weapon variants with the /explorer firing pin; Can't use them on station's z-level */
+/* Weapon variants with the /explorer firing pin; Can't use them on station's z-level; */
 
+// Longarms
 /obj/item/gun/ballistic/shotgun/doublebarrel/explorer
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/shot/dual/buckshot
 	pin = /obj/item/firing_pin/explorer
-/obj/item/gun/ballistic/automatic/pistol/sol/explorer
+
+/obj/item/gun/ballistic/rifle/boltaction/harpoon/explorer
 	pin = /obj/item/firing_pin/explorer
+
+// Lasers
 /obj/item/gun/energy/laser/carbine/explorer
 	pin = /obj/item/firing_pin/explorer
+
+/obj/item/gun/energy/laser/explorer
+	pin = /obj/item/firing_pin/explorer
+
+// Pistols
+/obj/item/gun/ballistic/automatic/pistol/sol/explorer
+	pin = /obj/item/firing_pin/explorer
+
+/obj/item/gun/ballistic/automatic/pistol/zashch/explorer
+	pin = /obj/item/firing_pin/explorer
+
+/obj/item/gun/ballistic/automatic/pistol/plasma_marksman/explorer
+	pin = /obj/item/firing_pin/explorer
+
+// Revolvers
+/obj/item/gun/ballistic/revolver/c38/explorer
+	pin = /obj/item/firing_pin/explorer
+
 /obj/item/gun/ballistic/revolver/sol/explorer
 	pin = /obj/item/firing_pin/explorer
 
@@ -147,10 +169,16 @@
 
 /obj/item/choice_beacon/explorer/generate_display_names()
 	var/static/list/selectable_gun_types = list(
-		"Laser Carbine" = /obj/item/gun/energy/laser/carbine/explorer,
 		"Double Barrel Shotgun" = /obj/item/gun/ballistic/shotgun/doublebarrel/explorer,
+		"Harpoon Gun" = /obj/item/gun/ballistic/rifle/boltaction/harpoon/explorer,
+		"Laser Carbine" = /obj/item/gun/energy/laser/explorer,
+		"Laser Auto-Carbine" = /obj/item/gun/energy/laser/carbine/explorer,
 		"Guêpe Pistol" = /obj/item/gun/ballistic/automatic/pistol/sol/explorer,
-		"Renard Revolver" = /obj/item/gun/ballistic/revolver/sol/explorer
+		"Zashch Heavy Pistol" = /obj/item/gun/ballistic/automatic/pistol/zashch/explorer,
+		"Gwiazda Plasma Sharpshooter" = /obj/item/gun/ballistic/automatic/pistol/plasma_marksman/explorer,
+		".38 Revolver" = /obj/item/gun/ballistic/revolver/c38/explorer,
+		"Renard Revolver" = /obj/item/gun/ballistic/revolver/sol/explorer,
+		"Surplus Machete" = /obj/item/storage/belt/machete/full,
 	)
 
 	return selectable_gun_types
@@ -171,4 +199,5 @@
 /obj/machinery/suit_storage_unit/explorer
 	mask_type = /obj/item/clothing/mask/gas/atmos/frontier_colonist
 	mod_type = /obj/item/mod/control/pre_equipped/frontier_colonist
-	storage_type = /obj/item/tank/jetpack/oxygen
+	storage_type = /obj/item/tank/jetpack
+

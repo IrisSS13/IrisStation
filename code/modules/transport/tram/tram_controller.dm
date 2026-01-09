@@ -89,7 +89,7 @@
 	else
 		serial_number = "LT306TG[rand(000000, 999999)]"
 
-	mfg_date = "[CURRENT_STATION_YEAR]-[time2text(world.timeofday, "MM-DD", NO_TIMEZONE)]"
+	mfg_date = "[CURRENT_STATION_YEAR]-[time2text(world.timeofday, "MM-DD")]"
 	install_location = specific_transport_id
 
 /datum/tram_mfg_info/proc/load_from_json(list/json_data)
@@ -1198,3 +1198,12 @@
 	custom_materials = list(/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 4, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 2)
 	result_path = /obj/machinery/transport/tram_controller
 	pixel_shift = 32
+
+/obj/item/wallframe/tram/try_build(obj/structure/tram/on_tram, mob/user)
+	var/turf/tram_turf = get_turf(user)
+	var/obj/structure/thermoplastic/tram_floor = locate() in tram_turf
+	if(!istype(tram_floor))
+		balloon_alert(user, "needs tram!")
+		return FALSE
+
+	return ..()

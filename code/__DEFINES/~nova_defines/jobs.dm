@@ -11,6 +11,8 @@
 #define GUARD_RESTRICTED_QUIRKS "Blind" = TRUE, "Deaf" = TRUE, "Foreigner" = TRUE, "Pacifist" = TRUE, "Nerve Stapled" = TRUE, "Stowaway" = TRUE, "Underworld Connections" = TRUE, "Paroled Convict" = TRUE  //IRIS EDIT - Adds Stowaway, Convict and Underworld Connections
 #define PRISONER_RESTRICTED_QUIRKS "Underworld Connections" = TRUE, "Stowaway" = TRUE //IRIS EDIT - Adds Stowaway
 
+#define SEC_RESTRICTED_SPECIES SPECIES_ABDUCTORWEAK = TRUE, SPECIES_GOLEMWEAK = TRUE, SPECIES_DULLAHAN = TRUE
+#define HEAD_RESTRICTED_SPECIES SPECIES_ABDUCTORWEAK = TRUE, SPECIES_GOLEMWEAK = TRUE, SPECIES_DULLAHAN = TRUE
 #define RESTRICTED_QUIRKS_EXCEPTIONS list("Mute" = "Signer")
 
 #define HEAD_RESTRICTED_AUGMENTS /obj/item/bodypart/arm/left/self_destruct, /obj/item/bodypart/arm/right/self_destruct, /obj/item/bodypart/leg/left/self_destruct, /obj/item/bodypart/leg/right/self_destruct
@@ -47,11 +49,11 @@
 	/obj/item/storage/belt/security/full, \
 	/obj/item/gun/energy/e_gun/hos, \
 	/obj/item/pinpointer/nuke, \
-	/obj/item/storage/belt/sabre, \
+	/obj/item/storage/belt/sheath/sabre, \
 	/obj/item/mod/control/pre_equipped/magnate, \
 	/obj/item/mod/control/pre_equipped/blueshield, \
 	/obj/item/clothing/suit/armor/vest/warden, \
-	/obj/item/clothing/gloves/krav_maga/sec, \
+	/obj/item/clothing/gloves/kaza_ruk/sec, \
 	/obj/item/clothing/suit/armor/vest/alt/sec, \
 	/obj/item/storage/belt/holster/detective/full, \
 	/obj/item/detective_scanner, \

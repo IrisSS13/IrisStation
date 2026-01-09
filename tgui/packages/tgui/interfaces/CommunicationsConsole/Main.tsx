@@ -231,7 +231,7 @@ export function PageMain(props) {
               disabled={!importantActionReady}
               onClick={() => act('messagethefeds')}
             >
-              Send message to the Sol Goverment Regional Command
+              Send message to the Sol Federation Regional Command
             </Button>
           )}
           {!!canMakeAnnouncement && (

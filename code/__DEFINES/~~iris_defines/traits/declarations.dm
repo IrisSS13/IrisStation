@@ -58,3 +58,9 @@
 // /obj/item
 /// Applied to a satchel that is being worn on the belt.
 #define TRAIT_BELT_SATCHEL "belt_satchel"
+
+/// Allows the user to instantly reload.
+#define TRAIT_INSTANT_RELOAD "instant_reload"
+
+//// The trait for Holosynths
+#define TRAIT_HOLOSYNTH "holosynthetic"

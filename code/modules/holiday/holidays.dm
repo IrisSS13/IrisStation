@@ -190,7 +190,7 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	)
 
 /datum/holiday/birthday/greet()
-	var/game_age = text2num(time2text(world.timeofday, "YYYY", world.timezone)) - 2003
+	var/game_age = text2num(time2text(world.timeofday, "YYYY")) - 2003
 	var/Fact
 	switch(game_age)
 		if(16)
@@ -847,7 +847,7 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 	begin_month = DECEMBER
 	end_day = 27
 	holiday_hat = /obj/item/clothing/head/costume/santa
-	no_mail_holiday = TRUE
+	no_mail_holiday = FALSE //IRIS EDIT - the mail must go on
 	holiday_colors = list(
 		COLOR_CHRISTMAS_GREEN,
 		COLOR_CHRISTMAS_RED,
@@ -986,13 +986,13 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 
 // HOLIDAY ADDONS
 
-/datum/holiday/xmas/celebrate()
+/datum/holiday/xmas/celebrate() // IRIS EDIT - KILLS ANYTHING GIFTS
 	. = ..()
 	SSticker.OnRoundstart(CALLBACK(src, PROC_REF(roundstart_celebrate)))
 	GLOB.maintenance_loot += list(
 		list(
 			/obj/item/clothing/head/costume/santa = 1,
-			/obj/item/gift/anything = 1,
+			/obj/item/gift = 1,
 			/obj/item/toy/xmas_cracker = 3,
 		) = maint_holiday_weight,
 	)
@@ -1027,7 +1027,7 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 
 /datum/holiday/easter/shouldCelebrate(dd, mm, yyyy, ddd)
 	if(!begin_month)
-		current_year = text2num(time2text(world.timeofday, "YYYY", world.timezone))
+		current_year = text2num(time2text(world.timeofday, "YYYY"))
 		var/list/easterResults = EasterDate(current_year+year_offset)
 
 		begin_day = easterResults["day"]

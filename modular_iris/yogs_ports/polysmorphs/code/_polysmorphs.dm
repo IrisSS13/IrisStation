@@ -30,6 +30,10 @@
 		TRAIT_RESISTLOWPRESSURE,
 		TRAIT_ACIDBLOOD,
 	)
+	family_heirlooms = list(
+		/obj/item/toy/plush/rouny,
+		/obj/item/clothing/mask/facehugger/toy
+		)
 
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT

@@ -108,7 +108,7 @@
 	user.visible_message(span_suicide("[user] places [src] over [user.p_their()] head and pulls it tight! It looks like [user.p_they()] [user.p_are()]n't in the Christmas spirit..."))
 	return OXYLOSS
 
-/obj/item/storage/backpack/santabag/proc/regenerate_presents()
+/obj/item/storage/backpack/santabag/proc/regenerate_presents() // IRIS EDIT - CHANGES /obj/item/gift/anything to normal vers
 	addtimer(CALLBACK(src, PROC_REF(regenerate_presents)), 30 SECONDS)
 
 	var/mob/user = get(loc, /mob)
@@ -116,7 +116,7 @@
 		return
 	if(HAS_MIND_TRAIT(user, TRAIT_CANNOT_OPEN_PRESENTS))
 		var/turf/floor = get_turf(src)
-		var/obj/item/thing = new /obj/item/gift/anything(floor)
+		var/obj/item/thing = new /obj/item/gift(floor)
 		if(!atom_storage.attempt_insert(thing, user, override = TRUE, force = STORAGE_SOFT_LOCKED))
 			qdel(thing)
 
@@ -150,6 +150,12 @@
 	name = "medical backpack"
 	desc = "It's a backpack especially designed for use in a sterile environment."
 	icon_state = "backpack-medical"
+	inhand_icon_state = "medicalpack"
+
+/obj/item/storage/backpack/chief_medic
+	name = "chief medical officer's backpack"
+	desc = "A backpack with just enough pockets to carry the chief medical officer's equipment."
+	icon_state = "backpack-chiefmedical"
 	inhand_icon_state = "medicalpack"
 
 /obj/item/storage/backpack/coroner
@@ -348,6 +354,12 @@
 	icon_state = "satchel-medical"
 	inhand_icon_state = "satchel-med"
 
+/obj/item/storage/backpack/satchel/chief_medic
+	name = "chief medical officer's satchel"
+	desc = "A satchel with barely enough pockets to carry the chief medical officer's equipment."
+	icon_state = "satchel-chiefmedical"
+	inhand_icon_state = "satchel-med"
+
 /obj/item/storage/backpack/satchel/vir
 	name = "virologist satchel"
 	desc = "A sterile satchel with virologist colours."
@@ -451,6 +463,12 @@
 	name = "medical messenger bag"
 	desc = "A sterile messenger bag well loved by medics for its portability and sleek profile."
 	icon_state = "messenger_medical"
+	inhand_icon_state = "messenger_medical"
+
+/obj/item/storage/backpack/messenger/chief_medic
+	name = "chief medical officer's messenger bag"
+	desc = "A slim messenger bag appreciated by chief medical officers for staying out of their way while working - unlike their chemists."
+	icon_state = "messenger_chiefmedical"
 	inhand_icon_state = "messenger_medical"
 
 /obj/item/storage/backpack/messenger/vir

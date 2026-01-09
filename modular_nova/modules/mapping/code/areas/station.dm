@@ -37,6 +37,11 @@
 	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
 	icon_state = "blueshield"
 
+//Bridge Officer area
+/area/station/command/heads_quarters/bridge_officer
+	name = "Bridge Officer Quarters"
+	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
+	icon_state = "nt_rep"
 /*
  * Department areas
  */
@@ -727,3 +732,42 @@
 /area/station/maintenance/condemned_med
 	name = "Old Medbay"
 	icon_state = "abandoned_medbay"
+
+//IRIS ADDITION START
+//why here? because for some reason it cant be overriden with our own area code (at least in sdmm)
+/area/station/hallway/primary/aftstarboardhall
+	name = "Southeast Primary Hallway"
+
+/area/station/hallway/primary/aftporthall
+	name = "Southwest Primary Hallway"
+
+/area/station/hallway/primary/forestarboardhall
+	name = "Northeast Primary Hallway"
+
+/area/station/hallway/primary/foreporthall
+	name = "Northwest Primary Hallway"
+
+/area/station/maintenance/department/engineering/atmos/aft_maint
+	name = "South Atmospherics Maintenance"
+
+/area/station/maintenance/department/engineering/atmos/port_maint
+	name = "West Atmospherics Maintenance"
+
+/area/station/maintenance/department/engineering/engie_aft_starboard
+	name = "Southeast Engineering Maintenance"
+
+/area/station/maintenance/department/engineering/engine_aft_port
+	name = "Southwest Engine Maintenance"
+
+/area/station/maintenance/department/engineering/engine_aft_starboard
+	name = "Southeast Engine Maintenance"
+
+/area/station/maintenance/thruster_room/aft
+	name = "South Thruster Room"
+
+/area/station/maintenance/thruster_room/port
+	name = "West Thruster Room"
+
+/area/station/maintenance/thruster_room/starboard
+	name = "East Thruster Room"
+//IRIS ADDITION END

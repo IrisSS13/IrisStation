@@ -11,9 +11,9 @@
 
 // Consider these images/atoms as part of the UI/HUD (apart of the appearance_flags)
 /// Used for progress bars and chat messages
-#define APPEARANCE_UI_IGNORE_ALPHA (RESET_COLOR|RESET_TRANSFORM|NO_CLIENT_COLOR|RESET_ALPHA|PIXEL_SCALE)
+#define APPEARANCE_UI_IGNORE_ALPHA (RESET_COLOR|RESET_TRANSFORM|NO_CLIENT_COLOR|RESET_ALPHA|PIXEL_SCALE|TILE_BOUND)//IRIS EDIT
 /// Used for HUD objects
-#define APPEARANCE_UI (RESET_COLOR|RESET_TRANSFORM|NO_CLIENT_COLOR|PIXEL_SCALE)
+#define APPEARANCE_UI (RESET_COLOR|RESET_TRANSFORM|NO_CLIENT_COLOR|PIXEL_SCALE|TILE_BOUND)//IRIS EDIT
 
 //used to set the default viewport to the user's preference.
 #define VIEWPORT_USE_PREF "use_pref"
@@ -200,6 +200,9 @@
 #define ui_ghost_minigames "SOUTH: 6, CENTER+3:24"
 #define ui_ghost_language_menu "SOUTH: 6, CENTER+4:22"
 #define ui_ghost_floor_changer "SOUTH: 6, CENTER+4:7"
+
+//Voidwalker
+#define ui_voidwalker_left_of_hands "CENTER+-2:16,SOUTH+0:5"
 
 //Blobbernauts
 #define ui_blobbernaut_overmind_health "EAST-1:28,CENTER+0:19"

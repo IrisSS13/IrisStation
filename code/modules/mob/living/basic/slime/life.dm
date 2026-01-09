@@ -7,17 +7,23 @@
 	if(!HAS_TRAIT(src, TRAIT_STASIS)) //No hunger in stasis
 		handle_nutrition(seconds_per_tick)
 
-	handle_slime_stasis(seconds_per_tick)
+	handle_slime_stasis()
 
 /mob/living/basic/slime/handle_environment(datum/gas_mixture/environment, seconds_per_tick, times_fired)
 	..()
+	// IRIS ADDITION START -- UNIQUE SLIMES
+	// Needs a very oxygenated hot tritium fire
+	if(environment.gases[/datum/gas/tritium] && environment.gases[/datum/gas/oxygen])
+		if(environment.gases[/datum/gas/oxygen][MOLES] > 100000 && environment.gases[/datum/gas/tritium][MOLES] > 1 && environment.temperature > 50000)
+			unique_mutate(SLIME_TYPE_RED, /datum/slime_type/unique/crimson)
+	// IRIS ADDITION END
 	if(bodytemperature <= (T0C - 40)) // stun temperature
 		apply_status_effect(/datum/status_effect/freon, SLIME_COLD)
 	else
 		remove_status_effect(/datum/status_effect/freon, SLIME_COLD)
 
 ///Handles if a slime's environment would cause it to enter stasis. Ignores TRAIT_STASIS
-/mob/living/basic/slime/proc/handle_slime_stasis(seconds_per_tick)
+/mob/living/basic/slime/proc/handle_slime_stasis()
 	var/datum/gas_mixture/environment = loc.return_air()
 
 	var/bz_percentage = 0

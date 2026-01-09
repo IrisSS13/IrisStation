@@ -1,6 +1,15 @@
 //#define LOWMEMORYMODE //uncomment this to load centcom and runtime station and thats it.
+//#define ABSOLUTE_MINIMUM //uncomment this to load a smaller centcomm and smaller runtime station, only works together with LOWMEMORYMODE
 
+#ifdef ABSOLUTE_MINIMUM
+#define LOWMEMORYMODE
+#endif
+
+#ifndef ABSOLUTE_MINIMUM
 #include "map_files\generic\CentCom.dmm"
+#else
+#include "map_files\generic\CentCom_minimal.dmm"
+#endif
 
 #ifndef LOWMEMORYMODE
 	#ifdef ALL_MAPS
@@ -11,15 +20,15 @@
 		#include "map_files\MetaStation\MetaStation.dmm"
 		#include "map_files\Mining\Lavaland.dmm"
 		#include "map_files\tramstation\tramstation.dmm"
-		#include "map_files\CatwalkStation\CatwalkStation_2023.dmm"
+		// #include "map_files\CatwalkStation\CatwalkStation_2023.dmm"
 		#include "map_files\NebulaStation\NebulaStation.dmm"
-		#include "map_files\wawastation\wawastation.dmm"
+		// #include "map_files\wawastation\wawastation.dmm"
 		// NOVA EDIT ADDITION START - Compiling our modular maps too!
 		#include "map_files\VoidRaptor\VoidRaptor.dmm"
 		// #include "map_files\NSVBlueshift\Blueshift.dmm"
 		// #include "map_files\Ouroboros\Ouroboros.dmm"
 		#include "map_files\SerenityStation\SerenityStation.dmm"
-		#include "map_files\Snowglobe\snowglobe.dmm"
+		// #include "map_files\Snowglobe\snowglobe.dmm"
 		// NOVA EDIT ADDITION END
 		// IRIS EDIT START
 		#include "map_files\KiloStation\KiloStation.dmm"
