@@ -1,10 +1,11 @@
 /datum/quirk/magic_crafts
-	name = "Magic skills"
+	name = "Magical Skills"
 	desc = "You are experienced at magic. Although you did not master it as much as wizards do, you still can craft some magical artifacts. \
 (You can flavor it any way you want and call the extracts differently. \
-You can also ask for custom rituals through prayers, but it's not guaranteed someone will respond)"
-	icon = FA_ICON_CIRCLE_HALF_STROKE //this is probably the best fitting icon i could add and i couldn't figure out which font stores the quirk hud icons
+You can also ask for custom rituals through prayers, but it's not guaranteed someone will respond.)"
+	icon = FA_ICON_HAT_WIZARD
 	value = 2
+	medical_record_text = "Subject possesses an innate ability for magic."
 	gain_text = span_notice("You feel like you understand magic!")
 	lose_text = span_danger("You feel like you no longer understand magic.")
 //	mail_goodies = list(/obj/item/storage/fancy/nugget_box)
@@ -166,8 +167,6 @@ istype(I, /obj/item/bodypart/leg/left/skeleton) || istype(I, /obj/item/bodypart/
 	crafting_flags = CRAFT_MUST_BE_LEARNED
 	category = CAT_MAGIC
 
-
-
 /obj/item/extract/energy
 	name = "energy extract"
 	desc = "A material that somehow stores a lot of condensed energy."
@@ -192,7 +191,6 @@ istype(I, /obj/item/bodypart/leg/left/skeleton) || istype(I, /obj/item/bodypart/
 	category = CAT_MAGIC
 	tool_paths = list(/obj/item/extract/cans,/obj/item/organ/stomach)
 
-
 /obj/item/extract/death
 	name = "death extract"
 	desc = "A powder made from the dead."
@@ -209,7 +207,6 @@ It is technically capable of raising the dead... but not animating them."
 			REMOVE_TRAIT(liv, TRAIT_FLOORED, STAT_TRAIT)
 			qdel(src)
 
-
 /datum/crafting_recipe/death_extract_1
 	name = "Death extract"
 	result = /obj/item/extract/death
@@ -220,21 +217,18 @@ It is technically capable of raising the dead... but not animating them."
 	tool_paths = list(/obj/item/extract/cans)
 // ToDo: add a second craft from skeleton bodyparts
 
-
-
 /obj/item/extract/plant_life
 	name = "plant life extract"
 	desc = "A can of some green powder."
 	grind_results = list(/datum/reagent/diethylamine = 1, /datum/reagent/saltpetre = 4)
 	icon_state = "plant_life_extract"
-	magic_desc = "Can be extracted from any plant. Contains a little bit of fertilizer"
+	magic_desc = "Can be extracted from any mushroom. Contains a little bit of fertilizer"
 
 /datum/crafting_recipe/plant_extract
-	name = "Plant life extrect"
+	name = "Plant life extract"
 	result = /obj/item/extract/plant_life
 	time = 10
-//extracting it from mushrooms that aren't technically plants will send an angry gang of mushrom people to your real life location
-	reqs = list(/obj/item/food/grown = 1)
+	reqs = list(/obj/item/food/grown/mushroom = 1)
 	crafting_flags = CRAFT_MUST_BE_LEARNED
 	category = CAT_MAGIC
 	tool_paths = list(/obj/item/extract/cans)
@@ -256,8 +250,6 @@ It is technically capable of raising the dead... but not animating them."
 	reqs = list(/obj/item/extract/death = 1, /obj/item/extract/energy = 1)
 	crafting_flags = CRAFT_MUST_BE_LEARNED
 	category = CAT_MAGIC
-
-
 
 /obj/item/extract/mutandis
 	name = "mutandis"
@@ -333,8 +325,6 @@ It is technically capable of raising the dead... but not animating them."
 	. = ..()
 	set_light(dark_light_range, dark_light_power)
 
-
-
 /datum/crafting_recipe/dark_candle
 	name = "Dark candle"
 	result = /obj/item/flashlight/flare/candle/dark
@@ -342,7 +332,6 @@ It is technically capable of raising the dead... but not animating them."
 	reqs = list(/obj/item/flashlight/flare/candle = 1, /obj/item/extract/shadow = 1)
 	crafting_flags = CRAFT_MUST_BE_LEARNED
 	category = CAT_MAGIC
-
 
 /obj/item/shard/magic_scanner
 	name = "magic scanner"
@@ -357,7 +346,6 @@ It is technically capable of raising the dead... but not animating them."
 	. = ..()
 	icon_state = icon_yes
 
-
 /obj/item/shard/magic_scanner/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if (!do_after(user, 3 SECONDS, src))
 		balloon_alert(user, "scan failed!")
@@ -368,8 +356,6 @@ It is technically capable of raising the dead... but not animating them."
 	if (istype(interacting_with, /obj/item/extract))
 		var/obj/item/extract/E = interacting_with
 		user.visible_message(E.magic_desc)
-
-
 
 	if (HAS_TRAIT(interacting_with, TRAIT_NO_MIRROR_REFLECTION))
 		user.visible_message(span_notice("[interacting_with] doesn't show up on the scanner!"))
@@ -409,8 +395,6 @@ It is technically capable of raising the dead... but not animating them."
 	category = CAT_MAGIC
 	tool_paths = list(/obj/item/pen)
 
-
-
 /obj/item/shard/magic_scanner/mineral
 	icon_state = "scanner_mineral"
 	icon_yes = "scanner_mineral"
@@ -423,8 +407,6 @@ It is technically capable of raising the dead... but not animating them."
 	reqs = list(/obj/item/shard/plasma = 1, /obj/item/stack/cable_coil = 6)
 	crafting_flags = CRAFT_MUST_BE_LEARNED
 	category = CAT_MAGIC
-
-
 
 /obj/item/shard/magic_scanner/grass
 	icon_state = "scanner_grass"
