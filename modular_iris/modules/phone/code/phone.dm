@@ -618,7 +618,7 @@ GLOBAL_LIST_EMPTY_TYPED(phones, /datum/component/phone)
 
 	var/mob/listener = phone_handset.loc
 
-	// Ghosts with hearing disabled shouldn't receive phone messages
+	// Ghosts should hear phones with this
 	if(listener.stat == DEAD && listener.client && !(get_chat_toggles(listener.client) & CHAT_GHOSTEARS))
 		return
 
