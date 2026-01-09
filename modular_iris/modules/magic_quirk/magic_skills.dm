@@ -1,6 +1,6 @@
 /datum/quirk/magic_crafts
 	name = "Magical Skills"
-	desc = "You are experienced at magic. Although you did not master it as much as wizards do, you still can craft some magical artifacts. \
+	desc = "You are experienced at magic. Although you did not master it as much as the wizards did, you can still craft some magical artifacts. \
 (You can flavor it any way you want and call the extracts differently. \
 You can also ask for custom rituals through prayers, but it's not guaranteed someone will respond.)"
 	icon = FA_ICON_HAT_WIZARD
