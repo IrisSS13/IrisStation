@@ -833,7 +833,13 @@
 	var/rendered = "<i><span class='game say'>[start][span_name("[hrefpart][namepart] ([jobpart])</a> ")]<span class='message'>[treated_message]</span></span></i>"
 
 	if (client?.prefs.read_preference(/datum/preference/toggle/enable_runechat) && (client.prefs.read_preference(/datum/preference/toggle/enable_runechat_non_mobs) || ismob(speaker)))
-		create_chat_message(speaker, message_language, raw_message, spans)
+		// create_chat_message(speaker, message_language, raw_message, spans) // IRIS EDIT REMOVAL
+		// IRIS EDIT ADDITION START
+		if(message_mods[MODE_CUSTOM_SAY_ERASE_INPUT])
+			create_chat_message(speaker, null, message_mods[MODE_CUSTOM_SAY_EMOTE], spans, EMOTE_MESSAGE)
+		else
+			create_chat_message(speaker, message_language, raw_message, spans)
+		// IRIS EDIT ADDITION END
 	show_message(rendered, 2)
 
 /mob/living/silicon/ai/fully_replace_character_name(oldname,newname)
