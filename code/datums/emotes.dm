@@ -177,6 +177,8 @@
 		else
 			CRASH("Emote [type] has no valid emote type set!")
 	else
+	// IRIS EDIT ADDITION END
+	// IRIS EDIT START
 		// Emote doesn't get printed to chat, runechat only
 		if(emote_type & EMOTE_RUNECHAT)
 			for(var/mob/viewer as anything in viewers(user))
@@ -242,7 +244,7 @@
 			)
 		else
 			CRASH("Emote [type] has no valid emote type set!")
-	// IRIS EDIT ADDITION END
+	// IRIS EDIT END
 
 	/* IRIS EDIT REMOVAL START
 	// NOVA EDIT ADDITION START - AI QOL - RELAY EMOTES OVER HOLOPADS
