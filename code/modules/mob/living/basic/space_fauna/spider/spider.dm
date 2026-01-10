@@ -66,6 +66,12 @@
 	vary = TRUE
 	sound = 'sound/mobs/non-humanoids/insect/chitter.ogg'
 
+// IRIS ADDITION START
+var/static/list/typecache_player_spiders = typecacheof(list(
+        /mob/living/basic/spider
+    ))
+// IRIS ADDITION END
+
 /mob/living/basic/spider/Initialize(mapload)
 	. = ..()
 	add_traits(list(TRAIT_WEB_SURFER, TRAIT_FENCE_CLIMBER), INNATE_TRAIT)
@@ -85,10 +91,10 @@
 	ai_controller?.set_blackboard_key(BB_SPIDER_WEB_ACTION, webbing)
 
 	// IRIS EDIT START - Makes player-controlled spiders unable to attack each other.
-	/*AddElement(/datum/element/prevent_attacking_of_player_types, \
-		typecacheof(list(/mob/living/basic/spider)), \
+	AddElement(/datum/element/prevent_attacking_of_player_types, \
+		typecache_player_spiders, \
 		"Wait! That's your fellow spider."\
-	)*/
+	)
 	// IRIS EDIT END
 
 /mob/living/basic/spider/Login()
