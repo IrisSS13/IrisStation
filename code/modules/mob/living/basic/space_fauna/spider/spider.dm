@@ -53,6 +53,8 @@
 	var/menu_description = "Tanky and strong for the defense of the nest and other spiders."
 	/// If true then you shouldn't be told that you're a spider antagonist as soon as you are placed into this mob
 	var/apply_spider_antag = TRUE
+	// IRIS ADDITION - spiders cant attack each other
+	var/static/list/typecache_player_spiders = typecacheof(list(/mob/living/basic/spider))
 
 /datum/emote/spider
 	mob_type_allowed_typecache = /mob/living/basic/spider
@@ -65,12 +67,6 @@
 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
 	vary = TRUE
 	sound = 'sound/mobs/non-humanoids/insect/chitter.ogg'
-
-// IRIS ADDITION START
-var/static/list/typecache_player_spiders = typecacheof(list(
-        /mob/living/basic/spider
-    ))
-// IRIS ADDITION END
 
 /mob/living/basic/spider/Initialize(mapload)
 	. = ..()
