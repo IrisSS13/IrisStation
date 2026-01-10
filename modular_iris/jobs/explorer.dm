@@ -17,6 +17,7 @@
 	extra_access = list(
 		ACCESS_MINING,
 		ACCESS_MINING_STATION,
+		ACCESS_SHIPPING,
 		)
 	template_access = list(
 		ACCESS_CAPTAIN,
