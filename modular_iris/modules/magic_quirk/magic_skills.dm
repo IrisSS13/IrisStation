@@ -68,6 +68,7 @@ You can also ask for custom rituals through prayers, but it's not guaranteed som
 	w_class = WEIGHT_CLASS_NORMAL
 	icon_state = "canning_supplies"
 	magic_desc = "Caaaaaaanssssdjknjkksjnkfjgnkj"
+	custom_materials = list(/datum/material/sandstone = SHEET_MATERIAL_AMOUNT * 10)
 
 /obj/item/extract/cans/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if (!do_after(user, 2 SECONDS, src))
@@ -118,6 +119,7 @@ istype(I, /obj/item/bodypart/leg/left/skeleton) || istype(I, /obj/item/bodypart/
 	grind_results = list(/datum/reagent/phlogiston = 20)
 	icon_state = "fire_extract"
 	magic_desc = "An extract linked to the alchemical elemet of phlogiston. Can be obtained from plasma and fire blossoms"
+	custom_materials = list(/datum/material/plasma = SHEET_MATERIAL_AMOUNT)
 
 /datum/crafting_recipe/fire_extract_1
 	name = "Fire extract"
@@ -172,6 +174,7 @@ istype(I, /obj/item/bodypart/leg/left/skeleton) || istype(I, /obj/item/bodypart/
 	desc = "A material that somehow stores a lot of condensed energy."
 	icon_state = "energy_extract"
 	magic_desc = "Can be extracted from different kinds of nutrition. Can also be harvested from electricity, but will require a lot of it"
+	custom_materials = list(/datum/material/meat = SHEET_MATERIAL_AMOUNT * 8)
 
 /datum/crafting_recipe/energy_extract_1
 	name = "Energy extract"
@@ -197,6 +200,7 @@ istype(I, /obj/item/bodypart/leg/left/skeleton) || istype(I, /obj/item/bodypart/
 	icon_state = "death_extract"
 	magic_desc = "Found in bones. Skeletons that had been dead for a long time have more of it than bones of the recently killed fauna.\
 It is technically capable of raising the dead... but not animating them."
+	custom_materials = list(/datum/material/bone = SHEET_MATERIAL_AMOUNT * 6)
 // corpses stay on the ground because of the traits: floored (stat), incapacitated  (stat). remove incapacitated before floored for them to stand up
 
 /obj/item/extract/death/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
@@ -257,6 +261,7 @@ It is technically capable of raising the dead... but not animating them."
 	grind_results = list(/datum/reagent/toxin/mutagen = 30)
 	icon_state = "mutandis"
 	magic_desc = "A mixture capable of mutating plants."
+	custom_materials = list(/datum/material/sand = SHEET_MATERIAL_AMOUNT * 2)
 
 /datum/crafting_recipe/mutandis
 	name = "Mutandis"
@@ -398,7 +403,7 @@ It is technically capable of raising the dead... but not animating them."
 /obj/item/shard/magic_scanner/mineral
 	icon_state = "scanner_mineral"
 	icon_yes = "scanner_mineral"
-	custom_materials = list(/datum/material/alloy/plasmaglass=SHEET_MATERIAL_AMOUNT)
+	custom_materials = list(/datum/material/alloy/plasmaglass = SHEET_MATERIAL_AMOUNT, /datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.6, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 0.6)
 
 /datum/crafting_recipe/magic_scanner_mineral
 	name = "Magic scanner"
