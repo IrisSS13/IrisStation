@@ -150,28 +150,28 @@
 					viewer.show_message(span_emote("<b>[hologram]</b> [msg]"), MSG_VISUAL)
 			return // Early exit so no dchat message
 		else if(is_important)
-			for(var/mob/viewer as anything in viewers(hologram)) // IRIS EDIT, ORIGINAL: for(var/mob/living/viewer in viewers(world.view, hologram))
-				to_chat(viewer, span_emote("<b>[hologram]</b> [msg]")) // IRIS EDIT, ORIGINAL: to_chat(viewer, msg)
+			for(var/mob/viewer as anything in viewers(hologram))
+				to_chat(viewer, span_emote("<b>[hologram]</b> [msg]"))
 		else if(is_visual && is_audible)
 			hologram.audible_message(
 				message = msg,
 				deaf_message = "<span class='emote'>You see how <b>[hologram]</b> [msg]</span>",
 				self_message = msg,
-				audible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE|additional_message_flags, // IRIS EDIT, ORIGNAL: audible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE
+				audible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE|additional_message_flags,
 				separation = space,
 			)
 		else if(is_audible)
 			hologram.audible_message(
 				message = msg,
 				self_message = msg,
-				audible_message_flags = EMOTE_MESSAGE|additional_message_flags, // IRIS EDIT, ORIGINAL: audible_message_flags = EMOTE_MESSAGE,
+				audible_message_flags = EMOTE_MESSAGE|additional_message_flags,
 				separation = space,
 			)
 		else if(is_visual)
 			hologram.visible_message(
 				message = msg,
 				self_message = msg,
-				visible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE|additional_message_flags, // IRIS EDIT, ORIGINAL: visible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE
+				visible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE|additional_message_flags,
 				separation = space,
 			)
 		else
@@ -249,28 +249,28 @@
 	var/obj/effect/overlay/holo_pad_hologram/hologram = GLOB.hologram_impersonators[user]
 	if(hologram)
 		if(is_important)
-			for(var/mob/viewer as anything in viewers(hologram)) // IRIS EDIT, ORIGINAL: for(var/mob/living/viewer in viewers(world.view, hologram))
-				to_chat(viewer, span_emote("<b>[user]</b> [msg]")) // IRIS EDIT, ORIGINAL: to_chat(viewer, msg)
+			for(var/mob/living/viewer in viewers(world.view, hologram))
+				to_chat(viewer, msg)
 		else if(is_visual && is_audible)
 			hologram.audible_message(
 				message = msg,
 				deaf_message = "<span class='emote'>You see how <b>[user]</b> [msg]</span>",
 				self_message = msg,
-				audible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE|additional_message_flags, // IRIS EDIT, ORIGNAL: audible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE
+				audible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE
 				separation = space,
 			)
 		else if(is_audible)
 			hologram.audible_message(
 				message = msg,
 				self_message = msg,
-				audible_message_flags = EMOTE_MESSAGE|additional_message_flags, // IRIS EDIT, ORIGINAL: audible_message_flags = EMOTE_MESSAGE,
+				audible_message_flags = EMOTE_MESSAGE
 				separation = space,
 			)
 		else if(is_visual)
 			hologram.visible_message(
 				message = msg,
 				self_message = msg,
-				visible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE|additional_message_flags, // IRIS EDIT, ORIGINAL: visible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE
+				visible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE
 				separation = space,
 			)
 	// NOVA EDIT ADDITION END
