@@ -93,7 +93,7 @@ var/static/list/typecache_player_spiders = typecacheof(list(
 	// IRIS EDIT START - Makes player-controlled spiders unable to attack each other.
 	AddElement(/datum/element/prevent_attacking_of_player_types, \
 		typecache_player_spiders, \
-		"Wait! That's your fellow spider."\
+		"Wait! That's your fellow spider!"\
 	)
 	// IRIS EDIT END
 
