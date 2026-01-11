@@ -33,7 +33,7 @@ datum/crafting_recipe/food/saturnburger
 	category = CAT_BURGER
 
 /datum/crafting_recipe/food/lilypadburger
-	name = "Lilypad Burger"
+	name = "Lilypad burger"
 	reqs = list(
 		/obj/item/food/grown/cabbage = 1,
 		/obj/item/food/bun = 1
