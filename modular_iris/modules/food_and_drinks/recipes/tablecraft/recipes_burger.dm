@@ -1,4 +1,4 @@
-datum/crafting_recipe/food/saturnburger
+/datum/crafting_recipe/food/saturnburger
 	name = "Saturn burger"
 	reqs = list(
 		/obj/item/food/bun = 1,
