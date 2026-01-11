@@ -87,9 +87,11 @@
 
 /obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/comms/space/Initialize(mapload)
 	. = ..()
-	if(prob(85)) //only has a 15% chance of existing, otherwise it'll just be a NPC syndie.
-		new /mob/living/basic/trooper/syndicate/ranged(get_turf(src))
-		return INITIALIZE_HINT_QDEL
+	// IRIS REMOVAL START
+	// if(prob(85)) //only has a 15% chance of existing, otherwise it'll just be a NPC syndie.
+	// 	new /mob/living/basic/trooper/syndicate/ranged(get_turf(src))
+	// 	return INITIALIZE_HINT_QDEL
+	// IRIS REMOVAL END
 
 ///battlecruiser stuff
 
