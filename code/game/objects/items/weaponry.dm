@@ -628,7 +628,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	icon_angle = -135
 	lefthand_file = 'icons/mob/inhands/weapons/staves_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/staves_righthand.dmi'
-	custom_materials = list(/datum/material/bamboo = SHEET_MATERIAL_AMOUNT * 4)
+	custom_materials = list(/datum/material/bamboo = SHEET_MATERIAL_AMOUNT * 4, /datum/material/wood = SHEET_MATERIAL_AMOUNT * 2) //IRIS EDIT
 
 /obj/item/bambostaff/Initialize(mapload)
 	. = ..()

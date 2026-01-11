@@ -56,7 +56,7 @@
 		/obj/item/food/grown/ambrosia/deus,
 		/obj/item/food/grown/wheat,
 	))
-	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT)
+	custom_materials = list(/datum/material/sand = SHEET_MATERIAL_AMOUNT * 2, /datum/material/wood = SHEET_MATERIAL_AMOUNT) //IRIS EDIT
 
 /obj/item/grown/log/Initialize(mapload, obj/item/seeds/new_seed)
 	. = ..()

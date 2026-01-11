@@ -100,9 +100,6 @@ istype(I, /obj/item/bodypart/leg/left/skeleton) || istype(I, /obj/item/bodypart/
 
 //STANDARD_CELL_CHARGE * 23
 
-
-
-
 /datum/crafting_recipe/canning_supplies
 	name = "Canning supplies"
 	result = /obj/item/extract/cans
@@ -111,15 +108,13 @@ istype(I, /obj/item/bodypart/leg/left/skeleton) || istype(I, /obj/item/bodypart/
 	crafting_flags = CRAFT_MUST_BE_LEARNED
 	category = CAT_MAGIC
 
-
-
 /obj/item/extract/fire
 	name = "fire extract"
 	desc = "A pretty bright and possible flamable powder."
 	grind_results = list(/datum/reagent/phlogiston = 20)
 	icon_state = "fire_extract"
 	magic_desc = "An extract linked to the alchemical elemet of phlogiston. Can be obtained from plasma and fire blossoms"
-	custom_materials = list(/datum/material/plasma = SHEET_MATERIAL_AMOUNT)
+	custom_materials = null
 
 /datum/crafting_recipe/fire_extract_1
 	name = "Fire extract"
@@ -174,7 +169,7 @@ istype(I, /obj/item/bodypart/leg/left/skeleton) || istype(I, /obj/item/bodypart/
 	desc = "A material that somehow stores a lot of condensed energy."
 	icon_state = "energy_extract"
 	magic_desc = "Can be extracted from different kinds of nutrition. Can also be harvested from electricity, but will require a lot of it"
-	custom_materials = list(/datum/material/meat = SHEET_MATERIAL_AMOUNT * 8)
+	custom_materials = null
 
 /datum/crafting_recipe/energy_extract_1
 	name = "Energy extract"
@@ -246,6 +241,7 @@ It is technically capable of raising the dead... but not animating them."
 	icon_state = "life_extract"
 	magic_desc = "A powder with slight healing properties, more useful for altering living organisms and animating inanimate objects. \
 	It is hard to extract from living tissue so it's usually mixed from death and energy extracts."
+	custom_materials = list(/datum/material/meat = SHEET_MATERIAL_AMOUNT * 8, /datum/material/bone = SHEET_MATERIAL_AMOUNT * 6)
 
 /datum/crafting_recipe/life_extract
 	name = "Life extract"
