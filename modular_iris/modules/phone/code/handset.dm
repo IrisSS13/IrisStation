@@ -94,11 +94,18 @@
 
 /obj/item/handset/equipped(mob/user, slot)
 	. = ..()
-	if(!holder || !user)
+	if(!holder || !user || !phone_component)
 		return
 
 	// Clean up any existing signals first
 	cleanup_signals()
+
+	// Update phone component's tracking of current user
+	if(phone_component.current_handset_user && phone_component.current_handset_user != user)
+		UnregisterSignal(phone_component.current_handset_user, COMSIG_MOVABLE_MOVED)
+
+	phone_component.current_handset_user = user
+	RegisterSignal(user, COMSIG_MOVABLE_MOVED, TYPE_PROC_REF(/datum/component/phone, on_handset_user_moved), phone_component)
 
 	// Become hearing sensitive so we can receive Hear() calls
 	become_hearing_sensitive()
@@ -112,12 +119,16 @@
 	UnregisterSignal(holder, COMSIG_MOVABLE_MOVED)
 	if(user)
 		UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
-		to_chat(user, span_notice("The handset snaps back into the main unit."))
 
 	// Stop being hearing sensitive when not held
 	lose_hearing_sensitivity()
 
-	snap_back()
+	// Only snap back if we're not being picked up by another mob
+	// If loc is a mob, we're being transferred to their hands
+	if(!ismob(loc))
+		if(user)
+			to_chat(user, span_notice("The handset snaps back into the main unit."))
+		snap_back()
 
 /obj/item/handset/on_enter_storage(obj/item/storage/S)
 	. = ..()
