@@ -32,6 +32,7 @@
 	)
 	time = 4 SECONDS
 	category = CAT_EQUIPMENT
+	crafting_flags = CRAFT_SKIP_MATERIALS_PARITY //IRIS EDIT
 
 
 /datum/crafting_recipe/radiogloves

@@ -250,6 +250,7 @@
 	)
 	time = 8 SECONDS
 	category = CAT_WEAPON_MELEE
+	crafting_flags = CRAFT_SKIP_MATERIALS_PARITY // IRIS EDIT
 
 /datum/crafting_recipe/sm_sword
 	name = "Supermatter Sword"
