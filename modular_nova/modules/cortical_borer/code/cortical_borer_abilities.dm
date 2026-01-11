@@ -1,6 +1,6 @@
 #define CHEMICALS_PER_UNIT 2
 #define CHEMICAL_SECOND_DIVISOR (5 SECONDS)
-#define OUT_OF_HOST_EGG_COST 50
+#define OUT_OF_HOST_EGG_COST 15 // IRIS EDIT: originally 50
 #define BLOOD_CHEM_OBJECTIVE 3
 
 // Parent of all borer actions
