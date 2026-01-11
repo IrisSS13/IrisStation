@@ -131,7 +131,7 @@
 	block_chance = 40
 	max_integrity = 40
 	w_class = WEIGHT_CLASS_NORMAL
-	custom_materials = null
+	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 3) //IRIS EDIT
 
 /obj/item/shield/kite
 	name = "kite shield"
