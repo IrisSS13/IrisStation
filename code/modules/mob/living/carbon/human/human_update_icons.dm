@@ -1319,7 +1319,10 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 // Some overlays can't be displaced as they're too close to the edge of the sprite or cross the middle point in a weird way.
 // So instead we have to pass them through an offset, which is close enough to look good.
 /mob/living/carbon/human/apply_overlay(cache_index)
-	if(mob_height == HUMAN_HEIGHT_MEDIUM)
+	/* IRIS: made it so that MUTATIONS_LAYER and FRONT_MUTATIONS_LAYER always get their filters updated
+		This is required because they use cached / shared appearences
+	*/
+	if(mob_height == HUMAN_HEIGHT_MEDIUM && cache_index != MUTATIONS_LAYER && cache_index != FRONT_MUTATIONS_LAYER) // IRIS EDIT CHANGE: if(mob_height == HUMAN_HEIGHT_MEDIUM)
 		return ..()
 
 	var/raw_applied = overlays_standing[cache_index]
@@ -1363,15 +1366,52 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 /**
  * Applies a filter to an appearance according to mob height
  */
-/mob/living/carbon/human/proc/apply_height_filters(image/appearance)
+/mob/living/carbon/human/proc/apply_height_filters(image/appearance, only_apply_in_prefs = FALSE, parent_adjust_y = 0) // IRIS EDIT CHANGE: add `only_apply_in_prefs` and `parent_adjust_y` params
+/* // IRIS EDIT REMOVAL START - Optimizations/refactors for height filters
 	var/static/icon/cut_torso_mask = icon('icons/effects/cut.dmi', "Cut1")
 	var/static/icon/cut_legs_mask = icon('icons/effects/cut.dmi', "Cut2")
 	var/static/icon/lenghten_torso_mask = icon('icons/effects/cut.dmi', "Cut3")
 	var/static/icon/lenghten_legs_mask = icon('icons/effects/cut.dmi', "Cut4")
+*/ // IRIS EDIT REMOVAL END
+
+	// IRIS EDIT ADDITION START - Height-based displacement masks.
+	var/list/dims = get_icon_dimensions(appearance.icon)
+	var/icon_width = dims["width"]
+	var/icon_height = dims["height"]
+
+	var/mask_icon = 'icons/effects/cut.dmi'
+	if(icon_width != 0 && icon_height != 0)
+		if(icon_height == 48 && icon_width <= 96)
+			mask_icon = 'modular_iris/icons/effects/cut_96x48.dmi'
+		else if(icon_height == 64 && icon_width <= 64)
+			mask_icon = 'modular_iris/icons/effects/cut_64x64.dmi'
+		else if(icon_height != 32 || icon_width > 32)
+			stack_trace("Bad dimensions (w[icon_width],h[icon_height]) for icon '[appearance.icon]'")
+
+	// Move the filter up if the image has been moved down, and vice versa
+	var/adjust_y = -appearance.pixel_y - parent_adjust_y
+
+	var/static/alist/cached_masks = alist()
+	var/list/masks = cached_masks[mask_icon]
+	if(isnull(masks))
+		cached_masks[mask_icon] = masks = list(
+			icon(mask_icon, "Cut1"),
+			icon(mask_icon, "Cut2"),
+			icon(mask_icon, "Cut3"),
+			icon(mask_icon, "Cut4"),
+			icon(mask_icon, "Cut5"),
+		)
+	var/icon/cut_torso_mask = masks[1]
+	var/icon/cut_legs_mask = masks[2]
+	var/icon/lenghten_torso_mask = masks[3]
+	var/icon/lenghten_legs_mask = masks[4]
+	var/icon/lenghten_ankles_mask = masks[5]
+	// IRIS EDIT ADDITION END
 
 	appearance.remove_filter(list(
 		"Cut_Torso",
 		"Cut_Legs",
+		"Lenghten_Ankles", // IRIS ADDITION
 		"Lenghten_Legs",
 		"Lenghten_Torso",
 		"Gnome_Cut_Torso",
@@ -1389,12 +1429,12 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 				list(
 					"name" = "Monkey_Gnome_Cut_Torso",
 					"priority" = 1,
-					"params" = displacement_map_filter(cut_torso_mask, x = 0, y = 0, size = 3),
+					"params" = displacement_map_filter(cut_torso_mask, x = 0, y = adjust_y, size = 3), // IRIS EDIT CHANGE - `y = 0` -> `y = adjust_y`
 				),
 				list(
 					"name" = "Monkey_Gnome_Cut_Legs",
 					"priority" = 1,
-					"params" = displacement_map_filter(cut_legs_mask, x = 0, y = 0, size = 4),
+					"params" = displacement_map_filter(cut_legs_mask, x = 0, y = adjust_y, size = 4), // IRIS EDIT CHANGE - `y = 0` -> `y = adjust_y`
 				),
 			))
 		if(MONKEY_HEIGHT_MEDIUM)
@@ -1402,12 +1442,12 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 				list(
 					"name" = "Monkey_Torso",
 					"priority" = 1,
-					"params" = displacement_map_filter(cut_torso_mask, x = 0, y = 0, size = 2),
+					"params" = displacement_map_filter(cut_torso_mask, x = 0, y = adjust_y, size = 2), // IRIS EDIT CHANGE - `y = 0` -> `y = adjust_y`
 				),
 				list(
 					"name" = "Monkey_Legs",
 					"priority" = 1,
-					"params" = displacement_map_filter(cut_legs_mask, x = 0, y = 0, size = 4),
+					"params" = displacement_map_filter(cut_legs_mask, x = 0, y = adjust_y, size = 4), // IRIS EDIT CHANGE - `y = 0` -> `y = adjust_y`
 				),
 			))
 		if(HUMAN_HEIGHT_DWARF) // tall monkeys and dwarves use the same value
@@ -1416,12 +1456,12 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 					list(
 						"name" = "Monkey_Torso",
 						"priority" = 1,
-						"params" = displacement_map_filter(cut_torso_mask, x = 0, y = 0, size = 1),
+						"params" = displacement_map_filter(cut_torso_mask, x = 0, y = adjust_y, size = 1), // IRIS EDIT CHANGE - `y = 0` -> `y = adjust_y`
 					),
 					list(
 						"name" = "Monkey_Legs",
 						"priority" = 1,
-						"params" = displacement_map_filter(cut_legs_mask, x = 0, y = 0, size = 1),
+						"params" = displacement_map_filter(cut_legs_mask, x = 0, y = adjust_y, size = 1), // IRIS EDIT CHANGE - `y = 0` -> `y = adjust_y`
 					),
 				))
 			else
@@ -1429,12 +1469,12 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 					list(
 						"name" = "Gnome_Cut_Torso",
 						"priority" = 1,
-						"params" = displacement_map_filter(cut_torso_mask, x = 0, y = 0, size = 2),
+						"params" = displacement_map_filter(cut_torso_mask, x = 0, y = adjust_y, size = 2), // IRIS EDIT CHANGE - `y = 0` -> `y = adjust_y`
 					),
 					list(
 						"name" = "Gnome_Cut_Legs",
 						"priority" = 1,
-						"params" = displacement_map_filter(cut_legs_mask, x = 0, y = 0, size = 3),
+						"params" = displacement_map_filter(cut_legs_mask, x = 0, y = adjust_y, size = 3), // IRIS EDIT CHANGE - `y = 0` -> `y = adjust_y`
 					),
 				))
 		// Don't set this one directly, use TRAIT_DWARF
@@ -1443,29 +1483,29 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 				list(
 					"name" = "Cut_Torso",
 					"priority" = 1,
-					"params" = displacement_map_filter(cut_torso_mask, x = 0, y = 0, size = 1),
+					"params" = displacement_map_filter(cut_torso_mask, x = 0, y = adjust_y, size = 1), // IRIS EDIT CHANGE - `y = 0` -> `y = adjust_y`
 				),
 				list(
 					"name" = "Cut_Legs",
 					"priority" = 1,
-					"params" = displacement_map_filter(cut_legs_mask, x = 0, y = 0, size = 1),
+					"params" = displacement_map_filter(cut_legs_mask, x = 0, y = adjust_y, size = 1), // IRIS EDIT CHANGE - `y = 0` -> `y = adjust_y`
 				),
 			))
 		if(HUMAN_HEIGHT_SHORT)
-			appearance.add_filter("Cut_Legs", 1, displacement_map_filter(cut_legs_mask, x = 0, y = 0, size = 1))
+			appearance.add_filter("Cut_Legs", 1, displacement_map_filter(cut_legs_mask, x = 0, y = adjust_y, size = 1)) // IRIS EDIT CHANGE - `y = 0` -> `y = adjust_y`
 		if(HUMAN_HEIGHT_TALL)
-			appearance.add_filter("Lenghten_Legs", 1, displacement_map_filter(lenghten_legs_mask, x = 0, y = 0, size = 1))
+			appearance.add_filter("Lenghten_Legs", 1, displacement_map_filter(lenghten_legs_mask, x = 0, y = adjust_y, size = 1)) // IRIS EDIT CHANGE - `y = 0` -> `y = adjust_y`
 		if(HUMAN_HEIGHT_TALLER)
 			appearance.add_filters(list(
 				list(
 					"name" = "Lenghten_Torso",
 					"priority" = 1,
-					"params" = displacement_map_filter(lenghten_torso_mask, x = 0, y = 0, size = 1),
+					"params" = displacement_map_filter(lenghten_torso_mask, x = 0, y = adjust_y, size = 1), // IRIS EDIT CHANGE - `y = 0` -> `y = adjust_y`
 				),
 				list(
 					"name" = "Lenghten_Legs",
 					"priority" = 1,
-					"params" = displacement_map_filter(lenghten_legs_mask, x = 0, y = 0, size = 1),
+					"params" = displacement_map_filter(lenghten_legs_mask, x = 0, y = adjust_y, size = 1), // IRIS EDIT CHANGE - `y = 0` -> `y = adjust_y`
 				),
 			))
 		if(HUMAN_HEIGHT_TALLEST)
@@ -1473,20 +1513,27 @@ mutant_styles: The mutant style - taur bodytype, STYLE_TESHARI, etc. // NOVA EDI
 				list(
 					"name" = "Lenghten_Torso",
 					"priority" = 1,
-					"params" = displacement_map_filter(lenghten_torso_mask, x = 0, y = 0, size = 1),
+					"params" = displacement_map_filter(lenghten_torso_mask, x = 0, y = adjust_y, size = 1), // IRIS EDIT CHANGE - `y = 0` -> `y = adjust_y`
 				),
 				list(
 					"name" = "Lenghten_Legs",
 					"priority" = 1,
-					"params" = displacement_map_filter(lenghten_legs_mask, x = 0, y = 0, size = 2),
+					"params" = displacement_map_filter(lenghten_legs_mask, x = 0, y = adjust_y, size = 1), // IRIS EDIT CHANGE - `y = 0` -> `y = adjust_y`, `size = 2` -> `size = 1`
 				),
+				// IRIS EDIT ADDITION START - add Lengthen_Ankles filter
+				list(
+					"name" = "Lengthen_Ankles",
+					"priority" = 1,
+					"params" = displacement_map_filter(lenghten_ankles_mask, x = 0, y = adjust_y, size = 1),
+				),
+				// IRIS EDIT ADDITION END
 			))
 
 	// Kinda gross but because many humans overlays do not use KEEP_TOGETHER we need to manually propogate the filter
 	// Otherwise overlays, such as worn overlays on icons, won't have the filter "applied", and the effect kinda breaks
 	if(!(appearance.appearance_flags & KEEP_TOGETHER))
 		for(var/image/overlay in list() + appearance.underlays + appearance.overlays)
-			apply_height_filters(overlay)
+			apply_height_filters(overlay, parent_adjust_y = adjust_y) // IRIS EDIT ADDITION: pass `adjust_y`
 
 	return appearance
 
