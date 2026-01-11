@@ -32,7 +32,6 @@
 	attack_verb_simple = list("pomf")
 	var/cotton_type = /obj/item/stack/sheet/cotton
 	var/cotton_name = "raw cotton"
-	custom_materials = list(/datum/material/sand = SHEET_MATERIAL_AMOUNT * 2) // IRIS EDIT
 
 /obj/item/grown/cotton/attack_self(mob/user)
 	var/cotton_count = 1
