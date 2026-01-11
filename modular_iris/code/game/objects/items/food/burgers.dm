@@ -24,7 +24,7 @@
 		/datum/reagent/consumable/nutriment/vitamin = 4,
 	)
 	tastes = list("bun" = 2, "beef patty" = 4, "pickle" = 4, "cheese" = 2)
-	foodtypes = GRAIN | MEAT | VEGETABLES
+	foodtypes = GRAIN | MEAT | VEGETABLES | DAIRY
 	crafting_complexity = FOOD_COMPLEXITY_3
 	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
 
@@ -39,7 +39,7 @@
 		/datum/reagent/consumable/nutriment/vitamin = 4,
 	)
 	tastes = list("bun" = 2, "beef patty" = 2, "tomato" = 4)
-	foodtypes = GRAIN | MEAT | VEGETABLES
+	foodtypes = GRAIN | MEAT | VEGETABLES | DAIRY
 	crafting_complexity = FOOD_COMPLEXITY_3
 	custom_materials = list(/datum/material/meat = MEATDISH_MATERIAL_AMOUNT)
 
