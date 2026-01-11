@@ -16,7 +16,7 @@
 /obj/item/food/burger/mcpicklepounder
 	name = "McPickle Pounder"
 	icon = 'modular_iris/icons/obj/food/burger.dmi'
-	desc = "A cheeseburger filled with an unusually large amount of pickles."
+	desc = "A cheeseburger filled with a large amount of pickles."
 	icon_state = "mcpicklepounder"
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 4,
