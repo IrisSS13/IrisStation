@@ -34,3 +34,8 @@
 
 /// Global signal sent when any phone changes state (tgui will make me insane)
 #define COMSIG_GLOB_PHONE_STATE_CHANGED "glob_phone_state_changed"
+
+/// From /datum/computer_file/program/phone_monitor, when a linked phone receives an incoming call
+#define COMSIG_PHONE_LINKED_CALL_INCOMING "phone_linked_call_incoming"
+/// From /datum/computer_file/program/phone_monitor, when the linked phone is destroyed/deconstructed
+#define COMSIG_PHONE_LINKED_UNLINKED "phone_linked_unlinked"

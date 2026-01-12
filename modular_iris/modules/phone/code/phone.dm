@@ -44,6 +44,9 @@ GLOBAL_LIST_EMPTY_TYPED(phones, /datum/component/phone)
 	/// Current user holding the handset (for proper signal cleanup)
 	var/mob/current_handset_user
 
+	/// List of PDAs linked to this phone for call notifications
+	var/list/linked_pdas = list()
+
 /datum/component/phone/Initialize(phone_category, phone_id, phone_icon, do_not_disturb, list/networks_receive, list/networks_transmit, holder, overlay_interactable)
 	. = ..()
 	if(!istype(parent, /atom))
@@ -65,6 +68,7 @@ GLOBAL_LIST_EMPTY_TYPED(phones, /datum/component/phone)
 	cleanup_phone_hardware()
 	cleanup_phone_networking()
 	cleanup_phone_timers()
+	unlink_all_pdas()
 
 	GLOB.phones -= src
 	SStgui.close_uis(src)
@@ -201,11 +205,41 @@ GLOBAL_LIST_EMPTY_TYPED(phones, /datum/component/phone)
 /datum/component/phone/proc/start_ringing()
 	ringing_loop?.start()
 	SEND_SIGNAL(holder, COMSIG_ATOM_PHONE_RINGING)
+	notify_linked_pdas_ringing()
 
 /// Stops ringing sound and effects
 /datum/component/phone/proc/stop_ringing()
 	ringing_loop?.stop()
 	SEND_SIGNAL(holder, COMSIG_ATOM_PHONE_STOPPED_RINGING)
+
+/// Notifies all linked PDAs of an incoming call
+/datum/component/phone/proc/notify_linked_pdas_ringing()
+	for(var/datum/computer_file/program/phone_monitor/pda_program as anything in linked_pdas)
+		if(!QDELETED(pda_program))
+			SEND_SIGNAL(pda_program, COMSIG_PHONE_LINKED_CALL_INCOMING, src)
+
+/// Links a PDA program to this phone (replaces old link if exists)
+/datum/component/phone/proc/link_pda(datum/computer_file/program/phone_monitor/pda_program)
+	if(!pda_program || QDELETED(pda_program))
+		return FALSE
+
+	linked_pdas = list(pda_program)
+	return TRUE
+
+/// Unlinks a specific PDA program from this phone
+/datum/component/phone/proc/unlink_pda(datum/computer_file/program/phone_monitor/pda_program)
+	if(!pda_program)
+		return FALSE
+
+	linked_pdas -= pda_program
+	return TRUE
+
+/// Unlinks all PDAs from this phone
+/datum/component/phone/proc/unlink_all_pdas()
+	for(var/datum/computer_file/program/phone_monitor/pda_program as anything in linked_pdas)
+		if(!QDELETED(pda_program))
+			SEND_SIGNAL(pda_program, COMSIG_PHONE_LINKED_UNLINKED, src)
+	linked_pdas = list()
 
 /// Registers overlay interaction for ringing phones
 /datum/component/phone/proc/register_overlay_interaction()
