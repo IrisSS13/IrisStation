@@ -71,6 +71,8 @@
 
 		equipOutfit(equipped_outfit, visuals_only)
 
+	var/list/new_contents = isnull(briefcase) ? get_all_gear() : briefcase.get_all_contents()
+
 	var/update = NONE
 	for(var/datum/loadout_item/item as anything in loadout_datums)
 		if(!item.is_equippable(src, item_details?[item.item_path] || list()))
@@ -79,7 +81,7 @@
 		if(item.restricted_roles && equipping_job && !(equipping_job.title in item.restricted_roles))
 			continue
 
-		var/obj/item/equipped
+		var/obj/item/equipped = locate(item.item_path) in new_contents
 
 		if(isnull(equipped))
 			continue
