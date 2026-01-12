@@ -99,18 +99,13 @@ istype(I, /obj/item/bodypart/leg/left/skeleton) || istype(I, /obj/item/bodypart/
 
 //STANDARD_CELL_CHARGE * 23
 
-
-
-
 /datum/crafting_recipe/canning_supplies
 	name = "Canning supplies"
 	result = /obj/item/extract/cans
 	time = 80
 	reqs = list(/obj/item/stack/sheet/mineral/sandstone = 10,)
-	crafting_flags = CRAFT_MUST_BE_LEARNED
+	crafting_flags = CRAFT_MUST_BE_LEARNED | CRAFT_SKIP_MATERIALS_PARITY
 	category = CAT_MAGIC
-
-
 
 /obj/item/extract/fire
 	name = "fire extract"
@@ -124,7 +119,7 @@ istype(I, /obj/item/bodypart/leg/left/skeleton) || istype(I, /obj/item/bodypart/
 	result = /obj/item/extract/fire
 	time = 40
 	reqs = list(/obj/item/food/grown/ash_flora/fireblossom = 1,)
-	crafting_flags = CRAFT_MUST_BE_LEARNED
+	crafting_flags = CRAFT_MUST_BE_LEARNED | CRAFT_SKIP_MATERIALS_PARITY
 	category = CAT_MAGIC
 
 /datum/crafting_recipe/fire_extract_2
@@ -132,7 +127,7 @@ istype(I, /obj/item/bodypart/leg/left/skeleton) || istype(I, /obj/item/bodypart/
 	result = /obj/item/extract/fire
 	time = 40
 	reqs = list(/obj/item/stack/sheet/mineral/plasma = 1)
-	crafting_flags = CRAFT_MUST_BE_LEARNED
+	crafting_flags = CRAFT_MUST_BE_LEARNED | CRAFT_SKIP_MATERIALS_PARITY
 	category = CAT_MAGIC
 
 /datum/crafting_recipe/fire_extract_3
@@ -140,10 +135,8 @@ istype(I, /obj/item/bodypart/leg/left/skeleton) || istype(I, /obj/item/bodypart/
 	result = /obj/item/extract/fire
 	time = 40
 	reqs = list(/obj/item/stack/ore/plasma = 1)
-	crafting_flags = CRAFT_MUST_BE_LEARNED
+	crafting_flags = CRAFT_MUST_BE_LEARNED | CRAFT_SKIP_MATERIALS_PARITY
 	category = CAT_MAGIC
-
-
 
 /obj/item/extract/shadow
 	name = "shadow extract"
@@ -156,7 +149,7 @@ istype(I, /obj/item/bodypart/leg/left/skeleton) || istype(I, /obj/item/bodypart/
 	result = /obj/item/extract/shadow
 	time = 40
 	reqs = list(/obj/item/food/grown/mushroom/glowshroom/shadowshroom = 1)
-	crafting_flags = CRAFT_MUST_BE_LEARNED
+	crafting_flags = CRAFT_MUST_BE_LEARNED | CRAFT_SKIP_MATERIALS_PARITY
 	category = CAT_MAGIC
 
 /datum/crafting_recipe/shadow_extract_2
@@ -164,7 +157,7 @@ istype(I, /obj/item/bodypart/leg/left/skeleton) || istype(I, /obj/item/bodypart/
 	result = /obj/item/extract/shadow
 	time = 40
 	reqs = list(/obj/item/food/deadmouse = 1)
-	crafting_flags = CRAFT_MUST_BE_LEARNED
+	crafting_flags = CRAFT_MUST_BE_LEARNED | CRAFT_SKIP_MATERIALS_PARITY
 	category = CAT_MAGIC
 
 /obj/item/extract/energy
@@ -178,7 +171,7 @@ istype(I, /obj/item/bodypart/leg/left/skeleton) || istype(I, /obj/item/bodypart/
 	result = /obj/item/extract/energy
 	time = 40
 	reqs = list(/datum/reagent/consumable/nutriment = 20)
-	crafting_flags = CRAFT_MUST_BE_LEARNED
+	crafting_flags = CRAFT_MUST_BE_LEARNED | CRAFT_SKIP_MATERIALS_PARITY
 	category = CAT_MAGIC
 	tool_paths = list(/obj/item/extract/cans)
 
@@ -187,7 +180,7 @@ istype(I, /obj/item/bodypart/leg/left/skeleton) || istype(I, /obj/item/bodypart/
 	result = /obj/item/extract/energy
 	time = 40
 	reqs = list(/obj/item/food/meat/slab = 2)
-	crafting_flags = CRAFT_MUST_BE_LEARNED
+	crafting_flags = CRAFT_MUST_BE_LEARNED | CRAFT_SKIP_MATERIALS_PARITY
 	category = CAT_MAGIC
 	tool_paths = list(/obj/item/extract/cans,/obj/item/organ/stomach)
 
@@ -212,7 +205,7 @@ It is technically capable of raising the dead... but not animating them."
 	result = /obj/item/extract/death
 	time = 60
 	reqs = list(/obj/item/stack/sheet/bone = 6)
-	crafting_flags = CRAFT_MUST_BE_LEARNED
+	crafting_flags = CRAFT_MUST_BE_LEARNED | CRAFT_SKIP_MATERIALS_PARITY
 	category = CAT_MAGIC
 	tool_paths = list(/obj/item/extract/cans)
 // ToDo: add a second craft from skeleton bodyparts
@@ -229,7 +222,7 @@ It is technically capable of raising the dead... but not animating them."
 	result = /obj/item/extract/plant_life
 	time = 10
 	reqs = list(/obj/item/food/grown/mushroom = 1)
-	crafting_flags = CRAFT_MUST_BE_LEARNED
+	crafting_flags = CRAFT_MUST_BE_LEARNED | CRAFT_SKIP_MATERIALS_PARITY
 	category = CAT_MAGIC
 	tool_paths = list(/obj/item/extract/cans)
 
@@ -248,7 +241,7 @@ It is technically capable of raising the dead... but not animating them."
 	result = /obj/item/extract/life
 	time = 40
 	reqs = list(/obj/item/extract/death = 1, /obj/item/extract/energy = 1)
-	crafting_flags = CRAFT_MUST_BE_LEARNED
+	crafting_flags = CRAFT_MUST_BE_LEARNED | CRAFT_SKIP_MATERIALS_PARITY
 	category = CAT_MAGIC
 
 /obj/item/extract/mutandis
@@ -263,7 +256,7 @@ It is technically capable of raising the dead... but not animating them."
 	result = /obj/item/extract/mutandis
 	time = 10
 	reqs = list(/obj/item/stack/ore/glass = 2, /obj/item/extract/plant_life = 1, /datum/reagent/consumable/sugar = 5)
-	crafting_flags = CRAFT_MUST_BE_LEARNED
+	crafting_flags = CRAFT_MUST_BE_LEARNED | CRAFT_SKIP_MATERIALS_PARITY
 	category = CAT_MAGIC
 
 //mutandis crafts:
@@ -272,7 +265,7 @@ It is technically capable of raising the dead... but not animating them."
 	result = /obj/item/food/grown/mushroom/glowshroom/shadowshroom
 	time = 40
 	reqs = list(/obj/item/extract/mutandis = 1, /obj/item/extract/shadow = 1, /obj/item/food/grown/mushroom = 1)
-	crafting_flags = CRAFT_MUST_BE_LEARNED
+	crafting_flags = CRAFT_MUST_BE_LEARNED | CRAFT_SKIP_MATERIALS_PARITY
 	category = CAT_MAGIC
 
 /datum/crafting_recipe/mut_cotton
@@ -280,7 +273,7 @@ It is technically capable of raising the dead... but not animating them."
 	result = /obj/item/grown/cotton
 	time = 40
 	reqs = list(/obj/item/extract/mutandis = 1, /datum/reagent/medicine/omnizine = 2, /obj/item/stack/sheet/cloth = 1)
-	crafting_flags = CRAFT_MUST_BE_LEARNED
+	crafting_flags = CRAFT_MUST_BE_LEARNED | CRAFT_SKIP_MATERIALS_PARITY
 	category = CAT_MAGIC
 
 /datum/crafting_recipe/mut_towercap
@@ -288,7 +281,7 @@ It is technically capable of raising the dead... but not animating them."
 	result = /obj/item/grown/log
 	time = 40
 	reqs = list(/obj/item/extract/mutandis = 1, /datum/reagent/medicine/omnizine = 2, /obj/item/stack/sheet/mineral/wood = 1)
-	crafting_flags = CRAFT_MUST_BE_LEARNED
+	crafting_flags = CRAFT_MUST_BE_LEARNED | CRAFT_SKIP_MATERIALS_PARITY
 	category = CAT_MAGIC
 
 // /obj/item/food/grown/mushroom
@@ -330,7 +323,7 @@ It is technically capable of raising the dead... but not animating them."
 	result = /obj/item/flashlight/flare/candle/dark
 	time = 60
 	reqs = list(/obj/item/flashlight/flare/candle = 1, /obj/item/extract/shadow = 1)
-	crafting_flags = CRAFT_MUST_BE_LEARNED
+	crafting_flags = CRAFT_MUST_BE_LEARNED | CRAFT_SKIP_MATERIALS_PARITY
 	category = CAT_MAGIC
 
 /obj/item/shard/magic_scanner
@@ -391,21 +384,20 @@ It is technically capable of raising the dead... but not animating them."
 	result = /obj/item/shard/magic_scanner/blood
 	time = 50
 	reqs = list(/obj/item/shard = 1, /datum/reagent/blood = 30)
-	crafting_flags = CRAFT_MUST_BE_LEARNED
+	crafting_flags = CRAFT_MUST_BE_LEARNED | CRAFT_SKIP_MATERIALS_PARITY
 	category = CAT_MAGIC
 	tool_paths = list(/obj/item/pen)
 
 /obj/item/shard/magic_scanner/mineral
 	icon_state = "scanner_mineral"
 	icon_yes = "scanner_mineral"
-	custom_materials = list(/datum/material/alloy/plasmaglass=SHEET_MATERIAL_AMOUNT)
 
 /datum/crafting_recipe/magic_scanner_mineral
 	name = "Magic scanner"
 	result = /obj/item/shard/magic_scanner/mineral
 	time = 50
 	reqs = list(/obj/item/shard/plasma = 1, /obj/item/stack/cable_coil = 6)
-	crafting_flags = CRAFT_MUST_BE_LEARNED
+	crafting_flags = CRAFT_MUST_BE_LEARNED | CRAFT_SKIP_MATERIALS_PARITY
 	category = CAT_MAGIC
 
 /obj/item/shard/magic_scanner/grass
@@ -417,7 +409,7 @@ It is technically capable of raising the dead... but not animating them."
 	result = /obj/item/shard/magic_scanner/grass
 	time = 50
 	reqs = list(/obj/item/shard = 1, /obj/item/food/grown/nettle = 2)
-	crafting_flags = CRAFT_MUST_BE_LEARNED
+	crafting_flags = CRAFT_MUST_BE_LEARNED | CRAFT_SKIP_MATERIALS_PARITY
 	category = CAT_MAGIC
 
 // unfinished
