@@ -4,6 +4,7 @@
 	icon = 'icons/obj/art/musician.dmi'
 	icon_state = "recorder"
 	var/summoned_mega = /mob/living/basic/mega_arachnid
+	custom_materials = list(/datum/material/bone = SHEET_MATERIAL_AMOUNT * 2.1)
 
 /obj/item/summoning_flute/examine(mob/user)
 	. = ..()

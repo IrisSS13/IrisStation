@@ -1,17 +1,17 @@
 // THIS IS A NOVA SECTOR UI FILE
 import {
   CheckboxInput,
-  Feature,
-  FeatureChoiced,
-  FeatureChoicedServerData,
+  type Feature,
+  type FeatureChoiced,
+  type FeatureChoicedServerData,
   FeatureColorInput,
   FeatureNumberInput,
   FeatureShortTextInput,
   FeatureTextInput,
-  FeatureToggle,
+  type FeatureToggle,
   FeatureTriBoolInput,
   FeatureTriColorInput,
-  FeatureValueProps,
+  type FeatureValueProps,
 } from '../../base';
 import { FeatureDropdownInput } from '../../dropdowns';
 
@@ -36,21 +36,62 @@ export const feature_mcolor3: Feature<string> = {
 export const flavor_text: Feature<string> = {
   name: 'Flavor Text',
   description:
-    "Appears when your character is examined (but only if they're identifiable - try a gas mask).",
+    "Appears when your character is examined (but only if they're identifiable - try a gas mask). Do not put sexual things in here—move those to Flavor Text (NSFW).",
+  component: FeatureTextInput,
+};
+
+export const flavor_text_nsfw: Feature<string> = {
+  name: 'Flavor Text (NSFW)',
+  description: 'Same as Flavor Text but requires you to click a tab to view.',
   component: FeatureTextInput,
 };
 
 export const silicon_flavor_text: Feature<string> = {
   name: 'Flavor Text (Silicon)',
-  description: "Only appears if you're playing as a borg/AI.",
+  description:
+    "Only appears if you're playing as a borg/AI. Do not put sexual things in here—move those to Flavor Text (Silicon, NSFW).",
+  component: FeatureTextInput,
+};
+
+export const silicon_flavor_text_nsfw: Feature<string> = {
+  name: 'Flavor Text (Silicon, NSFW)',
+  description:
+    'Same as Silicon Flavor Text but requires you to click a tab to view.',
   component: FeatureTextInput,
 };
 
 export const ooc_notes: Feature<string> = {
   name: 'OOC Notes',
   description:
-    'Anything you want other players to know about you goes here, such as antag information, OOC triggers, etc.',
+    'Anything you want other players to know about you goes here, such as antag information, OOC triggers, etc. Do not put sexual things in here—move those to OOC Notes (NSFW).',
   component: FeatureTextInput,
+};
+
+export const ooc_notes_nsfw: Feature<string> = {
+  name: 'OOC Notes (NSFW)',
+  description: 'Same as OOC Notes but requires you to click a tab to view.',
+  component: FeatureTextInput,
+};
+
+export const character_ad: Feature<string> = {
+  name: 'Character Advert',
+  description:
+    'An advertisement for your character. Give information on how to approach for those interested, for either regular and erotic roleplay.',
+  component: FeatureTextInput,
+};
+
+export const attraction: FeatureChoiced = {
+  name: 'Character Attraction',
+  description:
+    'What your character is attracted to. This is displayed in the Directory.',
+  component: FeatureDropdownInput,
+};
+
+export const display_gender: FeatureChoiced = {
+  name: 'Character Gender',
+  description:
+    'What classifies as the gender for your character. This is displayed in the Directory.',
+  component: FeatureDropdownInput,
 };
 
 export const custom_species: Feature<string> = {
@@ -122,6 +163,12 @@ export const allow_mismatched_hair_color_toggle: FeatureToggle = {
   name: 'Allow Mismatched Hair Color',
   description:
     'Allows species who normally have a fixed hair color to have different hair colors. This includes in-round sources such as dyeing hair, alter form, etc. Currently only applicable to slimes.',
+  component: CheckboxInput,
+};
+
+export const allow_genitals_toggle: FeatureToggle = {
+  name: 'Allow Genital Parts',
+  description: 'Enables if you want to have genitals on your character.',
   component: CheckboxInput,
 };
 
@@ -640,7 +687,7 @@ export const taur_emissive: Feature<boolean[]> = {
 export const naga_sole: FeatureToggle = {
   name: 'Taur (Naga) disable hardened soles',
   description:
-    'If using a serpentine taur body, determines if you are immune to caltrops and a few other effects of being barefoot.',
+    'If using a serpentine or fishlike taur body, determines if you are immune to caltrops and a few other effects of being barefoot.',
   component: CheckboxInput,
 };
 
