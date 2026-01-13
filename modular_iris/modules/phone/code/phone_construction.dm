@@ -21,6 +21,6 @@
 	build_path = /obj/item/circuitboard/machine/phone
 	category = list(
 		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_SERVICE,
+		RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_SERVICE,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SERVICE
