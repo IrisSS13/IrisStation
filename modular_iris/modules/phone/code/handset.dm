@@ -17,18 +17,6 @@
 
 	// Handset starts in nullspace, holder is optional during initialization
 
-/// Checks if handset is within range of phone base
-/obj/item/handset/proc/check_range()
-	SIGNAL_HANDLER
-
-	if(!holder || !ismob(loc))
-		return
-
-	if(get_dist(src, holder) > HANDSET_RANGE)
-		var/mob/user = loc
-		to_chat(user, span_warning("[src]'s cord overextends and snaps back to the base!"))
-		snap_back()
-
 /// Returns handset to base when out of range
 /obj/item/handset/proc/snap_back()
 	if(!phone_component)
@@ -74,14 +62,8 @@
 
 /// Cleans up movement tracking signals
 /obj/item/handset/proc/cleanup_signals()
-	// Unregister from current location if it's a mob
-	if(ismob(loc))
-		var/mob/user = loc
-		UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
-
-	// Unregister from holder
-	if(holder)
-		UnregisterSignal(holder, COMSIG_MOVABLE_MOVED)
+	// The phone component handles all signal registration/unregistration
+	// This is being kept for future extensibility
 
 /obj/item/handset/attack_hand(mob/user)
 	// Prevent pickup if out of range
@@ -100,19 +82,8 @@
 	// Clean up any existing signals first
 	cleanup_signals()
 
-	// Update phone component's tracking of current user
-	if(phone_component.current_handset_user && phone_component.current_handset_user != user)
-		UnregisterSignal(phone_component.current_handset_user, COMSIG_MOVABLE_MOVED)
-
-	phone_component.current_handset_user = user
-	RegisterSignal(user, COMSIG_MOVABLE_MOVED, TYPE_PROC_REF(/datum/component/phone, on_handset_user_moved), phone_component)
-
 	// Become hearing sensitive so we can receive Hear() calls
 	become_hearing_sensitive()
-
-	// Track movement for range checking
-	RegisterSignal(user, COMSIG_MOVABLE_MOVED, PROC_REF(check_range))
-	RegisterSignal(holder, COMSIG_MOVABLE_MOVED, PROC_REF(check_range))
 
 /obj/item/handset/dropped(mob/user)
 	. = ..()
@@ -137,9 +108,6 @@
 /obj/item/handset/moveToNullspace()
 	. = ..()
 
-/obj/item/handset/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
-	. = ..()
-	check_range()
 
 /obj/item/handset/Hear(atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, radio_freq_name, radio_freq_color, list/spans, list/message_mods = list(), message_range)
 	. = ..()

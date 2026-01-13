@@ -22,6 +22,8 @@ GLOBAL_LIST_EMPTY_TYPED(phones, /datum/component/phone)
 	var/datum/component/phone/calling_phone
 	/// The Phone_ID of the last person to call this telephone
 	var/last_caller
+	/// The user who is currently in a call with this phone (needed for notifications even if they drop handset)
+	var/mob/call_user
 	/// The ID of our timer to cancel an attempted call and "go to voicemail"
 	var/timeout_timer_id
 	/// The time it takes for our timer to end to cancel an attempted call and "go to voicemail"
@@ -415,6 +417,7 @@ GLOBAL_LIST_EMPTY_TYPED(phones, /datum/component/phone)
 		return FALSE
 
 	// Answer the call
+	call_user = user
 	set_call_state(PHONE_STATE_CONNECTED)
 	calling_phone?.on_call_answered()
 
@@ -423,6 +426,14 @@ GLOBAL_LIST_EMPTY_TYPED(phones, /datum/component/phone)
 	user.put_in_active_hand(phone_handset)
 	to_chat(user, span_purple("[icon2html(holder, user)] Picked up a call from [calling_phone.phone_id]."))
 	SEND_SIGNAL(holder, COMSIG_ATOM_PHONE_PICKED_UP)
+
+	// Clean up any existing user signals first
+	if(current_handset_user)
+		UnregisterSignal(current_handset_user, COMSIG_MOVABLE_MOVED)
+
+	// Track current user and register for movement
+	current_handset_user = user
+	RegisterSignal(user, COMSIG_MOVABLE_MOVED, PROC_REF(on_handset_user_moved))
 
 	return TRUE
 
@@ -435,6 +446,7 @@ GLOBAL_LIST_EMPTY_TYPED(phones, /datum/component/phone)
 
 	if(ismob(phone_handset?.loc))
 		var/mob/user = phone_handset.loc
+		call_user = user
 		to_chat(user, span_purple("[icon2html(calling_phone.holder, user)] [calling_phone.phone_id] has picked up."))
 
 /// Ends the current call
@@ -445,26 +457,51 @@ GLOBAL_LIST_EMPTY_TYPED(phones, /datum/component/phone)
 	var/old_calling_phone = calling_phone
 	var/old_state = call_state
 
-	// Set to idle first to prevent infinite recursion
-	set_call_state(PHONE_STATE_IDLE)
-
-	// Only end call on other side if we were actually connected to them
+	// Make recursive call BEFORE setting to IDLE
 	if(!recursed && old_calling_phone)
 		var/datum/component/phone/calling_phone_cast = old_calling_phone
-		if(calling_phone_cast.calling_phone == src)
-			calling_phone_cast.handle_call_end(timeout, recursed = TRUE)
+		calling_phone_cast.handle_call_end(timeout, recursed = TRUE)
+
+	// Set to idle after notifying other side
+	set_call_state(PHONE_STATE_IDLE)
 
 	// Send feedback to user
 	send_call_end_message(old_calling_phone, old_state, timeout, recursed)
 
+	// Play call end sound only if the other side ended the call and it was connected
+	if(recursed && old_state == PHONE_STATE_CONNECTED)
+		var/sound_location
+		// Prefer handset location if someone is holding it
+		if(phone_handset && ismob(phone_handset.loc))
+			sound_location = phone_handset.loc
+		// Fall back to holder (phone base) if available
+		else if(holder)
+			sound_location = holder
+
+		if(sound_location)
+			playsound(sound_location, 'modular_iris/modules/phone/sound/phone_busy_shorter.ogg', 50)
+
+	// Clear call user after message is sent
+	call_user = null
+
 /// Sends appropriate message when call ends
 /datum/component/phone/proc/send_call_end_message(datum/component/phone/other_phone, old_state, timeout, recursed)
-	if(!phone_handset || !ismob(phone_handset.loc))
+	// Only send messages for calls that actually connected
+	if(old_state != PHONE_STATE_CONNECTED)
 		return
 
-	var/mob/user = phone_handset.loc
-	var/message
+	var/mob/user = null
 
+	// Find who to notify
+	if(phone_handset && ismob(phone_handset.loc))
+		user = phone_handset.loc
+	else if(call_user)
+		user = call_user
+
+	if(!user)
+		return
+
+	var/message
 	if(recursed)
 		message = "[icon2html(holder, user)] [other_phone.phone_id] has hung up on you."
 	else if(timeout)
