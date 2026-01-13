@@ -4,6 +4,7 @@ ADMIN_VERB(get_server_logs, R_ADMIN, "Get Server Logs", "View or retrieve logfil
 ADMIN_VERB(get_current_logs, R_ADMIN, "Get Current Logs", "View or retrieve logfiles for the current round.", ADMIN_CATEGORY_MAIN)
 	user.browseserverlogs(current=TRUE)
 
+/* IRIS REMOVAL - replaced in [modular_iris\master_files\code\modules\admin\verbs\getlogs.dm]]
 /client/proc/browseserverlogs(current=FALSE)
 	var/path = browse_files(current ? BROWSE_ROOT_CURRENT_LOGS : BROWSE_ROOT_ALL_LOGS)
 	if(!path)
@@ -23,3 +24,4 @@ ADMIN_VERB(get_current_logs, R_ADMIN, "Get Current Logs", "View or retrieve logf
 		else
 			return
 	to_chat(src, "Attempting to send [path], this may take a fair few minutes if the file is very large.", confidential = TRUE)
+*/

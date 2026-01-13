@@ -24,6 +24,7 @@ GLOBAL_DATUM(error_cache, /datum/error_viewer/error_cache)
 /datum/error_viewer
 	var/name = ""
 
+// IRIS NOTE: This proc is not used and is overriden by modular_iris/master_files/code/modules/error_handler/error_viewer.dm
 /datum/error_viewer/proc/browse_to(client/user, html)
 	var/datum/browser/browser = new(user.mob, "error_viewer", null, 600, 400)
 	browser.set_content(html)
@@ -46,6 +47,7 @@ GLOBAL_DATUM(error_cache, /datum/error_viewer/error_cache)
 	"})
 	browser.open()
 
+// IRIS NOTE: This proc is not used and is overriden by modular_iris/master_files/code/modules/error_handler/error_viewer.dm
 /datum/error_viewer/proc/build_header(datum/error_viewer/back_to, linear)
 	// Common starter HTML for show_to
 
@@ -80,7 +82,7 @@ GLOBAL_DATUM(error_cache, /datum/error_viewer/error_cache)
 
 /datum/error_viewer/error_cache/show_to(user, datum/error_viewer/back_to, linear)
 	var/html = build_header()
-	html += "<b>[GLOB.total_runtimes]</b> runtimes, <b>[GLOB.total_runtimes_skipped]</b> skipped<br><br>"
+	html += "<b>[GLOB.total_runtimes]</b> runtimes, <b>[GLOB.total_runtimes_skipped]</b> skipped, [GLOB.total_runtimes - GLOB.total_runtimes_skipped] shown<br>" // IRIS EDIT: Original: 	html += "<b>[GLOB.total_runtimes]</b> runtimes, <b>[GLOB.total_runtimes_skipped]</b> skipped<br><br>"
 	if (!linear)
 		html += "organized | [make_link("linear", null, 1)]<hr>"
 		var/datum/error_viewer/error_source/error_source
