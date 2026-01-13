@@ -177,3 +177,21 @@
 
 /obj/machinery/phone_base/rotary/head_of_staff/no_dnd
 	do_not_disturb = PHONE_DND_FORBIDDEN
+
+/// Make the OG phone cursed - 1% chance to instantly kill you when used
+/obj/item/phone
+	special_desc = "Something feels... wrong about this one. You get a bad feeling using it."
+
+/obj/item/phone/attack_hand(mob/living/carbon/human/user)
+	return ..()
+
+/obj/item/phone/attack_self(mob/living/carbon/human/user)
+	if(prob(1)) // 1% chance of instant death
+		var/turf/selected_turf = get_turf(user)
+		selected_turf.visible_message(span_userdanger("[user] suddenly dies!"))
+		user.investigate_log("has been killed by a cursed telephone.", INVESTIGATE_DEATHS)
+		user.death()
+		return
+	// 99% of the time, just ring
+	playsound(user, 'modular_iris/modules/phone/sound/telephone_ring.ogg', 30, FALSE)
+	to_chat(user, span_notice("The phone rings ominously in your hands..."))
