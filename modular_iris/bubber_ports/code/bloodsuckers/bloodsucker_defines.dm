@@ -40,7 +40,7 @@
  * Sol defines
  */
 ///How long Sol will last until it's night again.
-#define TIME_BLOODSUCKER_DAY 60
+#define TIME_BLOODSUCKER_DAY 180
 ///Base time nighttime should be in for, until Sol rises.
 // Can't put defines in defines, so we have to use deciseconds.
 #define TIME_BLOODSUCKER_NIGHT_MAX 1320 // 22 minutes

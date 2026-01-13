@@ -1,5 +1,5 @@
 
-#define COFFIN_HEALING_COST 0.2
+#define COFFIN_HEALING_COST 2
 
 /datum/quirk/sol_weakness
 	name = "Sol Weakness"
