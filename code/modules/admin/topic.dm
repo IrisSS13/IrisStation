@@ -641,6 +641,15 @@
 		if(!isobserver(usr) && !check_rights(R_ADMIN))
 			return
 
+		// IRIS EDIT ADDITION START
+		if(href_list["stealth"])
+			if(!check_rights(R_STEALTH, TRUE))
+				return
+			if (!usr.client.holder.fakekey)
+				to_chat(usr, span_warning("You have been automatically stealthed via STLTH-FLW as [span_bold(usr.ckey)]"))
+				usr.client.enable_stealth_mode(usr.ckey, "STLTH-FLW")
+		// IRIS EDIT ADDITION END
+
 		usr.client?.admin_follow(locate(href_list["adminplayerobservefollow"]))
 	else if(href_list["admingetmovable"])
 		if(!check_rights(R_ADMIN))
