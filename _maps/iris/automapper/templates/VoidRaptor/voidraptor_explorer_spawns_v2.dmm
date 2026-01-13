@@ -18,19 +18,17 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/smooth_large,
+/turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/cargo/miningfoundry)
 "bJ" = (
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/engine,
 /area/station/cargo/exploration_office)
 "cJ" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/obj/effect/landmark/start/explorer,
-/turf/open/floor/catwalk_floor/iron_smooth,
-/area/station/cargo/exploration_office)
+/obj/structure/lattice,
+/obj/structure/sign/warning/directional/north,
+/turf/open/space/basic,
+/area/space/nearstation)
 "eW" = (
 /turf/open/space/basic,
 /area/space)
@@ -39,6 +37,20 @@
 	dir = 4
 	},
 /turf/open/floor/engine,
+/area/station/cargo/exploration_office)
+"fp" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/poster/official/random/directional/west{
+	pixel_x = -27
+	},
+/obj/structure/closet/toolcloset{
+	dir = 4
+	},
+/obj/item/storage/box/nri_flares,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/iron/smooth_edge{
+	dir = 8
+	},
 /area/station/cargo/exploration_office)
 "gR" = (
 /obj/effect/spawner/random/engineering/tracking_beacon,
@@ -52,9 +64,16 @@
 /turf/open/floor/engine,
 /area/station/cargo/exploration_office)
 "hv" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/effect/turf_decal/bot,
-/turf/open/floor/iron/smooth_large,
+/obj/machinery/computer/anchor_controller{
+	dir = 1
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/corner,
+/turf/open/floor/iron/smooth_edge{
+	dir = 4
+	},
 /area/station/cargo/exploration_office)
 "hB" = (
 /obj/effect/turf_decal/stripes/line{
@@ -91,33 +110,23 @@
 "js" = (
 /obj/structure/table/reinforced,
 /obj/machinery/recharger{
-	pixel_x = 6;
-	pixel_y = 11
-	},
-/obj/item/storage/box/colonial_rations{
-	pixel_y = 9;
-	pixel_x = -6
-	},
-/obj/item/storage/box/colonial_rations{
-	pixel_y = 2;
-	pixel_x = -6
+	pixel_y = 8
 	},
 /obj/item/storage/medkit/emergency{
 	pixel_y = -12;
 	pixel_x = 2
 	},
 /obj/machinery/airalarm/directional/west,
-/turf/open/floor/iron/smooth_large,
+/turf/open/floor/iron/smooth_edge{
+	dir = 8
+	},
 /area/station/cargo/exploration_office)
 "jS" = (
-/obj/machinery/computer/anchor_controller{
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/caution{
 	dir = 1
 	},
-/obj/structure/railing,
-/obj/machinery/light/directional/east,
-/turf/open/floor/iron/smooth_corner{
-	dir = 1
-	},
+/turf/open/floor/iron/smooth_edge,
 /area/station/cargo/exploration_office)
 "mq" = (
 /obj/effect/turf_decal/stripes/box,
@@ -163,14 +172,22 @@
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/cargo/miningfoundry)
 "pA" = (
-/obj/structure/closet/crate/bin,
-/obj/effect/spawner/random/trash/garbage,
-/obj/effect/spawner/random/trash/garbage,
 /obj/machinery/light_switch/directional/west{
 	pixel_x = -20;
 	pixel_y = 7
 	},
-/turf/open/floor/iron/smooth_large,
+/obj/structure/table/reinforced,
+/obj/item/storage/box/colonial_rations{
+	pixel_y = 9;
+	pixel_x = -6
+	},
+/obj/item/storage/box/colonial_rations{
+	pixel_y = 2;
+	pixel_x = -6
+	},
+/turf/open/floor/iron/smooth_edge{
+	dir = 8
+	},
 /area/station/cargo/exploration_office)
 "qC" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -207,22 +224,13 @@
 /turf/open/floor/plating,
 /area/station/cargo/exploration_office)
 "uO" = (
-/obj/structure/bed/dogbed{
-	name = "Lem's bed";
-	desc = "A comfy-looking cat bed. You can even strap your pet in, in case the gravity turns off."
-	},
-/mob/living/basic/pet/cat/space{
-	name = "Lem";
-	gender = "male";
-	unique_pet = 1;
-	desc = "He's kittened out for space exploration."
-	},
-/obj/structure/railing/corner/end{
+/obj/structure/chair/office{
 	dir = 4
 	},
-/turf/open/floor/iron/smooth_corner{
-	dir = 4
-	},
+/obj/structure/railing/corner,
+/obj/effect/landmark/start/explorer,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/smooth,
 /area/station/cargo/exploration_office)
 "uR" = (
 /obj/effect/turf_decal/stripes/line{
@@ -277,30 +285,49 @@
 /turf/open/space/basic,
 /area/space/nearstation)
 "yM" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/extinguisher_cabinet/directional/north,
-/obj/machinery/camera/directional/east{
-	dir = 6
-	},
-/turf/open/floor/iron/smooth_large,
+/turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/cargo/miningfoundry)
+"zu" = (
+/obj/structure/closet/crate/bin,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/garbage,
+/obj/structure/sign/poster/official/random/directional/north,
+/turf/open/floor/iron/smooth_large,
+/area/station/cargo/exploration_office)
 "zI" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 1
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/smooth,
+/area/station/cargo/exploration_office)
+"BJ" = (
+/obj/structure/railing{
+	dir = 4
 	},
-/turf/open/floor/iron/smooth_edge{
-	dir = 8
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/turf_decal/bot_blue,
+/turf/open/floor/iron/smooth_corner{
+	dir = 1
 	},
 /area/station/cargo/exploration_office)
 "Cr" = (
-/obj/machinery/firealarm/directional/east{
-	pixel_x = 19
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/start/explorer,
+/turf/open/floor/iron/smooth,
+/area/station/cargo/exploration_office)
+"CA" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
 	},
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 1
+/obj/effect/turf_decal/caution{
+	dir = 8
 	},
-/obj/item/kirbyplants/random{
-	pixel_x = 9
-	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth_edge{
 	dir = 4
 	},
@@ -327,7 +354,21 @@
 	pixel_x = -27;
 	pixel_y = 5
 	},
-/turf/open/floor/iron/smooth_large,
+/turf/open/floor/iron/smooth_edge{
+	dir = 8
+	},
+/area/station/cargo/exploration_office)
+"Gg" = (
+/obj/machinery/firealarm/directional/east{
+	pixel_x = 19
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/obj/item/kirbyplants/random,
+/turf/open/floor/iron/smooth_edge{
+	dir = 4
+	},
 /area/station/cargo/exploration_office)
 "HX" = (
 /obj/structure/lattice/catwalk,
@@ -353,7 +394,9 @@
 /obj/item/stack/rods/twentyfive{
 	pixel_x = 4
 	},
-/turf/open/floor/iron/smooth_large,
+/turf/open/floor/iron/smooth_corner{
+	dir = 4
+	},
 /area/station/cargo/exploration_office)
 "Iz" = (
 /obj/machinery/door/airlock/mining{
@@ -377,7 +420,9 @@
 /obj/structure/table/reinforced,
 /obj/machinery/cell_charger,
 /obj/machinery/light/directional/west,
-/turf/open/floor/iron/smooth_large,
+/turf/open/floor/iron/smooth_edge{
+	dir = 8
+	},
 /area/station/cargo/exploration_office)
 "Od" = (
 /obj/effect/turf_decal/stripes/line{
@@ -394,18 +439,33 @@
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
 "OX" = (
-/obj/structure/closet/toolcloset,
-/obj/item/storage/box/nri_flares,
-/obj/effect/turf_decal/bot,
-/turf/open/floor/iron/smooth_large,
+/obj/machinery/light/directional/east,
+/obj/structure/bed/dogbed{
+	name = "Lem's bed";
+	desc = "A comfy-looking cat bed. You can even strap your pet in, in case the gravity turns off."
+	},
+/mob/living/basic/pet/cat/space{
+	name = "Lem";
+	gender = "male";
+	unique_pet = 1;
+	desc = "He's kittened out for space exploration."
+	},
+/obj/structure/railing,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/turf/open/floor/iron/smooth_corner{
+	dir = 1
+	},
 /area/station/cargo/exploration_office)
 "RB" = (
 /obj/structure/lattice/catwalk,
 /turf/open/space/basic,
 /area/space/nearstation)
 "Ss" = (
-/obj/structure/chair/office,
-/obj/effect/landmark/start/explorer,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
 /turf/open/floor/iron/smooth,
 /area/station/cargo/exploration_office)
 "Te" = (
@@ -440,7 +500,6 @@
 	pixel_x = -12;
 	pixel_y = -12
 	},
-/obj/structure/sign/warning/directional/north,
 /obj/structure/railing{
 	dir = 4
 	},
@@ -457,10 +516,13 @@
 /area/station/cargo/exploration_office)
 "Yl" = (
 /obj/machinery/computer/cargo/request{
-	dir = 1
+	dir = 8
 	},
 /obj/structure/railing,
-/turf/open/floor/iron/smooth_edge,
+/obj/effect/turf_decal/stripes/corner,
+/turf/open/floor/iron/smooth_corner{
+	dir = 1
+	},
 /area/station/cargo/exploration_office)
 "YV" = (
 /obj/machinery/conveyor_switch/oneway{
@@ -489,6 +551,11 @@ no
 no
 no
 no
+no
+no
+no
+no
+no
 Iz
 no
 no
@@ -498,6 +565,11 @@ no
 no
 "}
 (2,1,1) = {"
+no
+no
+no
+no
+no
 no
 no
 no
@@ -524,8 +596,18 @@ no
 no
 no
 no
+no
+no
+no
+no
+no
 "}
 (4,1,1) = {"
+no
+no
+no
+no
+no
 no
 no
 no
@@ -552,8 +634,18 @@ no
 no
 no
 no
+no
+no
+no
+no
+no
 "}
 (6,1,1) = {"
+no
+no
+no
+no
+no
 no
 no
 no
@@ -580,6 +672,11 @@ no
 no
 no
 no
+no
+no
+no
+no
+no
 "}
 (8,1,1) = {"
 no
@@ -594,8 +691,18 @@ no
 no
 no
 no
+no
+no
+no
+no
+no
 "}
 (9,1,1) = {"
+no
+no
+no
+no
+no
 no
 no
 no
@@ -622,8 +729,18 @@ no
 no
 no
 no
+no
+no
+no
+no
+no
 "}
 (11,1,1) = {"
+no
+no
+no
+no
+no
 no
 no
 no
@@ -641,6 +758,11 @@ no
 no
 no
 no
+no
+no
+no
+no
+no
 qC
 no
 no
@@ -654,6 +776,11 @@ no
 (13,1,1) = {"
 no
 no
+no
+no
+no
+no
+bI
 bI
 YV
 no
@@ -667,8 +794,13 @@ no
 "}
 (14,1,1) = {"
 no
+no
+no
+no
+no
+no
 yM
-bI
+no
 no
 no
 no
@@ -680,7 +812,11 @@ no
 no
 "}
 (15,1,1) = {"
-Zg
+eW
+eW
+Oj
+eW
+no
 Zg
 jh
 Zg
@@ -692,11 +828,17 @@ Zg
 Zg
 Zg
 Zg
+Zg
 "}
 (16,1,1) = {"
+nd
+xW
+Oj
+xW
+xW
 Zg
-hv
 rs
+fp
 pA
 js
 Jp
@@ -708,9 +850,14 @@ Od
 tS
 "}
 (17,1,1) = {"
+no
+no
+Oj
+eW
+xW
 tS
-WX
-cJ
+rs
+rs
 gR
 Zl
 XM
@@ -722,128 +869,192 @@ mQ
 tS
 "}
 (18,1,1) = {"
+no
+no
+Oj
+eW
+xW
 tS
 WX
 rs
 zI
 uO
-TA
-gZ
-wB
+hv
+CA
+BJ
 Zg
 Zg
 Te
 Zg
 "}
 (19,1,1) = {"
+nd
+xW
+Oj
+xW
+xW
 tS
 WX
-Dr
+rs
 Ss
 Yl
-wU
-mq
-bJ
+TA
+gZ
+wB
 tS
 iK
 RB
 tL
 "}
 (20,1,1) = {"
-Zg
-OX
-mV
+no
+no
+Oj
+no
+xW
+tS
+WX
+Dr
 Cr
 jS
-hB
-fb
-vk
+wU
+mq
+bJ
 tS
 RB
 Uo
 CN
 "}
 (21,1,1) = {"
+no
+no
+Oj
+no
+xW
 Zg
-Zg
-Zg
-Zg
-Zg
+zu
+mV
+Gg
+OX
+hB
+fb
+vk
 tS
-tS
-tS
-Zg
 VI
 wl
 HX
 "}
 (22,1,1) = {"
+nd
+xW
+Oj
 xW
 xW
-xW
-xW
-xW
-xW
-xW
-xW
-xW
-xW
+Zg
+Zg
+Zg
+Zg
+Zg
+tS
+tS
+tS
+Zg
+cJ
 xW
 xW
 "}
 (23,1,1) = {"
+no
+no
+Oj
+no
+no
 xW
-eW
-eW
 xW
-eW
-eW
 xW
-eW
-eW
 xW
-eW
-eW
+xW
+xW
+xW
+xW
+xW
+xW
+no
+no
 "}
 (24,1,1) = {"
+no
+no
 Oj
 Oj
-Oj
-Oj
-Oj
-Oj
-Oj
-Oj
-Oj
-Oj
-Oj
-eW
+no
+xW
+no
+no
+xW
+no
+no
+xW
+no
+no
+xW
+no
+no
 "}
 (25,1,1) = {"
-xW
-eW
-eW
-xW
-eW
-eW
-xW
-eW
-eW
-xW
-eW
-eW
+no
+no
+no
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+Oj
+no
 "}
 (26,1,1) = {"
+no
+no
+no
+no
+no
+xW
+no
+no
+xW
+no
+no
+xW
+no
+no
+xW
+no
+no
+"}
+(27,1,1) = {"
+no
+no
+no
+no
+no
 nd
-eW
-eW
+no
+no
 nd
-eW
-eW
+no
+no
 nd
-eW
-eW
+no
+no
 nd
-eW
-eW
+no
+no
 "}
