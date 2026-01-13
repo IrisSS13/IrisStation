@@ -72,7 +72,7 @@
 	// IRIS EDIT ADDITION START
 	if(!length(possible_areas))
 		name = name + ": BUGGED!"
-			description = initial(description) + " This bounty is BUGGED! We couldn't choose a target area!"
+		description = initial(description) + " This bounty is BUGGED! We couldn't choose a target area!"
 		return
 	// IRIS EDIT ADDITION END
 	demanded_area = pick(possible_areas)
