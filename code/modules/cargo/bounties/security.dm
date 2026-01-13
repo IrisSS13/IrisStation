@@ -69,6 +69,12 @@
 			if(GLOB.areas_by_type[area_type])
 				continue
 			possible_areas -= area_type
+	// IRIS EDIT ADDITION START
+	if(!length(possible_areas))
+		name = name + ": BUGGED!"
+			description = initial(description) + " This bounty is BUGGED! We couldn't choose a target area!"
+		return
+	// IRIS EDIT ADDITION END
 	demanded_area = pick(possible_areas)
 	name = name + ": [initial(demanded_area.name)]"
 	description = initial(description) + " [initial(demanded_area.name)]"
