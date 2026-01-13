@@ -144,6 +144,8 @@ CREATE TABLE `connection_log` (
   `ckey` varchar(32) DEFAULT NULL,
   `ip` int(10) unsigned NOT NULL,
   `computerid` varchar(45) DEFAULT NULL,
+  `byond_version` varchar(8) DEFAULT NULL,
+  `byond_build` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
