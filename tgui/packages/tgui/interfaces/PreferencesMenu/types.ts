@@ -95,7 +95,6 @@ export type Quirk = {
   value: number;
   customizable: boolean;
   customization_options?: string[];
-  erp_quirk: boolean; // NOVA EDIT ADDITION - Purple ERP quirks
 };
 
 // NOVA EDIT START
@@ -191,8 +190,6 @@ export type PreferencesMenuData = {
 
   preview_options: string[]; // NOVA EDIT ADDITION
   preview_selection: string; // NOVA EDIT ADDITION
-
-  erp_pref: BooleanLike; // NOVA EDIT ADDITION
 
   character_preferences: {
     clothing: Record<string, string>;

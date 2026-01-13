@@ -2,7 +2,6 @@
 #define PREVIEW_PREF_LOADOUT "Loadout"
 #define PREVIEW_PREF_UNDERWEAR "Underwear"
 #define PREVIEW_PREF_NAKED "Naked"
-#define PREVIEW_PREF_NAKED_AROUSED "Naked - Aroused"
 
 /// for tri color prefs: doesn't check type_to_check pref
 #define TRICOLOR_NO_CHECK 0

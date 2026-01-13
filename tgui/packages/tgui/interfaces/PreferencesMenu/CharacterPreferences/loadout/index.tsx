@@ -32,10 +32,6 @@ import { LoadoutModifyDimmer } from './ModifyPanel';
 export function LoadoutPage(props) {
   const serverData = useServerPrefs();
   const loadout_tabs = serverData?.loadout.loadout_tabs || [];
-  /* NOVA EDIT CHANGE - Original: const { data } = useBackend<LoadoutManagerData>();
-  const { erp_pref } = data; */
-  const erp_pref = useBackend<LoadoutManagerData>().data.erp_pref;
-
   const [searchLoadout, setSearchLoadout] = useState('');
   const [selectedTabName, setSelectedTab] = useState(
     loadout_tabs?.[0].name || '',
@@ -158,31 +154,25 @@ export function LoadoutPage(props) {
           }
         >
           <Tabs fluid align="center">
-            {loadout_tabs // NOVA EDIT CHANGE - Adds filter before map()
-              // NOVA EDIT ADDITION START - Prefslocked tabs
-              .filter(
-                (curTab) =>
-                  !curTab.erp_category || (curTab.erp_category && erp_pref),
-              ) // NOVA EDIT ADDITION END
-              .map((curTab) => (
-                <Tabs.Tab
-                  key={curTab.name}
-                  selected={
-                    searchLoadout.length <= 1 && curTab.name === selectedTabName
-                  }
-                  onClick={() => {
-                    setSelectedTab(curTab.name);
-                    setSearchLoadout('');
-                  }}
-                >
-                  <Box>
-                    {curTab.category_icon && (
-                      <Icon name={curTab.category_icon} mr={1} />
-                    )}
-                    {curTab.name}
-                  </Box>
-                </Tabs.Tab>
-              ))}
+            {loadout_tabs.map((curTab) => (
+              <Tabs.Tab
+                key={curTab.name}
+                selected={
+                  searchLoadout.length <= 1 && curTab.name === selectedTabName
+                }
+                onClick={() => {
+                  setSelectedTab(curTab.name);
+                  setSearchLoadout('');
+                }}
+              >
+                <Box>
+                  {curTab.category_icon && (
+                    <Icon name={curTab.category_icon} mr={1} />
+                  )}
+                  {curTab.name}
+                </Box>
+              </Tabs.Tab>
+            ))}
           </Tabs>
         </Section>
       </Stack.Item>

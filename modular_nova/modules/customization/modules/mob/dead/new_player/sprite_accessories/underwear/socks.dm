@@ -163,7 +163,6 @@
 /datum/sprite_accessory/socks/leggings/latex
 	name = "Socks - Latex"
 	icon_state = "socks_latex"
-	erp_accessory = TRUE
 
 /datum/sprite_accessory/socks/thigh_m
 	name = "Thigh-high Socks - Shaded"
