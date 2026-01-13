@@ -342,13 +342,6 @@ GLOBAL_LIST_INIT(pp_limbs, list(
 			var/player_cid = targetMob.client.computer_id
 			adminClient.holder.ban_panel(player_key, player_ip, player_cid)
 
-		/// Stickbans target
-		if ("sticky_ban")
-			var/list/ban_settings = list()
-			if(targetMob.client)
-				ban_settings["ckey"] = targetMob.ckey
-			adminClient.holder.stickyban("add", ban_settings)
-
 		/// Opens selected target's Notes
 		if ("notes")
 			if (targetMob.client)

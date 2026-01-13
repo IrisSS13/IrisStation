@@ -395,11 +395,6 @@ GLOBAL_LIST_INIT(unrecommended_builds, list(
 			return
 		new /datum/admins(list(localhost_rank), ckey, 1, 1)
 
-	if (length(GLOB.stickybanadminexemptions))
-		GLOB.stickybanadminexemptions -= ckey
-		if (!length(GLOB.stickybanadminexemptions))
-			restore_stickybans()
-
 	if (byond_version >= 512)
 		if (!byond_build || byond_build < 1386)
 			message_admins(span_adminnotice("[key_name(src)] has been detected as spoofing their byond version. Connection rejected."))

@@ -742,16 +742,6 @@ const PunishmentActions = () => {
           >
             Ban
           </Button>
-          <Button.Confirm
-            width="100%"
-            height="100%"
-            icon="gavel"
-            color="red"
-            disabled={!client_ckey}
-            onClick={() => act('sticky_ban')}
-          >
-            Sticky Ban
-          </Button.Confirm>
         </Flex>
       </Section>
 
