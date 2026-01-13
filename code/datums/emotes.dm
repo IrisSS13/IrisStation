@@ -20,6 +20,8 @@
 	var/message = ""
 	/// Message displayed if the user is a mime.
 	var/message_mime = ""
+	/// Message displayed if the user is a Synthetic Humanoid
+	var/message_synthetic = ""
 	/// Message displayed if the user is a grown alien.
 	var/message_alien = ""
 	/// Message displayed if the user is an alien larva.
@@ -392,6 +394,8 @@
 
 	if(HAS_MIND_TRAIT(user, TRAIT_MIMING) && message_mime)
 		. = message_mime
+	if(issynthetic(user) && message_synthetic)
+		. = message_synthetic
 	if(isalienadult(user) && message_alien)
 		. = message_alien
 	else if(islarva(user) && message_larva)
