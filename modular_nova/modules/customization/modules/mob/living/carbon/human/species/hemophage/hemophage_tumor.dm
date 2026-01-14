@@ -99,7 +99,7 @@
 	if(owner.health >= owner.maxHealth || is_dormant || owner.blood_volume <= MINIMUM_VOLUME_FOR_REGEN || (!in_closet(owner)))
 		return FALSE
 
-	return length(owner.get_damaged_bodyparts(TRUE, TRUE, BODYTYPE_ORGANIC)) || (owner.getToxLoss() && owner.can_adjust_tox_loss())
+	return length(owner.get_damaged_bodyparts(TRUE, TRUE, BODYTYPE_ORGANIC)) || (owner.get_tox_loss() && owner.can_adjust_tox_loss())
 //IRIS EDIT END
 
 /obj/item/organ/heart/hemophage/get_status_text(advanced, add_tooltips, colored = TRUE)
