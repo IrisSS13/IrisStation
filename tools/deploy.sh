@@ -23,6 +23,7 @@ if [ -d ".git" ]; then
   mkdir -p $1/.git/logs
   cp -r .git/logs/* $1/.git/logs/
 fi
+
 # NOVA EDIT ADDITION START - Get all the .dmis and json configs from modular_nova
 mkdir -p \
 		$1/modular_nova \
