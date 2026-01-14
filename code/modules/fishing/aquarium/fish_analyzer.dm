@@ -65,7 +65,7 @@
 /obj/item/fish_analyzer/interact_with_atom(atom/target, mob/living/user, list/modifiers)
 	if(!isfish(target) && !HAS_TRAIT(target, TRAIT_IS_AQUARIUM))
 		return NONE
-	if(!user.can_read(src) || user.is_blind())
+	if(!user.can_read(src)) // IRIS EDIT: LET THE BLIND FISH. Original code: if(!user.can_read(src) || user.is_blind())
 		return ITEM_INTERACT_BLOCKING
 
 	SEND_SIGNAL(src, COMSIG_FISH_ANALYZER_ANALYZE_STATUS, target, user)
@@ -89,11 +89,11 @@
 	SIGNAL_HANDLER
 	unregister_scanned()
 
-/obj/item/fish_analyzer/ui_interact(mob/user, datum/tgui/ui)
+/obj/item/fish_analyzer/ui_interact(mob/living/user, datum/tgui/ui)
 	if(isnull(scanned_object))
 		balloon_alert(user, "no specimen data!")
 		return TRUE
-	if(!(scanned_object in view(7, get_turf(src))))
+	if(istype(user) && !(scanned_object in (view(7, get_turf(src)) | user.get_equipped_items(INCLUDE_HELD))))
 		balloon_alert(user, "specimen data lost!")
 		unregister_scanned()
 		return TRUE
@@ -103,8 +103,10 @@
 		ui = new(user, src, "FishAnalyzer")
 		ui.open()
 
-/obj/item/fish_analyzer/ui_status(mob/user, datum/ui_state/state)
-	if(!scanned_object || !(scanned_object in view(7, get_turf(src))))
+/obj/item/fish_analyzer/ui_status(mob/living/user, datum/ui_state/state)
+	if(!istype(user)) //observers shouldn't disrupt things.
+		return ..()
+	if(!scanned_object || !(scanned_object in (view(7, get_turf(src)) | user.get_equipped_items(INCLUDE_HELD))))
 		balloon_alert(user, "specimen data lost!")
 		unregister_scanned()
 		return UI_CLOSE

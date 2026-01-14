@@ -114,5 +114,5 @@
 		return
 	if(chem.type == /datum/reagent/toxin/plasma || chem.type == /datum/reagent/toxin/hot_ice)
 		chem.toxpwr = 0
-		owner.adjustOxyLoss(-0.5 * REM * seconds_per_tick, updating_health = FALSE)
+		owner.adjust_oxy_loss(-0.5 * REM * seconds_per_tick, updating_health = FALSE)
 #undef ORGAN_ICON_NABBER

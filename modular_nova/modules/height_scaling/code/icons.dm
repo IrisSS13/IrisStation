@@ -3,7 +3,7 @@
 	. = ..()
 	apply_height_filters(src, TRUE)
 
-/mob/living/carbon/human/dummy/apply_height_filters(mutable_appearance/appearance, only_apply_in_prefs = FALSE)
+/mob/living/carbon/human/dummy/apply_height_filters(mutable_appearance/appearance, only_apply_in_prefs = FALSE, parent_adjust_y = 0)
 	if(only_apply_in_prefs)
 		return ..()
 

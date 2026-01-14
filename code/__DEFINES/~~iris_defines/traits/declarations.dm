@@ -52,12 +52,12 @@
 
 //Items
 
-//Helps users examine items with custom text, part of https://github.com/DopplerShift13/DopplerShift/pull/345
-#define TRAIT_WORN_EXAMINE "worn_examine"
-
 // /obj/item
 /// Applied to a satchel that is being worn on the belt.
 #define TRAIT_BELT_SATCHEL "belt_satchel"
 
 /// Allows the user to instantly reload.
 #define TRAIT_INSTANT_RELOAD "instant_reload"
+
+//// The trait for Holosynths
+#define TRAIT_HOLOSYNTH "holosynthetic"

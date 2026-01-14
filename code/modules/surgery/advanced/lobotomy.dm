@@ -1,5 +1,5 @@
-/datum/surgery/advanced/lobotomy
-	name = "Lobotomy"
+/datum/surgery/advanced/lobotomy //IRIS EDIT - renames lobotomy to Invasive Neurological Tissue Repair
+	name = "Invasive Neurological Tissue Repair"
 	desc = "An invasive surgical procedure which guarantees removal of almost all brain traumas, but might cause another permanent trauma in return."
 	surgery_flags = SURGERY_MORBID_CURIOSITY
 	possible_locs = list(BODY_ZONE_HEAD)
@@ -34,8 +34,8 @@
 		return FALSE
 	return TRUE
 
-/datum/surgery_step/lobotomize
-	name = "perform lobotomy (scalpel)"
+/datum/surgery_step/lobotomize //IRIS EDIT - renames lobotomy to Invasive Neurological Tissue Repair
+	name = "perform invasive neurological tissue repair (scalpel)"
 	implements = list(
 		TOOL_SCALPEL = 85,
 		/obj/item/melee/energy/sword = 55,
@@ -66,22 +66,22 @@
 		return FALSE
 	return TRUE
 
-/datum/surgery_step/lobotomize/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
+/datum/surgery_step/lobotomize/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery) //IRIS EDIT - renames lobotomy to Invasive Neurological Tissue Repair
 	display_results(
 		user,
 		target,
-		span_notice("You begin to perform a lobotomy on [target]'s brain..."),
-		span_notice("[user] begins to perform a lobotomy on [target]'s brain."),
+		span_notice("You begin to perform the invasive repair on [target]'s brain..."),
+		span_notice("[user] begins to perform the invasive repair on [target]'s brain."),
 		span_notice("[user] begins to perform surgery on [target]'s brain."),
 	)
 	display_pain(target, "Your head pounds with unimaginable pain!")
 
-/datum/surgery_step/lobotomize/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
+/datum/surgery_step/lobotomize/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE) //IRIS EDIT - renames lobotomy to Invasive Neurological Tissue Repair
 	display_results(
 		user,
 		target,
-		span_notice("You succeed in lobotomizing [target]."),
-		span_notice("[user] successfully lobotomizes [target]!"),
+		span_notice("You succeed in invasively repairing [target]'s brain."),
+		span_notice("[user] invasively repairs [target]'s brain!"),
 		span_notice("[user] completes the surgery on [target]'s brain."),
 	)
 	display_pain(target, "Your head goes totally numb for a moment, the pain is overwhelming!")
@@ -102,14 +102,14 @@
 				target.gain_trauma_type(BRAIN_TRAUMA_SPECIAL, TRAUMA_RESILIENCE_MAGIC)
 	return ..()
 
-/datum/surgery_step/lobotomize/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
+/datum/surgery_step/lobotomize/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery) //IRIS EDIT - renames lobotomy to Invasive Neurological Tissue Repair
 	var/obj/item/organ/brain/target_brain = target.get_organ_slot(ORGAN_SLOT_BRAIN)
 	if(target_brain)
 		display_results(
 			user,
 			target,
 			span_warning("You remove the wrong part, causing more damage!"),
-			span_notice("[user] successfully lobotomizes [target]!"),
+			span_notice("[user] invasively repairs [target]!"),
 			span_notice("[user] completes the surgery on [target]'s brain."),
 		)
 		display_pain(target, "The pain in your head only seems to get worse!")

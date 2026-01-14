@@ -2,13 +2,14 @@ import { Fragment, useState } from 'react';
 import { useBackend } from 'tgui/backend';
 import { CharacterPreview } from 'tgui/interfaces/common/CharacterPreview';
 import { removeAllSkiplines } from 'tgui/interfaces/TextInputModal'; // NOVA EDIT ADDITION: Multiple loadout presets
-import { Flex } from 'tgui-core/components'; // NOVA EDIT ADDITION: Multiple loadout presets
 import {
   Box,
   Button,
   Dimmer, // NOVA EDIT ADDITION: Multiple loadout presets
   Divider,
-  Dropdown, // NOVA EDIT ADDITION: Multiple loadout presets
+  Dropdown,
+  // NOVA EDIT ADDITION: Multiple loadout presets
+  Flex,
   Icon,
   Input,
   NoticeBox,
@@ -17,7 +18,7 @@ import {
   Tabs,
 } from 'tgui-core/components';
 
-import { PreferencesMenuData } from '../../types'; // NOVA EDIT ADDITION: Multiple loadout presets
+import type { PreferencesMenuData } from '../../types'; // NOVA EDIT ADDITION: Multiple loadout presets
 import { useServerPrefs } from '../../useServerPrefs';
 import type {
   LoadoutCategory,

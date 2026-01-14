@@ -102,10 +102,14 @@
 	. = ..()
 	. += /datum/language/carptongue
 
-/obj/item/knife/carp
+/obj/item/knife/carp //IRIS EDIT - replaces icon with something nicer
 	name = "carp tooth"
 	desc = "Looks sharp. Sharp enough to poke someone's eye out. Holy fuck it's big."
+	icon = 'modular_iris/icons/obj/weapons.dmi'
 	icon_state = "carptooth"
+	lefthand_file = 'modular_iris/icons/mob/inhands/weapons_lefthand.dmi'
+	righthand_file = 'modular_iris/icons/mob/inhands/weapons_righthand.dmi'
+	inhand_icon_state = "carptooth"
 	icon_angle = -45
 
 ///carp brain. you need to occasionally go to a new zlevel. think of it as... walking your dog!

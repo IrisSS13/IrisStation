@@ -56,13 +56,16 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/machinery/door/airlock/hydroponics,
+/obj/machinery/door/airlock/hydroponics{
+	name = "Hydroponics"
+	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment{
 	dir = 8
 	},
+/obj/effect/mapping_helpers/airlock/access/all/freighter/general,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/hydro)
 "aX" = (
@@ -161,6 +164,7 @@
 	dir = 1
 	},
 /obj/machinery/duct,
+/obj/effect/mapping_helpers/airlock/access/all/freighter/general,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/med)
 "bM" = (
@@ -283,6 +287,20 @@
 	},
 /obj/structure/table/wood,
 /obj/machinery/firealarm/directional/north,
+/obj/item/card/id/away/freightcrew{
+	pixel_y = 4;
+	pixel_x = 2;
+	trim = /datum/id_trim/away/freighter/cargo;
+	desc = "A spare access card for the J&C Freighter";
+	name = "Spare Freighter ID"
+	},
+/obj/item/card/id/away/freightcrew{
+	pixel_y = 2;
+	pixel_x = 2;
+	trim = /datum/id_trim/away/freighter/cargo;
+	desc = "A spare access card for the J&C Freighter";
+	name = "Spare Freighter ID"
+	},
 /turf/open/floor/wood/large,
 /area/shuttle/indie_freighter/dorms)
 "cH" = (
@@ -400,7 +418,9 @@
 /obj/effect/turf_decal/tile/brown/half/contrasted{
 	dir = 8
 	},
-/obj/structure/closet/secure_closet/miner/unlocked,
+/obj/structure/closet/secure_closet/miner{
+	req_access = list("freighter_general")
+	},
 /obj/item/mining_voucher,
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/mining)
@@ -417,7 +437,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/airlock/access/all/supply/qm,
+/obj/effect/mapping_helpers/airlock/access/all/freighter/command,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/bridge)
 "dO" = (
@@ -515,6 +535,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/access/all/freighter/general,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/mining)
 "eE" = (
@@ -705,7 +726,7 @@
 /obj/machinery/door/airlock/engineering{
 	name = "Electrical Room"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/supply/general,
+/obj/effect/mapping_helpers/airlock/access/all/freighter/general,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/electrical)
 "gh" = (
@@ -753,6 +774,7 @@
 /obj/machinery/door/airlock/mining{
 	name = "Mining Bay"
 	},
+/obj/effect/mapping_helpers/airlock/access/all/freighter/general,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/mining)
 "go" = (
@@ -780,7 +802,7 @@
 /obj/machinery/door/airlock/command/glass{
 	name = "Bridge Access"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/supply/qm,
+/obj/effect/mapping_helpers/airlock/access/all/freighter/command,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/bridge)
 "gL" = (
@@ -929,13 +951,11 @@
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/machinery/button/door/directional/east{
 	id = "freighter_bridge_windows";
-	pixel_x = 24;
 	pixel_y = 7;
 	name = "Bridge Windows"
 	},
 /obj/machinery/button/door/directional/east{
 	id = "freighter_main_windows";
-	pixel_x = 24;
 	pixel_y = -5;
 	name = "Main Windows"
 	},
@@ -1033,7 +1053,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/window/survival_pod/left/directional/east,
+/obj/machinery/door/window/survival_pod/left/directional/east{
+	req_access = list("freighter_general")
+	},
 /turf/open/floor/iron/showroomfloor,
 /area/shuttle/indie_freighter/canteen)
 "it" = (
@@ -1082,8 +1104,7 @@
 	pixel_y = 7
 	},
 /obj/item/paper/crumpled{
-	pixel_x = -7;
-	pixel_y = 0
+	pixel_x = -7
 	},
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/cargo)
@@ -1126,9 +1147,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/airlock/qm{
 	id_tag = "freighter_qm_dorm_bolts";
-	name = "Captain's Quarters"
+	name = "Foreman's Quarters"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/supply/qm,
+/obj/effect/mapping_helpers/airlock/access/all/freighter/command,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/dorms)
 "jr" = (
@@ -1253,7 +1274,6 @@
 "kk" = (
 /obj/structure/table/reinforced/rglass,
 /obj/item/storage/belt/utility/full/engi{
-	pixel_x = 0;
 	pixel_y = -13
 	},
 /obj/machinery/computer/cryopod/directional/east,
@@ -1453,7 +1473,9 @@
 /turf/open/floor/iron/cafeteria,
 /area/shuttle/indie_freighter/med)
 "lT" = (
-/obj/machinery/door/window/survival_pod/left/directional/east,
+/obj/machinery/door/window/survival_pod/left/directional/east{
+	req_access = list("freighter_general")
+	},
 /obj/effect/turf_decal/tile/yellow/anticorner/contrasted{
 	dir = 4
 	},
@@ -1654,7 +1676,7 @@
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/supply/general,
+/obj/effect/mapping_helpers/airlock/access/all/freighter/general,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/electrical)
 "nn" = (
@@ -1728,6 +1750,7 @@
 /obj/machinery/door/airlock/glass{
 	name = "Cryogenics Bay"
 	},
+/obj/effect/mapping_helpers/airlock/access/all/freighter/general,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/cryogenics)
 "nT" = (
@@ -1802,7 +1825,6 @@
 /area/shuttle/indie_freighter/mining)
 "os" = (
 /obj/structure/marker_beacon/burgundy{
-	pixel_x = 0;
 	pixel_y = 14
 	},
 /obj/structure/lattice/catwalk,
@@ -1939,7 +1961,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/button/door/directional/north{
 	name = "Desk Shutters";
-	id = "freighter_armoury_desk"
+	id = "freighter_armoury_desk";
+	req_access = list("freighter_command")
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/indie_freighter/armoury)
@@ -2086,6 +2109,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 2
 	},
+/obj/effect/mapping_helpers/airlock/access/all/freighter/general,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/mining)
 "qK" = (
@@ -2128,6 +2152,10 @@
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/tile/yellow/anticorner/contrasted,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/item/binoculars{
+	pixel_x = -2;
+	pixel_y = -4
+	},
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/cargo)
 "rc" = (
@@ -2149,7 +2177,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/access/all/supply/qm,
+/obj/effect/mapping_helpers/airlock/access/all/freighter/command,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/armoury)
 "ro" = (
@@ -2201,6 +2229,7 @@
 /obj/machinery/door/airlock/glass{
 	name = "Crew Dormitories"
 	},
+/obj/effect/mapping_helpers/airlock/access/all/freighter/general,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/dorms)
 "rQ" = (
@@ -2300,7 +2329,6 @@
 /area/shuttle/indie_freighter/maintenance/fore)
 "sH" = (
 /obj/structure/toilet{
-	pixel_x = 0;
 	pixel_y = 16
 	},
 /turf/open/floor/iron/showroomfloor,
@@ -2345,9 +2373,7 @@
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/bridge)
 "sR" = (
-/obj/machinery/atmospherics/components/tank/carbon_dioxide{
-	piping_layer = 4
-	},
+/obj/machinery/atmospherics/pipe/layer_manifold/brown/visible,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/engine)
 "sZ" = (
@@ -2430,7 +2456,8 @@
 	},
 /obj/machinery/button/door/directional/west{
 	id = "freighter_rad_lockdown";
-	name = "Radiation Shutters Control"
+	name = "Radiation Shutters Control";
+	req_access = list("freighter_general")
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -2498,7 +2525,8 @@
 	network = list("indie_freighter")
 	},
 /obj/machinery/computer/rdconsole{
-	dir = 4
+	dir = 4;
+	req_access = list("freighter_general")
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/indie_freighter/cargo)
@@ -2522,7 +2550,7 @@
 	dir = 1
 	},
 /obj/structure/closet/secure_closet/medical1{
-	req_access = null
+	req_access = list("freighter_general")
 	},
 /turf/open/floor/iron/cafeteria,
 /area/shuttle/indie_freighter/med)
@@ -2900,10 +2928,12 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/machinery/door/airlock/highsecurity,
+/obj/machinery/door/airlock/highsecurity{
+	name = "Ore Silo"
+	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/airlock/access/all/supply/vault,
+/obj/effect/mapping_helpers/airlock/access/all/freighter/command,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/mining)
 "xK" = (
@@ -3025,7 +3055,6 @@
 	pixel_y = 10
 	},
 /obj/item/binoculars{
-	pixel_x = 0;
 	pixel_y = 5
 	},
 /turf/open/floor/iron/dark/textured_corner{
@@ -3133,7 +3162,7 @@
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/supply/general,
+/obj/effect/mapping_helpers/airlock/access/all/freighter/general,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/electrical)
 "zF" = (
@@ -3157,7 +3186,9 @@
 /obj/effect/turf_decal/tile/brown/anticorner/contrasted{
 	dir = 1
 	},
-/obj/structure/closet/secure_closet/miner/unlocked,
+/obj/structure/closet/secure_closet/miner{
+	req_access = list("freighter_general")
+	},
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/mining)
 "zP" = (
@@ -3206,6 +3237,11 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/cargo)
+"zZ" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/hidden,
+/obj/machinery/atmospherics/components/tank/carbon_dioxide,
+/turf/open/floor/plating,
+/area/shuttle/indie_freighter/engine)
 "Aa" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/effect/turf_decal/siding/wood{
@@ -3292,14 +3328,8 @@
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/tile/yellow/half/contrasted,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/item/binoculars{
-	pixel_x = -2;
-	pixel_y = 4
-	},
 /obj/structure/cable,
-/obj/item/radio/intercom{
-	layer = 3
-	},
+/obj/item/radio/intercom,
 /turf/open/floor/iron/dark,
 /area/shuttle/indie_freighter/cargo)
 "AM" = (
@@ -3362,6 +3392,7 @@
 /obj/machinery/door/airlock/highsecurity{
 	name = "Armoury"
 	},
+/obj/effect/mapping_helpers/airlock/access/all/freighter/general,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/armoury)
 "AS" = (
@@ -3417,7 +3448,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/airlock/access/all/supply/qm,
+/obj/effect/mapping_helpers/airlock/access/all/freighter/command,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/bridge)
 "BG" = (
@@ -3511,7 +3542,9 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
-/obj/structure/closet/secure_closet/personal/cabinet,
+/obj/structure/closet/secure_closet/personal/cabinet{
+	req_access = list("freighter_command")
+	},
 /obj/item/ammo_box/magazine/zashch,
 /obj/item/ammo_box/magazine/zashch,
 /obj/item/gun/ballistic/automatic/pistol/zashch,
@@ -3552,6 +3585,7 @@
 	name = "EVA Prep Room"
 	},
 /obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/access/all/freighter/general,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/mining)
 "Cn" = (
@@ -3614,14 +3648,12 @@
 	},
 /obj/machinery/button/door/directional/north{
 	pixel_x = -9;
-	pixel_y = 24;
 	name = "Burn Chamber to Space";
 	id = "freighter_burn_vent"
 	},
 /obj/machinery/button/ignition{
 	id = "freighter_stirling_ignition";
-	pixel_y = 34;
-	pixel_x = 0
+	pixel_y = 34
 	},
 /obj/machinery/button/door/directional/north{
 	id = "freighter_burn_maint";
@@ -3632,8 +3664,7 @@
 /obj/machinery/button/door/directional/north{
 	name = "Generator Core Blast Doors";
 	id = "freighter_sterling_room";
-	pixel_x = 9;
-	pixel_y = 24
+	pixel_x = 9
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
@@ -3672,7 +3703,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/access/all/supply/general,
+/obj/effect/mapping_helpers/airlock/access/all/freighter/general,
 /obj/machinery/door/poddoor/shutters{
 	id = "freighter_hall_lockdown"
 	},
@@ -3879,7 +3910,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/button/door/directional/north{
 	id = "freighter_rad_lockdown";
-	name = "Radiation Shutter Override"
+	name = "Radiation Shutter Override";
+	req_access = list("freighter_general")
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -3928,6 +3960,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/hidden,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/effect/mapping_helpers/airlock/locked,
+/obj/effect/mapping_helpers/airlock/access/all/freighter/general,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/engine)
 "Fk" = (
@@ -3999,6 +4032,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 2
 	},
+/obj/effect/mapping_helpers/airlock/access/all/freighter/general,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/mining)
 "FM" = (
@@ -4171,20 +4205,14 @@
 /area/shuttle/indie_freighter/bridge)
 "He" = (
 /obj/structure/table/reinforced/rglass,
+/obj/item/crowbar/red,
 /obj/item/crowbar/red{
-	pixel_x = 0;
-	pixel_y = 0
-	},
-/obj/item/crowbar/red{
-	pixel_x = 0;
 	pixel_y = 2
 	},
 /obj/item/crowbar/red{
-	pixel_x = 0;
 	pixel_y = 5
 	},
 /obj/item/crowbar/red{
-	pixel_x = 0;
 	pixel_y = 7
 	},
 /obj/item/crowbar/red{
@@ -4226,7 +4254,7 @@
 /area/shuttle/indie_freighter/hallway)
 "Ho" = (
 /obj/machinery/computer/apc_control{
-	req_access = list("cargo");
+	req_access = list("freighter_general");
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/yellow/opposingcorners,
@@ -4244,7 +4272,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/airlock/access/all/supply/general,
+/obj/effect/mapping_helpers/airlock/access/all/freighter/general,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/cargo)
@@ -4337,7 +4365,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/button/door/directional/south{
 	id = "freighter_armoury_entry_shutter";
-	name = "Armoury Entrance Shutters"
+	name = "Armoury Entrance Shutters";
+	req_access = list("freighter_command")
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/indie_freighter/armoury)
@@ -4618,6 +4647,7 @@
 	id_tag = "freighter_cabin_two_bolts";
 	name = "Bunk 2"
 	},
+/obj/effect/mapping_helpers/airlock/access/all/freighter/general,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/dorms)
 "JT" = (
@@ -4757,14 +4787,16 @@
 /turf/template_noop,
 /area/shuttle/indie_freighter/engine)
 "Lf" = (
-/obj/machinery/door/airlock/qm,
+/obj/machinery/door/airlock/qm/glass{
+	name = "Foreman's Quarters"
+	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/airlock/access/all/supply/qm,
+/obj/effect/mapping_helpers/airlock/access/all/freighter/command,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/dorms)
 "Lg" = (
@@ -4847,6 +4879,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 2
 	},
+/obj/effect/mapping_helpers/airlock/access/all/freighter/general,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/hallway)
 "LD" = (
@@ -4893,9 +4926,7 @@
 /area/shuttle/indie_freighter/cargo)
 "LW" = (
 /obj/item/gun/ballistic/automatic/lanca/no_mag,
-/obj/structure/guncase{
-	req_access = list("syndicate")
-	},
+/obj/structure/guncase,
 /obj/item/gun/ballistic/shotgun/riot/sol,
 /obj/item/gun/ballistic/automatic/pulse_rifle,
 /obj/item/gun/ballistic/rifle/pulse_sniper,
@@ -5131,6 +5162,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/airlock/maintenance_hatch,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/airlock/access/all/freighter/general,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/hallway)
 "Nx" = (
@@ -5162,8 +5194,7 @@
 	},
 /obj/structure/grandfatherclock{
 	anchored = 1;
-	pixel_x = -8;
-	pixel_y = 0
+	pixel_x = -8
 	},
 /turf/open/floor/wood/parquet,
 /area/shuttle/indie_freighter/dorms)
@@ -5177,14 +5208,14 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/effect/mapping_helpers/airlock/access/all/supply/general,
+/obj/effect/mapping_helpers/airlock/access/all/freighter/general,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/mining)
 "NT" = (
 /obj/machinery/door/airlock/external/ruin,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/machinery/nova/fan/self_powered,
-/obj/effect/mapping_helpers/airlock/access/all/supply/general,
+/obj/effect/mapping_helpers/airlock/access/all/freighter/general,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/hallway)
 "Oc" = (
@@ -5256,8 +5287,10 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/obj/machinery/door/airlock/vault,
-/obj/effect/mapping_helpers/airlock/access/all/supply/vault,
+/obj/machinery/door/airlock/vault{
+	name = "Vault"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/freighter/command,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating/reinforced,
@@ -5299,7 +5332,6 @@
 	},
 /obj/machinery/firealarm/directional/east,
 /obj/machinery/vending/medical/syndicate/cybersun{
-	req_access = null;
 	name = "InterMed Plus"
 	},
 /turf/open/floor/iron/cafeteria,
@@ -5336,7 +5368,7 @@
 /obj/machinery/door/poddoor/shutters/radiation/preopen{
 	id = "freighter_rad_lockdown"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/supply/general,
+/obj/effect/mapping_helpers/airlock/access/all/freighter/general,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/maintenance/aft)
 "Pv" = (
@@ -5412,7 +5444,8 @@
 /area/shuttle/indie_freighter/maintenance/fore)
 "PS" = (
 /obj/machinery/door/window/survival_pod/left/directional/north{
-	name = "Telecommunications"
+	name = "Telecommunications";
+	req_access = list("freighter_general")
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/indie_freighter/electrical)
@@ -5445,6 +5478,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/airlock/maintenance_hatch,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/airlock/access/all/freighter/general,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/maintenance/fore)
 "QA" = (
@@ -5592,7 +5626,9 @@
 /obj/effect/mapping_helpers/apc/unlocked,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/window/left,
+/obj/machinery/door/window/left{
+	req_access = list("freighter_general")
+	},
 /obj/machinery/duct,
 /turf/open/floor/iron/kitchen/small,
 /area/shuttle/indie_freighter/canteen)
@@ -5663,6 +5699,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/door/airlock/maintenance_hatch,
+/obj/effect/mapping_helpers/airlock/access/all/freighter/general,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/maintenance/fore)
 "Sf" = (
@@ -5736,6 +5773,7 @@
 /obj/machinery/door/airlock/mining{
 	name = "Cargo Hold"
 	},
+/obj/effect/mapping_helpers/airlock/access/all/freighter/general,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/cargo)
 "SF" = (
@@ -5843,7 +5881,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/access/all/supply/general,
+/obj/effect/mapping_helpers/airlock/access/all/freighter/general,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/mining)
 "TM" = (
@@ -5930,7 +5968,9 @@
 	},
 /obj/machinery/light/directional/west,
 /obj/item/mining_voucher,
-/obj/structure/closet/secure_closet/miner/unlocked,
+/obj/structure/closet/secure_closet/miner{
+	req_access = list("freighter_general")
+	},
 /turf/open/floor/iron,
 /area/shuttle/indie_freighter/mining)
 "UI" = (
@@ -5959,7 +5999,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/airlock/access/all/supply/general,
+/obj/effect/mapping_helpers/airlock/access/all/freighter/general,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/mining)
 "Vb" = (
@@ -5993,6 +6033,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 2
 	},
+/obj/effect/mapping_helpers/airlock/access/all/freighter/general,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/cargo)
 "Vi" = (
@@ -6037,7 +6078,8 @@
 "Vz" = (
 /obj/effect/turf_decal/tile/yellow/anticorner/contrasted,
 /obj/machinery/button/door/directional/south{
-	id = "freighter_cargo_door"
+	id = "freighter_cargo_door";
+	req_access = list("freighter_general")
 	},
 /obj/machinery/suit_storage_unit/industrial/loader,
 /turf/open/floor/iron/dark,
@@ -6050,7 +6092,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/airlock/bathroom{
-	id_tag = "freighter_shitter"
+	id_tag = "freighter_shitter";
+	name = "Bathroom"
 	},
 /obj/machinery/duct,
 /turf/open/floor/plating,
@@ -6119,6 +6162,7 @@
 	dir = 8
 	},
 /obj/machinery/duct,
+/obj/effect/mapping_helpers/airlock/access/all/freighter/general,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/maintenance/aft)
 "Wt" = (
@@ -6234,6 +6278,7 @@
 	id = "freighter_hall_lockdown"
 	},
 /obj/machinery/duct,
+/obj/effect/mapping_helpers/airlock/access/all/freighter/general,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/hallway)
 "Xc" = (
@@ -6285,7 +6330,7 @@
 "XN" = (
 /obj/machinery/door/airlock/qm{
 	id_tag = "freighter_qm_dorm_bolts";
-	name = "Captain's Quarters"
+	name = "Foreman's Quarters"
 	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -6296,7 +6341,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/airlock/access/all/supply/qm,
+/obj/effect/mapping_helpers/airlock/access/all/freighter/command,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/dorms)
 "XP" = (
@@ -6330,6 +6375,7 @@
 	id_tag = "freighter_cabin_one_bolts";
 	name = "Bunk 1"
 	},
+/obj/effect/mapping_helpers/airlock/access/all/freighter/general,
 /turf/open/floor/plating,
 /area/shuttle/indie_freighter/dorms)
 "XZ" = (
@@ -6716,7 +6762,7 @@ fO
 Co
 Py
 Et
-Xo
+zZ
 sR
 iY
 xr

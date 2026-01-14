@@ -428,7 +428,7 @@
 	return FALSE
 
 /obj/structure/table/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, list/rcd_data)
-	if(rcd_data["[RCD_DESIGN_MODE]"] == RCD_DECONSTRUCT)
+	if(rcd_data[RCD_DESIGN_MODE] == RCD_DECONSTRUCT)
 		qdel(src)
 		return TRUE
 	return FALSE
@@ -553,6 +553,7 @@
 		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
+	AddElement(/datum/element/give_turf_traits, string_list(list(TRAIT_AI_AVOID_TURF)))
 
 /obj/structure/table/glass/proc/on_entered(datum/source, atom/movable/AM)
 	SIGNAL_HANDLER
@@ -1433,4 +1434,3 @@
 		R.add_fingerprint(user)
 		qdel(src)
 	building = FALSE
-
