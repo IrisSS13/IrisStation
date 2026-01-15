@@ -36,62 +36,21 @@ export const feature_mcolor3: Feature<string> = {
 export const flavor_text: Feature<string> = {
   name: 'Flavor Text',
   description:
-    "Appears when your character is examined (but only if they're identifiable - try a gas mask). Do not put sexual things in here—move those to Flavor Text (NSFW).",
-  component: FeatureTextInput,
-};
-
-export const flavor_text_nsfw: Feature<string> = {
-  name: 'Flavor Text (NSFW)',
-  description: 'Same as Flavor Text but requires you to click a tab to view.',
+    "Appears when your character is examined (but only if they're identifiable - try a gas mask).",
   component: FeatureTextInput,
 };
 
 export const silicon_flavor_text: Feature<string> = {
   name: 'Flavor Text (Silicon)',
-  description:
-    "Only appears if you're playing as a borg/AI. Do not put sexual things in here—move those to Flavor Text (Silicon, NSFW).",
-  component: FeatureTextInput,
-};
-
-export const silicon_flavor_text_nsfw: Feature<string> = {
-  name: 'Flavor Text (Silicon, NSFW)',
-  description:
-    'Same as Silicon Flavor Text but requires you to click a tab to view.',
+  description: "Only appears if you're playing as a borg/AI.",
   component: FeatureTextInput,
 };
 
 export const ooc_notes: Feature<string> = {
   name: 'OOC Notes',
   description:
-    'Anything you want other players to know about you goes here, such as antag information, OOC triggers, etc. Do not put sexual things in here—move those to OOC Notes (NSFW).',
+    'Anything you want other players to know about you goes here, such as antag information, OOC triggers, etc.',
   component: FeatureTextInput,
-};
-
-export const ooc_notes_nsfw: Feature<string> = {
-  name: 'OOC Notes (NSFW)',
-  description: 'Same as OOC Notes but requires you to click a tab to view.',
-  component: FeatureTextInput,
-};
-
-export const character_ad: Feature<string> = {
-  name: 'Character Advert',
-  description:
-    'An advertisement for your character. Give information on how to approach for those interested, for either regular and erotic roleplay.',
-  component: FeatureTextInput,
-};
-
-export const attraction: FeatureChoiced = {
-  name: 'Character Attraction',
-  description:
-    'What your character is attracted to. This is displayed in the Directory.',
-  component: FeatureDropdownInput,
-};
-
-export const display_gender: FeatureChoiced = {
-  name: 'Character Gender',
-  description:
-    'What classifies as the gender for your character. This is displayed in the Directory.',
-  component: FeatureDropdownInput,
 };
 
 export const custom_species: Feature<string> = {

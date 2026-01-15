@@ -124,6 +124,7 @@
 
 /// Is the job of the inserted ID being worked by a job that in an important department? If so, this proc will return TRUE.
 /datum/computer_file/program/crew_self_serve/proc/is_job_important(obj/item/card/id/id_card)
+	/* // IRIS EDIT REMOVAL START 
 	if(!istype(id_card))
 		return FALSE
 
@@ -131,7 +132,7 @@
 	var/datum/job/clocked_in_job = current_trim.job
 	if((/datum/job_department/command in clocked_in_job.departments_list) || (/datum/job_department/security in clocked_in_job.departments_list))
 		return TRUE
-
+	*/ // IRIS EDIT REMOVAL END
 	return FALSE
 
 /// Is the inserted ID on cooldown? return -1 if invalid ID, 0 if ID is not on cooldown, and remaining time until cooldown ends otherwise.
