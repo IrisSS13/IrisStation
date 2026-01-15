@@ -20,8 +20,6 @@
 	var/message = ""
 	/// Message displayed if the user is a mime.
 	var/message_mime = ""
-	/// Message displayed if the user is a Synthetic Humanoid // IRIS EDIT CHANGE - Originally robot+message was just a blanket term for synthetics, cyborgs and pAIs.
-	var/message_synthetic = ""
 	/// Message displayed if the user is a grown alien.
 	var/message_alien = ""
 	/// Message displayed if the user is an alien larva.
@@ -394,8 +392,6 @@
 
 	if(HAS_MIND_TRAIT(user, TRAIT_MIMING) && message_mime)
 		. = message_mime
-	if(issynthetic(user) && message_synthetic) // IRIS EDIT CHANGE - Originally this didn't exist.
-		. = message_synthetic
 	if(isalienadult(user) && message_alien)
 		. = message_alien
 	else if(islarva(user) && message_larva)
@@ -408,6 +404,8 @@
 		. = message_robot
 	else if(isanimal_or_basicmob(user) && message_animal_or_basic)
 		. = message_animal_or_basic
+	else if(issynthetic(user) && message_synthetic) // IRIS EDIT CHANGE - Originally this didn't exist.
+		. = message_synthetic
 
 	return .
 

@@ -1,3 +1,7 @@
+/datum/emote
+/// Message displayed if the user is a Synthetic Humanoid.  Originally robot+message was just a blanket term for synthetics, cyborgs and pAIs.
+	var/message_synthetic = ""
+
 /datum/emote/living/sigh_exasperated
 	message_AI = "simulates an exasperated sigh."
 	message_robot = "simulates an exasperated sigh."
