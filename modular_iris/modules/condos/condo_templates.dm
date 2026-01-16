@@ -4,7 +4,7 @@
 	landing_zone_x_offset = 8
 	landing_zone_y_offset = 2
 
-/datum/map_template/condo/fast_food
+/datum/map_template/condo/cinema
 	name = "Condo - Movie Theater"
 	mappath = "modular_iris/modules/condos/_maps/cinema.dmm"
 	landing_zone_x_offset = 10

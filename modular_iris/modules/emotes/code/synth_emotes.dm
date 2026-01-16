@@ -28,3 +28,35 @@
 	vary = FALSE
 	sound = 'modular_iris/modules/emotes/sound/synth_voice/synth_shutdown.ogg'
 	cooldown = 2 SECONDS
+
+/datum/emote/silicon/sclick
+	key = "sclick"
+	message = "clicks loudly."
+	emote_type = EMOTE_AUDIBLE
+	vary = FALSE
+	sound = 'modular_iris/modules/emotes/sound/synth_voice/synth_click.ogg'
+	cooldown = 2 SECONDS
+
+/datum/emote/silicon/notification
+	key = "notif"
+	message = "pings excitedly!"
+	emote_type = EMOTE_AUDIBLE
+	vary = FALSE
+	sound = 'modular_iris/modules/emotes/sound/synth_voice/synth_notif.ogg'
+	cooldown = 2 SECONDS
+
+/datum/emote/silicon/dialupmodem
+	key = "dialup"
+	message = "emits a nostalgic buzz."
+	emote_type = EMOTE_AUDIBLE
+	vary = FALSE
+	sound = 'modular_iris/modules/emotes/sound/synth_voice/synth_dialup.ogg'
+	cooldown = 2 SECONDS
+
+/datum/emote/silicon/winsound
+	key = "victory"
+	message = "plays a victorious tune!"
+	emote_type = EMOTE_AUDIBLE
+	vary = FALSE
+	sound = 'modular_iris/modules/emotes/sound/synth_voice/synth_victory.ogg'
+	cooldown = 2 SECONDS

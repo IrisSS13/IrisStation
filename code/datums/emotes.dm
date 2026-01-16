@@ -404,6 +404,8 @@
 		. = message_robot
 	else if(isanimal_or_basicmob(user) && message_animal_or_basic)
 		. = message_animal_or_basic
+	else if(issynthetic(user) && message_synthetic) // IRIS EDIT CHANGE - Originally this didn't exist.
+		. = message_synthetic
 
 	return .
 

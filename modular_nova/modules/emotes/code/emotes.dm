@@ -66,7 +66,7 @@
 
 /datum/emote/living/yawn
 	message_robot = "synthesizes a yawn."
-	message_AI = "synthesizes a yawns."
+	message_AI = "synthesizes a yawn." // IRIS EDIT CHANGE - Original: There was a typo here. Instead of "synthesizes a yawn" it was "synthesizes a yawns".
 
 /datum/emote/living/sniff/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
