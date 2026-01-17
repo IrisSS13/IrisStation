@@ -69,14 +69,14 @@
 	linked_phone_id = phone_to_link.phone_id
 	phone_to_link.link_pda(src)
 	// Register for call state changes to detect when call is answered
-	RegisterSignal(phone_to_link, COMSIG_GLOB_PHONE_STATE_CHANGED, PROC_REF(on_phone_state_changed))
+	RegisterSignal(phone_to_link, COMSIG_GLOB_PHONE_STATE_CHANGED, PROC_REF(on_linked_phone_state_changed))
 
 	return TRUE
 
 /// Unlinks from the current phone
 /datum/computer_file/program/phone_monitor/proc/unlink_phone()
 	if(linked_phone)
-		UnregisterSignal(linked_phone, COMSIG_GLOB_PHONE_STATE_CHANGED)
+		UnregisterSignal(linked_phone, COMSIG_GLOB_PHONE_STATE_CHANGED, PROC_REF(on_linked_phone_state_changed))
 		linked_phone.unlink_pda(src)
 
 	linked_phone = null
@@ -86,7 +86,7 @@
 	computer?.update_appearance(UPDATE_ICON)
 
 /// Handles when the linked phone's call state changes
-/datum/computer_file/program/phone_monitor/proc/on_phone_state_changed(datum/source, new_state)
+/datum/computer_file/program/phone_monitor/proc/on_linked_phone_state_changed(datum/source, new_state)
 	SIGNAL_HANDLER
 
 	// Clear alert when call is answered or ends

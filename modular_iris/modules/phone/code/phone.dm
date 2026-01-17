@@ -193,6 +193,9 @@ GLOBAL_LIST_EMPTY_TYPED(phones, /datum/component/phone)
 			stop_ringing()
 			cleanup_phone_timers()
 
+	// Notify all registered listeners of the state change
+	SEND_SIGNAL(src, COMSIG_GLOB_PHONE_STATE_CHANGED, new_state)
+
 /// Starts the call timeout timer
 /datum/component/phone/proc/start_call_timeout()
 	cleanup_phone_timers()
