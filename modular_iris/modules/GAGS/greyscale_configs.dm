@@ -152,6 +152,19 @@
 	json_config = 'modular_iris/modules/GAGS/json_configs/neck/spike_worn.json'
 
 /*
+*	ACCESSORIES
+*/
+/datum/greyscale_config/hanbok_goreum
+	name = "Hanbok Goreum"
+	icon_file = 'modular_iris/modules/GAGS/icons/accessories/hanbok_goreum.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/accessories/hanbok_goreum.json'
+
+/datum/greyscale_config/hanbok_goreum/worn
+	name = "Hanbok Goreum (Worn)"
+	icon_file = 'modular_iris/modules/GAGS/icons/accessories/hanbok_goreum_worn.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/accessories/hanbok_goreum_worn.json'
+
+/*
 *	SUITS
 */
 
@@ -195,6 +208,16 @@
 /datum/greyscale_config/princess_dress/worn
 	name = "Princess Dress (Worn)"
 	icon_file = 'modular_iris/icons/mob/clothing/under/dress.dmi'
+
+/datum/greyscale_config/hanbok_chima
+	name = "Hanbok Chima"
+	icon_file = 'modular_iris/icons/obj/clothing/under/dress.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/under/dresses/hanbok_chima.json'
+
+/datum/greyscale_config/hanbok_chima/worn
+	name = "Hanbok Chima (Worn)"
+	icon_file = 'modular_iris/icons/mob/clothing/under/dress.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/under/dresses/hanbok_chima_worn.json'
 
 /*
 *	SHOES
