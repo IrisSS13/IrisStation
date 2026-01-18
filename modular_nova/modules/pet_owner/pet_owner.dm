@@ -104,11 +104,12 @@ GLOBAL_LIST_INIT(possible_player_pet, list(
 	"Stoat" = /mob/living/basic/stoat,
 	"Tegu" = /mob/living/basic/lizard/tegu,
 	"Turtle" = /mob/living/basic/turtle,
-	//IRIS EDIT CHANGE BEGIN - RARE_FROG_PET
+	//IRIS EDIT CHANGE BEGIN - PETS
 	"Frog (green)" = /mob/living/basic/frog,
 	"Frog (purple)" = /mob/living/basic/frog/rare,
 	"Void Puppy" = /mob/living/basic/pet/dog/corgi/puppy/void,
 	"Snail" = /mob/living/basic/snail,
+	"Domesticated Carp" = /mob/living/basic/carp/passive,
 	//IRIS EDIT CHANGE END
 )) //some of these are too big to be put back into the pet carrier once taken out, so I put a warning on the carrier.
 
