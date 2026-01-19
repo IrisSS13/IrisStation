@@ -24,9 +24,9 @@
 	name = "Hanbok Chima"
 	item_path = /obj/item/clothing/under/dress/iris/chima
 
-/datum/loadout_item/under/miscellaneous/jeogori
-	name = "Hanbok Chima"
-	item_path = /obj/item/clothing/suits/iris/jeogori
+/datum/loadout_item/suit/miscellaneous/jeogori
+	name = "Hanbok Jeogori"
+	item_path = /obj/item/clothing/suit/iris/jeogori
 
 // ACCESSORIES
 /datum/loadout_item/accessory/accessories/hanbok_goreum
