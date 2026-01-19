@@ -3,7 +3,7 @@
 	worn_icon = 'modular_iris/icons/mob/clothing/accessories.dmi'
 
 /obj/item/clothing/accessory/iris/goreum
-	name = "Hanbok Goreum"
+	name = "hanbok goreum"
 	desc = "An elegant ribbon tied to the hem of upper garments. It pairs well with the hanbok."
 	icon = 'icons/map_icons/clothing/accessory.dmi'
 	icon_state = "/obj/item/clothing/accessory/iris/goreum"
