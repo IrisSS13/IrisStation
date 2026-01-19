@@ -1,6 +1,6 @@
 /obj/item/clothing/suits/jacket/iris
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
-	worn_icon = 'modular_iris/icons/mob/clothing/suit/jacket.dmi'
+	worn_icon = 'modular_iris/icons/mob/clothing/suits/jacket.dmi'
 	abstract_type = /obj/item/clothing/suit/jacket
 	allowed = list(
 		/obj/item/flashlight,
@@ -24,8 +24,8 @@
 /obj/item/clothing/suits/iris/jeogori
 	name = "Hanbok Jeogori"
 	desc = "A blazer jacket."
-	icon = 'icons/map_icons/clothing/suits/_suit.dmi'
-	icon_state = "/obj/item/clothing/suits/iris/jeogori"
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suits/jacket/iris/jeogori"
 	post_init_icon_state = "hanbok_jeogori"
 	greyscale_config = /datum/greyscale_config/hanbok_jeogori
 	greyscale_config_worn = /datum/greyscale_config/hanbok_jeogori/worn
