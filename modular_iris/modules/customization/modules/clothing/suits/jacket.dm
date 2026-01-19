@@ -21,7 +21,7 @@
 	allowed += GLOB.personal_carry_allowed
 
 
-/obj/item/clothing/suits/iris/jeogori
+/obj/item/clothing/suit/iris/jeogori
 	name = "Hanbok Jeogori"
 	desc = "A blazer jacket."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
