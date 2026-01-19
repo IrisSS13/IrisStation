@@ -197,6 +197,17 @@
 	name = "Worn Bartender's Tailcoat - Digitigrade"
 	icon_file = 'modular_iris/monke_ports/icons/mob/clothing/suits/jacket_digi.dmi'
 
+//Jeogori, sprite from SweetToothArt
+/datum/greyscale_config/jeogori
+	name = "Hanbok Jeogori"
+	icon_file = 'modular_iris/icons/obj/clothing/suits/jacket.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/suits/hanbok_jeogori.json'
+
+/datum/greyscale_config/jeogori/worn
+	name = "Hanbok Jeogori (Worn)"
+	icon_file = 'modular_iris/icons/mob/clothing/suits/jacket.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/suits/hanbok_jeogori_worn.json'
+
 /*
 *	UNDER
 */
