@@ -752,10 +752,22 @@
 		description = "I just got coated in blood. Fascinating!"
 		return
 
-// IRIS EDIT - SALT VULNERABILITY
+// IRIS EDIT START
 
 /datum/mood_event/salt_encounter //resisted the urge to call this 'assalted'
 	description = "I'M MELTING!!!"
 	mood_change = -10
 	timeout = 6 SECONDS
 	event_flags = MOOD_EVENT_FEAR
+
+/datum/mood_event/daylight_bad_sleep
+	description = "<span class='boldwarning'>I slept poorly in a makeshift coffin during the day.</span>\n"
+	mood_change = -3
+	timeout = 6 MINUTES
+
+/datum/mood_event/daylight_sun_scorched
+	description = "<span class='boldwarning'>I have been scorched by the unforgiving rays of the sun.</span>\n"
+	mood_change = -6
+	timeout = 6 MINUTES
+
+// IRIS EDIT END
