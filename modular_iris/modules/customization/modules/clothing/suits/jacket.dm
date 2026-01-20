@@ -31,5 +31,6 @@
 	greyscale_config_worn = /datum/greyscale_config/hanbok_jeogori/worn
 	greyscale_colors = "#4f4287#8d84b5#9989df"
 	flags_1 = IS_PLAYER_COLORABLE_1
+	flags_inv = HIDEBELT
 	blood_overlay_type = "coat"
 	clothing_flags = parent_type::clothing_flags | CARP_STYLE_FACTOR
