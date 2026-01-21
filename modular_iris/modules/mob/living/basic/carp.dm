@@ -6,7 +6,6 @@
 	ai_controller = /datum/ai_controller/basic_controller/carp/goodboy
 	initial_language_holder = /datum/language_holder/carp/hear_common
 	combat_mode = FALSE
-	override = TRUE
 
 /mob/living/basic/carp/pet/Initialize(mapload)
 	. = ..()
