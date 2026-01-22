@@ -1284,7 +1284,7 @@
 	},
 /obj/effect/turf_decal/tile/brown,
 /turf/open/floor/iron,
-/area/mine/lobby)
+/area/mine/eva)
 "anX" = (
 /obj/item/mod/module/thermal_regulator{
 	pixel_y = 9
@@ -2021,6 +2021,9 @@
 /area/station/medical/psychology)
 "azy" = (
 /obj/machinery/firealarm/directional/south,
+/obj/structure/sink/directional/north,
+/obj/structure/reagent_dispensers/watertank,
+/obj/item/reagent_containers/cup/bucket,
 /turf/open/floor/iron,
 /area/station/security/prison)
 "azK" = (
@@ -3993,12 +3996,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/science/genetics)
-"bXC" = (
-/obj/structure/window/spawner/directional/south,
-/obj/machinery/biogenerator,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/iron,
-/area/station/security/prison)
 "bXU" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/bar{
@@ -4143,7 +4140,7 @@
 	},
 /area/station/common/cryopods)
 "caF" = (
-/turf/open/floor/carpet/black/airless,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/station/asteroid)
 "caQ" = (
 /obj/machinery/light/directional/east,
@@ -6774,10 +6771,6 @@
 /obj/machinery/hydroponics/soil,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/plant_analyzer,
-/obj/machinery/camera/directional/east{
-	c_tag = "Permabrig - Garden";
-	network = list("ss13","prison")
-	},
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/plating,
 /area/station/security/prison)
@@ -8605,7 +8598,7 @@
 "gnF" = (
 /obj/structure/chair/wood,
 /obj/effect/light_emitter,
-/turf/open/floor/carpet/black/airless,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/station/asteroid)
 "gnR" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -9122,7 +9115,7 @@
 /area/station/engineering/break_room)
 "gHd" = (
 /obj/structure/fluff/drake_statue,
-/turf/open/misc/asteroid/airless,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/station/asteroid)
 "gHk" = (
 /obj/structure/cable,
@@ -9595,11 +9588,9 @@
 /turf/open/floor/iron,
 /area/station/service/bar)
 "hhT" = (
-/obj/structure/sink/directional/north,
-/obj/structure/reagent_dispensers/watertank,
-/obj/item/reagent_containers/cup/bucket,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb,
+/obj/machinery/seed_extractor,
 /turf/open/floor/iron,
 /area/station/security/prison)
 "his" = (
@@ -10362,10 +10353,8 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/machinery/camera/autoname{
-	dir = 6
-	},
 /obj/structure/cable,
+/obj/machinery/camera/autoname/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/command/eva)
 "hPP" = (
@@ -14556,6 +14545,10 @@
 /obj/structure/sign/departments/restaurant/directional/north,
 /turf/open/floor/iron,
 /area/station/service/bar)
+"lPb" = (
+/mob/living/basic/mining/goliath,
+/turf/closed/mineral/random/snow/high_chance/asteroid,
+/area/station/asteroid)
 "lPI" = (
 /obj/docking_port/stationary{
 	dir = 8;
@@ -16545,9 +16538,8 @@
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/hos)
 "nve" = (
-/obj/structure/window/spawner/directional/south,
-/obj/machinery/seed_extractor,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/window/spawner/directional/north,
 /turf/open/floor/iron,
 /area/station/security/prison)
 "nvi" = (
@@ -17929,9 +17921,7 @@
 	pixel_x = 4
 	},
 /obj/item/retractor,
-/obj/machinery/camera{
-	dir = 5
-	},
+/obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/iron/white,
 /area/station/science/robotics/lab)
 "oON" = (
@@ -18685,8 +18675,9 @@
 /turf/open/floor/iron/white,
 /area/station/security/prison)
 "psr" = (
-/obj/structure/window/spawner/directional/south,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/window/spawner/directional/north,
+/obj/machinery/biogenerator,
 /turf/open/floor/iron,
 /area/station/security/prison)
 "pst" = (
@@ -22076,9 +22067,7 @@
 /area/station/maintenance/starboard/fore)
 "ssP" = (
 /obj/machinery/light/directional/south,
-/obj/machinery/camera{
-	dir = 5
-	},
+/obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/iron,
 /area/mine/lobby)
 "sti" = (
@@ -26945,7 +26934,7 @@
 /area/station/commons/toilet/restrooms)
 "wHj" = (
 /obj/structure/ore_vent/ghost_mining/cult,
-/turf/open/floor/carpet/black/airless,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/station/asteroid)
 "wHs" = (
 /obj/structure/cable,
@@ -28242,9 +28231,8 @@
 /area/station/cargo/storage)
 "xKX" = (
 /obj/machinery/vending/coffee,
-/obj/machinery/camera{
-	c_tag = "Auxilary Restrooms";
-	dir = 5
+/obj/machinery/camera/directional/south{
+	c_tag = "Auxilary Restrooms"
 	},
 /turf/open/floor/iron/dark/side,
 /area/station/commons/fitness/locker_room)
@@ -40647,7 +40635,7 @@ fIc
 fIc
 fIc
 fIc
-ftO
+fIc
 ftO
 aaa
 aaa
@@ -40904,8 +40892,8 @@ fIc
 fIc
 fIc
 fIc
-ftO
-ftO
+fIc
+fIc
 aaa
 aaa
 aaa
@@ -41161,8 +41149,8 @@ fIc
 fIc
 fIc
 fIc
-ftO
-ftO
+fIc
+aaa
 aaa
 aaa
 aaa
@@ -41418,8 +41406,8 @@ fIc
 fIc
 fIc
 fIc
-ftO
-ftO
+lPb
+aaa
 aaa
 aaa
 aaa
@@ -41675,8 +41663,8 @@ fIc
 fIc
 fIc
 fIc
-ftO
-ftO
+fIc
+aaa
 aaa
 aaa
 aaa
@@ -41932,8 +41920,8 @@ fIc
 fIc
 fIc
 fIc
-ftO
-ftO
+fIc
+aaa
 aaa
 aaa
 aaa
@@ -42189,8 +42177,8 @@ fIc
 fIc
 fIc
 fIc
-ftO
-ftO
+fIc
+aaa
 aaa
 aaa
 aaa
@@ -42446,8 +42434,8 @@ fIc
 fIc
 fIc
 fIc
-ftO
-ftO
+fIc
+aaa
 aaa
 aaa
 aaa
@@ -45407,7 +45395,7 @@ kcQ
 lvE
 lZj
 iPM
-bXC
+nve
 gTM
 kcQ
 tWa
@@ -80284,10 +80272,10 @@ ajk
 ajk
 ajk
 ezS
-tlI
-tlI
-tlI
-tlI
+caF
+caF
+caF
+caF
 ezS
 ajk
 ajk
@@ -80541,10 +80529,10 @@ ajk
 ajk
 ajk
 ezS
-tlI
+caF
 gHd
-tlI
-tlI
+caF
+caF
 ezS
 ajk
 ajk
@@ -80798,10 +80786,10 @@ ajk
 cew
 ezS
 ezS
-tlI
-tlI
-tlI
-tlI
+caF
+caF
+caF
+caF
 ezS
 ezS
 ezS
@@ -81055,9 +81043,9 @@ ajk
 ezS
 caF
 caF
-tlI
-tlI
-tlI
+caF
+caF
+caF
 caF
 caF
 caF
@@ -81567,13 +81555,13 @@ gtt
 ajk
 ajk
 ezS
-tlI
 caF
 caF
 caF
-tlI
-tlI
-tlI
+caF
+caF
+caF
+caF
 caF
 caF
 ezS
@@ -81826,10 +81814,10 @@ ajk
 cew
 ezS
 ezS
-tlI
-tlI
-tlI
-tlI
+caF
+caF
+caF
+caF
 ezS
 ezS
 ezS
@@ -82083,10 +82071,10 @@ ajk
 ajk
 ajk
 ezS
-tlI
+caF
 gHd
-tlI
-tlI
+caF
+caF
 ezS
 ajk
 ajk
@@ -82340,10 +82328,10 @@ ajk
 ajk
 ajk
 ezS
-tlI
-tlI
-tlI
-tlI
+caF
+caF
+caF
+caF
 ezS
 ajk
 ajk
