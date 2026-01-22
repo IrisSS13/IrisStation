@@ -1,5 +1,4 @@
 /mob/living/basic/carp/goodboy //Very goodboy variation
-
 	speak_emote = list("squeaks")
 	gold_core_spawnable = NO_SPAWN
 	gender = MALE
