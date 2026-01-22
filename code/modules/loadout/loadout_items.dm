@@ -41,9 +41,9 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 	/// Defaults to parent category's title if unset
 	var/group = null
 	/// Loadout flags, see LOADOUT_FLAG_* defines
-	// NOVA EDIT CHANGE - Defaults to LOADOUT_FLAG_ALLOW_NAMING
-	// original: var/loadout_flags = NONE
-	var/loadout_flags = LOADOUT_FLAG_ALLOW_NAMING
+	var/loadout_flags = NONE
+	/// If set, this item can only be selected during the holiday specified.
+	var/required_holiday
 	/// The actual item path of the loadout item.
 	var/obj/item/item_path
 	/// Icon file (DMI) for the UI to use for preview icons.
@@ -292,14 +292,11 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 		ADD_TRAIT(equipped_item, TRAIT_WAS_RENAMED, "Loadout")
 		equipped_item.on_loadout_custom_described()
 		// NOVA EDIT ADDITION END
-
 	if((loadout_flags & LOADOUT_FLAG_ALLOW_RESKIN) && item_details?[INFO_RESKIN])
 		var/skin_chosen = item_details[INFO_RESKIN]
 		if(skin_chosen in equipped_item.unique_reskin)
 			equipped_item.current_skin = skin_chosen
 			equipped_item.icon_state = equipped_item.unique_reskin[skin_chosen]
-			// IRIS EDIT - Makes our pretty description visible to other players, part of https://github.com/DopplerShift13/DopplerShift/pull/345
-			equipped_item.AddElement(/datum/element/examined_when_worn)
 			if(istype(equipped_item, /obj/item/clothing/accessory))
 				// Snowflake handing for accessories, because we need to update the thing it's attached to instead
 				if(isclothing(equipped_item.loc))
@@ -337,6 +334,18 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 	return formatted_item
 
 /**
+ * Checks if this item is disabled and cannot be selected or granted
+ */
+/datum/loadout_item/proc/is_disabled()
+	return required_holiday && !check_holidays(required_holiday)
+
+/**
+ * Checks if this item is disabled or unequippable for the given item details.
+ */
+/datum/loadout_item/proc/is_equippable(mob/living/carbon/human/equipper, list/item_details)
+	return !is_disabled()
+
+/**
  * Returns a list of information to display about this item in the loadout UI.
  * Icon -> tooltip displayed when its hovered over
  */
@@ -351,6 +360,8 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 	if(loadout_flags & LOADOUT_FLAG_ALLOW_RESKIN)
 		displayed_text[FA_ICON_SWATCHBOOK] = "Reskinnable"
 
+	if(required_holiday)
+		displayed_text[FA_ICON_CALENDAR_CHECK] = "Only available: [required_holiday]"
 	// NOVA EDIT ADDITION START
 	if(ckeywhitelist)
 		displayed_text[FA_ICON_HEART] = "CKEY Whitelist: [jointext(ckeywhitelist, ", ")]"
@@ -358,11 +369,14 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 		displayed_text[FA_ICON_BRIEFCASE] = "Job Whitelist: [jointext(restricted_roles, ", ")]"
 	if(blacklisted_roles)
 		displayed_text[FA_ICON_LOCK] = "Job Blacklist: [jointext(blacklisted_roles, ", ")]"
-	if(restricted_species)
-		displayed_text[FA_ICON_SPAGHETTI_MONSTER_FLYING] = "Species Whitelist: [capitalize(jointext(restricted_species, ", "))]"
+	if(species_whitelist)
+		displayed_text[FA_ICON_SPAGHETTI_MONSTER_FLYING] = "Species Whitelist: [capitalize(jointext(species_whitelist, ", "))]"
+	if(species_blacklist)
+		displayed_text[FA_ICON_SHRIMP] = "Species Blacklist: [capitalize(jointext(species_blacklist, ", "))]"
 	if(donator_only || ckeywhitelist)
 		displayed_text[FA_ICON_COINS] = "Donator-Only"
 	// NOVA EDIT ADDITION END
+
 	return displayed_text
 
 /**

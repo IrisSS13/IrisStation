@@ -3,7 +3,7 @@
 	desc = "A market uplink. Usable with markets. You probably shouldn't have this!"
 	icon = 'icons/obj/devices/blackmarket.dmi'
 	icon_state = "uplink"
-
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.65, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 3.3)
 	// UI variables.
 	/// What category is the current uplink viewing?
 	var/viewing_category
@@ -56,7 +56,7 @@
 		current_user = null
 	data["categories"] = market ? market.categories : null
 	data["delivery_methods"] = list()
-	data["money"] = "N/A cr"
+	data["money"] = "N/A [MONEY_SYMBOL]"
 	if(current_user)
 		data["money"] = current_user.account_balance
 	data["buying"] = buying
@@ -157,10 +157,12 @@
 	//The original black market uplink
 	accessible_markets = list(/datum/market/blackmarket)
 	custom_premium_price = PAYCHECK_CREW * 2.5
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.69, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 3.4) //IRIS EDIT
 
 /obj/item/market_uplink/blackmarket/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_CONTRABAND, INNATE_TRAIT)
+
 // IRIS EDIT: Reimplements /obj/item/stock_parts/subspace/amplifier as a requirement for uplink construction
 /datum/crafting_recipe/blackmarket_uplink
 	name = "Black Market Uplink"

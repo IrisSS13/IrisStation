@@ -1,17 +1,17 @@
 // THIS IS A NOVA SECTOR UI FILE
 import {
   CheckboxInput,
-  Feature,
-  FeatureChoiced,
-  FeatureChoicedServerData,
+  type Feature,
+  type FeatureChoiced,
+  type FeatureChoicedServerData,
   FeatureColorInput,
   FeatureNumberInput,
   FeatureShortTextInput,
   FeatureTextInput,
-  FeatureToggle,
+  type FeatureToggle,
   FeatureTriBoolInput,
   FeatureTriColorInput,
-  FeatureValueProps,
+  type FeatureValueProps,
 } from '../../base';
 import { FeatureDropdownInput } from '../../dropdowns';
 
@@ -122,6 +122,12 @@ export const allow_mismatched_hair_color_toggle: FeatureToggle = {
   name: 'Allow Mismatched Hair Color',
   description:
     'Allows species who normally have a fixed hair color to have different hair colors. This includes in-round sources such as dyeing hair, alter form, etc. Currently only applicable to slimes.',
+  component: CheckboxInput,
+};
+
+export const allow_genitals_toggle: FeatureToggle = {
+  name: 'Allow Genital Parts',
+  description: 'Enables if you want to have genitals on your character.',
   component: CheckboxInput,
 };
 
@@ -640,7 +646,7 @@ export const taur_emissive: Feature<boolean[]> = {
 export const naga_sole: FeatureToggle = {
   name: 'Taur (Naga) disable hardened soles',
   description:
-    'If using a serpentine taur body, determines if you are immune to caltrops and a few other effects of being barefoot.',
+    'If using a serpentine or fishlike taur body, determines if you are immune to caltrops and a few other effects of being barefoot.',
   component: CheckboxInput,
 };
 

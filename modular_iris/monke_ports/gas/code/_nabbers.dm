@@ -88,6 +88,9 @@
 /datum/species/nabber/get_species_description()
 	return "(PH) PUT IRIS LORE HERE IDK"
 
+/datum/species/nabber/get_species_lore()
+	return list(placeholder_lore)
+
 /datum/species/nabber/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only)
 	. = ..()
 	if(job?.nabber_outfit)

@@ -17,6 +17,7 @@
 
 ///Defines for icons used for modular bodyparts, created to make it easier to relocate the module or files if necessary.
 #define BODYPART_ICON_HUMAN 'modular_nova/modules/bodyparts/icons/human_parts_greyscale.dmi'
+#define BODYPART_ICON_HUMANOID 'modular_nova/modules/bodyparts/icons/humanoid_parts_greyscale.dmi'
 #define BODYPART_ICON_MAMMAL 'modular_nova/modules/bodyparts/icons/mammal_parts_greyscale.dmi'
 #define BODYPART_ICON_AKULA 'modular_nova/modules/bodyparts/icons/akula_parts_greyscale.dmi'
 #define BODYPART_ICON_AQUATIC 'modular_nova/modules/bodyparts/icons/aquatic_parts_greyscale.dmi'
@@ -24,7 +25,7 @@
 #define BODYPART_ICON_INSECT 'modular_nova/modules/bodyparts/icons/insect_parts_greyscale.dmi'
 #define BODYPART_ICON_LIZARD 'modular_nova/modules/bodyparts/icons/lizard_parts_greyscale.dmi'
 #define BODYPART_ICON_MOTH 'modular_nova/modules/bodyparts/icons/moth_parts_greyscale.dmi'
-#define BODYPART_ICON_ROUNDSTARTSLIME 'modular_nova/modules/bodyparts/icons/slime_parts_greyscale.dmi'
+//#define BODYPART_ICON_ROUNDSTARTSLIME 'modular_nova/modules/bodyparts/icons/slime_parts_greyscale.dmi' // IRIS EDIT REMOVAL
 #define BODYPART_ICON_SKRELL 'modular_nova/modules/bodyparts/icons/skrell_parts_greyscale.dmi'
 #define BODYPART_ICON_TAUR 'modular_nova/modules/bodyparts/icons/taur_invisible_legs.dmi'
 #define BODYPART_ICON_TESHARI 'modular_nova/modules/bodyparts/icons/teshari_parts_greyscale.dmi'

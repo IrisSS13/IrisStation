@@ -204,6 +204,11 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 /datum/hud/proc/eye_z_changed(atom/eye)
 	SIGNAL_HANDLER
 	update_parallax_pref() // If your eye changes z level, so should your parallax prefs
+	// IRIS EDIT START
+	// ensure any persisted parallax overrides survive HUD rebuilds caused by z-level changes
+	if(GLOB.parallax_manager)
+		GLOB.parallax_manager.reapply_parallax_overrides(mymob)
+	// IRIS EDIT END
 	var/turf/eye_turf = get_turf(eye)
 	if(!eye_turf)
 		return
@@ -420,6 +425,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 		for(var/M in mymob.observers)
 			show_hud(hud_version, M)
 	else if (viewmob.hud_used)
+		viewmob.hide_other_mob_action_buttons(mymob)
 		viewmob.hud_used.plane_masters_update()
 		viewmob.show_other_mob_action_buttons(mymob)
 

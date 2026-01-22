@@ -11,20 +11,20 @@ import {
   Section,
   Stack,
 } from 'tgui-core/components';
-import { exhaustiveCheck } from 'tgui-core/exhaustive';
+import { exhaustiveCheck } from 'tgui-core/exhaustive'; // NOVA EDIT ADDITION
 import { classes } from 'tgui-core/react';
 import { createSearch } from 'tgui-core/string';
 
 import { SideDropdown } from '../../../iris_components/SideDropdown'; // IRIS EDIT ADDITION from https://github.com/Bubberstation/Bubberstation/pull/3157
 import { CharacterPreview } from '../../common/CharacterPreview';
-import { PageButton } from '../components/PageButton'; // IRIS EDIT
+import { PageButton } from '../components/PageButton'; // NOVA EDIT ADDITION
 import { RandomizationButton } from '../components/RandomizationButton';
 import { features } from '../preferences/features';
 import {
   type FeatureChoicedServerData,
   FeatureValueInput,
 } from '../preferences/features/base';
-import { Gender, GENDERS } from '../preferences/gender';
+import { GENDERS, Gender } from '../preferences/gender';
 import {
   createSetPreference,
   type PreferencesMenuData,
@@ -477,15 +477,6 @@ export function MainPage(props: MainPageProps) {
   const [vocalsInputOpen, setVocalsInputOpen] = useState(false); // NOVA EDIT ADDITION
   const [randomToggleEnabled] = useRandomToggleState();
 
-  // IRIS EDIT BEGIN: SWAPPABLE PREF MENUS - SKYRAT PORT
-  enum PrefPage {
-    Visual, // The visual parts
-    Lore, // Lore, Flavor Text, Age, Records
-  }
-
-  const [currentPrefPage, setCurrentPrefPage] = useState(PrefPage.Visual);
-  // IRIS EDIT END - SKYRAT PORT
-
   const serverData = useServerPrefs();
 
   const currentSpeciesData =
@@ -521,8 +512,14 @@ export function MainPage(props: MainPageProps) {
     // server doesn't know whether the random toggle is on.
     delete nonContextualPreferences.random_name;
   }
+  // NOVA EDIT ADDITION BEGIN: SWAPPABLE PREF MENUS
+  enum PrefPage {
+    Visual, // The visual parts
+    Profile, // Flavor Text, Age, Records, PDA ringtone, etc
+  }
 
-  // IRIS EDIT BEGIN: SWAPPABLE PREF MENUS - SKYRAT PORT
+  const [currentPrefPage, setCurrentPrefPage] = useState(PrefPage.Visual);
+
   let prefPageContents;
   switch (currentPrefPage) {
     case PrefPage.Visual:
@@ -538,7 +535,7 @@ export function MainPage(props: MainPageProps) {
         />
       );
       break;
-    case PrefPage.Lore:
+    case PrefPage.Profile:
       prefPageContents = (
         <PreferenceList
           randomizations={getRandomization(
@@ -554,7 +551,7 @@ export function MainPage(props: MainPageProps) {
     default:
       exhaustiveCheck(currentPrefPage);
   }
-  // IRIS EDIT END - SKYRAT PORT
+  // NOVA EDIT ADDITION END
 
   return (
     <>
@@ -707,30 +704,55 @@ export function MainPage(props: MainPageProps) {
           </Stack>
         </Stack.Item>
 
-        <Stack.Item grow basis={0}>
-          {/* IRIS EDIT BEGIN: Swappable pref menus - SKYRAT PORT */}
-          <Stack>
-            <Stack.Item grow>
-              <PageButton
-                currentPage={currentPrefPage}
-                page={PrefPage.Visual}
-                setPage={setCurrentPrefPage}
-              >
-                Character Visuals
-              </PageButton>
-            </Stack.Item>
-            <Stack.Item grow>
-              <PageButton
-                currentPage={currentPrefPage}
-                page={PrefPage.Lore}
-                setPage={setCurrentPrefPage}
-              >
-                Character Lore
-              </PageButton>
-            </Stack.Item>
-          </Stack>
-          <Stack fill vertical>
-            <Stack.Divider />
+        {/* NOVA EDIT CHANGE: Swappable pref menus */}
+        {/* ORIGINAL: <Stack.Item grow basis={0}> */}
+        <Stack.Item grow basis={0} ml="4px">
+          <Stack vertical fill>
+            {
+              /* NOVA EDIT REMOVAL START
+             <PreferenceList
+              randomizations={getRandomization(
+                contextualPreferences,
+                serverData,
+                randomBodyEnabled,
+              )}
+              preferences={contextualPreferences}
+              maxHeight="auto"
+            />
+
+            <PreferenceList
+              randomizations={getRandomization(
+                nonContextualPreferences,
+                serverData,
+                randomBodyEnabled,
+              )}
+              preferences={nonContextualPreferences}
+              maxHeight="auto"
+            />
+            */
+              // NOVA EDIT REMOVAL END
+            }
+            {/* NOVA EDIT ADDITION BEGIN: Swappable pref menus */}
+            <Stack>
+              <Stack.Item grow={2}>
+                <PageButton
+                  currentPage={currentPrefPage}
+                  page={PrefPage.Visual}
+                  setPage={setCurrentPrefPage}
+                >
+                  Character Visuals
+                </PageButton>
+              </Stack.Item>
+              <Stack.Item grow={2}>
+                <PageButton
+                  currentPage={currentPrefPage}
+                  page={PrefPage.Profile}
+                  setPage={setCurrentPrefPage}
+                >
+                  Character Lore
+                </PageButton>
+              </Stack.Item>
+            </Stack>
             {prefPageContents}
           </Stack>
           <Box my={0.5}>
@@ -745,8 +767,8 @@ export function MainPage(props: MainPageProps) {
               Delete Character
             </Button>
           </Box>
-          {/* IRIS EDIT END: Swappable pref menus -SKYRAT PORT*/}
         </Stack.Item>
+        {/* NOVA EDIT ADDITION END: Swappable pref menus */}
       </Stack>
     </>
   );

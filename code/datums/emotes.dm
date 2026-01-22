@@ -94,12 +94,18 @@
  */
 /datum/emote/proc/run_emote(mob/user, params, type_override, intentional = FALSE)
 	var/msg = select_message_type(user, message, intentional)
-	if(params && message_param)
-		msg = select_param(user, params)
+	if(params)
+		if(message_param)
+			msg = select_param(user, params)
+		else
+			msg = params
 
 	msg = replace_pronoun(user, msg)
 	if(!msg)
 		return
+
+	/// Use the type override if it exists
+	var/running_emote_type = type_override || emote_type
 
 	if(user.client)
 		user.log_message(msg, LOG_EMOTE)
@@ -108,80 +114,150 @@
 	if(tmp_sound && should_play_sound(user, intentional) && TIMER_COOLDOWN_FINISHED(user, "general_emote_audio_cooldown") && TIMER_COOLDOWN_FINISHED(user, type))
 		TIMER_COOLDOWN_START(user, type, specific_emote_audio_cooldown)
 		TIMER_COOLDOWN_START(user, "general_emote_audio_cooldown", general_emote_audio_cooldown)
-		playsound(source = user,soundin = tmp_sound,vol = 50, vary = vary, ignore_walls = sound_wall_ignore)
+		var/frequency = null
+		if (affected_by_pitch && SStts.tts_enabled && SStts.pitch_enabled)
+			frequency = rand(MIN_EMOTE_PITCH, MAX_EMOTE_PITCH) * (1 + sqrt(abs(user.pitch)) * SIGN(user.pitch) * EMOTE_TTS_PITCH_MULTIPLIER)
+		else if(vary)
+			frequency = rand(MIN_EMOTE_PITCH, MAX_EMOTE_PITCH)
+		playsound(source = user, soundin = tmp_sound,vol = 50, vary = FALSE, ignore_walls = sound_wall_ignore, frequency = frequency)
 
-	var/is_important = emote_type & EMOTE_IMPORTANT
-	var/is_visual = emote_type & EMOTE_VISIBLE
-	var/is_audible = emote_type & EMOTE_AUDIBLE
+	var/is_important = running_emote_type & EMOTE_IMPORTANT
+	var/is_visual = running_emote_type & EMOTE_VISIBLE
+	var/is_audible = running_emote_type & EMOTE_AUDIBLE
 	var/space = should_have_space_before_emote(html_decode(msg)[1]) ? " " : "" // NOVA EDIT ADDITION
 	var/additional_message_flags = get_message_flags(intentional)
 
-	// Emote doesn't get printed to chat, runechat only
-	if(emote_type & EMOTE_RUNECHAT)
-		for(var/mob/viewer as anything in viewers(user))
-			if(isnull(viewer.client))
-				continue
-			if(!is_important && viewer != user && (!is_visual || !is_audible))
-				if(is_audible && !viewer.can_hear())
-					continue
-				if(is_visual && viewer.is_blind())
-					continue
+	// IRIS EDIT ADDITION START
 
-			if(user.runechat_prefs_check(viewer, EMOTE_MESSAGE))
-				viewer.create_chat_message(
-					speaker = user,
-					raw_message = msg,
-					runechat_flags = EMOTE_MESSAGE,
-				)
-			else if(is_important)
-				to_chat(viewer, span_emote("<b>[user]</b> [msg]"))
-			else if(is_audible && is_visual)
-				viewer.show_message(
-					span_emote("<b>[user]</b> [msg]"), MSG_AUDIBLE,
-					span_emote("You see how <b>[user]</b> [msg]"), MSG_VISUAL,
-				)
-			else if(is_audible)
-				viewer.show_message(span_emote("<b>[user]</b> [msg]"), MSG_AUDIBLE)
-			else if(is_visual)
-				viewer.show_message(span_emote("<b>[user]</b> [msg]"), MSG_VISUAL)
-		return // Early exit so no dchat message
+	var/obj/effect/overlay/holo_pad_hologram/hologram = GLOB.hologram_impersonators[user]
+	if(hologram)
+		// Emote doesn't get printed to chat, runechat only
+		if(emote_type & EMOTE_RUNECHAT)
+			for(var/mob/viewer as anything in viewers(hologram))
+				if(isnull(viewer.client))
+					continue
+				if(!is_important && viewer != user && (!is_visual || !is_audible))
+					if(is_audible && !viewer.can_hear())
+						continue
+					if(is_visual && viewer.is_blind())
+						continue
 
-	// The emote has some important information, and should always be shown to the user
-	else if(is_important)
-		for(var/mob/viewer as anything in viewers(user))
-			to_chat(viewer, span_emote("<b>[user]</b> [msg]"))
-			if(user.runechat_prefs_check(viewer, EMOTE_MESSAGE))
-				viewer.create_chat_message(
-					speaker = user,
-					raw_message = msg,
-					runechat_flags = EMOTE_MESSAGE,
-				)
-	// Emotes has both an audible and visible component
-	// Prioritize audible, and provide a visible message if the user is deaf
-	else if(is_visual && is_audible)
-		user.audible_message(
-			message = msg,
-			deaf_message = span_emote("You see how <b>[user]</b> [msg]"),
-			self_message = msg,
-			audible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE|additional_message_flags,
-		)
-	// Emote is entirely audible, no visible component
-	else if(is_audible)
-		user.audible_message(
-			message = msg,
-			self_message = msg,
-			audible_message_flags = EMOTE_MESSAGE|additional_message_flags,
-		)
-	// Emote is entirely visible, no audible component
-	else if(is_visual)
-		user.visible_message(
-			message = msg,
-			self_message = msg,
-			visible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE|additional_message_flags,
-		)
+				if(user.runechat_prefs_check(viewer, EMOTE_MESSAGE))
+					viewer.create_chat_message(
+						speaker = hologram,
+						raw_message = msg,
+						runechat_flags = EMOTE_MESSAGE,
+					)
+				else if(is_important)
+					to_chat(viewer, span_emote("<b>[hologram]</b> [msg]"))
+				else if(is_audible && is_visual)
+					viewer.show_message(
+						span_emote("<b>[hologram]</b> [msg]"), MSG_AUDIBLE,
+						span_emote("You see how <b>[hologram]</b> [msg]"), MSG_VISUAL,
+					)
+				else if(is_audible)
+					viewer.show_message(span_emote("<b>[hologram]</b> [msg]"), MSG_AUDIBLE)
+				else if(is_visual)
+					viewer.show_message(span_emote("<b>[hologram]</b> [msg]"), MSG_VISUAL)
+			return // Early exit so no dchat message
+		else if(is_important)
+			for(var/mob/viewer as anything in viewers(hologram))
+				to_chat(viewer, span_emote("<b>[hologram]</b> [msg]"))
+		else if(is_visual && is_audible)
+			hologram.audible_message(
+				message = msg,
+				deaf_message = "<span class='emote'>You see how <b>[hologram]</b> [msg]</span>",
+				self_message = msg,
+				audible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE|additional_message_flags,
+				separation = space,
+			)
+		else if(is_audible)
+			hologram.audible_message(
+				message = msg,
+				self_message = msg,
+				audible_message_flags = EMOTE_MESSAGE|additional_message_flags,
+				separation = space,
+			)
+		else if(is_visual)
+			hologram.visible_message(
+				message = msg,
+				self_message = msg,
+				visible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE|additional_message_flags,
+				separation = space,
+			)
+		else
+			CRASH("Emote [type] has no valid emote type set!")
 	else
-		CRASH("Emote [type] has no valid emote type set!")
+	// IRIS EDIT ADDITION END
+	// IRIS EDIT START
+		// Emote doesn't get printed to chat, runechat only
+		if(running_emote_type & EMOTE_RUNECHAT)
+			for(var/mob/viewer as anything in viewers(user))
+				if(isnull(viewer.client))
+					continue
+				if(!is_important && viewer != user && (!is_visual || !is_audible))
+					if(is_audible && !viewer.can_hear())
+						continue
+					if(is_visual && viewer.is_blind())
+						continue
 
+				if(user.runechat_prefs_check(viewer, EMOTE_MESSAGE))
+					viewer.create_chat_message(
+						speaker = user,
+						raw_message = msg,
+						runechat_flags = EMOTE_MESSAGE,
+					)
+				else if(is_important)
+					to_chat(viewer, span_emote("<b>[user]</b> [msg]"))
+				else if(is_audible && is_visual)
+					viewer.show_message(
+						span_emote("<b>[user]</b> [msg]"), MSG_AUDIBLE,
+						span_emote("You see how <b>[user]</b> [msg]"), MSG_VISUAL,
+					)
+				else if(is_audible)
+					viewer.show_message(span_emote("<b>[user]</b> [msg]"), MSG_AUDIBLE)
+				else if(is_visual)
+					viewer.show_message(span_emote("<b>[user]</b> [msg]"), MSG_VISUAL)
+			return // Early exit so no dchat message
+
+		// The emote has some important information, and should always be shown to the user
+		else if(is_important)
+			for(var/mob/viewer as anything in viewers(user))
+				to_chat(viewer, span_emote("<b>[user]</b> [msg]"))
+				if(user.runechat_prefs_check(viewer, EMOTE_MESSAGE))
+					viewer.create_chat_message(
+						speaker = user,
+						raw_message = msg,
+						runechat_flags = EMOTE_MESSAGE,
+					)
+		// Emotes has both an audible and visible component
+		// Prioritize audible, and provide a visible message if the user is deaf
+		else if(is_visual && is_audible)
+			user.audible_message(
+				message = msg,
+				deaf_message = span_emote("You see how <b>[user]</b> [msg]"),
+				self_message = msg,
+				audible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE|additional_message_flags,
+			)
+		// Emote is entirely audible, no visible component
+		else if(is_audible)
+			user.audible_message(
+				message = msg,
+				self_message = msg,
+				audible_message_flags = EMOTE_MESSAGE|additional_message_flags,
+			)
+		// Emote is entirely visible, no audible component
+		else if(is_visual)
+			user.visible_message(
+				message = msg,
+				self_message = msg,
+				visible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE|additional_message_flags,
+			)
+		else
+			CRASH("Emote [type] has no valid emote type set!")
+	// IRIS EDIT END
+
+	/* IRIS EDIT REMOVAL START
 	// NOVA EDIT ADDITION START - AI QOL - RELAY EMOTES OVER HOLOPADS
 	var/obj/effect/overlay/holo_pad_hologram/hologram = GLOB.hologram_impersonators[user]
 	if(hologram)
@@ -193,24 +269,25 @@
 				message = msg,
 				deaf_message = "<span class='emote'>You see how <b>[user]</b> [msg]</span>",
 				self_message = msg,
-				audible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE,
+				audible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE
 				separation = space,
 			)
 		else if(is_audible)
 			hologram.audible_message(
 				message = msg,
 				self_message = msg,
-				audible_message_flags = EMOTE_MESSAGE,
+				audible_message_flags = EMOTE_MESSAGE
 				separation = space,
 			)
 		else if(is_visual)
 			hologram.visible_message(
 				message = msg,
 				self_message = msg,
-				visible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE,
+				visible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE
 				separation = space,
 			)
 	// NOVA EDIT ADDITION END
+	*/ // IRIS EDIT REMOVAL END
 	if(!isnull(user.client))
 		var/dchatmsg = "<b>[user]</b>[space][msg]" // NOVA EDIT CHANGE - ORIGINAL: var/dchatmsg = "<b>[user]</b> [msg]"
 		for(var/mob/ghost as anything in GLOB.dead_mob_list - viewers(get_turf(user)))
@@ -327,6 +404,8 @@
 		. = message_robot
 	else if(isanimal_or_basicmob(user) && message_animal_or_basic)
 		. = message_animal_or_basic
+	else if(issynthetic(user) && message_synthetic) // IRIS EDIT CHANGE - Originally this didn't exist.
+		. = message_synthetic
 
 	return .
 

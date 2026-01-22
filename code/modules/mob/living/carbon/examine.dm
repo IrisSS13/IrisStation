@@ -106,7 +106,7 @@
 		if(user == src && has_status_effect(/datum/status_effect/grouped/screwy_hud/fake_crit))//fake damage
 			temp = 50
 		else
-			temp = getBruteLoss()
+			temp = get_brute_loss()
 		var/list/damage_desc = get_majority_bodypart_damage_desc()
 		if(temp)
 			if(temp < 25)
@@ -116,7 +116,7 @@
 			else
 				. += span_bolddanger("[t_He] [t_has] severe [damage_desc[BRUTE]]!")
 
-		temp = getFireLoss()
+		temp = get_fire_loss()
 		if(temp)
 			if(temp < 25)
 				. += span_danger("[t_He] [t_has] minor [damage_desc[BURN]].")
@@ -143,7 +143,7 @@
 		if(DISGUST_LEVEL_DISGUSTED to INFINITY)
 			. += "[t_He] look[p_s()] extremely disgusted."
 
-	var/apparent_blood_volume = blood_volume
+	var/apparent_blood_volume = CAN_HAVE_BLOOD(src) ? get_blood_volume(apply_modifiers = TRUE) : BLOOD_VOLUME_NORMAL
 	if(HAS_TRAIT(src, TRAIT_USES_SKINTONES) && ishuman(src))
 		var/mob/living/carbon/human/husrc = src // gross istypesrc but easier than refactoring even further for now
 		if(husrc.skin_tone == "albino")
@@ -305,7 +305,6 @@
 
 	. += EXAMINE_SECTION_BREAK
 
-
 	if (!CONFIG_GET(flag/disable_antag_opt_in_preferences))
 		var/opt_in_status = mind?.get_effective_opt_in_level()
 		if (!isnull(opt_in_status))
@@ -382,7 +381,7 @@
 				most_seen_damage[damage_type] = seen_damage[damage_type][damage_desc]
 				final_descriptions[damage_type] = damage_desc
 	return final_descriptions
-// IRIS EDIT START - replaced examine_title with examine_title_worn across whole proc
+
 /// Coolects examine information about the mob's clothing and equipment
 /mob/living/carbon/proc/get_clothing_examine_info(mob/living/user)
 	. = list()
@@ -393,23 +392,23 @@
 	var/t_is = p_are()
 	//head
 	if(head && !(obscured_slots & HIDEHEADGEAR) && !HAS_TRAIT(head, TRAIT_EXAMINE_SKIP))
-		. += "[t_He] [t_is] wearing [head.examine_title_worn(user)] on [t_his] head."
+		. += "[t_He] [t_is] wearing [head.examine_title(user)] on [t_his] head."
 	//back
 	if(back && !HAS_TRAIT(back, TRAIT_EXAMINE_SKIP))
-		. += "[t_He] [t_has] [back.examine_title_worn(user)] on [t_his] back."
+		. += "[t_He] [t_has] [back.examine_title(user)] on [t_his] back."
 	//Hands
 	for(var/obj/item/held_thing in held_items)
 		if((held_thing.item_flags & (ABSTRACT|HAND_ITEM)) || HAS_TRAIT(held_thing, TRAIT_EXAMINE_SKIP))
 			continue
-		. += "[t_He] [t_is] holding [held_thing.examine_title_worn(user)] in [t_his] [get_held_index_name(get_held_index_of_item(held_thing))]."
+		. += "[t_He] [t_is] holding [held_thing.examine_title(user)] in [t_his] [get_held_index_name(get_held_index_of_item(held_thing))]."
 	for(var/obj/item/bodypart/arm/part in bodyparts)
 		if(!(part.bodypart_flags & BODYPART_PSEUDOPART))
 			continue
 		var/obj/item/corresponding_item = get_item_for_held_index(part.held_index) || part
-		. += "[t_He] [t_has] a [corresponding_item.examine_title_worn(user)] in place of [t_his] [initial(part.plaintext_zone)]."
+		. += "[t_He] [t_has] a [corresponding_item.examine_title(user)] in place of [t_his] [initial(part.plaintext_zone)]."
 	//gloves
 	if(gloves && !(obscured_slots & HIDEGLOVES) && !HAS_TRAIT(gloves, TRAIT_EXAMINE_SKIP))
-		. += "[t_He] [t_has] [gloves.examine_title_worn(user)] on [t_his] hands."
+		. += "[t_He] [t_has] [gloves.examine_title(user)] on [t_his] hands."
 	else if(GET_ATOM_BLOOD_DECAL_LENGTH(src) && num_hands)
 		var/list/blood_stains = GET_ATOM_BLOOD_DECALS(src)
 		var/datum/blood_type/blood_type = blood_stains[blood_stains[length(blood_stains)]]
@@ -423,23 +422,23 @@
 		. += span_warning("[t_He] [t_is] [icon2html(handcuffed, user)] [cables_or_cuffs]!")
 	//shoes
 	if(shoes && !(obscured_slots & HIDESHOES)  && !HAS_TRAIT(shoes, TRAIT_EXAMINE_SKIP))
-		. += "[t_He] [t_is] wearing [shoes.examine_title_worn(user)] on [t_his] feet."
+		. += "[t_He] [t_is] wearing [shoes.examine_title(user)] on [t_his] feet."
 	//mask
 	if(wear_mask && !(obscured_slots & HIDEMASK)  && !HAS_TRAIT(wear_mask, TRAIT_EXAMINE_SKIP))
-		. += "[t_He] [t_has] [wear_mask.examine_title_worn(user)] on [t_his] face."
+		. += "[t_He] [t_has] [wear_mask.examine_title(user)] on [t_his] face."
 	if(wear_neck && !(obscured_slots & HIDENECK)  && !HAS_TRAIT(wear_neck, TRAIT_EXAMINE_SKIP))
-		. += "[t_He] [t_is] wearing [wear_neck.examine_title_worn(user)] around [t_his] neck."
+		. += "[t_He] [t_is] wearing [wear_neck.examine_title(user)] around [t_his] neck."
 	//eyes
 	if(!(obscured_slots & HIDEEYES))
 		if(glasses  && !HAS_TRAIT(glasses, TRAIT_EXAMINE_SKIP))
-			. += "[t_He] [t_has] [glasses.examine_title_worn(user)] covering [t_his] eyes."
+			. += "[t_He] [t_has] [glasses.examine_title(user)] covering [t_his] eyes."
 		else if(HAS_TRAIT(src, TRAIT_UNNATURAL_RED_GLOWY_EYES))
 			. += span_warning("<B>[t_His] eyes are glowing with an unnatural red aura!</B>")
 		else if(HAS_TRAIT(src, TRAIT_BLOODSHOT_EYES))
 			. += span_warning("<B>[t_His] eyes are bloodshot!</B>")
 	//ears
 	if(ears && !(obscured_slots & HIDEEARS) && !HAS_TRAIT(ears, TRAIT_EXAMINE_SKIP))
-		. += "[t_He] [t_has] [ears.examine_title_worn(user)] on [t_his] ears."
+		. += "[t_He] [t_has] [ears.examine_title(user)] on [t_his] ears."
 
 // Yes there's a lot of copypasta here, we can improve this later when carbons are less dumb in general
 /mob/living/carbon/human/get_clothing_examine_info(mob/living/user)
@@ -460,58 +459,58 @@
 			if(length(accessories))
 				accessory_message = " with [english_list(accessories)] attached"
 
-		. += "[t_He] [t_is] wearing [w_uniform.examine_title_worn(user)][accessory_message]."
+		. += "[t_He] [t_is] wearing [w_uniform.examine_title(user)][accessory_message]."
 	//head
 	if(head && !(obscured_slots & HIDEHEADGEAR) && !HAS_TRAIT(head, TRAIT_EXAMINE_SKIP))
-		. += "[t_He] [t_is] wearing [head.examine_title_worn(user)] on [t_his] head."
+		. += "[t_He] [t_is] wearing [head.examine_title(user)] on [t_his] head."
 	//mask
 	if(wear_mask && !(obscured_slots & HIDEMASK)  && !HAS_TRAIT(wear_mask, TRAIT_EXAMINE_SKIP))
-		. += "[t_He] [t_has] [wear_mask.examine_title_worn(user)] on [t_his] face."
+		. += "[t_He] [t_has] [wear_mask.examine_title(user)] on [t_his] face."
 	//neck
 	if(wear_neck && !(obscured_slots & HIDENECK)  && !HAS_TRAIT(wear_neck, TRAIT_EXAMINE_SKIP))
-		. += "[t_He] [t_is] wearing [wear_neck.examine_title_worn(user)] around [t_his] neck."
+		. += "[t_He] [t_is] wearing [wear_neck.examine_title(user)] around [t_his] neck."
 	//eyes
 	if(!(obscured_slots & HIDEEYES))
 		if(glasses  && !HAS_TRAIT(glasses, TRAIT_EXAMINE_SKIP))
-			. += "[t_He] [t_has] [glasses.examine_title_worn(user)] covering [t_his] eyes."
+			. += "[t_He] [t_has] [glasses.examine_title(user)] covering [t_his] eyes."
 		else if(HAS_TRAIT(src, TRAIT_UNNATURAL_RED_GLOWY_EYES))
 			. += span_warning("<B>[t_His] eyes are glowing with an unnatural red aura!</B>")
 		else if(HAS_TRAIT(src, TRAIT_BLOODSHOT_EYES))
 			. += span_warning("<B>[t_His] eyes are bloodshot!</B>")
 	//ears
 	if(ears && !(obscured_slots & HIDEEARS) && !HAS_TRAIT(ears, TRAIT_EXAMINE_SKIP))
-		. += "[t_He] [t_has] [ears.examine_title_worn(user)] on [t_his] ears."
+		. += "[t_He] [t_has] [ears.examine_title(user)] on [t_his] ears."
 	//suit/armor
 	if(wear_suit && !HAS_TRAIT(wear_suit, TRAIT_EXAMINE_SKIP))
-		. += "[t_He] [t_is] wearing [wear_suit.examine_title_worn(user)]."
+		. += "[t_He] [t_is] wearing [wear_suit.examine_title(user)]."
 		//suit/armor storage
 		if(s_store && !(obscured_slots & HIDESUITSTORAGE) && !HAS_TRAIT(s_store, TRAIT_EXAMINE_SKIP))
-			. += "[t_He] [t_is] carrying [s_store.examine_title_worn(user)] on [t_his] [wear_suit.name]."
+			. += "[t_He] [t_is] carrying [s_store.examine_title(user)] on [t_his] [wear_suit.name]."
 	//back
 	if(back && !HAS_TRAIT(back, TRAIT_EXAMINE_SKIP))
-		. += "[t_He] [t_has] [back.examine_title_worn(user)] on [t_his] back."
+		. += "[t_He] [t_has] [back.examine_title(user)] on [t_his] back."
 	//ID
 	if(wear_id && !HAS_TRAIT(wear_id, TRAIT_EXAMINE_SKIP))
 		var/obj/item/card/id/id = wear_id.GetID()
 		if(id && get_dist(user, src) <= ID_EXAMINE_DISTANCE)
-			var/id_href = "<a href='byond://?src=[REF(src)];see_id=1;id_ref=[REF(id)];id_name=[id.registered_name];examine_time=[world.time]'>[wear_id.examine_title_worn(user)]</a>"
+			var/id_href = "<a href='byond://?src=[REF(src)];see_id=1;id_ref=[REF(id)];id_name=[id.registered_name];examine_time=[world.time]'>[wear_id.examine_title(user)]</a>"
 			. += "[t_He] [t_is] wearing [id_href]."
 
 		else
-			. += "[t_He] [t_is] wearing [wear_id.examine_title_worn(user)]."
+			. += "[t_He] [t_is] wearing [wear_id.examine_title(user)]."
 	//Hands
 	for(var/obj/item/held_thing in held_items)
 		if((held_thing.item_flags & (ABSTRACT|HAND_ITEM)) || HAS_TRAIT(held_thing, TRAIT_EXAMINE_SKIP))
 			continue
-		. += "[t_He] [t_is] holding [held_thing.examine_title_worn(user)] in [t_his] [get_held_index_name(get_held_index_of_item(held_thing))]."
+		. += "[t_He] [t_is] holding [held_thing.examine_title(user)] in [t_his] [get_held_index_name(get_held_index_of_item(held_thing))]."
 	for(var/obj/item/bodypart/arm/part in bodyparts)
 		if(!(part.bodypart_flags & BODYPART_PSEUDOPART))
 			continue
 		var/obj/item/corresponding_item = get_item_for_held_index(part.held_index) || part
-		. += "[t_He] [t_has] [corresponding_item.examine_title_worn(user)] in place of [t_his] [initial(part.plaintext_zone)]."
+		. += "[t_He] [t_has] [corresponding_item.examine_title(user)] in place of [t_his] [initial(part.plaintext_zone)]."
 	//gloves
 	if(gloves && !(obscured_slots & HIDEGLOVES) && !HAS_TRAIT(gloves, TRAIT_EXAMINE_SKIP))
-		. += "[t_He] [t_has] [gloves.examine_title_worn(user)] on [t_his] hands."
+		. += "[t_He] [t_has] [gloves.examine_title(user)] on [t_his] hands."
 	else if(GET_ATOM_BLOOD_DECAL_LENGTH(src) || blood_in_hands)
 		if(num_hands)
 			. += span_warning("[t_He] [t_has] [num_hands > 1 ? "" : "a "]blood-stained hand[num_hands > 1 ? "s" : ""]!")
@@ -521,11 +520,10 @@
 		. += span_warning("[t_He] [t_is] [icon2html(handcuffed, user)] [cables_or_cuffs]!")
 	//belt
 	if(belt && !(obscured_slots & HIDEBELT) && !HAS_TRAIT(belt, TRAIT_EXAMINE_SKIP))
-		. += "[t_He] [t_has] [belt.examine_title_worn(user)] about [t_his] waist."
+		. += "[t_He] [t_has] [belt.examine_title(user)] about [t_his] waist."
 	//shoes
 	if(shoes && !(obscured_slots & HIDESHOES)  && !HAS_TRAIT(shoes, TRAIT_EXAMINE_SKIP))
-		. += "[t_He] [t_is] wearing [shoes.examine_title_worn(user)] on [t_his] feet."
-// IRIS EDIT END
+		. += "[t_He] [t_is] wearing [shoes.examine_title(user)] on [t_his] feet."
 
 /// Collects info displayed about any HUDs the user has when examining src
 /mob/living/carbon/proc/get_hud_examine_info(mob/living/user)

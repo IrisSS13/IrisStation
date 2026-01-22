@@ -57,6 +57,7 @@
 		/obj/item/flashlight/pen,
 		/obj/item/reagent_containers/hypospray/medipen,
 		/obj/item/cigarette,
+		/obj/item/holosynth_pen //IRIS EDIT ADDITION - Holosynth may live here if they choose
 	)
 
 /obj/item/modular_computer/pda/Initialize(mapload)

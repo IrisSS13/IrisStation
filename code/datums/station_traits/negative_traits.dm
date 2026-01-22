@@ -152,7 +152,7 @@
 
 /datum/station_trait/slow_shuttle/on_round_start()
 	. = ..()
-	SSshuttle.supply.callTime *= 1.5
+	SSshuttle.supply?.callTime *= 1.5 // The supply shuttle docking port can not exist on debug stations. // IRIS EDIT CHANGE - ORIGINAL: SSshuttle.supply.callTime *= 1.5
 
 /datum/station_trait/bot_languages
 	name = "Bot Language Matrix Malfunction"
@@ -594,7 +594,7 @@
 
 	//Let people order more nebula shielding
 	var/datum/supply_pack/pack = SSshuttle.supply_packs[/datum/supply_pack/engineering/rad_nebula_shielding_kit]
-	pack.special_enabled = TRUE
+	pack.order_flags |= ORDER_SPECIAL_ENABLED
 
 	//Give robotics some radiation protection modules for modsuits
 	var/datum/supply_pack/supply_pack_modsuits = new /datum/supply_pack/engineering/rad_protection_modules()

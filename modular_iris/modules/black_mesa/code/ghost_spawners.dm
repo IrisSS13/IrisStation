@@ -8,7 +8,7 @@
 	flavour_text = "You are a scientist near the Ground Zero of a top secret government facility. You blacked out. Now, you have woken up to the horrors that lay within."
 	important_text = "Do not try to explore the level unless an expedition crew is already present and close to you, and even then, wait at least 20 minutes before leaving your area."
 	restricted_species = list(/datum/species/human)
-	random_appearance = FALSE
+	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 
 /obj/effect/mob_spawn/ghost_role/human/black_mesa/special(mob/living/carbon/human/spawned_human)
 	. = ..()
