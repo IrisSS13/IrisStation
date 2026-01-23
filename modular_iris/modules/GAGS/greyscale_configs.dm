@@ -12,6 +12,26 @@
 	icon_file = 'modular_iris/modules/GAGS/icons/head/head_worn.dmi'
 	json_config = 'modular_iris/modules/GAGS/json_configs/head/headband_thin_worn.json'
 
+/datum/greyscale_config/hijab
+	name = "Hijab"
+	icon_file = 'modular_iris/icons/obj/clothing/suits/jacket.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/head/hijab.json'
+
+/datum/greyscale_config/hijab/worn
+	name = "Hijab (Worn)"
+	icon_file = 'modular_iris/modules/GAGS/icons/head/head_worn.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/head/hijab_worn.json'
+
+/datum/greyscale_config/tudong
+	name = "Tudong"
+	icon_file = 'modular_iris/modules/GAGS/icons/head/head.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/head/tudong.json'
+
+/datum/greyscale_config/tudong/worn
+	name = "Tudong (Worn)"
+	icon_file = 'modular_iris/modules/GAGS/icons/head/head_worn.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/head/tudong_worn.json'
+
 /*
 *	EYES
 */
