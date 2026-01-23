@@ -706,3 +706,15 @@
 	mood_change = 3
 	timeout = 2 MINUTES
 	event_flags = MOOD_EVENT_WHIMSY
+
+// IRIS EDIT START
+
+/datum/mood_event/coffinsleep
+	description = "<span class='nicegreen'>I slept in a coffin during the day. I feel whole again.</span>\n"
+	mood_change = 10
+	timeout = 6 MINUTES
+
+/datum/mood_event/coffinsleep/quirk
+	mood_change = 4
+
+//IRIS EDIT END

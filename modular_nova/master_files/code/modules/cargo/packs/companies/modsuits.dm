@@ -108,6 +108,12 @@
 /datum/supply_pack/companies/modsuits/protection_modules/dampener
 	contains = list(/obj/item/mod/module/projectile_dampener)
 
+// IRIS ADDITION START
+/datum/supply_pack/companies/modsuits/energy_shield
+	contains = list(/obj/item/mod/module/energy_shield/nanotrasen)
+	cost = 10000
+// IRIS ADDITION END
+
 // Medical Mods
 
 /datum/supply_pack/companies/modsuits/medical_modules
