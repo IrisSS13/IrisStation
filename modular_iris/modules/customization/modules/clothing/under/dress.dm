@@ -1,5 +1,5 @@
 /obj/item/clothing/under/dress/iris
-	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon = 'modular_iris/icons/obj/clothing/under/dress.dmi'
 	worn_icon = 'modular_iris/icons/mob/clothing/under/dress.dmi'
 
 /obj/item/clothing/under/dress/iris/princess
@@ -18,9 +18,7 @@
 /obj/item/clothing/under/dress/iris/magic
 	name = "magical dress"
 	desc = "A magical dress, contrary to the name its not actually magic - It simply makes you feel magical with its beguiling style."
-	icon = 'icons/map_icons/clothing/under/dress.dmi'
-	icon_state = "/obj/item/clothing/under/dress/iris/magic"
-	post_init_icon_state = "magical_dress"
+	icon_state = "magical_dress"
 	can_adjust = FALSE
 	alternate_worn_layer = UNDER_SUIT_LAYER
 
