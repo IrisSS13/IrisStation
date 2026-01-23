@@ -673,9 +673,10 @@ GLOBAL_LIST_EMPTY_TYPED(phones, /datum/component/phone)
 	if(call_state != PHONE_STATE_CONNECTED || !calling_phone)
 		return NONE // Allow normal speech to continue
 
-	// Ignore sign language
-	if(speaker.GetComponent(/datum/component/sign_language))
-		return NONE // Allow normal speech to continue
+	// Sign language users who are actively signing cannot use phone
+	if(HAS_TRAIT(speaker, TRAIT_SIGN_LANG))
+		to_chat(speaker, span_warning("You cannot use sign language over the phone. Toggle sign language off to speak normally."))
+		return COMPONENT_CANNOT_SPEAK
 
 	if(direct_talking)
 		// Send to the other phone
