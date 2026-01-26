@@ -10808,10 +10808,17 @@
 /area/station/medical/office)
 "dlc" = (
 /obj/structure/table/reinforced,
-/obj/item/reagent_containers/cup/glass/mug/coco,
+/obj/item/reagent_containers/cup/glass/mug/coco{
+	pixel_x = 7;
+	pixel_y = 0
+	},
 /obj/effect/turf_decal/tile/purple/opposingcorners,
 /obj/effect/turf_decal/tile/purple/anticorner/contrasted{
 	dir = 8
+	},
+/obj/machinery/phone_base/rotary/head_of_staff{
+	pixel_x = -5;
+	pixel_y = 5
 	},
 /turf/open/floor/iron/showroomfloor,
 /area/station/command/heads_quarters/rd)
@@ -10831,6 +10838,11 @@
 	},
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 1
+	},
+/obj/structure/phone_base/captain{
+	pixel_x = -15;
+	dir = 4;
+	pixel_y = 0
 	},
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/captain)
@@ -13884,17 +13896,24 @@
 /obj/effect/turf_decal/tile/dark_green/opposingcorners{
 	dir = 1
 	},
-/obj/item/paper_bin{
-	pixel_y = 4
-	},
 /obj/item/stamp/centcom{
-	pixel_y = 8
+	pixel_y = 13;
+	pixel_x = 0
 	},
 /obj/item/stamp/granted{
 	pixel_x = -6
 	},
 /obj/item/stamp/denied{
-	pixel_x = 6
+	pixel_x = 9;
+	pixel_y = 13
+	},
+/obj/machinery/phone_base/rotary/head_of_staff/no_dnd{
+	pixel_x = -6;
+	pixel_y = 1
+	},
+/obj/item/paper_bin{
+	pixel_y = 2;
+	pixel_x = 7
 	},
 /turf/open/floor/stone,
 /area/station/command/heads_quarters/nt_rep)
@@ -20759,13 +20778,26 @@
 "ggK" = (
 /obj/structure/cable,
 /obj/structure/table/wood,
-/obj/item/stamp/head/hos,
-/obj/item/stamp/denied{
-	pixel_x = 4;
-	pixel_y = 4
+/obj/item/stamp/head/hos{
+	pixel_x = -10;
+	pixel_y = 13
 	},
-/obj/item/folder/red,
-/obj/item/clipboard,
+/obj/item/stamp/denied{
+	pixel_x = -1;
+	pixel_y = 13
+	},
+/obj/item/clipboard{
+	pixel_x = -10;
+	pixel_y = 0
+	},
+/obj/item/folder/red{
+	pixel_x = -7;
+	pixel_y = 1
+	},
+/obj/machinery/phone_base/rotary/head_of_staff/no_dnd{
+	pixel_x = 6;
+	pixel_y = 1
+	},
 /turf/open/floor/carpet/red,
 /area/station/command/heads_quarters/hos)
 "ggN" = (
@@ -51603,9 +51635,18 @@
 "puN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
-/obj/item/storage/wallet,
-/obj/effect/spawner/random/entertainment/coin,
-/obj/effect/spawner/random/entertainment/coin,
+/obj/item/storage/wallet{
+	pixel_x = 4;
+	pixel_y = -2
+	},
+/obj/effect/spawner/random/entertainment/coin{
+	pixel_x = 6;
+	pixel_y = -4
+	},
+/obj/effect/spawner/random/entertainment/coin{
+	pixel_x = 6;
+	pixel_y = -4
+	},
 /obj/item/gps{
 	gpstag = "QM0";
 	pixel_x = -8;
@@ -51620,6 +51661,10 @@
 	pixel_y = -10
 	},
 /obj/effect/turf_decal/tile/neutral/anticorner/contrasted,
+/obj/machinery/phone_base/rotary/head_of_staff{
+	pixel_x = 0;
+	pixel_y = 12
+	},
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/qm)
 "pva" = (
@@ -77602,7 +77647,14 @@
 	},
 /obj/structure/table/glass,
 /obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/item/stamp/head/cmo,
+/obj/item/stamp/head/cmo{
+	pixel_x = -5;
+	pixel_y = 0
+	},
+/obj/machinery/phone_base/rotary/head_of_staff{
+	pixel_x = 7;
+	pixel_y = 1
+	},
 /turf/open/floor/iron/showroomfloor,
 /area/station/command/heads_quarters/cmo)
 "xal" = (
@@ -78082,11 +78134,18 @@
 "xin" = (
 /obj/structure/table,
 /obj/effect/turf_decal/bot,
-/obj/machinery/recharger,
+/obj/machinery/recharger{
+	pixel_x = -5;
+	pixel_y = 0
+	},
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/east,
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 8
+	},
+/obj/machinery/phone_base/rotary/head_of_staff{
+	pixel_x = 8;
+	pixel_y = 5
 	},
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/ce)
