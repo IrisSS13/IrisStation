@@ -7,6 +7,9 @@ export type Channel =
   | 'LOOC'
   | 'Do'
   // NOVA EDIT ADDITION END
+  // IRIS EDIT ADDITION START
+  | 'IRC'
+  // IRIS EDIT ADDITION END
   | 'OOC'
   | 'Admin';
 
@@ -27,6 +30,9 @@ export class ChannelIterator {
     'LOOC',
     'Do',
     // NOVA EDIT ADDITION
+    // IRIS EDIT ADDITION START
+    'IRC',
+    // IRIS EDIT ADDITION END
     'OOC',
     'Admin',
   ];
