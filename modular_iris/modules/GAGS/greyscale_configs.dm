@@ -12,6 +12,26 @@
 	icon_file = 'modular_iris/modules/GAGS/icons/head/head_worn.dmi'
 	json_config = 'modular_iris/modules/GAGS/json_configs/head/headband_thin_worn.json'
 
+/datum/greyscale_config/hijab
+	name = "Hijab"
+	icon_file = 'modular_iris/icons/obj/clothing/suits/jacket.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/head/hijab.json'
+
+/datum/greyscale_config/hijab/worn
+	name = "Hijab (Worn)"
+	icon_file = 'modular_iris/modules/GAGS/icons/head/head_worn.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/head/hijab_worn.json'
+
+/datum/greyscale_config/tudong
+	name = "Tudong"
+	icon_file = 'modular_iris/modules/GAGS/icons/head/head.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/head/tudong.json'
+
+/datum/greyscale_config/tudong/worn
+	name = "Tudong (Worn)"
+	icon_file = 'modular_iris/modules/GAGS/icons/head/head_worn.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/head/tudong_worn.json'
+
 /*
 *	EYES
 */
@@ -152,6 +172,19 @@
 	json_config = 'modular_iris/modules/GAGS/json_configs/neck/spike_worn.json'
 
 /*
+*	ACCESSORIES
+*/
+/datum/greyscale_config/hanbok_goreum
+	name = "Hanbok Goreum"
+	icon_file = 'modular_iris/modules/GAGS/icons/accessories/hanbok_goreum.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/accessories/hanbok_goreum.json'
+
+/datum/greyscale_config/hanbok_goreum/worn
+	name = "Hanbok Goreum (Worn)"
+	icon_file = 'modular_iris/modules/GAGS/icons/accessories/hanbok_goreum_worn.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/accessories/hanbok_goreum_worn.json'
+
+/*
 *	SUITS
 */
 
@@ -184,6 +217,17 @@
 	name = "Worn Bartender's Tailcoat - Digitigrade"
 	icon_file = 'modular_iris/monke_ports/icons/mob/clothing/suits/jacket_digi.dmi'
 
+//Jeogori, sprite from SweetToothArt
+/datum/greyscale_config/hanbok_jeogori
+	name = "Hanbok Jeogori"
+	icon_file = 'modular_iris/icons/obj/clothing/suits/jacket.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/suits/hanbok_jeogori.json'
+
+/datum/greyscale_config/hanbok_jeogori/worn
+	name = "Hanbok Jeogori (Worn)"
+	icon_file = 'modular_iris/icons/mob/clothing/suits/jacket.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/suits/hanbok_jeogori_worn.json'
+
 /*
 *	UNDER
 */
@@ -195,6 +239,16 @@
 /datum/greyscale_config/princess_dress/worn
 	name = "Princess Dress (Worn)"
 	icon_file = 'modular_iris/icons/mob/clothing/under/dress.dmi'
+
+/datum/greyscale_config/hanbok_chima
+	name = "Hanbok Chima"
+	icon_file = 'modular_iris/icons/obj/clothing/under/dress.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/under/dresses/hanbok_chima.json'
+
+/datum/greyscale_config/hanbok_chima/worn
+	name = "Hanbok Chima (Worn)"
+	icon_file = 'modular_iris/icons/mob/clothing/under/dress.dmi'
+	json_config = 'modular_iris/modules/GAGS/json_configs/under/dresses/hanbok_chima_worn.json'
 
 /*
 *	SHOES

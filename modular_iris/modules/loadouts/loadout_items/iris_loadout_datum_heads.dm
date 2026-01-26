@@ -24,3 +24,12 @@
 	name = "Propeller Hat"
 	item_path = /obj/item/clothing/head/soft/propeller_hat
 
+/datum/loadout_item/head/hijab
+	name = "Hijab"
+	item_path = /obj/item/clothing/head/iris/hijab
+
+/datum/loadout_item/head/tudong
+	name = "Tudong"
+	item_path = /obj/item/clothing/head/iris/tudong
+
+
