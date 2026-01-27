@@ -1,0 +1,34 @@
+/mob/living/basic/daemons/angel
+	name = "An Emissary"
+	desc = "Whatever this is, you cant stop looking at it -- No matter which angle or perspective you perceive it from, it is always facing towards you. A breadth of wings spreads outwards from a coalesced darkness. Light doth not shine where God shies its visage."
+	icon = 'modular_iris/icons/mob/simple/angel.dmi'
+	icon_state = "idle"
+	icon_living = "idle"
+	icon_dead = "idle"
+	speed = 0.
+	maxHealth = 1500
+	health = 1500
+	obj_damage = 100
+	pixel_x = -40
+	pixel_y = -20
+	melee_damage_lower = -100
+	melee_damage_upper = -100
+	max_grab = GRAB_AGGRESSIVE
+	faction = list(FACTION_NEUTRAL)
+	melee_attack_cooldown = CLICK_CD_MELEE
+	response_help_continuous = "pets"
+	response_help_simple = "pet"
+	speak_emote = list("sings")
+	initial_language_holder = /datum/language_holder/human_basic
+	damage_coeff = list(BRUTE = 0, BURN = 0, TOX = 0, STAMINA = 0, OXY = 0)
+	attack_verb_continuous = "strikes"
+	attack_verb_simple = "strike"
+	attack_sound = 'modular_iris/sound/daemons/angel_strike.ogg'
+	unsuitable_cold_damage = 0
+	unsuitable_heat_damage = 0
+	attack_vis_effect = ATTACK_EFFECT_VOID
+	unique_name = FALSE
+	max_stamina = 500
+	stamina_crit_threshold = BASIC_MOB_NO_STAMCRIT
+	stamina_recovery = 5
+	max_stamina_slowdown = 0
