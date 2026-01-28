@@ -3288,9 +3288,15 @@
 "Aq" = (
 /obj/item/gps/computer/space{
 	name = "transponder computer";
-	desc = "The onboard computer responsible for maintaining the ship's transponder signal. Fitted with an onboard long-life battery to ensure that the ship keeps transmitting its signal as long as possible."
+	desc = "The onboard computer responsible for maintaining the ship's transponder signal. Fitted with an onboard long-life battery to ensure that the ship keeps transmitting its signal as long as possible.";
+	gpstag = "BRISTOLCLASS_IDLE_TRANSPONDER"
 	},
 /obj/effect/turf_decal/bot_white,
+/obj/item/paper/crumpled{
+	pixel_x = 7;
+	pixel_y = 14;
+	default_raw_text = "NOTICE FROM JOHNSON AND COMPANY FLEETYARDS: The transponder unit automatically resets itself every now and then. You'll know when it does because it'll switch from the ship's name to BRISTOLCLASS_IDLE or something like that. Make sure to check every now and then."
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/indie_freighter/vault)
 "Av" = (
