@@ -552,9 +552,9 @@
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper"
 	mob_species = /datum/species/human
-    you_are_text = "You are an excavator working on a Bristol-class freighter, lumbering through Cabriole."
-    flavour_text = "Whether it be shipbreaking or asteroid mining, you took up work on this ship to keep it supplied with what little it can't produce itself; and may find yourself taking up other jobs onboard as the need arises, such as defending the ship."
-    important_text = "Listen to your captain, and don't abandon your crew."
+	you_are_text = "You are an excavator working on a Bristol-class freighter, lumbering through Cabriole."
+	flavour_text = "Whether it be shipbreaking or asteroid mining, you took up work on this ship to keep it supplied with what little it can't produce itself; and may find yourself taking up other jobs onboard as the need arises, such as defending the ship."
+	important_text = "Listen to your captain, and don't abandon your crew."
 	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 	quirks_enabled = TRUE
 	loadout_enabled = TRUE
@@ -593,9 +593,9 @@
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper"
 	mob_species = /datum/species/human
-    you_are_text = "You are the commanding officer of a Bristol-class freighter, lumbering through Cabriole."
-    flavour_text = "Whether you own it yourself or operate it for a larger firm, you have packages to deliver and there is salvage to take. You run the show here; don't let it get to your head."
-    important_text = "Do not abandon your crew, and don't risk incurring the wrath of any of the larger players in Cabriole."
+	you_are_text = "You are the commanding officer of a Bristol-class freighter, lumbering through Cabriole."
+	flavour_text = "Whether you own it yourself or operate it for a larger firm, you have packages to deliver and there is salvage to take. You run the show here; don't let it get to your head."
+	important_text = "Do not abandon your crew, and don't risk incurring the wrath of any of the larger players in Cabriole."
 	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 	quirks_enabled = TRUE
 	loadout_enabled = TRUE
