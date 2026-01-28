@@ -512,16 +512,16 @@
 
 /obj/effect/mob_spawn/ghost_role/human/lostcargo
 	name = "freighter cryo crew pod"
-	prompt_name = "a lost cargo tech"
+	prompt_name = "a cargo tech"
 	desc = "A humming cryo pod. There's a freight hauler inside."
 	outfit = /datum/outfit/freighter_crew
 	spawner_job_path = /datum/job/freighter_crew
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper"
 	mob_species = /datum/species/human
-	you_are_text = "You were running cargo, a typical freight job until pirates attacked. You and your crewmates just barely made it, but the engines are shot. You're trapped in space now, only able to work together to survive this nightmare."
-	flavour_text = "You were running cargo, a typical freight job until pirates attacked. You and your crewmates just barely made it, but the engines are shot. You're trapped in space now, only able to work together to survive this nightmare."
-	important_text = "Work with your crew and don't abandon them. You are not directly working with NT, you are an independent freighter crew for the ship's Chief. Your job was merely being a deckhand doing freight work and helping with kitchen prep."
+	you_are_text = "You are a deckhand working on a Bristol-class freighter, lumbering through Cabriole."
+	flavour_text = "You took up work on the ship to do anything from running its twin Stirling generators and hauling freight to manning the medical bay and keeping the crew fed."
+	important_text = "Listen to your captain and don't abandon your crew."
 	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 	quirks_enabled = TRUE
 	loadout_enabled = TRUE
@@ -545,16 +545,16 @@
 
 /obj/effect/mob_spawn/ghost_role/human/lostminer
 	name = "freighter cryo excavator pod"
-	prompt_name = "a lost miner"
+	prompt_name = "a miner or shipbreaker"
 	desc = "A humming cryo pod. There's an excavation worker inside."
 	outfit = /datum/outfit/freighter_excavator
 	spawner_job_path = /datum/job/freighter_crew
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper"
 	mob_species = /datum/species/human
-	you_are_text = "You were running cargo, a typical freight job until pirates attacked. You and your crewmates just barely made it, but the engines are shot. You're trapped in space now, only able to work together to survive this nightmare."
-	flavour_text = "You were running cargo, a typical freight job until pirates attacked. You and your crewmates just barely made it, but the engines are shot. You're trapped in space now, only able to work together to survive this nightmare."
-	important_text = "Work with your crew and don't abandon them. You are not directly working with NT, you are an independent freighter crew working under the ship Chief. Your role was to be an excavation and salvage worker for the ship."
+	you_are_text = "You are an excavator working on a Bristol-class freighter, lumbering through Cabriole."
+	flavour_text = "Whether it be shipbreaking or asteroid mining, you took up work on this ship to keep it supplied with what little it can't produce itself; and may find yourself taking up other jobs onboard as the need arises, such as defending the ship."
+	important_text = "Listen to your captain, and don't abandon your crew."
 	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 	quirks_enabled = TRUE
 	loadout_enabled = TRUE
@@ -586,16 +586,16 @@
 
 /obj/effect/mob_spawn/ghost_role/human/lostcargoqm
 	name = "freighter cryo boss pod"
-	prompt_name = "a lost Quartermaster"
+	prompt_name = "a Quartermaster or other form of commander"
 	desc = "A humming cryo pod. You see someone who looks In Charge inside."
 	outfit = /datum/outfit/freighter_boss
 	spawner_job_path = /datum/job/freighter_crew
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper"
 	mob_species = /datum/species/human
-	you_are_text = "You and your crew were running a normal freight haul until a pirate attack knocked out the engines. All you can do now is try and survive and keep your crew alive."
-	flavour_text = "You and your crew were running a normal freight haul until a pirate attack knocked out the engines. All you can do now is try and survive and keep your crew alive."
-	important_text = "Do not abandon your crew, lead them and work with them to survive. You are not directly working with NT, you are an independent freighter crew. You are the captain of the ship, which you purchased a while ago, and are in charge of the crew."
+	you_are_text = "You are the commanding officer of a Bristol-class freighter, lumbering through Cabriole."
+	flavour_text = "Whether you own it yourself or operate it for a larger firm, you have packages to deliver and there is salvage to take. You run the show here; don't let it get to your head."
+	important_text = "Do not abandon your crew, and don't risk incurring the wrath of any of the larger players in Cabriole."
 	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 	quirks_enabled = TRUE
 	loadout_enabled = TRUE
