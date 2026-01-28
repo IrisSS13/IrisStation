@@ -519,9 +519,9 @@
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper"
 	mob_species = /datum/species/human
-    you_are_text = "You are a deckhand working on a Bristol-class freighter, lumbering through Cabriole."
-    flavour_text = "You took up work on the ship to do anything from running its twin Stirling generators and hauling freight to manning the medical bay and keeping the crew fed."
-    important_text = "Listen to your captain and don't abandon your crew."
+	you_are_text = "You are a deckhand working on a Bristol-class freighter, lumbering through Cabriole."
+	flavour_text = "You took up work on the ship to do anything from running its twin Stirling generators and hauling freight to manning the medical bay and keeping the crew fed."
+	important_text = "Listen to your captain and don't abandon your crew."
 	allow_custom_character = GHOSTROLE_TAKE_PREFS_APPEARANCE
 	quirks_enabled = TRUE
 	loadout_enabled = TRUE
