@@ -5,7 +5,7 @@
 	if(breath_request>0)
 		if(ismob(loc))
 			//but we're not done yet, because if we call return_air() without declaring loc.loc as a turf variable, it will try to breathe from the turf using the wrong verison of return_air()
-			var/turf/mobs_turf = loc.loc
+			var/turf/mobs_turf = get_turf(src)
 
 			var/datum/gas_mixture/environment = mobs_turf.return_air()
 			var/breath_percentage = BREATH_VOLUME / environment.return_volume()
