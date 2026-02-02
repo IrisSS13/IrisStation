@@ -5,7 +5,7 @@
 
 /obj/structure/window/fulltile/Initialize(mapload, direct)
 	. = ..()
-	qdel(GetComponent(/datum/component/simple_rotation))
+	RemoveElement(/datum/element/simple_rotation)
 
 /obj/structure/window/reinforced/fulltile
 	icon = 'modular_nova/modules/aesthetics/windows/icons/r_window.dmi'
@@ -13,7 +13,7 @@
 
 /obj/structure/window/reinforced/fulltile/Initialize(mapload, direct)
 	. = ..()
-	qdel(GetComponent(/datum/component/simple_rotation))
+	RemoveElement(/datum/element/simple_rotation)
 
 /obj/structure/window/reinforced/tinted/fulltile
 	icon = 'modular_nova/modules/aesthetics/windows/icons/r_window_tinted.dmi'
@@ -23,7 +23,7 @@
 
 /obj/structure/window/reinforced/tinted/fulltile/Initialize(mapload, direct)
 	. = ..()
-	qdel(GetComponent(/datum/component/simple_rotation))
+	RemoveElement(/datum/element/simple_rotation)
 
 /obj/structure/window/plasma/fulltile
 	icon = 'modular_nova/modules/aesthetics/windows/icons/window_plasma.dmi'
@@ -33,7 +33,7 @@
 
 /obj/structure/window/plasma/fulltile/Initialize(mapload, direct)
 	. = ..()
-	qdel(GetComponent(/datum/component/simple_rotation))
+	RemoveElement(/datum/element/simple_rotation)
 
 /obj/structure/window/reinforced/plasma/fulltile
 	icon = 'modular_nova/modules/aesthetics/windows/icons/r_window_plasma.dmi'
@@ -43,7 +43,7 @@
 
 /obj/structure/window/reinforced/plasma/fulltile/Initialize(mapload, direct)
 	. = ..()
-	qdel(GetComponent(/datum/component/simple_rotation))
+	RemoveElement(/datum/element/simple_rotation)
 
 /obj/structure/window/reinforced/fulltile/ice
 */

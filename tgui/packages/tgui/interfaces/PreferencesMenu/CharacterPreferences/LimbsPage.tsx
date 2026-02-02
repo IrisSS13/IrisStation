@@ -190,7 +190,7 @@ export const AugmentationPage = (props) => {
 export const OrganPage = (props) => {
   const { act } = useBackend<PreferencesMenuData>();
   const { data } = useBackend<PreferencesMenuData>();
-  let balance = -data.quirks_balance;
+  const balance = -data.quirks_balance;
   return (
     <Stack.Item>
       <Stack fill>
@@ -224,7 +224,7 @@ export const LimbsPage = (props) => {
   const { data } = useBackend<PreferencesMenuData>();
   const { act } = useBackend<PreferencesMenuData>();
   const markings = data.marking_presets ? data.marking_presets : [];
-  let balance = -data.quirks_balance;
+  const balance = -data.quirks_balance;
   return (
     <Stack minHeight="100%">
       <Stack.Item minWidth="33%" minHeight="100%">

@@ -437,7 +437,6 @@ class ChatRenderer {
 
           reactRoot.render(
             <Element {...outputProps}>
-              {/** biome-ignore lint/security/noDangerouslySetInnerHtml: its fine */}
               <span dangerouslySetInnerHTML={oldHtml} />
             </Element>,
           );

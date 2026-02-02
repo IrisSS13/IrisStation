@@ -290,7 +290,7 @@ function SpeciesPageInner(props: SpeciesPageInnerProps) {
           <Stack.Item>
             <Box height="calc(100vh - 170px)" overflowY="auto" pr={3}>
               {species.map(([speciesKey, species]) => {
-                let speciesPage = (
+                const speciesPage = (
                   <Button
                     key={speciesKey}
                     onClick={() => {

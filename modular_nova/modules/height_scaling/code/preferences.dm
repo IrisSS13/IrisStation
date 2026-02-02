@@ -10,7 +10,7 @@
 		"[HUMAN_HEIGHT_MEDIUM]" = "Medium",
 		"[HUMAN_HEIGHT_TALL]" = "Tall",
 		"[HUMAN_HEIGHT_TALLER]" = "Taller",
-		"[HUMAN_HEIGHT_TALLEST]" = "Tallest"
+		"[HUMAN_HEIGHT_TALLEST]" = "Tallest",
 	)
 
 	/// List of strings, representing quirk ids that prevent this from applying and being accessed.
@@ -20,7 +20,13 @@
 	)
 
 /datum/preference/choiced/height_scaling/init_possible_values()
-	return list(HUMAN_HEIGHT_SHORTEST, HUMAN_HEIGHT_SHORT, HUMAN_HEIGHT_MEDIUM, HUMAN_HEIGHT_TALL, HUMAN_HEIGHT_TALLER, HUMAN_HEIGHT_TALLEST)
+	return list(
+		HUMAN_HEIGHT_SHORT,
+		HUMAN_HEIGHT_MEDIUM,
+		HUMAN_HEIGHT_TALL,
+		HUMAN_HEIGHT_TALLER,
+		HUMAN_HEIGHT_TALLEST,
+	)
 
 /datum/preference/choiced/height_scaling/create_default_value()
 	return HUMAN_HEIGHT_MEDIUM
@@ -31,7 +37,9 @@
 	if(!.)
 		return
 
-	if (ispath(preferences?.pref_species, /datum/species/dwarf)) // all 3 of these manually set your height
+	var/species_type = preferences.read_preference(/datum/preference/choiced/species)
+	var/datum/species/current_species = GLOB.species_prototypes[species_type]
+	if (istype(current_species, /datum/species/dwarf)) // all 3 of these manually set your height
 		return FALSE
 
 	for (var/quirk_id in preferences?.all_quirks)

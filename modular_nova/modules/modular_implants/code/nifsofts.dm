@@ -167,6 +167,7 @@
 	desc = "A stylised nanite-infused 'magnetic' tape is perpetually spinning inside. It can be used to upload a loaded NIFSoft to the user's NIF."
 	icon = 'modular_nova/modules/modular_implants/icons/obj/disks.dmi'
 	icon_state = "base_disk"
+	sticker_icon_state = null
 	///What NIFSoft is currently loaded in?
 	var/datum/nifsoft/loaded_nifsoft = /datum/nifsoft
 	///Is the datadisk reusable?
@@ -176,6 +177,9 @@
 	. = ..()
 
 	name = "[initial(loaded_nifsoft.name)] datadisk"
+
+/obj/item/disk/nifsoft_uploader/setup_reskins()
+	return
 
 /obj/item/disk/nifsoft_uploader/examine(mob/user)
 	. = ..()
