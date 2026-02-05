@@ -131,6 +131,7 @@
 			if (human_holder.mind.assigned_role.title == role_exceptions[capitalize(modsuit_skin)])
 				should_apply_lock = FALSE
 
+
 	// If the skin itself is role-locked and the user lacks the role, fall back the skin
 	if (should_apply_lock && locked_combinations[capitalize(modsuit_skin)])
 		to_chat(human_holder, span_warning("The [modsuit_skin] MODsuit skin is restricted to a specific role. Defaulting to the civilian skin."))
@@ -164,10 +165,6 @@
 			modsuit.icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi'
 			modsuit.worn_icon = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi'
 
-	else if(modsuit.skin == "voskhod")
-		modsuit.icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi'
-		modsuit.worn_icon = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi'
-
 	var/modsuit_name = client_source?.prefs.read_preference(/datum/preference/text/entombed_mod_name)
 	if (modsuit_name)
 		modsuit.name = modsuit_name
@@ -188,10 +185,6 @@
 			if ("colonist", "tarkon", "voskhod")
 				part.icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi'
 				part.worn_icon = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi'
-
-		else if(modsuit.skin == "voskhod")
-			part.icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_clothing.dmi'
-			part.worn_icon = 'modular_nova/master_files/icons/mob/clothing/modsuit/mod_clothing.dmi'
 
 	install_racial_features()
 

@@ -17,6 +17,6 @@
 
 /datum/storage/mod_storage/bluespace
 	max_total_storage = 60
-	max_slots = 21
+	max_slots = 30 /// IRIS EDIT: Changed to be the same as BoH considering it's admin-only and to be above the nerfed version
 	max_specific_storage = WEIGHT_CLASS_GIGANTIC
 	allow_big_nesting = TRUE

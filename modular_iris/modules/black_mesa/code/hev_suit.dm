@@ -700,6 +700,25 @@
 	mask_type = /obj/item/clothing/mask/gas/alt
 	storage_type = /obj/item/tank/internals/oxygen
 
+/datum/atom_skin/pcv
+	abstract_type = /datum/atom_skin/pcv
+	change_base_icon_state = TRUE
+
+/datum/atom_skin/pcv/basic
+	preview_name = "Basic"
+	new_icon_state = "hecu_helm"
+
+/datum/atom_skin/pcv/corpsman
+	preview_name = "Corpsman"
+	new_icon_state = "hecu_helm_medic"
+
+/datum/atom_skin/pcv/basicblack
+	preview_name = "Basic Black"
+	new_icon_state = "hecu_helm_black"
+
+/datum/atom_skin/pcv/corpsmanblack
+	preview_name = "Corpsman Black"
+	new_icon_state = "hecu_helm_medic_black"
 
 /obj/item/clothing/head/helmet/space/hev_suit/pcv
 	name = "powered combat helmet"
@@ -720,25 +739,9 @@
 	visor_flags_inv = null
 	visor_flags = null
 	slowdown = 0
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Basic" = list(
-			RESKIN_ICON_STATE = "hecu_helm",
-			RESKIN_WORN_ICON_STATE = "hecu_helm"
-		),
-		"Corpsman" = list(
-			RESKIN_ICON_STATE = "hecu_helm_medic",
-			RESKIN_WORN_ICON_STATE = "hecu_helm_medic"
-		),
-		"Basic Black" = list(
-			RESKIN_ICON_STATE = "hecu_helm_black",
-			RESKIN_WORN_ICON_STATE = "hecu_helm_black"
-		),
-		"Corpsman Black" = list(
-			RESKIN_ICON_STATE = "hecu_helm_medic_black",
-			RESKIN_WORN_ICON_STATE = "hecu_helm_medic_black"
-		),
-	)
+
+/obj/item/clothing/head/helmet/space/hev_suit/pcv/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/pcv)
 
 /datum/armor/hev_suit_pcv
 	melee = 30

@@ -10,14 +10,14 @@ GLOBAL_LIST_EMPTY(customizable_races)
 	var/reagent_flags = PROCESS_ORGANIC
 	///Whether a species can use augmentations in preferences
 	var/can_augment = TRUE
-	///Self explanatory
-	var/can_have_genitals = TRUE
 	///Override for the alpha of bodyparts and mutant parts.
 	var/specific_alpha = 255
 	///Override for alpha value of markings, should be much lower than the above value.
 	var/markings_alpha = 255
 	///If a species can always be picked in prefs for the purposes of customizing it for ghost roles or events
 	var/always_customizable = FALSE
+	/// If a species requires the player to be a Nova star to be able to pick it.
+	var/nova_stars_only = FALSE
 	///Flavor text of the species displayed on character creation screeen
 	var/flavor_text = "No description."
 	///Path to BODYSHAPE_CUSTOM species worn icons. An assoc list of ITEM_SLOT_X => /icon
@@ -56,6 +56,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 		STOP_PROCESSING(SSobj, old_stomach)
 
 /datum/species/dullahan
+	nova_stars_only = TRUE
 	outfit_important_for_life = /datum/outfit/dullahan
 
 /datum/species/dullahan/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only)
@@ -130,7 +131,6 @@ GLOBAL_LIST_EMPTY(customizable_races)
 		mutantpart_list = existing_mutant_bodyparts.Copy()
 
 	var/list/default_bodypart_data = GLOB.default_mutant_bodyparts[name]
-	var/list/bodyparts_to_add = default_bodypart_data.Copy()
 
 	for(var/key, bodypart_to_add in default_bodypart_data)
 		// Skip if there's an existing sprite accessory

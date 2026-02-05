@@ -1,6 +1,6 @@
 // visor  skins
 /datum/atom_skin/techno_visor
-	abstract_type = /datum/atom_skin/technovisor
+	abstract_type = /datum/atom_skin/techno_visor
 	change_base_icon_state = TRUE
 
 /datum/atom_skin/techno_visor/black
@@ -42,6 +42,9 @@
 /obj/item/clothing/glasses/techno_visor/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/glasses_stats_thief)
+
+/obj/item/clothing/glasses/techno_visor/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/techno_visor)
 
 /obj/item/clothing/glasses/techno_visor/change_glass_color(new_color_type)
 	if(glass_colour_type)

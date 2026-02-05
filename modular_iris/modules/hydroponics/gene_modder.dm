@@ -442,7 +442,6 @@
 	icon_state = "datadisk_hydro"
 	custom_materials = list(/datum/material/iron=30, /datum/material/glass=10)
 	var/datum/plant_gene/gene
-	var/read_only = 0 //Well, it's still a floppy disk
 	obj_flags = UNIQUE_RENAME
 
 /obj/item/disk/plantgene/Initialize()
