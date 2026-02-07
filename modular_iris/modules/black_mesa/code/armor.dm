@@ -1,3 +1,23 @@
+/datum/atom_skin/hecu_vest
+	abstract_type = /datum/atom_skin/hecu_vest
+	change_base_icon_state = TRUE
+
+/datum/atom_skin/hecu_vest/basic
+	preview_name = "Basic"
+	new_icon_state = "ceramic_vest"
+
+/datum/atom_skin/hecu_vest/corpsman
+	preview_name = "Corpsman"
+	new_icon_state = "ceramic_vest_medic"
+
+/datum/atom_skin/hecu_vest/basicblack
+	preview_name = "Basic Black"
+	new_icon_state = "ceramic_vest_black"
+
+/datum/atom_skin/hecu_vest/corpsmanblack
+	preview_name = "Corpsman Black"
+	new_icon_state = "ceramic_vest_medic_black"
+
 /obj/item/clothing/suit/armor/vest/hecu
 	name = "combat vest"
 	desc = "Vest designed to take heavy beating and probably keep the user alive in the process."
@@ -6,25 +26,9 @@
 	icon = 'modular_nova/modules/awaymissions_nova/icons/hecucloth.dmi'
 	worn_icon = 'modular_nova/modules/awaymissions_nova/icons/hecumob.dmi'
 	worn_icon_digi = 'modular_nova/modules/awaymissions_nova/icons/hecumob_digi.dmi'
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Basic" = list(
-			RESKIN_ICON_STATE = "ceramic_vest",
-			RESKIN_WORN_ICON_STATE = "ceramic_vest"
-		),
-		"Corpsman" = list(
-			RESKIN_ICON_STATE = "ceramic_vest_medic",
-			RESKIN_WORN_ICON_STATE = "ceramic_vest_medic"
-		),
-		"Basic Black" = list(
-			RESKIN_ICON_STATE = "ceramic_vest_black",
-			RESKIN_WORN_ICON_STATE = "ceramic_vest_black"
-		),
-		"Corpsman Black" = list(
-			RESKIN_ICON_STATE = "ceramic_vest_medic_black",
-			RESKIN_WORN_ICON_STATE = "ceramic_vest_medic_black"
-		),
-	)
+
+/obj/item/clothing/suit/armor/vest/hecu/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/hecu_vest)
 
 /datum/armor/vest_hecu
 	melee = 40
@@ -36,6 +40,26 @@
 	acid = 100
 	wound = 30
 
+/datum/atom_skin/hecu_helmet
+	abstract_type = /datum/atom_skin/hecu_helmet
+	change_base_icon_state = TRUE
+
+/datum/atom_skin/hecu_helmet/basic
+	preview_name = "Basic"
+	new_icon_state = "ceramic_helmet"
+
+/datum/atom_skin/hecu_helmet/corpsman
+	preview_name = "Corpsman"
+	new_icon_state = "ceramic_helmet_medic"
+
+/datum/atom_skin/hecu_helmet/basicblack
+	preview_name = "Basic Black"
+	new_icon_state = "ceramic_helmet_black"
+
+/datum/atom_skin/hecu_helmet/corpsmanblack
+	preview_name = "Corpsman Black"
+	new_icon_state = "ceramic_helmet_medic_black"
+
 /obj/item/clothing/head/helmet/hecu
 	name = "combat helmet"
 	desc = "Helmet designed to take heavy beating and probably keep the user alive in the process."
@@ -44,25 +68,9 @@
 	icon = 'modular_nova/modules/awaymissions_nova/icons/hecucloth.dmi'
 	worn_icon = 'modular_nova/modules/awaymissions_nova/icons/hecumob.dmi'
 	worn_icon_digi = 'modular_nova/modules/awaymissions_nova/icons/hecumob_muzzled.dmi'
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Basic" = list(
-			RESKIN_ICON_STATE = "ceramic_helmet",
-			RESKIN_WORN_ICON_STATE = "ceramic_helmet"
-		),
-		"Corpsman" = list(
-			RESKIN_ICON_STATE = "ceramic_helmet_medic",
-			RESKIN_WORN_ICON_STATE = "ceramic_helmet_medic"
-		),
-		"Basic Black" = list(
-			RESKIN_ICON_STATE = "ceramic_helmet_black",
-			RESKIN_WORN_ICON_STATE = "ceramic_helmet_black"
-		),
-		"Corpsman Black" = list(
-			RESKIN_ICON_STATE = "ceramic_helmet_medic_black",
-			RESKIN_WORN_ICON_STATE = "ceramic_helmet_medic_black"
-		),
-	)
+
+/obj/item/clothing/head/helmet/hecu/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/hecu_helmet)
 
 /datum/armor/helmet_hecu
 	melee = 30
