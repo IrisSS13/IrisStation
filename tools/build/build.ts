@@ -179,6 +179,27 @@ export const DmMapsIncludeTarget = new Juke.Target({
 
     foldersNova.push(...Juke.glob('_maps/nova/**/*.dmm'));
     // NOVA EDIT ADDITION END
+
+    // IRIS EDIT ADDITION START
+    const isIrisTemplate = (file: string) =>
+      file.startsWith('_maps/iris/') ||
+      file.startsWith('_maps/RandomRuins/SpaceRuins/iris/') ||
+      file.startsWith('_maps/RandomRuins/IceRuins/iris/') ||
+      file.startsWith('_maps/RandomRuins/LavaRuins/iris/') ||
+      file.startsWith('_maps/shuttles/iris/');
+
+    const foldersIris = [];
+    for (let i = folders.length - 1; i >= 0; i--) {
+      const file = folders[i];
+      if (isNovaTemplate(file)) {
+        foldersIris.push(file);
+        folders.splice(i, 1); // remove from folders
+      }
+    }
+
+    foldersIris.push(...Juke.glob('_maps/iris/**/*.dmm'));
+    // IRIS EDIT ADDITION END
+
     const content = `${folders
       .map((file) => file.replace('_maps/', ''))
       .map((file) => `#include "${file}"`)
@@ -191,6 +212,13 @@ export const DmMapsIncludeTarget = new Juke.Target({
       .join('\n')}\n`;
     fs.writeFileSync('_maps/templates_nova.dm', contentNova);
     // NOVA EDIT ADDITION END
+    // IRIS EDIT ADDITION START
+    const contentIris = `${foldersIris
+      .map((file) => file.replace('_maps/', ''))
+      .map((file) => `#include "${file}"`)
+      .join('\n')}\n`;
+    fs.writeFileSync('_maps/templates_iris.dm', contentIris);
+    // IRIS EDIT ADDITION END
   },
 });
 
@@ -205,6 +233,7 @@ export const DmTarget = new Juke.Target({
   dependsOn: ({ get }) => [
     get(DefineParameter).includes('ALL_TEMPLATES') && DmMapsIncludeTarget,
     get(DefineParameter).includes('NOVA_TEMPLATES') && DmMapsIncludeTarget, // NOVA EDIT ADDITION
+    get(DefineParameter).includes('IRIS_TEMPLATES') && DmMapsIncludeTarget, // IRIS EDIT ADDITION
     !get(SkipIconCutter) && IconCutterTarget,
   ],
   inputs: [
@@ -216,8 +245,8 @@ export const DmTarget = new Juke.Target({
     'interface/**',
     'sound/**',
     'tgui/public/tgui.html',
-    "modular_nova/**", ///NOVA EDIT ADDITION - Making the CBT work
-    "modular_iris/**", /// IRIS ADDITION
+    'modular_nova/**', ///NOVA EDIT ADDITION - Making the CBT work
+    'modular_iris/**', /// IRIS ADDITION
     `${DME_NAME}.dme`,
     NamedVersionFile,
   ],
@@ -289,6 +318,7 @@ export const AutowikiTarget = new Juke.Target({
   ],
   dependsOn: ({ get }) => [
     get(DefineParameter).includes('NOVA_TEMPLATES') && DmMapsIncludeTarget, // NOVA EDIT ADDITION
+    get(DefineParameter).includes('IRIS_TEMPLATES') && DmMapsIncludeTarget, // IRIS EDIT ADDITION
     IconCutterTarget,
   ],
   outputs: ['data/autowiki_edits.txt'],
