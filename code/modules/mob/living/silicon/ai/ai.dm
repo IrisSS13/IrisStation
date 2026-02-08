@@ -1055,7 +1055,13 @@
 	SIGNAL_HANDLER
 	if(deployed_shell) //Forcibly call back AI in event of things such as damage, EMP or power loss.
 		to_chat(src, span_danger("Your remote connection has been reset!"))
-		deployed_shell.undeploy()
+		//Iris change
+		if(ishuman(deployed_shell)) //This sucks but we've got to route the proc into the brain since it'll not work otherwise.
+			var/obj/item/organ/brain/cybernetic/ai/shell_to_disconnect = deployed_shell.get_organ_by_type(/obj/item/organ/brain/cybernetic/ai)
+			shell_to_disconnect.undeploy()
+		else
+			deployed_shell.undeploy()
+		//Iris change end.
 	diag_hud_set_deployed()
 
 /mob/living/silicon/ai/resist()
