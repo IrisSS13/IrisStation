@@ -25,9 +25,11 @@
 	minimal_access |= ACCESS_WEAPONS
 	return ..()
 
+/* IRIS REMOVAL START
 /datum/id_trim/job/clown/New()
 	minimal_access |= ACCESS_WEAPONS
 	return ..()
+IRIS REMOVAL END */
 
 /datum/id_trim/job/blueshield
 	assignment = "Blueshield"
