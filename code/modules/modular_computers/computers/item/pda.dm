@@ -43,6 +43,7 @@
 	///Static list of default PDA apps to install on Initialize.
 	var/static/list/datum/computer_file/pda_programs = list(
 		/datum/computer_file/program/messenger,
+		/datum/computer_file/program/chatclient, // IRIS EDIT ADDITION - NTNRC_FOR_ALL (ported from https://github.com/DopplerShift13/DopplerShift/pull/205)
 		/datum/computer_file/program/nt_pay,
 		/datum/computer_file/program/notepad,
 		/datum/computer_file/program/crew_manifest,
@@ -324,6 +325,7 @@
 	has_pda_programs = FALSE
 	starting_programs = list(
 		/datum/computer_file/program/messenger,
+		/datum/computer_file/program/chatclient, // IRIS EDIT ADDITION - Chat client for AI
 	)
 
 	///Ref to the RoboTact app. Important enough to borgs to deserve a ref.
@@ -346,6 +348,7 @@
 		/datum/computer_file/program/atmosscan,
 		/datum/computer_file/program/crew_manifest,
 		/datum/computer_file/program/messenger, // NOVA EDIT ADDITION - Messenger for borgs
+		/datum/computer_file/program/chatclient, // IRIS EDIT ADDITION - Chat client for borgs
 	)
 
 /obj/item/modular_computer/pda/silicon/Initialize(mapload)
