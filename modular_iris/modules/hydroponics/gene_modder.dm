@@ -446,9 +446,8 @@
 
 /obj/item/disk/plantgene/Initialize()
 	. = ..()
-	add_overlay("datadisk_gene")
-	src.pixel_x = rand(-5, 5)
-	src.pixel_y = rand(-5, 5)
+	icon_state = "datadisk[rand(0,7)]"
+	set_sticker_icon_state(pick("o_dna1", "o_dna2"))
 
 /obj/item/disk/plantgene/proc/update_disk_name()
 	if(gene)
