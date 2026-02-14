@@ -219,13 +219,7 @@ GLOBAL_LIST_EMPTY(cortical_borers)
 
 	name = "[initial(name)] ([generation]-[rand(100,999)])" //so their gen and a random. ex 1-288 is first gen named 288, 4-483 if fourth gen named 483
 
-	if(prob(5))
-		var/switching = rand(1,2)
-		switch(switching)
-			if(1)
-				name = "cortical boner ([generation]-[rand(100,999)])"
-			if(2)
-				name = "cortical vorer ([generation]-[rand(100,999)])"
+	//Iris removal - that which was here (bad humor).
 
 	GLOB.cortical_borers += src
 	reagent_holder = new /obj/item/reagent_containers/borer(src)
