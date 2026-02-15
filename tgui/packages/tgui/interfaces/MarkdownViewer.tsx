@@ -38,7 +38,6 @@ export const MarkdownRenderer = (props: MarkdownRendererProps) => {
         : sanitized;
   }
 
-  // biome-ignore lint/security/noDangerouslySetInnerHtml: ignore
   return <div dangerouslySetInnerHTML={{ __html: content }} />;
 };
 

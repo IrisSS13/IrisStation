@@ -3,7 +3,7 @@
 	description = "Potent psychotropic that makes users 'cope', whatever that means."
 	color = "#eeacd5"
 	ph = 5
-	metabolization_rate = 0.2 * REM
+	metabolization_rate = 0.2 * REAGENTS_METABOLISM
 	penetrates_skin = TOUCH|VAPOR
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 

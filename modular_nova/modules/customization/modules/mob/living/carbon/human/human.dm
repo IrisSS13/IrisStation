@@ -61,7 +61,7 @@
 	race = /datum/species/golem/weak
 
 /mob/living/carbon/human/species/monkey/kobold
-	race = /datum/species/monkey/kobold
+	race = /datum/species/monkey/kobold/roundstart
 
 /mob/living/carbon/human/verb/toggle_undies()
 	set category = "IC"
@@ -126,15 +126,15 @@
 	var/list/available_selection
 	// The total list of parts choosable
 	var/static/list/total_selection = list(
-		ORGAN_SLOT_EXTERNAL_HORNS = "horns",
-		ORGAN_SLOT_EARS = "ears",
-		ORGAN_SLOT_EXTERNAL_WINGS = "wings",
+		ORGAN_SLOT_EXTERNAL_HORNS = FEATURE_HORNS,
+		ORGAN_SLOT_EARS = FEATURE_EARS,
+		ORGAN_SLOT_EXTERNAL_WINGS = FEATURE_WINGS,
 		ORGAN_SLOT_EXTERNAL_FLUFF = "fluff", // IRIS EDIT
-		ORGAN_SLOT_EXTERNAL_TAIL = "tail",
-		ORGAN_SLOT_EXTERNAL_SYNTH_ANTENNA = "ipc_antenna",
-		ORGAN_SLOT_EXTERNAL_ANTENNAE = "moth_antennae",
-		ORGAN_SLOT_EXTERNAL_XENODORSAL = "xenodorsal",
-		ORGAN_SLOT_EXTERNAL_SPINES = "spines",
+		ORGAN_SLOT_EXTERNAL_TAIL = FEATURE_TAIL,
+		ORGAN_SLOT_EXTERNAL_SYNTH_ANTENNA = FEATURE_SYNTH_ANTENNA,
+		ORGAN_SLOT_EXTERNAL_ANTENNAE = FEATURE_MOTH_ANTENNAE,
+		ORGAN_SLOT_EXTERNAL_XENODORSAL = FEATURE_XENODORSAL,
+		ORGAN_SLOT_EXTERNAL_SPINES = FEATURE_SPINES,
 	)
 
 	// Stat check

@@ -1,0 +1,1 @@
+#define QUIRK_EXCLUDES_GHOSTROLES (1<<5)

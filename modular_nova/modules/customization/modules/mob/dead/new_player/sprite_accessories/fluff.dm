@@ -2,13 +2,19 @@
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/moth_fluff.dmi'
 	default_color = "#FFFFFF"
 	key = FEATURE_FLUFF
-	recommended_species = list(SPECIES_MOTH, SPECIES_MAMMAL, SPECIES_INSECT)
+	recommended_species = list(
+		SPECIES_MOTH = 1,
+		SPECIES_MAMMAL = 1,
+		SPECIES_INSECT = 1,
+	)
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER) // iris edit
 	organ_type = /obj/item/organ/fluff
 
 /datum/sprite_accessory/fluff/moth/none
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
+	factual = FALSE
+	natural_spawn = FALSE
 
 /datum/sprite_accessory/fluff/moth/is_hidden(mob/living/carbon/human/wearer) // IRIS EDIT: I'm certain there's a better way to do this, but for now let's just mimic base wing behavior as before
 	if(!wearer.w_uniform && !wearer.wear_suit)

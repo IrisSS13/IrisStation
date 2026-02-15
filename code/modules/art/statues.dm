@@ -29,7 +29,7 @@
 	. = ..()
 	AddElement(art_type, impressiveness)
 	AddElement(/datum/element/beauty, impressiveness * 75)
-	AddComponent(/datum/component/simple_rotation)
+	AddElement(/datum/element/simple_rotation)
 	if(should_marionette)
 		AddComponent(/datum/component/marionette)
 

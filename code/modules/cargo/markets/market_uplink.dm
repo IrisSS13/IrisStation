@@ -164,7 +164,7 @@
 	ADD_TRAIT(src, TRAIT_CONTRABAND, INNATE_TRAIT)
 
 // IRIS EDIT: Reimplements /obj/item/stock_parts/subspace/amplifier as a requirement for uplink construction
-/datum/crafting_recipe/blackmarket_uplink
+/datum/crafting_recipe/radio_containing/blackmarket_uplink
 	name = "Black Market Uplink"
 	result = /obj/item/market_uplink/blackmarket
 	time = 3 SECONDS
@@ -178,8 +178,3 @@
 		/obj/item/analyzer = 1
 	)
 	category = CAT_EQUIPMENT
-
-/datum/crafting_recipe/blackmarket_uplink/New()
-	..()
-	blacklist |= typesof(/obj/item/radio/headset) // because we got shit like /obj/item/radio/off ... WHY!?!
-	blacklist |= typesof(/obj/item/radio/intercom)

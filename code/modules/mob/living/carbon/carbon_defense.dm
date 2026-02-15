@@ -73,9 +73,9 @@
 /mob/living/carbon/check_projectile_dismemberment(obj/projectile/proj, def_zone)
 	var/obj/item/bodypart/affecting = get_bodypart(def_zone)
 	if(affecting && affecting.can_dismember() && !(affecting.bodypart_flags & BODYPART_UNREMOVABLE) && affecting.get_damage() >= (affecting.max_damage - proj.dismemberment))
-		affecting.dismember(proj.damtype)
-		if(proj.catastropic_dismemberment)
-			apply_damage(proj.damage, proj.damtype, BODY_ZONE_CHEST, wound_bonus = proj.wound_bonus) //stops a projectile blowing off a limb effectively doing no damage. Mostly relevant for sniper rifles.
+		if(!affecting.dismember(proj.damtype) || !proj.catastropic_dismemberment)
+			return
+		apply_damage(proj.damage, proj.damtype, BODY_ZONE_CHEST, wound_bonus = proj.wound_bonus) //stops a projectile blowing off a limb effectively doing no damage. Mostly relevant for sniper rifles.
 
 /mob/living/carbon/try_catch_item(obj/item/item, skip_throw_mode_check = FALSE, try_offhand = FALSE)
 	. = ..()
@@ -281,11 +281,17 @@
 			C.electrocute_act(shock_damage*0.75, src, 1, flags, jitter_time, stutter_time, stun_duration)
 	//Stun
 	var/should_stun = (!(flags & SHOCK_TESLA) || siemens_coeff > 0.5) && !(flags & SHOCK_NOSTUN)
-	var/paralyze = !(flags & SHOCK_KNOCKDOWN)
+	var/stun = !(flags & SHOCK_KNOCKDOWN)
 	var/immediately_stun = should_stun && !(flags & SHOCK_DELAY_STUN)
 	if (immediately_stun)
-		if (paralyze)
-			StaminaKnockdown(stun_duration / 4) // NOVA EDIT CHANGE - ORIGINAL: Paralyze(40)
+		if (stun)
+			// intended effect here is to floor you immediately if you are shocked twice in quick succession
+			// or to keep you floored if you are already incapacitated otherwise
+			if(incapacitated)
+				StaminaKnockdown(stun_duration / 4) // NOVA EDIT CHANGE - ORIGINAL: Paralyze(stun_duration)
+			// otherwise it just stuns you upright - until the second shock, which floors you
+			else
+				Stun(stun_duration)
 		else
 			Knockdown(stun_duration)
 	//Jitter and other fluff.
@@ -293,13 +299,13 @@
 	adjust_jitter(jitter_time)
 	adjust_stutter(stutter_time)
 	if (should_stun)
-		addtimer(CALLBACK(src, PROC_REF(secondary_shock), paralyze, stun_duration * 1.5), 2 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(secondary_shock), stun, stun_duration * 1.5), 2 SECONDS)
 	return shock_damage
 
 ///Called slightly after electrocute act to apply a secondary stun.
-/mob/living/carbon/proc/secondary_shock(paralyze, stun_duration)
-	if (paralyze)
-		StaminaKnockdown(stun_duration / 6) // NOVA EDIT CHANGE - ORIGINAL: Paralyze(60)
+/mob/living/carbon/proc/secondary_shock(stun, stun_duration)
+	if (stun)
+		StaminaKnockdown(stun_duration / 6) // NOVA EDIT CHANGE - ORIGINAL: Paralyze(stun_duration)
 	else
 		Knockdown(stun_duration)
 
@@ -350,7 +356,7 @@
 		else
 			playsound(src, 'modular_nova/modules/emotes/sound/emotes/Nose_boop.ogg', 50, 0)
 			helper.visible_message(span_notice("[helper] boops [src]'s nose."), span_notice("You boop [src] on the nose."))
-			if(HAS_TRAIT(src, TRAIT_SENSITIVESNOUT) && get_location_accessible(src, BODY_ZONE_PRECISE_MOUTH))
+			if(HAS_TRAIT(src, TRAIT_SENSITIVESNOUT) && is_location_accessible(BODY_ZONE_PRECISE_MOUTH))
 				var/datum/quirk/sensitivesnout/poor_snout = src.get_quirk(/datum/quirk/sensitivesnout)
 				poor_snout?.get_booped(helper)
 			return
@@ -735,7 +741,7 @@
 		if (picked_user_part && BODYTYPE_CAN_BE_BIOSCRAMBLED(picked_user_part.bodytype))
 			changed_something = TRUE
 			new_part = new new_part()
-			new_part.replace_limb(src, special = TRUE)
+			new_part.replace_limb(src)
 			if (picked_user_part)
 				qdel(picked_user_part)
 
