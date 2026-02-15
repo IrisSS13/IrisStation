@@ -53,6 +53,8 @@
 	var/menu_description = "Tanky and strong for the defense of the nest and other spiders."
 	/// If true then you shouldn't be told that you're a spider antagonist as soon as you are placed into this mob
 	var/apply_spider_antag = TRUE
+	// IRIS ADDITION - spiders cant attack each other
+	var/static/list/typecache_player_spiders = typecacheof(list(/mob/living/basic/spider))
 
 /datum/emote/spider
 	mob_type_allowed_typecache = /mob/living/basic/spider
@@ -83,6 +85,13 @@
 	webbing.webbing_time *= web_speed
 	webbing.Grant(src)
 	ai_controller?.set_blackboard_key(BB_SPIDER_WEB_ACTION, webbing)
+
+	// IRIS EDIT START - Makes player-controlled spiders unable to attack each other.
+	AddElement(/datum/element/prevent_attacking_of_player_types, \
+		typecache_player_spiders, \
+		"Wait! That's your fellow spider!"\
+	)
+	// IRIS EDIT END
 
 /mob/living/basic/spider/Login()
 	. = ..()

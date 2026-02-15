@@ -25,7 +25,7 @@
 	icon_state = "spideregg"
 	damage = 0
 	// So this is basically to avoid hitting webs before the person
-	projectile_phasing =  PASSTABLE | PASSGRILLE | PASSSTRUCTURE
+	projectile_phasing =  PASSTABLE | PASSGRILLE /*| PASSSTRUCTURE */// IRIS REMOVAL
 	reflectable = FALSE
 
 /obj/projectile/webslinger_snare/on_hit(atom/target, blocked = 0, pierce_hit)
