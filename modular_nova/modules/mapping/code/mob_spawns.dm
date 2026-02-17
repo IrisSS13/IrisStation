@@ -102,6 +102,7 @@
 	computer_area = /area/ruin/space/has_grav/nova/des_two/security/prison
 	outfit = /datum/outfit/ds2/prisoner
 	spawner_job_path = /datum/job/ds2/prisoner
+	loadout_enabled = TRUE //IRIS EDIT ADDITION: We can trust our players with loadouts. Added a mechanical_item tag to toolboxes in loadout_datum_inhands.dm to prevent anything too powergamey, though.
 	allow_mechanical_loadout_items = FALSE
 
 /obj/effect/mob_spawn/ghost_role/human/ds2/syndicate
