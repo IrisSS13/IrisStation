@@ -98,6 +98,7 @@
 	name = "Full Toolbox"
 	item_path = /obj/item/storage/toolbox/mechanical
 	blacklisted_roles = list(JOB_PRISONER)
+	mechanical_item = TRUE // IRIS EDIT ADDITION: Marked as mechanical to prevent DS-2 prisoners from getting a free toolset.
 
 /datum/loadout_item/inhand/saddle // these should be in the other category but apparantly those are "pocket" loadout items so idk?
 	name = "Riding Saddle (Leather)"
