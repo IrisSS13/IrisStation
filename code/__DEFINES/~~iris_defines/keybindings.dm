@@ -1,0 +1,1 @@
+#define COMSIG_KB_CLIENT_IRC_DOWN "keybinding_client_irc_down"

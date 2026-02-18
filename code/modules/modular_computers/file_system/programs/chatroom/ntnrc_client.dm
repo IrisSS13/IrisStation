@@ -76,6 +76,14 @@
 			channel.add_message(message, username)
 			var/mob/living/user = usr
 			user.log_talk(message, LOG_CHAT, tag = "as [username] to channel [channel.title]")
+			// IRIS ADDITION BEGIN: notification on NTNRC messages (port from https://github.com/DopplerShift13/DopplerShift/pull/371)
+			var/list/datum/computer_file/program/chatclient/clients_to_ping = list()
+			clients_to_ping += channel.active_clients
+			var/pretty_message = "\[[station_time_timestamp(format = "hh:mm")]\] <i>\[[LOWER_TEXT(channel.title)]\]</i> <b>[username]</b>: [message]"
+			for (var/datum/computer_file/program/chatclient/chatter in clients_to_ping)
+				if (chatter.computer)
+					chatter.computer.alert_call(src, pretty_message, sound = 'modular_iris/doppler_ports/chatroom_soul/sound/irc_chat_alert.ogg', internal = TRUE)
+			// IRIS ADDITION END
 			return TRUE
 		if("PRG_joinchannel")
 			var/new_target = text2num(params["id"])
@@ -160,6 +168,11 @@
 		if("PRG_setpassword")
 			if(!authed)
 				return
+			// IRIS EDIT ADDITION START - NTNRC_FOR_ALL (ported from https://github.com/DopplerShift13/DopplerShift/pull/205)
+			if(channel.strong) // Block setting passwords on important channels
+				computer.visible_message(span_warning("Warning. May not set a password on common channels."))
+				return
+			// IRIS EDIT ADDITION END - NTNRC_FOR_ALL
 			var/new_password = sanitize(params["new_password"])
 			if(!authed)
 				return
