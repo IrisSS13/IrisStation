@@ -26,7 +26,9 @@
 		slot_flags = worn_slot_flags
 	update_weight_class(held_mob.held_w_class)
 	insert_mob(held_mob)
+	item_flags &= ~ABSTRACT //Scuffed Iris ported from Doppler edit. Removes the ABSTRACT Flag granted to underesized mob holders that all clothing items get if they don't have an icon state. I hope this works
 	return ..()
+
 
 /obj/item/mob_holder/Destroy()
 	if(held_mob?.loc == src)
