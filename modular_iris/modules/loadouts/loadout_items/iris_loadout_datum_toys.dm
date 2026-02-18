@@ -23,5 +23,5 @@
 	item_path = /obj/item/toy/plush/iris/spider
 
 /datum/loadout_item/toys/plush/horse
-	name = "Plush (Horse)"
+	name = "Horse Plushie"
 	item_path = /obj/item/toy/plush/horse
