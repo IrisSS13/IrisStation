@@ -51,9 +51,9 @@
 	//IRIS EDIT ADDITION BEGIN - SLOWER_ECHOLOCATION_PREF
 	var/client_echo_render_mult = client_source?.prefs.read_preference(/datum/preference/numeric/echolocation_mult)
 	if(client_echo_render_mult)
-		esp.fade_in_time *= client_echo_render_mult
+		//esp.fade_in_time *= client_echo_render_mult
 		esp.image_expiry_time *= client_echo_render_mult
-		esp.fade_out_time *= client_echo_render_mult
+		//esp.fade_out_time *= client_echo_render_mult
 	//IRIS EDIT ADDITION END
 
 	// HEY! we probably need something to make sure they don't set a color that's too dark or their UI could be totally invisible.
