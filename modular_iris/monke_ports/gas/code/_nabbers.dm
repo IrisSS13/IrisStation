@@ -117,9 +117,9 @@
 
 /datum/species/nabber/get_default_mutant_bodyparts()
 	return list(
-		"wings" = list("None", FALSE),
-		"head_acc" = list("None", FALSE),
-		"neck_acc" = list("None", FALSE),
+		FEATURE_WINGS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_HEAD_ACCESSORY = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_NECK_ACCESSORY = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
 	)
 
 /datum/species/nabber/prepare_human_for_preview(mob/living/carbon/human/nabber)

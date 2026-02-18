@@ -39,15 +39,14 @@
 
 /datum/species/synthetic/holosynth/get_default_mutant_bodyparts()
 	return list(
-		"ears" = list("None", FALSE),
-		"tail" = list("None", FALSE),
-		"ears" = list("None", FALSE),
-		"legs" = list("Normal Legs", FALSE),
-		"snout" = list("None", FALSE),
-		MUTANT_SYNTH_ANTENNA = list("None", FALSE),
-		MUTANT_SYNTH_SCREEN = list("None", FALSE),
-		MUTANT_SYNTH_CHASSIS = list("Human Chassis", FALSE),
-		MUTANT_SYNTH_HEAD = list("Human Head", FALSE),
+		FEATURE_EARS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_LEGS = MUTPART_BLUEPRINT(NORMAL_LEGS, is_randomizable = FALSE, is_feature = TRUE),
+		FEATURE_SNOUT = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_SYNTH_ANTENNA = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_SYNTH_SCREEN = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
+		FEATURE_SYNTH_CHASSIS = MUTPART_BLUEPRINT("Human Chassis", is_randomizable = FALSE),
+		FEATURE_SYNTH_HEAD = MUTPART_BLUEPRINT("Human Head", is_randomizable = FALSE)
 	)
 
 //Species Adding and Removal
