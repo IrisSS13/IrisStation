@@ -80,15 +80,14 @@
 	var/obj/structure/spider/eggcluster/egg
 	/// Which antag datum do we grant?
 	var/granted_datum = /datum/antagonist/spider
+	// IRIS EDIT START
 	/// The types of spiders that the spawner can produce
 	var/list/potentialspawns = list(
-		/mob/living/basic/spider/growing/spiderling/nurse,
-		/mob/living/basic/spider/growing/spiderling/hunter,
-		/mob/living/basic/spider/growing/spiderling/ambush,
-		/mob/living/basic/spider/growing/spiderling/tangle,
 		/mob/living/basic/spider/growing/spiderling/guard,
-		/mob/living/basic/spider/growing/spiderling/scout,
+		/mob/living/basic/spider/growing/spiderling/tank,
+		/mob/living/basic/spider/growing/spiderling/viper,
 	)
+	// IRIS EDIT END
 	/// Do we flash the byond window when this particular egg type is available?
 	var/flash_window = FALSE
 
@@ -155,8 +154,10 @@
 	color = rgb(0, 148, 211)
 	cluster_type = /obj/structure/spider/eggcluster/abnormal
 	potentialspawns = list(
-		/mob/living/basic/spider/growing/spiderling/tank,
-		/mob/living/basic/spider/growing/spiderling/viper,
+		/mob/living/basic/spider/growing/spiderling/nurse,
+		/mob/living/basic/spider/growing/spiderling/ambush,
+		/mob/living/basic/spider/growing/spiderling/tangle,
+		/mob/living/basic/spider/growing/spiderling/scout,
 	)
 	flash_window = TRUE
 
