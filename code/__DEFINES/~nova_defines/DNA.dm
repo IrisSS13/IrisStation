@@ -35,15 +35,6 @@
 #define COLOR_SRC_TERTIARY	3
 #define COLOR_SRC_MATRIXED	4
 
-// Defines for mutant bodyparts indexes
-#define MUTANT_INDEX_NAME			"name"
-#define MUTANT_INDEX_COLOR_LIST		"color"
-#define MUTANT_INDEX_EMISSIVE_LIST	"emissive"
-
-// Defines for default mutant bodyparts indexes
-#define MUTANTPART_NAME 1
-#define MUTANTPART_CAN_RANDOMIZE 2
-
 // Defines for markings indexes
 #define MARKING_INDEX_COLOR 1
 #define MARKING_INDEX_EMISSIVE 2
@@ -56,14 +47,14 @@
 #define ORGAN_SLOT_EXTERNAL_EARS "ears_external"
 #define ORGAN_SLOT_EXTERNAL_FLUFF "fluff"
 #define ORGAN_SLOT_EXTERNAL_HEAD_ACCESSORY "head_accessory"
-#define ORGAN_SLOT_EXTERNAL_MOTH_MARKINGS "moth_markings"
+#define ORGAN_SLOT_EXTERNAL_MOTH_MARKINGS FEATURE_MOTH_MARKINGS
 #define ORGAN_SLOT_EXTERNAL_NECK_ACCESSORY "neck_accessory"
-#define ORGAN_SLOT_EXTERNAL_SKRELL_HAIR "skrell_hair"
+#define ORGAN_SLOT_EXTERNAL_SKRELL_HAIR FEATURE_SKRELL_HAIR
 #define ORGAN_SLOT_EXTERNAL_SYNTH_ANTENNA "synth_antenna"
 #define ORGAN_SLOT_EXTERNAL_SYNTH_SCREEN "synth_screen"
-#define ORGAN_SLOT_EXTERNAL_TAUR "taur"
-#define ORGAN_SLOT_EXTERNAL_XENODORSAL "xenodorsal"
-#define ORGAN_SLOT_EXTERNAL_XENOHEAD "xenohead"
+#define ORGAN_SLOT_EXTERNAL_TAUR FEATURE_TAUR
+#define ORGAN_SLOT_EXTERNAL_XENODORSAL FEATURE_XENODORSAL
+#define ORGAN_SLOT_EXTERNAL_XENOHEAD FEATURE_XENOHEAD
 
 //Defines for an accessory to be randomed
 #define ACC_RANDOM		"random"
@@ -74,6 +65,8 @@
 #define BODY_SIZE_MAX 1.5
 #define BODY_SIZE_MIN 0.8
 
+/// Used for making species blueprint singletons for GLOB.default_mutant_bodyparts
+#define MUTPART_BLUEPRINT new /datum/mutant_bodypart/species_blueprint
 
 #define FEATURE_MUTANT_COLOR_TWO "mcolor2"
 #define FEATURE_MUTANT_COLOR_THREE "mcolor3"
@@ -90,12 +83,20 @@
 #define FEATURE_GHOUL_COLOR "ghoulcolor"
 #define FEATURE_WINGS_FUNCTIONAL "wings_functional"
 
+// Synth parts
+#define FEATURE_SYNTH_ANTENNA "ipc_antenna"
+#define FEATURE_SYNTH_SCREEN "ipc_screen"
+#define FEATURE_SYNTH_CHASSIS "synth_chassis"
+#define FEATURE_SYNTH_HEAD "synth_head"
+#define FEATURE_SYNTH_HAIR "synth_hair"
+
+
 #define MANDATORY_FEATURE_LIST list(\
-	"mcolor" = "#FFFFBB",\
-	"mcolor2" = "#FFFFBB",\
-	"mcolor3" = "#FFFFBB",\
-	"ethcolor" = "#FFCCCC",\
-	"skin_color" = "#FFEEDD",\
+	FEATURE_MUTANT_COLOR = "#FFFFBB",\
+	FEATURE_MUTANT_COLOR_TWO = "#FFFFBB",\
+	FEATURE_MUTANT_COLOR_THREE = "#FFFFBB",\
+	FEATURE_ETHEREAL_COLOR = "#FFCCCC",\
+	FEATURE_SKIN_COLOR = "#FFEEDD",\
 	EXAMINE_DNA_FLAVOR_TEXT = "",\
 	"body_size" = BODY_SIZE_NORMAL,\
 	"custom_species" = null,\
@@ -126,6 +127,7 @@
 #define SPECIES_ABDUCTORWEAK "abductorweak"
 #define SPECIES_GOLEMWEAK "golemweak"
 #define SPECIES_KOBOLD "kobold"
+#define SPECIES_KOBOLD_PRIMITIVE "lizard_monkey"
 #define SPECIES_RAMATAE "ramatan"
 #define SPECIES_INSECTOID "insectoid"
 

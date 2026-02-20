@@ -57,8 +57,6 @@
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/digitigrade/polysmorph,
 	)
 
-
-
 	mutantbrain = /obj/item/organ/brain/polysmorph
 	mutanteyes = /obj/item/organ/eyes/polysmorph
 	mutanttongue = /obj/item/organ/tongue/polysmorph
@@ -75,9 +73,9 @@
 
 /datum/species/polysmorph/get_default_mutant_bodyparts()
 	return list(
-		"tail" = list("Polysmorph Tail", FALSE),
-		"xenodorsal" = list("None", TRUE),
-		"xenohead" = list("None", TRUE),
+		FEATURE_TAIL = MUTPART_BLUEPRINT("Polysmorph Tail", is_randomizable = FALSE),
+		FEATURE_XENODORSAL = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = TRUE),
+		FEATURE_XENOHEAD = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = TRUE),
 	)
 
 /datum/species/polysmorph/on_species_gain(mob/living/carbon/human/polysmorph, datum/species/old_species, pref_load, regenerate_icons = TRUE)

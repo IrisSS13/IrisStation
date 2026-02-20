@@ -439,17 +439,15 @@
 /obj/item/disk/plantgene
 	name = "plant data disk"
 	desc = "A disk for storing plant genetic data."
-	icon_state = "datadisk_hydro"
+	icon_state = "datadisk11"
 	custom_materials = list(/datum/material/iron=30, /datum/material/glass=10)
 	var/datum/plant_gene/gene
-	var/read_only = 0 //Well, it's still a floppy disk
 	obj_flags = UNIQUE_RENAME
 
 /obj/item/disk/plantgene/Initialize()
 	. = ..()
-	add_overlay("datadisk_gene")
-	src.pixel_x = rand(-5, 5)
-	src.pixel_y = rand(-5, 5)
+	icon_state = "datadisk11"
+	set_sticker_icon_state(pick("o_dna1"))
 
 /obj/item/disk/plantgene/proc/update_disk_name()
 	if(gene)

@@ -51,7 +51,6 @@
 		var/list/high_priority_bounties = list()
 		for(var/index in 1 to 2)
 			var/datum/bounty/cargo_bounty = pick_n_take(GLOB.cargo_bounties)
-			cargo_bounty.high_priority = TRUE
 			cargo_bounty.reward *= 1.5
 			high_priority_bounties += cargo_bounty
 
@@ -73,9 +72,7 @@
 			"description" = B.description,
 			"reward_string" = "[B.reward] Credits",
 			"completion_string" = B.get_completion_string(),
-			"claimed" = B.claimed,
 			"can_claim" = B.can_claim(),
-			"priority" = B.high_priority,
 			"bounty_ref" = REF(B),
 		))
 
@@ -90,7 +87,7 @@
 		if("ClaimBounty")
 			var/datum/bounty/cashmoney = locate(params["bounty"]) in GLOB.cargo_bounties
 			if(cashmoney)
-				cashmoney.claim()
+				cashmoney.can_claim()
 
 		if("Print")
 			if(printer_ready < world.time)

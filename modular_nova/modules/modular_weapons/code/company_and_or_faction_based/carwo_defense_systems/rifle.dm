@@ -40,7 +40,7 @@
 
 	spread = 2
 	projectile_wound_bonus = 0
-	projectile_damage_multiplier = 0.5
+	projectile_damage_multiplier = 1
 
 	lore_blurb = "The MMR-2543 is the current standard service rifle for all branches of the Sol Goverment Armed Forces.<br><br>\
 		Initially created for use by the Sagittarian Triumvirate’s military, its adoption by SolGov came a few years later. \
@@ -99,7 +99,7 @@
 
 	burst_size = 3
 	spread = 5.5
-	projectile_damage_multiplier = 0.5
+	projectile_damage_multiplier = 1.1 // 27 * 1.1 = 29.7 damage per shot, but with the burst you're mincing people
 	projectile_wound_bonus = -10
 
 	model_specific_lore = "This variant is the Infantry model, and is the primary rifle \
@@ -140,7 +140,7 @@
 	lore_blurb = /obj/item/gun/ballistic/automatic/sol_classic::lore_blurb
 
 	model_specific_lore = "This particular variant is the Trekpaard-Qarad model, a conversion of the rifle into \
-		a passable, if suboptimal, light machine gun. To support its new, fully-automatic role, \
+		a passable light machine gun. To support its new, fully-automatic role, \
 		the firing system was converted into a faster, open-bolt configuration, and the barrel \
 		was replaced with a heavier, heat-resistant assembly with quick-change support. \
 		These modifications, combined with a battle rifle platform not meant to be used \

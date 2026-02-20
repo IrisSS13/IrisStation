@@ -1,6 +1,6 @@
 // THIS IS A NOVA SECTOR UI FILE
 import { type ReactNode, useState } from 'react';
-import { ByondUi, Section, Stack } from 'tgui-core/components';
+import { Button, ByondUi, Section, Stack } from 'tgui-core/components';
 
 import { resolveAsset } from '../../assets';
 import { useBackend } from '../../backend';

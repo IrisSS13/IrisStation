@@ -110,9 +110,11 @@ istype(I, /obj/item/bodypart/leg/left/skeleton) || istype(I, /obj/item/bodypart/
 /obj/item/extract/fire
 	name = "fire extract"
 	desc = "A pretty bright and possible flamable powder."
-	grind_results = list(/datum/reagent/phlogiston = 20)
 	icon_state = "fire_extract"
 	magic_desc = "An extract linked to the alchemical elemet of phlogiston. Can be obtained from plasma and fire blossoms"
+
+/obj/item/extract/fire/grind_results()
+	return list(/datum/reagent/phlogiston = 20)
 
 /datum/crafting_recipe/fire_extract_1
 	name = "Fire extract"
@@ -213,9 +215,11 @@ It is technically capable of raising the dead... but not animating them."
 /obj/item/extract/plant_life
 	name = "plant life extract"
 	desc = "A can of some green powder."
-	grind_results = list(/datum/reagent/diethylamine = 1, /datum/reagent/saltpetre = 4)
 	icon_state = "plant_life_extract"
 	magic_desc = "Can be extracted from any mushroom. Contains a little bit of fertilizer"
+
+/obj/item/extract/plant_life/grind_results()
+	return list(/datum/reagent/diethylamine = 1, /datum/reagent/saltpetre = 4)
 
 /datum/crafting_recipe/plant_extract
 	name = "Plant life extract"
@@ -231,10 +235,12 @@ It is technically capable of raising the dead... but not animating them."
 /obj/item/extract/life
 	name = "life extract"
 	desc = "A red powder that seems to be flickering."
-	grind_results = list(/datum/reagent/medicine/omnizine = 10, /datum/reagent/medicine/strange_reagent = 5)
 	icon_state = "life_extract"
 	magic_desc = "A powder with slight healing properties, more useful for altering living organisms and animating inanimate objects. \
 	It is hard to extract from living tissue so it's usually mixed from death and energy extracts."
+
+/obj/item/extract/life/grind_results()
+	return list(/datum/reagent/medicine/omnizine = 10, /datum/reagent/medicine/strange_reagent = 5)
 
 /datum/crafting_recipe/life_extract
 	name = "Life extract"
@@ -247,9 +253,11 @@ It is technically capable of raising the dead... but not animating them."
 /obj/item/extract/mutandis
 	name = "mutandis"
 	desc = "A pile of what seems to be soil with green crystals."
-	grind_results = list(/datum/reagent/toxin/mutagen = 30)
 	icon_state = "mutandis"
 	magic_desc = "A mixture capable of mutating plants."
+
+/obj/item/extract/mutandis/grind_results()
+	return list(/datum/reagent/toxin/mutagen = 30)
 
 /datum/crafting_recipe/mutandis
 	name = "Mutandis"
