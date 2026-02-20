@@ -92,6 +92,10 @@
 
 /obj/item/organ/cyberimp/arm/toolkit/on_limb_attached(mob/living/carbon/source, obj/item/bodypart/limb)
 	. = ..()
+	//Iris change - please don't register other arms being attached!
+	if(!limb || limb != hand)
+		return
+	//Iris change end
 	RegisterSignal(limb, COMSIG_ITEM_ATTACK_SELF, PROC_REF(on_item_attack_self))
 
 /obj/item/organ/cyberimp/arm/toolkit/on_limb_detached(obj/item/bodypart/source)
