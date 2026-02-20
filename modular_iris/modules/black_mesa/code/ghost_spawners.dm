@@ -120,7 +120,7 @@
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/hecu_backpack)
 
 /datum/atom_skin/hecu_warbelt
-	abstract_type = /datum/atom_skin/hecu_backpack
+	abstract_type = /datum/atom_skin/hecu_warbelt
 	change_base_icon_state = TRUE
 
 /datum/atom_skin/hecu_warbelt/olive
