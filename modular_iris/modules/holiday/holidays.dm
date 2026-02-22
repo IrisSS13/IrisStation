@@ -16,3 +16,14 @@
 
 /datum/holiday/iris/getStationPrefix()
 	return pick("Cabriole","Iris","Anniversary","Aimatios")
+
+/datum/holiday/iris/end // A week to remember
+	name = "Iris Week"
+	begin_day = 23
+	begin_month = FEBRUARY
+	end_day = 1
+	end_month = MARCH
+	holiday_hat = /obj/item/clothing/head/costume/nova/flowerpin/iris
+
+/datum/holiday/iris/end/greet()
+	return "Happy Iris Week! 28th of February marks the end of Iris Station. Thank you for being part of it!"

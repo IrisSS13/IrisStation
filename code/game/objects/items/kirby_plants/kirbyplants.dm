@@ -101,6 +101,11 @@
 	. = ..()
 	icon = 'icons/obj/fluff/flora/plants.dmi'
 	randomize_base_icon_state()
+	// IRIS EDIT START
+	if(check_holidays("Iris Week","Iris Station's Anniversary"))
+		base_icon_state = "plant-18"
+		update_appearance(UPDATE_ICON)
+	// IRIS EDIT END
 
 //Handles randomizing the icon during initialize()
 /obj/item/kirbyplants/random/proc/randomize_base_icon_state()
