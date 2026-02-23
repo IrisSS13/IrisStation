@@ -16,7 +16,7 @@
 		chem.toxpwr = 0
 	if(chem.type == /datum/reagent/toxin/acid)
 		chem.toxpwr = 0
-		owner.adjustBruteLoss(0 * REM * seconds_per_tick, updating_health = FALSE) //Still deals damage when you JUST drink it apparently
+		owner.adjust_brute_loss(0 * REM * seconds_per_tick, updating_health = FALSE) //Still deals damage when you JUST drink it apparently
 
 /obj/item/organ/tongue/polysmorph
 	name = "Polysmorph Tongue"

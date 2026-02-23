@@ -17,6 +17,7 @@
 	extra_access = list(
 		ACCESS_MINING,
 		ACCESS_MINING_STATION,
+		ACCESS_SHIPPING,
 		)
 	template_access = list(
 		ACCESS_CAPTAIN,
@@ -29,7 +30,6 @@
 	title = JOB_EXPLORER
 	description = "Explore deep space. Partake in the Gateway program. \
 		Meet the strangest people. Acquire rare loot."
-	department_head = list(JOB_QUARTERMASTER)
 	faction = FACTION_STATION
 	total_positions = 3
 	spawn_positions = 3

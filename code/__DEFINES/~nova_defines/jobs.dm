@@ -5,7 +5,7 @@
 #define JOB_UNAVAILABLE_FLAVOUR (JOB_UNAVAILABLE_LANGUAGE + 1)
 #define JOB_UNAVAILABLE_AUGMENT (JOB_UNAVAILABLE_FLAVOUR + 1)
 
-#define SEC_RESTRICTED_QUIRKS "Blind" = TRUE, "Brain Tumor" = TRUE, "Deaf" = TRUE, "Paraplegic" = TRUE, "Hemiplegic" = TRUE, "Mute" = TRUE, "Foreigner" = TRUE, "Pacifist" = TRUE, "No Guns" = TRUE, "Illiterate" = TRUE, "Nerve Stapled" = TRUE, "Underworld Connections" = TRUE, "Stowaway" = TRUE, "Paroled Convict" = TRUE  //IRIS EDIT - Adds Stowaway
+#define SEC_RESTRICTED_QUIRKS "Blind" = TRUE, "Brain Tumor" = TRUE, "Deaf" = TRUE, "Paraplegic" = TRUE, "Hemiplegic" = TRUE, "Foreigner" = TRUE, "Pacifist" = TRUE, "No Guns" = TRUE, "Illiterate" = TRUE, "Nerve Stapled" = TRUE, "Underworld Connections" = TRUE, "Stowaway" = TRUE, "Paroled Convict" = TRUE  //IRIS EDIT - Adds Stowaway, removes Mute
 #define HEAD_RESTRICTED_QUIRKS "Blind" = TRUE, "Deaf" = TRUE, "Mute" = TRUE, "Foreigner" = TRUE, "Brain Tumor" = TRUE, "Illiterate" = TRUE, "Underworld Connections" = TRUE, "Stowaway" = TRUE, "Stowaway" = TRUE, "Paroled Convict" = TRUE   //IRIS EDIT - Adds Stowaway and Convict
 #define HEAD_RESTRICTED_QUIRKS_QM "Blind" = TRUE, "Deaf" = TRUE, "Mute" = TRUE, "Foreigner" = TRUE, "Brain Tumor" = TRUE, "Illiterate" = TRUE, "Stowaway" = TRUE, "Paroled Convict" = TRUE   //IRIS EDIT - Adds Stowaway and Convict
 #define GUARD_RESTRICTED_QUIRKS "Blind" = TRUE, "Deaf" = TRUE, "Foreigner" = TRUE, "Pacifist" = TRUE, "Nerve Stapled" = TRUE, "Stowaway" = TRUE, "Underworld Connections" = TRUE, "Paroled Convict" = TRUE  //IRIS EDIT - Adds Stowaway, Convict and Underworld Connections

@@ -7,6 +7,7 @@ import { Box, Section } from 'tgui-core/components';
 import { useBackend, useLocalState } from '../../backend';
 import { sanitizeText } from '../../sanitize';
 import { tokenizer, walkTokens } from './helpers';
+// import { replacePaperworkLogos } from './paperwork_logos';
 import { StampView } from './StampView';
 import { type FieldInput, InteractionType, type PaperContext } from './types';
 
@@ -303,6 +304,15 @@ export class PreviewView extends Component<PreviewViewProps> {
     return marked.parse(rawText, { async: false });
   };
 
+  // Helper to replace [station] and logo tags
+  replacePaperworkTags = (html: string, stationName: string): string => {
+    // Replace [station] with the station name
+    const result = html.replace(/\[station\]/gi, stationName);
+    // Replace logo tags ([ntlogo], [syndielogo], etc.)
+    // result = replacePaperworkLogos(result); Temp removed, needs revisiting
+    return result;
+  };
+
   // Fully formats, sanitises and parses the provided raw text and wraps it
   // as necessary.
   formatAndProcessRawText = (
@@ -329,9 +339,16 @@ export class PreviewView extends Component<PreviewViewProps> {
           sanitizedResult['sanitized']
         : sanitizedResult;
 
+    // IRIS EXTENSION: Replace [station] and logo tags
+    const { station_name } = useBackend<PaperContext>().data;
+    const specialText = this.replacePaperworkTags(
+      sanitizedText,
+      station_name || '',
+    );
+
     // Fourth we replace the [__] with fields
     const fieldedText = this.createFields(
-      sanitizedText,
+      specialText,
       font,
       12,
       color,

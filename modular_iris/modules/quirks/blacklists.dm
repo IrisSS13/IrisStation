@@ -123,3 +123,10 @@
 	if(TRAIT_HOLOSYNTH in species_traits)
 		return FALSE
 	return ..()
+
+/datum/quirk/sol_weakness/is_species_appropriate(datum/species/mob_species)
+	var/datum/species_traits = GLOB.species_prototypes[mob_species].inherent_traits
+	if(TRAIT_DRINKS_BLOOD in species_traits)
+		return TRUE
+	else
+		return FALSE

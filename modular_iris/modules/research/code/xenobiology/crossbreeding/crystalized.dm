@@ -196,17 +196,17 @@
 
 	switch(rand_dam_type)
 		if(0)
-			carbon_mob.adjustBruteLoss(-heal_amount)
+			carbon_mob.adjust_brute_loss(-heal_amount)
 		if(1)
-			carbon_mob.adjustFireLoss(-heal_amount)
+			carbon_mob.adjust_fire_loss(-heal_amount)
 		if(2)
-			carbon_mob.adjustOxyLoss(-heal_amount)
+			carbon_mob.adjust_oxy_loss(-heal_amount)
 		if(3)
-			carbon_mob.adjustToxLoss(-heal_amount, forced = TRUE)
+			carbon_mob.adjust_tox_loss(-heal_amount, forced = TRUE)
 		if(5)
-			carbon_mob.adjustStaminaLoss(-heal_amount)
+			carbon_mob.adjust_stamina_loss(-heal_amount)
 		if(6 to 10)
-			carbon_mob.adjustOrganLoss(pick(ORGAN_SLOT_BRAIN,ORGAN_SLOT_HEART,ORGAN_SLOT_LIVER,ORGAN_SLOT_LUNGS), -heal_amount)
+			carbon_mob.adjust_organ_loss(pick(ORGAN_SLOT_BRAIN,ORGAN_SLOT_HEART,ORGAN_SLOT_LIVER,ORGAN_SLOT_LUNGS), -heal_amount)
 
 /obj/item/slimecross/crystalline/blue
 	crystal_type = /obj/structure/slime_crystal/blue
@@ -240,7 +240,7 @@
 	if(!iscyborg(affected_mob))
 		return
 	var/mob/living/silicon/borgo = affected_mob
-	borgo.adjustBruteLoss(-heal_amount)
+	borgo.adjust_brute_loss(-heal_amount)
 
 /obj/item/slimecross/crystalline/yellow
 	crystal_type = /obj/structure/slime_crystal/yellow

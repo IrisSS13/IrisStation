@@ -8,6 +8,7 @@
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	max_integrity = 400
 	var/target_type = /obj/machinery/dive_anchor
+	custom_materials = list(/datum/material/alloy/plastitanium = SHEET_MATERIAL_AMOUNT * 10, /datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.5, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 0.5)
 
 /obj/structure/anchor_assembly/examine(mob/user)
 	. = ..()

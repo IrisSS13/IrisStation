@@ -92,6 +92,10 @@
 
 /obj/item/organ/cyberimp/arm/toolkit/on_limb_attached(mob/living/carbon/source, obj/item/bodypart/limb)
 	. = ..()
+	//Iris change - please don't register other arms being attached!
+	if(!limb || limb != hand)
+		return
+	//Iris change end
 	RegisterSignal(limb, COMSIG_ITEM_ATTACK_SELF, PROC_REF(on_item_attack_self))
 
 /obj/item/organ/cyberimp/arm/toolkit/on_limb_detached(obj/item/bodypart/source)
@@ -244,7 +248,7 @@
 		to_chat(owner, span_userdanger("You feel an explosion erupt inside your [parse_zone(zone)] as your implant breaks!"))
 		owner.adjust_fire_stacks(20)
 		owner.ignite_mob()
-		owner.adjustFireLoss(25)
+		owner.adjust_fire_loss(25)
 		organ_flags |= ORGAN_FAILING
 
 /obj/item/organ/cyberimp/arm/toolkit/gun/laser
@@ -287,7 +291,7 @@
 		/obj/item/taperecorder,
 		/obj/item/lighter,
 		/obj/item/laser_pointer,
-		/obj/item/stamp,
+		/obj/item/stamp/granted,
 		/obj/item/stamp/denied,
 	)
 

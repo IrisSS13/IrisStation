@@ -136,9 +136,9 @@ GLOBAL_LIST_EMPTY(cortical_borers)
 	///how fast chemicals are gained. Goes up only when inside a host
 	var/chemical_regen = 1
 	/// How much health you gain per level
-	var/health_per_level = 2.5
+	var/health_per_level = 0 // IRIS EDIT: removal
 	/// How much health regen you gain per level
-	var/health_regen_per_level = 0.02
+	var/health_regen_per_level = 0 // IRIS EDIT: removal
 	/// How much more chemical storage you gain per level
 	var/chem_storage_per_level = 20
 	/// Chemical regen you gain per level
@@ -219,13 +219,7 @@ GLOBAL_LIST_EMPTY(cortical_borers)
 
 	name = "[initial(name)] ([generation]-[rand(100,999)])" //so their gen and a random. ex 1-288 is first gen named 288, 4-483 if fourth gen named 483
 
-	if(prob(5))
-		var/switching = rand(1,2)
-		switch(switching)
-			if(1)
-				name = "cortical boner ([generation]-[rand(100,999)])"
-			if(2)
-				name = "cortical vorer ([generation]-[rand(100,999)])"
+	//Iris removal - that which was here (bad humor).
 
 	GLOB.cortical_borers += src
 	reagent_holder = new /obj/item/reagent_containers/borer(src)
@@ -291,8 +285,8 @@ GLOBAL_LIST_EMPTY(cortical_borers)
 		return
 
 	//there needs to be a negative to having a borer
-	if(prob(5 * host_harm_multiplier * ((upgrade_flags & BORER_STEALTH_MODE) ? 0.1 : 1)) && human_host.getToxLoss() <= (80 * host_harm_multiplier))
-		human_host.adjustToxLoss(5 * host_harm_multiplier, TRUE, TRUE)
+	if(prob(5 * host_harm_multiplier * ((upgrade_flags & BORER_STEALTH_MODE) ? 0.1 : 1)) && human_host.get_tox_loss() <= (80 * host_harm_multiplier))
+		human_host.adjust_tox_loss(5 * host_harm_multiplier, forced = TRUE)
 
 	human_host.apply_status_effect(/datum/status_effect/grouped/screwy_hud/fake_healthy, type)
 

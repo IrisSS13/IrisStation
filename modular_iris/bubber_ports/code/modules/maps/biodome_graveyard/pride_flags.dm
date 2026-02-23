@@ -79,6 +79,7 @@
 	icon = 'modular_iris/bubber_ports/code/modules/maps/biodome_graveyard/pride_flags.dmi'
 	icon_state = "folded_coder"
 	sign_path = /obj/structure/sign/flag/pride
+	custom_materials = null
 
 /obj/item/sign/flag/pride/gay
 	name = "folded gay pride flag"

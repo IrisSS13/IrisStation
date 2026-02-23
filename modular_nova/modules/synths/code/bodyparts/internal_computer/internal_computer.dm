@@ -114,35 +114,39 @@
 	if(contained_id_item)
 		UnregisterSignal(contained_id_item, list(COMSIG_MOVABLE_MOVED, COMSIG_ITEM_UNSTORED))
 
-/obj/item/modular_computer/pda/synth/proc/handle_id_slot(mob/living/carbon/human/synth, obj/item/id_item)
-	if(!istype(synth))
+
+// IRIS EDIT CHANGE START - shifts all istype(synth) checks to istype(human) checks, allowing all standard carbons to use posibrain persocoms
+/obj/item/modular_computer/pda/synth/proc/handle_id_slot(mob/living/carbon/human, obj/item/id_item)
+	if(!istype(human))
 		return
 	if(isnull(id_item))
 		if(stored_id)
-			to_chat(synth, span_notice("Persocom RFID link disconnected."))
+			to_chat(human, span_notice("Persocom RFID link disconnected."))
 		stored_id = null
 		return
 	if(istype(id_item, /obj/item/card/id))
 		stored_id = id_item
-		to_chat(synth, span_notice("Persocom establishing new RFID link with [id_item]."))
+		to_chat(human, span_notice("Persocom establishing new RFID link with [id_item]."))
 		RegisterSignal(id_item, COMSIG_ITEM_POST_UNEQUIP, PROC_REF(on_id_item_unequipped))
 	else if(istype(id_item, /obj/item/modular_computer))
 		var/obj/item/modular_computer/pda = id_item
 		stored_id = pda.stored_id
-		to_chat(synth, span_notice("Persocom establishing new RFID link with [pda]."))
+		to_chat(human, span_notice("Persocom establishing new RFID link with [pda]."))
 		RegisterSignal(pda, COMSIG_ITEM_POST_UNEQUIP, PROC_REF(on_id_item_unequipped))
 		RegisterSignal(pda, COMSIG_MODULAR_COMPUTER_INSERTED_ID, PROC_REF(on_id_item_stored))
 		RegisterSignal(pda.stored_id, COMSIG_MOVABLE_MOVED, PROC_REF(on_id_item_moved))
 	else if(istype(id_item, /obj/item/storage/wallet))
 		var/obj/item/storage/wallet/your_wallet = id_item
 		stored_id = your_wallet.GetID()
-		to_chat(synth, span_notice("Persocom establishing new RFID link with [your_wallet]."))
+		to_chat(human, span_notice("Persocom establishing new RFID link with [your_wallet]."))
 		RegisterSignal(your_wallet, COMSIG_ITEM_POST_UNEQUIP, PROC_REF(on_id_item_unequipped))
 		RegisterSignal(your_wallet, COMSIG_STORAGE_STORED_ITEM, PROC_REF(on_id_item_stored))
 		RegisterSignal(your_wallet.GetID(), COMSIG_ITEM_UNSTORED, PROC_REF(on_id_item_moved))
 
 	else
 		stored_id = null
+
+//IRIS EDIT CHANGE END
 
 /obj/item/modular_computer/pda/synth/remove_id(mob/user, silent = FALSE)
 	return

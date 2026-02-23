@@ -37,7 +37,7 @@ GLOBAL_LIST_EMPTY(scanned_xenoarch_by_techweb)
  * After a xenoarch scanning experiment is done, more may be unlocked. If so, add them to the techweb
  * and automatically link the handler to the next experiment in the list as a bit of qol.
  */
-/datum/experiment/scanning/points/xenoarch/finish_experiment(datum/component/experiment_handler/experiment_handler, ...)
+/datum/experiment/scanning/points/xenoarch/finish_experiment(datum/component/experiment_handler/experiment_handler, datum/techweb/linked_web_override)
 	. = ..()
 	if(next_experiments)
 		experiment_handler.linked_web.add_experiments(next_experiments)

@@ -45,15 +45,15 @@
 /// Gives us medium night vision, same as thermal but without seeing through walls
 #define TRAIT_MEDIUM_NIGHT_VISION "medium_night_vision"
 
+//// The trait for undersized quirk
+#define TRAIT_UNDERSIZED "undersized"
+
 //Trait sources
 
 //Special trait source for illiteracy granted by farsightedness, part of https://github.com/lizardqueenlexi/orbstation/pull/254
 #define FARSIGHT_TRAIT "farsighted_trait"
 
 //Items
-
-//Helps users examine items with custom text, part of https://github.com/DopplerShift13/DopplerShift/pull/345
-#define TRAIT_WORN_EXAMINE "worn_examine"
 
 // /obj/item
 /// Applied to a satchel that is being worn on the belt.

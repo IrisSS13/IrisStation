@@ -96,7 +96,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 	. = ..()
 	apply_height_filters(src, TRUE)
 
-/mob/living/carbon/human/dummy/apply_height_filters(image/appearance, only_apply_in_prefs = FALSE)
+/mob/living/carbon/human/dummy/apply_height_filters(image/appearance, only_apply_in_prefs = FALSE, parent_adjust_y = 0) // IRIS EDIT CHANGE: add `parent_adjust_y` param
 	if(only_apply_in_prefs)
 		return ..()
 

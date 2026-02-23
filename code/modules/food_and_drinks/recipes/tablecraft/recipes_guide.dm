@@ -453,7 +453,7 @@
 
 /datum/crafting_recipe/food/grill/grilled_cheese_sandwich
 	reqs = list(/obj/item/food/sandwich/cheese = 1)
-	result = /obj/item/food/sandwich/cheese/grilled
+	result = /obj/item/food/sandwich/grilled_cheese
 	category = CAT_SANDWICH
 
 /datum/crafting_recipe/food/grill/grilled_cheese

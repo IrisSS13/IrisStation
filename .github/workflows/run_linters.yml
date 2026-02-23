@@ -5,7 +5,7 @@ on:
 
 jobs:
   linters:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     timeout-minutes: 5
 
     steps:
@@ -23,14 +23,14 @@ jobs:
         uses: actions/cache@v5
         with:
           path: tools/bootstrap/.cache
-          key: ${{ runner.os }}-bootstrap-${{ hashFiles('tools/requirements.txt') }}
+          key: ${{ runner.os }}-bootstrap-${{ hashFiles('/tools/requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-bootstrap-
       - name: Restore Rust cache
         uses: actions/cache@v5
         with:
           path: ~/.cargo
-          key: ${{ runner.os }}-rust-${{ hashFiles('tools/ci/ci_dependencies.sh')}}
+          key: ${{ runner.os }}-rust-${{ hashFiles('/tools/ci/ci_dependencies.sh')}}
           restore-keys: |
             ${{ runner.os }}-rust-
       - name: Restore Cutter cache
@@ -66,6 +66,7 @@ jobs:
         run: |
           bash tools/ci/check_grep.sh
           bash modular_nova/tools/nova_check_grep.sh # NOVA EDIT ADDITION - checking modular_nova code
+          bash modular_iris/tools/iris_check_grep.sh # IRIS EDIT ADDITION - checking modular_iris code
       - name: Ticked File Enforcement
         if: steps.linter-setup.conclusion == 'success' && !cancelled()
         run: |

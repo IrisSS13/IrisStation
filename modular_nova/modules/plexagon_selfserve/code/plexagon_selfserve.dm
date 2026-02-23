@@ -18,7 +18,10 @@
 	///What trim is applied to inserted IDs?
 	var/target_trim = /datum/id_trim/job/assistant
 	///These job datums can't go off-duty
-	var/list/blacklisted_jobs = list(/datum/job/assistant, /datum/job/prisoner)
+	var/static/list/blacklisted_jobs = typecacheof(list(
+		/datum/job/assistant,
+		/datum/job/prisoner,
+	))
 
 /datum/computer_file/program/crew_self_serve/on_start(mob/living/user)
 	. = ..()
@@ -121,6 +124,7 @@
 
 /// Is the job of the inserted ID being worked by a job that in an important department? If so, this proc will return TRUE.
 /datum/computer_file/program/crew_self_serve/proc/is_job_important(obj/item/card/id/id_card)
+	/* // IRIS EDIT REMOVAL START 
 	if(!istype(id_card))
 		return FALSE
 
@@ -128,7 +132,7 @@
 	var/datum/job/clocked_in_job = current_trim.job
 	if((/datum/job_department/command in clocked_in_job.departments_list) || (/datum/job_department/security in clocked_in_job.departments_list))
 		return TRUE
-
+	*/ // IRIS EDIT REMOVAL END
 	return FALSE
 
 /// Is the inserted ID on cooldown? return -1 if invalid ID, 0 if ID is not on cooldown, and remaining time until cooldown ends otherwise.
@@ -233,7 +237,7 @@
 			if(!inserted_auth_card)
 				return
 
-			if(blacklisted_jobs.Find(user_mind.assigned_role.type))
+			if(is_type_in_typecache(user_mind.assigned_role.type, blacklisted_jobs))
 				playsound(computer, 'modular_nova/modules/emotes/sound/emotes/synth_no.ogg', 50, FALSE)
 				return
 

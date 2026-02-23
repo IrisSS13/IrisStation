@@ -58,7 +58,7 @@
 /area/centcom/central_command_areas/briefing)
 "ao" = (
 /turf/open/floor/iron/dark/herringbone,
-/area/centcom/central_command_areas/medbay)
+/area/centcom/central_command_areas/evacuation)
 "aq" = (
 /obj/structure/table/wood/fancy/royalblack,
 /obj/machinery/button/door/indestructible{
@@ -660,6 +660,12 @@
 /obj/structure/sign/clock/directional/north,
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/evacuation/ship)
+"cS" = (
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/machinery/light/floor,
+/obj/structure/sign/nanotrasen/directional/east,
+/turf/open/indestructible/dark,
+/area/centcom/central_command_areas/prison/cells)
 "cT" = (
 /obj/machinery/power/port_gen/pacman,
 /obj/structure/cable,
@@ -679,6 +685,12 @@
 /obj/effect/light_emitter/thunderdome,
 /turf/open/floor/iron,
 /area/centcom/tdome/arena)
+"dd" = (
+/obj/effect/turf_decal/siding/blue{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/herringbone,
+/area/centcom/central_command_areas/evacuation)
 "de" = (
 /obj/structure/window/reinforced/tinted/spawner/directional/south,
 /obj/effect/turf_decal/tile/dark_blue/anticorner,
@@ -1040,6 +1052,10 @@
 	},
 /turf/open/floor/wood/large,
 /area/centcom)
+"eD" = (
+/obj/effect/turf_decal/siding/blue,
+/turf/open/floor/iron/dark/herringbone,
+/area/centcom/central_command_areas/evacuation)
 "eG" = (
 /obj/effect/turf_decal/tile/dark/opposingcorners,
 /obj/item/kirbyplants/random/fullysynthetic,
@@ -1148,7 +1164,7 @@
 	id = "tdomeflash";
 	name = "Thunderdome Flash"
 	},
-/turf/open/floor/circuit/green,
+/turf/closed/wall,
 /area/centcom/tdome/arena)
 "fc" = (
 /obj/effect/turf_decal/delivery,
@@ -1361,7 +1377,7 @@
 	pixel_x = -2;
 	pixel_y = 12
 	},
-/obj/item/stamp{
+/obj/item/stamp/granted{
 	pixel_y = 7
 	},
 /obj/machinery/firealarm/directional/east,
@@ -1537,6 +1553,12 @@
 /obj/structure/chair/wood/wings,
 /turf/open/floor/carpet/black,
 /area/centcom/central_command_areas/bar)
+"gI" = (
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/machinery/light/floor,
+/obj/structure/sign/nanotrasen/directional/west,
+/turf/open/indestructible/dark,
+/area/centcom/central_command_areas/prison/cells)
 "gJ" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/effect/turf_decal/siding/wood{
@@ -1899,8 +1921,11 @@
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/admin)
 "in" = (
-/obj/structure/sign/nanotrasen,
-/turf/closed/indestructible/riveted,
+/obj/effect/turf_decal/tile/green{
+	dir = 1
+	},
+/obj/structure/sign/nanotrasen/directional/north,
+/turf/open/floor/iron,
 /area/centcom/central_command_areas/control)
 "io" = (
 /turf/closed/indestructible/riveted,
@@ -4316,7 +4341,7 @@
 	},
 /obj/machinery/firealarm/directional/west,
 /turf/open/floor/iron/dark/herringbone,
-/area/centcom/central_command_areas/medbay)
+/area/centcom/central_command_areas/evacuation)
 "vM" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -4892,9 +4917,8 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
-	dir = 1
+	dir = 8
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/evacuation/ship)
@@ -5106,6 +5130,15 @@
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/supplypod/loading/two)
 "zO" = (
+/obj/structure/rack,
+/obj/item/clothing/under/color/red,
+/obj/item/clothing/shoes/sneakers/brown,
+/obj/item/clothing/suit/armor/tdome/red,
+/obj/item/clothing/head/helmet/thunderdome,
+/obj/item/melee/baton/security/loaded,
+/obj/item/melee/energy/sword/saber/red,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/light_emitter/thunderdome,
 /obj/machinery/camera/directional/north{
 	c_tag = "Red Team";
 	network = list("thunder");
@@ -5113,9 +5146,6 @@
 	pixel_y = -9;
 	resistance_flags = 64
 	},
-/obj/effect/landmark/thunderdome/two,
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/obj/effect/light_emitter/thunderdome,
 /turf/open/floor/iron,
 /area/centcom/tdome/arena)
 "zP" = (
@@ -5571,7 +5601,7 @@
 /obj/machinery/light/floor,
 /obj/effect/turf_decal/trimline/blue,
 /turf/open/floor/iron/dark/herringbone,
-/area/centcom/central_command_areas/medbay)
+/area/centcom/central_command_areas/evacuation)
 "Ce" = (
 /obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
@@ -5873,8 +5903,10 @@
 /turf/closed/indestructible/riveted,
 /area/centcom/ai_multicam_room)
 "Dj" = (
-/obj/structure/sign/nanotrasen,
-/turf/closed/indestructible/riveted,
+/obj/effect/landmark/prisonwarp,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/structure/sign/nanotrasen/directional/west,
+/turf/open/indestructible/dark,
 /area/centcom/central_command_areas/prison/cells)
 "Dl" = (
 /obj/structure/table/wood/fancy/royalblack,
@@ -6072,7 +6104,7 @@
 	pixel_x = 10;
 	pixel_y = 13
 	},
-/obj/item/stamp{
+/obj/item/stamp/granted{
 	pixel_x = 1;
 	pixel_y = 13
 	},
@@ -6494,9 +6526,6 @@
 /turf/open/floor/iron/large,
 /area/centcom/central_command_areas/ferry)
 "Ff" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
-	dir = 8
-	},
 /turf/open/floor/carpet/red,
 /area/centcom/central_command_areas/evacuation/ship)
 "Fj" = (
@@ -7569,10 +7598,11 @@
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/bar)
 "Jq" = (
+/obj/effect/light_emitter/thunderdome,
 /obj/machinery/camera/motion/thunderdome{
 	pixel_x = 10
 	},
-/turf/open/floor/circuit/green,
+/turf/open/floor/iron,
 /area/centcom/tdome/arena)
 "Jr" = (
 /obj/effect/turf_decal/stripes/line{
@@ -7817,6 +7847,12 @@
 	},
 /turf/open/floor/iron,
 /area/centcom/tdome/observation)
+"Kf" = (
+/obj/effect/landmark/prisonwarp,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/structure/sign/nanotrasen/directional/east,
+/turf/open/indestructible/dark,
+/area/centcom/central_command_areas/prison/cells)
 "Kg" = (
 /obj/item/radio/intercom/directional/north,
 /obj/structure/chair,
@@ -8996,7 +9032,7 @@
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/stamp,
+/obj/item/stamp/granted,
 /obj/machinery/door/window/brigdoor/right/directional/west{
 	name = "CentCom Customs"
 	},
@@ -9491,7 +9527,7 @@
 	dir = 8
 	},
 /turf/open/floor/iron/dark/herringbone,
-/area/centcom/central_command_areas/medbay)
+/area/centcom/central_command_areas/evacuation)
 "Rk" = (
 /obj/structure/cable,
 /obj/structure/marker_beacon/burgundy,
@@ -9521,7 +9557,7 @@
 /obj/machinery/light/floor,
 /obj/effect/turf_decal/trimline/blue,
 /turf/open/floor/iron/dark/herringbone,
-/area/centcom/central_command_areas/medbay)
+/area/centcom/central_command_areas/evacuation)
 "Rt" = (
 /obj/structure/rack/gunrack,
 /obj/item/gun/energy/pulse/destroyer{
@@ -9638,6 +9674,15 @@
 /turf/open/floor/iron/dark,
 /area/centcom)
 "RQ" = (
+/obj/structure/rack,
+/obj/item/clothing/under/color/green,
+/obj/item/clothing/shoes/sneakers/brown,
+/obj/item/clothing/suit/armor/tdome/green,
+/obj/item/clothing/head/helmet/thunderdome,
+/obj/item/melee/baton/security/loaded,
+/obj/item/melee/energy/sword/saber/green,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/light_emitter/thunderdome,
 /obj/machinery/camera/directional/north{
 	c_tag = "Green Team";
 	network = list("thunder");
@@ -9645,9 +9690,6 @@
 	pixel_y = -10;
 	resistance_flags = 64
 	},
-/obj/effect/landmark/thunderdome/one,
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/obj/effect/light_emitter/thunderdome,
 /turf/open/floor/iron,
 /area/centcom/tdome/arena)
 "RS" = (
@@ -10083,7 +10125,7 @@
 /obj/effect/turf_decal/trimline/blue,
 /obj/machinery/airalarm/directional/south,
 /turf/open/floor/iron/dark/herringbone,
-/area/centcom/central_command_areas/medbay)
+/area/centcom/central_command_areas/evacuation)
 "TJ" = (
 /turf/cordon,
 /area/misc/start)
@@ -50056,11 +50098,11 @@ uf
 Sz
 Sz
 uf
-el
+zO
 kC
 bR
 HK
-zO
+HK
 HK
 HK
 pb
@@ -52888,10 +52930,10 @@ Ef
 NY
 NY
 fb
+Ji
+NY
+NY
 Jq
-NY
-NY
-Ef
 uE
 mE
 qk
@@ -55710,11 +55752,11 @@ uf
 Sz
 Sz
 uf
-Ka
+RQ
 kC
 dj
 Mf
-RQ
+Mf
 Mf
 Mf
 Zi
@@ -61555,11 +61597,11 @@ Je
 Je
 JG
 FG
-gT
+dd
 ao
 ao
 ao
-Az
+eD
 zL
 QF
 AI
@@ -61812,11 +61854,11 @@ Ve
 Bq
 DD
 JT
-gT
+dd
 ao
 Cc
 ao
-Az
+eD
 zL
 QF
 KE
@@ -62069,11 +62111,11 @@ ac
 tj
 ac
 ac
-gT
+dd
 ao
 ao
 ao
-Az
+eD
 zL
 QF
 AI
@@ -64375,17 +64417,17 @@ aa
 aa
 aa
 Jb
+Dj
+am
+rs
 rs
 am
 Dj
 rs
 am
-Dj
 rs
-am
-Dj
 rs
-am
+gI
 Jb
 il
 bI
@@ -67973,17 +68015,17 @@ hq
 FC
 Jw
 Jb
+Kf
+am
+rs
 rs
 am
-Dj
+Kf
 rs
 am
-Dj
 rs
-am
-Dj
 rs
-am
+cS
 Jb
 aa
 aa

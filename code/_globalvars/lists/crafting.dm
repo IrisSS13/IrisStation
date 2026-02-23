@@ -41,4 +41,7 @@ GLOBAL_LIST_INIT(crafting_category, list(
 	CAT_ENTERTAINMENT,
 	CAT_TOOLS,
 	CAT_CULT,
+	// iris edit, defined in modular_iris/modules/magic_quirk/
+	CAT_MAGIC,
+	// iris edit end
 ))

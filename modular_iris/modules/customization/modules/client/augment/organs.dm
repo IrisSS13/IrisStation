@@ -1,3 +1,8 @@
+//BRAINS
+/datum/augment_item/organ/brain/posibrain
+	name = "Positronic Brain"
+	path = /obj/item/organ/brain/synth/universal
+
 //HEARTS
 /datum/augment_item/organ/heart/corrupt
 	name = "Corrupt heart"
