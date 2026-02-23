@@ -21,8 +21,7 @@
 	name = "Iris Week"
 	begin_day = 23
 	begin_month = FEBRUARY
-	end_day = 1
-	end_month = MARCH
+	end_day = 28
 	holiday_hat = /obj/item/clothing/head/costume/nova/flowerpin/iris
 
 /datum/holiday/iris/end/greet()

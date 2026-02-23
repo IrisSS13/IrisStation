@@ -1,27 +1,53 @@
-/obj/structure/statue/iris
-	name = ""
-	desc = ""
-	//icon = ''
-	icon_state = ""
+///////////////////////////////////////////////////////////////////
+//////// Dedicated to staff and players of Iris Station 13 ////////
+///////////////////////////////////////////////////////////////////
+
+/obj/structure/iris_hologram
+	name = "Iris"
+	desc = "A holographic projection of an Iris flower. Looking at it brings back memories."
+	icon = 'modular_iris/icons/iris_logo.dmi'
+	icon_state = "iris"
 	max_integrity = 12062024
-	impressiveness = 100
-	uncarveable = TRUE
+	plane = 4
 	anchored = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
+	var/soundloop_type = /datum/looping_sound/iris_hologram
+	var/datum/proximity_monitor/elevator_music_area/sound_player
+	var/impressiveness = 100
+
+/datum/looping_sound/iris_hologram
+	mid_sounds = list(
+		'sound/ambience/aurora_caelus/aurora_caelus_short.ogg'
+	)
+	volume = 15
+	direct = TRUE
+
+/obj/structure/iris_hologram/Initialize(mapload)
+	. = ..()
+	makeHologram()
+	transform = transform.Scale(3, 3)
+	if(check_holidays("Iris Week","Iris Station's Anniversary"))
+		sound_player = new(src, range = 4, soundloop_type = src.soundloop_type)
+	AddElement(/datum/element/art, impressiveness)
+	AddElement(/datum/element/beauty, impressiveness * 75)
+
+/obj/structure/iris_hologram/Destroy(force)
+	QDEL_NULL(sound_player)
+	return ..()
 
 /obj/machinery/computer/terminal/iris
 	name = "info terminal"
-	desc = "A relatively low-tech info board. Not as low-tech as an actual sign though. Appears to be quite old."
+	desc = "A relatively low-tech info board."
 	icon_state = "plaque"
 	icon_screen = "plaque_screen"
 	icon_keyboard = null
 	max_integrity = 28022026
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | EMP_PROTECT_SELF
-	upperinfo = "COPYRIGHT 2500 NANOSOFT-TM - DO NOT REDISTRIBUTE - Now with audio!"
+	tguitheme = "ntos"
+	upperinfo = "In memory of Cabriole Sector, 12 VI 2564 - 28 II 2566"
 	content = list(
-		"Experimental Test Satellite 37B<br/>Nanotrasen™️ approved deep space experimentation lab<br/><br/>Entry 1:<br/><br/>Subject - \[Species 501-C-12\]<br/>Date - \[REDACTED\]<br/>We have acquired a biological sample of unknown origins \[Species 501-C-12\] from an NT outpost on the far reaches. Initial experiments have determined the sample to be a creature never previously recorded. It weighs approximately 7 grams and seems to be docile. Initial examinations determine that it is an extremely fast replicating organism which can alter its physiology to take multiple differing shapes. \[Recording Terminated\]<br/>- Dr. Phil Cornelius",
-		"Entry 2:<br/><br/>Subject - \[Species 501-C-12\]<br/>Date - \[REDACTED\]<br/>The creature responds to electrical stimuli. It has failed to respond to Light, Heat, Cold, Oxygen, Plasma, CO2, Nitrogen. It, within moments, seemed to have generated muscle tissue within its otherwise shapeless form and moved away from the source of electricity. Feeding the creature has been a simple matter, it consumed just about any form of protein. It appears to rapidly digest and convert forms of protein into more of itself. Any undigestible products are simply left alone. Will continue to monitor creature and provide reports to Nanotrasen Central Command. \[Recording Terminated\]<br/>- Dr. Phil Cornelius",
-		"Entry 3:<br/><br/>Subject - \[Species 501-C-12\]<br/>Date - \[REDACTED\]<br/>Any attempts at contacting Nanotrasen has failed. I've never seen anything like it. I... I don't think I'm going to survive much longer, I can hear it pushing on my room door. If anyone reads this, let my family know that I- \[Loud crash\]<br/>GET BACK \[Gunshots\]<br/>AHHHHHHHHHHHH \[Recording Terminated\]<br/>- Dr. Phil Cornelius"
+		"While its many stories come to an abrupt close, many more await. No matter the paths we all choose to take, those stories are now part of who we are.",
+		"Thank you, to everyone who made it so special, no matter how much or how little they may have contributed. None of it could have been the same without them."
 	)
 
 /obj/machinery/computer/terminal/iris/screwdriver_act()
@@ -42,3 +68,7 @@
 
 /obj/item/clothing/head/costume/nova/flowerpin/iris
 	greyscale_colors = "#5d419f"
+
+/obj/item/kirbyplants/iris
+	icon_state = "iris"
+	icon = 'modular_iris/master_files/icons/obj/plants.dmi'

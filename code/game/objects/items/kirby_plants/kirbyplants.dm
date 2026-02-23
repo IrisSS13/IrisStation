@@ -52,6 +52,10 @@
 	// NOVA EDIT ADDITION START - AESTHETICS
 	if(icon_state in modular_states)
 		icon = 'modular_nova/modules/aesthetics/plants/icons/plants.dmi'
+	// IRIS ADDITION START
+	else if(icon_state == "iris")
+		icon = 'modular_iris/master_files/icons/obj/plants.dmi'
+	// IRIS ADDITION END
 	else
 		icon = 'icons/obj/fluff/flora/plants.dmi'
 	// NOVA EDIT ADDITION END
@@ -90,6 +94,7 @@
 		plant_states += "plant-[number]"
 	plant_states += "applebush"
 	plant_states += modular_states // NOVA EDIT ADDITION - AESTHETICS - SEE modular_nova\modules\aesthetics\plants\plants.dm
+	plant_states += "iris" // IRIS ADDITION
 
 	return plant_states
 
@@ -103,7 +108,8 @@
 	randomize_base_icon_state()
 	// IRIS EDIT START
 	if(check_holidays("Iris Week","Iris Station's Anniversary"))
-		base_icon_state = "plant-18"
+		icon = 'modular_iris/master_files/icons/obj/plants.dmi'
+		base_icon_state = "iris"
 		update_appearance(UPDATE_ICON)
 	// IRIS EDIT END
 
