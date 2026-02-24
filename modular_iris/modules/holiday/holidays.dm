@@ -4,7 +4,7 @@
 	begin_day = 12
 	end_day = 14
 	begin_month = JUNE
-	holiday_hat = /obj/item/clothing/head/costume/party
+	holiday_hat = /obj/item/clothing/head/costume/nova/flowerpin/iris
 	holiday_colors = list(
 	COLOR_PRIDE_PURPLE,
 	COLOR_WHITE,
@@ -22,7 +22,6 @@
 	begin_day = 23
 	begin_month = FEBRUARY
 	end_day = 28
-	holiday_hat = /obj/item/clothing/head/costume/nova/flowerpin/iris
 
 /datum/holiday/iris/end/greet()
 	return "Happy Iris Week! 28th of February marks the end of Iris Station. Thank you for being part of it!"

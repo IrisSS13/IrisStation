@@ -68,6 +68,7 @@
 
 /obj/item/clothing/head/costume/nova/flowerpin/iris
 	greyscale_colors = "#5d419f"
+	desc = "A small flower pin resembling an iris flower."
 
 /obj/item/kirbyplants/iris
 	icon_state = "iris"
