@@ -37,4 +37,14 @@
 	#ifdef ALL_TEMPLATES
 		#include "templates.dm"
 	#endif
+	// NOVA EDIT ADDITION START
+	#ifdef NOVA_TEMPLATES
+		#include "templates_nova.dm"
+	#endif
+	// NOVA EDIT ADDITION END
+	// IRIS EDIT ADDITION START
+	#ifdef IRIS_TEMPLATES
+		#include "templates_iris.dm"
+	#endif
+	// IRIS EDIT ADDITION END
 #endif

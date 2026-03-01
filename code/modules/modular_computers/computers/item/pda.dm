@@ -43,6 +43,7 @@
 	///Static list of default PDA apps to install on Initialize.
 	var/static/list/datum/computer_file/pda_programs = list(
 		/datum/computer_file/program/messenger,
+		/datum/computer_file/program/chatclient, // IRIS EDIT ADDITION - NTNRC_FOR_ALL (ported from https://github.com/DopplerShift13/DopplerShift/pull/205)
 		/datum/computer_file/program/nt_pay,
 		/datum/computer_file/program/notepad,
 		/datum/computer_file/program/crew_manifest,
@@ -116,9 +117,9 @@
 	if(!target_machine.panel_open && !istype(target, /obj/machinery/computer))
 		return ..()
 
-	if(!istype(inserted_disk, /obj/item/computer_disk/virus/clown))
+	if(!istype(inserted_disk, /obj/item/disk/computer/virus/clown))
 		return ..()
-	var/obj/item/computer_disk/virus/clown/installed_cartridge = inserted_disk
+	var/obj/item/disk/computer/virus/clown/installed_cartridge = inserted_disk
 	if(!installed_cartridge.charges)
 		to_chat(user, span_notice("Out of virus charges."))
 		return ..()
@@ -229,7 +230,7 @@
 
 	if(current_turf)
 		current_turf.hotspot_expose(700,125)
-		if(istype(inserted_disk, /obj/item/computer_disk/virus/detomatix))
+		if(istype(inserted_disk, /obj/item/disk/computer/virus/detomatix))
 			explosion(src, devastation_range = -1, heavy_impact_range = 1, light_impact_range = 3, flash_range = 4)
 		else
 			explosion(src, devastation_range = -1, heavy_impact_range = -1, light_impact_range = 2, flash_range = 3)
@@ -250,6 +251,14 @@
 	var/new_ringtone = owner_client.prefs.read_preference(/datum/preference/text/pda_ringtone)
 	if(new_ringtone && (new_ringtone != MESSENGER_RINGTONE_DEFAULT))
 		update_ringtone(new_ringtone)
+
+	var/datum/computer_file/program/themeify/theme_app = locate() in stored_files
+	if(theme_app)
+		var/list/unlocked_themes = owner_client.get_award_status(/datum/award/score/progress/pda_themes)
+		for(var/theme_id in unlocked_themes)
+			var/theme_name = GLOB.pda_id_to_name[theme_id]
+			if(theme_name)
+				LAZYOR(theme_app.imported_themes, theme_name)
 
 	var/new_theme = owner_client.prefs.read_preference(/datum/preference/choiced/pda_theme)
 	if(new_theme)
@@ -324,6 +333,7 @@
 	has_pda_programs = FALSE
 	starting_programs = list(
 		/datum/computer_file/program/messenger,
+		/datum/computer_file/program/chatclient, // IRIS EDIT ADDITION - Chat client for AI
 	)
 
 	///Ref to the RoboTact app. Important enough to borgs to deserve a ref.
@@ -346,6 +356,7 @@
 		/datum/computer_file/program/atmosscan,
 		/datum/computer_file/program/crew_manifest,
 		/datum/computer_file/program/messenger, // NOVA EDIT ADDITION - Messenger for borgs
+		/datum/computer_file/program/chatclient, // IRIS EDIT ADDITION - Chat client for borgs
 	)
 
 /obj/item/modular_computer/pda/silicon/Initialize(mapload)

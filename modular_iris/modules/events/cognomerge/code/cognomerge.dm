@@ -21,7 +21,6 @@
 	*/
 	var/list/cognomerge_quirk_pool = list(
 		/datum/quirk/item_quirk/allergic/noitem,
-		/datum/quirk/bighands,
 		/datum/quirk/clumsy,
 		/datum/quirk/frail,
 		/datum/quirk/illiterate,
@@ -123,7 +122,6 @@
 /datum/event_admin_setup/listed_options/cognomerge/quirk_selection/get_list()
 	return list(
 		/datum/quirk/item_quirk/allergic/noitem,
-		/datum/quirk/bighands,
 		/datum/quirk/clumsy,
 		/datum/quirk/frail,
 		/datum/quirk/illiterate,

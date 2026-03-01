@@ -63,8 +63,14 @@
 	var/atom/movable/throwee = target
 	if(throwee.anchored && !throw_anchored)
 		return
+
+//IRIS EDIT START - makes negative distance reset temporarily for the check, instead of being permanently set back to positive after one use
+
+	var/td = throw_distance
 	if(throw_distance < 0)
 		throw_dir = REVERSE_DIR(throw_dir)
-		throw_distance *= -1
+		td = throw_distance * -1
 	var/atom/throw_target = get_edge_target_turf(throwee, throw_dir)
-	throwee.safe_throw_at(throw_target, throw_distance, 1, thrower, gentle = throw_gentle)
+	throwee.safe_throw_at(throw_target, td, 1, thrower, gentle = throw_gentle)
+
+//IRIS EDIT END

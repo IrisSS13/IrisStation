@@ -41,22 +41,26 @@
 	icon_living = "ambush"
 	icon_dead = "ambush_dead"
 	gender = FEMALE
-	maxHealth = 125
-	health = 125
-	obj_damage = 45
-
-	melee_damage_lower = 25
-	melee_damage_upper = 30
-	speed = 5
+	maxHealth = 100 // IRIS EDIT
+	health = 100 // IRIS EDIT
+	obj_damage = 30 // IRIS EDIT
+	melee_damage_lower = 5 // IRIS EDIT
+	melee_damage_upper = 10 // IRIS EDIT
+	poison_per_bite = 5 // IRIS ADDITION
+	poison_type = /datum/reagent/toxin/staminatoxin // IRIS ADDITION
+	speed = 3
 	player_speed_modifier = -3.1
-	menu_description = "Slow spider, with a strong disarming pull and above average health and damage."
-	innate_actions = list(/datum/action/cooldown/mob_cooldown/sneak/spider)
+	menu_description = "Fast spider with an average health, a strong disarming pull and a ranged slowdown." // IRIS EDIT
+	innate_actions = list(
+		/datum/action/cooldown/mob_cooldown/sneak/spider,
+		/datum/action/cooldown/spell/pointed/projectile/web_restraints, // IRIS ADDITION
+		)
 
 /mob/living/basic/spider/giant/ambush/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_STRONG_GRABBER, INNATE_TRAIT)
 
-	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/slow_web)
+	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/average_web) // IRIS EDIT: slow_web -> average_web
 
 /**
  * ### Guard Spider
@@ -71,15 +75,15 @@
 	icon_living = "guard"
 	icon_dead = "guard_dead"
 	gender = FEMALE
-	maxHealth = 160
-	health = 160
+	maxHealth = 120 // IRIS EDIT
+	health = 120 // IRIS EDIT
 	melee_damage_lower = 20
 	melee_damage_upper = 25
-	obj_damage = 45
-	speed = 5
+	obj_damage = 30 // IRIS EDIT
+	speed = 4 // IRIS EDIT
 	player_speed_modifier = -4
-	menu_description = "Tanky and strong able to shed a carcass for protection."
-	innate_actions = list(/datum/action/cooldown/mob_cooldown/web_effigy)
+	menu_description = "Average health, damage and speed." // IRIS EDIT
+	//innate_actions = list(/datum/action/cooldown/mob_cooldown/web_effigy) //IRIS REMOVAL
 
 /mob/living/basic/spider/giant/guard/Initialize(mapload)
 	. = ..()
@@ -127,8 +131,8 @@
 	icon_state = "scout"
 	icon_living = "scout"
 	icon_dead = "scout_dead"
-	maxHealth = 65
-	health = 65
+	maxHealth = 80 // IRIS EDIT
+	health = 80 // IRIS EDIT
 	obj_damage = 10
 	melee_damage_lower = 5
 	melee_damage_upper = 10
@@ -160,15 +164,16 @@
 	icon_dead = "nurse_dead"
 	gender = FEMALE
 	butcher_results = list(/obj/item/food/meat/slab/spider = 2, /obj/item/food/spiderleg = 8, /obj/item/food/spidereggs = 4)
-	maxHealth = 40
-	health = 40
+	maxHealth = 80 // IRIS EDIT
+	health = 80 // IRIS EDIT
 	melee_damage_lower = 5
 	melee_damage_upper = 10
 	speed = 4
 	player_speed_modifier = -3.1
 	web_speed = 0.25
 	web_type = /datum/action/cooldown/mob_cooldown/lay_web/sealer
-	menu_description = "Avarage speed spider able to heal other spiders and itself together with a fast web laying capability, has low damage and health."
+	menu_description = "A weak spider able to heal other spiders, lay faster webs and shed an effigy." // IRIS EDIT
+	innate_actions = list(/datum/action/cooldown/mob_cooldown/web_effigy) // IRIS ADDITION
 
 ///Used in the caves away mission.
 /mob/living/basic/spider/giant/nurse/away_caves
@@ -179,9 +184,10 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_MEDICAL_HUD, INNATE_TRAIT)
 
+//IRIS EDIT: Heals damage more
 	AddComponent(/datum/component/healing_touch,\
-		heal_brute = 10,\
-		heal_burn = 10,\
+		heal_brute = 20,\
+		heal_burn = 20,\
 		heal_time = 2.5 SECONDS,\
 		interaction_key = DOAFTER_SOURCE_SPIDER,\
 		valid_targets_typecache = typecacheof(list(/mob/living/basic/spider/giant)),\
@@ -207,23 +213,24 @@
 	icon_dead = "tangle_dead"
 	gender = FEMALE
 	butcher_results = list(/obj/item/food/meat/slab/spider = 2, /obj/item/food/spiderleg = 8, /obj/item/food/spidereggs = 4)
-	maxHealth = 55
-	health = 55
-	melee_damage_lower = 1
-	melee_damage_upper = 1
-	poison_per_bite = 2.5
-	poison_type = /datum/reagent/toxin/acid
-	obj_damage = 40
+	maxHealth = 120 // IRIS EDIT
+	health = 120 // IRIS EDIT
+	melee_damage_lower = 5 // IRIS EDIT
+	melee_damage_upper = 10 // IRIS EDIT
+	//poison_per_bite = 2.5 // IRIS REMOVAL
+	//poison_type = /datum/reagent/toxin/acid // IRIS REMOVAL
+	obj_damage = 50 // IRIS EDIT
 	web_speed = 0.25
 	speed = 4
 	player_speed_modifier = -3.1
 	web_type = /datum/action/cooldown/mob_cooldown/lay_web/sealer
-	menu_description = "Average speed spider with self healing abilities and multiple web types to reinforce the nest with little to no damage and low health."
+	menu_description = "Average speed spider with self healing abilities, multiple web types to reinforce the nest, low damage and average health." // IRIS EDIT
 	innate_actions = list(
 		/datum/action/cooldown/mob_cooldown/lay_web/solid_web,
 		/datum/action/cooldown/mob_cooldown/lay_web/sticky_web,
 		/datum/action/cooldown/mob_cooldown/lay_web/web_passage,
 		/datum/action/cooldown/mob_cooldown/lay_web/web_spikes,
+		/datum/action/cooldown/mob_cooldown/lay_web/web_reflector, // IRIS ADDITION
 	)
 
 /mob/living/basic/spider/giant/tangle/Initialize(mapload)
@@ -261,26 +268,29 @@
 	icon_state = "tank"
 	icon_living = "tank"
 	icon_dead = "tank_dead"
-	maxHealth = 500
-	health = 500
-	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, STAMINA = 1, OXY = 1)
-	melee_damage_lower = 5
-	melee_damage_upper = 5
-	obj_damage = 15
+	maxHealth = 300 // IRIS EDIT
+	health = 300 // IRIS EDIT
+	//damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, STAMINA = 1, OXY = 1) // IRIS REMOVAL
+	melee_damage_lower = 25 // IRIS EDIT
+	melee_damage_upper = 30 // IRIS EDIT
+	obj_damage = 30 // IRIS EDIT
 	speed = 5
 	player_speed_modifier = -4
-	menu_description = "Extremely tanky with very poor offence. Able to self heal and lay reflective silk screens."
+	menu_description = "High health and damage. Low speed." // IRIS EDIT
 
 /mob/living/basic/spider/giant/tank/Initialize(mapload)
 	. = ..()
+	/* IRIS REMOVAL START
 	var/datum/action/cooldown/mob_cooldown/lay_web/web_reflector/reflector_web = new(src)
 	reflector_web.Grant(src)
 
 	var/datum/action/cooldown/mob_cooldown/lay_web/web_passage/passage_web = new(src)
 	passage_web.Grant(src)
+	IRIS REMOVAL END */
 
 	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/below_average_web)
 
+	/* IRIS REMOVAL START
 	AddComponent(/datum/component/healing_touch,\
 		heal_brute = 50,\
 		heal_burn = 50,\
@@ -299,6 +309,8 @@
 		balloon_alert(src, "on fire!")
 		return FALSE
 	return TRUE
+
+	IRIS REMOVAL END */
 
 /**
  * ### Spider Breacher
@@ -322,18 +334,19 @@
 	wound_bonus = 25
 	exposed_wound_bonus = 50
 	sharpness = SHARP_EDGED
-	obj_damage = 60
+	obj_damage = 120
 	web_speed = 0.25
 	limb_destroyer = 50
 	speed = 5
 	player_speed_modifier = -4
 	sight = SEE_TURFS
+	web_type = /datum/action/cooldown/mob_cooldown/lay_web/sealer // IRIS ADDITION
 	menu_description = "Has the ability to destroy walls and limbs, and to send warnings to the nest."
 
 /mob/living/basic/spider/giant/breacher/Initialize(mapload)
 	. = ..()
-	var/datum/action/cooldown/mob_cooldown/lay_web/solid_web/web_solid = new(src)
-	web_solid.Grant(src)
+	var/datum/action/cooldown/mob_cooldown/lay_web/web_passage/web_passage = new(src) // IRIS EDIT
+	web_passage.Grant(src) // IRIS EDIT
 
 	var/datum/action/cooldown/mob_cooldown/command_spiders/warning_spiders/spiders_warning = new(src)
 	spiders_warning.Grant(src)
@@ -358,26 +371,33 @@
 	health = 400
 	melee_damage_lower = 35
 	melee_damage_upper = 40
-	obj_damage = 100
+	obj_damage = 50
 	damage_coeff = list(BRUTE = 1, BURN = 1.25, TOX = 1, STAMINA = 0, OXY = 1)
-	speed = 6
+	speed = 5 // IRIS EDIT
 	player_speed_modifier = -5.5 // Doesn't seem that slow but it gets a debuff off web
 	mob_size = MOB_SIZE_LARGE
 	gold_core_spawnable = NO_SPAWN
-	web_speed = 0.7
+	//web_speed = 0.7 // IRIS EDIT
 	web_type = /datum/action/cooldown/mob_cooldown/lay_web/sealer
+	sight = SEE_MOBS // IRIS ADDITION
 	menu_description = "Tank spider variant with an enormous amount of health and damage, but is very slow when not on webbing. It also has a charge ability to close distance with a target after a small windup."
 	innate_actions = list(
-		/datum/action/cooldown/mob_cooldown/charge/basic_charge,
-		/datum/action/cooldown/mob_cooldown/lay_web/solid_web,
+		///datum/action/cooldown/mob_cooldown/charge/basic_charge/tarantula, // IRIS REMOVAL: duplicate
+		///datum/action/cooldown/mob_cooldown/lay_web/solid_web, // IRIS REMOVAL
 		/datum/action/cooldown/mob_cooldown/lay_web/web_passage,
 	)
 	/// Charging ability, kept seperate from innate_actions due to implementation details
-	var/datum/action/cooldown/mob_cooldown/charge/basic_charge/charge
+	var/datum/action/cooldown/mob_cooldown/charge/basic_charge/tarantula/charge // IRIS EDIT
+
+// IRIS ADDITION START
+/datum/action/cooldown/mob_cooldown/charge/basic_charge/tarantula
+	charge_delay = 1 SECONDS
+	cooldown_time = 15 SECONDS
+// IRIS ADDITION END
 
 /mob/living/basic/spider/giant/tarantula/Initialize(mapload)
 	. = ..()
-	charge = new /datum/action/cooldown/mob_cooldown/charge/basic_charge()
+	charge = new /datum/action/cooldown/mob_cooldown/charge/basic_charge/tarantula() // IRIS EDIT
 	charge.Grant(src)
 
 	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/slow_web)
@@ -403,16 +423,16 @@
 	icon_state = "viper"
 	icon_living = "viper"
 	icon_dead = "viper_dead"
-	maxHealth = 55
-	health = 55
+	maxHealth = 80 // IRIS EDIT
+	health = 80 // IRIS EDIT
 	melee_damage_lower = 5
 	melee_damage_upper = 5
 	poison_per_bite = 5
 	poison_type = /datum/reagent/toxin/viperspider
-	speed = 2
+	speed = 3 // IRIS EDIT
 	player_speed_modifier = -2.5
 	gold_core_spawnable = NO_SPAWN
-	menu_description = "Assassin spider variant with an unmatched speed and very deadly poison, but has very low amount of health and damage."
+	menu_description = "Fast spider with a lethal venom, but has less health and damage." // IRIS EDIT
 	innate_actions = list(
 		/datum/action/cooldown/mob_cooldown/defensive_mode,
 	)
@@ -446,6 +466,7 @@
 	gold_core_spawnable = NO_SPAWN
 	web_speed = 0.5
 	web_type = /datum/action/cooldown/mob_cooldown/lay_web/sealer
+	sight = SEE_MOBS | SEE_OBJS | SEE_TURFS
 	menu_description = "Royal spider variant specializing in reproduction and leadership, deals low damage."
 	innate_actions = list(
 		/datum/action/cooldown/mob_cooldown/command_spiders,
@@ -458,6 +479,7 @@
 		/datum/action/cooldown/mob_cooldown/lay_web/web_spikes,
 		/datum/action/cooldown/mob_cooldown/set_spider_directive,
 		/datum/action/cooldown/mob_cooldown/wrap,
+		/datum/action/cooldown/mob_cooldown/web_effigy, // IRIS ADDITION
 	)
 
 /mob/living/basic/spider/giant/midwife/Initialize(mapload)

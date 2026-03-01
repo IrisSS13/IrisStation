@@ -700,6 +700,25 @@
 	mask_type = /obj/item/clothing/mask/gas/alt
 	storage_type = /obj/item/tank/internals/oxygen
 
+/datum/atom_skin/pcv
+	abstract_type = /datum/atom_skin/pcv
+	change_base_icon_state = TRUE
+
+/datum/atom_skin/pcv/basic
+	preview_name = "Basic"
+	new_icon_state = "hecu_helm"
+
+/datum/atom_skin/pcv/corpsman
+	preview_name = "Corpsman"
+	new_icon_state = "hecu_helm_medic"
+
+/datum/atom_skin/pcv/basicblack
+	preview_name = "Basic Black"
+	new_icon_state = "hecu_helm_black"
+
+/datum/atom_skin/pcv/corpsmanblack
+	preview_name = "Corpsman Black"
+	new_icon_state = "hecu_helm_medic_black"
 
 /obj/item/clothing/head/helmet/space/hev_suit/pcv
 	name = "powered combat helmet"
@@ -720,25 +739,9 @@
 	visor_flags_inv = null
 	visor_flags = null
 	slowdown = 0
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Basic" = list(
-			RESKIN_ICON_STATE = "hecu_helm",
-			RESKIN_WORN_ICON_STATE = "hecu_helm"
-		),
-		"Corpsman" = list(
-			RESKIN_ICON_STATE = "hecu_helm_medic",
-			RESKIN_WORN_ICON_STATE = "hecu_helm_medic"
-		),
-		"Basic Black" = list(
-			RESKIN_ICON_STATE = "hecu_helm_black",
-			RESKIN_WORN_ICON_STATE = "hecu_helm_black"
-		),
-		"Corpsman Black" = list(
-			RESKIN_ICON_STATE = "hecu_helm_medic_black",
-			RESKIN_WORN_ICON_STATE = "hecu_helm_medic_black"
-		),
-	)
+
+/obj/item/clothing/head/helmet/space/hev_suit/pcv/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/pcv)
 
 /datum/armor/hev_suit_pcv
 	melee = 30
@@ -764,6 +767,26 @@
 	wound = 50
 	consume = 40
 
+/datum/atom_skin/hecu_vest_pcv
+	abstract_type = /datum/atom_skin/hecu_vest_pcv
+	change_base_icon_state = TRUE
+
+/datum/atom_skin/hecu_vest_pcv/basic
+	preview_name = "Basic"
+	new_icon_state = "hecu_vest"
+
+/datum/atom_skin/hecu_vest_pcv/corpsman
+	preview_name = "Corpsman"
+	new_icon_state = "hecu_vest_medic"
+
+/datum/atom_skin/hecu_vest_pcv/black
+	preview_name = "Basic Black"
+	new_icon_state = "hecu_vest_black"
+
+/datum/atom_skin/hecu_vest_pcv/corpsman_black
+	preview_name = "Corpsman Black"
+	new_icon_state = "hecu_vest_medic_black"
+
 /obj/item/clothing/suit/space/hev_suit/pcv
 	name = "powered combat vest"
 	desc = "An electrically charged piece of body armor, the power stiffens the suit's fibers to provide a layer of resilient armor in response to trauma received from kinetic force.  It's fitted with a geiger counter, tactical radio, a heads up display and a combat cocktail injector that allows the user to function normally even after serious injury. The concentration of mass in the lower rear side from the onboard computer makes your ass feel heavy."
@@ -779,25 +802,9 @@
 	resistance_flags = FIRE_PROOF|ACID_PROOF|FREEZE_PROOF
 	clothing_flags = SNUG_FIT
 	show_hud = FALSE
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Basic" = list(
-			RESKIN_ICON_STATE = "hecu_vest",
-			RESKIN_WORN_ICON_STATE = "hecu_vest"
-		),
-		"Corpsman" = list(
-			RESKIN_ICON_STATE = "hecu_vest_medic",
-			RESKIN_WORN_ICON_STATE = "hecu_vest_medic"
-		),
-		"Basic Black" = list(
-			RESKIN_ICON_STATE = "hecu_vest_black",
-			RESKIN_WORN_ICON_STATE = "hecu_vest_black"
-		),
-		"Corpsman Black" = list(
-			RESKIN_ICON_STATE = "hecu_vest_medic_black",
-			RESKIN_WORN_ICON_STATE = "hecu_vest_medic_black"
-		),
-	)
+
+/obj/item/clothing/suit/space/hev_suit/pcv/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/hecu_vest_pcv)
 
 	activation_song = null // removal of song only standard suit will have the song
 
@@ -844,12 +851,6 @@
 	rads_static_cooldown = PCV_COOLDOWN_RADS
 	acid_static_cooldown = PCV_COOLDOWN_ACID
 	suit_name = "PCV MARK II"
-
-/obj/item/clothing/suit/space/hev_suit/pcv/add_context(atom/source, list/context, obj/item/held_item, mob/user)
-	. = ..()
-	if(!current_skin)
-		context[SCREENTIP_CONTEXT_ALT_LMB] = "Reskin"
-		return CONTEXTUAL_SCREENTIP_SET
 
 #undef HEV_COLOR_GREEN
 #undef HEV_COLOR_RED

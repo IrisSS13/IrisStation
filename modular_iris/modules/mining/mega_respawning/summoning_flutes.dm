@@ -58,7 +58,7 @@
 /obj/item/summoning_flute/blood_drunk_miner
 	name = "summoning flute (Blood-Drunk Miner)"
 	desc = "A flute which calls out to the spirit of a vanquished fauna when played. The tune of this one will attract the Blood-Drunk Miner."
-	summoned_mega = /mob/living/simple_animal/hostile/megafauna/blood_drunk_miner
+	summoned_mega = /mob/living/basic/boss/blood_drunk_miner
 
 /obj/item/summoning_flute/legion
 	name = "summoning flute (Legion)"

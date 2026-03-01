@@ -1,6 +1,5 @@
 import { sortBy, uniq } from 'es-toolkit';
 import { filter, map } from 'es-toolkit/compat';
-import { atom, useAtom } from 'jotai';
 import { useState } from 'react';
 import {
   Box,

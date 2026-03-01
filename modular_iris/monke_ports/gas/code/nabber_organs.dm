@@ -70,7 +70,7 @@
 	shield.button_icon_state = "nabber-shield-0"
 	owner.update_action_buttons()
 
-/obj/item/organ/eyes/nabber/Remove(mob/living/carbon/eye_owner, special)
+/obj/item/organ/eyes/nabber/Remove(mob/living/carbon/organ_owner, special = FALSE, movement_flags)
 	. = ..()
 	QDEL_NULL(shield)
 	active = FALSE

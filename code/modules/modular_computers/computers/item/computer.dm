@@ -19,7 +19,7 @@
 	///The alt slot, only used by certain UIs like the access app.
 	var/obj/item/card/id/alt_stored_id
 	///The disk in this PDA. If set, this will be inserted on Initialize.
-	var/obj/item/computer_disk/inserted_disk
+	var/obj/item/disk/computer/inserted_disk
 	///The power cell the computer uses to run on.
 	var/obj/item/stock_parts/power_store/internal_cell = /obj/item/stock_parts/power_store/cell
 	///A pAI currently loaded into the modular computer.
@@ -619,14 +619,24 @@
  * The program calling this proc.
  * The message that the program wishes to display.
  */
-/obj/item/modular_computer/proc/alert_call(datum/computer_file/program/call_source, alerttext, sound = 'sound/machines/beep/twobeep_high.ogg')
+
+// IRIS EDIT BEGIN: changes alert_call to have the ability to send internal notifications (port from https://github.com/DopplerShift13/DopplerShift/pull/371)
+/obj/item/modular_computer/proc/alert_call(datum/computer_file/program/call_source, alerttext, sound = 'sound/machines/beep/twobeep_high.ogg', internal = FALSE)
 	if(!call_source || !call_source.alert_able || call_source.alert_silenced || !alerttext) //Yeah, we're checking alert_able. No, you don't get to make alerts that the user can't silence.
 		return FALSE
-	playsound(src, sound, 50, TRUE)
-	physical.loc.visible_message(span_notice("[icon2html(physical, viewers(physical.loc))] \The [src] displays a [call_source.filedesc] notification: [alerttext]"))
+	if (!internal)
+		playsound(src, sound, 50, TRUE)
+		physical.loc.visible_message(span_notice("[icon2html(physical, viewers(physical.loc))] \The [src] displays a [call_source.filedesc] notification: [alerttext]"))
+	else
+		// internal notifications are a bit different: they're not outwardly broadcast to our loc surroundings
+		if (isliving(physical.loc))
+			var/mob/living/living_holder = physical.loc
+			to_chat(living_holder, span_notice("[icon2html(physical, viewers(physical.loc))] [alerttext]"))
+			living_holder.playsound_local(living_holder, sound, 50, TRUE)
+// IRIS EDIT END
 
 /obj/item/modular_computer/proc/ring(ringtone, list/balloon_alertees) // bring bring
-	if(!use_energy())
+	if(!use_energy(check_programs = FALSE))
 		return
 	if(HAS_TRAIT(SSstation, STATION_TRAIT_PDA_GLITCHED))
 		playsound(src, pick(
@@ -873,6 +883,8 @@
 /obj/item/modular_computer/wrench_act_secondary(mob/living/user, obj/item/tool)
 	. = ..()
 	tool.play_tool_sound(src, user, 20, volume=20)
+	if(!do_after(user, 2 SECONDS, target = physical))
+		return ITEM_INTERACT_BLOCKING
 	deconstruct(TRUE)
 	user.balloon_alert(user, "disassembled")
 	return ITEM_INTERACT_SUCCESS
@@ -928,7 +940,7 @@
 	if(istype(tool, /obj/item/paper_bin))
 		return paper_bin_act(user, tool)
 
-	if(istype(tool, /obj/item/computer_disk))
+	if(istype(tool, /obj/item/disk/computer))
 		return computer_disk_act(user, tool)
 
 	return NONE
@@ -965,7 +977,7 @@
 	return ITEM_INTERACT_SUCCESS
 
 /obj/item/modular_computer/proc/photo_act(mob/user, obj/item/photo/scanned_photo)
-	if(!store_file(new /datum/computer_file/picture(scanned_photo.picture)))
+	if(!store_file(new /datum/computer_file/picture(scanned_photo.picture), user))
 		balloon_alert(user, "no space!")
 		return ITEM_INTERACT_BLOCKING
 	balloon_alert(user, "photo scanned")
@@ -1000,7 +1012,7 @@
 	bin.update_appearance()
 	return ITEM_INTERACT_SUCCESS
 
-/obj/item/modular_computer/proc/computer_disk_act(mob/user, obj/item/computer_disk/disk)
+/obj/item/modular_computer/proc/computer_disk_act(mob/user, obj/item/disk/computer/disk)
 	if(!user.transferItemToLoc(disk, src))
 		return ITEM_INTERACT_BLOCKING
 	if(inserted_disk)

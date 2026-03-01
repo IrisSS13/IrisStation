@@ -261,7 +261,7 @@
 		return ..()
 	if(cell.charge == cell.maxcharge) //Punishment for greed
 		to_chat(user, span_danger(" You try to charge the cell, but it is already fully energized. You are not sure if this was a good idea..."))
-		cell.explode()
+		cell.try_explode()
 		return
 	to_chat(user, span_notice("You charged the [cell.name] on [name]!"))
 	cell.give(cell.maxcharge)

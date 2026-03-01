@@ -1,10 +1,14 @@
 
 /obj/item/mod/module/storage/bluespace/nerfed
 	icon_state = "storage_bluespace"
-	max_w_class = WEIGHT_CLASS_HUGE
-	max_combined_w_class = 30
-	max_items = 25
-	big_nesting = TRUE
+	storage_type = /datum/storage/mod_storage/bs_nerfed
+
+
+/datum/storage/mod_storage/bs_nerfed
+	max_specific_storage = WEIGHT_CLASS_GIGANTIC
+	max_total_storage = 30
+	max_slots = 25
+	allow_big_nesting = TRUE
 
 // Same as the Syndie version, but with has higher power drain, complexity and takes longer to charge. Also can't be used with armor modules.
 /obj/item/mod/module/energy_shield/nanotrasen

@@ -37,7 +37,7 @@ export const ChunkViewModal = (props: ChunkViewModalProps) => {
           const sanitized = sanitizeText(viewedChunk);
           const code =
             typeof sanitized === 'object' && sanitized !== null
-              ? // biome-ignore lint/complexity/useLiteralKeys: <explanation>
+              ? // biome-ignore lint/complexity/useLiteralKeys: ignore
                 sanitized['sanitized']
               : sanitized;
           return (

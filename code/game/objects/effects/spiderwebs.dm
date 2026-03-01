@@ -160,10 +160,17 @@
 	sealed = TRUE
 	has_frill = FALSE
 	can_atmos_pass = ATMOS_PASS_NO
+	resistance_flags = FIRE_PROOF
 
 /obj/structure/spider/stickyweb/sealed/Initialize(mapload)
 	. = ..()
 	air_update_turf(TRUE, TRUE)
+
+/obj/structure/spider/stickyweb/sealed/atmos_expose(datum/gas_mixture/air, exposed_temperature)
+	return
+
+/obj/structure/spider/should_atmos_process(datum/gas_mixture/air, exposed_temperature)
+	return FALSE
 
 /// Walls which reflects lasers
 /obj/structure/spider/stickyweb/sealed/reflector
@@ -263,7 +270,7 @@
 	. = ..()
 	pixel_x = -9
 	pixel_y = -9
-	add_filter(SPIDER_WEB_TINT, 10, list("type" = "outline", "color" = "#ac0000ff", "size" = 0.1))
+	//add_filter(SPIDER_WEB_TINT, 10, list("type" = "outline", "color" = "#ac0000ff", "size" = 0.1)) // IRIS REMOVAL
 	AddComponent(/datum/component/caltrop, min_damage = 20, max_damage = 30, flags = CALTROP_NOSTUN | CALTROP_BYPASS_SHOES)
 
 /obj/structure/spider/effigy

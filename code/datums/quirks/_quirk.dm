@@ -17,6 +17,8 @@
 	var/lose_text
 	///This text will appear on medical records for the trait.
 	var/medical_record_text
+	///Appears in medical guides for this quirk, but only if the quirk has QUIRK_TRAUMALIKE flag.
+	var/medical_symptom_text
 	/// if applicable, apply and remove this mob trait
 	var/mob_trait
 	/// Amount of points this trait is worth towards the hardcore character mode.
@@ -41,6 +43,10 @@
 	/// A list of traits that should stop this quirk from processing.
 	/// Signals for adding and removing this trait will automatically be added to `process_update_signals`.
 	var/list/no_process_traits
+// IRIS EDIT
+// makes the quirk not show up in the medical records at all
+	var/hidden = FALSE
+// IRIS EDIT END
 
 /datum/quirk/New()
 	. = ..()
@@ -271,6 +277,10 @@
 	for(var/datum/quirk/candidate as anything in target_quirks) // NOVA EDIT CHANGE - ORIGINAL : for(var/datum/quirk/candidate as anything in quirks)
 		if(from_scan && (candidate.quirk_flags & QUIRK_HIDE_FROM_SCAN))
 			continue
+//IRIS EDIT
+		if(candidate.hidden)
+			continue
+//IRIS EDIT END
 		switch(category)
 			if(CAT_QUIRK_MAJOR_DISABILITY)
 				if(candidate.value >= -4)

@@ -7,7 +7,6 @@ import {
   type FeatureChoiced,
   type FeatureChoicedServerData,
   FeatureColorInput,
-  FeatureNumberInput,
   type FeatureNumeric,
   FeatureSliderInput,
   type FeatureValueProps,

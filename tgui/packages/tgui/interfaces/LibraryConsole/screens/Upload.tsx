@@ -48,7 +48,7 @@ export function Upload(props) {
   const contentHtml = {
     __html:
       typeof sanitized === 'object' && sanitized !== null
-        ? // biome-ignore lint/complexity/useLiteralKeys: <explanation>
+        ? // biome-ignore lint/complexity/useLiteralKeys: ignore
           sanitized['sanitized']
         : sanitized,
   };
