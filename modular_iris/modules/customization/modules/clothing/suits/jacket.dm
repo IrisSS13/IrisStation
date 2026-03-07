@@ -1,4 +1,4 @@
-/obj/item/clothing/suits/jacket/iris
+/obj/item/clothing/suit/jacket/iris
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	worn_icon = 'modular_iris/icons/mob/clothing/suits/jacket.dmi'
 	abstract_type = /obj/item/clothing/suit/jacket
@@ -25,7 +25,7 @@
 	name = "Hanbok Jeogori"
 	desc = "A blazer jacket."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
-	icon_state = "/obj/item/clothing/suits/jacket/iris/jeogori"
+	icon_state = "/obj/item/clothing/suit/jacket/iris/jeogori"
 	post_init_icon_state = "hanbok_jeogori"
 	greyscale_config = /datum/greyscale_config/hanbok_jeogori
 	greyscale_config_worn = /datum/greyscale_config/hanbok_jeogori/worn

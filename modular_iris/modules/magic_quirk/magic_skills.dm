@@ -207,7 +207,7 @@ It is technically capable of raising the dead... but not animating them."
 	name = "Death extract"
 	result = /obj/item/extract/death
 	time = 60
-	reqs = list(/obj/item/stack/sheet/bone = 6)
+	reqs = list(/obj/item/stack/sheet/bone = 2)
 	crafting_flags = CRAFT_MUST_BE_LEARNED | CRAFT_SKIP_MATERIALS_PARITY
 	category = CAT_MAGIC
 	tool_paths = list(/obj/item/extract/cans)
